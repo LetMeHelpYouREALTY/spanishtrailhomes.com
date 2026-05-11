@@ -1,5 +1,22 @@
 # Vercel Deployment Troubleshooting
 
+## Site down: ERR_TOO_MANY_REDIRECTS (often 308 to the same URL)
+
+If the browser reports **“redirected you too many times”** and tools such as `curl -I` show **HTTP 308** (or 301) with a **`Location` header identical to the URL you requested** (for example `https://www.spanishtrailhomes.com/about` → `Location: https://www.spanishtrailhomes.com/about`), the usual cause is **Cloudflare SSL/TLS set to “Flexible”** in front of Vercel.
+
+Under Flexible mode, Cloudflare terminates HTTPS for visitors but can reach your Vercel deployment over **HTTP**. Vercel then responds with a **308 redirect to the HTTPS URL**. The client is already on HTTPS, so the browser follows the same URL again and the loop repeats.
+
+### Fix (pick one primary approach)
+
+1. **Preferred with Cloudflare proxy (orange cloud):** In Cloudflare, open **SSL/TLS** and set encryption mode to **Full** or **Full (strict)**—not Flexible. Then follow Vercel’s [Cloudflare integration](https://vercel.com/docs/integrations/cloudflare) so certificates and records stay valid.
+2. **Alternative:** Use **DNS only** (gray cloud) for the hostname so traffic goes straight to Vercel and Cloudflare does not proxy the origin connection (avoids this class of SSL mismatch entirely).
+
+Official reference: [How do I resolve “err_too_many_redirects” when using a Cloudflare proxy with Vercel?](https://vercel.com/guides/resolve-err-too-many-redirects-when-using-cloudflare-proxy-with-vercel)
+
+This is an **infrastructure / DNS dashboard** fix; changing application code alone will not resolve Flexible-vs-Vercel redirect loops.
+
+---
+
 ## Issue
 Git push did not trigger a Vercel deployment.
 
