@@ -3,15 +3,10 @@ import type { NextRequest } from 'next/server'
 
 export function middleware(request: NextRequest) {
   const url = request.nextUrl.clone()
-  const hostname = request.headers.get('host') || ''
-  const pathname = url.pathname
   const searchParams = url.searchParams
 
-  // Redirect non-www to www (canonical domain)
-  if (hostname === 'spanishtrailhomes.com') {
-    const wwwUrl = new URL(`https://www.spanishtrailhomes.com${pathname}${url.search}`)
-    return NextResponse.redirect(wwwUrl, 301)
-  }
+  // Apex → www is handled in vercel.json (host `has` redirect) so it does not fight Vercel/Cloudflare
+  // domain settings or create redirect loops with a mismatched primary host.
 
   // Remove query parameters that create duplicate content
   // Common culprits: date, timestamp, utm_*, ref, source, etc.
@@ -43,11 +38,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(url, 301)
   }
 
-  // Ensure trailing slash consistency (remove trailing slashes except for root)
-  if (pathname !== '/' && pathname.endsWith('/')) {
-    url.pathname = pathname.slice(0, -1)
-    return NextResponse.redirect(url, 301)
-  }
+  // Trailing-slash normalization is left to Next.js defaults to avoid redirect loops with the edge.
 
   return NextResponse.next()
 }
