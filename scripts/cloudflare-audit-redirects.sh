@@ -59,3 +59,5 @@ fi
 
 echo
 echo "Done. If a rule redirects https://www.example.com/ → the same URL, remove it in the dashboard or via Rulesets API."
+echo
+echo "Quick live check (no API token): ./scripts/check-www-redirect-health.sh"
