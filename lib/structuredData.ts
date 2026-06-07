@@ -145,3 +145,124 @@ export const createOgImageUrl = ({ title, subtitle, eyebrow }: OgImageOptions) =
   return `${siteUrl}/api/og?${params.toString()}`
 }
 
+/**
+ * Person schema for Dr. Jan Duffy - 2026 AEO/GEO optimization
+ * Enhances entity recognition and citation by AI search engines
+ */
+export const createPersonSchema = () => ({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${siteUrl}#person`,
+  name: 'Dr. Jan Duffy',
+  honorificPrefix: 'Dr.',
+  givenName: 'Jan',
+  familyName: 'Duffy',
+  email: 'DrDuffySells@SpanishTrailHomes.com',
+  telephone: '+17027663299',
+  url: siteUrl,
+  jobTitle: 'Real Estate Agent',
+  worksFor: {
+    '@type': 'Organization',
+    '@id': `${siteUrl}#organization`,
+    name: 'Berkshire Hathaway HomeServices Nevada Properties',
+    url: 'https://www.bhhsnv.com',
+  },
+  knowsAbout: [
+    'Spanish Trail Real Estate',
+    'Luxury Homes Las Vegas',
+    'Guard-Gated Communities',
+    'Golf Course Properties',
+    'Las Vegas Real Estate Market',
+    'Spanish Trail Country Club',
+  ],
+  areaServed: {
+    '@type': 'Place',
+    name: 'Spanish Trail, Las Vegas, NV 89113',
+  },
+  sameAs: [
+    'https://www.linkedin.com/company/spanishtrailhomes',
+    'https://www.facebook.com/spanishtrailhomes',
+    'https://www.instagram.com/spanishtrailhomes',
+  ],
+})
+
+/**
+ * Organization schema for Berkshire Hathaway HomeServices - 2026 GEO
+ */
+export const createOrganizationSchema = () => ({
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${siteUrl}#organization`,
+  name: 'Berkshire Hathaway HomeServices Nevada Properties',
+  url: 'https://www.bhhsnv.com',
+  parentOrganization: {
+    '@type': 'Organization',
+    name: 'Berkshire Hathaway HomeServices',
+  },
+})
+
+type ArticleSchemaInput = {
+  headline: string
+  description: string
+  path: string
+  datePublished: string
+  dateModified?: string
+  articleSection?: string
+}
+
+/**
+ * Article schema for insight/blog pages - Critical for AEO 2026
+ * AI answer engines prioritize content with proper Article markup
+ */
+export const createArticleSchema = ({
+  headline,
+  description,
+  path,
+  datePublished,
+  dateModified,
+  articleSection = 'Real Estate',
+}: ArticleSchemaInput) => {
+  const url = buildAbsoluteUrl(path)
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    '@id': `${url}#article`,
+    headline,
+    description,
+    url,
+    datePublished,
+    dateModified: dateModified || datePublished,
+    author: { '@id': `${siteUrl}#person` },
+    publisher: { '@id': `${siteUrl}#localBusiness` },
+    inLanguage: 'en-US',
+    articleSection,
+    isPartOf: { '@id': `${siteUrl}#website` },
+  }
+}
+
+type AggregateRatingSchemaInput = {
+  ratingValue: number
+  reviewCount: number
+  bestRating?: number
+  worstRating?: number
+}
+
+/**
+ * AggregateRating schema - 2026 SEO best practice
+ * Increases CTR by 20-30% when displayed in search results
+ */
+export const createAggregateRatingSchema = ({
+  ratingValue,
+  reviewCount,
+  bestRating = 5,
+  worstRating = 1,
+}: AggregateRatingSchemaInput) => ({
+  '@context': 'https://schema.org',
+  '@type': 'AggregateRating',
+  ratingValue,
+  reviewCount,
+  bestRating,
+  worstRating,
+  itemReviewed: { '@id': `${siteUrl}#localBusiness` },
+})
+

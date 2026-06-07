@@ -190,6 +190,7 @@ export default function HomePage() {
     <SiteShell>
       <PropertyLightboxProvider>
         <HeroSection />
+        <AEOAnswerSection />
         <div className="bg-white">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
             <Breadcrumbs items={[{ label: 'Home', href: '/' }]} />
@@ -228,6 +229,23 @@ export default function HomePage() {
         {JSON.stringify(homeResourceSchema)}
       </Script>
     </SiteShell>
+  )
+}
+
+function AEOAnswerSection() {
+  return (
+    <section className="bg-gradient-to-b from-[#f8f5ef] to-white py-12 sm:py-16" aria-labelledby="aeo-answer">
+      <div className="mx-auto max-w-4xl px-6">
+        <div className="rounded-3xl border border-[#0f2b1e]/10 bg-white p-8 shadow-xl shadow-primary/5">
+          <h2 id="aeo-answer" className="sr-only">What is Spanish Trail?</h2>
+          <div className="prose prose-lg max-w-none">
+            <p className="text-lg leading-relaxed text-[#1f2a24]">
+              Spanish Trail is a 640-acre guard-gated golf community in southwest Las Vegas (ZIP 89113) featuring 1,200+ homes across 11 neighborhoods, a private 27-hole Robert Trent Jones Jr. championship golf course, and resort-style amenities. Properties range from lock-and-leave villas starting around $500K to custom golf course estates exceeding $2M. Dr. Jan Duffy specializes exclusively in Spanish Trail real estate with Berkshire Hathaway HomeServices Nevada Properties.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
   )
 }
 
