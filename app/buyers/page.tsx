@@ -7,7 +7,7 @@ import { RealScoutSection } from '@/components/realscout-section'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
-import { createOgImageUrl, createWebPageSchema } from '@/lib/structuredData'
+import { createOgImageUrl, createWebPageSchema, structuredDataSiteUrl } from '@/lib/structuredData'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/buyers'
 const buyersPageDescription =
@@ -19,15 +19,25 @@ const buyersWebPageSchema = createWebPageSchema({
   path: '/buyers',
   type: 'CollectionPage',
   extra: {
+    author: {
+      '@id': `${structuredDataSiteUrl}#drjanetduffy`,
+    },
     about: {
       '@type': 'Service',
       serviceType: 'Spanish Trail Buyer Representation',
       provider: {
-        '@type': 'RealEstateAgent',
-        name: 'Dr. Janet Duffy',
-        areaServed: 'Spanish Trail, Las Vegas, Nevada',
+        '@id': `${structuredDataSiteUrl}#drjanetduffy`,
       },
-      areaServed: 'Spanish Trail, Las Vegas, Nevada',
+      areaServed: {
+        '@type': 'Place',
+        name: 'Spanish Trail',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Las Vegas',
+          addressRegion: 'NV',
+          postalCode: '89117',
+        },
+      },
     },
   },
 })
@@ -71,14 +81,17 @@ const faqSchema = {
 export const metadata: Metadata = {
   title: 'Spanish Trail Home Buyer Guide | Dr. Janet Duffy',
   description: buyersPageDescription,
+  authors: [{ name: 'Dr. Janet Duffy', url: structuredDataSiteUrl }],
   alternates: {
     canonical: '/buyers',
   },
   openGraph: {
     url: pageUrl,
+    type: 'website',
     title: 'Spanish Trail Buyer Services | Dr. Janet Duffy',
     description:
       'Explore Spanish Trail homes with personalized search, gated access coordination, and negotiation strategy from Dr. Janet Duffy, Berkshire Hathaway HomeServices.',
+    siteName: 'Spanish Trail Homes',
     images: [
       createOgImageUrl({
         title: 'Spanish Trail Buyer Roadmap',

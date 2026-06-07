@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Script from 'next/script'
 
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { RealScoutSection } from '@/components/realscout-section'
@@ -7,9 +8,44 @@ import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { homeDeepDive, neighborhoodSpotlights } from '@/lib/spanishTrailContent'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
-import { createOgImageUrl } from '@/lib/structuredData'
+import { createOgImageUrl, createWebPageSchema, structuredDataSiteUrl } from '@/lib/structuredData'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-insights'
+
+const insightsWebPageSchema = createWebPageSchema({
+  name: 'Spanish Trail Real Estate Insights | Dr. Janet Duffy',
+  description: 'Deep-dive analysis of Spanish Trail homes, lifestyle, renovations, and financing tips curated by Dr. Janet Duffy for discerning buyers and sellers.',
+  path: '/spanish-trail-insights',
+  type: 'CollectionPage',
+  extra: {
+    author: {
+      '@id': `${structuredDataSiteUrl}#drjanetduffy`,
+    },
+    publisher: {
+      '@id': `${structuredDataSiteUrl}#business`,
+    },
+    about: [
+      {
+        '@type': 'Place',
+        name: 'Spanish Trail',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Las Vegas',
+          addressRegion: 'NV',
+          postalCode: '89117',
+        },
+      },
+      {
+        '@type': 'Thing',
+        name: 'Luxury Real Estate',
+      },
+      {
+        '@type': 'Thing',
+        name: 'Golf Course Communities',
+      },
+    ],
+  },
+})
 
 const advisoryHighlights = [
   'Concierge introductions to country club membership teams and lifestyle programming',
@@ -22,14 +58,17 @@ export const metadata: Metadata = {
   title: 'Spanish Trail Real Estate Insights | Dr. Janet Duffy',
   description:
     'Deep-dive analysis of Spanish Trail homes, lifestyle, renovations, and financing tips curated by Dr. Janet Duffy for discerning buyers and sellers.',
+  authors: [{ name: 'Dr. Janet Duffy', url: structuredDataSiteUrl }],
   alternates: {
     canonical: '/spanish-trail-insights',
   },
   openGraph: {
     url: pageUrl,
+    type: 'article',
     title: 'Spanish Trail Insights & Advisory',
     description:
       'Explore data-backed commentary on Spanish Trail real estate, amenities, and strategy from Dr. Janet Duffy of Berkshire Hathaway HomeServices.',
+    siteName: 'Spanish Trail Homes',
     images: [
       createOgImageUrl({
         title: 'Spanish Trail Insights',
@@ -105,6 +144,9 @@ export default function SpanishTrailInsightsPage() {
         propertyTypes=",SFR,CONDO"
       />
       <InsightsCTASection />
+      <Script id="insights-webpage-schema" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(insightsWebPageSchema)}
+      </Script>
     </SiteShell>
   )
 }

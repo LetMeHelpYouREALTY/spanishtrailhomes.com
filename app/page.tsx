@@ -36,11 +36,13 @@ const homeBreadcrumbSchema = createBreadcrumbSchema([
 export const metadata: Metadata = {
   title: 'Spanish Trail Homes for Sale | Dr. Janet Duffy',
   description: homePageDescription,
+  authors: [{ name: 'Dr. Janet Duffy', url: 'https://www.spanishtrailhomes.com' }],
   alternates: {
     canonical: '/',
   },
   openGraph: {
     url: pageUrl,
+    type: 'website',
     title: 'Spanish Trail Luxury Homes & Market Intelligence',
     description:
       'Get guard-gated listings, market stats, and insider guidance for Spanish Trail Country Club from Dr. Janet Duffy, Las Vegas luxury real estate advisor.',

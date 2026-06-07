@@ -6,7 +6,7 @@ import { SiteShell } from '@/components/site-shell'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
-import { createOgImageUrl, createWebPageSchema } from '@/lib/structuredData'
+import { createOgImageUrl, createWebPageSchema, drJanetDuffyPersonSchema, structuredDataSiteUrl } from '@/lib/structuredData'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/about'
 
@@ -16,40 +16,66 @@ const aboutWebPageSchema = createWebPageSchema({
     'Learn how Dr. Janet Duffy blends data, concierge service, and Berkshire Hathaway HomeServices resources to guide Spanish Trail clients.',
   path: '/about',
   type: 'AboutPage',
+  extra: {
+    about: {
+      '@id': `${structuredDataSiteUrl}#drjanetduffy`,
+    },
+    author: {
+      '@id': `${structuredDataSiteUrl}#drjanetduffy`,
+    },
+  },
 })
 
 const aboutPersonSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'RealEstateAgent',
-  name: 'Dr. Janet Duffy',
-  url: pageUrl,
-  image: 'https://www.spanishtrailhomes.com/images/janet-duffy.jpg',
-  jobTitle: 'REALTOR® | Berkshire Hathaway HomeServices Nevada Properties',
-  email: 'mailto:DrDuffySells@SpanishTrailHomes.com',
-  telephone: '+1-702-766-3299',
-  areaServed: [
-    'Spanish Trail, Las Vegas, Nevada',
-    'Southwest Las Vegas, Nevada',
+  ...drJanetDuffyPersonSchema,
+  '@type': ['Person', 'RealEstateAgent'],
+  image: [
+    drJanetDuffyPersonSchema.image,
+    'https://www.spanishtrailhomes.com/images/janet-duffy.jpg',
   ],
-  worksFor: {
-    '@type': 'Organization',
-    name: 'Berkshire Hathaway HomeServices Nevada Properties',
-  },
+  description: 'Dr. Janet Duffy is a luxury real estate advisor specializing in Spanish Trail Country Club homes and guard-gated Las Vegas communities. With a Ph.D. in Organizational Leadership and Berkshire Hathaway HomeServices Chairman\'s Circle Gold recognition, she provides data-driven market insights and concierge-level service.',
+  hasCredential: [
+    {
+      '@type': 'EducationalOccupationalCredential',
+      credentialCategory: 'degree',
+      educationalLevel: 'Doctorate',
+      name: 'Ph.D. in Organizational Leadership',
+    },
+    {
+      '@type': 'EducationalOccupationalCredential',
+      credentialCategory: 'certification',
+      name: 'Certified Luxury Home Marketing Specialist',
+      recognizedBy: {
+        '@type': 'Organization',
+        name: 'Institute for Luxury Home Marketing',
+      },
+    },
+  ],
   memberOf: [
-    'Las Vegas REALTORS®',
-    'Institute for Luxury Home Marketing',
-    'National Association of REALTORS®',
+    {
+      '@type': 'Organization',
+      name: 'Las Vegas REALTORS®',
+    },
+    {
+      '@type': 'Organization',
+      name: 'Institute for Luxury Home Marketing',
+    },
+    {
+      '@type': 'Organization',
+      name: 'National Association of REALTORS®',
+    },
   ],
   award: [
     "2025 Berkshire Hathaway HomeServices Chairman's Circle Gold",
     '2024 Las Vegas REALTORS® Top 25 Luxury Producer',
     '2023 RealScout Spanish Trail Market Expert',
   ],
-  sameAs: [
-    'https://www.facebook.com/spanishtrailhomes',
-    'https://www.instagram.com/spanishtrailhomes',
-    'https://www.linkedin.com/company/spanish-trail-homes/?viewAsMember=true',
-  ],
+  hasOccupation: {
+    '@type': 'Occupation',
+    name: 'Real Estate Agent',
+    occupationalCategory: 'Real Estate Sales Agent',
+    description: 'Luxury real estate advisor specializing in Spanish Trail and guard-gated Las Vegas communities',
+  },
 }
 
 const approachPillars = [
