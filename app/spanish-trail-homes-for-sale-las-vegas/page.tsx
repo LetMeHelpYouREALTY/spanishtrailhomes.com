@@ -8,29 +8,48 @@ import { RealScoutSection } from '@/components/realscout-section'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
+import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/schema'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-homes-for-sale-las-vegas'
 
 export const metadata: Metadata = {
-  title: 'Spanish Trail Homes for Sale in Las Vegas | Dr. Jan Duffy',
+  title: 'Spanish Trail Homes For Sale Las Vegas 89117 | October 2025 Listings',
   description:
-    'Browse Spanish Trail homes for sale in Las Vegas with Dr. Jan Duffy. Guard-gated golf community, 27-hole course, custom estates, villas, and real-time market data.',
+    'Spanish Trail homes for sale in Las Vegas 89117: guard-gated golf course estates from $500K-$2M+. Browse 68 active listings across 11 neighborhoods with Dr. Janet Duffy, Berkshire Hathaway specialist. 27-hole championship course, clubhouse amenities, villas, townhomes, and custom estates. Real-time market data updated weekly.',
+  keywords: [
+    'Spanish Trail homes for sale',
+    'Las Vegas 89117 real estate',
+    'Spanish Trail Country Club listings',
+    'guard gated golf homes Las Vegas',
+    'Spanish Trail estates villas townhomes',
+    'Dr. Janet Duffy BHHS',
+    'Robert Trent Jones golf course homes',
+    'Spanish Trail neighborhoods',
+    'luxury golf communities Las Vegas',
+  ],
   alternates: {
     canonical: '/spanish-trail-homes-for-sale-las-vegas',
   },
   openGraph: {
     url: pageUrl,
-    title: 'Spanish Trail Homes for Sale in Las Vegas',
+    title: 'Spanish Trail Homes For Sale Las Vegas 89117 | Guard-Gated Golf Course Luxury',
     description:
-      'Discover guard-gated Spanish Trail listings, market data, and private tour options with Dr. Jan Duffy—Las Vegas luxury golf community specialist.',
-    images: [`${pageUrl}/og-image.png`],
+      'Browse 68 Spanish Trail homes for sale: guard-gated estates, golf villas, and townhomes in Las Vegas 89117. Expert representation by Dr. Janet Duffy, BHHS specialist. 27-hole championship course, median $755K, updated market data.',
+    images: [`https://www.spanishtrailhomes.com/og-image.png`],
+    type: 'article',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Spanish Trail Homes for Sale in Las Vegas',
+    title: 'Spanish Trail Homes For Sale Las Vegas 89117 | Oct 2025 Listings',
     description:
-      'Explore Spanish Trail guard-gated golf homes, villas, and estates with Dr. Jan Duffy. Live market data and private tours available.',
-    images: [`${pageUrl}/og-image.png`],
+      'Explore Spanish Trail guard-gated golf homes for sale: estates, villas, townhomes. Dr. Janet Duffy, BHHS. Live market data, private tours.',
+    images: [`https://www.spanishtrailhomes.com/og-image.png`],
+  },
+  other: {
+    'geo.region': 'US-NV',
+    'geo.placename': 'Spanish Trail, Las Vegas',
+    'geo.position': '36.109145;-115.282642',
+    'ICBM': '36.109145, -115.282642',
   },
 }
 
@@ -65,6 +84,28 @@ const faqSchema = {
   })),
 }
 
+const articleSchema = generateArticleSchema({
+  headline: 'Spanish Trail Homes for Sale in Las Vegas 89117 | October 2025 Market Guide',
+  description: 'Browse current Spanish Trail homes for sale in Las Vegas with expert guidance from Dr. Janet Duffy, BHHS specialist. Guard-gated golf community with 27-hole championship course, custom estates, villas, townhomes, and real-time market data for 11 neighborhoods in zip code 89117.',
+  url: pageUrl,
+  datePublished: '2025-10-01T08:00:00-07:00',
+  dateModified: new Date().toISOString(),
+  keywords: [
+    'Spanish Trail homes for sale',
+    'Las Vegas 89117 real estate',
+    'guard gated golf communities',
+    'Spanish Trail Country Club',
+    'luxury golf course homes',
+    'Spanish Trail neighborhoods',
+    'Dr. Janet Duffy realtor',
+  ],
+})
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Spanish Trail Homes for Sale', url: '/spanish-trail-homes-for-sale-las-vegas' },
+])
+
 export default function SpanishTrailHomesForSalePage() {
   return (
     <SiteShell>
@@ -97,6 +138,12 @@ export default function SpanishTrailHomesForSalePage() {
       <ContactCTASection />
       <Script id="homes-for-sale-faq-schema" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(faqSchema)}
+      </Script>
+      <Script id="homes-for-sale-article-schema" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(articleSchema)}
+      </Script>
+      <Script id="homes-for-sale-breadcrumb-schema" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(breadcrumbSchema)}
       </Script>
     </SiteShell>
   )

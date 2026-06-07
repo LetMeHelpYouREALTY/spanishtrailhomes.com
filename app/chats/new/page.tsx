@@ -12,13 +12,14 @@ export const metadata: Metadata = {
 }
 
 type NewChatPageProps = {
-  searchParams?: {
+  searchParams?: Promise<{
     projectId?: string
-  }
+  }>
 }
 
-export default function NewChatPage({ searchParams }: NewChatPageProps) {
-  const projectId = searchParams?.projectId
+export default async function NewChatPage({ searchParams }: NewChatPageProps) {
+  const params = await searchParams
+  const projectId = params?.projectId
 
   if (projectId) {
     redirect(`/projects/${projectId}/chats/new`)

@@ -8,7 +8,42 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: ['/'],
-        disallow: ['/api/'],
+        disallow: ['/api/', '/projects/', '/chats/'],
+      },
+      {
+        userAgent: 'GPTBot',
+        allow: ['/'],
+        disallow: ['/api/', '/projects/', '/chats/'],
+      },
+      {
+        userAgent: 'ChatGPT-User',
+        allow: ['/'],
+        disallow: ['/api/', '/projects/', '/chats/'],
+      },
+      {
+        userAgent: 'Google-Extended',
+        allow: ['/'],
+        disallow: ['/api/', '/projects/', '/chats/'],
+      },
+      {
+        userAgent: 'PerplexityBot',
+        allow: ['/'],
+        disallow: ['/api/', '/projects/', '/chats/'],
+      },
+      {
+        userAgent: 'ClaudeBot',
+        allow: ['/'],
+        disallow: ['/api/', '/projects/', '/chats/'],
+      },
+      {
+        userAgent: 'anthropic-ai',
+        allow: ['/'],
+        disallow: ['/api/', '/projects/', '/chats/'],
+      },
+      {
+        userAgent: 'cohere-ai',
+        allow: ['/'],
+        disallow: ['/api/', '/projects/', '/chats/'],
       },
     ],
     sitemap: [`${baseUrl}/sitemap.xml`],

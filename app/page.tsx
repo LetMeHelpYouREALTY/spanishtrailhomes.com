@@ -6,6 +6,7 @@ import { SiteShell } from '@/components/site-shell'
 import { RealScoutSection } from '@/components/realscout-section'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { marketHighlights, neighborhoodSpotlights } from '@/lib/spanishTrailContent'
+import { generateArticleSchema } from '@/lib/schema'
 
 const overviewStats = [
   {
@@ -70,6 +71,24 @@ const homeFaqSchema = {
   })),
 }
 
+const homeArticleSchema = generateArticleSchema({
+  headline: 'Spanish Trail Country Club Homes Las Vegas 89117 | Guard-Gated Golf Course Community',
+  description: 'Discover Spanish Trail Country Club, a 640-acre guard-gated golf community in Las Vegas 89117 featuring 27-hole championship course, 11 luxury neighborhoods, custom estates, villas, and resort amenities. Expert representation by Dr. Janet Duffy, Berkshire Hathaway HomeServices specialist.',
+  url: 'https://www.spanishtrailhomes.com',
+  datePublished: '2024-01-01T08:00:00-07:00',
+  dateModified: new Date().toISOString(),
+  keywords: [
+    'Spanish Trail Country Club',
+    'Spanish Trail homes Las Vegas',
+    'guard gated golf communities',
+    'Las Vegas 89117',
+    'Robert Trent Jones golf course',
+    'luxury golf course homes',
+    'Spanish Trail neighborhoods',
+    'Berkshire Hathaway Las Vegas',
+  ],
+})
+
 export default function HomePage() {
   return (
     <SiteShell>
@@ -92,6 +111,9 @@ export default function HomePage() {
       <CTASection />
       <Script id="home-faq-schema" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(homeFaqSchema)}
+      </Script>
+      <Script id="home-article-schema" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(homeArticleSchema)}
       </Script>
     </SiteShell>
   )
