@@ -24,6 +24,7 @@ import {
   GBP_STREET,
   GBP_COUNTRY,
 } from '@/lib/gbp-business'
+import { createPersonSchema, createGeoCircleSchema } from '@/lib/enhancedSchema'
 
 const siteUrl = structuredDataSiteUrl
 
@@ -51,6 +52,51 @@ const localBusinessId = `${siteUrl}#localBusiness`
 const rootDefaultDescription =
   'Spanish Trail guard-gated homes, Las Vegas NV 89113. Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties—listings and local guidance.'
 
+/** Enhanced Person schema for Dr. Jan Duffy - improves E-E-A-T signals and AEO */
+const drJanDuffyPersonSchema = createPersonSchema({
+  name: 'Dr. Jan Duffy',
+  jobTitle: 'Real Estate Agent & Luxury Home Specialist',
+  description:
+    'Dr. Jan Duffy is a real estate expert specializing in Spanish Trail luxury homes in Las Vegas. With a Ph.D. in Market Research & Consumer Behavior, she combines data-driven insights with deep local knowledge to serve buyers and sellers in guard-gated golf communities.',
+  url: `${siteUrl}/about`,
+  email: GBP_EMAIL,
+  telephone: GBP_PHONE_E164,
+  sameAs: [
+    'https://www.facebook.com/spanishtrailhomes',
+    'https://www.instagram.com/spanishtrailhomes',
+    'https://www.linkedin.com/company/spanishtrailhomes',
+  ],
+  image: `${siteUrl}/images/janet-duffy.jpg`,
+  address: {
+    addressLocality: GBP_LOCALITY,
+    addressRegion: GBP_REGION,
+    addressCountry: GBP_COUNTRY,
+  },
+  alumniOf: ['Ph.D. in Market Research & Consumer Behavior'],
+  award: [
+    'Berkshire Hathaway HomeServices Luxury Golf Homes (top 2% network-wide)',
+    'Las Vegas REALTORS® Top 25 Luxury Producer',
+    'RealScout Spanish Trail Market Expert',
+    'Certified Luxury Marketing Specialist (CLHMS)',
+  ],
+  knowsAbout: [
+    'Spanish Trail Real Estate',
+    'Las Vegas Luxury Homes',
+    'Guard-Gated Communities',
+    'Golf Course Properties',
+    'Real Estate Market Analysis',
+    'Buyer & Seller Psychology',
+  ],
+})
+
+/** GeoCircle for service area - improves local SEO and GEO */
+const serviceAreaGeoCircle = createGeoCircleSchema({
+  centerLatitude: GBP_GEO.latitude,
+  centerLongitude: GBP_GEO.longitude,
+  radiusMiles: 15,
+  areaName: 'Spanish Trail & Southwest Las Vegas',
+})
+
 const structuredData = [
   {
     '@context': 'https://schema.org',
@@ -71,11 +117,17 @@ const structuredData = [
       {
         '@type': 'Place',
         name: 'Spanish Trail, Las Vegas, NV 89113',
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: GBP_GEO.latitude,
+          longitude: GBP_GEO.longitude,
+        },
       },
       {
         '@type': 'Place',
         name: GBP_SERVICE_AREA_LABEL,
       },
+      serviceAreaGeoCircle,
     ],
     address: {
       '@type': 'PostalAddress',
@@ -171,6 +223,7 @@ const structuredData = [
     publisher: { '@id': localBusinessId },
     // No SearchAction: Google requires a working on-site search URL; this site has no /search route.
   },
+  drJanDuffyPersonSchema,
 ]
 
 export const metadata: Metadata = {
@@ -204,6 +257,9 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    'max-snippet': -1,
+    'max-image-preview': 'large',
+    'max-video-preview': -1,
     googleBot: {
       index: true,
       follow: true,
@@ -211,6 +267,9 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-video-preview': -1,
     },
+  },
+  other: {
+    'google-site-verification': process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || '',
   },
   icons: {
     icon: '/favicon.ico',

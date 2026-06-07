@@ -12,6 +12,7 @@ import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { marketHighlights, neighborhoodSpotlights } from '@/lib/spanishTrailContent'
 import { marketStats } from '@/lib/marketStats'
 import { createBreadcrumbSchema, createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createHowToSchema } from '@/lib/enhancedSchema'
 import { HeroBackground } from '@/components/hero-background'
 import { FeaturedListings } from '@/components/featured-listings'
 import { PropertyLightboxProvider, PropertyLightboxTrigger } from '@/components/property-lightbox'
@@ -185,6 +186,36 @@ const homeResourceSchema = {
   ],
 }
 
+/** HowTo schema for buying process - optimizes for AEO and answer engines */
+const buyingProcessHowTo = createHowToSchema({
+  name: 'How to Buy a Home in Spanish Trail Las Vegas',
+  description: 'Step-by-step guide to purchasing a luxury home in the Spanish Trail guard-gated community with expert guidance from Dr. Jan Duffy.',
+  path: '/',
+  totalTime: 'P30D',
+  steps: [
+    {
+      name: 'Initial Consultation',
+      text: 'Share your must-haves, budget, and timeline with Dr. Jan Duffy. Get aligned with the right neighborhoods, understand financing options, and establish a clear search strategy for Spanish Trail homes.',
+      url: `${pageUrl}contact`,
+    },
+    {
+      name: 'Property Search & Tours',
+      text: 'Browse live listings, private previews, and off-market opportunities across all 11 Spanish Trail neighborhoods. Dr. Duffy coordinates guard-gate access and schedules showings around your availability.',
+      url: `${pageUrl}buyers`,
+    },
+    {
+      name: 'Offer & Negotiation',
+      text: 'Submit data-backed offers with inspection coordination and professional negotiation support. Secure the right Spanish Trail home at the right price with competitive terms.',
+      url: `${pageUrl}buyers`,
+    },
+    {
+      name: 'Close & Move In',
+      text: 'Complete the transaction and receive concierge introductions to club membership teams, vendors, and community connections. Settle into your Spanish Trail home with confidence.',
+      url: `${pageUrl}buyers`,
+    },
+  ],
+})
+
 export default function HomePage() {
   return (
     <SiteShell>
@@ -226,6 +257,9 @@ export default function HomePage() {
       </Script>
       <Script id="home-resource-schema" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(homeResourceSchema)}
+      </Script>
+      <Script id="home-howto-schema" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(buyingProcessHowTo)}
       </Script>
     </SiteShell>
   )
