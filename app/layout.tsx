@@ -7,7 +7,7 @@ import { CalendlyWidgetScript } from '@/components/calendly-widget-script'
 import { CalendlyEventListener } from '@/components/calendly-event-listener'
 import { FloatingCalendlyButton } from '@/components/floating-calendly-button'
 import './globals.css'
-import { createOgImageUrl, structuredDataSiteUrl, getCanonicalUrl } from '@/lib/structuredData'
+import { createOgImageUrl, structuredDataSiteUrl, getCanonicalUrl, createPersonSchema, createOrganizationSchema } from '@/lib/structuredData'
 import {
   GBP_DESCRIPTION,
   GBP_EMAIL,
@@ -158,6 +158,7 @@ const structuredData = [
         },
       ],
     },
+    employee: { '@id': `${siteUrl}#person` },
   },
   {
     '@context': 'https://schema.org',
@@ -171,6 +172,8 @@ const structuredData = [
     publisher: { '@id': localBusinessId },
     // No SearchAction: Google requires a working on-site search URL; this site has no /search route.
   },
+  createPersonSchema(),
+  createOrganizationSchema(),
 ]
 
 export const metadata: Metadata = {

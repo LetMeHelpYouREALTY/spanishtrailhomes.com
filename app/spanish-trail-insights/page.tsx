@@ -8,7 +8,7 @@ import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { homeDeepDive, neighborhoodSpotlights } from '@/lib/spanishTrailContent'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
-import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
+import { createOgImageUrl, getCanonicalUrl, createArticleSchema, createBreadcrumbSchema } from '@/lib/structuredData'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-insights'
 
@@ -59,6 +59,21 @@ const insightsFaqSchema = {
     },
   })),
 }
+
+const insightsArticleSchema = createArticleSchema({
+  headline: 'Spanish Trail Real Estate Insights & Market Analysis',
+  description: 'Deep-dive analysis of Spanish Trail homes, lifestyle, renovations, and financing tips curated by Dr. Jan Duffy for discerning buyers and sellers.',
+  path: '/spanish-trail-insights',
+  datePublished: '2026-01-15',
+  dateModified: '2026-06-07',
+  articleSection: 'Real Estate Market Analysis',
+})
+
+const insightsBreadcrumbSchema = createBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Buyers', url: '/buyers' },
+  { name: 'Spanish Trail Insights', url: '/spanish-trail-insights' },
+])
 
 export const metadata: Metadata = {
   title: 'Spanish Trail Real Estate Insights | Dr. Jan Duffy',
@@ -162,6 +177,12 @@ export default function SpanishTrailInsightsPage() {
       <InsightsCTASection />
       <Script id="insights-faq-schema" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(insightsFaqSchema)}
+      </Script>
+      <Script id="insights-article-schema" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(insightsArticleSchema)}
+      </Script>
+      <Script id="insights-breadcrumb-schema" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(insightsBreadcrumbSchema)}
       </Script>
     </SiteShell>
   )
