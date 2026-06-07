@@ -1,22 +1,179 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
+import Script from 'next/script'
 
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/about'
+const siteUrl = 'https://www.spanishtrailhomes.com'
+
+// Person schema for Dr. Janet Duffy (optimized for GEO/AEO)
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${siteUrl}#person`,
+  name: 'Dr. Janet Duffy',
+  alternateName: ['Dr. Jan Duffy', 'Janet Duffy', 'Jan Duffy'],
+  jobTitle: 'Luxury Real Estate Advisor',
+  description: 'Dr. Janet Duffy is a luxury real estate specialist with Berkshire Hathaway HomeServices Nevada Properties who has dedicated over a decade to helping families, executives, and investors discover Spanish Trail Country Club living. She combines market intelligence, local connections, and personalized service to guide every client through seamless real estate transactions.',
+  url: pageUrl,
+  image: `${siteUrl}/og-image.png`,
+  email: 'jduffy@bhhsnv.com',
+  telephone: ['+1-702-500-1955', '+1-702-222-1964'],
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '5050 Spanish Trail Ln.',
+    addressLocality: 'Las Vegas',
+    addressRegion: 'NV',
+    postalCode: '89117',
+    addressCountry: 'US',
+  },
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Berkshire Hathaway HomeServices Nevada Properties',
+    url: 'https://www.bhhsnv.com',
+  },
+  memberOf: [
+    {
+      '@type': 'Organization',
+      name: 'Las Vegas REALTORS Association',
+    },
+    {
+      '@type': 'Organization',
+      name: 'National Association of REALTORS',
+    },
+  ],
+  hasCredential: [
+    {
+      '@type': 'EducationalOccupationalCredential',
+      credentialCategory: 'Luxury Property Specialist Certification',
+    },
+  ],
+  knowsAbout: [
+    'Spanish Trail Country Club Real Estate',
+    'Luxury Home Sales Las Vegas',
+    'Guard-Gated Golf Communities',
+    'Country Club Lifestyle Marketing',
+    'Executive Relocation Services',
+    'Investment Property Analysis',
+    'Spanish Trail Market Intelligence',
+    'Negotiation Strategy',
+    'Concierge Real Estate Services',
+  ],
+  areaServed: [
+    {
+      '@type': 'Place',
+      name: 'Spanish Trail Country Club',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Las Vegas',
+        addressRegion: 'NV',
+        postalCode: '89117',
+        addressCountry: 'US',
+      },
+    },
+  ],
+  sameAs: [
+    'https://www.facebook.com/spanishtrailhomes',
+    'https://www.instagram.com/spanishtrailhomes',
+    'https://www.linkedin.com/company/spanishtrailhomes',
+    'https://www.youtube.com/@spanishtrailhomes',
+  ],
+}
+
+// ProfilePage schema
+const profilePageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  dateCreated: '2024-11-10T00:00:00-08:00',
+  dateModified: new Date().toISOString(),
+  datePublished: '2024-11-10T00:00:00-08:00',
+  mainEntity: {
+    '@id': `${siteUrl}#person`,
+  },
+  primaryImageOfPage: {
+    '@type': 'ImageObject',
+    url: `${siteUrl}/og-image.png`,
+  },
+  inLanguage: 'en-US',
+}
+
+// BreadcrumbList schema for navigation
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: siteUrl,
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'About Dr. Janet Duffy',
+      item: pageUrl,
+    },
+  ],
+}
+
+// FAQ data optimized for AEO (Answer Engine Optimization)
+const faqData = [
+  {
+    question: 'Who is Dr. Janet Duffy?',
+    answer:
+      'Dr. Janet Duffy is a luxury real estate advisor with Berkshire Hathaway HomeServices Nevada Properties who specializes exclusively in Spanish Trail Country Club properties. With over a decade of dedicated service, she helps families, executives, and investors buy, sell, and invest in guard-gated golf community homes through personalized market intelligence and concierge-level attention.',
+  },
+  {
+    question: 'What areas does Dr. Janet Duffy serve?',
+    answer:
+      'Dr. Janet Duffy serves all eleven enclaves within Spanish Trail Country Club including The Estates, Estates West, The Islands, The Villas, The Links, The Springs, Plum Creek, The Courtyards, The Gardens, The Lakes, and Sunrise Course Estates. She also assists clients in surrounding Summerlin and Spring Valley luxury communities in Las Vegas, Nevada.',
+  },
+  {
+    question: 'How long has Dr. Janet Duffy been in real estate?',
+    answer:
+      'Dr. Janet Duffy has been serving Spanish Trail Country Club clients for over a decade. Her hyperlocal focus on this single guard-gated community allows her to provide unmatched market intelligence, neighborhood expertise, and relationship networks that general market agents cannot match.',
+  },
+  {
+    question: 'What services does Dr. Janet Duffy provide?',
+    answer:
+      'Dr. Janet Duffy provides comprehensive buyer representation, seller representation, market analysis, relocation services, and investment property guidance. Services include RealScout property alerts, guard gate coordination, club membership introductions, negotiation strategy, inspection management, and post-closing concierge support for Spanish Trail Country Club transactions.',
+  },
+  {
+    question: 'How can I contact Dr. Janet Duffy?',
+    answer:
+      'Contact Dr. Janet Duffy by calling 702-500-1955, texting 702-222-1964, or emailing jduffy@bhhsnv.com. Her office is located at 5050 Spanish Trail Lane, Las Vegas, NV 89117. She responds to all inquiries within one business day and offers confidential consultations for buyers, sellers, and investors.',
+  },
+]
+
+// FAQPage schema for voice search and featured snippets
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqData.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+}
 
 export const metadata: Metadata = {
   title: 'Meet Dr. Janet Duffy | Spanish Trail Real Estate Specialist',
   description:
-    'Dr. Janet (Jan) Duffy is a trusted Berkshire Hathaway HomeServices luxury real estate advisor specializing in Spanish Trail Country Club homes. Learn about her background, expertise, and commitment to exceptional service.',
+    'Dr. Janet (Jan) Duffy is a trusted Berkshire Hathaway HomeServices luxury real estate advisor specializing in Spanish Trail Country Club homes. With over a decade of dedicated service, she combines market intelligence, local expertise, and personalized attention to guide buyers, sellers, and investors.',
   alternates: {
     canonical: '/about',
   },
   openGraph: {
     url: pageUrl,
+    type: 'profile',
     title: 'About Dr. Janet Duffy - Spanish Trail Real Estate Expert',
     description:
       'Meet Dr. Janet Duffy, your dedicated Spanish Trail Country Club real estate specialist with Berkshire Hathaway HomeServices Nevada Properties.',
@@ -48,8 +205,23 @@ export default function AboutPage() {
       <ApproachSection />
       <CommunityCommitmentSection />
       <ServicesOverviewSection />
+      <FAQSection />
       <TestimonialsSection />
       <CTASection />
+
+      {/* Structured Data for SEO, GEO, and AEO optimization */}
+      <Script id="person-schema" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(personSchema)}
+      </Script>
+      <Script id="profile-page-schema" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(profilePageSchema)}
+      </Script>
+      <Script id="breadcrumb-schema" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(breadcrumbSchema)}
+      </Script>
+      <Script id="about-faq-schema" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(faqSchema)}
+      </Script>
     </SiteShell>
   )
 }
@@ -61,11 +233,13 @@ function HeroSection() {
         <h1 id="about-hero-heading" className="font-(--font-playfair) text-3xl leading-tight sm:text-4xl">
           Meet Dr. Janet Duffy
         </h1>
+        {/* GEO/AEO optimized: 40-60 word self-contained answer block */}
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
-          For over a decade, I have dedicated my career to helping families, executives, and investors discover the luxury of Spanish Trail Country Club living. As a Berkshire Hathaway HomeServices Nevada Properties advisor, I combine market intelligence, local connections, and personalized service to guide every client through seamless real estate transactions.
+          Dr. Janet Duffy is a luxury real estate advisor with Berkshire Hathaway HomeServices Nevada Properties who has specialized in Spanish Trail Country Club for over a decade. She helps families, executives, and investors navigate guard-gated home purchases, estate sales, and investment opportunities through personalized market intelligence and concierge-level service.
         </p>
+        {/* GEO/AEO optimized: second answer block with specific value proposition */}
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
-          Whether you are buying your first guard-gated home, selling an estate to pursue your next chapter, or exploring investment opportunities in Las Vegas' most prestigious golf community, I am here to provide the expertise, transparency, and dedication you deserve.
+          Whether buying your first guard-gated home, selling a Spanish Trail estate, or exploring Las Vegas golf community investments, Dr. Duffy provides expert guidance with transparency and dedication. Her hyperlocal expertise covers all eleven Spanish Trail enclaves, current market trends, and club membership integration for seamless real estate transactions.
         </p>
       </div>
     </section>
@@ -255,6 +429,34 @@ function ServicesOverviewSection() {
               <Link href="/sellers">Explore Seller Services</Link>
             </Button>
           </article>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function FAQSection() {
+  return (
+    <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="about-faq-heading">
+      <div className="mx-auto max-w-6xl space-y-8 px-6">
+        <div className="max-w-3xl space-y-4">
+          <p className="text-xs uppercase tracking-[0.35em] text-[#6f5237]">Frequently Asked Questions</p>
+          <h2 id="about-faq-heading" className="font-(--font-playfair) text-3xl text-[#1f2a24] sm:text-4xl">
+            Common questions about Dr. Janet Duffy
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          {faqData.map((item) => (
+            <article
+              key={item.question}
+              className="space-y-4 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10"
+            >
+              <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">
+                {item.question}
+              </h3>
+              <p className="text-base leading-relaxed text-[#372a20]/85">{item.answer}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>

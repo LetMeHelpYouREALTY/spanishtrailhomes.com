@@ -14,6 +14,7 @@ type RealScoutHomeValueProps = HTMLAttributes<HTMLElement> & {
 }
 
 const pageUrl = 'https://www.spanishtrailhomes.com/sellers'
+const siteUrl = 'https://www.spanishtrailhomes.com'
 
 const realScoutHomeValueStyles = `
   realscout-home-value {
@@ -62,6 +63,51 @@ const faqSchema = {
       text: item.answer,
     },
   })),
+}
+
+// BreadcrumbList schema for SEO
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: siteUrl,
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Seller Services',
+      item: pageUrl,
+    },
+  ],
+}
+
+// Service schema for seller representation
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Real Estate Seller Representation',
+  provider: {
+    '@id': `${siteUrl}#business`,
+  },
+  areaServed: {
+    '@type': 'Place',
+    name: 'Spanish Trail Country Club, Las Vegas, NV',
+  },
+  name: 'Spanish Trail Home Seller Services',
+  description: 'Comprehensive seller representation for Spanish Trail Country Club homes including home valuation, market analysis, strategic pricing, professional photography, staging, global marketing, negotiation, and closing coordination.',
+  offers: {
+    '@type': 'Offer',
+    availability: 'https://schema.org/InStock',
+    priceSpecification: {
+      '@type': 'PriceSpecification',
+      priceCurrency: 'USD',
+      description: 'Commission-based pricing, competitive rates for Spanish Trail listings',
+    },
+  },
 }
 
 export const metadata: Metadata = {
@@ -113,6 +159,12 @@ export default function SellersPage() {
         <CallToActionSection />
         <Script id="sellers-faq-schema" type="application/ld+json" strategy="afterInteractive">
           {JSON.stringify(faqSchema)}
+        </Script>
+        <Script id="sellers-breadcrumb-schema" type="application/ld+json" strategy="afterInteractive">
+          {JSON.stringify(breadcrumbSchema)}
+        </Script>
+        <Script id="sellers-service-schema" type="application/ld+json" strategy="afterInteractive">
+          {JSON.stringify(serviceSchema)}
         </Script>
       </main>
     </SiteShell>
