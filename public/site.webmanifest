@@ -1,0 +1,32 @@
+{
+  "name": "Spanish Trail Homes - Las Vegas Luxury Real Estate",
+  "short_name": "Spanish Trail Homes",
+  "description": "Spanish Trail Country Club luxury real estate in Las Vegas 89117. Guard-gated golf community homes by Dr. Janet Duffy.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0f2b1e",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "real-estate", "lifestyle"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "scope": "/",
+  "serviceworker": {
+    "src": "/sw.js",
+    "scope": "/",
+    "update_via_cache": "none"
+  }
+}

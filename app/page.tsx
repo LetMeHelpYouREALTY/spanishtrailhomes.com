@@ -57,9 +57,12 @@ const homeFaq = [
   },
 ]
 
+const currentDate = new Date().toISOString()
+
 const homeFaqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
+  '@id': 'https://www.spanishtrailhomes.com/#faq',
   mainEntity: homeFaq.map((item) => ({
     '@type': 'Question',
     name: item.question,
@@ -68,6 +71,56 @@ const homeFaqSchema = {
       text: item.answer,
     },
   })),
+  datePublished: '2024-01-15T08:00:00-08:00',
+  dateModified: currentDate,
+  author: {
+    '@type': 'Person',
+    name: 'Dr. Janet Duffy',
+    jobTitle: 'Real Estate Agent',
+    url: 'https://www.spanishtrailhomes.com',
+  },
+}
+
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': 'https://www.spanishtrailhomes.com/#webpage',
+  url: 'https://www.spanishtrailhomes.com',
+  name: 'Spanish Trail Homes Las Vegas | Guard-Gated Golf Community 89117',
+  description: 'Spanish Trail Country Club luxury real estate featuring 27-hole championship golf, guard-gated security, and 11 unique neighborhoods in Las Vegas 89117. Expert guidance from Dr. Janet Duffy.',
+  datePublished: '2024-01-15T08:00:00-08:00',
+  dateModified: currentDate,
+  inLanguage: 'en-US',
+  isPartOf: {
+    '@id': 'https://www.spanishtrailhomes.com/#website',
+  },
+  about: {
+    '@type': 'Place',
+    name: 'Spanish Trail Country Club',
+    description: 'Guard-gated luxury community with 27-hole championship golf course spanning 640+ acres in Las Vegas, Nevada',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Las Vegas',
+      addressRegion: 'NV',
+      postalCode: '89117',
+      addressCountry: 'US',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 36.109145,
+      longitude: -115.282642,
+    },
+  },
+  specialty: [
+    'Luxury Real Estate',
+    'Guard-Gated Communities',
+    'Golf Course Homes',
+    'Private Club Properties',
+  ],
+  primaryImageOfPage: {
+    '@type': 'ImageObject',
+    url: 'https://www.spanishtrailhomes.com/og-image.png',
+  },
 }
 
 export default function HomePage() {
@@ -92,6 +145,9 @@ export default function HomePage() {
       <CTASection />
       <Script id="home-faq-schema" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(homeFaqSchema)}
+      </Script>
+      <Script id="home-webpage-schema" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(webPageSchema)}
       </Script>
     </SiteShell>
   )
