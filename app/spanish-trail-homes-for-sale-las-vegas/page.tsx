@@ -52,17 +52,34 @@ const faqContent = [
   },
 ]
 
-const faqSchema = {
+// Article schema - AEO optimized (FAQPage deprecated May 7, 2026)
+const articleSchema = {
   '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqContent.map((item) => ({
-    '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: item.answer,
+  '@type': 'Article',
+  '@id': `${pageUrl}#article`,
+  headline: 'Spanish Trail Homes for Sale in Las Vegas - Live Market Data & Tours',
+  description: 'Browse Spanish Trail homes for sale with real-time pricing, neighborhood insights, and private tour scheduling. Guard-gated golf community specialist.',
+  author: {
+    '@type': 'Person',
+    '@id': 'https://www.spanishtrailhomes.com#drjanetduffy',
+    name: 'Dr. Janet Duffy',
+  },
+  publisher: {
+    '@type': 'Organization',
+    '@id': 'https://www.spanishtrailhomes.com#organization',
+    name: 'Spanish Trail Homes by Dr. Janet Duffy',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://www.spanishtrailhomes.com/og-image.png',
     },
-  })),
+  },
+  datePublished: '2024-03-01',
+  dateModified: new Date().toISOString().split('T')[0], // Freshness for AEO
+  image: `${pageUrl}/og-image.png`,
+  mainEntityOfPage: pageUrl,
+  articleSection: 'Real Estate Listings',
+  keywords: ['Spanish Trail homes for sale', 'Las Vegas real estate', 'golf course homes', 'guard-gated communities Las Vegas'],
+  inLanguage: 'en-US',
 }
 
 export default function SpanishTrailHomesForSalePage() {
@@ -95,8 +112,8 @@ export default function SpanishTrailHomesForSalePage() {
       <TourProcessSection />
       <FAQSection />
       <ContactCTASection />
-      <Script id="homes-for-sale-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(faqSchema)}
+      <Script id="homes-for-sale-article-schema" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(articleSchema)}
       </Script>
     </SiteShell>
   )

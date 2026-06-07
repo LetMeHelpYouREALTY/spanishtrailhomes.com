@@ -30,18 +30,64 @@ const featuredListingsSchema = {
   })),
 }
 
+// Article schema for AEO (updated weekly for freshness signals)
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  '@id': `${pageUrl}#article`,
+  headline: 'Spanish Trail Market Report - Weekly Pricing & Inventory Data',
+  description: 'Real-time Spanish Trail real estate market analysis. Median home prices, days on market, inventory levels, and neighborhood trends updated weekly by Dr. Janet Duffy.',
+  author: {
+    '@type': 'Person',
+    '@id': 'https://www.spanishtrailhomes.com#drjanetduffy',
+    name: 'Dr. Janet Duffy',
+  },
+  publisher: {
+    '@type': 'Organization',
+    '@id': 'https://www.spanishtrailhomes.com#organization',
+    name: 'Spanish Trail Homes by Dr. Janet Duffy',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://www.spanishtrailhomes.com/og-image.png',
+    },
+  },
+  datePublished: '2024-01-01',
+  dateModified: new Date().toISOString().split('T')[0], // Critical for AEO - 83% of AI citations from recent updates
+  image: `${pageUrl}/og-image.png`,
+  mainEntityOfPage: pageUrl,
+  articleSection: 'Market Analysis',
+  keywords: ['Spanish Trail market report', 'Las Vegas real estate trends', 'Spanish Trail home prices', '89117 market data'],
+  inLanguage: 'en-US',
+  about: [
+    {
+      '@type': 'Thing',
+      name: 'Spanish Trail Real Estate Market',
+    },
+    {
+      '@type': 'Place',
+      name: 'Spanish Trail, Las Vegas, NV 89117',
+    },
+  ],
+}
+
 export const metadata: Metadata = {
-  title: 'Spanish Trail Market Report | Dr. Janet Duffy',
+  title: 'Spanish Trail Market Report 2026 | Weekly Pricing & Inventory Data',
   description:
-    'Review current Spanish Trail housing stats, featured listings, and RealScout-powered search insights curated by Dr. Janet Duffy.',
+    'Spanish Trail real estate market report updated weekly. Current home prices, days on market, inventory levels, and neighborhood trends. Expert analysis by Dr. Janet Duffy, Berkshire Hathaway HomeServices.',
   alternates: {
     canonical: '/spanish-trail-market-report',
   },
   openGraph: {
     url: pageUrl,
-    title: 'Spanish Trail Real Estate Market Report',
+    title: 'Spanish Trail Market Report - Real-Time Pricing & Inventory',
     description:
-      'Track pricing trends, absorption rates, and featured Spanish Trail listings updated by Dr. Janet Duffy of Berkshire Hathaway HomeServices.',
+      'Weekly Spanish Trail market analysis: median prices, absorption rates, inventory trends. Updated every Friday by Dr. Janet Duffy.',
+    images: [`${pageUrl}/og-image.png`],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Spanish Trail Market Report | Weekly Updates',
+    description: 'Real-time Spanish Trail pricing, inventory, and market trends. Updated weekly by Dr. Janet Duffy.',
   },
 }
 
@@ -99,6 +145,9 @@ export default function SpanishTrailMarketReportPage() {
       <ReportingCTASection />
       <Script id="featured-listings-structured-data" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(featuredListingsSchema)}
+      </Script>
+      <Script id="market-report-article-schema" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(articleSchema)}
       </Script>
     </SiteShell>
   )

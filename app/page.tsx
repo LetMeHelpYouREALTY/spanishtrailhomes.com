@@ -57,17 +57,34 @@ const homeFaq = [
   },
 ]
 
-const homeFaqSchema = {
+// Article schema with Q&A - AEO optimized (FAQPage deprecated May 7, 2026)
+const homeArticleSchema = {
   '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: homeFaq.map((item) => ({
-    '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: item.answer,
+  '@type': 'Article',
+  '@id': 'https://www.spanishtrailhomes.com/#article',
+  headline: 'Spanish Trail Homes in Las Vegas 89117 - Complete Buyers Guide',
+  description: 'Guard-gated living west of the Las Vegas Strip with 27-hole Robert Trent Jones Jr. golf course, custom estates, and luxury amenities.',
+  author: {
+    '@type': 'Person',
+    '@id': 'https://www.spanishtrailhomes.com#drjanetduffy',
+    name: 'Dr. Janet Duffy',
+  },
+  publisher: {
+    '@type': 'Organization',
+    '@id': 'https://www.spanishtrailhomes.com#organization',
+    name: 'Spanish Trail Homes by Dr. Janet Duffy',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://www.spanishtrailhomes.com/og-image.png',
     },
-  })),
+  },
+  datePublished: '2024-01-15',
+  dateModified: new Date().toISOString().split('T')[0], // Freshness signal for AEO
+  image: 'https://www.spanishtrailhomes.com/og-image.png',
+  mainEntityOfPage: 'https://www.spanishtrailhomes.com/',
+  articleSection: 'Real Estate',
+  keywords: ['Spanish Trail homes', 'Las Vegas luxury real estate', 'guard-gated communities', 'golf course homes', '89117'],
+  inLanguage: 'en-US',
 }
 
 export default function HomePage() {
@@ -90,8 +107,8 @@ export default function HomePage() {
       <ExploreFurtherSection />
       <FAQSection />
       <CTASection />
-      <Script id="home-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(homeFaqSchema)}
+      <Script id="home-article-schema" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(homeArticleSchema)}
       </Script>
     </SiteShell>
   )
@@ -416,7 +433,7 @@ function ExploreFurtherSection() {
                 <p className="text-sm leading-relaxed text-[#372a20]/85">{card.description}</p>
               </div>
               <span className="mt-6 text-xs font-semibold uppercase tracking-[0.3em] text-[#0f2b1e] group-hover:text-[#0b2016]">
-                Discover ->
+                Discover →
               </span>
             </Link>
           ))}
