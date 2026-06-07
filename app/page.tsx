@@ -23,14 +23,33 @@ export const metadata: Metadata = {
     description:
       'Get guard-gated listings, market stats, and insider guidance for Spanish Trail Country Club from Dr. Janet Duffy, Las Vegas luxury real estate advisor.',
     siteName: 'Spanish Trail Homes',
-    images: [`${pageUrl}og-image.png`],
+    type: 'website',
+    images: [
+      {
+        url: `${pageUrl}og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: 'Spanish Trail luxury homes and market data by Dr. Janet Duffy',
+        type: 'image/png',
+      },
+    ],
+    locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Spanish Trail Homes & Club Lifestyle by Dr. Janet Duffy',
     description:
       'Track Spanish Trail listings, membership insights, and neighborhood comparisons with Berkshire Hathaway HomeServices specialist Dr. Janet Duffy.',
-    images: [`${pageUrl}og-image.png`],
+    images: [
+      {
+        url: `${pageUrl}og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: 'Spanish Trail luxury homes and market data by Dr. Janet Duffy',
+      },
+    ],
+    creator: '@spanishtrailhomes',
+    site: '@spanishtrailhomes',
   },
 }
 

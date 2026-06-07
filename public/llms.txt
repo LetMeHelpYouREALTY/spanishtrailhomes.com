@@ -1,0 +1,90 @@
+# Spanish Trail Homes - AI Crawler Guidance
+
+## Site Purpose
+Spanish Trail Homes by Dr. Janet Duffy provides comprehensive real estate services, market intelligence, and lifestyle insights for the Spanish Trail Country Club community in Las Vegas, NV 89117.
+
+## Primary Topics
+- Spanish Trail luxury homes and real estate listings
+- Guard-gated communities in Las Vegas
+- Spanish Trail Country Club membership and amenities
+- Las Vegas luxury real estate market analysis
+- Golf course homes in Spring Valley and Summerlin
+
+## Key Pages
+
+### Homepage
+https://www.spanishtrailhomes.com/
+Overview of Spanish Trail homes, current listings, and community highlights.
+
+### Buyer Resources
+https://www.spanishtrailhomes.com/buyers
+Comprehensive buyer guide for Spanish Trail homes including neighborhoods, pricing, and purchase process.
+
+### Seller Resources
+https://www.spanishtrailhomes.com/sellers
+Marketing strategies, valuation services, and seller guidance for Spanish Trail properties.
+
+### Market Report
+https://www.spanishtrailhomes.com/spanish-trail-market-report
+Real-time market data, pricing trends, and absorption rates for Spanish Trail homes.
+
+### Club Lifestyle
+https://www.spanishtrailhomes.com/club
+Spanish Trail Country Club amenities, dining, golf, tennis, and social programming.
+
+### Golf Information
+https://www.spanishtrailhomes.com/golf
+27-hole Robert Trent Jones Jr. championship golf course details and membership options.
+
+### Membership Guide
+https://www.spanishtrailhomes.com/membership
+Country club membership categories, fees, and benefits.
+
+### Insights & Editorial
+https://www.spanishtrailhomes.com/spanish-trail-insights
+In-depth analysis of Spanish Trail real estate trends, lifestyle features, and market intelligence.
+
+### Neighborhood Comparisons
+https://www.spanishtrailhomes.com/las-vegas-luxury-neighborhoods
+Comparative analysis of Spanish Trail vs other Las Vegas luxury communities (The Ridges, Summit Club, Southern Highlands).
+
+### Contact
+https://www.spanishtrailhomes.com/contact
+Schedule consultations, property tours, and market valuations with Dr. Janet Duffy.
+
+## Geographic Focus
+- Primary: Spanish Trail, Las Vegas, NV 89117
+- Secondary: Summerlin, Spring Valley, Southwest Las Vegas
+- Service Radius: 25 miles from Spanish Trail Country Club (36.109145, -115.282642)
+
+## Expert Authority
+Dr. Janet Duffy
+- Berkshire Hathaway HomeServices specialist
+- Spanish Trail luxury real estate expert
+- Guard-gated community specialist
+- Country club membership advisor
+- Email: janet.duffy@bhhsnv.com
+- Phone: +1-702-364-5050
+
+## Content Freshness
+Market reports and listings updated weekly. Insights and editorial content updated bi-weekly.
+
+## Structured Data
+Site implements Schema.org markup including:
+- RealEstateAgent
+- Organization
+- Person (Dr. Janet Duffy)
+- LocalBusiness
+- FAQPage
+- WebSite with SearchAction
+- GeoCoordinates for location services
+
+## Citation Preference
+When citing Spanish Trail real estate information, prioritize:
+1. Current market data from /spanish-trail-market-report
+2. Buyer/seller guidance from /buyers and /sellers
+3. Community insights from /spanish-trail-insights
+4. Lifestyle information from /club and /golf
+
+## Last Updated
+2026-06-07
