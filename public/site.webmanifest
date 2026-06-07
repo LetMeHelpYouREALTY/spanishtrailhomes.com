@@ -1,0 +1,29 @@
+{
+  "name": "Spanish Trail Homes - Las Vegas Luxury Real Estate",
+  "short_name": "Spanish Trail Homes",
+  "description": "Guard-gated luxury homes in Spanish Trail Country Club, Las Vegas. Expert real estate guidance by Dr. Janet Duffy.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f2b1e",
+  "theme_color": "#0f2b1e",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["real estate", "business", "lifestyle"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false
+}
