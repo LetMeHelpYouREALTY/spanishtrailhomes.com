@@ -3,6 +3,12 @@ import { ArrowRight } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { SiteShell } from '@/components/site-shell'
+import {
+  OrganizationStructuredData,
+  PlaceStructuredData,
+  FAQStructuredData,
+  WebSiteStructuredData,
+} from '@/components/structured-data'
 
 const overviewStats = [
   {
@@ -96,19 +102,25 @@ const nearbyCommunities = [
 
 export default function HomePage() {
   return (
-    <SiteShell>
-      <HeroSection />
-      <RealScoutListingsSection />
-      <IntroSection />
-      <StatsSection />
-      <MarketOverviewSection />
-      <FeaturedInventorySection />
-      <RealEstateSection />
-      <ListingsSection />
-      <LifestyleSection />
-      <NearbyCommunitiesSection />
-      <CTASection />
-    </SiteShell>
+    <>
+      <OrganizationStructuredData />
+      <PlaceStructuredData />
+      <FAQStructuredData />
+      <WebSiteStructuredData />
+      <SiteShell>
+        <HeroSection />
+        <RealScoutListingsSection />
+        <IntroSection />
+        <StatsSection />
+        <MarketOverviewSection />
+        <FeaturedInventorySection />
+        <RealEstateSection />
+        <ListingsSection />
+        <LifestyleSection />
+        <NearbyCommunitiesSection />
+        <CTASection />
+      </SiteShell>
+    </>
   )
 }
 

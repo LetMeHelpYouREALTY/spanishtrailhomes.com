@@ -20,21 +20,69 @@ const lato = Lato({
 })
 
 export const metadata: Metadata = {
-  title: 'Spanish Trail Country Club | Private Club in Las Vegas',
+  metadataBase: new URL('https://spanishtrailhomes.com'),
+  title: {
+    default: 'Spanish Trail Homes Las Vegas | Luxury Real Estate by Dr. Janet Duffy',
+    template: '%s | Spanish Trail Homes Las Vegas',
+  },
   description:
-    'Experience the private, 27-hole Robert Trent Jones Jr. golf club just minutes from the Las Vegas Strip. Discover membership, amenities, and events at Spanish Trail Country Club.',
+    'Explore luxury Spanish Trail homes for sale in Las Vegas with Dr. Janet Duffy, Berkshire Hathaway HomeServices. Guard-gated estates, golf villas, and country club living near the Las Vegas Strip. View current listings, market data, and schedule private tours of this exclusive 640-acre community featuring a 27-hole Robert Trent Jones Jr. championship golf course.',
+  keywords: [
+    'Spanish Trail homes for sale',
+    'Spanish Trail real estate',
+    'Las Vegas luxury homes',
+    'guard-gated Las Vegas homes',
+    'Spanish Trail golf course homes',
+    'Dr. Janet Duffy realtor',
+    'Berkshire Hathaway Las Vegas',
+    'Spanish Trail Country Club',
+    'Las Vegas golf communities',
+    'Spring Valley Las Vegas homes',
+  ],
+  authors: [{ name: 'Dr. Janet Duffy', url: 'https://spanishtrailhomes.com' }],
+  creator: 'Dr. Janet Duffy - Berkshire Hathaway HomeServices Nevada Properties',
+  publisher: 'Berkshire Hathaway HomeServices Nevada Properties',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
-    title: 'Spanish Trail Country Club',
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://spanishtrailhomes.com',
+    title: 'Spanish Trail Homes Las Vegas | Luxury Real Estate by Dr. Janet Duffy',
     description:
-      'Private 27-hole golf and country club living in Las Vegas featuring premier amenities, weddings, and member events.',
-    images: ['/og-image.png'],
+      'Explore luxury Spanish Trail homes for sale with Dr. Janet Duffy. Guard-gated estates, golf villas, and country club living near the Las Vegas Strip.',
+    siteName: 'Spanish Trail Homes Las Vegas',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Spanish Trail Luxury Homes - Las Vegas Golf Course Community',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Spanish Trail Country Club',
+    title: 'Spanish Trail Homes Las Vegas | Luxury Real Estate',
     description:
-      'Discover membership and experiences at Spanish Trail Country Club in Las Vegas.',
+      'Explore luxury Spanish Trail homes with Dr. Janet Duffy. Guard-gated golf course community near the Las Vegas Strip.',
     images: ['/og-image.png'],
+    creator: '@BHHSNevada',
+  },
+  alternates: {
+    canonical: 'https://spanishtrailhomes.com',
+  },
+  verification: {
+    google: 'your-google-verification-code',
   },
 }
 

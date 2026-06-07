@@ -7,9 +7,25 @@ import { golfCourses } from '@/lib/content'
 import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = {
-  title: 'Golf Experience | Spanish Trail Country Club',
+  title: '27-Hole Robert Trent Jones Jr Golf Course - Spanish Trail Las Vegas',
   description:
-    'Tour the three 9-hole courses designed by Robert Trent Jones Jr., review the scorecard, and plan your next round at Spanish Trail Country Club.',
+    'Play championship golf at Spanish Trail Country Club Las Vegas. 27-hole Robert Trent Jones Jr. design featuring 120+ bunkers, 15 lakes, and three unique 9-hole courses: Sunrise, Lakes, and Canyon. Former PGA Las Vegas Invitational host (5x) and UNLV Women\'s Golf Team home course. Yardage up to 7,045, slope rating 139.',
+  keywords: [
+    'Robert Trent Jones Jr golf course',
+    'Spanish Trail golf',
+    'Las Vegas championship golf',
+    '27-hole golf course Nevada',
+    'PGA Las Vegas Invitational',
+    'private golf club Las Vegas',
+    'Spanish Trail scorecard',
+  ],
+  openGraph: {
+    title: '27-Hole Championship Golf Course - Spanish Trail Las Vegas',
+    description:
+      'Championship golf by Robert Trent Jones Jr. Three 9-hole courses, 120+ bunkers, 15 lakes. Former PGA tournament host.',
+    type: 'website',
+    url: 'https://spanishtrailhomes.com/golf',
+  },
 }
 
 const scorecard = [

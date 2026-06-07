@@ -7,9 +7,25 @@ import { amenities, testimonials } from '@/lib/content'
 import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = {
-  title: 'Club Life | Spanish Trail Country Club',
+  title: 'Spanish Trail Country Club Life - 27-Hole Golf, Dining & Amenities',
   description:
-    'Explore the Spanish Trail Country Club lifestyle—clubhouse amenities, dining, fitness, tennis, and social events in Las Vegas.',
+    'Experience luxury country club living at Spanish Trail Las Vegas. Explore our 50,000 sq ft clubhouse, Robert Trent Jones Jr. 27-hole championship golf course, dining, fitness center, tennis courts, and exclusive member events. Former PGA Las Vegas Invitational host and UNLV Golf Team home course.',
+  keywords: [
+    'Spanish Trail Country Club',
+    'Las Vegas golf club',
+    'Robert Trent Jones Jr golf',
+    'luxury country club Las Vegas',
+    'Spanish Trail amenities',
+    'Las Vegas golf membership',
+    'private golf club Nevada',
+  ],
+  openGraph: {
+    title: 'Spanish Trail Country Club - Luxury Golf & Country Club Living',
+    description:
+      'Discover the Spanish Trail Country Club lifestyle: 27-hole championship golf, 50,000 sq ft clubhouse, fine dining, fitness, and member events in Las Vegas.',
+    type: 'website',
+    url: 'https://spanishtrailhomes.com/club',
+  },
 }
 
 export default function ClubPage() {

@@ -1,7 +1,30 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { Button } from '@/components/ui/button'
 import { SiteShell } from '@/components/site-shell'
+
+export const metadata: Metadata = {
+  title: 'Spanish Trail Community Guide - Neighborhoods, Amenities & Lifestyle',
+  description:
+    'Discover Spanish Trail Las Vegas: 11 guard-gated neighborhoods, 27-hole golf course, 640 acres of luxury living near the Strip. Explore Estates, Villas, Carmels, Gardens, and more. Tree-lined streets, resort amenities, and exclusive country club access in Spring Valley, NV 89113.',
+  keywords: [
+    'Spanish Trail neighborhoods',
+    'Spanish Trail community',
+    'guard-gated Las Vegas',
+    'Spring Valley communities',
+    'Spanish Trail Estates',
+    'Spanish Trail Villas',
+    'Las Vegas gated communities',
+  ],
+  openGraph: {
+    title: 'Spanish Trail Community - 11 Neighborhoods & Country Club Living',
+    description:
+      'Explore Spanish Trail: 11 guard-gated neighborhoods, championship golf, 640 acres of luxury near the Las Vegas Strip.',
+    type: 'website',
+    url: 'https://spanishtrailhomes.com/communities/spanish-trail',
+  },
+}
 
 const highlights = [
   'Guard-gated golf course community in Southwest Las Vegas with 24/7 security',
