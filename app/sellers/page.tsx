@@ -51,18 +51,6 @@ const faqs = [
   },
 ]
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map((item) => ({
-    '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: item.answer,
-    },
-  })),
-}
 
 export const metadata: Metadata = {
   title: 'Spanish Trail Home Seller Guide | Dr. Janet (Jan) Duffy',
@@ -111,9 +99,6 @@ export default function SellersPage() {
         <ClubAndLifestylePositioningSection />
         <FAQSection />
         <CallToActionSection />
-        <Script id="sellers-faq-schema" type="application/ld+json" strategy="afterInteractive">
-          {JSON.stringify(faqSchema)}
-        </Script>
       </main>
     </SiteShell>
   )

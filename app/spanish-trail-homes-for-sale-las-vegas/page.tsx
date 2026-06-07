@@ -52,18 +52,6 @@ const faqContent = [
   },
 ]
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqContent.map((item) => ({
-    '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: item.answer,
-    },
-  })),
-}
 
 export default function SpanishTrailHomesForSalePage() {
   return (
@@ -95,9 +83,6 @@ export default function SpanishTrailHomesForSalePage() {
       <TourProcessSection />
       <FAQSection />
       <ContactCTASection />
-      <Script id="homes-for-sale-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(faqSchema)}
-      </Script>
     </SiteShell>
   )
 }

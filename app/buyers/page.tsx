@@ -33,18 +33,6 @@ const faqContent = [
   },
 ]
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqContent.map((item) => ({
-    '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: item.answer,
-    },
-  })),
-}
 
 export const metadata: Metadata = {
   title: 'Spanish Trail Home Buyer Guide | Dr. Jan Duffy',
@@ -98,9 +86,6 @@ export default function BuyersPage() {
       <OfferAndClosingSection />
       <FAQSection />
       <BuyerCTASection />
-      <Script id="buyers-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(faqSchema)}
-      </Script>
     </SiteShell>
   )
 }

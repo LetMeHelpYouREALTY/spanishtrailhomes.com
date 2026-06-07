@@ -68,18 +68,6 @@ const guestFaq = [
   },
 ]
 
-const guestFaqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: guestFaq.map((item) => ({
-    '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: item.answer,
-    },
-  })),
-}
 
 const pageUrl = 'https://www.spanishtrailhomes.com/guest-info'
 
@@ -128,9 +116,6 @@ export default function GuestInfoPage() {
       <LocalEssentialsSection />
       <ContactSection />
       <GuestFAQSection />
-      <Script id="guest-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(guestFaqSchema)}
-      </Script>
     </SiteShell>
   )
 }

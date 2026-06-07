@@ -68,18 +68,6 @@ const eventsFaq = [
   },
 ]
 
-const eventsFaqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: eventsFaq.map((item) => ({
-    '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: item.answer,
-    },
-  })),
-}
 
 const pageUrl = 'https://www.spanishtrailhomes.com/events'
 
@@ -127,9 +115,6 @@ export default function EventsPage() {
       <GolfOutingsSection />
       <ContactSection />
       <EventsFAQSection />
-      <Script id="events-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(eventsFaqSchema)}
-      </Script>
     </SiteShell>
   )
 }

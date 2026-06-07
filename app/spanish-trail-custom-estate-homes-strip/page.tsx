@@ -51,18 +51,6 @@ const faqContent = [
   },
 ]
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqContent.map((item) => ({
-    '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: item.answer,
-    },
-  })),
-}
 
 export default function CustomEstateHomesStripPage() {
   return (
@@ -94,9 +82,6 @@ export default function CustomEstateHomesStripPage() {
       <CaseStudiesSection />
       <FAQSection />
       <CTASection />
-      <Script id="custom-estate-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(faqSchema)}
-      </Script>
     </SiteShell>
   )
 }

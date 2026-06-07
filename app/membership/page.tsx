@@ -67,18 +67,6 @@ const membershipFaq = [
   },
 ]
 
-const membershipFaqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: membershipFaq.map((item) => ({
-    '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: item.answer,
-    },
-  })),
-}
 
 const pageUrl = 'https://www.spanishtrailhomes.com/membership'
 
@@ -145,9 +133,6 @@ export default function MembershipPage() {
       <YoungExecutiveSection />
       <InquirySection />
       <MembershipFAQSection />
-      <Script id="membership-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(membershipFaqSchema)}
-      </Script>
     </SiteShell>
   )
 }

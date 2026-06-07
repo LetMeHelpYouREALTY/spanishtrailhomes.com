@@ -69,18 +69,6 @@ const golfFaq = [
   },
 ]
 
-const golfFaqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: golfFaq.map((item) => ({
-    '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: item.answer,
-    },
-  })),
-}
 
 const pageUrl = 'https://www.spanishtrailhomes.com/golf'
 
@@ -134,9 +122,6 @@ export default function GolfPage() {
       <ScorecardSection />
       <GuestInformation />
       <GolfFAQSection />
-      <Script id="golf-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(golfFaqSchema)}
-      </Script>
     </SiteShell>
   )
 }

@@ -70,18 +70,6 @@ const clubFaq = [
   },
 ]
 
-const clubFaqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: clubFaq.map((item) => ({
-    '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: item.answer,
-    },
-  })),
-}
 
 const pageUrl = 'https://www.spanishtrailhomes.com/club'
 
@@ -107,6 +95,70 @@ const clubReviewsSchema = {
       },
     },
   })),
+}
+
+const spanishTrailClubSchema = {
+  '@context': 'https://schema.org',
+  '@type': ['GolfCourse', 'SportsActivityLocation', 'Place'],
+  '@id': 'https://www.spanishtrailhomes.com/club#place',
+  name: 'Spanish Trail Country Club',
+  description: 'Private 27-hole championship golf course designed by Robert Trent Jones Jr., featuring guard-gated luxury living, resort-style amenities, tennis, aquatics, fine dining, and curated social programming in Las Vegas.',
+  image: `${pageUrl}/og-image.png`,
+  url: pageUrl,
+  telephone: '+1-702-364-5050',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '5050 Spanish Trail Ln.',
+    addressLocality: 'Las Vegas',
+    addressRegion: 'NV',
+    postalCode: '89117',
+    addressCountry: 'US',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 36.109145,
+    longitude: -115.282642,
+  },
+  amenityFeature: [
+    {
+      '@type': 'LocationFeatureSpecification',
+      name: '27-Hole Championship Golf Course',
+      value: 'Robert Trent Jones Jr. design with 120 bunkers, lakes, and streams',
+    },
+    {
+      '@type': 'LocationFeatureSpecification',
+      name: 'Clubhouse',
+      value: '50,000 square feet with dining, event spaces, and panoramic Strip views',
+    },
+    {
+      '@type': 'LocationFeatureSpecification',
+      name: 'Tennis Complex',
+      value: 'Championship courts with professional instruction',
+    },
+    {
+      '@type': 'LocationFeatureSpecification',
+      name: 'Aquatics Center',
+      value: 'Olympic-size pool, swim instruction, and family aquatics',
+    },
+    {
+      '@type': 'LocationFeatureSpecification',
+      name: 'Fitness & Spa',
+      value: 'State-of-the-art gym, personal training, Pilates, and spa services',
+    },
+    {
+      '@type': 'LocationFeatureSpecification',
+      name: 'Fine Dining',
+      value: 'Multiple restaurants with seasonal menus and wine pairings',
+    },
+  ],
+  containedInPlace: {
+    '@type': 'Residence',
+    name: 'Spanish Trail Master-Planned Community',
+    description: '640-acre guard-gated community with 11 neighborhoods',
+  },
+  tourBookingPage: 'https://www.spanishtrailhomes.com/contact',
+  publicAccess: false,
+  smokingAllowed: false,
 }
 
 export const metadata: Metadata = {
@@ -152,12 +204,12 @@ export default function ClubPage() {
       <AmenitiesHighlights />
       <LifestyleSection />
       <ClubFAQSection />
-      <Script id="club-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(clubFaqSchema)}
-      </Script>
       <TestimonialsHighlight />
       <Script id="club-testimonials-schema" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(clubReviewsSchema)}
+      </Script>
+      <Script id="spanish-trail-club-schema" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(spanishTrailClubSchema)}
       </Script>
     </SiteShell>
   )

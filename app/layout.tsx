@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import Script from 'next/script'
 import { ThemeProvider } from 'next-themes'
 import DeployBanner from '../components/deploy-banner'
@@ -10,16 +10,58 @@ const structuredData = [
   {
     '@context': 'https://schema.org',
     '@type': ['RealEstateAgent', 'LocalBusiness'],
+    '@id': `${siteUrl}/#organization`,
     name: 'Spanish Trail Homes | Dr. Janet Duffy',
-    image: `${siteUrl}/og-image.png`,
+    alternateName: 'Spanish Trail Homes',
+    description: 'Premier real estate specialist for Spanish Trail Country Club and Las Vegas luxury properties. Expert in guard-gated communities, golf course estates, and private club living.',
+    image: {
+      '@type': 'ImageObject',
+      url: `${siteUrl}/og-image.png`,
+      width: 1200,
+      height: 630,
+    },
+    logo: {
+      '@type': 'ImageObject',
+      url: `${siteUrl}/og-image.png`,
+      width: 1200,
+      height: 630,
+    },
     url: siteUrl,
     telephone: '+1-702-364-5050',
     email: 'info@spanishtrailhomes.com',
     priceRange: '$$$',
+    currenciesAccepted: 'USD',
+    paymentAccepted: 'Cash, Check, Wire Transfer',
     areaServed: [
-      'Spanish Trail, Las Vegas, NV',
-      'Summerlin, Las Vegas, NV',
-      'Spring Valley, Las Vegas, NV',
+      {
+        '@type': 'City',
+        name: 'Las Vegas',
+        '@id': 'https://www.wikidata.org/wiki/Q23768',
+      },
+      {
+        '@type': 'Neighborhood',
+        name: 'Spanish Trail',
+        containedInPlace: {
+          '@type': 'City',
+          name: 'Las Vegas',
+        },
+      },
+      {
+        '@type': 'Neighborhood',
+        name: 'Summerlin',
+        containedInPlace: {
+          '@type': 'City',
+          name: 'Las Vegas',
+        },
+      },
+      {
+        '@type': 'Neighborhood',
+        name: 'Spring Valley',
+        containedInPlace: {
+          '@type': 'City',
+          name: 'Las Vegas',
+        },
+      },
     ],
     address: {
       '@type': 'PostalAddress',
@@ -60,17 +102,98 @@ const structuredData = [
       'https://www.linkedin.com/company/spanishtrailhomes',
       'https://www.youtube.com/@spanishtrailhomes',
     ],
+    knowsAbout: [
+      'Luxury Real Estate',
+      'Golf Course Properties',
+      'Guard-Gated Communities',
+      'Spanish Trail Country Club',
+      'Las Vegas Luxury Homes',
+      'Resort-Style Living',
+    ],
+    slogan: 'Your Guide to Spanish Trail Country Club Living',
+    foundingDate: '2020',
+    founder: {
+      '@type': 'Person',
+      '@id': `${siteUrl}/#founder`,
+      name: 'Dr. Janet Duffy',
+    },
+    employee: {
+      '@type': 'Person',
+      '@id': `${siteUrl}/#founder`,
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `${siteUrl}/#founder`,
+    name: 'Dr. Janet Duffy',
+    jobTitle: 'Real Estate Agent & Spanish Trail Specialist',
+    description: 'Dr. Janet Duffy is a licensed real estate professional specializing in Spanish Trail Country Club properties and Las Vegas luxury homes. With deep knowledge of guard-gated communities and private club amenities, Dr. Duffy provides expert guidance for buyers and sellers.',
+    image: `${siteUrl}/og-image.png`,
+    url: siteUrl,
+    email: 'janet.duffy@bhhsnv.com',
+    telephone: '+1-702-364-5050',
+    worksFor: {
+      '@id': `${siteUrl}/#organization`,
+    },
+    affiliation: {
+      '@type': 'Organization',
+      name: 'Berkshire Hathaway HomeServices Nevada Properties',
+    },
+    knowsAbout: [
+      'Spanish Trail Real Estate',
+      'Luxury Home Sales',
+      'Golf Course Properties',
+      'Country Club Memberships',
+      'Las Vegas Market Analysis',
+      'Investment Properties',
+    ],
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Las Vegas',
+      addressRegion: 'NV',
+      addressCountry: 'US',
+    },
+    sameAs: [
+      'https://www.linkedin.com/company/spanishtrailhomes',
+    ],
+    alumniOf: 'Doctorate Degree',
   },
   {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    '@id': `${siteUrl}/#website`,
     name: 'Spanish Trail Homes',
     url: siteUrl,
+    publisher: {
+      '@id': `${siteUrl}/#organization`,
+    },
     potentialAction: {
       '@type': 'SearchAction',
-      target: `${siteUrl}/search?query={search_term_string}`,
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${siteUrl}/search?query={search_term_string}`,
+      },
       'query-input': 'required name=search_term_string',
     },
+    about: {
+      '@type': 'Thing',
+      name: 'Spanish Trail Country Club Real Estate',
+      description: 'Guard-gated luxury homes, golf course properties, and private club living in Las Vegas',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    '@id': `${siteUrl}/#breadcrumb`,
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: siteUrl,
+      },
+    ],
   },
 ]
 
@@ -127,10 +250,17 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.ico',
   },
-  themeColor: '#0f2b1e',
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: '#0f2b1e',
+  colorScheme: 'light',
 }
 
 export default function RootLayout({
