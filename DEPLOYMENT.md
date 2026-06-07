@@ -1,95 +1,118 @@
-# Deployment Guide
+# Deployment Guide - 2026 Best Practices
 
-This guide ensures that all deployments (CLI, CI/CD, or team members) are tied to the same Vercel project with consistent domain configuration.
+This guide follows the latest Vercel and Next.js 15 deployment best practices for 2026.
 
-## Initial Setup
+## Recommended Approach: Git-Based Deployment
 
-### 1. Link to Existing Vercel Project
+**The gold standard for Next.js deployment in 2026 is Git-based workflow** - this provides automatic deployments, complete audit trails, and zero manual intervention.
 
-If you haven't already linked this repository to your Vercel project, you need to obtain your project IDs:
+### Initial Setup (One-Time)
 
-#### Method A: Using Vercel CLI
+#### 1. Connect Repository to Vercel
+
+1. Go to [Vercel Dashboard](https://vercel.com/new)
+2. Click "Import Project"
+3. Select your Git provider (GitHub, GitLab, or Bitbucket)
+4. Choose this repository: `DrJanDuffy/spanishtrailhomes.com`
+5. Configure project settings:
+   - **Framework Preset:** Next.js (auto-detected)
+   - **Root Directory:** `./` (leave default)
+   - **Build Command:** `pnpm build` (auto-detected)
+   - **Output Directory:** `.next` (auto-detected)
+   - **Install Command:** `pnpm install` (auto-detected)
+
+#### 2. Configure Environment Variables
+
+Set environment variables in the Vercel Dashboard:
+
+1. Go to Project Settings → Environment Variables
+2. Add required variables for each environment:
+
+| Variable | Required | Production | Preview | Development |
+|----------|----------|------------|---------|-------------|
+| `V0_API_KEY` | Yes | ✓ | ✓ | ✓ |
+| `KV_REST_API_URL` | No | ✓ | ✓ | - |
+| `KV_REST_API_TOKEN` | No | ✓ | ✓ | - |
+
+**Best Practice:** Set different values per environment to prevent testing against production APIs.
+
+#### 3. Configure Domain
+
+1. Go to Project Settings → Domains
+2. Add your production domain: `spanishtrailhomes.com`
+3. Follow DNS configuration instructions
+4. Verify domain is set as primary
+
+#### 4. Enable Deployment Protection (Critical for Security)
+
+Preview deployments are publicly accessible via predictable URLs. Protect them:
+
+1. Go to Project Settings → Deployment Protection
+2. Enable "Vercel Authentication" or "Password Protection"
+3. This prevents unauthorized access to preview deployments
+
+## Deployment Workflow
+
+### Automatic Deployments (Recommended)
+
+Once Git integration is set up, deployments happen automatically:
+
+- **Push to `main` branch** → Production deployment to spanishtrailhomes.com
+- **Push to any other branch** → Preview deployment with unique URL
+- **Open Pull Request** → Preview deployment linked in PR
+
+**No manual commands needed!** Every push triggers deployment automatically.
+
+### Manual CLI Deployment (For Testing Only)
+
+CLI deployments should only be used for quick local tests, not production:
 
 ```bash
-# Install Vercel CLI globally
+# Install Vercel CLI
 npm i -g vercel
 
-# Link to your existing project
+# Link to project (creates local .vercel/ directory - gitignored)
 vercel link
 
-# This will prompt you to:
-# 1. Select your scope (personal or team)
-# 2. Choose "Link to existing project"
-# 3. Select your project from the list
-```
+# Deploy preview
+vercel
 
-The CLI will automatically create/update `.vercel/project.json` with the correct IDs.
-
-#### Method B: Manual Setup via Dashboard
-
-1. **Get Project ID:**
-   - Go to [Vercel Dashboard](https://vercel.com/dashboard)
-   - Select your project (spanishtrailhomes.com)
-   - Navigate to Settings > General
-   - Copy the Project ID (starts with `prj_`)
-
-2. **Get Organization/Team ID:**
-   - If using a team: Go to your team settings page
-   - If personal: Go to [Account Settings](https://vercel.com/account)
-   - Copy the Org/Team ID (starts with `team_` or your username)
-
-3. **Update `.vercel/project.json`:**
-   ```json
-   {
-     "projectId": "prj_xxxxxxxxxxxxxxxxxxxx",
-     "orgId": "team_xxxxxxxxxxxxxxxxxxxx"
-   }
-   ```
-
-### 2. Verify Domain Configuration
-
-Ensure your domain is properly configured in Vercel Dashboard:
-
-1. Go to your project settings
-2. Navigate to Domains
-3. Verify `spanishtrailhomes.com` is added
-4. Check that it's set as the production domain
-
-Once the project is linked via `.vercel/project.json`, all deployments will automatically use this domain configuration.
-
-## Deploying
-
-### Production Deployment
-
-```bash
-# Deploy to production (main branch)
+# Deploy to production (use Git-based workflow instead!)
 vercel --prod
 ```
 
-This will:
-- Use the linked project from `.vercel/project.json`
-- Deploy to the production domain (spanishtrailhomes.com)
-- Maintain all domain and environment configurations
+**Important:** The `.vercel/` directory is gitignored per best practices. Each developer/environment must run `vercel link` locally.
 
-### Preview Deployment
+## Local Development
+
+### Pull Environment Variables
+
+Use `vercel pull` instead of managing `.env` files:
 
 ```bash
-# Create a preview deployment
-vercel
+# Pull environment variables for development
+vercel pull --environment=development
+
+# This creates .vercel/ directory locally with:
+# - Project linking info
+# - Environment variables
+# - Project configuration
 ```
 
-This creates a preview URL while maintaining the project link.
+### Run Development Server
 
-### CI/CD Integration
+```bash
+pnpm dev
+```
 
-For GitHub Actions or other CI/CD:
+The `vercel dev` command is available but `pnpm dev` is preferred for Next.js 15.
 
-1. Add Vercel token as a secret: `VERCEL_TOKEN`
-2. The `.vercel/project.json` file ensures deployments use the correct project
-3. Example GitHub Action:
+## CI/CD Integration
+
+For advanced workflows (GitHub Actions, etc.):
 
 ```yaml
-name: Deploy to Vercel
+name: Vercel Production Deployment
 on:
   push:
     branches: [main]
@@ -99,57 +122,132 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      
       - name: Install Vercel CLI
-        run: npm install --global vercel
+        run: npm install --global vercel@latest
+      
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+      
       - name: Build Project Artifacts
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+      
       - name: Deploy to Vercel
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
 ```
 
-## Environment Variables
+**Best Practice for CI:** Use `--yes` flag for non-interactive mode and `vercel pull` for environment variables.
 
-Environment variables should be set in the Vercel Dashboard:
+## Security Best Practices (2026)
 
-1. Go to Project Settings > Environment Variables
-2. Add required variables:
-   - `V0_API_KEY` (required)
-   - `KV_REST_API_URL` (optional, for rate limiting)
-   - `KV_REST_API_TOKEN` (optional, for rate limiting)
+### 1. Security Headers
 
-These will automatically be available to all deployments linked to the project.
+This project includes comprehensive security headers in `vercel.json`:
+
+- **Content-Security-Policy (CSP)** - Protection against XSS attacks
+- **Strict-Transport-Security (HSTS)** - Force HTTPS with 2-year max-age
+- **X-Frame-Options** - Prevent clickjacking
+- **X-Content-Type-Options** - Prevent MIME-type sniffing
+- **Referrer-Policy** - Control referrer information
+- **Permissions-Policy** - Restrict browser features (camera, microphone, geolocation)
+
+### 2. Environment Variable Scoping
+
+- Production secrets should ONLY be available in Production environment
+- Never commit `.env` files to version control
+- Use Vercel Dashboard for secret management
+
+### 3. Deployment Protection
+
+- Enable for all preview deployments
+- Prevents exposure of in-development features
+- Required for compliance in most organizations
+
+### 4. HTTPS & DDoS Protection
+
+Vercel provides automatically:
+- Automatic HTTPS with SSL/TLS certificates
+- DDoS protection at infrastructure level
+- Edge network optimization
+
+## Monitoring & Analytics
+
+### Enable Vercel Analytics
+
+1. Go to Project Settings → Analytics
+2. Enable **Web Analytics** for page views and user metrics
+3. Enable **Speed Insights** for Core Web Vitals monitoring
+
+### Monitor Deployments
+
+- View deployment logs in Vercel Dashboard
+- Set up Slack/Discord webhooks for deployment notifications
+- Use Vercel CLI `vercel logs` for real-time log streaming
 
 ## Troubleshooting
 
-### Error: "Project not found"
+### "Project not found" error
 
-This means `.vercel/project.json` has invalid IDs. Re-run `vercel link` or verify IDs in the dashboard.
+Run `vercel link` in your local directory to reconnect to the project.
 
-### Domain not attached after deployment
+### Environment variables not available
 
-1. Verify the domain is configured in Project Settings > Domains
-2. Ensure you're deploying with `--prod` flag for production domain
-3. Check that the project link is correct in `.vercel/project.json`
+Use `vercel pull --environment=development` to sync environment variables locally.
 
-### Multiple team members deploying to different projects
+### Preview deployment not protected
 
-Ensure all team members have:
-1. Pulled the latest changes including `.vercel/project.json`
-2. Not run `vercel link` manually (this would override the committed project link)
-3. Access to the correct Vercel project/team
+Enable Deployment Protection in Project Settings → Deployment Protection.
 
-## Best Practices
+### Build failures
 
-1. **Always commit `.vercel/project.json`** - This ensures consistency
-2. **Never commit `.env` files** - Use Vercel Dashboard for environment variables
-3. **Use `--prod` flag for production deployments** - This ensures domain attachment
-4. **Verify project link before deploying** - Check `.vercel/project.json` contains correct IDs
-5. **Document any domain changes** - Update this guide if domain configuration changes
+1. Check build logs in Vercel Dashboard
+2. Verify `package.json` scripts are correct
+3. Test build locally: `pnpm build`
+4. Ensure all environment variables are set
 
-## Additional Resources
+### Domain not attached
+
+1. Verify domain configuration in Project Settings → Domains
+2. Check DNS records are properly configured
+3. Ensure deployment is to `main` branch (production)
+
+## Advanced: Edge Deployment & Canary Releases
+
+For 2026, the gold standard is **Canary releases at the edge**:
+
+1. Go to Project Settings → Advanced
+2. Enable Traffic Splitting
+3. Configure percentage-based rollouts
+4. Route traffic by cookies, headers, or geolocation
+
+This allows zero-downtime deployments with instant rollback capability.
+
+## Best Practices Summary
+
+✅ **DO:**
+- Use Git-based workflow for all production deployments
+- Set environment variables in Vercel Dashboard
+- Enable Deployment Protection for previews
+- Use `vercel pull` for local environment variables
+- Keep `.vercel/` directory in `.gitignore`
+- Monitor deployments via Vercel Dashboard
+- Configure comprehensive security headers
+
+❌ **DON'T:**
+- Use CLI for production deployments (use Git instead)
+- Commit `.env` or `.vercel/` to version control
+- Deploy without environment variable scoping
+- Skip Deployment Protection on previews
+- Manually manage SSL certificates (Vercel handles this)
+
+## Resources
 
 - [Vercel CLI Documentation](https://vercel.com/docs/cli)
-- [Vercel Project Linking](https://vercel.com/docs/concepts/projects/overview)
-- [Domain Configuration](https://vercel.com/docs/concepts/projects/domains)
+- [Next.js on Vercel](https://vercel.com/docs/frameworks/full-stack/nextjs)
+- [Vercel Project Linking](https://vercel.com/docs/cli/project-linking)
+- [Security Best Practices](https://vercel.com/docs/conformance/rules/nextjs_missing_security_headers)
+- [Deployment Protection](https://vercel.com/docs/deployments/preview-deployments#deployment-protection)
+
+---
+
+**Questions?** Contact the team or refer to [Vercel Support](https://vercel.com/support).

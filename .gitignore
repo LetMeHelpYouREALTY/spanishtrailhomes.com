@@ -35,9 +35,7 @@ yarn-error.log*
 !.env.example
 
 # vercel
-# Note: .vercel/project.json is committed to ensure consistent deployments
-# Only ignore output files
-.vercel/output
+.vercel
 
 # typescript
 *.tsbuildinfo
