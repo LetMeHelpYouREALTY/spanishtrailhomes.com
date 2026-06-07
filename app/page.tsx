@@ -12,7 +12,7 @@ import { HeroBackground } from '@/components/hero-background'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/'
 const homePageDescription =
-  'Explore Spanish Trail homes for sale, guard-gated amenities, and club lifestyle insights curated by Dr. Janet Duffy of Berkshire Hathaway HomeServices. Browse listings, market data, and neighborhood guides tailored to Las Vegas 89117.'
+  'Spanish Trail Country Club in Las Vegas 89117 offers 11 guard-gated neighborhoods with luxury homes from $400K to $5M+. Browse listings, market data, and neighborhood guides with Dr. Janet Duffy of Berkshire Hathaway HomeServices.'
 
 const homeWebPageSchema = createWebPageSchema({
   name: 'Spanish Trail Homes for Sale | Dr. Janet Duffy',

@@ -6,7 +6,7 @@ import { SiteShell } from '@/components/site-shell'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
-import { createOgImageUrl, createWebPageSchema } from '@/lib/structuredData'
+import { createOgImageUrl, createWebPageSchema, createPersonSchema } from '@/lib/structuredData'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/about'
 
@@ -18,37 +18,122 @@ const aboutWebPageSchema = createWebPageSchema({
   type: 'AboutPage',
 })
 
+// Enhanced Person schema with E-E-A-T signals (Experience, Expertise, Authoritativeness, Trustworthiness)
 const aboutPersonSchema = {
   '@context': 'https://schema.org',
-  '@type': 'RealEstateAgent',
+  '@type': ['Person', 'RealEstateAgent'],
+  '@id': 'https://www.spanishtrailhomes.com#person',
   name: 'Dr. Janet Duffy',
+  honorificPrefix: 'Dr.',
+  givenName: 'Janet',
+  familyName: 'Duffy',
   url: pageUrl,
   image: 'https://www.spanishtrailhomes.com/images/janet-duffy.jpg',
-  jobTitle: 'REALTOR® | Berkshire Hathaway HomeServices Nevada Properties',
-  email: 'mailto:DrDuffySells@SpanishTrailHomes.com',
+  jobTitle: 'Principal Broker & Luxury Real Estate Specialist',
+  description: 'Dr. Janet Duffy is an award-winning luxury real estate specialist with a Ph.D. in Organizational Leadership. Specializing in Spanish Trail Country Club and Las Vegas 89117 guard-gated communities, she combines data analytics, market expertise, and concierge-level service for discerning clients.',
+  email: 'DrDuffySells@SpanishTrailHomes.com',
   telephone: '+1-702-766-3299',
-  areaServed: [
-    'Spanish Trail, Las Vegas, Nevada',
-    'Southwest Las Vegas, Nevada',
-  ],
-  worksFor: {
-    '@type': 'Organization',
-    name: 'Berkshire Hathaway HomeServices Nevada Properties',
+  // Educational credentials (E-E-A-T: Expertise)
+  alumniOf: {
+    '@type': 'EducationalOrganization',
+    name: 'Ph.D. in Organizational Leadership',
   },
-  memberOf: [
-    'Las Vegas REALTORS®',
-    'Institute for Luxury Home Marketing',
-    'National Association of REALTORS®',
+  hasCredential: [
+    {
+      '@type': 'EducationalOccupationalCredential',
+      credentialCategory: 'degree',
+      name: 'Doctor of Philosophy (Ph.D.) in Organizational Leadership',
+    },
+    {
+      '@type': 'EducationalOccupationalCredential',
+      credentialCategory: 'certification',
+      name: 'Certified Luxury Home Marketing Specialist (CLHMS)',
+      recognizedBy: {
+        '@type': 'Organization',
+        name: 'Institute for Luxury Home Marketing',
+      },
+    },
+    {
+      '@type': 'EducationalOccupationalCredential',
+      credentialCategory: 'license',
+      name: 'Nevada Real Estate License',
+    },
   ],
+  // Areas served with specificity (GEO optimization)
+  areaServed: [
+    {
+      '@type': 'Place',
+      name: 'Spanish Trail Country Club',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Las Vegas',
+        addressRegion: 'NV',
+        postalCode: '89117',
+      },
+    },
+    'Southwest Las Vegas, Nevada',
+    'Summerlin, Las Vegas, Nevada',
+    'Spring Valley, Las Vegas, Nevada',
+    '89117',
+  ],
+  // Employer (E-E-A-T: Authoritativeness)
+  worksFor: {
+    '@type': 'RealEstateAgent',
+    name: 'Berkshire Hathaway HomeServices Nevada Properties',
+    url: 'https://www.bhhsnv.com',
+  },
+  // Professional memberships (E-E-A-T: Trustworthiness)
+  memberOf: [
+    {
+      '@type': 'Organization',
+      name: 'Las Vegas REALTORS®',
+    },
+    {
+      '@type': 'Organization',
+      name: 'Institute for Luxury Home Marketing',
+    },
+    {
+      '@type': 'Organization',
+      name: 'National Association of REALTORS®',
+    },
+  ],
+  // Awards and recognition (E-E-A-T: Authoritativeness)
   award: [
     "2025 Berkshire Hathaway HomeServices Chairman's Circle Gold",
     '2024 Las Vegas REALTORS® Top 25 Luxury Producer',
-    '2023 RealScout Spanish Trail Market Expert',
+    '2023-2025 RealScout Spanish Trail Market Expert',
+    'Top 2% Berkshire Hathaway HomeServices Network-wide',
   ],
+  // Knowledge areas (Entity SEO)
+  knowsAbout: [
+    'Spanish Trail Country Club Real Estate',
+    'Las Vegas Luxury Homes',
+    'Guard-Gated Golf Communities',
+    '89117 Market Analysis',
+    'Southwest Las Vegas Properties',
+    'Estates West',
+    'The Carmels',
+    'The Courtyards',
+    'The Gardens',
+    'The Islands',
+    'The Links',
+    'Plum Creek',
+    'The Springs',
+    'The Villas',
+    'Spanish Trail Townhomes',
+    'The Plazas',
+    'Golf Course Real Estate',
+    'Luxury Property Marketing',
+    'Private Club Memberships',
+  ],
+  // Years of experience (E-E-A-T: Experience)
+  yearsOfExperience: 10,
+  // Social profiles (Knowledge Graph)
   sameAs: [
     'https://www.facebook.com/spanishtrailhomes',
     'https://www.instagram.com/spanishtrailhomes',
     'https://www.linkedin.com/company/spanish-trail-homes/?viewAsMember=true',
+    'https://www.youtube.com/@spanishtrailhomes',
   ],
 }
 

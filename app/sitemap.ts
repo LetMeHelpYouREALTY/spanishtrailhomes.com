@@ -1,6 +1,10 @@
 import type { MetadataRoute } from 'next'
+import { detailedNeighborhoods } from '@/lib/spanishTrailContent'
 
 const baseUrl = 'https://www.spanishtrailhomes.com'
+
+// Generate neighborhood routes dynamically
+const neighborhoodRoutes = detailedNeighborhoods.map((n) => `/neighborhoods/${n.slug}`)
 
 const routes = [
   '/',
@@ -31,15 +35,40 @@ const routes = [
   '/spanish-trail-market-report',
   '/spanish-trail-insights',
   '/las-vegas-luxury-neighborhoods',
+  '/neighborhoods',
+  ...neighborhoodRoutes,
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date()
 
-  return routes.map((path) => ({
-    url: `${baseUrl}${path === '/' ? '' : path}`,
-    lastModified,
-    changeFrequency: 'weekly',
-    priority: path === '/' ? 1 : 0.8,
-  }))
+  return routes.map((path) => {
+    // Determine priority based on page type (AEO optimization)
+    let priority = 0.8
+    let changeFrequency: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never' = 'weekly'
+
+    if (path === '/') {
+      priority = 1.0
+      changeFrequency = 'daily'
+    } else if (path.startsWith('/neighborhoods')) {
+      // High priority for neighborhood pages (hyper-local SEO)
+      priority = 0.9
+      changeFrequency = 'weekly'
+    } else if (path.includes('market-report') || path.includes('insights')) {
+      // Market data pages change frequently
+      priority = 0.85
+      changeFrequency = 'daily'
+    } else if (path.includes('homes-for-sale') || path.includes('listings')) {
+      // Listing pages are high priority
+      priority = 0.9
+      changeFrequency = 'daily'
+    }
+
+    return {
+      url: `${baseUrl}${path === '/' ? '' : path}`,
+      lastModified,
+      changeFrequency,
+      priority,
+    }
+  })
 }
