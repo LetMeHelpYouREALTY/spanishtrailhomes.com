@@ -1,8 +1,10 @@
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import Script from 'next/script'
 
 import { Button } from '@/components/ui/button'
 import { SiteShell } from '@/components/site-shell'
+import { faqSchema, breadcrumbSchema } from '@/lib/schema'
 
 const overviewStats = [
   {
@@ -163,6 +165,20 @@ const nearbyCommunities = [
 export default function HomePage() {
   return (
     <SiteShell>
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema),
+        }}
+      />
+      <Script
+        id="breadcrumb-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
       <HeroSection />
       <RealScoutListingsSection />
       <IntroSection />
@@ -173,6 +189,7 @@ export default function HomePage() {
       <FeaturedInventorySection />
       <RealEstateSection />
       <LifestyleFeaturesSection />
+      <FAQSection />
       <ListingsSection />
       <LifestyleSection />
       <NearbyCommunitiesSection />
@@ -909,6 +926,97 @@ function LifestyleFeaturesSection() {
               </Button>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function FAQSection() {
+  const faqs = [
+    {
+      question: 'What is Spanish Trail?',
+      answer:
+        'Spanish Trail is a prestigious 640-acre guard-gated golf course community in Southwest Las Vegas featuring 11 distinct neighborhoods, a 27-hole Robert Trent Jones Jr. championship golf course, and resort-caliber amenities including a 50,000 sq ft clubhouse, fitness centers, tennis courts, and pools.',
+    },
+    {
+      question: 'Where is Spanish Trail located in Las Vegas?',
+      answer:
+        'Spanish Trail is located in Southwest Las Vegas at Tropicana Avenue and Rainbow Boulevard (89113 zip code). It is approximately 10 minutes from the Las Vegas Strip, 15 minutes from Harry Reid International Airport, and 12 minutes from Downtown Summerlin.',
+    },
+    {
+      question: 'What are the price ranges for homes in Spanish Trail?',
+      answer:
+        'Spanish Trail homes range from approximately $450,000 to $3.5 million. Villa residences start around $450K-$750K, golf course homes range $600K-$1.1M, and custom estates range from $1.2M to $3.5M depending on size, location, and amenities.',
+    },
+    {
+      question: 'What neighborhoods are within Spanish Trail?',
+      answer:
+        'Spanish Trail contains 11 distinct neighborhoods including The Estates, The Villas, The Links, Plum Creek, Carmels, Courtyards, Gardens, Islands, Springs, Innisbrook Estates, and Estates West. Each offers unique home styles from lock-and-leave villas to sprawling custom estates.',
+    },
+    {
+      question: 'Does Spanish Trail have HOA fees?',
+      answer:
+        'Yes, Spanish Trail has HOA fees that cover guard-gated security, common area maintenance, and access to community amenities. Country club membership fees are separate and optional for access to golf, dining, and full club amenities.',
+    },
+    {
+      question: 'What amenities does Spanish Trail Country Club offer?',
+      answer:
+        'Spanish Trail Country Club features a 27-hole Robert Trent Jones Jr. golf course, 50,000 sq ft Mediterranean-style clubhouse with fine dining and casual Bar & Grill, state-of-the-art fitness center, two resort-style pools, 12 lighted tennis courts, pickleball courts, and year-round social programming.',
+    },
+  ]
+
+  return (
+    <section className="bg-background py-20 sm:py-24" aria-labelledby="faq-heading">
+      <div className="mx-auto max-w-4xl px-6">
+        <div className="mb-12 space-y-4 text-center">
+          <p className="text-xs uppercase tracking-[0.5em] text-secondary">
+            Frequently Asked Questions
+          </p>
+          <h2
+            id="faq-heading"
+            className="font-[var(--font-playfair)] text-3xl text-foreground sm:text-4xl"
+          >
+            Your Spanish Trail Questions Answered
+          </h2>
+          <p className="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground">
+            Get expert answers about Spanish Trail real estate, amenities, neighborhoods, and lifestyle from Dr. Janet Duffy.
+          </p>
+        </div>
+
+        <div className="space-y-6">
+          {faqs.map((faq, index) => (
+            <article
+              key={index}
+              className="rounded-3xl border border-border/60 bg-card/90 p-6 shadow-sm"
+              itemScope
+              itemType="https://schema.org/Question"
+            >
+              <h3
+                className="mb-3 font-[var(--font-playfair)] text-xl text-foreground"
+                itemProp="name"
+              >
+                {faq.question}
+              </h3>
+              <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
+                <p className="text-base leading-relaxed text-muted-foreground" itemProp="text">
+                  {faq.answer}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <p className="mb-4 text-sm text-muted-foreground">
+            Have more questions about Spanish Trail luxury homes?
+          </p>
+          <Button
+            asChild
+            className="rounded-full px-8 py-3 text-xs uppercase tracking-[0.3em]"
+          >
+            <Link href="/contact">Contact Dr. Janet Duffy</Link>
+          </Button>
         </div>
       </div>
     </section>
