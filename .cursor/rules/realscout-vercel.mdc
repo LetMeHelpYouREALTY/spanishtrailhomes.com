@@ -17,6 +17,16 @@ alwaysApply: false
 - Prefer `vercel build` (or `vercel --prod`) for production builds over local `pnpm build`
 - When using Vercel, don't proxy through Cloudflare (orange cloud) — use DNS only (gray cloud) to avoid SSL conflicts
 
+## Cloudflare Error 1027 (Workers plan / quota)
+
+This is **not** fixable in Next.js code. It means the **Cloudflare account** hit Workers (or related) limits for that hostname.
+
+**If the live app is on Vercel:** In Cloudflare DNS for the domain, set records that point to Vercel to **DNS only** (gray cloud). Remove unnecessary **Workers Routes** or **Page Rules** that invoke a Worker on that host. That stops edge Worker usage for that zone so traffic goes to Vercel without exhausting Workers quota.
+
+**If the app uses Cloudflare Workers or Pages Functions:** In [Cloudflare Dashboard → Workers & Pages](https://dash.cloudflare.com/), open **Metrics**, identify spikes (traffic, bots, cron). Either **upgrade the Workers plan** / add paid capacity, or reduce invocations (cache, shorter Worker logic, block abusive IPs in WAF).
+
+**Visitors:** Wait or contact the site owner; only the Cloudflare account holder can resolve quota.
+
 ## IDX/MLS
 
 - Always display MLS disclaimer and listing attribution
