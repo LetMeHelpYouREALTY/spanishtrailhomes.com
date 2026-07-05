@@ -342,6 +342,7 @@ export const viewport: Viewport = {
   themeColor: '#0f2b1e',
 }
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
