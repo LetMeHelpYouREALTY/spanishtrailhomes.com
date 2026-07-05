@@ -228,7 +228,7 @@ type RealEstateListingInput = {
 
 export const createRealEstateListingSchema = (input: RealEstateListingInput) => ({
   '@context': 'https://schema.org',
-  '@type': 'RealEstateListing',
+  '@type': input.propertyType ? ['RealEstateListing', input.propertyType] : 'RealEstateListing',
   name: input.name,
   description: input.description,
   url: input.url,
@@ -249,9 +249,6 @@ export const createRealEstateListingSchema = (input: RealEstateListingInput) => 
     latitude: 36.109145, // Should be property-specific
     longitude: -115.282642,
   },
-  ...(input.propertyType && {
-    '@type': ['RealEstateListing', input.propertyType],
-  }),
   offers: {
     '@type': 'Offer',
     price: input.price.replace(/[^0-9]/g, ''),
