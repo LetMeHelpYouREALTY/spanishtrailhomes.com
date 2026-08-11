@@ -33,7 +33,7 @@ const aboutPersonSchema = {
     drJanetDuffyPersonSchema.image,
     'https://www.spanishtrailhomes.com/images/janet-duffy.jpg',
   ],
-  description: 'Dr. Janet Duffy is a luxury real estate advisor specializing in Spanish Trail Country Club homes and guard-gated Las Vegas communities. With a Ph.D. in Organizational Leadership and Berkshire Hathaway HomeServices Chairman\'s Circle Gold recognition, she provides data-driven market insights and concierge-level service.',
+  description: "Dr. Janet Duffy is a luxury real estate advisor specializing in Spanish Trail Country Club homes and guard-gated Las Vegas communities. With a Ph.D. in Organizational Leadership and Berkshire Hathaway HomeServices Chairman's Circle Gold recognition, she provides data-driven market insights and concierge-level service.",
   hasCredential: [
     {
       '@type': 'EducationalOccupationalCredential',
