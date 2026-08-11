@@ -1,0 +1,204 @@
+name: Auto-Fix Build Issues
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  push:
+    branches:
+      - 'claude/**'
+      - 'main'
+      - 'dev'
+
+jobs:
+  detect-and-fix:
+    name: Detect and Auto-Fix Build Issues
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Initial build attempt
+        id: initial_build
+        continue-on-error: true
+        run: |
+          echo "BUILD_OUTPUT<<EOF" >> $GITHUB_OUTPUT
+          npm run build 2>&1 | tee build_output.txt
+          echo "EOF" >> $GITHUB_OUTPUT
+          exit ${PIPESTATUS[0]}
+
+      - name: Detect and fix common issues
+        if: steps.initial_build.outcome == 'failure'
+        id: auto_fix
+        run: |
+          echo "🔍 Build failed. Analyzing errors..."
+
+          FIXED=false
+          FIXES_APPLIED=""
+
+          # Fix 1: Unescaped apostrophes in single-quoted strings
+          if grep -q "Expected ','" build_output.txt || grep -q "unescaped" build_output.txt; then
+            echo "📝 Detected quote/apostrophe escaping issues"
+
+            # Find TypeScript/JavaScript files with single-quoted strings containing apostrophes
+            # This is a safe pattern: converts 'text with apostrophe's' to "text with apostrophe's"
+            find app -name "*.tsx" -o -name "*.ts" | while read file; do
+              # Create a backup
+              cp "$file" "$file.bak"
+
+              # Use a Python script for safer quote conversion
+              python3 << 'PYTHON_SCRIPT' "$file"
+import sys
+import re
+
+file_path = sys.argv[1]
+with open(file_path, 'r') as f:
+    content = f.read()
+
+original_content = content
+
+# Pattern: single-quoted strings containing apostrophes (but not escaped)
+# Match strings like 'Spanish Trail's' and convert to "Spanish Trail's"
+pattern = r"'([^']*(?<!\\)'[^']*?)'"
+
+def needs_conversion(match):
+    text = match.group(1)
+    # Only convert if it contains an unescaped apostrophe
+    return "'" in text and "\\'" not in text
+
+matches = list(re.finditer(pattern, content))
+for match in reversed(matches):
+    if needs_conversion(match):
+        # Replace with double-quoted version
+        new_text = '"' + match.group(1) + '"'
+        content = content[:match.start()] + new_text + content[match.end():]
+
+if content != original_content:
+    with open(file_path, 'w') as f:
+        f.write(content)
+    print(f"Fixed apostrophe escaping in {file_path}")
+PYTHON_SCRIPT
+            done
+
+            FIXED=true
+            FIXES_APPLIED="${FIXES_APPLIED}\n- Fixed apostrophe escaping in single-quoted strings"
+          fi
+
+          # Fix 2: Conflicting robots.txt files
+          if grep -q "conflicting public" build_output.txt || grep -q "conflicts with app/robots" build_output.txt; then
+            echo "🤖 Detected robots.txt conflict"
+
+            if [ -f "public/robots.txt" ] && [ -f "app/robots.ts" ]; then
+              echo "Removing conflicting public/robots.txt (app/robots.ts takes precedence)"
+              git rm -f public/robots.txt || rm -f public/robots.txt
+              FIXED=true
+              FIXES_APPLIED="${FIXES_APPLIED}\n- Removed conflicting public/robots.txt file"
+            fi
+          fi
+
+          # Fix 3: Missing metadata routes
+          if grep -q "metadata.*not found" build_output.txt; then
+            echo "📄 Detected missing metadata routes issue"
+            # Add specific fixes here if needed
+            FIXES_APPLIED="${FIXES_APPLIED}\n- Analyzed metadata route configuration"
+          fi
+
+          echo "fixed=$FIXED" >> $GITHUB_OUTPUT
+          echo "fixes_applied<<EOF" >> $GITHUB_OUTPUT
+          echo -e "$FIXES_APPLIED" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Verify fixes with rebuild
+        if: steps.auto_fix.outputs.fixed == 'true'
+        id: verify_build
+        continue-on-error: true
+        run: |
+          echo "🔨 Verifying fixes by rebuilding..."
+          npm run build
+
+      - name: Commit and push fixes
+        if: steps.auto_fix.outputs.fixed == 'true' && steps.verify_build.outcome == 'success'
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+
+          git add -A
+          git commit -m "fix: auto-fix build issues
+
+Automated fixes applied:
+${{ steps.auto_fix.outputs.fixes_applied }}
+
+Build verified successfully after fixes.
+
+🤖 Auto-fixed by GitHub Actions
+Workflow: ${{ github.workflow }}
+Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+          git push
+
+      - name: Comment on PR with results
+        if: github.event_name == 'pull_request' && steps.auto_fix.outputs.fixed == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const success = '${{ steps.verify_build.outcome }}' === 'success';
+            const fixes = `${{ steps.auto_fix.outputs.fixes_applied }}`;
+
+            const body = success
+              ? `## ✅ Build Issues Auto-Fixed
+
+The following issues were automatically detected and fixed:
+${fixes}
+
+The build now passes successfully! The fixes have been committed and pushed.
+
+🤖 _Automated by the Auto-Fix Build Issues workflow_`
+              : `## ⚠️ Build Issues Detected
+
+The following fixes were attempted:
+${fixes}
+
+However, the build still fails after applying fixes. Manual intervention may be required.
+
+🤖 _Automated by the Auto-Fix Build Issues workflow_`;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });
+
+      - name: Upload build logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-logs
+          path: build_output.txt
+          retention-days: 7
+
+      - name: Final status
+        if: steps.initial_build.outcome == 'failure'
+        run: |
+          if [ "${{ steps.verify_build.outcome }}" == "success" ]; then
+            echo "✅ Build issues were automatically fixed!"
+            exit 0
+          else
+            echo "❌ Build still failing after auto-fix attempts"
+            exit 1
+          fi

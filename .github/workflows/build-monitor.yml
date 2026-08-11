@@ -1,0 +1,159 @@
+name: Build Monitor & Alert
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  push:
+    branches:
+      - main
+      - dev
+  schedule:
+    # Run every 6 hours to catch any drift
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+jobs:
+  monitor:
+    name: Monitor Build Health
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build and analyze
+        id: build
+        continue-on-error: true
+        run: |
+          echo "Starting build monitoring..."
+
+          # Capture build output with timing
+          START_TIME=$(date +%s)
+          npm run build > build_output.txt 2>&1
+          BUILD_EXIT=$?
+          END_TIME=$(date +%s)
+          DURATION=$((END_TIME - START_TIME))
+
+          echo "duration=$DURATION" >> $GITHUB_OUTPUT
+          echo "exit_code=$BUILD_EXIT" >> $GITHUB_OUTPUT
+
+          # Extract build stats
+          if [ $BUILD_EXIT -eq 0 ]; then
+            PAGES=$(grep -oP 'Generating static pages \(\K\d+(?=/\d+)' build_output.txt | tail -1)
+            TOTAL=$(grep -oP 'Generating static pages \(\d+/\K\d+' build_output.txt | tail -1)
+            echo "pages_generated=$PAGES" >> $GITHUB_OUTPUT
+            echo "total_pages=$TOTAL" >> $GITHUB_OUTPUT
+          fi
+
+          exit $BUILD_EXIT
+
+      - name: Analyze build errors
+        if: failure()
+        id: analyze
+        run: |
+          echo "🔍 Analyzing build failure..."
+
+          ERROR_SUMMARY=""
+
+          # Detect common error patterns
+          if grep -q "Expected ','" build_output.txt; then
+            ERROR_SUMMARY="${ERROR_SUMMARY}\n- **Quote escaping error** detected in TypeScript files"
+          fi
+
+          if grep -q "conflicts with" build_output.txt; then
+            ERROR_SUMMARY="${ERROR_SUMMARY}\n- **File conflict** detected (likely metadata routes)"
+          fi
+
+          if grep -q "Cannot find module" build_output.txt; then
+            ERROR_SUMMARY="${ERROR_SUMMARY}\n- **Missing module** dependency issue"
+          fi
+
+          if grep -q "Type error" build_output.txt; then
+            ERROR_SUMMARY="${ERROR_SUMMARY}\n- **TypeScript type error** detected"
+          fi
+
+          # Get first error line
+          FIRST_ERROR=$(grep -m1 "Error:" build_output.txt || echo "Unknown error")
+
+          echo "error_summary<<EOF" >> $GITHUB_OUTPUT
+          echo -e "$ERROR_SUMMARY" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+          echo "first_error=$FIRST_ERROR" >> $GITHUB_OUTPUT
+
+      - name: Create issue for build failure
+        if: failure() && github.event_name == 'schedule'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const errorSummary = `${{ steps.analyze.outputs.error_summary }}`;
+            const firstError = `${{ steps.analyze.outputs.first_error }}`;
+
+            const body = `## 🚨 Scheduled Build Monitor Alert
+
+The automated build monitor detected a build failure.
+
+### Error Summary
+${errorSummary}
+
+### First Error
+\`\`\`
+${firstError}
+\`\`\`
+
+### Details
+- **Workflow**: ${{ github.workflow }}
+- **Run**: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+- **Commit**: ${{ github.sha }}
+- **Branch**: ${{ github.ref_name }}
+
+The Auto-Fix Build Issues workflow should attempt to fix this automatically on the next PR or push.
+
+🤖 _Automated alert from Build Monitor_`;
+
+            // Check if there's already an open issue
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'automated-build-alert'
+            });
+
+            if (issues.data.length === 0) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: '🚨 Build Failure Detected by Monitor',
+                body: body,
+                labels: ['automated-build-alert', 'bug']
+              });
+            }
+
+      - name: Report success metrics
+        if: success()
+        run: |
+          echo "✅ Build successful!"
+          echo "Duration: ${{ steps.build.outputs.duration }}s"
+          echo "Pages generated: ${{ steps.build.outputs.pages_generated }}/${{ steps.build.outputs.total_pages }}"
+
+      - name: Upload build artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output-${{ github.run_id }}
+          path: |
+            build_output.txt
+            .next/
+          retention-days: 3
