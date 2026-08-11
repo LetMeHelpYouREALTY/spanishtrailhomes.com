@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Guard-Gated Golf Homes | Spanish Trail',
     description:
-      'Security walkthroughs, golf privileges, and premium listings in Spanish Trail's guard-gated golf community. Work with Dr. Janet Duffy.',
+      "Security walkthroughs, golf privileges, and premium listings in Spanish Trail's guard-gated golf community. Work with Dr. Janet Duffy.",
     images: [
       createOgImageUrl({
         title: 'Spanish Trail Guard-Gated Homes',
