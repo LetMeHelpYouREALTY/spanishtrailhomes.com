@@ -10,6 +10,8 @@ import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { marketStats, formatMedianPrice } from '@/lib/marketStats'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/buyers'
 const buyersPageDescription =
@@ -158,7 +160,8 @@ export default function BuyersPage() {
 
 function HeroSection() {
   return (
-    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="buyers-hero-heading">
+    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="buyers-hero-heading">
+      <SectionBanner headingId="buyers-hero-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h1 id="buyers-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
           Your Spanish Trail Buyer Roadmap Starts Here
@@ -200,6 +203,7 @@ function HeroSection() {
 function BuyerJourneySection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="buyer-journey-heading">
+      <SectionBanner headingId="buyer-journey-heading" />
       <div className="mx-auto max-w-6xl space-y-8 px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.35em] text-[#6f5237]">Spanish Trail Buyer Services</p>
@@ -232,6 +236,7 @@ function BuyerJourneySection() {
               key={item.title}
               className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85"
             >
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <p>{item.detail}</p>
             </article>
@@ -245,6 +250,7 @@ function BuyerJourneySection() {
 function MarketIntelligenceSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="market-intel-heading">
+      <SectionBanner headingId="market-intel-heading" />
       <div className="mx-auto max-w-6xl space-y-6 px-6">
         <h2 id="market-intel-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Real-time market intelligence for savvy Spanish Trail buyers
@@ -285,6 +291,7 @@ function MarketIntelligenceSection() {
 function PropertyPathwaysSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="property-pathways-heading">
+      <SectionBanner headingId="property-pathways-heading" />
       <div className="mx-auto max-w-6xl space-y-6 px-6">
         <h2 id="property-pathways-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Choose your Spanish Trail property pathway
@@ -323,6 +330,7 @@ function PropertyPathwaysSection() {
               key={item.title}
               className="space-y-4 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85"
             >
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <p>{item.summary}</p>
               <p className="font-medium text-[#1f2a24]">{item.highlight}</p>
@@ -337,6 +345,7 @@ function PropertyPathwaysSection() {
 function ConciergePreparationSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="concierge-prep-heading">
+      <SectionBanner headingId="concierge-prep-heading" />
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 lg:grid-cols-[1.1fr_1fr]">
         <div className="space-y-6">
           <h2 id="concierge-prep-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
@@ -378,6 +387,7 @@ function ConciergePreparationSection() {
 function FinancingStrategySection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="financing-strategy-heading">
+      <SectionBanner headingId="financing-strategy-heading" />
       <div className="mx-auto max-w-6xl space-y-6 px-6">
         <h2 id="financing-strategy-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Financing and negotiation strategies crafted for guard-gated success
@@ -410,6 +420,7 @@ function FinancingStrategySection() {
 function TourExperienceSection() {
   return (
     <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="tour-experience-heading">
+      <SectionBanner headingId="tour-experience-heading" />
       <div className="mx-auto max-w-6xl space-y-6 px-6">
         <h2 id="tour-experience-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
           Tour Spanish Trail like an insider
@@ -436,6 +447,7 @@ function TourExperienceSection() {
               key={item.title}
               className="space-y-3 rounded-3xl border border-[#1f4a35]/60 bg-[#143927] p-6 shadow-lg shadow-black/20 text-sm leading-relaxed"
             >
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#f8f5ef]">{item.title}</h3>
               <p className="text-[#f8f5ef]/80">{item.detail}</p>
             </article>
@@ -449,6 +461,7 @@ function TourExperienceSection() {
 function OfferAndClosingSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="offer-closing-heading">
+      <SectionBanner headingId="offer-closing-heading" />
       <div className="mx-auto max-w-6xl space-y-6 px-6">
         <h2 id="offer-closing-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Seamless offers, inspections, and closings
@@ -475,6 +488,7 @@ function OfferAndClosingSection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <p>{item.detail}</p>
             </article>
@@ -488,6 +502,7 @@ function OfferAndClosingSection() {
 function FAQSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="buyers-faq-heading">
+      <SectionBanner headingId="buyers-faq-heading" />
       <div className="mx-auto max-w-6xl space-y-6 px-6">
         <h2 id="buyers-faq-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Spanish Trail buyer FAQs
@@ -495,6 +510,7 @@ function FAQSection() {
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           {faqContent.map((item) => (
             <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10 text-base leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.question)} />
               <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">{item.question}</h3>
               <p>{item.answer}</p>
             </article>
@@ -507,7 +523,8 @@ function FAQSection() {
 
 function BuyerCTASection() {
   return (
-    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="buyers-cta-heading">
+    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="buyers-cta-heading">
+      <SectionBanner headingId="buyers-cta-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h2 id="buyers-cta-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
           Ready to tour Spanish Trail?

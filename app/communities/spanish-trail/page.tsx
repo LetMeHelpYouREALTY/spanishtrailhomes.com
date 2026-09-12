@@ -9,6 +9,9 @@ import { Metadata } from 'next'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { HeroBackground } from '@/components/hero-background'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { getSiteImageUrl } from '@/lib/cloudflare-images'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/communities/spanish-trail'
 const communityPageDescription =
@@ -235,7 +238,7 @@ function HeroSection() {
   return (
     <section className="relative isolate overflow-hidden" aria-labelledby="community-hero-heading">
       <HeroBackground
-        src="https://images.unsplash.com/photo-1508873696983-2dfd5898f08b?q=80&auto=format&fit=crop&w=2000"
+        src={getSiteImageUrl('h2-neighborhood-street')}
         alt="Spanish Trail Country Club guard-gated community and golf course landscape, Las Vegas Nevada"
         overlayClassName="bg-gradient-to-b from-[#0f2b1e]/60 via-[#0f2b1e]/60 to-[#0f2b1e]/80"
         sizes="(max-width: 1024px) 100vw, 1280px"
@@ -289,6 +292,7 @@ function HeroSection() {
 function HighlightsSection() {
   return (
     <section className="bg-background py-20 sm:py-24" aria-labelledby="highlights-heading">
+      <SectionBanner headingId="highlights-heading" />
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 lg:grid-cols-[1.2fr_1fr]">
         <div className="space-y-6">
           <h2
@@ -330,6 +334,7 @@ function HighlightsSection() {
 function DetailsSection() {
   return (
     <section className="border-y border-border/60 bg-card/80" aria-labelledby="details-heading">
+      <SectionBanner headingId="details-heading" />
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-20 lg:grid-cols-[1fr_1.1fr]">
         <div className="space-y-5">
           <h2
@@ -355,8 +360,7 @@ function DetailsSection() {
         <div
           className="h-full rounded-3xl border border-border/60 bg-cover bg-center shadow-lg"
           style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1501856777433-9fbb13f0b2c6?q=80&w=1800&auto=format&fit=crop')",
+              backgroundImage: `url('${getSiteImageUrl('h2-golf-sunrise')}')`,
           }}
           role="img"
           aria-label="Spanish Trail residences with golf course views"
@@ -369,6 +373,7 @@ function DetailsSection() {
 function NarrativesSection() {
   return (
     <section className="bg-white py-20 sm:py-24" aria-labelledby="narratives-heading">
+      <SectionBanner headingId="narratives-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Spanish Trail Insights</p>
@@ -398,6 +403,7 @@ function NarrativesSection() {
         <div className="mt-12 space-y-12">
           {communityNarratives.map((topic) => (
             <article key={topic.title} className="space-y-6 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-8 shadow-lg shadow-primary/10">
+              <CardVisual seed={String(topic.title)} />
               <h3 className="text-lg font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">
                 {topic.title}
               </h3>
@@ -417,6 +423,7 @@ function NarrativesSection() {
 function AmenitiesSection() {
   return (
     <section className="bg-background py-20 sm:py-24" aria-labelledby="amenities-heading">
+      <SectionBanner headingId="amenities-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-2xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">
@@ -452,6 +459,7 @@ function AmenitiesSection() {
 function BenefitsSection() {
   return (
     <section className="border-y border-border/60 bg-card/80" aria-labelledby="benefits-heading">
+      <SectionBanner headingId="benefits-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-20">
         <div className="max-w-2xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">
@@ -491,6 +499,7 @@ function BenefitsSection() {
 function CommunityFAQSection() {
   return (
     <section className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="community-faq-heading">
+      <SectionBanner headingId="community-faq-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Spanish Trail Homes FAQ</p>
@@ -505,6 +514,7 @@ function CommunityFAQSection() {
         <div className="mt-12 space-y-10">
           {communityFaq.map((item) => (
             <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">
+              <CardVisual seed={String(item.question)} />
               <h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">
                 {item.question}
               </h3>
@@ -520,6 +530,7 @@ function CommunityFAQSection() {
 function RealEstateTypesSection() {
   return (
     <section className="bg-white py-20 sm:py-24" aria-labelledby="real-estate-types-heading">
+      <SectionBanner headingId="real-estate-types-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">Property Types</p>
@@ -579,6 +590,7 @@ function RealEstateTypesSection() {
 function SchoolsSection() {
   return (
     <section className="border-y border-border/60 bg-card/80 py-20 sm:py-24" aria-labelledby="schools-heading">
+      <SectionBanner headingId="schools-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.1fr_1fr]">
           <div className="space-y-6">
@@ -619,6 +631,7 @@ function SchoolsSection() {
 function ParksAndRecreationSection() {
   return (
     <section className="bg-background py-20 sm:py-24" aria-labelledby="parks-heading">
+      <SectionBanner headingId="parks-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">Parks & Recreation</p>
@@ -691,6 +704,7 @@ function ParksAndRecreationSection() {
 function ThingsToDoSection() {
   return (
     <section className="border-y border-border/60 bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="things-to-do-heading">
+      <SectionBanner headingId="things-to-do-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Things to Do</p>
@@ -739,6 +753,7 @@ function ThingsToDoSection() {
 function DiningAndShoppingSection() {
   return (
     <section className="bg-background py-20 sm:py-24" aria-labelledby="dining-shopping-heading">
+      <SectionBanner headingId="dining-shopping-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">Dining & Shopping</p>
@@ -778,6 +793,7 @@ function DiningAndShoppingSection() {
 function HOASection() {
   return (
     <section className="border-y border-border/60 bg-card/80 py-20 sm:py-24" aria-labelledby="hoa-heading">
+      <SectionBanner headingId="hoa-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.1fr_1fr]">
           <div className="space-y-6">
@@ -818,6 +834,7 @@ function HOASection() {
 function ContactSection() {
   return (
     <section className="bg-background py-20 sm:py-24" aria-labelledby="contact-heading">
+      <SectionBanner headingId="contact-heading" />
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 lg:grid-cols-[1.1fr_1fr]">
         <div className="space-y-6">
           <h2

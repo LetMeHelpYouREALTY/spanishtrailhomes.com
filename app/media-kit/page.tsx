@@ -7,6 +7,7 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
 import { CalendlyLink } from '@/components/calendly-link'
+import { SectionBanner } from '@/components/heading-media'
 import {
   createOgImageUrl,
   createWebPageSchema,
@@ -152,6 +153,7 @@ export default function MediaKitPage() {
 
         {/* Bio */}
         <section className="mb-12" aria-labelledby="bio-heading">
+      <SectionBanner headingId="bio-heading" />
           <h2 id="bio-heading" className="font-playfair text-xl font-semibold text-[#0f2b1e] sm:text-2xl">
             Bio
           </h2>
@@ -167,6 +169,7 @@ export default function MediaKitPage() {
 
         {/* Quick facts */}
         <section className="mb-12" aria-labelledby="facts-heading">
+      <SectionBanner headingId="facts-heading" />
           <h2 id="facts-heading" className="font-playfair text-xl font-semibold text-[#0f2b1e] sm:text-2xl">
             Quick Facts
           </h2>
@@ -182,6 +185,7 @@ export default function MediaKitPage() {
 
         {/* Credentials */}
         <section className="mb-12" aria-labelledby="credentials-heading">
+      <SectionBanner headingId="credentials-heading" />
           <h2 id="credentials-heading" className="font-playfair text-xl font-semibold text-[#0f2b1e] sm:text-2xl">
             Credentials & Recognition
           </h2>
@@ -194,6 +198,7 @@ export default function MediaKitPage() {
 
         {/* Media assets / headshot */}
         <section className="mb-12" aria-labelledby="media-heading">
+      <SectionBanner headingId="media-heading" />
           <h2 id="media-heading" className="font-playfair text-xl font-semibold text-[#0f2b1e] sm:text-2xl">
             Media Assets
           </h2>
@@ -216,6 +221,7 @@ export default function MediaKitPage() {
 
         {/* NAP & final CTA */}
         <section className="rounded-2xl border border-[#0f2b1e]/20 bg-[#f8f5ef] p-6 sm:p-8" aria-labelledby="contact-heading">
+      <SectionBanner headingId="contact-heading" />
           <h2 id="contact-heading" className="font-playfair text-xl font-semibold text-[#0f2b1e] sm:text-2xl">
             Contact
           </h2>

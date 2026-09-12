@@ -11,6 +11,8 @@ import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { marketStats, formatMedianPrice } from '@/lib/marketStats'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+
 
 type RealScoutHomeValueProps = HTMLAttributes<HTMLElement> & {
   'agent-encoded-id': string
@@ -171,7 +173,8 @@ export default function SellersPage() {
 
 function HeroSection() {
   return (
-    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="sellers-hero-heading">
+    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="sellers-hero-heading">
+      <SectionBanner headingId="sellers-hero-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h1 id="sellers-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
           Spanish Trail Seller Blueprint: Earn Premium Offers in 2026
@@ -209,6 +212,7 @@ function HeroSection() {
 function HomeValueWidgetSection() {
   return (
     <section id="seller-valuation-widget" className="bg-white py-16 sm:py-20" aria-labelledby="home-value-heading">
+      <SectionBanner headingId="home-value-heading" />
       <div className="mx-auto max-w-3xl space-y-6 px-6 text-center">
         <h2 id="home-value-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Start with an interactive Spanish Trail home valuation
@@ -230,6 +234,7 @@ function HomeValueWidgetSection() {
 function MarketConfidenceSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="market-confidence-heading">
+      <SectionBanner headingId="market-confidence-heading" />
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 lg:grid-cols-[1.1fr_1fr]">
         <div className="space-y-6">
           <h2 id="market-confidence-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
@@ -274,6 +279,7 @@ function MarketConfidenceSection() {
 function PricingStrategySection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="pricing-strategy-heading">
+      <SectionBanner headingId="pricing-strategy-heading" />
       <div className="mx-auto max-w-6xl space-y-6 px-6">
         <h2 id="pricing-strategy-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Precision pricing anchored in data and narrative
@@ -303,6 +309,7 @@ function PricingStrategySection() {
             },
           ].map((card) => (
             <article key={card.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10">
+              <CardVisual seed={String(card.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{card.title}</h3>
               <p>{card.detail}</p>
             </article>
@@ -316,6 +323,7 @@ function PricingStrategySection() {
 function PreparationBlueprintSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="preparation-blueprint-heading">
+      <SectionBanner headingId="preparation-blueprint-heading" />
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 lg:grid-cols-[1.1fr_1fr]">
         <div className="space-y-6">
           <h2 id="preparation-blueprint-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
@@ -357,6 +365,7 @@ function PreparationBlueprintSection() {
 function MarketingEngineSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="marketing-engine-heading">
+      <SectionBanner headingId="marketing-engine-heading" />
       <div className="mx-auto max-w-6xl space-y-6 px-6">
         <h2 id="marketing-engine-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           A marketing engine built for qualified Spanish Trail buyers
@@ -369,6 +378,7 @@ function MarketingEngineSection() {
         </p>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <article className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed="card-2" />
             <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">Digital reach highlights</h3>
             <ul className="space-y-2">
               <li>• RealScout buyer matchmaking with instant follow-up campaigns</li>
@@ -378,6 +388,7 @@ function MarketingEngineSection() {
             </ul>
           </article>
           <article className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed="card-3" />
             <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">High-touch experiences</h3>
             <ul className="space-y-2">
               <li>• Sunset sip-and-see events featuring local culinary partners</li>
@@ -395,6 +406,7 @@ function MarketingEngineSection() {
 function TimelineAndNegotiationSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="timeline-negotiation-heading">
+      <SectionBanner headingId="timeline-negotiation-heading" />
       <div className="mx-auto max-w-6xl space-y-6 px-6">
         <h2 id="timeline-negotiation-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           A transparent timeline and negotiation plan you can trust
@@ -424,6 +436,7 @@ function TimelineAndNegotiationSection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <p>{item.detail}</p>
             </article>
@@ -437,6 +450,7 @@ function TimelineAndNegotiationSection() {
 function ClubAndLifestylePositioningSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="club-lifestyle-heading">
+      <SectionBanner headingId="club-lifestyle-heading" />
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 lg:grid-cols-[1.1fr_1fr]">
         <div className="space-y-6">
           <h2 id="club-lifestyle-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
@@ -469,6 +483,7 @@ function ClubAndLifestylePositioningSection() {
 function FAQSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="seller-faq-heading">
+      <SectionBanner headingId="seller-faq-heading" />
       <div className="mx-auto max-w-6xl space-y-6 px-6">
         <h2 id="seller-faq-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Spanish Trail seller FAQs
@@ -476,6 +491,7 @@ function FAQSection() {
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           {faqs.map((item) => (
             <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10 text-base leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.question)} />
               <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">{item.question}</h3>
               <p>{item.answer}</p>
             </article>
@@ -488,7 +504,8 @@ function FAQSection() {
 
 function CallToActionSection() {
   return (
-    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="seller-cta-heading">
+    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="seller-cta-heading">
+      <SectionBanner headingId="seller-cta-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h2 id="seller-cta-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
           Ready to unlock your Spanish Trail equity?

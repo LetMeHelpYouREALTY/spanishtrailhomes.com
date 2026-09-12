@@ -8,6 +8,8 @@ import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-waterfront-golf-homes'
 
@@ -128,7 +130,8 @@ export default function WaterfrontGolfHomesPage() {
 
 function HeroSection() {
   return (
-    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="waterfront-hero-heading">
+    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="waterfront-hero-heading">
+      <SectionBanner headingId="waterfront-hero-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h1 id="waterfront-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
           Waterfront Golf Course Homes Spanish Trail
@@ -156,6 +159,7 @@ function HeroSection() {
 function HighlightsSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="waterfront-highlights-heading">
+      <SectionBanner headingId="waterfront-highlights-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="waterfront-highlights-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Why waterfront golf homes are Spanish Trail’s crown jewels
@@ -181,6 +185,7 @@ function HighlightsSection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <p>{item.detail}</p>
             </article>
@@ -194,6 +199,7 @@ function HighlightsSection() {
 function ViewExperienceSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="view-experience-heading">
+      <SectionBanner headingId="view-experience-heading" />
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 lg:grid-cols-[1.1fr_1fr]">
         <div className="space-y-6">
           <h2 id="view-experience-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
@@ -227,6 +233,7 @@ function ViewExperienceSection() {
 function DesignSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="waterfront-design-heading">
+      <SectionBanner headingId="waterfront-design-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="waterfront-design-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Interior design ideas for waterfront golf homes</h2>
@@ -254,6 +261,7 @@ function DesignSection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <ul className="space-y-2">
                 {item.points.map((point) => (
@@ -271,6 +279,7 @@ function DesignSection() {
 function LifestyleSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="waterfront-lifestyle-heading">
+      <SectionBanner headingId="waterfront-lifestyle-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="waterfront-lifestyle-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Waterfront living tailored to how you unwind</h2>
@@ -295,6 +304,7 @@ function LifestyleSection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <p>{item.detail}</p>
             </article>
@@ -308,6 +318,7 @@ function LifestyleSection() {
 function InvestmentSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="waterfront-investment-heading">
+      <SectionBanner headingId="waterfront-investment-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="waterfront-investment-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Investment outlook for waterfront golf homes</h2>
@@ -332,6 +343,7 @@ function InvestmentSection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <p>{item.detail}</p>
             </article>
@@ -345,6 +357,7 @@ function InvestmentSection() {
 function BuyerProcessSection() {
   return (
     <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="waterfront-buyer-process-heading">
+      <SectionBanner headingId="waterfront-buyer-process-heading" />
       <div className="mx-auto max-w-6xl space-y-6 px-6">
         <h2 id="waterfront-buyer-process-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
           Waterfront golf buying process with concierge support</h2>
@@ -367,6 +380,7 @@ function BuyerProcessSection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#1f4a35]/60 bg-[#143927] p-6 shadow-lg shadow-black/20 text-sm leading-relaxed">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#f8f5ef]">{item.title}</h3>
               <p className="text-[#f8f5ef]/80">{item.detail}</p>
             </article>
@@ -380,12 +394,14 @@ function BuyerProcessSection() {
 function FAQSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="waterfront-faq-heading">
+      <SectionBanner headingId="waterfront-faq-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="waterfront-faq-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Spanish Trail waterfront golf FAQs</h2>
         <div className="mt-10 space-y-6">
           {faqContent.map((item) => (
             <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-base leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.question)} />
               <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">{item.question}</h3>
               <p>{item.answer}</p>
             </article>
@@ -398,7 +414,8 @@ function FAQSection() {
 
 function CTASection() {
   return (
-    <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="waterfront-cta-heading">
+    <section className="bg-[#f8f2e7] py-16 sm:py-20 relative isolate overflow-hidden" aria-labelledby="waterfront-cta-heading">
+      <SectionBanner headingId="waterfront-cta-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6 text-center">
         <h2 id="waterfront-cta-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Let’s unlock a Spanish Trail waterfront home</h2>

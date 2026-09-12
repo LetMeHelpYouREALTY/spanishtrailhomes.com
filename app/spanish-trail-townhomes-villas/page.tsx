@@ -8,6 +8,8 @@ import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-townhomes-villas'
 
@@ -128,7 +130,8 @@ export default function SpanishTrailTownhomesVillasPage() {
 
 function HeroSection() {
   return (
-    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="townhome-hero-heading">
+    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="townhome-hero-heading">
+      <SectionBanner headingId="townhome-hero-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h1 id="townhome-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
           Spanish Trail Townhomes & Villas for Sale
@@ -157,6 +160,7 @@ function HeroSection() {
 function LifestyleSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="townhome-lifestyle-heading">
+      <SectionBanner headingId="townhome-lifestyle-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="townhome-lifestyle-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Lock-and-leave living in a 27-hole private club community
@@ -186,6 +190,7 @@ function LifestyleSection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <p>{item.detail}</p>
             </article>
@@ -199,6 +204,7 @@ function LifestyleSection() {
 function EnclaveComparisonSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="enclave-comparison-heading">
+      <SectionBanner headingId="enclave-comparison-heading" />
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 lg:grid-cols-[1.1fr_1fr]">
         <div className="space-y-6">
           <h2 id="enclave-comparison-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
@@ -241,6 +247,7 @@ function EnclaveComparisonSection() {
 function HOASection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="hoa-heading">
+      <SectionBanner headingId="hoa-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="hoa-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Understanding HOA coverage and financial health
@@ -267,6 +274,7 @@ function HOASection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <p>{item.detail}</p>
             </article>
@@ -280,6 +288,7 @@ function HOASection() {
 function DesignSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="design-heading">
+      <SectionBanner headingId="design-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="design-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Interior upgrades buyers crave in 2026
@@ -309,6 +318,7 @@ function DesignSection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <ul className="space-y-2">
                 {item.points.map((point) => (
@@ -329,6 +339,7 @@ function DesignSection() {
 function BuyerJourneySection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="buyer-journey-heading">
+      <SectionBanner headingId="buyer-journey-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="buyer-journey-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Step-by-step concierge path to your Spanish Trail villa
@@ -355,6 +366,7 @@ function BuyerJourneySection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <p>{item.detail}</p>
             </article>
@@ -371,6 +383,7 @@ function BuyerJourneySection() {
 function ResidentStoriesSection() {
   return (
     <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="resident-stories-heading">
+      <SectionBanner headingId="resident-stories-heading" />
       <div className="mx-auto max-w-6xl space-y-8 px-6">
         <h2 id="resident-stories-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
           Villa buyers share their Spanish Trail experience
@@ -400,6 +413,7 @@ function ResidentStoriesSection() {
 function FAQSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="townhome-faq-heading">
+      <SectionBanner headingId="townhome-faq-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="townhome-faq-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Spanish Trail villa buyer FAQs
@@ -407,6 +421,7 @@ function FAQSection() {
         <div className="mt-10 space-y-6">
           {faqContent.map((item) => (
             <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-base leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.question)} />
               <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">{item.question}</h3>
               <p>{item.answer}</p>
             </article>
@@ -419,7 +434,8 @@ function FAQSection() {
 
 function CTASection() {
   return (
-    <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="townhome-cta-heading">
+    <section className="bg-[#f8f2e7] py-16 sm:py-20 relative isolate overflow-hidden" aria-labelledby="townhome-cta-heading">
+      <SectionBanner headingId="townhome-cta-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6 text-center">
         <h2 id="townhome-cta-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Ready to tour Spanish Trail villas?

@@ -7,6 +7,7 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
 import { CalendlyLink } from '@/components/calendly-link'
+import { SectionBanner } from '@/components/heading-media'
 import {
   createOgImageUrl,
   createWebPageSchema,
@@ -131,6 +132,7 @@ export default function RelocationPage() {
         />
 
         <section className="prose prose-[#372a20] mt-10 max-w-none" aria-labelledby="relocation-intro">
+      <SectionBanner headingId="relocation-intro" />
           <h2 id="relocation-intro" className="font-playfair text-2xl font-semibold text-[#0f2b1e]">
             Why Spanish Trail for Relocating Buyers
           </h2>
@@ -151,6 +153,7 @@ export default function RelocationPage() {
         </section>
 
         <section className="mt-12 max-w-none" aria-labelledby="valley-comparison-heading">
+      <SectionBanner headingId="valley-comparison-heading" />
           <h2 id="valley-comparison-heading" className="font-playfair text-2xl font-semibold text-[#0f2b1e]">
             Comparing Spanish Trail with other Las Vegas areas
           </h2>
@@ -180,6 +183,7 @@ export default function RelocationPage() {
         </section>
 
         <section className="mt-12 rounded-2xl border border-[#0f2b1e]/20 bg-[#f8f5ef] p-6 sm:p-8" aria-labelledby="relocation-cta">
+      <SectionBanner headingId="relocation-cta" />
           <h2 id="relocation-cta" className="font-playfair text-xl font-semibold text-[#0f2b1e]">
             Start Your Relocation Conversation
           </h2>
@@ -207,6 +211,7 @@ export default function RelocationPage() {
         </section>
 
         <section className="mt-12" aria-labelledby="relocation-faq">
+      <SectionBanner headingId="relocation-faq" />
           <h2 id="relocation-faq" className="font-playfair text-2xl font-semibold text-[#0f2b1e]">
             Relocation FAQ
           </h2>

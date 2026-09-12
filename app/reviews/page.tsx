@@ -8,6 +8,8 @@ import { Button } from '@/components/ui/button'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { GBP_GOOGLE_REVIEW_URL, GBP_MAPS_URL } from '@/lib/gbp-business'
+import { SectionBanner } from '@/components/heading-media'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/reviews'
 const pageDescription =
@@ -165,9 +167,10 @@ export default function ReviewsPage() {
 function HeroSection() {
   return (
     <section
-      className="relative overflow-hidden bg-[#0f2b1e] px-6 py-20 text-primary-foreground sm:py-28"
+      className="relative overflow-hidden bg-[#0f2b1e] px-6 py-20 text-primary-foreground sm:py-28 isolate"
       aria-labelledby="reviews-hero-heading"
     >
+      <SectionBanner headingId="reviews-hero-heading" />
       <div className="mx-auto max-w-4xl text-center">
         <p className="text-xs uppercase tracking-[0.5em] text-primary-foreground/80">
           Google Business Profile
@@ -216,6 +219,7 @@ function ReviewLinkSection() {
       className="bg-white py-20 sm:py-24"
       aria-labelledby="review-link-heading"
     >
+      <SectionBanner headingId="review-link-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2
           id="review-link-heading"
@@ -266,6 +270,7 @@ function BenefitsSection({ benefits }: { benefits: BenefitItem[] }) {
       className="bg-[#f8f2e7] py-20 sm:py-24"
       aria-labelledby="benefits-heading"
     >
+      <SectionBanner headingId="benefits-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">
           Why reviews matter
@@ -305,6 +310,7 @@ function QRCodeSection() {
       className="bg-white py-20 sm:py-24"
       aria-labelledby="qr-code-heading"
     >
+      <SectionBanner headingId="qr-code-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 items-center">
           <div>
@@ -428,6 +434,7 @@ function ShareSection() {
       className="bg-[#f8f2e7] py-20 sm:py-24"
       aria-labelledby="share-heading"
     >
+      <SectionBanner headingId="share-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2
           id="share-heading"
@@ -464,6 +471,7 @@ function BestPracticesSection({ bestPractices }: { bestPractices: BestPracticeIt
       className="bg-white py-20 sm:py-24"
       aria-labelledby="best-practices-heading"
     >
+      <SectionBanner headingId="best-practices-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2
           id="best-practices-heading"
@@ -510,6 +518,7 @@ function NegativeReviewsSection() {
       className="bg-[#1a1a1a] py-20 sm:py-24 text-white"
       aria-labelledby="negative-reviews-heading"
     >
+      <SectionBanner headingId="negative-reviews-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2
           id="negative-reviews-heading"
@@ -565,9 +574,10 @@ function NegativeReviewsSection() {
 function CTASection() {
   return (
     <section
-      className="bg-[#0f2b1e] py-20 sm:py-24 text-white"
+      className="bg-[#0f2b1e] py-20 sm:py-24 text-white relative isolate overflow-hidden"
       aria-labelledby="cta-heading"
     >
+      <SectionBanner headingId="cta-heading" />
       <div className="mx-auto max-w-4xl px-6 text-center">
         <h2
           id="cta-heading"

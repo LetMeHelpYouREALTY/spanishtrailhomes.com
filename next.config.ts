@@ -13,7 +13,12 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'images.unsplash.com',
+        hostname: 'imagedelivery.net',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.spanishtrailhomes.com',
+        pathname: '/cdn-cgi/imagedelivery/**',
       },
       {
         protocol: 'https',

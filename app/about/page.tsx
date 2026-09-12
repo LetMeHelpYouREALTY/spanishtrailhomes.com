@@ -7,6 +7,9 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { getSiteImageUrl } from '@/lib/cloudflare-images'
+
 
 const aboutFaq = [
   {
@@ -238,7 +241,7 @@ function HeroSection() {
   return (
     <header className="relative isolate overflow-hidden text-[#f8f5ef]" aria-labelledby="about-hero-heading">
       <HeroBackground
-        src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&auto=format&fit=crop&w=2000"
+        src={getSiteImageUrl('h1-contact-office')}
         alt="Dr. Jan Duffy - Spanish Trail real estate agent and luxury home specialist in Las Vegas"
         overlayClassName="bg-gradient-to-b from-[#0f2b1e]/60 to-[#0f2b1e]/85"
         sizes="(max-width: 1024px) 100vw, 1200px"
@@ -275,6 +278,7 @@ function HeroSection() {
 function StorySection() {
   return (
     <section className="bg-white py-20 sm:py-24" aria-labelledby="story-heading">
+      <SectionBanner headingId="story-heading" />
       <div className="mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-[1.2fr_1fr]">
         <div className="space-y-5">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">Background</p>
@@ -316,6 +320,7 @@ function StorySection() {
 function PhilosophySection() {
   return (
     <section className="bg-[#0f2b1e] py-20 text-[#f8f5ef] sm:py-24" aria-labelledby="philosophy-heading">
+      <SectionBanner headingId="philosophy-heading" />
       <div className="mx-auto max-w-6xl space-y-8 px-6">
         <div className="space-y-4 text-center">
           <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/70">Brand Philosophy</p>
@@ -346,6 +351,7 @@ function PhilosophySection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#1f4a35]/60 bg-[#143927] p-6 shadow-lg shadow-black/20">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#f8f5ef]">{item.title}</h3>
               <p className="text-sm leading-relaxed text-[#f8f5ef]/80">{item.description}</p>
             </article>
@@ -359,6 +365,7 @@ function PhilosophySection() {
 function ApproachSection() {
   return (
     <section className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="approach-heading">
+      <SectionBanner headingId="approach-heading" />
       <div className="mx-auto max-w-6xl space-y-10 px-6">
         <div className="space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Advisory Approach</p>
@@ -376,6 +383,7 @@ function ApproachSection() {
               key={pillar.title}
               className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10"
             >
+              <CardVisual seed={String(pillar.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{pillar.title}</h3>
               <p className="text-sm leading-relaxed text-[#372a20]/85">{pillar.description}</p>
             </article>
@@ -389,6 +397,7 @@ function ApproachSection() {
 function CredentialsSection() {
   return (
     <section className="bg-white py-20 sm:py-24" aria-labelledby="credentials-heading">
+      <SectionBanner headingId="credentials-heading" />
       <div className="mx-auto max-w-6xl space-y-8 px-6">
         <div className="space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">Credentials & Recognition</p>
@@ -419,6 +428,7 @@ function CredentialsSection() {
 function CommunitySection() {
   return (
     <section className="bg-[#0f2b1e] py-20 text-[#f8f5ef] sm:py-24" aria-labelledby="community-heading">
+      <SectionBanner headingId="community-heading" />
       <div className="mx-auto max-w-6xl space-y-6 px-6">
         <div className="space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/70">Community Stewardship</p>
@@ -453,6 +463,7 @@ function CommunitySection() {
               key={item.title}
               className="rounded-3xl border border-white/15 bg-white/10 p-6 shadow-lg shadow-black/20 backdrop-blur"
             >
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-lg font-semibold text-white">{item.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-[#f8f5ef]/80">{item.description}</p>
             </article>
@@ -466,6 +477,7 @@ function CommunitySection() {
 function AboutFAQSection() {
   return (
     <section className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="about-faq-heading">
+      <SectionBanner headingId="about-faq-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">About Dr. Jan Duffy FAQ</p>
@@ -480,6 +492,7 @@ function AboutFAQSection() {
         <div className="mt-12 space-y-10">
           {aboutFaq.map((item) => (
             <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">
+              <CardVisual seed={String(item.question)} />
               <h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">
                 {item.question}
               </h3>
@@ -494,7 +507,8 @@ function AboutFAQSection() {
 
 function CTASection() {
   return (
-    <section className="bg-white py-20 sm:py-24" aria-labelledby="about-cta-heading">
+    <section className="bg-white py-20 sm:py-24 relative isolate overflow-hidden" aria-labelledby="about-cta-heading">
+      <SectionBanner headingId="about-cta-heading" />
       <div className="mx-auto max-w-4xl rounded-3xl border border-border/60 bg-[#0f2b1e] px-8 py-16 text-center text-[#f8f5ef] shadow-xl shadow-primary/20">
         <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/70">Work With Dr. Jan Duffy</p>
         <h2 id="about-cta-heading" className="mt-4 font-heading text-3xl leading-tight sm:text-4xl">

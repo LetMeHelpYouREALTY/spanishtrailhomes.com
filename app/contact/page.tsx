@@ -16,6 +16,8 @@ import {
   shouldShowPromotedSpecialHoursNotice,
 } from '@/lib/gbp-business'
 import { marketStats, formatMedianPrice } from '@/lib/marketStats'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/contact'
 const contactPageDescription =
@@ -163,7 +165,8 @@ export default function ContactPage() {
 
 function HeroSection() {
   return (
-    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="contact-hero-heading">
+    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="contact-hero-heading">
+      <SectionBanner headingId="contact-hero-heading" />
       <div className="mx-auto flex max-w-4xl flex-col gap-6 px-6 text-center">
         <h1 id="contact-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
           Spanish Trail Las Vegas Real Estate Expert | Dr. Jan Duffy
@@ -200,6 +203,7 @@ function HeroSection() {
 function ExpertiseSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="expertise-heading">
+      <SectionBanner headingId="expertise-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="expertise-heading" className="font-[var(--font-playfair)] text-2xl text-[#1f2a24] sm:text-3xl">
           Spanish Trail Guard-Gated Golf Community Expert
@@ -238,6 +242,7 @@ function ExpertiseSection() {
 function GolfLifestyleSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="golf-heading">
+      <SectionBanner headingId="golf-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="golf-heading" className="font-[var(--font-playfair)] text-2xl text-[#1f2a24] sm:text-3xl">
           Championship 27-Hole Golf Course Lifestyle
@@ -268,6 +273,7 @@ function GolfLifestyleSection() {
 function LuxuryInventorySection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="luxury-heading">
+      <SectionBanner headingId="luxury-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="luxury-heading" className="font-[var(--font-playfair)] text-2xl text-[#1f2a24] sm:text-3xl">
           Luxury Estates, Villas & Golf Course Homes
@@ -304,6 +310,7 @@ function MarketSnapshotSection() {
   ]
   return (
     <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="market-heading">
+      <SectionBanner headingId="market-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="market-heading" className="font-[var(--font-playfair)] text-2xl leading-tight sm:text-3xl">
           Current Spanish Trail Market: {formatMedianPrice(marketStats.median_price)} Median ({marketStats.date_label})
@@ -327,6 +334,7 @@ function MarketSnapshotSection() {
 function NeighborhoodFitSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="neighborhood-heading">
+      <SectionBanner headingId="neighborhood-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="neighborhood-heading" className="font-[var(--font-playfair)] text-2xl text-[#1f2a24] sm:text-3xl">
           11 Neighborhoods, 1,200+ Homes—Which Fits You?
@@ -363,6 +371,7 @@ function NeighborhoodFitSection() {
 function ContactCTASection() {
   return (
     <section id="schedule" className="bg-[#f8f2e7] py-12 sm:py-20" aria-labelledby="contact-heading">
+      <SectionBanner headingId="contact-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="contact-heading" className="font-[var(--font-playfair)] text-2xl text-[#1f2a24] sm:text-3xl">
           Let&apos;s align your Spanish Trail move with this week&apos;s data
@@ -400,6 +409,7 @@ function GBPIntegrationSection() {
   
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="gbp-heading">
+      <SectionBanner headingId="gbp-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="gbp-heading" className="font-[var(--font-playfair)] text-2xl text-[#1f2a24] sm:text-3xl">
           Visit Spanish Trail | Homes By Dr. Jan Duffy
@@ -503,6 +513,7 @@ function GBPIntegrationSection() {
 function FAQSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="faq-heading">
+      <SectionBanner headingId="faq-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="faq-heading" className="font-[var(--font-playfair)] text-2xl text-[#1f2a24] sm:text-3xl">
           Spanish Trail Homes Questions Answered
@@ -510,6 +521,7 @@ function FAQSection() {
         <div className="mt-8 grid grid-cols-1 gap-6">
           {faqContent.map((item) => (
             <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-base leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.question)} />
               <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">{item.question}</h3>
               <p>{item.answer}</p>
             </article>

@@ -10,6 +10,8 @@ import { Button } from '@/components/ui/button'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
 import { marketStats, formatMedianPrice } from '@/lib/marketStats'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-homes-for-sale-las-vegas'
 
@@ -136,7 +138,8 @@ export default function SpanishTrailHomesForSalePage() {
 
 function HeroSection() {
   return (
-    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="hero-heading">
+    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="hero-heading">
+      <SectionBanner headingId="hero-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h1 id="hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
           Spanish Trail Las Vegas Homes for Sale | MLS & Country Club Area
@@ -178,6 +181,7 @@ function HeroSection() {
 function MarketOverviewSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="market-overview-heading">
+      <SectionBanner headingId="market-overview-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="market-overview-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Current Spanish Trail market snapshot ({marketStats.date_label})
@@ -215,6 +219,7 @@ function MarketOverviewSection() {
 function BuyingExperienceSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="buying-experience-heading">
+      <SectionBanner headingId="buying-experience-heading" />
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 lg:grid-cols-[1.1fr_1fr]">
         <div className="space-y-6">
           <h2 id="buying-experience-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
@@ -267,6 +272,7 @@ function BuyingExperienceSection() {
 function NeighborhoodHighlightsSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="neighborhood-highlights-heading">
+      <SectionBanner headingId="neighborhood-highlights-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="neighborhood-highlights-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Top Spanish Trail neighborhoods for today’s buyers
@@ -294,6 +300,7 @@ function NeighborhoodHighlightsSection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <p>{item.detail}</p>
             </article>
@@ -307,6 +314,7 @@ function NeighborhoodHighlightsSection() {
 function HomeDesignSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="home-design-heading">
+      <SectionBanner headingId="home-design-heading" />
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 lg:grid-cols-[1.1fr_1fr]">
         <div className="space-y-6">
           <h2 id="home-design-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
@@ -350,6 +358,7 @@ function HomeDesignSection() {
 function FinancingSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="financing-heading">
+      <SectionBanner headingId="financing-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="financing-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Financing and negotiation strategies that win
@@ -380,6 +389,7 @@ function FinancingSection() {
 function TourProcessSection() {
   return (
     <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="tour-process-heading">
+      <SectionBanner headingId="tour-process-heading" />
       <div className="mx-auto max-w-6xl space-y-6 px-6">
         <h2 id="tour-process-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
           How to tour Spanish Trail homes with me
@@ -413,6 +423,7 @@ function TourProcessSection() {
 function FAQSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="faq-heading">
+      <SectionBanner headingId="faq-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="faq-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Live listings, alerts & tour questions
@@ -420,6 +431,7 @@ function FAQSection() {
         <div className="mt-10 space-y-6">
           {faqContent.map((item) => (
             <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-base leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.question)} />
               <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">{item.question}</h3>
               <p>{item.answer}</p>
             </article>
@@ -432,7 +444,8 @@ function FAQSection() {
 
 function ContactCTASection() {
   return (
-    <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="contact-cta-heading">
+    <section className="bg-[#f8f2e7] py-16 sm:py-20 relative isolate overflow-hidden" aria-labelledby="contact-cta-heading">
+      <SectionBanner headingId="contact-cta-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6 text-center">
         <h2 id="contact-cta-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Ready to explore Spanish Trail homes?

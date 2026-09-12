@@ -8,6 +8,8 @@ import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-gated-golf-realtor'
 
@@ -128,7 +130,8 @@ export default function SpanishTrailGatedGolfRealtorPage() {
 
 function HeroSection() {
   return (
-    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="gated-golf-hero-heading">
+    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="gated-golf-hero-heading">
+      <SectionBanner headingId="gated-golf-hero-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h1 id="gated-golf-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
           Gated Golf Community Spanish Trail Las Vegas Realtor
@@ -164,6 +167,7 @@ function HeroSection() {
 function ValueSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="value-heading">
+      <SectionBanner headingId="value-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="value-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           What sets my Spanish Trail representation apart
@@ -190,6 +194,7 @@ function ValueSection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <p>{item.detail}</p>
             </article>
@@ -203,6 +208,7 @@ function ValueSection() {
 function ExpertiseSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="expertise-heading">
+      <SectionBanner headingId="expertise-heading" />
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 lg:grid-cols-[1.1fr_1fr]">
         <div className="space-y-6">
           <h2 id="expertise-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
@@ -242,6 +248,7 @@ function ExpertiseSection() {
 function DataSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="data-heading">
+      <SectionBanner headingId="data-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="data-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Real-time data, not outdated reports
@@ -273,6 +280,7 @@ function DataSection() {
 function ConciergeSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="concierge-heading">
+      <SectionBanner headingId="concierge-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="concierge-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Concierge services tailored to gated golf buyers
@@ -299,6 +307,7 @@ function ConciergeSection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <p>{item.detail}</p>
             </article>
@@ -312,6 +321,7 @@ function ConciergeSection() {
 function SellerSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="seller-heading">
+      <SectionBanner headingId="seller-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="seller-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Representing Spanish Trail sellers with precision
@@ -337,6 +347,7 @@ function SellerSection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <p>{item.detail}</p>
             </article>
@@ -350,6 +361,7 @@ function SellerSection() {
 function TestimonialsSection() {
   return (
     <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="gated-golf-testimonials-heading">
+      <SectionBanner headingId="gated-golf-testimonials-heading" />
       <div className="mx-auto max-w-6xl space-y-8 px-6">
         <h2 id="gated-golf-testimonials-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
           Clients on partnering with Dr. Jan
@@ -379,6 +391,7 @@ function TestimonialsSection() {
 function FAQSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="gated-golf-faq-heading">
+      <SectionBanner headingId="gated-golf-faq-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="gated-golf-faq-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Spanish Trail realtor FAQs
@@ -386,6 +399,7 @@ function FAQSection() {
         <div className="mt-10 space-y-6">
           {faqContent.map((item) => (
             <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-base leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.question)} />
               <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">{item.question}</h3>
               <p>{item.answer}</p>
             </article>
@@ -399,6 +413,7 @@ function FAQSection() {
 function ConnectSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="gated-golf-connect-heading">
+      <SectionBanner headingId="gated-golf-connect-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6 text-center">
         <h2 id="gated-golf-connect-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Let’s plan your Spanish Trail move

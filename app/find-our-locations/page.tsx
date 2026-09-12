@@ -6,6 +6,8 @@ import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { SectionBanner } from '@/components/heading-media'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/find-our-locations'
 const pageDescription =
@@ -164,6 +166,7 @@ function HeroSection() {
       className="relative overflow-hidden bg-[#0f2b1e] px-6 py-20 text-primary-foreground sm:py-28"
       aria-labelledby="find-locations-heading"
     >
+      <SectionBanner headingId="find-locations-heading" />
       <div className="mx-auto max-w-4xl text-center">
         <p className="text-xs uppercase tracking-[0.5em] text-primary-foreground/80">
           Store locator
@@ -191,6 +194,7 @@ function GetStartedSection({ steps }: { steps: StepItem[] }) {
       className="bg-white py-20 sm:py-24"
       aria-labelledby="get-started-heading"
     >
+      <SectionBanner headingId="get-started-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2
           id="get-started-heading"
@@ -237,6 +241,7 @@ function ChooseLocationsSection({
       className="bg-[#f8f2e7] py-20 sm:py-24"
       aria-labelledby="choose-locations-heading"
     >
+      <SectionBanner headingId="choose-locations-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">
           Our locations
@@ -299,6 +304,7 @@ function MapAndActionsSection({
       className="bg-white py-20 sm:py-24"
       aria-labelledby="map-heading"
     >
+      <SectionBanner headingId="map-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2
           id="map-heading"
@@ -395,6 +401,7 @@ function AddMapSection() {
       className="bg-[#f8f2e7] py-20 sm:py-24"
       aria-labelledby="add-map-heading"
     >
+      <SectionBanner headingId="add-map-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2
           id="add-map-heading"

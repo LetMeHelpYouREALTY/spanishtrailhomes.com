@@ -13,6 +13,8 @@ import {
   structuredDataSiteUrl,
 } from '@/lib/structuredData'
 import { GBP_GOOGLE_REVIEW_URL, GBP_PROFILE_SHARE_URL } from '@/lib/gbp-business'
+import { SectionBanner } from '@/components/heading-media'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/google-business-profile'
 const pageDescription =
@@ -128,9 +130,10 @@ export default function GoogleBusinessProfilePage() {
 function HeroSection() {
   return (
     <section
-      className="relative overflow-hidden bg-[#0f2b1e] px-6 py-20 text-primary-foreground sm:py-28"
+      className="relative overflow-hidden bg-[#0f2b1e] px-6 py-20 text-primary-foreground sm:py-28 isolate"
       aria-labelledby="gbp-hero-heading"
     >
+      <SectionBanner headingId="gbp-hero-heading" />
       <div className="mx-auto max-w-4xl text-center">
         <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium mb-6">
           <svg className="size-5 text-[#4285F4]" viewBox="0 0 24 24" fill="currentColor">
@@ -183,6 +186,7 @@ function BusinessInfoSection() {
       className="bg-white py-20 sm:py-24"
       aria-labelledby="business-info-heading"
     >
+      <SectionBanner headingId="business-info-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           <div>
@@ -318,6 +322,7 @@ function ProfileFeaturesSection({ features }: { features: ProfileFeature[] }) {
       className="bg-[#f8f2e7] py-20 sm:py-24"
       aria-labelledby="features-heading"
     >
+      <SectionBanner headingId="features-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2
           id="features-heading"
@@ -360,6 +365,7 @@ function ReviewsHighlightSection() {
       className="bg-white py-20 sm:py-24"
       aria-labelledby="reviews-highlight-heading"
     >
+      <SectionBanner headingId="reviews-highlight-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 items-center">
           <div>
@@ -435,6 +441,7 @@ function ConnectSection() {
       className="bg-[#0f2b1e] py-20 sm:py-24 text-white"
       aria-labelledby="connect-heading"
     >
+      <SectionBanner headingId="connect-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2
           id="connect-heading"
@@ -515,6 +522,7 @@ function FAQSection() {
       className="bg-white py-20 sm:py-24"
       aria-labelledby="faq-heading"
     >
+      <SectionBanner headingId="faq-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2
           id="faq-heading"

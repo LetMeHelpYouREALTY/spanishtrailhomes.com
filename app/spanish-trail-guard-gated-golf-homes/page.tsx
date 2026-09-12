@@ -8,6 +8,8 @@ import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-guard-gated-golf-homes'
 
@@ -128,7 +130,8 @@ export default function GuardGatedGolfHomesPage() {
 
 function HeroSection() {
   return (
-    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="guard-gated-hero-heading">
+    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="guard-gated-hero-heading">
+      <SectionBanner headingId="guard-gated-hero-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h1 id="guard-gated-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
           Guard-Gated Golf Community Homes in Spanish Trail
@@ -156,6 +159,7 @@ function HeroSection() {
 function SecuritySection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="security-heading">
+      <SectionBanner headingId="security-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="security-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           What 24/7 Spanish Trail security looks like in practice
@@ -182,6 +186,7 @@ function SecuritySection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <p>{item.detail}</p>
             </article>
@@ -198,6 +203,7 @@ function SecuritySection() {
 function GateComparisonSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="gate-comparison-heading">
+      <SectionBanner headingId="gate-comparison-heading" />
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 lg:grid-cols-[1.1fr_1fr]">
         <div className="space-y-6">
           <h2 id="gate-comparison-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
@@ -237,6 +243,7 @@ function GateComparisonSection() {
 function LifestyleSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="lifestyle-heading">
+      <SectionBanner headingId="lifestyle-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="lifestyle-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Guard-gated living meets championship golf and wellness
@@ -263,6 +270,7 @@ function LifestyleSection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <p>{item.detail}</p>
             </article>
@@ -279,6 +287,7 @@ function LifestyleSection() {
 function BuyerStrategySection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="strategy-heading">
+      <SectionBanner headingId="strategy-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="strategy-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Buyer strategy: how we secure the right home behind the gates
@@ -305,6 +314,7 @@ function BuyerStrategySection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <p>{item.detail}</p>
             </article>
@@ -321,6 +331,7 @@ function BuyerStrategySection() {
 function MembershipSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="membership-heading">
+      <SectionBanner headingId="membership-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="membership-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Aligning guard-gated living with Spanish Trail membership options
@@ -348,6 +359,7 @@ function MembershipSection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <ul className="space-y-2">
                 {item.points.map((point) => (
@@ -368,6 +380,7 @@ function MembershipSection() {
 function TestimonialsSection() {
   return (
     <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="testimonials-heading">
+      <SectionBanner headingId="testimonials-heading" />
       <div className="mx-auto max-w-6xl space-y-8 px-6">
         <h2 id="testimonials-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
           Guard-gated buyers on working with Dr. Jan
@@ -397,6 +410,7 @@ function TestimonialsSection() {
 function FAQSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="guard-gated-faq-heading">
+      <SectionBanner headingId="guard-gated-faq-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="guard-gated-faq-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Guard-gated Spanish Trail FAQs
@@ -404,6 +418,7 @@ function FAQSection() {
         <div className="mt-10 space-y-6">
           {faqContent.map((item) => (
             <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-base leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.question)} />
               <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">{item.question}</h3>
               <p>{item.answer}</p>
             </article>
@@ -417,6 +432,7 @@ function FAQSection() {
 function ContactCTASection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="guard-gated-contact-heading">
+      <SectionBanner headingId="guard-gated-contact-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6 text-center">
         <h2 id="guard-gated-contact-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Ready to experience Spanish Trail security firsthand?

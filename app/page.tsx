@@ -17,6 +17,9 @@ import { FeaturedListings } from '@/components/featured-listings'
 import { PropertyLightboxProvider, PropertyLightboxTrigger } from '@/components/property-lightbox'
 import { TestimonialCarousel } from '@/components/testimonial-carousel'
 import { TourCTAStrip } from '@/components/tour-cta-strip'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { getSiteImageUrl } from '@/lib/cloudflare-images'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/'
 const homePageDescription =
@@ -256,7 +259,7 @@ function HeroSection() {
       aria-labelledby="hero-heading"
     >
       <HeroBackground
-        src="https://images.unsplash.com/photo-1474926143295-7f42d6764bed?q=80&auto=format&fit=crop&w=2000"
+        src={getSiteImageUrl('h1-guard-gate')}
         alt="Spanish Trail Country Club guard-gated luxury homes and golf course in Las Vegas 89113"
         overlayClassName="bg-gradient-to-b from-[#0f2b1e]/55 to-[#0f2b1e]/80"
         priority
@@ -306,6 +309,7 @@ function HeroSection() {
 function IntroSection() {
   return (
     <section className="bg-white py-20" aria-labelledby="intro-heading">
+      <SectionBanner headingId="intro-heading" />
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 lg:grid-cols-[1.2fr_1fr]">
         <div className="space-y-6">
           <h2 id="intro-heading" className="font-heading text-3xl text-foreground sm:text-4xl">
@@ -433,6 +437,7 @@ const journeySteps = [
 function JourneySection() {
   return (
     <section className="border-y border-[#0b2016] bg-[#0f2b1e] py-20 sm:py-24" aria-labelledby="journey-heading">
+      <SectionBanner headingId="journey-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4 text-center">
           <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/75">Your Path to Spanish Trail</p>
@@ -449,6 +454,7 @@ function JourneySection() {
               key={step.title}
               className="rounded-3xl border border-[#1f4a35]/80 bg-[#16402d] p-6 shadow-lg shadow-black/20 text-center"
             >
+              <CardVisual seed={String(step.title)} />
               <p className="text-xs uppercase tracking-[0.4em] text-[#f8f5ef]/75">Step {i + 1}</p>
               <h3 className="mt-3 font-heading text-xl text-[#f8f5ef]">{step.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-[#f8f5ef]/80">{step.description}</p>
@@ -463,6 +469,7 @@ function JourneySection() {
 function NeighborhoodSpotlightsSection() {
   return (
     <section className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="neighborhood-spotlights-heading">
+      <SectionBanner headingId="neighborhood-spotlights-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Home Buyer Spotlight</p>
@@ -506,6 +513,7 @@ function NeighborhoodSpotlightsSection() {
 function MarketPreviewSection() {
   return (
     <section className="border-y border-border/40 bg-white" aria-labelledby="market-preview-heading">
+      <SectionBanner headingId="market-preview-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-20">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl space-y-3">
@@ -531,6 +539,7 @@ function MarketPreviewSection() {
               key={item.label}
               className="rounded-3xl border border-border/40 bg-white p-6 shadow-md shadow-primary/10"
             >
+              <CardVisual seed={String(item.label)} />
               <p className="text-xs uppercase tracking-[0.4em] text-secondary">{item.label}</p>
                 <p className="mt-3 font-heading text-2xl text-[#1f2a24]">{item.value}</p>
               <p className="mt-2 text-xs uppercase tracking-[0.3em] text-muted-foreground">{item.trend} change</p>
@@ -552,6 +561,7 @@ const insightHighlights = [
 function InsightsPreviewSection() {
   return (
     <section className="bg-white py-20 sm:py-24" aria-labelledby="insights-preview-heading">
+      <SectionBanner headingId="insights-preview-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Strategy & Advisory</p>
@@ -668,6 +678,7 @@ const exploreCards = [
 function ExploreFurtherSection() {
   return (
     <section className="bg-[#f9f4eb] py-20 sm:py-24" aria-labelledby="explore-further-heading">
+      <SectionBanner headingId="explore-further-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">Deeper resources</p>
@@ -706,6 +717,7 @@ function ExploreFurtherSection() {
 function FAQSection() {
   return (
     <section className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="faq-heading">
+      <SectionBanner headingId="faq-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Spanish Trail Homes FAQ</p>
@@ -735,6 +747,7 @@ function FAQSection() {
         <div className="mt-12 space-y-10">
           {homeFaq.map((item) => (
             <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">
+              <CardVisual seed={String(item.question)} />
               <h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">
                 {item.question}
               </h3>
@@ -749,7 +762,8 @@ function FAQSection() {
 
 function CTASection() {
   return (
-    <section className="bg-primary py-20 text-primary-foreground" aria-labelledby="cta-heading">
+    <section className="bg-primary py-20 text-primary-foreground relative isolate overflow-hidden" aria-labelledby="cta-heading">
+      <SectionBanner headingId="cta-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h2 id="cta-heading" className="font-heading text-3xl leading-tight sm:text-4xl">
           Ready to Find Your Dream Home?
@@ -786,6 +800,7 @@ function CTASection() {
 function AdvancedSearchSection() {
   return (
     <section className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="advanced-search-heading">
+      <SectionBanner headingId="advanced-search-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4 text-center sm:mx-auto">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Tailored Search</p>

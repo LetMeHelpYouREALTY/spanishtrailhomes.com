@@ -9,6 +9,8 @@ import { Button } from '@/components/ui/button'
 import { homeDeepDive, neighborhoodSpotlights } from '@/lib/spanishTrailContent'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { createOgImageUrl, getCanonicalUrl, createArticleSchema, createBreadcrumbSchema } from '@/lib/structuredData'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-insights'
 
@@ -124,7 +126,8 @@ export const metadata: Metadata = {
 export default function SpanishTrailInsightsPage() {
   return (
     <SiteShell>
-      <header className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="insights-hero">
+      <header className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="insights-hero">
+      <SectionBanner headingId="insights-hero" />
         <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
           <h1 id="insights-hero" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
             Spanish Trail Insights & Advisory
@@ -195,6 +198,7 @@ function InsightBriefingsSection() {
       className="bg-[#f8f2e7] py-20 sm:py-24"
       aria-labelledby="insight-briefings-heading"
     >
+      <SectionBanner headingId="insight-briefings-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Deep Dive Briefings</p>
@@ -215,6 +219,7 @@ function InsightBriefingsSection() {
               key={topic.title}
               className="space-y-6 rounded-3xl border border-[#d8cdbf] bg-white p-8 shadow-lg shadow-primary/10"
             >
+              <CardVisual seed={String(topic.title)} />
               <h3 className="text-lg font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">
                 {topic.title}
               </h3>
@@ -234,6 +239,7 @@ function InsightBriefingsSection() {
 function NeighborhoodSpotlightSection() {
   return (
     <section className="bg-white py-20 sm:py-24" aria-labelledby="insight-neighborhoods-heading">
+      <SectionBanner headingId="insight-neighborhoods-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl space-y-3">
@@ -278,6 +284,7 @@ function NeighborhoodSpotlightSection() {
 function AdvisoryServicesSection() {
   return (
     <section className="bg-[#ebe0d3] py-20 sm:py-24" aria-labelledby="advisory-services-heading">
+      <SectionBanner headingId="advisory-services-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">Advisory Services</p>
@@ -310,6 +317,7 @@ function AdvisoryServicesSection() {
 function InsightsFAQSection() {
   return (
     <section className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="insights-faq-heading">
+      <SectionBanner headingId="insights-faq-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Spanish Trail Insights FAQ</p>
@@ -324,6 +332,7 @@ function InsightsFAQSection() {
         <div className="mt-12 space-y-10">
           {insightsFaq.map((item) => (
             <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">
+              <CardVisual seed={String(item.question)} />
               <h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">
                 {item.question}
               </h3>
@@ -338,7 +347,8 @@ function InsightsFAQSection() {
 
 function InsightsCTASection() {
   return (
-    <section className="bg-[#0f2b1e] py-20 text-[#f8f5ef]" aria-labelledby="insights-cta-heading">
+    <section className="bg-[#0f2b1e] py-20 text-[#f8f5ef] relative isolate overflow-hidden" aria-labelledby="insights-cta-heading">
+      <SectionBanner headingId="insights-cta-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h2 id="insights-cta-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
           Ready to apply these insights to your move?

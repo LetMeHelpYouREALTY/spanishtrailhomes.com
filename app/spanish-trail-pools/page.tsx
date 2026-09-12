@@ -8,6 +8,8 @@ import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-pools'
 const pageDescription =
@@ -140,7 +142,8 @@ export default function SpanishTrailPoolsPage() {
 
 function HeroSection() {
   return (
-    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="pools-hero-heading">
+    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="pools-hero-heading">
+      <SectionBanner headingId="pools-hero-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <p className="text-xs uppercase tracking-[0.5em] text-[#c6aa7a]">Aquatic Living</p>
         <h1 id="pools-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
@@ -170,6 +173,7 @@ function HeroSection() {
 function AquaticCentersSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="aquatic-heading">
+      <SectionBanner headingId="aquatic-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.1fr_1fr]">
           <div className="space-y-6">
@@ -211,6 +215,7 @@ function AquaticCentersSection() {
 function FeaturesSection() {
   return (
     <section className="border-y border-border/60 bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="features-heading">
+      <SectionBanner headingId="features-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Pool Amenities</p>
@@ -263,6 +268,7 @@ function FeaturesSection() {
 function ProgramsSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="programs-heading">
+      <SectionBanner headingId="programs-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           <div className="space-y-6">
@@ -310,6 +316,7 @@ function ProgramsSection() {
 function FAQSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="pools-faq-heading">
+      <SectionBanner headingId="pools-faq-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="pools-faq-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Aquatic Center FAQs
@@ -317,6 +324,7 @@ function FAQSection() {
         <div className="mt-10 space-y-6">
           {faqContent.map((item) => (
             <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10 text-base leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.question)} />
               <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">{item.question}</h3>
               <p>{item.answer}</p>
             </article>
@@ -329,7 +337,8 @@ function FAQSection() {
 
 function CTASection() {
   return (
-    <section className="bg-white py-16 sm:py-20" aria-labelledby="pools-cta-heading">
+    <section className="bg-white py-16 sm:py-20 relative isolate overflow-hidden" aria-labelledby="pools-cta-heading">
+      <SectionBanner headingId="pools-cta-heading" />
       <div className="mx-auto max-w-6xl px-4 text-center sm:px-6">
         <h2 id="pools-cta-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Dive into the Spanish Trail lifestyle

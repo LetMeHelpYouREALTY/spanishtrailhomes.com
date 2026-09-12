@@ -10,6 +10,9 @@ import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { HeroBackground } from '@/components/hero-background'
 import { localEssentials } from '@/lib/spanishTrailContent'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { getSiteImageUrl } from '@/lib/cloudflare-images'
+
 
 const guestNarratives = [
   {
@@ -183,7 +186,7 @@ function GuestHero() {
       aria-labelledby="guest-hero-heading"
     >
       <HeroBackground
-        src="https://images.unsplash.com/photo-1462212210362-162e9f0ce5a1?q=80&auto=format&fit=crop&w=2000"
+        src={getSiteImageUrl('h2-guest-casita')}
         alt="Spanish Trail Country Club guest information and directions in Las Vegas 89113"
         overlayClassName="bg-gradient-to-b from-[#0f2b1e]/55 via-[#0f2b1e]/65 to-[#0f2b1e]/80"
         sizes="(max-width: 1024px) 100vw, 1280px"
@@ -216,6 +219,7 @@ function DirectionsSection() {
       className="bg-background py-20 sm:py-24"
       aria-labelledby="directions-heading"
     >
+      <SectionBanner headingId="directions-heading" />
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 lg:grid-cols-[1fr_1.2fr]">
         <div className="space-y-5">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">
@@ -256,6 +260,7 @@ function DirectionsSection() {
 function GuestNarrativesSection() {
   return (
     <section className="bg-white py-20 sm:py-24" aria-labelledby="guest-narratives-heading">
+      <SectionBanner headingId="guest-narratives-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Visitor Experience</p>
@@ -270,6 +275,7 @@ function GuestNarrativesSection() {
         <div className="mt-12 space-y-12">
           {guestNarratives.map((topic) => (
             <article key={topic.title} className="space-y-6 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-8 shadow-lg shadow-primary/10">
+              <CardVisual seed={String(topic.title)} />
               <h3 className="text-lg font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">
                 {topic.title}
               </h3>
@@ -293,6 +299,7 @@ function EtiquetteSection() {
       className="border-y border-border/60 bg-card/80"
       aria-labelledby="etiquette-heading"
     >
+      <SectionBanner headingId="etiquette-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-20">
         <div className="max-w-2xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">
@@ -354,6 +361,7 @@ function ArrivalSection() {
       className="bg-background py-20 sm:py-24"
       aria-labelledby="arrival-heading"
     >
+      <SectionBanner headingId="arrival-heading" />
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 lg:grid-cols-[1.1fr_1fr]">
         <div className="space-y-5">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">
@@ -394,6 +402,7 @@ function LocalEssentialsSection() {
       className="bg-[#f8f2e7] py-20 sm:py-24"
       aria-labelledby="local-essentials-heading"
     >
+      <SectionBanner headingId="local-essentials-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Beyond the gates</p>
@@ -438,6 +447,7 @@ function ContactSection() {
       className="border-y border-border/60 bg-card/80"
       aria-labelledby="guest-contact-heading"
     >
+      <SectionBanner headingId="guest-contact-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 py-20 text-center">
         <p className="text-xs uppercase tracking-[0.5em] text-secondary">
           Concierge
@@ -513,6 +523,7 @@ function ContactSection() {
 function GuestFAQSection() {
   return (
     <section className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="guest-faq-heading">
+      <SectionBanner headingId="guest-faq-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Spanish Trail Guest FAQ</p>
@@ -526,6 +537,7 @@ function GuestFAQSection() {
         <div className="mt-12 space-y-10">
           {guestFaq.map((item) => (
             <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">
+              <CardVisual seed={String(item.question)} />
               <h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">
                 {item.question}
               </h3>

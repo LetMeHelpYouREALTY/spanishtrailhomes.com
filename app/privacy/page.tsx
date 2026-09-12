@@ -7,6 +7,9 @@ import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { getSiteImageUrl } from '@/lib/cloudflare-images'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/privacy'
 const privacyPageDescription =
@@ -148,7 +151,7 @@ function HeroSection() {
   return (
     <header className="relative isolate overflow-hidden text-[#f8f5ef]" aria-labelledby="privacy-hero-heading">
       <HeroBackground
-        src="https://images.unsplash.com/photo-1575517111478-7f6afd0973db?q=80&auto=format&fit=crop&w=2000"
+        src={getSiteImageUrl('h1-contact-office')}
         alt="Spanish Trail Homes privacy policy for Dr. Jan Duffy real estate services in Las Vegas"
         overlayClassName="bg-gradient-to-b from-[#0f2b1e]/55 to-[#0f2b1e]/85"
         sizes="(max-width: 1024px) 100vw, 1280px"
@@ -186,6 +189,7 @@ function HeroSection() {
 function DataCollectionSection() {
   return (
     <section id="data-collection" className="bg-white py-20 sm:py-24" aria-labelledby="data-collection-heading">
+      <SectionBanner headingId="data-collection-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">Information Collected</p>
@@ -203,6 +207,7 @@ function DataCollectionSection() {
               key={item.label}
               className="rounded-3xl border border-border/40 bg-[#f8f2e7] p-6 shadow-lg shadow-primary/10"
             >
+              <CardVisual seed={String(item.label)} />
               <h3 className="font-heading text-xl text-[#1f2a24]">{item.label}</h3>
               <p className="mt-4 text-sm leading-relaxed text-[#372a20]/85">{item.description}</p>
             </article>
@@ -216,6 +221,7 @@ function DataCollectionSection() {
 function DataUsageSection() {
   return (
     <section id="data-usage" className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="data-usage-heading">
+      <SectionBanner headingId="data-usage-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-3xl space-y-4">
@@ -239,6 +245,7 @@ function DataUsageSection() {
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
           {dataUses.map((item) => (
             <article key={item.label} className="rounded-3xl border border-[#cdbda5] bg-white p-6 shadow-lg shadow-primary/10">
+              <CardVisual seed={String(item.label)} />
               <h3 className="font-heading text-xl text-[#1f2a24]">{item.label}</h3>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
             </article>
@@ -252,6 +259,7 @@ function DataUsageSection() {
 function CookieSection() {
   return (
     <section id="cookies" className="bg-white py-20 sm:py-24" aria-labelledby="cookies-heading">
+      <SectionBanner headingId="cookies-heading" />
       <div className="mx-auto max-w-5xl px-6 space-y-6">
         <div className="space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">Cookies & Analytics</p>
@@ -286,6 +294,7 @@ function CookieSection() {
 function InformationSharingSection() {
   return (
     <section id="information-sharing" className="bg-[#0f2b1e] py-20 text-[#f8f5ef] sm:py-24" aria-labelledby="sharing-heading">
+      <SectionBanner headingId="sharing-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6 space-y-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/70">Information Sharing</p>
@@ -299,6 +308,7 @@ function InformationSharingSection() {
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <article className="rounded-3xl border border-white/15 bg-white/10 p-6 shadow-lg shadow-black/20 backdrop-blur">
+              <CardVisual seed="card-3" />
             <h3 className="font-heading text-xl text-white">Service partners bound by contract</h3>
             <p className="mt-3 text-sm leading-relaxed text-[#f8f5ef]/80">
               Escrow officers, transaction coordinators, professional photographers, and marketing vendors supporting Spanish
@@ -306,6 +316,7 @@ function InformationSharingSection() {
             </p>
           </article>
           <article className="rounded-3xl border border-white/15 bg-white/10 p-6 shadow-lg shadow-black/20 backdrop-blur">
+              <CardVisual seed="card-4" />
             <h3 className="font-heading text-xl text-white">Legal or regulatory disclosures</h3>
             <p className="mt-3 text-sm leading-relaxed text-[#f8f5ef]/80">
               Data may be disclosed when required by subpoenas, court orders, Nevada Real Estate Division audits, or to enforce
@@ -321,6 +332,7 @@ function InformationSharingSection() {
 function OptOutSection() {
   return (
     <section id="communications" className="bg-white py-20 sm:py-24" aria-labelledby="communications-heading">
+      <SectionBanner headingId="communications-heading" />
       <div className="mx-auto max-w-5xl px-6 space-y-6">
         <div className="space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">Your Choices</p>
@@ -352,6 +364,7 @@ function OptOutSection() {
 function SecuritySection() {
   return (
     <section id="security" className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="security-heading">
+      <SectionBanner headingId="security-heading" />
       <div className="mx-auto max-w-5xl px-6 space-y-6">
         <div className="space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Safeguards</p>
@@ -385,6 +398,7 @@ function ContactSection() {
       className="bg-white py-20 sm:py-24"
       aria-labelledby="privacy-contact-heading"
     >
+      <SectionBanner headingId="privacy-contact-heading" />
       <div className="mx-auto max-w-4xl rounded-3xl border border-border/40 bg-[#0f2b1e] px-8 py-16 text-center text-[#f8f5ef] shadow-xl shadow-primary/20">
         <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/70">Contact for Privacy Matters</p>
         <h2 id="privacy-contact-heading" className="mt-4 font-heading text-3xl leading-tight sm:text-4xl">

@@ -1,5 +1,6 @@
 import { ReactNode } from 'react'
 
+import { SectionBanner } from '@/components/heading-media'
 import { WidgetLoadingOverlay } from '@/components/widget-loading-overlay'
 
 interface RealScoutSectionProps {
@@ -36,6 +37,7 @@ export function RealScoutSection({
       className={`bg-[#f9f4eb] py-20 ${className ?? ''}`}
       aria-labelledby={headingId}
     >
+      <SectionBanner headingId={headingId} />
       <div className="mx-auto max-w-6xl px-6">
         <div className="space-y-4 text-center">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">

@@ -6,6 +6,8 @@ import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { SectionBanner } from '@/components/heading-media'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/address-autocomplete'
 const pageDescription =
@@ -146,9 +148,10 @@ export default function AddressAutocompletePage() {
 function HeroSection() {
   return (
     <section
-      className="relative overflow-hidden bg-[#0f2b1e] px-6 py-20 text-primary-foreground sm:py-28"
+      className="relative overflow-hidden bg-[#0f2b1e] px-6 py-20 text-primary-foreground sm:py-28 isolate"
       aria-labelledby="autocomplete-hero-heading"
     >
+      <SectionBanner headingId="autocomplete-hero-heading" />
       <div className="mx-auto max-w-4xl text-center">
         <p className="text-xs uppercase tracking-[0.5em] text-primary-foreground/80">
           Google Maps Platform
@@ -196,6 +199,7 @@ function BenefitsSection({ benefits }: { benefits: BenefitItem[] }) {
       className="bg-white py-20 sm:py-24"
       aria-labelledby="benefits-heading"
     >
+      <SectionBanner headingId="benefits-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2
           id="benefits-heading"
@@ -237,6 +241,7 @@ function HowItWorksSection({ steps }: { steps: StepItem[] }) {
       className="bg-[#f8f2e7] py-20 sm:py-24"
       aria-labelledby="how-it-works-heading"
     >
+      <SectionBanner headingId="how-it-works-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">
           Simple integration
@@ -283,6 +288,7 @@ function LiveDemoSection() {
       className="bg-white py-20 sm:py-24"
       aria-labelledby="demo-heading"
     >
+      <SectionBanner headingId="demo-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2
           id="demo-heading"
@@ -406,6 +412,7 @@ function getComponent(place, type) {
       className="bg-[#1a1a1a] py-20 sm:py-24 text-white"
       aria-labelledby="code-heading"
     >
+      <SectionBanner headingId="code-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2
           id="code-heading"
@@ -451,6 +458,7 @@ function RealEstateUseCaseSection() {
       className="bg-white py-20 sm:py-24"
       aria-labelledby="real-estate-heading"
     >
+      <SectionBanner headingId="real-estate-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2
           id="real-estate-heading"
@@ -528,6 +536,7 @@ function GetStartedSection() {
       className="bg-[#0f2b1e] py-20 sm:py-24 text-white"
       aria-labelledby="get-started-heading"
     >
+      <SectionBanner headingId="get-started-heading" />
       <div className="mx-auto max-w-4xl px-6 text-center">
         <h2
           id="get-started-heading"

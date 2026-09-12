@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import Script from 'next/script'
@@ -11,6 +12,10 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { HeroBackground } from '@/components/hero-background'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { getSiteImageUrl } from '@/lib/cloudflare-images'
+import { getAssetAlt } from '@/lib/site-images'
+
 
 const golfNarratives = [
   {
@@ -209,7 +214,7 @@ function GolfHero() {
       aria-labelledby="golf-hero-heading"
     >
       <HeroBackground
-        src="https://images.unsplash.com/photo-1514924013411-cbf25faa35bb?q=80&auto=format&fit=crop&w=2000"
+        src={getSiteImageUrl('h1-golf-fairway')}
         alt="Spanish Trail Country Club private golf course fairways and greens, Las Vegas Nevada"
         overlayClassName="bg-gradient-to-b from-[#0f2b1e]/60 via-[#0f2b1e]/65 to-[#0f2b1e]/80"
         sizes="(max-width: 1024px) 100vw, 1280px"
@@ -253,6 +258,7 @@ function CourseTour() {
       className="bg-background py-20 sm:py-24"
       aria-labelledby="course-tour-heading"
     >
+      <SectionBanner headingId="course-tour-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <div>
@@ -280,11 +286,15 @@ function CourseTour() {
               key={course.name}
               className="group relative overflow-hidden rounded-3xl border border-border/60 bg-card shadow-sm transition-all hover:-translate-y-2 hover:shadow-lg"
             >
-              <div
-                className="h-48 bg-cover bg-center transition-transform duration-700 group-hover:scale-105 golf-course-card"
-                style={{ backgroundImage: `url('${course.image}')` }}
-                aria-hidden
-              />
+              <div className="relative h-48 overflow-hidden">
+                <Image
+                  src={getSiteImageUrl(course.imageId)}
+                  alt={getAssetAlt(course.imageId)}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
               <div className="space-y-3 p-6">
                 <p className="text-xs uppercase tracking-[0.3em] text-secondary">
                   {course.yardage}
@@ -317,6 +327,7 @@ function ExperienceDetails() {
       className="border-y border-border/60 bg-card/80"
       aria-labelledby="experience-heading"
     >
+      <SectionBanner headingId="experience-heading" />
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-20 lg:grid-cols-[1fr_1.1fr]">
         <div className="space-y-5">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">
@@ -375,6 +386,7 @@ function ExperienceDetails() {
 function GolfNarrativesSection() {
   return (
     <section className="bg-white py-20 sm:py-24" aria-labelledby="golf-narratives-heading">
+      <SectionBanner headingId="golf-narratives-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Spanish Trail Golf Insights</p>
@@ -389,6 +401,7 @@ function GolfNarrativesSection() {
         <div className="mt-12 space-y-12">
           {golfNarratives.map((topic) => (
             <article key={topic.title} className="space-y-6 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-8 shadow-lg shadow-primary/10">
+              <CardVisual seed={String(topic.title)} />
               <h3 className="text-lg font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">
                 {topic.title}
               </h3>
@@ -412,6 +425,7 @@ function ScorecardSection() {
       className="bg-background py-20 sm:py-24"
       aria-labelledby="scorecard-heading"
     >
+      <SectionBanner headingId="scorecard-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex flex-col gap-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">
@@ -472,6 +486,7 @@ function ScorecardSection() {
 function GolfFAQSection() {
   return (
     <section className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="golf-faq-heading">
+      <SectionBanner headingId="golf-faq-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Spanish Trail Golf FAQ</p>
@@ -486,6 +501,7 @@ function GolfFAQSection() {
         <div className="mt-12 space-y-10">
           {golfFaq.map((item) => (
             <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">
+              <CardVisual seed={String(item.question)} />
               <h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">
                 {item.question}
               </h3>
@@ -504,6 +520,7 @@ function GuestInformation() {
       className="border-y border-border/60 bg-card/80"
       aria-labelledby="guest-info-heading"
     >
+      <SectionBanner headingId="guest-info-heading" />
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-20 lg:grid-cols-[1fr_1.1fr]">
         <div className="space-y-5">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">

@@ -13,6 +13,10 @@ import {
   getCanonicalUrl,
 } from '@/lib/structuredData'
 import { NEIGHBORHOODS } from '@/lib/neighborhoods'
+import { CardVisual } from '@/components/heading-media'
+import { getSiteImageUrl } from '@/lib/cloudflare-images'
+import { getAssetAlt } from '@/lib/site-images'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/neighborhoods'
 const pageTitle = 'Spanish Trail Neighborhoods | All 11 Communities | Dr. Jan Duffy'
@@ -82,6 +86,8 @@ export default function NeighborhoodsHubPage() {
       />
 
       <HeroBackground
+        src={getSiteImageUrl('h2-neighborhood-street')}
+        alt={getAssetAlt('h2-neighborhood-street')}
         title="Spanish Trail Neighborhoods"
         subtitle="Deep expertise across all 11 neighborhoods inside the guard gates"
       />
@@ -105,6 +111,7 @@ export default function NeighborhoodsHubPage() {
           {NEIGHBORHOODS.map((n) => (
             <li key={n.slug}>
               <article className="flex h-full flex-col rounded-lg border border-[#e8ddd0] bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
+              <CardVisual seed={n.slug} />
                 <h2 className="mb-2 text-xl font-semibold text-[#2d2318]">
                   <Link href={`/neighborhoods/${n.slug}`} className="hover:underline">
                     {n.name}
