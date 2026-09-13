@@ -5,10 +5,11 @@ import Script from 'next/script'
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { AgentPortrait } from '@/components/agent-portrait'
+import { BrandLockup } from '@/components/brand-lockup'
+import { Breadcrumbs } from '@/components/breadcrumbs'
 import { CalendlyInline } from '@/components/calendly-inline'
 import { CalendlyLink } from '@/components/calendly-link'
 import { RealScoutSection } from '@/components/realscout-section'
-import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import {
@@ -420,9 +421,8 @@ function GBPIntegrationSection() {
     <section className="bg-white py-16 sm:py-20" aria-labelledby="gbp-heading">
       <SectionBanner headingId="gbp-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <h2 id="gbp-heading" className="font-[var(--font-playfair)] text-2xl text-[#1f2a24] sm:text-3xl">
-          Visit Spanish Trail | Homes By Dr. Jan Duffy
-        </h2>
+        <p className="text-xs uppercase tracking-[0.4em] text-[#6f5237]">Visit</p>
+        <BrandLockup as="h2" id="gbp-heading" variant="section" className="mt-2" />
         <p className="mt-4 text-base leading-relaxed text-[#372a20]/85">
           Located at Spanish Trail Country Club in Las Vegas. Connect with Dr. Jan Duffy for luxury real estate consultations and private tours.
         </p>

@@ -8,8 +8,9 @@ import { SiteShell } from '@/components/site-shell'
 import { RealScoutSection } from '@/components/realscout-section'
 import { Button } from '@/components/ui/button'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
-import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { AgentPortrait } from '@/components/agent-portrait'
+import { BrandLockup } from '@/components/brand-lockup'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/services'
 const servicesPageDescription =
@@ -253,7 +254,7 @@ function CommunityFocusSection() {
         </div>
         <div className="rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">
           <p className="text-xs uppercase tracking-[0.4em] text-[#6f5237]">NAP</p>
-          <p className="mt-4 font-[var(--font-playfair)] text-2xl text-[#1f2a24]">Spanish Trail | Homes By Dr. Jan Duffy</p>
+          <BrandLockup variant="section" className="mt-4" />
           <p className="mt-3 text-sm leading-relaxed text-[#372a20]/85">
             5050 Spanish Trail Ln
             <br />

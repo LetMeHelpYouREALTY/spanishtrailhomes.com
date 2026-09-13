@@ -5,12 +5,14 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ChevronDown, Menu, Phone, X } from 'lucide-react'
 
+import { GBP_LEGAL_NAME } from '@/lib/gbp-business'
 import { NAV_ITEMS } from '@/lib/navigation'
 import { trackPhoneClick } from '@/lib/analytics'
 import { REALSCOUT_SHARED_SEARCH_URL } from '@/lib/realscout'
 import { Button } from '@/components/ui/button'
 import { CalendlyLink } from '@/components/calendly-link'
 import { AgentPortrait } from '@/components/agent-portrait'
+import { BrandLockup } from '@/components/brand-lockup'
 import { RealScoutSearchLink } from '@/components/listing-image-link'
 
 function HeaderNavChild({
@@ -53,18 +55,11 @@ export function SiteHeader() {
       <div className="mx-auto grid w-full max-w-6xl grid-cols-[1fr_auto] items-center gap-x-3 gap-y-2 px-4 py-3.5 sm:px-6 sm:py-4 lg:grid-cols-[minmax(0,1.05fr)_auto_minmax(0,1.05fr)] lg:gap-x-6">
         <Link
           href="/"
-          aria-label="Spanish Trail | Homes By Dr. Jan Duffy home"
+          aria-label={`${GBP_LEGAL_NAME} home`}
           className="flex min-w-0 items-center gap-3 justify-self-start"
         >
           <AgentPortrait placement="header" size="xs" priority className="hidden sm:block" linkToSearch={false} />
-          <span className="min-w-0 text-left">
-            <span className="block font-[var(--font-playfair)] text-base font-semibold leading-snug tracking-[0.06em] text-[#0f2b1e] sm:text-xl sm:tracking-[0.08em] lg:text-2xl">
-              Spanish Trail | Homes
-            </span>
-            <span className="mt-0.5 block text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-[#6f5237] sm:text-xs sm:tracking-[0.32em]">
-              By Dr. Jan Duffy
-            </span>
-          </span>
+          <BrandLockup variant="header" />
         </Link>
 
           <nav className="col-start-2 row-start-1 hidden items-center justify-center gap-4 self-center lg:col-start-2 lg:flex xl:gap-6">

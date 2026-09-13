@@ -2,7 +2,10 @@
  * Single source of truth for Google Business Profile–aligned fields used in JSON-LD and visible NAP.
  * Keep this file in lockstep with the GBP “About your business” editor.
  */
-export const GBP_LEGAL_NAME = 'Spanish Trail | Homes By Dr. Jan Duffy' as const
+export const GBP_BRAND_NAME = 'Spanish Trail | Homes' as const
+export const GBP_BRAND_ATTRIBUTION = 'By Dr. Jan Duffy' as const
+/** Exact GBP business name. Use in schema and legal lines; use BrandLockup for visible headings. */
+export const GBP_LEGAL_NAME = `${GBP_BRAND_NAME} ${GBP_BRAND_ATTRIBUTION}` as const
 export const GBP_CATEGORY = 'Real estate agent' as const
 export const GBP_WEBSITE = 'https://www.spanishtrailhomes.com/' as const
 

@@ -3,8 +3,9 @@
 import Link from 'next/link'
 import { Facebook, Instagram, Linkedin, Youtube } from 'lucide-react'
 import { trackPhoneClick } from '@/lib/analytics'
-import { CalendlyLink } from '@/components/calendly-link'
 import { AgentPortrait } from '@/components/agent-portrait'
+import { BrandLockup } from '@/components/brand-lockup'
+import { CalendlyLink } from '@/components/calendly-link'
 import { RealScoutSearchLink } from '@/components/listing-image-link'
 import { REALSCOUT_SHARED_SEARCH_URL } from '@/lib/realscout'
 import {
@@ -83,11 +84,11 @@ export function SiteFooter() {
         <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-6 sm:px-6 md:flex-row md:items-center md:justify-between safe-area-padding">
           <div className="flex items-start gap-4">
             <AgentPortrait placement="footer" size="sm" className="mt-1" />
-            <div className="space-y-2 text-xs uppercase tracking-[0.25em] sm:tracking-[0.35em]">
-            <p className="font-semibold text-[#f8f5ef]">Spanish Trail | Homes By Dr. Jan Duffy</p>
-            <p className="text-[#cbb8a6]">Berkshire Hathaway HomeServices Nevada Properties</p>
-            <p>Dr. Jan Duffy · Luxury Real Estate Advisor</p>
-            <Link href="tel:+17027663299" className="touch-target inline-flex min-h-[44px] items-center hover:text-[#be9956] hover:underline" onClick={() => trackPhoneClick('footer')}>
+            <div className="space-y-2 text-xs sm:tracking-[0.02em]">
+            <BrandLockup variant="footer" tone="dark" />
+            <p className="uppercase tracking-[0.25em] text-[#cbb8a6] sm:tracking-[0.35em]">Berkshire Hathaway HomeServices Nevada Properties</p>
+            <p className="uppercase tracking-[0.25em] sm:tracking-[0.35em]">Dr. Jan Duffy · Luxury Real Estate Advisor</p>
+            <Link href="tel:+17027663299" className="touch-target inline-flex min-h-[44px] items-center uppercase tracking-[0.25em] hover:text-[#be9956] hover:underline sm:tracking-[0.35em]" onClick={() => trackPhoneClick('footer')}>
               (702) 766-3299 · DrDuffySells@SpanishTrailHomes.com
             </Link>
             </div>

@@ -5,6 +5,7 @@ import Script from 'next/script'
 import { SiteShell } from '@/components/site-shell'
 import { RealScoutSection } from '@/components/realscout-section'
 import { Button } from '@/components/ui/button'
+import { BrandLockup } from '@/components/brand-lockup'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import {
   createBreadcrumbSchema,
@@ -163,12 +164,7 @@ function HeroSection() {
           </svg>
           <span>Verified on Google</span>
         </div>
-        <h1
-          id="gbp-hero-heading"
-          className="font-[var(--font-playfair)] text-3xl tracking-tight sm:text-4xl md:text-5xl"
-        >
-          Spanish Trail | Homes By Dr. Jan Duffy
-        </h1>
+        <BrandLockup as="h1" id="gbp-hero-heading" variant="hero" tone="dark" align="center" />
         <p className="mt-4 text-lg font-medium text-primary-foreground/90">
           Real Estate Agent
         </p>
