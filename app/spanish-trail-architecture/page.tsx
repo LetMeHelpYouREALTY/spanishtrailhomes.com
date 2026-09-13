@@ -148,7 +148,7 @@ function HeroSection() {
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <p className="text-xs uppercase tracking-[0.5em] text-[#c6aa7a]">Home Design</p>
         <h1 id="architecture-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-          Spanish Trail Architecture & Home Styles
+          Spanish Trail Architecture | Home Styles for Buyers and Sellers
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           Homes in Spanish Trail range from elegant villas to custom-built estates, showcasing architectural diversity within a cohesive desert aesthetic. The custom homes vary in style but most show Mediterranean influence, while semi-custom homes feature harmonious pale pink and cream stucco finishes.

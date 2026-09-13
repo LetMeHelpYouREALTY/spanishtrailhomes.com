@@ -134,7 +134,7 @@ function HeroSection() {
       <SectionBanner headingId="custom-estate-hero-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h1 id="custom-estate-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-          Spanish Trail Custom Estate Homes Near the Strip
+          Spanish Trail Custom Estate Homes for Sale
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           Spanish Trail is the rare guard-gated enclave where resort-scale estates sit minutes from the Strip yet feel worlds away. Double gates, mature landscaping, and 27 holes of golf create a private sanctuary for executives, entertainers, and medical professionals who require easy access to Las Vegas’s business and cultural corridors. I orchestrate every element of the estate search so you can focus on design, privacy, and possibility.

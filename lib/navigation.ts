@@ -6,61 +6,53 @@ export type NavItem = {
   group?: string
 }
 
+const LISTINGS_HREF = '/spanish-trail-homes-for-sale-las-vegas'
+
 export const NAV_ITEMS: NavItem[] = [
   {
+    label: 'Buy',
+    href: '/buyers',
+    children: [
+      { label: 'Buy Spanish Trail homes', href: '/buyers', group: 'Realtor services' },
+      { label: 'Spanish Trail listings', href: LISTINGS_HREF, group: 'Homes' },
+      { label: 'Match a neighborhood', href: '/neighborhoods', group: 'Homes' },
+    ],
+  },
+  {
+    label: 'Sell',
+    href: '/sellers',
+    children: [
+      { label: 'Sell your Spanish Trail home', href: '/sellers', group: 'Realtor services' },
+      { label: 'Book a listing consult', href: '/contact', group: 'Realtor services' },
+    ],
+  },
+  {
     label: 'Homes',
-    href: '/spanish-trail-homes-for-sale-las-vegas',
+    href: LISTINGS_HREF,
     children: [
-      // Property Types
-      { label: 'All Homes for Sale', href: '/spanish-trail-homes-for-sale-las-vegas', group: 'Browse' },
-      { label: 'Estate Homes', href: '/spanish-trail-country-club-estate-listings', group: 'Browse' },
-      { label: 'Townhomes & Villas', href: '/spanish-trail-townhomes-villas', group: 'Browse' },
-      { label: 'Golf Course Homes', href: '/spanish-trail-luxury-golf-course-properties', group: 'Browse' },
-      { label: 'Waterfront Homes', href: '/spanish-trail-waterfront-golf-homes', group: 'Browse' },
-      // Market Info
-      { label: 'Market Report', href: '/spanish-trail-market-report', group: 'Research' },
-      { label: 'Market Insights', href: '/spanish-trail-insights', group: 'Research' },
-      { label: 'Compare Neighborhoods', href: '/las-vegas-luxury-neighborhoods', group: 'Research' },
+      { label: 'All Spanish Trail homes for sale', href: LISTINGS_HREF, group: 'Listings' },
+      { label: '11 neighborhoods', href: '/neighborhoods', group: 'Listings' },
+      { label: 'Estates', href: '/spanish-trail-country-club-estate-listings', group: 'Listings' },
+      { label: 'Townhomes & villas', href: '/spanish-trail-townhomes-villas', group: 'Listings' },
     ],
   },
   {
-    label: 'Community',
-    href: '/communities/spanish-trail',
+    label: 'Services',
+    href: '/services',
     children: [
-      { label: 'About Spanish Trail', href: '/communities/spanish-trail', group: 'Overview' },
-      { label: 'All 11 Neighborhoods', href: '/neighborhoods', group: 'Overview' },
-      { label: 'Lifestyle Guide', href: '/spanish-trail-lifestyle', group: 'Overview' },
-      { label: 'Architecture & Styles', href: '/spanish-trail-architecture', group: 'Overview' },
-      { label: 'Schools', href: '/spanish-trail-schools', group: 'Overview' },
-      { label: 'HOA Guide', href: '/spanish-trail-hoa-guide', group: 'Overview' },
-      { label: 'Club & Amenities', href: '/club', group: 'Amenities' },
-      { label: 'Golf Course', href: '/golf', group: 'Amenities' },
-      { label: 'Tennis Center', href: '/spanish-trail-tennis', group: 'Amenities' },
-      { label: 'Fitness Center', href: '/spanish-trail-fitness', group: 'Amenities' },
-      { label: 'Pools', href: '/spanish-trail-pools', group: 'Amenities' },
-    ],
-  },
-  {
-    label: 'About',
-    href: '/about',
-    children: [
-      { label: 'Meet Dr. Jan Duffy', href: '/about', group: 'Your Agent' },
-      { label: 'Media Kit', href: '/media-kit', group: 'Your Agent' },
-      { label: 'Awards & Recognition', href: '/awards', group: 'Your Agent' },
-      { label: 'Client Reviews', href: '/reviews', group: 'Your Agent' },
-      { label: 'Buyers Guide', href: '/buyers', group: 'Resources' },
-      { label: 'Sellers Guide', href: '/sellers', group: 'Resources' },
+      { label: 'All realtor services', href: '/services', group: 'Practice' },
+      { label: 'Buy Spanish Trail homes', href: '/buyers', group: 'Practice' },
+      { label: 'Sell Spanish Trail homes', href: '/sellers', group: 'Practice' },
+      { label: 'Private tours', href: '/contact', group: 'Practice' },
     ],
   },
   {
     label: 'Contact',
     href: '/contact',
     children: [
-      { label: 'Get in Touch', href: '/contact', group: 'Connect' },
-      { label: 'Relocation & Out-of-State', href: '/relocation', group: 'Connect' },
-      { label: 'Office Location', href: '/find-our-locations', group: 'Connect' },
-      { label: 'Guest Information', href: '/guest-info', group: 'Connect' },
+      { label: 'Get in touch', href: '/contact', group: 'Connect' },
+      { label: 'Dr. Jan Duffy', href: '/about', group: 'Your Agent' },
+      { label: 'Reviews', href: '/reviews', group: 'Your Agent' },
     ],
   },
 ]
-

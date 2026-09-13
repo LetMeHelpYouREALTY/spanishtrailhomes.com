@@ -158,7 +158,7 @@ function HeroSection() {
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <p className="text-xs uppercase tracking-[0.5em] text-[#c6aa7a]">Community Standards</p>
         <h1 id="hoa-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-          Spanish Trail HOA Las Vegas | Community Guide
+          Spanish Trail HOA Guide for Buyers and Sellers
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           Searching “Spanish Trail HOA” usually means you want fees, gates, and rules for this guard-gated Las Vegas community—not the private country club dues next door. The HOA keeps standards high across 89113; here is how orientation, access, and architectural review work before you buy or sell with Dr. Jan Duffy.
@@ -398,7 +398,7 @@ function CTASection() {
       <SectionBanner headingId="hoa-cta-heading" />
       <div className="mx-auto max-w-6xl px-4 text-center sm:px-6">
         <h2 id="hoa-cta-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
-          Get complete HOA information before you buy
+          HOA facts before you buy or sell a Spanish Trail home
         </h2>
         <p className="mt-4 text-base leading-relaxed text-[#372a20]/85">
           Dr. Jan Duffy provides comprehensive HOA documentation for every Spanish Trail listing—fees, reserves, rules, and assessment history. Call <Link href="tel:+17027663299" className="underline-offset-4 hover:underline">(702) 766-3299</Link> for transparent guidance.

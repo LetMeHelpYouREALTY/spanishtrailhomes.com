@@ -179,10 +179,10 @@ function HeroSection() {
           id="reviews-hero-heading"
           className="mt-4 font-[var(--font-playfair)] text-3xl tracking-tight sm:text-4xl md:text-5xl"
         >
-          Give customers a link to review your business on Google
+          Reviews for Dr. Jan Duffy | Spanish Trail Homes Realtor
         </h1>
         <p className="mt-6 max-w-2xl mx-auto text-base leading-7 text-primary-foreground/90 sm:text-lg">
-          Reviews build trust and help your Business Profile stand out to customers on Search and Maps.
+          Reviews build trust for Spanish Trail home buyers and sellers. Leave a Google review for Dr. Jan Duffy.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <div className="rounded-full bg-white/10 px-6 py-2 text-sm font-medium">

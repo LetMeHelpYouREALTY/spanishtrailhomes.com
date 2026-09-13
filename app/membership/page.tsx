@@ -222,7 +222,7 @@ function MembershipHero() {
           id="membership-hero-heading"
           className="mt-5 font-[var(--font-playfair)] text-4xl leading-tight sm:text-5xl lg:text-6xl"
         >
-          Understanding Spanish Trail Club Membership
+          Club Membership When You Buy or Sell a Spanish Trail Home
         </h1>
         <p className="mt-6 max-w-2xl text-base leading-7 text-primary-foreground sm:text-lg">
           Learn how country club membership works when buying or selling a home in Spanish Trail. Dr. Jan Duffy explains your options as a real estate agent—not a club representative.

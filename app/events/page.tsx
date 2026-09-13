@@ -208,16 +208,10 @@ function EventsHero() {
           id="events-hero-heading"
           className="mt-5 font-[var(--font-playfair)] text-4xl leading-tight sm:text-5xl lg:text-6xl"
         >
-          Celebrate life&apos;s signature moments surrounded by Spanish Trail&apos;s
-          private beauty in Las Vegas.
+          Spanish Trail Homes Near Club Event Venues
         </h1>
         <p className="mt-6 max-w-2xl text-base leading-7 text-primary-foreground sm:text-lg">
-          From romantic ceremonies on the Lakes Course lawn to black-tie galas in
-          our skyline-view ballroom, our planning team curates every detail. For venue contracts, catering, and member sponsorship questions, contact the club&apos;s events team directly; for Spanish Trail real estate after your event—tours, timing, and membership context—call Dr. Jan Duffy at{' '}
-          <a href="tel:+17027663299" className="underline-offset-4 hover:underline">
-            (702) 766-3299
-          </a>
-          .
+          Venue contracts belong to the club. Buying or selling a Spanish Trail home around an event belongs to Dr. Jan Duffy. Call (702) 766-3299.
         </p>
       </div>
       <HeroSearchWidget theme="dark" />

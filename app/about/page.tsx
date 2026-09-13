@@ -248,12 +248,12 @@ function HeroSection() {
       />
       <div className="absolute inset-x-0 bottom-0 -z-10 h-32 bg-linear-to-t from-[#0f2b1e]/85" />
       <div className="mx-auto flex max-w-4xl flex-col gap-6 px-6 py-28 text-center sm:py-32">
-        <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/70">Spanish Trail Homes</p>
+        <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/70">Spanish Trail luxury realtor</p>
         <h1 id="about-hero-heading" className="font-heading text-3xl leading-tight sm:text-4xl">
-          Let Me Help You
+          Dr. Jan Duffy, exclusive Spanish Trail realtor
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85 sm:text-lg">
-          As your expert neighbor who knows every sale, every builder incentive, and every neighborhood nuance, Dr. Jan Duffy combines deep Vegas knowledge with genuine partnership. No surface-level advice. No generic recommendations. Just specific, data-driven guidance tailored to your exact situation—backed by research that understands how homebuyers and sellers make decisions.
+          Dr. Jan Duffy represents buyers and sellers inside Spanish Trail—Las Vegas ZIP 89113—exclusively. Berkshire Hathaway HomeServices Nevada Properties. License S.0197614.LLC. Neighborhood-level comps, gate-access tours, and listing strategy for this community only.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Button
@@ -512,7 +512,7 @@ function CTASection() {
       <div className="mx-auto max-w-4xl rounded-3xl border border-border/60 bg-[#0f2b1e] px-8 py-16 text-center text-[#f8f5ef] shadow-xl shadow-primary/20">
         <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/70">Work With Dr. Jan Duffy</p>
         <h2 id="about-cta-heading" className="mt-4 font-heading text-3xl leading-tight sm:text-4xl">
-          Let's design the next chapter of your Spanish Trail story
+          Buy or sell your Spanish Trail home
         </h2>
         <p className="mt-6 text-base leading-relaxed text-[#f8f5ef]/85">
           Whether you're refining an estate sale, relocating into the guard gates, or benchmarking your market position, Dr.

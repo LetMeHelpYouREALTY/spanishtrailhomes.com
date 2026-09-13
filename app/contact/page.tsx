@@ -24,7 +24,7 @@ const contactPageDescription =
   `Spanish Trail luxury homes in Las Vegas. Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties—Spanish Trail specialist. Guard-gated golf community, custom estates & villas. Median ${formatMedianPrice(marketStats.median_price)} (${marketStats.date_label}). Call/text (702) 766-3299.`
 
 const contactWebPageSchema = createWebPageSchema({
-  name: 'Spanish Trail Las Vegas Real Estate Expert | Dr. Jan Duffy',
+  name: 'Contact Dr. Jan Duffy | Spanish Trail Homes Realtor',
   description: contactPageDescription,
   path: '/contact',
   type: 'ContactPage',
@@ -45,14 +45,14 @@ const contactWebPageSchema = createWebPageSchema({
 })
 
 export const metadata: Metadata = {
-  title: 'Spanish Trail Las Vegas Real Estate Expert | Dr. Jan Duffy',
+  title: 'Contact Dr. Jan Duffy | Spanish Trail Homes Realtor',
   description: contactPageDescription,
   alternates: {
     canonical: getCanonicalUrl('/contact'),
   },
   openGraph: {
     url: pageUrl,
-    title: 'Spanish Trail Las Vegas Real Estate Expert | Dr. Jan Duffy',
+    title: 'Contact Dr. Jan Duffy | Spanish Trail Homes Realtor',
     description:
       'Connect with Dr. Jan Duffy for Spanish Trail luxury homes, current market data, and private club lifestyle guidance.',
     images: [
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Spanish Trail Las Vegas Real Estate Expert | Dr. Jan Duffy',
+    title: 'Contact Dr. Jan Duffy | Spanish Trail Homes Realtor',
     description:
       'Schedule a Spanish Trail strategy session with Dr. Jan Duffy—luxury guard-gated golf community specialist.',
     images: [
@@ -169,10 +169,10 @@ function HeroSection() {
       <SectionBanner headingId="contact-hero-heading" />
       <div className="mx-auto flex max-w-4xl flex-col gap-6 px-6 text-center">
         <h1 id="contact-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-          Spanish Trail Las Vegas Real Estate Expert | Dr. Jan Duffy
+          Spanish Trail Homes Realtor | Dr. Jan Duffy
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
-          Spanish Trail's median value sits at {formatMedianPrice(marketStats.median_price)} as of {marketStats.date_label}, reflecting strong demand for guard-gated golf community living. Well-positioned listings continue to attract competitive offers, with golf-view properties and updated interiors commanding premium pricing.
+          Call (702) 766-3299 to buy or sell a Spanish Trail home. Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties. Median {formatMedianPrice(marketStats.median_price)} as of {marketStats.date_label}.
           <span className="block text-xs uppercase tracking-[0.3em] text-[#f8f5ef]/70">
             <Link href="https://searchforaffordablehomes.com/neighborhood/83/spanish-trails" className="underline-offset-4 hover:underline">
               Source: Spanish Trail Weekly Market Activity
@@ -206,7 +206,7 @@ function ExpertiseSection() {
       <SectionBanner headingId="expertise-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="expertise-heading" className="font-[var(--font-playfair)] text-2xl text-[#1f2a24] sm:text-3xl">
-          Spanish Trail Guard-Gated Golf Community Expert
+          Spanish Trail homes realtor
         </h2>
         <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
           <div className="space-y-4 text-base leading-relaxed text-[#372a20]/85">
@@ -245,7 +245,7 @@ function GolfLifestyleSection() {
       <SectionBanner headingId="golf-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="golf-heading" className="font-[var(--font-playfair)] text-2xl text-[#1f2a24] sm:text-3xl">
-          Championship 27-Hole Golf Course Lifestyle
+          What Spanish Trail homes include
         </h2>
         <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
           <div className="space-y-4 text-base leading-relaxed text-[#372a20]/85">
@@ -276,7 +276,7 @@ function LuxuryInventorySection() {
       <SectionBanner headingId="luxury-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="luxury-heading" className="font-[var(--font-playfair)] text-2xl text-[#1f2a24] sm:text-3xl">
-          Luxury Estates, Villas & Golf Course Homes
+          Spanish Trail homes: estates, villas, and fairway addresses
         </h2>
         <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-[1fr_1fr]">
           <div className="space-y-4 text-base leading-relaxed text-[#372a20]/85">

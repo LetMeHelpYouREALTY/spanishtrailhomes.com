@@ -24,7 +24,7 @@ export function SiteHeader() {
       <div className="mx-auto grid w-full max-w-6xl grid-cols-[1fr_auto] items-center gap-x-3 gap-y-2 px-4 py-3.5 sm:px-6 sm:py-4 lg:grid-cols-[minmax(0,1.05fr)_auto_minmax(0,1.05fr)] lg:gap-x-6">
         <Link
           href="/"
-          aria-label="Spanish Trail Country Club home"
+          aria-label="Spanish Trail | Homes By Dr. Jan Duffy home"
           className="group min-w-0 justify-self-start"
         >
           <div className="text-left">

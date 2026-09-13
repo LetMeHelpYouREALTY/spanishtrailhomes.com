@@ -100,8 +100,8 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
       <HeroBackground
         src={getSiteImageUrl(NEIGHBORHOOD_CARD_IMAGES[slug] ?? DEFAULT_H1_IMAGE)}
         alt={getAssetAlt(NEIGHBORHOOD_CARD_IMAGES[slug] ?? DEFAULT_H1_IMAGE)}
-        title={neighborhood.name}
-        subtitle={neighborhood.shortDescription}
+        title={`${neighborhood.name} Spanish Trail Homes`}
+        subtitle="Buy and sell with Dr. Jan Duffy"
       />
 
       <Breadcrumbs

@@ -175,7 +175,7 @@ function HeroSection() {
           id="find-locations-heading"
           className="mt-4 font-[var(--font-playfair)] text-3xl tracking-tight sm:text-4xl md:text-5xl"
         >
-          Help customers find your stores
+          Visit Spanish Trail | Homes By Dr. Jan Duffy
         </h1>
         <p className="mt-6 max-w-2xl mx-auto text-base leading-7 text-primary-foreground/90 sm:text-lg">
           Add a custom map showing all your store locations to your website.

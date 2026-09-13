@@ -15,7 +15,7 @@ import { SectionBanner, CardVisual } from '@/components/heading-media'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/buyers'
 const buyersPageDescription =
-  'Plan your Spanish Trail golf course home purchase with Dr. Jan Duffy—concierge tours, real-time golf community homes for sale, negotiation strategy, and club lifestyle insights tailored to Las Vegas buyers seeking golf course properties.'
+  'Buyer representation for Spanish Trail homes in Las Vegas 89113. Dr. Jan Duffy coordinates gate access, private tours, neighborhood matching, and offer strategy—Berkshire Hathaway HomeServices Nevada Properties.'
 
 const buyersWebPageSchema = createWebPageSchema({
   name: 'Spanish Trail Home Buyer Guide | Dr. Jan Duffy',
@@ -73,7 +73,7 @@ const faqSchema = {
 }
 
 export const metadata: Metadata = {
-  title: 'Spanish Trail Home Buyer Guide | Dr. Jan Duffy',
+  title: 'Buy Spanish Trail Homes | Buyer Representation | Dr. Jan Duffy',
   description: buyersPageDescription,
   alternates: {
     canonical: getCanonicalUrl('/buyers'),
@@ -164,14 +164,10 @@ function HeroSection() {
       <SectionBanner headingId="buyers-hero-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h1 id="buyers-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-          Your Spanish Trail Buyer Roadmap Starts Here
+          Buy Spanish Trail Homes | Buyer Representation
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
-          Spanish Trail balances lush fairways, 24-hour guard gates, and effortless Strip access—delivering a refined Las Vegas lifestyle for primary residents, second-home owners, and investors seeking golf course homes for sale. With deep expertise across all 11{' '}
-          <Link href="/neighborhoods" className="font-medium text-[#f8f5ef] underline-offset-4 hover:underline">
-            Spanish Trail neighborhoods
-          </Link>{' '}
-          and 1,200+ homes—from villas and townhomes to custom golf-course estates—I study each enclave daily, debrief fellow listing agents, and monitor RealScout demand signals so you can act decisively the moment the right golf community home appears.
+          Spanish Trail homes only. Dr. Jan Duffy represents buyers inside this 89113 community—11 neighborhoods, 1,200+ homes, gate-access tours, and offer strategy. Also searched as Spanish Trails. Berkshire Hathaway HomeServices Nevada Properties.
         </p>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           Whether you are relocating, upgrading, or adding to a portfolio, our collaboration starts with clarity. We define must-haves, map budget to financing, and design a tour strategy that respects your calendar and privacy. My concierge team coordinates the details: guard gate access, club introductions, and vetted vendor support before and after closing.
@@ -208,7 +204,7 @@ function BuyerJourneySection() {
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.35em] text-[#6f5237]">Spanish Trail Buyer Services</p>
           <h2 id="buyer-journey-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
-            A concierge buying experience tailored to your lifestyle goals
+            How we buy Spanish Trail homes
           </h2>
           <p className="text-base leading-relaxed text-[#372a20]/85">
             Dr. Jan Duffy aligns every Spanish Trail purchase—from villas and townhomes to Strip-view estates—with your plan for living, entertaining, and investing. You gain on-the-ground intelligence about seller motivations, membership options, and neighborhood micro-trends so you can move forward with confidence.
@@ -527,7 +523,7 @@ function BuyerCTASection() {
       <SectionBanner headingId="buyers-cta-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h2 id="buyers-cta-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-          Ready to tour Spanish Trail?
+          Ready to buy a Spanish Trail home?
         </h2>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           Call or text (702) 766-3299 for immediate assistance. Prefer email? Reach me at{' '}

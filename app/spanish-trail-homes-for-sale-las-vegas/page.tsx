@@ -16,9 +16,9 @@ import { SectionBanner, CardVisual } from '@/components/heading-media'
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-homes-for-sale-las-vegas'
 
 export const metadata: Metadata = {
-  title: 'Spanish Trail Homes for Sale Las Vegas | Country Club Listings & Tours | Dr. Jan Duffy',
+  title: 'Spanish Trail Homes for Sale Las Vegas | Exclusive Realtor | Dr. Jan Duffy',
   description:
-    'Spanish Trail Country Club area homes for sale in Las Vegas 89113—guard-gated private golf community. Live MLS hub, Spanish Trail or Spanish Trails searches, tours with Dr. Jan Duffy.',
+    'Spanish Trail homes for sale in Las Vegas 89113 with Dr. Jan Duffy—the exclusive luxury realtor for this community. Live MLS, private tours, and 11-neighborhood matching. Also searched as Spanish Trails.',
   alternates: {
     canonical: getCanonicalUrl('/spanish-trail-homes-for-sale-las-vegas'),
   },
@@ -142,13 +142,13 @@ function HeroSection() {
       <SectionBanner headingId="hero-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h1 id="hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-          Spanish Trail Las Vegas Homes for Sale | MLS & Country Club Area
+          Spanish Trail Homes for Sale | Exclusive 89113 Realtor
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           This hub is for buyers who want{' '}
-          <strong className="font-semibold text-[#f8f5ef]">live MLS inventory in zip 89113</strong> around Spanish Trail Country Club—weekly absorption context, listing alerts, and concierge showings. As of {marketStats.date_label}: median value {formatMedianPrice(marketStats.median_price)}, {`$${marketStats.price_per_sqft}`}/sq. ft., and {marketStats.active_listings} active listings across all 11 guard-gated neighborhoods. For community lifestyle and club context, start at the{' '}
-          <Link href="/communities/spanish-trail" className="font-medium text-[#f8f5ef] underline-offset-4 hover:underline">
-            Spanish Trail community overview
+          <strong className="font-semibold text-[#f8f5ef]">live MLS inventory in zip 89113</strong> represented by a realtor who only works Spanish Trail—not a valley-wide listing page. Weekly absorption, listing alerts, and gate-access showings with Dr. Jan Duffy. As of {marketStats.date_label}: median value {formatMedianPrice(marketStats.median_price)}, {`$${marketStats.price_per_sqft}`}/sq. ft., and {marketStats.active_listings} active listings across all 11 neighborhoods.           For how she buys and sells here, start at{' '}
+          <Link href="/services" className="font-medium text-[#f8f5ef] underline-offset-4 hover:underline">
+            Spanish Trail realtor services
           </Link>
           . For property styles and enclave-by-enclave education (before you tour), use the{' '}
           <Link href="/homes-for-sale-in-spanish-trail-las-vegas" className="font-medium text-[#f8f5ef] underline-offset-4 hover:underline">

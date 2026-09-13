@@ -162,7 +162,7 @@ function HeroSection() {
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <p className="text-xs uppercase tracking-[0.5em] text-[#c6aa7a]">Living in Spanish Trail</p>
         <h1 id="lifestyle-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-          Spanish Trail Lifestyle Guide
+          Spanish Trail Homes | Location and Daily Conveniences
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           Living in the Spanish Trail community affords you the best access to outdoor recreation, world-class dining, and premier shopping—all within a guard-gated desert oasis just 15 minutes from the Las Vegas Strip. Discover what makes this community exceptional.
@@ -454,10 +454,10 @@ function CTASection() {
       <SectionBanner headingId="lifestyle-cta-heading" />
       <div className="mx-auto max-w-6xl px-4 text-center sm:px-6">
         <h2 id="lifestyle-cta-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
-          Experience the Spanish Trail lifestyle
+          Buy or sell a Spanish Trail home
         </h2>
         <p className="mt-4 text-base leading-relaxed text-[#372a20]/85">
-          Interested in living in the luxurious community of Spanish Trail? With stunning, spacious upscale real estate and direct access to top-rated schools and amenities, this community is perfect for families and professionals looking to settle in the Las Vegas Valley. Contact Dr. Jan Duffy at <Link href="tel:+17027663299" className="underline-offset-4 hover:underline">(702) 766-3299</Link> to explore the best of Spanish Trail today.
+          Interested in a Spanish Trail home? Dr. Jan Duffy represents buyers and sellers inside this 89113 community. Named schools with distances, 11 neighborhoods, and private tours. Call <Link href="tel:+17027663299" className="underline-offset-4 hover:underline">(702) 766-3299</Link>.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-4">
           <Button asChild className="rounded-full px-8 py-3 text-xs uppercase tracking-[0.3em]">

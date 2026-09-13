@@ -17,7 +17,7 @@ export const neighborhoodSpotlights = [
   {
     name: 'Springs & Plum Creek',
     description:
-      'Tree-lined streets with family-friendly floor plans, community greenbelts, and proximity to Bishop Gorman High School and Faith Lutheran Academy.',
+      'Tree-lined streets with three- to five-bedroom floor plans, community greenbelts, and a short drive to Bishop Gorman High School (2.2 miles) and Faith Lutheran Middle & High School.',
   },
 ]
 

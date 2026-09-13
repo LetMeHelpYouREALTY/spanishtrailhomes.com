@@ -175,7 +175,7 @@ function HeroSection() {
       <div className="mx-auto flex max-w-4xl flex-col gap-6 px-6 py-28 text-center sm:py-32">
         <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/70">Spanish Trail Real Estate</p>
         <h1 id="hero-heading" className="font-heading text-3xl leading-tight sm:text-4xl">
-          Spanish Trail Country Club Homes for Sale | Las Vegas Property Types (89113)
+          Spanish Trail Home Types | Estates, Villas & Fairway Homes
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85 sm:text-lg">
           This page is a <strong className="font-semibold text-[#f8f5ef]">read-first guide</strong> to Spanish Trail private country club real estate—villas, estates, fairway homes, pools, and how the eleven enclaves differ—not the primary MLS search surface. When you are ready for{' '}
@@ -217,7 +217,7 @@ function OverviewSection() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-6">
           <h2 id="overview-heading" className="font-heading text-3xl text-[#1f2a24] sm:text-4xl">
-            Homes for Sale in Spanish Trail - Las Vegas\'s Premier Guard-Gated Community
+            Spanish Trail homes for sale by type
           </h2>
           <p className="text-base leading-relaxed text-[#372a20]/85">
             Spanish Trail features a diverse range of housing options for sale, from elegant single-family homes to grand estates, all within a luxury guard-gated community in Southwest Las Vegas. Whether you\'re seeking a sophisticated residence or an expansive estate, homes for sale in Spanish Trail offer the perfect blend of privacy, security, and world-class amenities.
@@ -530,7 +530,7 @@ function CTASection() {
       <SectionBanner headingId="cta-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h2 id="cta-heading" className="font-heading text-3xl leading-tight text-[#f8f5ef] sm:text-4xl">
-          Ready to Find Your Perfect Home in Spanish Trail?
+          Ready to buy or sell a Spanish Trail home?
         </h2>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           Connect with Dr. Jan Duffy to explore homes for sale in Spanish Trail, Las Vegas. Get access to current listings, private tours, and expert guidance throughout your home buying journey.

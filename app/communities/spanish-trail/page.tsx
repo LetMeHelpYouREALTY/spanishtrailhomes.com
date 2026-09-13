@@ -248,16 +248,16 @@ function HeroSection() {
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-24 text-primary-foreground sm:py-32 lg:py-40">
         <div className="max-w-3xl space-y-6">
           <p className="text-xs uppercase tracking-[0.5em] text-accent">
-            Featured Community
+            Spanish Trail Homes
           </p>
           <h1
             id="community-hero-heading"
             className="font-[var(--font-playfair)] text-4xl leading-tight sm:text-5xl lg:text-6xl"
           >
-            Spanish Trail Country Club | Luxury Homes Las Vegas
+            Spanish Trail Homes | 11 Neighborhoods in Las Vegas 89113
           </h1>
           <p className="text-base leading-relaxed text-primary-foreground sm:text-lg">
-            Spanish Trail Country Club anchors this private guard-gated golf community in southwest Las Vegas (89113)—minutes from the Strip and Spring Valley. People often search “Spanish Trails Las Vegas”; this is the same place. Shopping inventory? Use the{' '}
+            Dr. Jan Duffy buys and sells Spanish Trail homes in southwest Las Vegas (89113)—also searched as Spanish Trails. Eleven neighborhoods, 1,200+ homes, guard-gated. Shop inventory on the{' '}
             <Link href="/spanish-trail-homes-for-sale-las-vegas" className="font-medium text-primary-foreground underline-offset-4 hover:underline">
               live Las Vegas 89113 listings hub
             </Link>{' '}

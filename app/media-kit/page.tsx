@@ -113,8 +113,8 @@ export default function MediaKitPage() {
 
       <HeroBackground
         title="Spanish Trail Homes Media Kit"
-        subtitle="Dr. Jan Duffy · Luxury Real Estate Specialist"
-        description="Official media kit for press, partners, and clients. Book a consultation to buy or sell in Spanish Trail."
+        subtitle="Dr. Jan Duffy · Spanish Trail homes realtor"
+        description="Press kit for the realtor who buys and sells Spanish Trail homes only."
       />
 
       <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12">

@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       { source: '/market-data', destination: '/spanish-trail-market-report', permanent: true },
+      { source: '/homes', destination: '/spanish-trail-homes-for-sale-las-vegas', permanent: true },
     ]
   },
   images: {

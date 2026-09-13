@@ -147,7 +147,7 @@ function HeroSection() {
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <p className="text-xs uppercase tracking-[0.5em] text-[#c6aa7a]">Fitness & Wellness</p>
         <h1 id="fitness-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-          Spanish Trail Fitness Center
+          Spanish Trail Homes with Fitness Access
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           The 50,000 square-foot Spanish Trail clubhouse includes a state-of-the-art fitness facility with modern equipment, personal trainers, and group classes. Whether you&apos;re starting your day with sunrise yoga or training for your next athletic goal, our fitness center supports your wellness journey.
@@ -341,7 +341,7 @@ function CTASection() {
       <SectionBanner headingId="fitness-cta-heading" />
       <div className="mx-auto max-w-6xl px-4 text-center sm:px-6">
         <h2 id="fitness-cta-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
-          Ready for an active lifestyle?
+          Tour Spanish Trail homes with fitness access
         </h2>
         <p className="mt-4 text-base leading-relaxed text-[#372a20]/85">
           Find a Spanish Trail home that supports your wellness goals. Contact Dr. Jan Duffy at <Link href="tel:+17027663299" className="underline-offset-4 hover:underline">(702) 766-3299</Link> to explore homes with easy access to fitness amenities.

@@ -211,17 +211,16 @@ function ClubHero() {
       <div className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-t from-background" />
       <div className="mx-auto max-w-5xl px-6 py-28 text-primary-foreground sm:py-40">
         <p className="text-xs uppercase tracking-[0.5em] text-accent">
-          Club Life
+          Spanish Trail Homes
         </p>
         <h1
           id="club-hero-heading"
           className="mt-5 font-[var(--font-playfair)] text-4xl leading-tight sm:text-5xl lg:text-6xl"
         >
-          Where Las Vegas&apos; most discerning members gather, celebrate, and
-          unwind.
+          Spanish Trail Homes and Club Access
         </h1>
         <p className="mt-6 max-w-2xl text-base leading-7 text-primary-foreground sm:text-lg">
-          A 50,000 square-foot clubhouse provides members with a fitness facility, two aquatic centers, twelve lighted tennis courts, and event spaces throughout. Enjoy panoramic Strip sunsets and a calendar of destination-worthy experiences—all within the privacy of Spanish Trail Country Club.
+          Club amenities sit inside this 89113 community. Dr. Jan Duffy buys and sells Spanish Trail homes. Call (702) 766-3299 to tour an address.
         </p>
       </div>
       <HeroSearchWidget theme="dark" />
@@ -489,7 +488,7 @@ function TestimonialsHighlight() {
             id="club-testimonials-heading"
             className="font-[var(--font-playfair)] text-3xl text-foreground sm:text-4xl"
           >
-            Trusted by generations of Las Vegas families.
+            Trusted by Spanish Trail homeowners.
           </h2>
           <p className="text-base leading-relaxed text-muted-foreground">
             Hear from longtime members about the culture, warmth, and excellence

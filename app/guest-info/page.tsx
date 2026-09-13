@@ -200,11 +200,10 @@ function GuestHero() {
           id="guest-hero-heading"
           className="mt-5 font-[var(--font-playfair)] text-4xl leading-tight sm:text-5xl lg:text-6xl"
         >
-          Welcome to Spanish Trail Country Club.
+          Tour Spanish Trail Homes | Gate Access and Directions
         </h1>
         <p className="mt-6 max-w-2xl text-base leading-7 text-primary-foreground sm:text-lg">
-          We look forward to hosting you. Review the guide below for directions,
-          arrival details, and clubhouse etiquette to make the most of your visit.
+          Dr. Jan Duffy clears the guard gate for private home tours. Call (702) 766-3299. 5050 Spanish Trail Ln, Las Vegas, NV 89113.
         </p>
         <HeroSearchWidget theme="dark" />
       </div>

@@ -140,7 +140,7 @@ function HeroSection() {
       <SectionBanner headingId="luxury-golf-hero-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h1 id="luxury-golf-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-          Las Vegas Golf Course Homes for Sale | Spanish Trail Country Club
+          Spanish Trail Golf Course Homes for Sale
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           If you are searching Las Vegas golf course homes for sale in a private club setting, Spanish Trail’s Sunrise, Lakes, and Canyon nines frame luxury estates and villas behind the guard gates. Dr. Jan Duffy decodes view premiums, renovation budgets, and membership next steps so your offer matches the fairway lifestyle you want.

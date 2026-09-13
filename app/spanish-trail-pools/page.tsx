@@ -13,7 +13,7 @@ import { SectionBanner, CardVisual } from '@/components/heading-media'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-pools'
 const pageDescription =
-  'Spanish Trail features two aquatic centers with resort-style pools, spas, and swim programs. Discover family-friendly swimming and aquatic fitness at this Las Vegas guard-gated community.'
+  'Spanish Trail has two aquatic centers with resort-style pools, spas, and lap swim. Review hours and guest policies with Dr. Jan Duffy when you tour 89113 listings.'
 
 const webPageSchema = createWebPageSchema({
   name: 'Spanish Trail Pools & Aquatic Centers | Resort-Style Swimming',
@@ -85,7 +85,7 @@ const faqContent = [
   {
     question: 'Can guests use the Spanish Trail pools?',
     answer:
-      'Members can bring guests to the aquatic centers following club guest policies. Guest fees may apply, and advance registration is recommended during peak summer season. The pools maintain family-friendly atmospheres.',
+      'Members can bring guests to the aquatic centers following club guest policies. Guest fees may apply, and advance registration is recommended during peak summer season.',
   },
 ]
 
@@ -147,21 +147,21 @@ function HeroSection() {
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <p className="text-xs uppercase tracking-[0.5em] text-[#c6aa7a]">Aquatic Living</p>
         <h1 id="pools-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-          Spanish Trail Pools & Aquatic Centers
+          Spanish Trail Homes with Pools
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
-          Spanish Trail provides members with two resort-style aquatic centers featuring pools, heated spas, and comfortable lounging areas. Whether you&apos;re swimming laps, relaxing poolside, or joining an aqua fitness class, our facilities support year-round enjoyment of the Las Vegas sunshine.
+          Two aquatic centers serve Spanish Trail homes. Dr. Jan Duffy tours listings with pool access. Call (702) 766-3299 to buy or sell.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Button asChild className="rounded-full bg-white px-8 py-3 text-xs uppercase tracking-[0.3em] text-[#0f2b1e] hover:bg-[#efe5d8]">
-            <Link href="/membership">Join the club</Link>
+            <Link href="/buyers">Buy a Spanish Trail home</Link>
           </Button>
           <Button
             asChild
             variant="outline"
             className="rounded-full border-[#f8f5ef]/60 px-8 py-3 text-xs uppercase tracking-[0.3em] text-[#f8f5ef] hover:bg-white/10"
           >
-            <Link href="/contact">Inquire about pools</Link>
+            <Link href="/sellers">Sell a Spanish Trail home</Link>
           </Button>
         </div>
         <HeroSearchWidget theme="dark" />
@@ -341,7 +341,7 @@ function CTASection() {
       <SectionBanner headingId="pools-cta-heading" />
       <div className="mx-auto max-w-6xl px-4 text-center sm:px-6">
         <h2 id="pools-cta-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
-          Dive into the Spanish Trail lifestyle
+          Tour Spanish Trail homes with pool access
         </h2>
         <p className="mt-4 text-base leading-relaxed text-[#372a20]/85">
           Enjoy resort-style swimming steps from your door. Contact Dr. Jan Duffy at <Link href="tel:+17027663299" className="underline-offset-4 hover:underline">(702) 766-3299</Link> to find homes with easy access to the aquatic centers—or with private pools of their own.

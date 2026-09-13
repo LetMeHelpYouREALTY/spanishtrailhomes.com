@@ -130,7 +130,7 @@ export default function SpanishTrailInsightsPage() {
       <SectionBanner headingId="insights-hero" />
         <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
           <h1 id="insights-hero" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-            Spanish Trail Insights & Advisory
+            Spanish Trail Homes Insights for Buyers and Sellers
           </h1>
           <p className="text-base leading-relaxed text-[#f8f5ef]/85">
             Access the same research and concierge guidance Dr. Jan Duffy shares with Spanish Trail clients—covering

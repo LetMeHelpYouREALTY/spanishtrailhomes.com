@@ -127,7 +127,7 @@ export default function SpanishTrailMarketReportPage() {
       <SectionBanner headingId="market-report-hero" />
         <div className="mx-auto max-w-4xl space-y-5 px-6 text-center">
           <h1 id="market-report-hero" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-            Spanish Trail Market Report
+            Spanish Trail Homes Market Report
           </h1>
           <p className="text-base leading-relaxed text-[#f8f5ef]/85">
             Monitor real-time pricing, active inventory, and demand signals across Spanish Trail&apos;s eleven guard-gated

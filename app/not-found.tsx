@@ -7,7 +7,7 @@ import { getAssetAlt } from '@/lib/site-images'
 
 export const metadata: Metadata = {
   title: 'Page Not Found | Spanish Trail Homes',
-  description: 'The page you are looking for could not be found. Explore Spanish Trail homes, club amenities, and real estate services.',
+  description: 'The page you are looking for could not be found. Buy or sell Spanish Trail homes with Dr. Jan Duffy.',
   robots: {
     index: false,
     follow: true,
@@ -83,11 +83,11 @@ export default function NotFound() {
               <Link href="/sellers" className="text-muted-foreground hover:text-foreground underline-offset-4 hover:underline">
                 Sellers Guide
               </Link>
-              <Link href="/club" className="text-muted-foreground hover:text-foreground underline-offset-4 hover:underline">
-                Club & Lifestyle
+              <Link href="/services" className="text-muted-foreground hover:text-foreground underline-offset-4 hover:underline">
+                Realtor services
               </Link>
-              <Link href="/golf" className="text-muted-foreground hover:text-foreground underline-offset-4 hover:underline">
-                Golf Course
+              <Link href="/spanish-trail-homes-for-sale-las-vegas" className="text-muted-foreground hover:text-foreground underline-offset-4 hover:underline">
+                Spanish Trail homes
               </Link>
               <Link href="/communities/spanish-trail" className="text-muted-foreground hover:text-foreground underline-offset-4 hover:underline">
                 Spanish Trail Community

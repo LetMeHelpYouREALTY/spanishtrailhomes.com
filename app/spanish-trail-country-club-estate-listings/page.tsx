@@ -135,7 +135,7 @@ function HeroSection() {
       <SectionBanner headingId="estate-hero-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h1 id="estate-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-          Spanish Trail Country Club Estate Listings in Las Vegas
+          Spanish Trail Estate Homes for Sale
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           Spanish Trail’s estates rank among Southwest Las Vegas’s most coveted addresses—lush fairways, double-gated privacy, and grand entertaining spaces minutes from the Strip. I curate bespoke tours and negotiation playbooks so you secure an estate aligned with your lifestyle, from multi-generational living to executive entertaining.

@@ -134,7 +134,7 @@ function HeroSection() {
       <SectionBanner headingId="southwest-hero-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h1 id="southwest-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-          Spanish Trail Southwest Las Vegas Luxury Homes
+          Spanish Trail Homes in Southwest Las Vegas
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           Southwest Las Vegas balances Strip convenience with suburban calm, and Spanish Trail stands at the center of that promise. Guarded entrances, towering pines, and championship golf separate the community from newer developments nearby. I help buyers evaluate Spanish Trail alongside other elite neighborhoods so you choose the address that truly fits your goals.

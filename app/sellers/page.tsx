@@ -20,7 +20,7 @@ type RealScoutHomeValueProps = HTMLAttributes<HTMLElement> & {
 
 const pageUrl = 'https://www.spanishtrailhomes.com/sellers'
 const sellersPageDescription =
-  'Discover how Dr. Jan Duffy helps Spanish Trail homeowners price, prepare, and market for premium offers. Home valuations, concierge prep, marketing strategy, and closing roadmap.'
+  'Seller representation for Spanish Trail homes in Las Vegas 89113. Dr. Jan Duffy prices, prepares, and markets listings inside this guard-gated community—Berkshire Hathaway HomeServices Nevada Properties.'
 
 const sellersWebPageSchema = createWebPageSchema({
   name: 'Spanish Trail Home Seller Guide | Dr. Jan Duffy',
@@ -91,7 +91,7 @@ const faqSchema = {
 }
 
 export const metadata: Metadata = {
-  title: 'Spanish Trail Home Seller Guide | Dr. Jan Duffy',
+  title: 'Sell Your Spanish Trail Home | Seller Representation | Dr. Jan Duffy',
   description: sellersPageDescription,
   alternates: {
     canonical: getCanonicalUrl('/sellers'),
@@ -177,10 +177,10 @@ function HeroSection() {
       <SectionBanner headingId="sellers-hero-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h1 id="sellers-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-          Spanish Trail Seller Blueprint: Earn Premium Offers in 2026
+          Seller Representation for Spanish Trail Homes
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
-          Las Vegas buyers are eyeing Spanish Trail for its emerald fairways, private security, and effortless access to the Strip. Across all 11 neighborhoods and 1,200+ homes—villas, townhomes, and custom estates—the market rewards well-positioned listings. As of {marketStats.date_label}, median sale prices inside the gates sit at {formatMedianPrice(marketStats.median_price)}, with estates above $2.1M commanding their strongest list-to-close ratios in five years. Review the latest{' '}
+          Spanish Trail buyers shop 11 neighborhoods and 1,200+ homes—villas, townhomes, and custom estates inside the 89113 guard gates. As of {marketStats.date_label}, median sale prices sit at {formatMedianPrice(marketStats.median_price)}. Review the latest{' '}
           <Link href="/spanish-trail-market-report" className="font-medium text-[#f8f5ef] underline-offset-4 hover:underline">
             Spanish Trail market report
           </Link>{' '}
@@ -454,10 +454,10 @@ function ClubAndLifestylePositioningSection() {
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 lg:grid-cols-[1.1fr_1fr]">
         <div className="space-y-6">
           <h2 id="club-lifestyle-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
-            Positioning Spanish Trail lifestyle and club benefits
+            How we market Spanish Trail homes
           </h2>
           <p className="text-base leading-relaxed text-[#372a20]/85">
-            Buyers aren’t just purchasing a house—they are investing in a community with 27 holes of championship golf, tennis and pickleball pavilions, resort pools, and newly refreshed culinary venues. My marketing materials highlight how your property aligns with these amenities: morning tee times two minutes away, a fitness center a cart ride from your driveway, or walking paths that connect to pocket parks. We also speak to the practical perks—guard-gated peace of mind, active social calendars, and easy access to top-rated schools like Bishop Gorman and Faith Lutheran.
+            Buyers are purchasing square footage, lot size, and a location inside a 640-acre guard-gated master plan with 27 holes of golf, tennis and pickleball courts, resort pools, and a 50,000 sq. ft. clubhouse. Marketing lists those amenities with distances: morning tee times two minutes away, a fitness center a cart ride from the driveway, walking paths to pocket parks. Named schools with distances—Bishop Gorman High School 2.2 miles via S. Rainbow Blvd., Faith Lutheran Middle &amp; High School a short drive—belong in the fact sheet, not as lifestyle labels.
           </p>
           <p className="text-base leading-relaxed text-[#372a20]/85">
             For investors and second-home owners, I showcase rental history potential, short-term lease guidelines, and the stability of the homeowners association. International buyers receive translations, relocation insight, and introductions to trusted legal resources for FIRPTA compliance. Every narrative remains consistent with Fair Housing guidelines while celebrating the unique vibrancy of life inside Spanish Trail.
@@ -508,7 +508,7 @@ function CallToActionSection() {
       <SectionBanner headingId="seller-cta-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h2 id="seller-cta-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-          Ready to unlock your Spanish Trail equity?
+          Ready to sell your Spanish Trail home?
         </h2>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           Every successful sale begins with clarity and collaboration. Call or text (702) 766-3299 to schedule a confidential appointment. Prefer email? Send a note to{' '}

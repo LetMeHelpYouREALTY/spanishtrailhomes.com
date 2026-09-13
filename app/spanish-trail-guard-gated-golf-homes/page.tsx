@@ -134,7 +134,7 @@ function HeroSection() {
       <SectionBanner headingId="guard-gated-hero-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h1 id="guard-gated-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-          Guard-Gated Golf Community Homes in Spanish Trail
+          Guard-Gated Spanish Trail Homes for Sale
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           Spanish Trail’s layered security—maned entrances, resident-only lanes, and continuous patrols—creates a sanctuary just seven miles west of the Strip. The 27-hole Robert Trent Jones Jr. course winds through twelve enclaves, each with its own balance of privacy, golf access, and club proximity. From the moment you arrive at the Tropicana gatehouse, concierge-level service sets the tone for life inside the guard gates.

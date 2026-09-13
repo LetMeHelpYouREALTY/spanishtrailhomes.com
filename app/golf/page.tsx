@@ -228,21 +228,17 @@ function GolfHero() {
           id="golf-hero-heading"
           className="mt-5 font-[var(--font-playfair)] text-4xl leading-tight sm:text-5xl lg:text-6xl"
         >
-          Spanish Trail Country Club Golf—Private 27 Holes in Las Vegas
+          Spanish Trail Homes on a Private 27-Hole Course
         </h1>
         <p className="mt-6 max-w-2xl text-base leading-7 text-primary-foreground sm:text-lg">
-          Robert Trent Jones Jr. designed the Sunrise, Lakes, and Canyon nines for strategy, ball striking, and creativity. This is private member golf in southwest Las Vegas—not a public tee sheet—with lakes, waterfalls, streams, and 120 bunkers, plus views toward Red Rock and the Strip skyline. Exploring{' '}
-          <Link href="/las-vegas-luxury-neighborhoods" className="font-medium text-primary-foreground underline-offset-4 hover:underline">
-            other private Las Vegas golf communities
-          </Link>
-          ? Start here for Spanish Trail, then compare enclaves with Dr. Jan Duffy.
+          Golf is an amenity of Spanish Trail homes. Dr. Jan Duffy represents buyers and sellers of fairway and estate addresses here—not a valley-wide golf listing page. Robert Trent Jones Jr. designed the Sunrise, Lakes, and Canyon nines. Call (702) 766-3299 to tour.
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <Button className="rounded-full px-7 py-3 text-xs uppercase tracking-[0.4em]" asChild>
-            <Link href="/membership#offerings">Learn About Membership</Link>
+            <Link href="/spanish-trail-homes-for-sale-las-vegas">View Spanish Trail homes</Link>
           </Button>
           <Button variant="outline" asChild className="rounded-full px-7 py-3 text-xs uppercase tracking-[0.3em] text-primary">
-            <Link href="/events#golf-outings">Host a Golf Outing</Link>
+            <Link href="/contact">Book a home tour</Link>
           </Button>
         </div>
         <HeroSearchWidget theme="dark" />
@@ -530,7 +526,7 @@ function GuestInformation() {
             id="guest-info-heading"
             className="font-[var(--font-playfair)] text-3xl text-foreground sm:text-4xl"
           >
-            Planning a visit? Let us curate your round.
+            Ready to buy or sell a Spanish Trail golf-course home?
           </h2>
           <p className="text-base leading-relaxed text-muted-foreground">
             The golf course was originally private but is now open for non-members to play as well as members. Guests can arrange tee times through the golf shop or be accompanied by a member. Please review pace-of-play expectations, dress code, and arrival instructions prior to your visit.

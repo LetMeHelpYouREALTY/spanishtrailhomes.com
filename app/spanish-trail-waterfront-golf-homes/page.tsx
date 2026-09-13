@@ -134,7 +134,7 @@ function HeroSection() {
       <SectionBanner headingId="waterfront-hero-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h1 id="waterfront-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-          Waterfront Golf Course Homes Spanish Trail
+          Spanish Trail Waterfront Homes for Sale
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           Glassy lakes, emerald fairways, and backdrops of The Strip at night—Spanish Trail’s Lakes course delivers a rare trifecta. I connect buyers with waterfront homes that blend serenity, golf prestige, and entertainer-ready patios, ensuring every sunset feels like a private show.</p>

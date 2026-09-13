@@ -162,7 +162,7 @@ export default function LuxuryNeighborhoodComparisonsPage() {
       <SectionBanner headingId="neighborhoods-hero" />
         <div className="mx-auto max-w-4xl space-y-5 px-6 text-center">
           <h1 id="neighborhoods-hero" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-            Las Vegas Luxury Neighborhoods | Spanish Trail, Summerlin Golf & Beyond
+            Spanish Trail Homes vs Other Las Vegas Neighborhoods
           </h1>
           <p className="text-base leading-relaxed text-[#f8f5ef]/85">
             Evaluate Spanish Trail—southwest Las Vegas, not inside Summerlin—next to Summerlin country-club communities, Spanish Hills, The Ridges, and Red Rock Country Club. Dr. Jan Duffy clarifies geography, golf access, and HOA differences, then connects you to{' '}

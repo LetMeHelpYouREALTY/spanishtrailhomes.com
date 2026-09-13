@@ -236,7 +236,7 @@ function HeroSection() {
       <div className="mx-auto flex max-w-4xl flex-col gap-6 px-6 py-24 text-center sm:py-28">
         <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/70">Credentials That Safeguard Your Sale</p>
         <h1 id="awards-hero-heading" className="font-heading text-3xl font-semibold leading-tight sm:text-4xl">
-          Recognition earned in Spanish Trail’s guard-gated market
+          Awards for Spanish Trail Homes Representation
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85 sm:text-lg">
           Dr. Jan Duffy blends academic rigor, Berkshire Hathaway HomeServices resources, and hyper-local intelligence to

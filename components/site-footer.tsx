@@ -13,6 +13,17 @@ import {
 export function SiteFooter() {
   const footerLinks = [
     {
+      heading: 'Realtor Services',
+      links: [
+        { label: 'All realtor services', href: '/services' },
+        { label: 'Buy in Spanish Trail', href: '/buyers' },
+        { label: 'Sell your Spanish Trail home', href: '/sellers' },
+        { label: 'Book a private tour', href: '/contact' },
+        { label: 'Relocation into 89113', href: '/relocation' },
+        { label: 'Spanish Trail market report', href: '/spanish-trail-market-report' },
+      ],
+    },
+    {
       heading: 'Homes for Sale',
       links: [
         { label: 'All Spanish Trail Homes', href: '/spanish-trail-homes-for-sale-las-vegas' },
@@ -21,31 +32,17 @@ export function SiteFooter() {
         { label: 'Townhomes & Villas', href: '/spanish-trail-townhomes-villas' },
         { label: 'Waterfront Homes', href: '/spanish-trail-waterfront-golf-homes' },
         { label: 'Guard-Gated Homes', href: '/spanish-trail-guard-gated-golf-homes' },
-        { label: 'Custom Estates', href: '/spanish-trail-custom-estate-homes-strip' },
-        { label: 'Private Golf Homes', href: '/spanish-trail-private-golf-course-homes' },
       ],
     },
     {
-      heading: 'Community & Club',
+      heading: 'Spanish Trail Community',
       links: [
-        { label: 'About Spanish Trail', href: '/communities/spanish-trail' },
-        { label: 'Lifestyle Guide', href: '/spanish-trail-lifestyle' },
-        { label: 'Architecture & Styles', href: '/spanish-trail-architecture' },
-        { label: 'Schools', href: '/spanish-trail-schools' },
-        { label: 'HOA Guide', href: '/spanish-trail-hoa-guide' },
-        { label: 'Golf Course', href: '/golf' },
-        { label: 'Tennis Center', href: '/spanish-trail-tennis' },
-        { label: 'Fitness & Pools', href: '/spanish-trail-fitness' },
-      ],
-    },
-    {
-      heading: 'Market Resources',
-      links: [
-        { label: 'Market Report', href: '/spanish-trail-market-report' },
-        { label: 'Market Insights', href: '/spanish-trail-insights' },
-        { label: 'Home Valuation', href: '/sellers' },
-        { label: 'Buyer Consultation', href: '/buyers' },
-        { label: 'Southwest Luxury Homes', href: '/spanish-trail-southwest-las-vegas-luxury-homes' },
+        { label: '11 neighborhoods', href: '/neighborhoods' },
+        { label: 'Community guide', href: '/communities/spanish-trail' },
+        { label: 'Schools near Spanish Trail', href: '/spanish-trail-schools' },
+        { label: 'HOA guide', href: '/spanish-trail-hoa-guide' },
+        { label: 'Golf course', href: '/golf' },
+        { label: 'Club & amenities', href: '/club' },
       ],
     },
     {
@@ -98,7 +95,7 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:grid-cols-2 sm:gap-10 sm:px-6 sm:py-12 lg:grid-cols-5">
         <div className="space-y-4 min-w-0 sm:col-span-2 lg:col-span-1">
           <p className="text-xs uppercase tracking-[0.3em] text-[#cbb8a6] sm:tracking-[0.4em]">
-            Spanish Trail Country Club
+            Spanish Trail Luxury Realtor
           </p>
           <p className="font-[var(--font-playfair)] text-lg tracking-[0.06em] sm:text-xl sm:tracking-[0.08em]">
             5050 Spanish Trail Ln<br />Las Vegas, NV 89113
@@ -107,7 +104,7 @@ export function SiteFooter() {
             Veteran-Owned Business
           </p>
           <p className="text-sm leading-relaxed text-[#efe5d8]">
-            Guard-gated golf living minutes from the Strip.
+            Exclusive realtor for Spanish Trail homes in 89113.
           </p>
           <p className="text-xs leading-relaxed text-[#cbb8a6]">
             Hours: Sun–Sat 9:00 AM–6:00 PM · Service area: {GBP_SERVICE_AREA_LABEL}

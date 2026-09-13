@@ -134,7 +134,7 @@ function HeroSection() {
       <SectionBanner headingId="private-golf-hero-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h1 id="private-golf-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-          Las Vegas Private Golf Homes | Spanish Trail Country Club
+          Spanish Trail Private Golf Course Homes for Sale
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           Las Vegas private golf here means Spanish Trail’s member-only 27 holes by Robert Trent Jones Jr.—not a public tee sheet. Dr. Jan Duffy matches buyers with course-front estates, villas, and custom homes, then coordinates introductions to the club for membership questions tied to your closing timeline.

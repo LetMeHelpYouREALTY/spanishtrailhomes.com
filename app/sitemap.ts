@@ -15,16 +15,17 @@ const routeConfig: Array<{
   // Primary navigation pages - high priority
   { path: '/buyers', priority: 0.9, changeFrequency: 'weekly' },
   { path: '/sellers', priority: 0.9, changeFrequency: 'weekly' },
+  { path: '/services', priority: 0.9, changeFrequency: 'weekly' },
   { path: '/communities/spanish-trail', priority: 0.9, changeFrequency: 'weekly' },
   { path: '/spanish-trail-homes-for-sale-las-vegas', priority: 0.9, changeFrequency: 'daily' },
   { path: '/homes-for-sale-in-spanish-trail-las-vegas', priority: 0.9, changeFrequency: 'daily' },
   
-  // Club and lifestyle pages - high priority
-  { path: '/club', priority: 0.9, changeFrequency: 'monthly' },
-  { path: '/golf', priority: 0.9, changeFrequency: 'monthly' },
-  { path: '/events', priority: 0.8, changeFrequency: 'weekly' },
-  { path: '/membership', priority: 0.8, changeFrequency: 'monthly' },
-  { path: '/guest-info', priority: 0.8, changeFrequency: 'monthly' },
+  // Club and lifestyle pages - supporting community context
+  { path: '/club', priority: 0.7, changeFrequency: 'monthly' },
+  { path: '/golf', priority: 0.7, changeFrequency: 'monthly' },
+  { path: '/events', priority: 0.6, changeFrequency: 'weekly' },
+  { path: '/membership', priority: 0.6, changeFrequency: 'monthly' },
+  { path: '/guest-info', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/relocation', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/neighborhoods', priority: 0.85, changeFrequency: 'monthly' },
   { path: '/spanish-trail-lifestyle', priority: 0.8, changeFrequency: 'monthly' },

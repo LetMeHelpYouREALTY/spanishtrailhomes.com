@@ -134,7 +134,7 @@ function HeroSection() {
       <SectionBanner headingId="gated-golf-hero-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h1 id="gated-golf-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-          Gated Golf Community Spanish Trail Las Vegas Realtor
+          Spanish Trail Homes Realtor | Guard-Gated 89113
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           As a Berkshire Hathaway luxury advisor and longtime Las Vegas resident, I guide clients through every nuance of Spanish Trail’s guard-gated lifestyle—from daily market movements to membership planning. My approach blends data, discretion, and concierge service so your transition into the community feels effortless and strategic.

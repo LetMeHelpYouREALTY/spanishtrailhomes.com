@@ -49,7 +49,7 @@ const localBusinessId = `${siteUrl}#localBusiness`
 
 /** Default SERP/social summary for routes without page-level metadata (keep in sync across description + OG + Twitter). */
 const rootDefaultDescription =
-  'Spanish Trail guard-gated homes, Las Vegas NV 89113. Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties—listings and local guidance.'
+  'Buy and sell Spanish Trail homes in Las Vegas 89113. Dr. Jan Duffy’s realtor services cover this community only—Berkshire Hathaway HomeServices Nevada Properties.'
 
 const structuredData = [
   {
@@ -59,8 +59,8 @@ const structuredData = [
     name: GBP_LEGAL_NAME,
     description: GBP_DESCRIPTION,
     image: createOgImageUrl({
-      title: 'Spanish Trail Homes & Country Club',
-      subtitle: 'Guard-gated Las Vegas luxury real estate by Dr. Jan Duffy',
+      title: 'Spanish Trail Luxury Realtor',
+      subtitle: 'Exclusive buy, sell & tour services by Dr. Jan Duffy',
       eyebrow: 'SpanishTrailHomes.com',
     }),
     url: siteUrl,
@@ -195,14 +195,14 @@ export const metadata: Metadata = {
     title: GBP_LEGAL_NAME,
     description: rootDefaultDescription,
     siteName: GBP_LEGAL_NAME,
-    images: [createOgImageUrl({ title: 'Spanish Trail Homes & Club Lifestyle', subtitle: 'Guard-gated Las Vegas real estate by Dr. Jan Duffy' })],
+    images: [createOgImageUrl({ title: 'Spanish Trail Luxury Realtor', subtitle: 'Buy, sell, and tour homes in Las Vegas 89113 with Dr. Jan Duffy' })],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
     title: GBP_LEGAL_NAME,
     description: rootDefaultDescription,
-    images: [createOgImageUrl({ title: 'Spanish Trail Homes', subtitle: 'Luxury guard-gated homes and club expertise', eyebrow: 'SpanishTrailHomes.com' })],
+    images: [createOgImageUrl({ title: 'Spanish Trail Homes', subtitle: 'Luxury realtor services inside the 89113 gates', eyebrow: 'SpanishTrailHomes.com' })],
   },
   robots: {
     index: true,

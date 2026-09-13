@@ -152,7 +152,7 @@ function HeroSection() {
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <p className="text-xs uppercase tracking-[0.5em] text-[#c6aa7a]">Tennis at Spanish Trail</p>
         <h1 id="tennis-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-          Las Vegas Tennis Lessons & Spanish Trail Tennis Center
+          Spanish Trail Homes with Tennis Access
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           Spanish Trail Tennis Center—inside Spanish Trail Country Club—offers 12 lighted courts, a full pro shop, and USPTA-certified pros for lessons, clinics, and leagues (membership and guest policies apply). If you are comparing Las Vegas tennis facilities, start here for guard-gated programming; Dr. Jan Duffy helps with homes, the club handles court bookings.
@@ -343,7 +343,7 @@ function CTASection() {
       <SectionBanner headingId="tennis-cta-heading" />
       <div className="mx-auto max-w-6xl px-4 text-center sm:px-6">
         <h2 id="tennis-cta-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
-          Ready to play at Spanish Trail?
+          Tour Spanish Trail homes with tennis access
         </h2>
         <p className="mt-4 text-base leading-relaxed text-[#372a20]/85">
           Join a community where world-class tennis is just steps from your door. Contact Dr. Jan Duffy at <Link href="tel:+17027663299" className="underline-offset-4 hover:underline">(702) 766-3299</Link> to find homes near the tennis center or inquire about membership options.
