@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Playfair_Display, Lato } from 'next/font/google'
 import Script from 'next/script'
 import { ThemeProvider } from 'next-themes'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import DeployBanner from '../components/deploy-banner'
 import { CalendlyWidgetScript } from '@/components/calendly-widget-script'
 import { CalendlyEventListener } from '@/components/calendly-event-listener'
@@ -291,6 +292,7 @@ gtag('config', 'G-X68WWN997N', {
           {children}
           <FloatingCalendlyButton />
         </ThemeProvider>
+        <SpeedInsights />
       </body>
     </html>
   )
