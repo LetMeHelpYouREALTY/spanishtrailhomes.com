@@ -7,6 +7,7 @@ import { RealScoutSection } from '@/components/realscout-section'
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { featuredListings, marketHighlights } from '@/lib/spanishTrailContent'
+import { REALSCOUT_SHARED_SEARCH_URL } from '@/lib/realscout'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
@@ -259,7 +260,7 @@ function FeaturedListingsSection() {
             asChild
             className="rounded-full px-6 py-2 text-xs uppercase tracking-[0.3em]"
           >
-            <Link href="https://searchforaffordablehomes.com/neighborhood/83/spanish-trails#featured-listings">
+            <Link href={REALSCOUT_SHARED_SEARCH_URL} target="_blank" rel="noopener noreferrer">
               Speak with Dr. Duffy
             </Link>
           </Button>

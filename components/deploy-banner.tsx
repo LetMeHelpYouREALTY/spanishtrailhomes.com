@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { XIcon, ChevronDownIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { REALSCOUT_SHARED_SEARCH_URL } from '@/lib/realscout'
 
 export default function DeployBanner() {
   const [isVisible, setIsVisible] = useState(false)
@@ -86,7 +87,7 @@ export default function DeployBanner() {
               <div className="flex shrink-0 flex-wrap items-center gap-2 sm:gap-3">
                 <Button variant="default" size="sm" asChild>
                   <a
-                    href="https://searchforaffordablehomes.com/neighborhood/83/spanish-trails"
+                    href={REALSCOUT_SHARED_SEARCH_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2"

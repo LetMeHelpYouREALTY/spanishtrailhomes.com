@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 import { ChevronDown, Menu, Phone, X } from 'lucide-react'
 
 import { NAV_ITEMS } from '@/lib/navigation'
+import { REALSCOUT_SHARED_SEARCH_URL } from '@/lib/realscout'
 import { trackPhoneClick } from '@/lib/analytics'
 import { Button } from '@/components/ui/button'
 import { CalendlyLink } from '@/components/calendly-link'
@@ -214,7 +215,7 @@ export function SiteHeader() {
                 (702) 766-3299
               </Link>
               <Button asChild variant="link" className="touch-target min-h-[44px] justify-start px-0 text-sm uppercase tracking-[0.32em]">
-                <Link href="https://searchforaffordablehomes.com/neighborhood/83/spanish-trails" target="_blank" rel="noopener noreferrer">
+                <Link href={REALSCOUT_SHARED_SEARCH_URL} target="_blank" rel="noopener noreferrer">
                   View Listings →
                 </Link>
               </Button>
