@@ -241,12 +241,11 @@ function HeroSection() {
       <HeroBackground
         src={getSiteImageUrl('h2-neighborhood-street')}
         alt="Spanish Trail Country Club guard-gated community and golf course landscape, Las Vegas Nevada"
-        overlayClassName="bg-gradient-to-b from-[#0f2b1e]/60 via-[#0f2b1e]/60 to-[#0f2b1e]/80"
         sizes="(max-width: 1024px) 100vw, 1280px"
       />
       <div className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-linear-to-t from-background" />
 
-      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-24 text-primary-foreground sm:py-32 lg:py-40">
+      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-24 text-primary-foreground hero-photo-copy sm:py-32 lg:py-40">
         <div className="max-w-3xl space-y-6">
           <p className="text-xs uppercase tracking-[0.5em] text-accent">
             Spanish Trail Homes

@@ -183,7 +183,7 @@ export default function SpanishTrailSchoolsPage() {
 
 function HeroSection() {
   return (
-    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="schools-hero-heading">
+    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden hero-photo-copy" aria-labelledby="schools-hero-heading">
       <SectionBanner headingId="schools-hero-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <p className="text-xs uppercase tracking-[0.5em] text-[#c6aa7a]">Education</p>

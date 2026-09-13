@@ -140,7 +140,7 @@ export default function SpanishTrailTownhomesVillasPage() {
 
 function HeroSection() {
   return (
-    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="townhome-hero-heading">
+    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden hero-photo-copy" aria-labelledby="townhome-hero-heading">
       <SectionBanner headingId="townhome-hero-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h1 id="townhome-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">

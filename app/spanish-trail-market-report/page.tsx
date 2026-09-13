@@ -131,7 +131,7 @@ const webPageSchema = createWebPageSchema({
 export default function SpanishTrailMarketReportPage() {
   return (
     <SiteShell>
-      <header className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="market-report-hero">
+      <header className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden hero-photo-copy" aria-labelledby="market-report-hero">
       <SectionBanner headingId="market-report-hero" />
         <div className="mx-auto max-w-4xl space-y-5 px-6 text-center">
           <h1 id="market-report-hero" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
@@ -342,7 +342,7 @@ function MarketReportFAQSection() {
 
 function ReportingCTASection() {
   return (
-    <section className="bg-[#0f2b1e] py-20 text-[#f8f5ef] relative isolate overflow-hidden" aria-labelledby="reporting-cta-heading">
+    <section className="bg-[#0f2b1e] py-20 text-[#f8f5ef] relative isolate overflow-hidden hero-photo-copy" aria-labelledby="reporting-cta-heading">
       <SectionBanner headingId="reporting-cta-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h2

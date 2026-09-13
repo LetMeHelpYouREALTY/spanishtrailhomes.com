@@ -150,7 +150,7 @@ export default function GoogleBusinessProfilePage() {
 function HeroSection() {
   return (
     <section
-      className="relative overflow-hidden bg-[#0f2b1e] px-6 py-20 text-primary-foreground sm:py-28 isolate"
+      className="relative overflow-hidden bg-[#0f2b1e] px-6 py-20 text-primary-foreground sm:py-28 isolate hero-photo-copy"
       aria-labelledby="gbp-hero-heading"
     >
       <SectionBanner headingId="gbp-hero-heading" />

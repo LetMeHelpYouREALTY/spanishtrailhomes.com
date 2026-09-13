@@ -273,13 +273,12 @@ function AEOAnswerSection() {
 function HeroSection() {
   return (
     <section
-      className="relative isolate overflow-x-hidden"
+      className="relative isolate overflow-x-hidden hero-photo-copy"
       aria-labelledby="hero-heading"
     >
       <HeroBackground
         src={getSiteImageUrl('h1-guard-gate')}
         alt="Spanish Trail Country Club guard-gated luxury homes and golf course in Las Vegas 89113"
-        overlayClassName="bg-gradient-to-b from-[#0f2b1e]/55 to-[#0f2b1e]/80"
         priority
         sizes="(max-width: 1024px) 100vw, 1280px"
       />
@@ -290,11 +289,11 @@ function HeroSection() {
         <div className="max-w-3xl space-y-4 sm:space-y-5">
           <h1
             id="hero-heading"
-            className="font-heading text-3xl font-semibold leading-tight tracking-[0.06em] text-white [text-shadow:0_1px_3px_rgb(0_0_0/35%)] sm:text-4xl sm:tracking-[0.08em] lg:text-5xl xl:text-6xl"
+            className="font-heading text-3xl font-semibold leading-tight tracking-[0.06em] text-white sm:text-4xl sm:tracking-[0.08em] lg:text-5xl xl:text-6xl"
           >
             Buy and Sell Spanish Trail Homes
           </h1>
-          <p className="text-base font-medium leading-relaxed text-white/95 sm:text-lg sm:leading-relaxed [text-shadow:0_1px_2px_rgb(0_0_0/25%)]">
+          <p className="text-base font-medium leading-relaxed text-white/95 sm:text-lg sm:leading-relaxed">
             Realtor services for Spanish Trail homes only. Dr. Jan Duffy buys, sells, and tours addresses inside this 89113 community—also searched as Spanish Trails. Berkshire Hathaway HomeServices Nevada Properties.
           </p>
           <HeroMarketPulse />

@@ -176,7 +176,7 @@ export default function SellersPage() {
 
 function HeroSection() {
   return (
-    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="sellers-hero-heading">
+    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden hero-photo-copy" aria-labelledby="sellers-hero-heading">
       <SectionBanner headingId="sellers-hero-heading" />
       <div className="mx-auto flex max-w-4xl flex-col items-center space-y-6 px-6 text-center">
         <AgentPortrait placement="sellers" size="lg" priority schema pagePath="/sellers" />
@@ -508,7 +508,7 @@ function FAQSection() {
 
 function CallToActionSection() {
   return (
-    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="seller-cta-heading">
+    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden hero-photo-copy" aria-labelledby="seller-cta-heading">
       <SectionBanner headingId="seller-cta-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h2 id="seller-cta-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">

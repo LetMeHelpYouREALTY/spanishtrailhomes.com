@@ -180,7 +180,7 @@ export default function AmenityMapPage() {
         </div>
       </section>
 
-      <section className="bg-[#0f2b1e] py-16 text-center text-primary-foreground sm:py-20 relative isolate overflow-hidden" aria-labelledby="cta-heading">
+      <section className="bg-[#0f2b1e] py-16 text-center text-primary-foreground sm:py-20 relative isolate overflow-hidden hero-photo-copy" aria-labelledby="cta-heading">
       <SectionBanner headingId="cta-heading" />
         <div className="mx-auto max-w-2xl px-4 sm:px-6">
           <h2 id="cta-heading" className="font-heading text-2xl sm:text-3xl">

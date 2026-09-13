@@ -133,7 +133,7 @@ const webPageSchema = createWebPageSchema({
 export default function SpanishTrailInsightsPage() {
   return (
     <SiteShell>
-      <header className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="insights-hero">
+      <header className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden hero-photo-copy" aria-labelledby="insights-hero">
       <SectionBanner headingId="insights-hero" />
         <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
           <h1 id="insights-hero" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
@@ -357,7 +357,7 @@ function InsightsFAQSection() {
 
 function InsightsCTASection() {
   return (
-    <section className="bg-[#0f2b1e] py-20 text-[#f8f5ef] relative isolate overflow-hidden" aria-labelledby="insights-cta-heading">
+    <section className="bg-[#0f2b1e] py-20 text-[#f8f5ef] relative isolate overflow-hidden hero-photo-copy" aria-labelledby="insights-cta-heading">
       <SectionBanner headingId="insights-cta-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h2 id="insights-cta-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">

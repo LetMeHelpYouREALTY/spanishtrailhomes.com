@@ -77,7 +77,7 @@ export default function FindOurLocationsPage() {
         {JSON.stringify(webPageSchema)}
       </Script>
 
-      <section className="relative isolate overflow-hidden bg-[#0f2b1e] px-6 py-20 text-primary-foreground sm:py-28" aria-labelledby="find-locations-heading">
+      <section className="relative isolate overflow-hidden bg-[#0f2b1e] px-6 py-20 text-primary-foreground sm:py-28 hero-photo-copy" aria-labelledby="find-locations-heading">
         <SectionBanner headingId="find-locations-heading" />
         <div className="relative mx-auto max-w-4xl text-center">
           <p className="text-xs uppercase tracking-[0.5em] text-primary-foreground/80">Office and map</p>

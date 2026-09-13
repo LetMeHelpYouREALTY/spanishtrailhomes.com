@@ -209,7 +209,7 @@ function ClubHero() {
     >
       <SectionBanner headingId="club-hero-heading" />
       <div className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-t from-background" />
-      <div className="mx-auto max-w-5xl px-6 py-28 text-primary-foreground sm:py-40">
+      <div className="mx-auto max-w-5xl px-6 py-28 text-primary-foreground hero-photo-copy sm:py-40">
         <p className="text-xs uppercase tracking-[0.5em] text-accent">
           Spanish Trail Homes
         </p>

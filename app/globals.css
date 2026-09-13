@@ -305,6 +305,11 @@ realscout-advanced-search {
   font-family: var(--font-playfair), serif;
 }
 
+/* Photo heroes: keep cream type readable without a green image wash. */
+.hero-photo-copy {
+  text-shadow: 0 2px 20px rgb(0 0 0 / 60%), 0 1px 4px rgb(0 0 0 / 50%);
+}
+
 .skip-link {
   position: absolute;
   left: -999px;

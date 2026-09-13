@@ -75,7 +75,7 @@ export default function SiteIndexPage() {
       <Script id="site-index-schema" type="application/ld+json">
         {JSON.stringify([webPageSchema, breadcrumbSchema])}
       </Script>
-      <section className="relative isolate overflow-hidden bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="site-index-heading">
+      <section className="relative isolate overflow-hidden bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 hero-photo-copy" aria-labelledby="site-index-heading">
         <SectionBanner headingId="site-index-heading" />
         <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
           <p className="text-xs uppercase tracking-[0.5em] text-[#be9956]">Crawlable site index</p>
