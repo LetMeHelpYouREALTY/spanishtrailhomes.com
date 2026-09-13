@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Script from 'next/script'
 
 import { SiteShell } from '@/components/site-shell'
+import { RealScoutSection } from '@/components/realscout-section'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
@@ -207,6 +208,7 @@ export default function AboutPage() {
   return (
     <SiteShell>
       <HeroSection />
+      <RealScoutSection id="bhhs-listings" />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs

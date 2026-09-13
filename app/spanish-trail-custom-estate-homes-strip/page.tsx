@@ -94,6 +94,14 @@ export default function CustomEstateHomesStripPage() {
   return (
     <SiteShell>
       <HeroSection />
+      <RealScoutSection
+        id="bhhs-listings"
+        eyebrow="Estate Inventory"
+        title="Spanish Trail custom estates available now"
+        description="Hand-curated estate homes with double gates, casitas, and entertainment wings."
+        priceMin="1500000"
+        propertyTypes=",SFR"
+      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs
@@ -106,14 +114,6 @@ export default function CustomEstateHomesStripPage() {
         </div>
       </div>
       <ProximitySection />
-      <RealScoutSection
-        id="custom-estate-listings"
-        eyebrow="Estate Inventory"
-        title="Spanish Trail custom estates available now"
-        description="Hand-curated estate homes with double gates, casitas, and entertainment wings."
-        priceMin="1500000"
-        propertyTypes=",SFR"
-      />
       <EstateProfilesSection />
       <DesignHighlightsSection />
       <EntertainingSection />

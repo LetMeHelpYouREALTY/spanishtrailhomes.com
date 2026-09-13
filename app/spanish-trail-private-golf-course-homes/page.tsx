@@ -94,6 +94,14 @@ export default function PrivateGolfCourseHomesPage() {
   return (
     <SiteShell>
       <HeroSection />
+      <RealScoutSection
+        id="bhhs-listings"
+        eyebrow="Golf Course Listings"
+        title="Spanish Trail private golf homes available now"
+        description="Review active and private-release homes with direct golf access, stunning views, and club proximity."
+        priceMin="1200000"
+        propertyTypes=",SFR"
+      />
       <div className="bg-[#f8f2e7]">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs
@@ -106,14 +114,6 @@ export default function PrivateGolfCourseHomesPage() {
         </div>
       </div>
       <CourseOverviewSection />
-      <RealScoutSection
-        id="private-golf-course-homes"
-        eyebrow="Golf Course Listings"
-        title="Spanish Trail private golf homes available now"
-        description="Review active and private-release homes with direct golf access, stunning views, and club proximity."
-        priceMin="1200000"
-        propertyTypes=",SFR"
-      />
       <MembershipSection />
       <ViewSection />
       <LifestyleSection />

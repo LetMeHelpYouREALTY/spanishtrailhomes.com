@@ -4,6 +4,7 @@ import Script from 'next/script'
 
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { SiteShell } from '@/components/site-shell'
+import { RealScoutSection } from '@/components/realscout-section'
 import { Button } from '@/components/ui/button'
 import { nearbyCommunities } from '@/lib/spanishTrailContent'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
@@ -189,6 +190,7 @@ export default function LuxuryNeighborhoodComparisonsPage() {
         </div>
         <HeroSearchWidget theme="dark" />
       </header>
+      <RealScoutSection id="bhhs-listings" />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs

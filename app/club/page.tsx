@@ -169,19 +169,19 @@ export default function ClubPage() {
   return (
     <SiteShell>
       <ClubHero />
-      <div className="bg-white">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
-          <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Club' }]} />
-        </div>
-      </div>
       <RealScoutSection
-        id="club-listings"
+        id="bhhs-listings"
         eyebrow="Featured Homes"
         title="Spanish Trail Residences Moments from the Clubhouse"
         description="Preview active listings within the guard-gated community—ideal for buyers seeking proximity to the clubhouse, sports complex, and event venues."
         priceMin="600000"
         propertyTypes=",SFR,CONDO"
       />
+      <div className="bg-white">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
+          <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Club' }]} />
+        </div>
+      </div>
       <ClubNarrativesSection />
       <ClubHistory />
       <AmenitiesHighlights />

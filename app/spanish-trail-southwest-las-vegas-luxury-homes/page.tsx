@@ -94,6 +94,14 @@ export default function SouthwestLasVegasLuxuryHomesPage() {
   return (
     <SiteShell>
       <HeroSection />
+      <RealScoutSection
+        id="bhhs-listings"
+        eyebrow="Luxury Listings"
+        title="Spanish Trail homes anchoring Southwest Las Vegas luxury"
+        description="Discover estates, villas, and guard-gated properties that define the Southwest submarket."
+        priceMin="900000"
+        propertyTypes=",SFR"
+      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs
@@ -106,14 +114,6 @@ export default function SouthwestLasVegasLuxuryHomesPage() {
         </div>
       </div>
       <OverviewSection />
-      <RealScoutSection
-        id="southwest-las-vegas-luxury-listings"
-        eyebrow="Luxury Listings"
-        title="Spanish Trail homes anchoring Southwest Las Vegas luxury"
-        description="Discover estates, villas, and guard-gated properties that define the Southwest submarket."
-        priceMin="900000"
-        propertyTypes=",SFR"
-      />
       <ComparisonSection />
       <LifestyleSection />
       <CommuterSection />

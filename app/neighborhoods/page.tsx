@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Script from 'next/script'
 
 import { SiteShell } from '@/components/site-shell'
+import { RealScoutSection } from '@/components/realscout-section'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
@@ -91,6 +92,7 @@ export default function NeighborhoodsHubPage() {
         title="Spanish Trail Homes | 11 Neighborhoods"
         subtitle="Match the enclave, then buy or sell with Dr. Jan Duffy"
       />
+      <RealScoutSection id="bhhs-listings" />
 
       <Breadcrumbs
         items={[

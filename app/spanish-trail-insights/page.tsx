@@ -154,6 +154,14 @@ export default function SpanishTrailInsightsPage() {
         </div>
         <HeroSearchWidget theme="dark" />
       </header>
+      <RealScoutSection
+        id="bhhs-listings"
+        eyebrow="Search in Sync"
+        title="Pair insights with real-time listings"
+        description="Set up alert-driven searches for Spanish Trail enclaves—Dr. Jan Duffy overlays these insights on every property you consider."
+        priceMin="500000"
+        propertyTypes=",SFR,CONDO"
+      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs
@@ -168,14 +176,6 @@ export default function SpanishTrailInsightsPage() {
       <InsightBriefingsSection />
       <NeighborhoodSpotlightSection />
       <AdvisoryServicesSection />
-      <RealScoutSection
-        id="spanish-trail-insight-search"
-        eyebrow="Search in Sync"
-        title="Pair insights with real-time listings"
-        description="Set up alert-driven searches for Spanish Trail enclaves—Dr. Jan Duffy overlays these insights on every property you consider."
-        priceMin="500000"
-        propertyTypes=",SFR,CONDO"
-      />
       <InsightsFAQSection />
       <InsightsCTASection />
       <Script id="insights-faq-schema" type="application/ld+json" strategy="afterInteractive">

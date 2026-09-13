@@ -172,19 +172,19 @@ export default function MembershipPage() {
   return (
     <SiteShell>
       <MembershipHero />
-      <div className="bg-white">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
-          <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Membership Guide' }]} />
-        </div>
-      </div>
       <RealScoutSection
-        id="membership-listings"
+        id="bhhs-listings"
         eyebrow="Homes for Sale"
         title="Spanish Trail Homes with Club Access"
         description="Browse homes for sale in Spanish Trail. Dr. Duffy helps you understand membership options and costs as part of your home buying process."
         priceMin="500000"
         propertyTypes=",SFR,CONDO"
       />
+      <div className="bg-white">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
+          <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Membership Guide' }]} />
+        </div>
+      </div>
       <MembershipNarrativesSection />
       <OfferingsSection />
       <ValueHighlights />

@@ -152,6 +152,14 @@ export default function SpanishTrailMarketReportPage() {
         </div>
         <HeroSearchWidget theme="dark" />
       </header>
+      <RealScoutSection
+        id="bhhs-listings"
+        eyebrow="Live Listings"
+        title="Browse Spanish Trail homes in real time"
+        description="Use RealScout filters to fine-tune price, home style, and guard-gated enclaves. Save favorites or request showings instantly."
+        priceMin="500000"
+        propertyTypes=",SFR,CONDO"
+      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs
@@ -164,14 +172,6 @@ export default function SpanishTrailMarketReportPage() {
         </div>
       </div>
       <MarketHighlightsSection />
-      <RealScoutSection
-        id="spanish-trail-live-listings"
-        eyebrow="Live Listings"
-        title="Browse Spanish Trail homes in real time"
-        description="Use RealScout filters to fine-tune price, home style, and guard-gated enclaves. Save favorites or request showings instantly."
-        priceMin="500000"
-        propertyTypes=",SFR,CONDO"
-      />
       <FeaturedListingsSection />
       <MarketReportFAQSection />
       <ReportingCTASection />

@@ -100,6 +100,14 @@ export default function LuxuryGolfCoursePropertiesPage() {
   return (
     <SiteShell>
       <HeroSection />
+      <RealScoutSection
+        id="bhhs-listings"
+        eyebrow="Golf Frontage Listings"
+        title="Spanish Trail luxury golf homes curated for you"
+        description="Review on-market and private-release homes along the Lakes, Canyon, and Sunrise courses."
+        priceMin="1000000"
+        propertyTypes=",SFR"
+      />
       <div className="bg-[#f8f2e7]">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs
@@ -112,14 +120,6 @@ export default function LuxuryGolfCoursePropertiesPage() {
         </div>
       </div>
       <MarketSection />
-      <RealScoutSection
-        id="luxury-golf-properties"
-        eyebrow="Golf Frontage Listings"
-        title="Spanish Trail luxury golf homes curated for you"
-        description="Review on-market and private-release homes along the Lakes, Canyon, and Sunrise courses."
-        priceMin="1000000"
-        propertyTypes=",SFR"
-      />
       <ViewPremiumSection />
       <ArchitectureSection />
       <IndoorOutdoorSection />

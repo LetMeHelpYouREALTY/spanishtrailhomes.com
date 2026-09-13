@@ -129,6 +129,12 @@ export default function ContactPage() {
   return (
     <SiteShell>
       <HeroSection />
+      <RealScoutSection
+        id="bhhs-listings"
+        eyebrow="Start Your Search"
+        title="See Live Spanish Trail Inventory"
+        description="Advanced filters help you pinpoint Spanish Trail homes by fairway views, secondary gates, and villa layouts."
+      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
           <Breadcrumbs
@@ -146,12 +152,6 @@ export default function ContactPage() {
       <NeighborhoodFitSection />
       <ContactCTASection />
       <GBPIntegrationSection />
-      <RealScoutSection
-        id="contact-advanced-search"
-        eyebrow="Start Your Search"
-        title="See Live Spanish Trail Inventory"
-        description="Advanced filters help you pinpoint Spanish Trail homes by fairway views, secondary gates, and villa layouts."
-      />
       <FAQSection />
       <Script id="contact-webpage-schema" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(contactWebPageSchema)}

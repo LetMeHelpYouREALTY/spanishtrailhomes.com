@@ -116,6 +116,14 @@ export default function SpanishTrailHOAGuidePage() {
   return (
     <SiteShell>
       <HeroSection />
+      <RealScoutSection
+        id="bhhs-listings"
+        eyebrow="Find Your Home"
+        title="Spanish Trail homes with HOA transparency"
+        description="Dr. Jan Duffy provides complete HOA documentation for every listing—fees, reserves, and rules—so you can buy with confidence."
+        priceMin="600000"
+        propertyTypes=",SFR,CONDO"
+      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
           <Breadcrumbs
@@ -131,14 +139,6 @@ export default function SpanishTrailHOAGuidePage() {
       <GateAccessSection />
       <FeesSection />
       <ArchitecturalSection />
-      <RealScoutSection
-        id="hoa-homes"
-        eyebrow="Find Your Home"
-        title="Spanish Trail homes with HOA transparency"
-        description="Dr. Jan Duffy provides complete HOA documentation for every listing—fees, reserves, and rules—so you can buy with confidence."
-        priceMin="600000"
-        propertyTypes=",SFR,CONDO"
-      />
       <FAQSection />
       <CTASection />
       <Script id="hoa-faq-schema" type="application/ld+json" strategy="afterInteractive">

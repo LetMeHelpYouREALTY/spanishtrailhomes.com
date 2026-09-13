@@ -193,6 +193,14 @@ export default function SpanishTrailCommunityPage() {
   return (
     <SiteShell>
       <HeroSection />
+      <RealScoutSection
+        id="bhhs-listings"
+        eyebrow="Available Homes"
+        title="Spanish Trail Homes on the Market Now"
+        description="Browse the latest guard-gated inventory across the Estates, Villas, and golf villa enclaves. Use filters to zero in on square footage, lot size, or renovation level, then schedule a private showing with Dr. Jan Duffy."
+        priceMin="0"
+        propertyTypes=",SFR,CONDO"
+      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs
@@ -203,14 +211,6 @@ export default function SpanishTrailCommunityPage() {
           />
         </div>
       </div>
-      <RealScoutSection
-        id="community-listings"
-        eyebrow="Available Homes"
-        title="Spanish Trail Homes on the Market Now"
-        description="Browse the latest guard-gated inventory across the Estates, Villas, and golf villa enclaves. Use filters to zero in on square footage, lot size, or renovation level, then schedule a private showing with Dr. Jan Duffy."
-        priceMin="0"
-        propertyTypes=",SFR,CONDO"
-      />
       <HighlightsSection />
       <DetailsSection />
       <NarrativesSection />

@@ -159,19 +159,19 @@ export default function EventsPage() {
   return (
     <SiteShell>
       <EventsHero />
-      <div className="bg-white">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
-          <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Events' }]} />
-        </div>
-      </div>
       <RealScoutSection
-        id="events-listings"
+        id="bhhs-listings"
         eyebrow="Nearby Estates"
         title="Spanish Trail Homes Ready for Private Entertaining"
         description="Discover residences with indoor-outdoor venues, guest casitas, and catering-ready kitchens—ideal for hosting celebrations just steps from the clubhouse."
         priceMin="800000"
         propertyTypes=",SFR"
       />
+      <div className="bg-white">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
+          <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Events' }]} />
+        </div>
+      </div>
       <EventsNarrativesSection />
       <WeddingsSection />
       <PrivateEventsSection />

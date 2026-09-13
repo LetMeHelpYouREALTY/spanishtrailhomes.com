@@ -209,6 +209,12 @@ export default function HomePage() {
     <SiteShell>
       <PropertyLightboxProvider>
         <HeroSection />
+        <RealScoutSection
+          id="bhhs-listings"
+          title="Spanish Trail homes Dr. Duffy can show this week"
+          description="Live inventory inside the 89113 gates. Estate homes, villas, and off-market tours—schedule a showing with the community’s exclusive realtor."
+          priceMin="500000"
+        />
         <AEOAnswerSection />
         <div className="bg-white">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
@@ -216,12 +222,6 @@ export default function HomePage() {
           </div>
         </div>
         <RealtorServicesSection />
-        <RealScoutSection
-        id="bhhs-listings"
-        title="Spanish Trail homes Dr. Duffy can show this week"
-        description="Live inventory inside the 89113 gates. Estate homes, villas, and off-market tours—schedule a showing with the community’s exclusive realtor."
-        priceMin="500000"
-      />
         <TourCTAStrip />
       <AdvancedSearchSection />
       <IntroSection />

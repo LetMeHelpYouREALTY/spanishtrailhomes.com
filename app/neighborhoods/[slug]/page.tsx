@@ -4,6 +4,7 @@ import Script from 'next/script'
 import { notFound } from 'next/navigation'
 
 import { SiteShell } from '@/components/site-shell'
+import { RealScoutSection } from '@/components/realscout-section'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
@@ -103,6 +104,7 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
         title={`${neighborhood.name} Spanish Trail Homes`}
         subtitle="Buy and sell with Dr. Jan Duffy"
       />
+      <RealScoutSection id="bhhs-listings" />
 
       <Breadcrumbs
         items={[

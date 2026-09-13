@@ -129,6 +129,11 @@ export default function HomesForSaleInSpanishTrailLasVegasPage() {
   return (
     <SiteShell>
       <HeroSection />
+      <RealScoutSection
+        id="bhhs-listings"
+        title="Browse Current Homes for Sale in Spanish Trail"
+        description="View active listings with real-time updates, advanced filters, and detailed property information."
+      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs
@@ -145,11 +150,6 @@ export default function HomesForSaleInSpanishTrailLasVegasPage() {
       <LocationAndAmenitiesSection />
       <MarketDataSection />
       <NeighborhoodsSection />
-      <RealScoutSection
-        id="spanish-trail-listings"
-        title="Browse Current Homes for Sale in Spanish Trail"
-        description="View active listings with real-time updates, advanced filters, and detailed property information."
-      />
       <BuyingProcessSection />
       <HomesForSaleFAQSection />
       <CTASection />
@@ -201,7 +201,7 @@ function HeroSection() {
             variant="outline"
             className="rounded-full border-[#f8f5ef]/60 px-8 py-3 text-xs uppercase tracking-[0.35em] text-[#f8f5ef] hover:bg-white/10"
           >
-            <Link href="#spanish-trail-listings">View Listings</Link>
+            <Link href="#bhhs-listings">View Listings</Link>
           </Button>
         </div>
         <HeroSearchWidget theme="dark" />

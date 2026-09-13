@@ -148,6 +148,14 @@ export default function SpanishTrailSchoolsPage() {
   return (
     <SiteShell>
       <HeroSection />
+      <RealScoutSection
+        id="bhhs-listings"
+        eyebrow="Family Homes"
+        title="Spanish Trail homes near named schools"
+        description="Browse listings by bedrooms, square footage, and neighborhood. Bishop Gorman High School is 2.2 miles; CCSD campuses serve the 89113 master plan."
+        priceMin="700000"
+        propertyTypes=",SFR"
+      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
           <Breadcrumbs
@@ -161,14 +169,6 @@ export default function SpanishTrailSchoolsPage() {
       </div>
       <DistrictOverview />
       <SchoolsSection />
-      <RealScoutSection
-        id="school-listings"
-        eyebrow="Family Homes"
-        title="Spanish Trail homes near named schools"
-        description="Browse listings by bedrooms, square footage, and neighborhood. Bishop Gorman High School is 2.2 miles; CCSD campuses serve the 89113 master plan."
-        priceMin="700000"
-        propertyTypes=",SFR"
-      />
       <FAQSection />
       <CTASection />
       <Script id="schools-faq-schema" type="application/ld+json" strategy="afterInteractive">

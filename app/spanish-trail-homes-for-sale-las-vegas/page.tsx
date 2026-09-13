@@ -102,6 +102,14 @@ export default function SpanishTrailHomesForSalePage() {
   return (
     <SiteShell>
       <HeroSection />
+      <RealScoutSection
+        id="bhhs-listings"
+        eyebrow="Live Listings"
+        title="See Spanish Trail homes on the market right now"
+        description="Filter by price, neighborhood, or lifestyle must-haves—golf frontage, cul-de-sac privacy, renovated kitchens."
+        priceMin="500000"
+        propertyTypes=",SFR,CONDO"
+      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs
@@ -114,14 +122,6 @@ export default function SpanishTrailHomesForSalePage() {
         </div>
       </div>
       <MarketOverviewSection />
-      <RealScoutSection
-        id="homes-for-sale-listings"
-        eyebrow="Live Listings"
-        title="See Spanish Trail homes on the market right now"
-        description="Filter by price, neighborhood, or lifestyle must-haves—golf frontage, cul-de-sac privacy, renovated kitchens."
-        priceMin="500000"
-        propertyTypes=",SFR,CONDO"
-      />
       <BuyingExperienceSection />
       <NeighborhoodHighlightsSection />
       <HomeDesignSection />

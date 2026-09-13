@@ -95,6 +95,14 @@ export default function CountryClubEstateListingsPage() {
   return (
     <SiteShell>
       <HeroSection />
+      <RealScoutSection
+        id="bhhs-listings"
+        eyebrow="Featured Estates"
+        title="Spanish Trail estate listings updated daily"
+        description="Explore current estate homes with golf frontage, casitas, and private outdoor living."
+        priceMin="1800000"
+        propertyTypes=",SFR"
+      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs
@@ -107,14 +115,6 @@ export default function CountryClubEstateListingsPage() {
         </div>
       </div>
       <MarketSnapshotSection />
-      <RealScoutSection
-        id="country-club-estate-listings"
-        eyebrow="Featured Estates"
-        title="Spanish Trail estate listings updated daily"
-        description="Explore current estate homes with golf frontage, casitas, and private outdoor living."
-        priceMin="1800000"
-        propertyTypes=",SFR"
-      />
       <EnclaveSection />
       <ArchitectureSection />
       <AmenitiesSection />

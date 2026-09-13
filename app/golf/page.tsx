@@ -178,19 +178,19 @@ export default function GolfPage() {
   return (
     <SiteShell>
       <GolfHero />
-      <div className="bg-white">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
-          <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Golf' }]} />
-        </div>
-      </div>
       <RealScoutSection
-        id="golf-course-listings"
+        id="bhhs-listings"
         eyebrow="Golf Course Homes"
         title="Spanish Trail Residences with Fairway Views"
         description="Scroll current listings positioned along the Sunrise, Lakes, and Canyon nines. Adjust filters to target cart-path privacy, pool homes, or lock-and-leave villas."
         priceMin="700000"
         propertyTypes=",SFR"
       />
+      <div className="bg-white">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
+          <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Golf' }]} />
+        </div>
+      </div>
       <GolfNarrativesSection />
       <CourseTour />
       <ExperienceDetails />

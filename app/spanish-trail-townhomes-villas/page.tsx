@@ -94,6 +94,14 @@ export default function SpanishTrailTownhomesVillasPage() {
   return (
     <SiteShell>
       <HeroSection />
+      <RealScoutSection
+        id="bhhs-listings"
+        eyebrow="Current Listings"
+        title="Spanish Trail villas and townhomes ready for you"
+        description="Filter by price, square footage, and renovation level for lock-and-leave homes within the guard gates."
+        priceMin="600000"
+        propertyTypes=",CONDO,TOWNHOUSE"
+      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs
@@ -106,14 +114,6 @@ export default function SpanishTrailTownhomesVillasPage() {
         </div>
       </div>
       <LifestyleSection />
-      <RealScoutSection
-        id="townhome-villa-listings"
-        eyebrow="Current Listings"
-        title="Spanish Trail villas and townhomes ready for you"
-        description="Filter by price, square footage, and renovation level for lock-and-leave homes within the guard gates."
-        priceMin="600000"
-        propertyTypes=",CONDO,TOWNHOUSE"
-      />
       <EnclaveComparisonSection />
       <HOASection />
       <DesignSection />

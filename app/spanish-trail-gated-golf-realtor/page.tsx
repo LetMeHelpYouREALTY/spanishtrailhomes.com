@@ -94,6 +94,14 @@ export default function SpanishTrailGatedGolfRealtorPage() {
   return (
     <SiteShell>
       <HeroSection />
+      <RealScoutSection
+        id="bhhs-listings"
+        eyebrow="Live Inventory"
+        title="Spanish Trail homes I’m tracking for gated golf clients"
+        description="Curated homes with guard-gated security, golf frontage, and upgraded amenities—updated in real time."
+        priceMin="700000"
+        propertyTypes=",SFR,CONDO"
+      />
       <div className="bg-[#f8f2e7]">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs
@@ -106,14 +114,6 @@ export default function SpanishTrailGatedGolfRealtorPage() {
         </div>
       </div>
       <ValueSection />
-      <RealScoutSection
-        id="gated-golf-realtor-listings"
-        eyebrow="Live Inventory"
-        title="Spanish Trail homes I’m tracking for gated golf clients"
-        description="Curated homes with guard-gated security, golf frontage, and upgraded amenities—updated in real time."
-        priceMin="700000"
-        propertyTypes=",SFR,CONDO"
-      />
       <ExpertiseSection />
       <DataSection />
       <ConciergeSection />

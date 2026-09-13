@@ -94,6 +94,14 @@ export default function GuardGatedGolfHomesPage() {
   return (
     <SiteShell>
       <HeroSection />
+      <RealScoutSection
+        id="bhhs-listings"
+        eyebrow="Latest Listings"
+        title="Guard-gated golf homes ready for private tours"
+        description="See current Spanish Trail villas, semi-custom homes, and estates with 24/7 manned gate access."
+        priceMin="600000"
+        propertyTypes=",SFR,CONDO"
+      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs
@@ -106,14 +114,6 @@ export default function GuardGatedGolfHomesPage() {
         </div>
       </div>
       <SecuritySection />
-      <RealScoutSection
-        id="guard-gated-golf-listings"
-        eyebrow="Latest Listings"
-        title="Guard-gated golf homes ready for private tours"
-        description="See current Spanish Trail villas, semi-custom homes, and estates with 24/7 manned gate access."
-        priceMin="600000"
-        propertyTypes=",SFR,CONDO"
-      />
       <GateComparisonSection />
       <LifestyleSection />
       <BuyerStrategySection />

@@ -121,6 +121,14 @@ export default function BuyersPage() {
   return (
     <SiteShell>
       <HeroSection />
+      <RealScoutSection
+        id="bhhs-listings"
+        eyebrow="Live Listings"
+        title="Las Vegas Golf Course Homes for Sale in Spanish Trail"
+        description="Browse golf course properties for sale, filter by price, home style, and guard-gated enclave. Receive instant alerts when new Spanish Trail golf course homes hit the market."
+        priceMin="500000"
+        propertyTypes=",SFR,CONDO"
+      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs
@@ -132,14 +140,6 @@ export default function BuyersPage() {
         </div>
       </div>
       <BuyerJourneySection />
-      <RealScoutSection
-        id="spanish-trail-active-listings"
-        eyebrow="Live Listings"
-        title="Las Vegas Golf Course Homes for Sale in Spanish Trail"
-        description="Browse golf course properties for sale, filter by price, home style, and guard-gated enclave. Receive instant alerts when new Spanish Trail golf course homes hit the market."
-        priceMin="500000"
-        propertyTypes=",SFR,CONDO"
-      />
       <MarketIntelligenceSection />
       <PropertyPathwaysSection />
       <ConciergePreparationSection />
@@ -177,7 +177,7 @@ function HeroSection() {
             asChild
             className="rounded-full bg-white px-8 py-3 text-xs uppercase tracking-[0.3em] text-[#0f2b1e] hover:bg-[#efe5d8]"
           >
-            <Link href="#spanish-trail-active-listings">Explore Listings</Link>
+            <Link href="#bhhs-listings">Explore Listings</Link>
           </Button>
           <CalendlyLink className="inline-flex items-center justify-center rounded-full border border-[#f8f5ef]/60 bg-white px-8 py-3 text-xs font-medium uppercase tracking-[0.3em] text-[#0f2b1e] hover:bg-[#efe5d8]">
             Book a Tour
@@ -547,7 +547,7 @@ function BuyerCTASection() {
             variant="outline"
             className="rounded-full border-[#f8f5ef]/60 px-8 py-3 text-xs uppercase tracking-[0.3em] text-[#f8f5ef] hover:bg-white/10"
           >
-            <Link href="#spanish-trail-active-listings">View Homes</Link>
+            <Link href="#bhhs-listings">View Homes</Link>
           </Button>
         </div>
       </div>

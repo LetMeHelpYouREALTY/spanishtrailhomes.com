@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Script from 'next/script'
 
 import { SiteShell } from '@/components/site-shell'
+import { RealScoutSection } from '@/components/realscout-section'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
@@ -116,6 +117,7 @@ export default function MediaKitPage() {
         subtitle="Dr. Jan Duffy · Spanish Trail homes realtor"
         description="Press kit for the realtor who buys and sells Spanish Trail homes only."
       />
+      <RealScoutSection id="bhhs-listings" />
 
       <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12">
         <Breadcrumbs

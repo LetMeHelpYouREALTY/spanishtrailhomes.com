@@ -111,6 +111,14 @@ export default function SpanishTrailTennisPage() {
   return (
     <SiteShell>
       <HeroSection />
+      <RealScoutSection
+        id="bhhs-listings"
+        eyebrow="Tennis Living"
+        title="Spanish Trail homes for tennis enthusiasts"
+        description="Browse homes with easy access to the tennis center. Filter by proximity, price, and home style to find your perfect match."
+        priceMin="600000"
+        propertyTypes=",SFR,CONDO"
+      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
           <Breadcrumbs
@@ -125,14 +133,6 @@ export default function SpanishTrailTennisPage() {
       <FacilitiesSection />
       <ProgramsSection />
       <ProShopSection />
-      <RealScoutSection
-        id="tennis-homes"
-        eyebrow="Tennis Living"
-        title="Spanish Trail homes for tennis enthusiasts"
-        description="Browse homes with easy access to the tennis center. Filter by proximity, price, and home style to find your perfect match."
-        priceMin="600000"
-        propertyTypes=",SFR,CONDO"
-      />
       <FAQSection />
       <CTASection />
       <Script id="tennis-faq-schema" type="application/ld+json" strategy="afterInteractive">

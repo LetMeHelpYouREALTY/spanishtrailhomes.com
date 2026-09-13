@@ -94,6 +94,14 @@ export default function WaterfrontGolfHomesPage() {
   return (
     <SiteShell>
       <HeroSection />
+      <RealScoutSection
+        id="bhhs-listings"
+        eyebrow="Waterfront Listings"
+        title="Spanish Trail waterfront homes on the market"
+        description="Filter for Lakes course properties with water views, upgraded patios, and direct golf access."
+        priceMin="1300000"
+        propertyTypes=",SFR"
+      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs
@@ -106,14 +114,6 @@ export default function WaterfrontGolfHomesPage() {
         </div>
       </div>
       <HighlightsSection />
-      <RealScoutSection
-        id="waterfront-golf-homes"
-        eyebrow="Waterfront Listings"
-        title="Spanish Trail waterfront homes on the market"
-        description="Filter for Lakes course properties with water views, upgraded patios, and direct golf access."
-        priceMin="1300000"
-        propertyTypes=",SFR"
-      />
       <ViewExperienceSection />
       <DesignSection />
       <LifestyleSection />

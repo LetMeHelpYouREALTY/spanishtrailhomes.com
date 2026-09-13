@@ -106,6 +106,14 @@ export default function SpanishTrailPoolsPage() {
   return (
     <SiteShell>
       <HeroSection />
+      <RealScoutSection
+        id="bhhs-listings"
+        eyebrow="Pool Living"
+        title="Spanish Trail homes for pool lovers"
+        description="Find homes near the aquatic centers or with private pools for year-round swimming in the Las Vegas sun."
+        priceMin="600000"
+        propertyTypes=",SFR,CONDO"
+      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
           <Breadcrumbs
@@ -120,14 +128,6 @@ export default function SpanishTrailPoolsPage() {
       <AquaticCentersSection />
       <FeaturesSection />
       <ProgramsSection />
-      <RealScoutSection
-        id="pool-homes"
-        eyebrow="Pool Living"
-        title="Spanish Trail homes for pool lovers"
-        description="Find homes near the aquatic centers or with private pools for year-round swimming in the Las Vegas sun."
-        priceMin="600000"
-        propertyTypes=",SFR,CONDO"
-      />
       <FAQSection />
       <CTASection />
       <Script id="pools-faq-schema" type="application/ld+json" strategy="afterInteractive">
