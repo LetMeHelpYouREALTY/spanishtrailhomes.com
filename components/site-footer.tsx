@@ -28,11 +28,10 @@ export function SiteFooter() {
       heading: 'Homes for Sale',
       links: [
         { label: 'All Spanish Trail Homes', href: '/spanish-trail-homes-for-sale-las-vegas' },
-        { label: 'Estate Listings', href: '/spanish-trail-country-club-estate-listings' },
-        { label: 'Golf Course Properties', href: '/spanish-trail-luxury-golf-course-properties' },
-        { label: 'Townhomes & Villas', href: '/spanish-trail-townhomes-villas' },
-        { label: 'Waterfront Homes', href: '/spanish-trail-waterfront-golf-homes' },
-        { label: 'Guard-Gated Homes', href: '/spanish-trail-guard-gated-golf-homes' },
+        { label: 'The Estates', href: '/neighborhoods/estates' },
+        { label: 'The Links', href: '/neighborhoods/links' },
+        { label: 'Townhomes & villas', href: '/neighborhoods/villas' },
+        { label: 'The Islands', href: '/neighborhoods/islands' },
       ],
     },
     {

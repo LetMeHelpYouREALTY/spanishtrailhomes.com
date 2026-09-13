@@ -141,7 +141,7 @@ function HeroSection() {
         </p>
         <p className="text-base leading-relaxed text-[#f8f5ef]/80">
           This page is for buyers and sellers who want a{' '}
-          <Link href="/spanish-trail-guard-gated-golf-homes" className="underline-offset-4 hover:underline">
+          <Link href="/spanish-trail-homes-for-sale-las-vegas" className="underline-offset-4 hover:underline">
             Spanish Trail guard-gated golf home
           </Link>{' '}
           strategy—not a valley-wide agent learning the community on your first offer. I track ARC timelines, secondary-gate protocols, and enclave-level comps so negotiations stay grounded in how Spanish Trail actually trades.

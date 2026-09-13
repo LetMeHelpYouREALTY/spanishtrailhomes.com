@@ -8,6 +8,44 @@ const nextConfig: NextConfig = {
     return [
       { source: '/market-data', destination: '/spanish-trail-market-report', permanent: true },
       { source: '/homes', destination: '/spanish-trail-homes-for-sale-las-vegas', permanent: true },
+      // Doorway listing clones → canonical hubs (Google Search Central: doorway abuse)
+      {
+        source: '/spanish-trail-guard-gated-golf-homes',
+        destination: '/spanish-trail-homes-for-sale-las-vegas',
+        permanent: true,
+      },
+      {
+        source: '/spanish-trail-luxury-golf-course-properties',
+        destination: '/spanish-trail-homes-for-sale-las-vegas',
+        permanent: true,
+      },
+      {
+        source: '/spanish-trail-private-golf-course-homes',
+        destination: '/spanish-trail-homes-for-sale-las-vegas',
+        permanent: true,
+      },
+      {
+        source: '/spanish-trail-southwest-las-vegas-luxury-homes',
+        destination: '/spanish-trail-homes-for-sale-las-vegas',
+        permanent: true,
+      },
+      { source: '/spanish-trail-gated-golf-realtor', destination: '/services', permanent: true },
+      {
+        source: '/spanish-trail-country-club-estate-listings',
+        destination: '/neighborhoods/estates',
+        permanent: true,
+      },
+      {
+        source: '/spanish-trail-custom-estate-homes-strip',
+        destination: '/neighborhoods/estates',
+        permanent: true,
+      },
+      { source: '/spanish-trail-townhomes-villas', destination: '/neighborhoods/villas', permanent: true },
+      {
+        source: '/spanish-trail-waterfront-golf-homes',
+        destination: '/neighborhoods/islands',
+        permanent: true,
+      },
       { source: '/images/janet-duffy.jpg', destination: '/images/spanish-trail/duffy-circle-canonical.png', permanent: true },
       {
         source: '/images/spanish-trail/agent-duffy-:variant.png',

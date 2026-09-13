@@ -385,11 +385,11 @@ function NarrativesSection() {
           </p>
           <p className="text-base leading-relaxed text-[#372a20]/85">
             Related guides:{' '}
-            <Link href="/spanish-trail-custom-estate-homes-strip" className="text-[#0f2b1e] underline-offset-4 hover:underline">
+            <Link href="/neighborhoods/estates" className="text-[#0f2b1e] underline-offset-4 hover:underline">
               custom estate homes near the Las Vegas Strip
             </Link>
             ,{' '}
-            <Link href="/spanish-trail-country-club-estate-listings" className="text-[#0f2b1e] underline-offset-4 hover:underline">
+            <Link href="/neighborhoods/estates" className="text-[#0f2b1e] underline-offset-4 hover:underline">
               country club estate listings
             </Link>
             , and{' '}

@@ -36,18 +36,7 @@ const routeConfig: Array<{
   { path: '/spanish-trail-pools', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/spanish-trail-architecture', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/spanish-trail-hoa-guide', priority: 0.8, changeFrequency: 'monthly' },
-  
-  // Spanish Trail listing pages - high priority (these are the ones not indexed)
-  { path: '/spanish-trail-guard-gated-golf-homes', priority: 0.9, changeFrequency: 'daily' },
-  { path: '/spanish-trail-country-club-estate-listings', priority: 0.9, changeFrequency: 'daily' },
-  { path: '/spanish-trail-custom-estate-homes-strip', priority: 0.9, changeFrequency: 'daily' },
-  { path: '/spanish-trail-waterfront-golf-homes', priority: 0.9, changeFrequency: 'daily' },
-  { path: '/spanish-trail-townhomes-villas', priority: 0.9, changeFrequency: 'daily' },
-  { path: '/spanish-trail-southwest-las-vegas-luxury-homes', priority: 0.9, changeFrequency: 'daily' },
-  { path: '/spanish-trail-luxury-golf-course-properties', priority: 0.9, changeFrequency: 'daily' },
-  { path: '/spanish-trail-private-golf-course-homes', priority: 0.9, changeFrequency: 'daily' },
-  { path: '/spanish-trail-gated-golf-realtor', priority: 0.8, changeFrequency: 'weekly' },
-  
+
   // Market and insights pages - high priority
   { path: '/spanish-trail-market-report', priority: 0.9, changeFrequency: 'weekly' },
   { path: '/spanish-trail-insights', priority: 0.8, changeFrequency: 'weekly' },
