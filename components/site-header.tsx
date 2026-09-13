@@ -54,17 +54,12 @@ export function SiteHeader() {
         <Link
           href="/"
           aria-label="Spanish Trail | Homes By Dr. Jan Duffy home"
-          className="group flex min-w-0 items-center gap-3 justify-self-start"
+          className="flex min-w-0 items-center gap-3 justify-self-start"
         >
           <AgentPortrait placement="header" size="xs" priority className="hidden sm:block" linkToSearch={false} />
-          <div className="text-left">
-            <p className="text-[0.6rem] uppercase tracking-[0.35em] text-muted-foreground group-hover:text-secondary sm:text-[0.65rem] sm:tracking-[0.45em]">
-              Berkshire Hathaway HomeServices
-            </p>
-            <p className="font-[var(--font-playfair)] text-base font-semibold leading-snug tracking-[0.06em] text-[#0f2b1e] sm:text-xl sm:tracking-[0.08em] lg:text-2xl">
-              Spanish Trail | Homes By Dr. Jan Duffy
-            </p>
-          </div>
+          <p className="min-w-0 font-[var(--font-playfair)] text-base font-semibold leading-snug tracking-[0.06em] text-[#0f2b1e] sm:text-xl sm:tracking-[0.08em] lg:text-2xl">
+            Spanish Trail | Homes By Dr. Jan Duffy
+          </p>
         </Link>
 
           <nav className="col-start-2 row-start-1 hidden items-center justify-center gap-4 self-center lg:col-start-2 lg:flex xl:gap-6">
