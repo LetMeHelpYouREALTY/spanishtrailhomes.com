@@ -20,6 +20,7 @@ import { TourCTAStrip } from '@/components/tour-cta-strip'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 import { AgentPortrait } from '@/components/agent-portrait'
+import { HeroMarketPulse } from '@/components/hero-market-pulse'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/'
@@ -296,6 +297,7 @@ function HeroSection() {
           <p className="text-base font-medium leading-relaxed text-white/95 sm:text-lg sm:leading-relaxed [text-shadow:0_1px_2px_rgb(0_0_0/25%)]">
             Realtor services for Spanish Trail homes only. Dr. Jan Duffy buys, sells, and tours addresses inside this 89113 community—also searched as Spanish Trails. Berkshire Hathaway HomeServices Nevada Properties.
           </p>
+          <HeroMarketPulse />
         </div>
         <div className="flex flex-wrap items-center gap-3 sm:gap-4">
           <Button
