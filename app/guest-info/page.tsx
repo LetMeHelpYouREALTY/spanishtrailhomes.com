@@ -3,11 +3,11 @@ import Link from 'next/link'
 import Script from 'next/script'
 
 import { SiteShell } from '@/components/site-shell'
-import { Button } from '@/components/ui/button'
 import { RealScoutSection } from '@/components/realscout-section'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { HeroBackground } from '@/components/hero-background'
+import { CalendlyInline } from '@/components/calendly-inline'
 import { localEssentials } from '@/lib/spanishTrailContent'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
@@ -458,61 +458,15 @@ function ContactSection() {
           We are here to assist with every detail.
         </h2>
         <p className="text-base leading-relaxed text-muted-foreground">
-          For questions about visiting Spanish Trail, scheduling a tour, or coordinating with the club, contact Dr. Jan Duffy at{' '}
+          For questions about visiting Spanish Trail, scheduling a tour, or coordinating with the club, call Dr. Jan Duffy at{' '}
           <Link href="tel:+17027663299" className="text-primary underline-offset-4 hover:underline">
             (702) 766-3299
           </Link>{' '}
-          or{' '}
-          <Link
-            href="mailto:DrDuffySells@SpanishTrailHomes.com"
-            className="text-primary underline-offset-4 hover:underline"
-          >
-            DrDuffySells@SpanishTrailHomes.com
-          </Link>
-          .
+          or pick a time below.
         </p>
 
-        <div className="mx-auto grid w-full max-w-3xl grid-cols-1 gap-4 rounded-3xl border border-border/60 bg-background/80 p-6 text-left shadow-lg sm:grid-cols-2 sm:p-8">
-          <div className="flex flex-col gap-2">
-            <label htmlFor="host" className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
-              Host Member
-            </label>
-            <input
-              id="host"
-              name="host"
-              type="text"
-              placeholder="Member Name"
-              className="rounded-lg border border-border/60 bg-background px-3 py-2 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-ring/40"
-            />
-          </div>
-          <div className="flex flex-col gap-2">
-            <label htmlFor="visitDate" className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
-              Visit Date
-            </label>
-            <input
-              id="visitDate"
-              name="visitDate"
-              type="date"
-              className="rounded-lg border border-border/60 bg-background px-3 py-2 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-ring/40"
-            />
-          </div>
-          <div className="sm:col-span-2 flex flex-col gap-2">
-            <label htmlFor="requests" className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
-              Special Requests
-            </label>
-            <textarea
-              id="requests"
-              name="requests"
-              rows={4}
-              placeholder="Share dietary preferences, accessibility needs, or celebration details."
-              className="rounded-lg border border-border/60 bg-background px-3 py-2 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-ring/40"
-            />
-          </div>
-          <div className="sm:col-span-2">
-            <Button className="w-full rounded-full py-3 text-xs uppercase tracking-[0.4em]">
-              Notify Concierge
-            </Button>
-          </div>
+        <div className="mx-auto w-full max-w-3xl rounded-3xl border border-border/60 bg-background/80 p-4 shadow-lg sm:p-6">
+          <CalendlyInline height={700} minWidth={320} className="w-full" />
         </div>
       </div>
     </section>

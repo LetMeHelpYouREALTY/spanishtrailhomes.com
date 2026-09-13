@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 
-const CALENDLY_URL = 'https://calendly.com/drjanduffy/showing'
+import { CALENDLY_URL } from '@/lib/calendly'
 
 type CalendlyInlineProps = {
   /** Minimum width in pixels (default 320) */
