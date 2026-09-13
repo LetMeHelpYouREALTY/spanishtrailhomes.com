@@ -20,6 +20,7 @@ import {
   getNeighborhoodFaqs,
   getNeighborhoodListingFilter,
   getNeighborhoodSlugs,
+  neighborhoodPossessive,
 } from '@/lib/neighborhoods'
 import { SectionBanner } from '@/components/heading-media'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
@@ -125,8 +126,8 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
         src={getSiteImageUrl(NEIGHBORHOOD_CARD_IMAGES[slug] ?? DEFAULT_H1_IMAGE)}
         alt={getAssetAlt(NEIGHBORHOOD_CARD_IMAGES[slug] ?? DEFAULT_H1_IMAGE)}
         title={h1}
-        subtitle={`Buy and sell ${neighborhood.name} homes with Dr. Jan Duffy · ${neighborhood.priceRange}`}
-        description="Live GLVAR inventory in this enclave's typical price band. Confirm the street with Dr. Duffy before you tour."
+        subtitle={`${neighborhood.priceRange} · Buy or sell with Dr. Jan Duffy`}
+        description="Live inventory in this enclave’s typical price band. Dr. Duffy confirms the Spanish Trail street before you tour."
       />
       <RealScoutSection
         id="bhhs-listings"
@@ -134,9 +135,9 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
         title={`${neighborhood.name} homes for sale`}
         description={
           <>
-            Showing Spanish Trail homes in {neighborhood.name}&apos;s typical band ({neighborhood.priceRange}
-            ). The widget filters by price and property type—Dr. Jan Duffy confirms the street, square footage, and
-            gate access before a showing. Call{' '}
+            Office listings in {neighborhoodPossessive(neighborhood.name)} typical band (
+            {neighborhood.priceRange}). RealScout filters by price and property type—Dr. Jan Duffy confirms the
+            Spanish Trail street, square footage, and gate access before a showing. Call{' '}
             <a href="tel:+17027663299" className="underline underline-offset-4 hover:no-underline">
               (702) 766-3299
             </a>
@@ -193,25 +194,25 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
         </section>
       </div>
 
-      <RealScoutSection
-        id={`${slug}-sold`}
-        eyebrow="Recent sales"
-        title={`Sold homes in the ${neighborhood.name} price band`}
-        description={
-          <>
-            Live sold feed in {neighborhood.name}&apos;s {neighborhood.priceRange} range. Dr. Duffy will confirm street,
-            square footage, close price, and date from GLVAR before you write an offer or set a list price—no guessed
-            comps on this page.
-          </>
-        }
-        listingStatus="Sold"
-        priceMin={listing.priceMin}
-        priceMax={listing.priceMax}
-        propertyTypes={listing.propertyTypes}
-      />
-
       <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:py-14">
-        <section className="mt-2" aria-labelledby={`${slug}-faq-heading`}>
+        <section className="mt-2" aria-labelledby={`${slug}-sold-heading`}>
+          <SectionBanner headingId={`${slug}-sold-heading`} />
+          <h2 id={`${slug}-sold-heading`} className="font-playfair text-2xl font-semibold text-[#2d2318]">
+            Recent {neighborhood.name} sales
+          </h2>
+          <p className="mt-3 text-[#5c4a3a] leading-relaxed">
+            Closed sales on {neighborhood.name} streets change weekly. Dr. Duffy will send the last recorded
+            GLVAR sales with address, square footage, close price, and date before you write an offer or set a
+            list price. No guessed comps on this page.
+          </p>
+          <div className="mt-5">
+            <Button asChild variant="outline">
+              <a href="tel:+17027663299">Call (702) 766-3299 for {neighborhood.name} comps</a>
+            </Button>
+          </div>
+        </section>
+
+        <section className="mt-12" aria-labelledby={`${slug}-faq-heading`}>
           <SectionBanner headingId={`${slug}-faq-heading`} />
           <h2 id={`${slug}-faq-heading`} className="font-playfair text-2xl font-semibold text-[#2d2318]">
             {neighborhood.name} buyer and seller questions
@@ -244,7 +245,7 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
               ctaText={`Tour ${neighborhood.name}`}
               ctaLocation={`${slug}-hub`}
             >
-              Book a {neighborhood.name} tour
+              Tour {neighborhood.name}
             </CalendlyLink>
             <Button asChild variant="outline">
               <a href="tel:+17027663299">Call (702) 766-3299</a>

@@ -271,6 +271,11 @@ export function getNeighborhoodListingFilter(slug: NeighborhoodSlug): Neighborho
   return LISTING_FILTERS[slug]
 }
 
+/** "The Islands'" not "The Islands's"; "Springs'" stays Springs'. */
+export function neighborhoodPossessive(name: string): string {
+  return name.endsWith('s') ? `${name}'` : `${name}'s`
+}
+
 export type NeighborhoodFaq = {
   question: string
   answer: string
@@ -278,16 +283,17 @@ export type NeighborhoodFaq = {
 
 export function getNeighborhoodFaqs(neighborhood: Neighborhood): NeighborhoodFaq[] {
   const highlight = neighborhood.features[0]
-  const housing = neighborhood.propertyTypes.join(', ')
+  const housing = neighborhood.propertyTypes.join(', ').toLowerCase()
+  const owned = neighborhoodPossessive(neighborhood.name)
 
   return [
     {
       question: `What homes are for sale in ${neighborhood.name} right now?`,
-      answer: `The live feed on this page shows Spanish Trail homes in ${neighborhood.name}'s typical band (${neighborhood.priceRange}). RealScout filters by price and property type, not by a recorded subdivision name, so Dr. Jan Duffy confirms the street before you tour. Call (702) 766-3299 for gate-access showings.`,
+      answer: `The live feed on this page shows office listings in ${owned} typical band (${neighborhood.priceRange}). RealScout filters by price and property type, not by subdivision name, so Dr. Jan Duffy confirms the Spanish Trail street before you tour. Call (702) 766-3299 for gate-access showings.`,
     },
     {
       question: `What do ${neighborhood.name} homes typically cost?`,
-      answer: `${neighborhood.name} inventory is generally ${neighborhood.priceRange}. Stock is ${housing.toLowerCase()}. ${highlight} Ask Dr. Duffy for a CMA on a specific address—never rely on a community median alone.`,
+      answer: `${neighborhood.name} inventory is generally ${neighborhood.priceRange}. Stock is ${housing}. ${highlight}. Ask Dr. Duffy for a CMA on a specific address—never rely on a community median alone.`,
     },
     {
       question: `Can I tour ${neighborhood.name} if I am not a club member?`,
@@ -295,7 +301,7 @@ export function getNeighborhoodFaqs(neighborhood: Neighborhood): NeighborhoodFaq
     },
     {
       question: `Can you pull recent sold comps for ${neighborhood.name}?`,
-      answer: `Yes. The sold feed below uses the same ${neighborhood.priceRange} band. Dr. Duffy will confirm street, square footage, close price, and date from GLVAR before you write an offer or set a list price. Text (702) 766-3299 for a ${neighborhood.name} CMA.`,
+      answer: `Yes. Closed sales on ${neighborhood.name} streets change weekly. Dr. Duffy will send the last recorded sales with address, square footage, close price, and date from GLVAR before you write an offer or set a list price. Text (702) 766-3299 for a CMA in ${neighborhood.name}.`,
     },
   ]
 }
