@@ -46,10 +46,10 @@ export function HeroBackground({
         className,
       )}
     >
-      <ListingImageLink className="absolute inset-0" label={imageAlt}>
+      <ListingImageLink className="absolute inset-0" label={`${imageAlt} — open live Spanish Trail listings`}>
         <Image
           src={imageSrc}
-          alt=""
+          alt={imageAlt}
           fill
           priority={priority}
           quality={80}

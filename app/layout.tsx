@@ -220,7 +220,13 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/favicon.ico', sizes: '48x48', type: 'image/x-icon' },
+      { url: '/favicon-48.png', sizes: '48x48', type: 'image/png' },
+      { url: '/favicon-192.png', sizes: '192x192', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: [{ url: '/favicon-192.png', sizes: '192x192', type: 'image/png' }],
   },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
@@ -273,10 +279,12 @@ gtag('config', 'G-X68WWN997N', {
           type="module"
           strategy="afterInteractive"
         />
-        {/* LocalBusiness + WebSite JSON-LD — validate in Rich Results Test when editing structuredData above */}
-        <Script id="schema-structured-data" type="application/ld+json" strategy="afterInteractive">
-          {JSON.stringify(structuredData)}
-        </Script>
+        {/* LocalBusiness + WebSite JSON-LD in the original HTML (not JS-injected). */}
+        <script
+          id="schema-structured-data"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         <CalendlyWidgetScript />
       </head>
       <body

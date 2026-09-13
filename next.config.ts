@@ -14,6 +14,10 @@ const nextConfig: NextConfig = {
         destination: '/images/spanish-trail/duffy-circle-:variant.png',
         permanent: true,
       },
+      { source: '/projects', destination: '/contact', permanent: true },
+      { source: '/projects/:path*', destination: '/contact', permanent: true },
+      { source: '/chats', destination: '/contact', permanent: true },
+      { source: '/chats/:path*', destination: '/contact', permanent: true },
     ]
   },
   images: {

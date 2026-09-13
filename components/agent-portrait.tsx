@@ -72,7 +72,7 @@ export function AgentPortrait({
   const image = (
     <Image
       src={src}
-      alt={linkToSearch ? '' : portrait.alt}
+      alt={portrait.alt}
       fill
       priority={priority}
       sizes={`${px}px`}

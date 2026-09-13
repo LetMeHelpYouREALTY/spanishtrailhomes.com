@@ -8,7 +8,7 @@ import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { featuredListings, marketHighlights } from '@/lib/spanishTrailContent'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
-import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
+import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { RealScoutSearchLink } from '@/components/listing-image-link'
 
@@ -121,6 +121,13 @@ export const metadata: Metadata = {
   },
 }
 
+
+const webPageSchema = createWebPageSchema({
+  name: typeof metadata.title === 'string' ? metadata.title : 'Spanish Trail Homes',
+  description: typeof metadata.description === 'string' ? metadata.description : '',
+  path: '/spanish-trail-market-report',
+})
+
 export default function SpanishTrailMarketReportPage() {
   return (
     <SiteShell>
@@ -181,6 +188,9 @@ export default function SpanishTrailMarketReportPage() {
       </Script>
       <Script id="featured-listings-structured-data" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(featuredListingsSchema)}
+      </Script>
+      <Script id="spanish-trail-market-report-webpage-schema" type="application/ld+json">
+        {JSON.stringify(webPageSchema)}
       </Script>
     </SiteShell>
   )
