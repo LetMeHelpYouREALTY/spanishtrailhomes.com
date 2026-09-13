@@ -63,7 +63,7 @@ export function AgentPortrait({
     <figure className={cn('shrink-0', className)}>
       <div
         className={cn(
-          'relative aspect-square overflow-hidden bg-transparent',
+          'relative shrink-0 overflow-hidden bg-transparent',
           SIZE_CLASS[size],
           radius,
         )}
@@ -71,11 +71,10 @@ export function AgentPortrait({
         <Image
           src={src}
           alt={portrait.alt}
-          width={portrait.width}
-          height={portrait.height}
+          fill
           priority={priority}
           sizes={`${px}px`}
-          className={cn('h-full w-full object-contain object-center', imageClassName)}
+          className={cn('object-contain object-center', imageClassName)}
         />
       </div>
       {showCaption ? (
