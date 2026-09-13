@@ -9,6 +9,7 @@ import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { HeroBackground } from '@/components/hero-background'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { ListingPhotoPanel } from '@/components/listing-image-link'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 
 
@@ -401,13 +402,9 @@ function YoungExecutiveSection() {
           </div>
         </div>
 
-        <div
-          className="h-full rounded-3xl border border-border/60 bg-cover bg-center shadow-lg"
-          style={{
-            backgroundImage: `url('${getSiteImageUrl('h2-membership-lounge')}')`,
-          }}
-          role="img"
-          aria-label="Members socializing at Spanish Trail Country Club"
+        <ListingPhotoPanel
+          src={getSiteImageUrl('h2-membership-lounge')}
+          label="Members socializing at Spanish Trail Country Club"
         />
       </div>
     </section>

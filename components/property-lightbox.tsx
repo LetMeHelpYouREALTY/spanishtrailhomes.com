@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
+import { ListingImageLink } from '@/components/listing-image-link'
 import { cn } from '@/lib/utils'
 import {
   trackPropertyLightboxOpen,
@@ -179,15 +180,18 @@ function PropertyLightboxModal({
                 key={p.id}
                 className="overflow-hidden rounded-xl border border-[#d8cdbf] bg-[#fdf9f3] shadow-sm transition-transform duration-200 hover:scale-[1.05] focus-within:scale-[1.05]"
               >
-                <div className="relative aspect-[4/3] overflow-hidden bg-[#e8e4dc]">
+                <ListingImageLink
+                  className="relative aspect-[4/3] overflow-hidden bg-[#e8e4dc]"
+                  label={`Spanish Trail Las Vegas home example at ${p.address} — ${p.price}, ${p.beds} bed ${p.baths} bath`}
+                >
                   <Image
                     src={getSiteImageUrl(p.imageId)}
-                    alt={`Spanish Trail Las Vegas home example at ${p.address} — ${p.price}, ${p.beds} bed ${p.baths} bath`}
+                    alt=""
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover"
                   />
-                </div>
+                </ListingImageLink>
                 <div className="p-3 sm:p-4">
                   <p className="font-semibold text-[#0f2b1e]">{p.price}</p>
                   <p className="text-sm text-muted-foreground">

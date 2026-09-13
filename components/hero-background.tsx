@@ -1,5 +1,6 @@
 import Image from 'next/image'
 
+import { ListingImageLink } from '@/components/listing-image-link'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 import { DEFAULT_H1_IMAGE, getAssetAlt } from '@/lib/site-images'
 import { cn } from '@/lib/utils'
@@ -35,6 +36,7 @@ export function HeroBackground({
 }: HeroBackgroundProps) {
   const imageSrc = src ?? DEFAULT_HERO_IMAGE
   const isTextHero = title != null
+  const imageAlt = alt || (title ? `${title} — ${DEFAULT_HERO_ALT}` : DEFAULT_HERO_ALT)
 
   return (
     <div
@@ -44,22 +46,24 @@ export function HeroBackground({
         className,
       )}
     >
-      <div className="absolute inset-0">
+      <ListingImageLink className="absolute inset-0" label={imageAlt}>
         <Image
           src={imageSrc}
-          alt={alt || (title ? `${title} — ${DEFAULT_HERO_ALT}` : DEFAULT_HERO_ALT)}
+          alt=""
           fill
           priority={priority}
           quality={80}
           sizes={sizes}
           className={cn('object-cover', imageClassName)}
         />
-        {overlayClassName ? <div className={cn('absolute inset-0', overlayClassName)} /> : null}
-      </div>
+      </ListingImageLink>
+      {overlayClassName ? (
+        <div className={cn('pointer-events-none absolute inset-0', overlayClassName)} />
+      ) : null}
       {isTextHero ? (
         <div
           className={cn(
-            'absolute inset-0 flex flex-col items-center justify-center px-4 py-12 text-center',
+            'pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-4 py-12 text-center',
             !overlayClassName && 'bg-gradient-to-b from-[#0f2b1e]/60 to-[#0f2b1e]/85',
           )}
         >

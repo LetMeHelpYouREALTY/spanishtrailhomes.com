@@ -28,7 +28,7 @@ export function SiteHeader() {
           aria-label="Spanish Trail | Homes By Dr. Jan Duffy home"
           className="group flex min-w-0 items-center gap-3 justify-self-start"
         >
-          <AgentPortrait placement="header" size="xs" priority className="hidden sm:block" />
+          <AgentPortrait placement="header" size="xs" priority className="hidden sm:block" linkToSearch={false} />
           <div className="text-left">
             <p className="text-[0.6rem] uppercase tracking-[0.35em] text-muted-foreground group-hover:text-secondary sm:text-[0.65rem] sm:tracking-[0.45em]">
               Berkshire Hathaway HomeServices

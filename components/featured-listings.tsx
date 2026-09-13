@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { featuredListingsPreview } from '@/lib/spanishTrailContent'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
+import { REALSCOUT_SHARED_SEARCH_URL } from '@/lib/realscout'
 import { cn } from '@/lib/utils'
 import {
   trackFeaturedListingView,
@@ -13,7 +14,7 @@ import {
 } from '@/lib/analytics'
 
 /** Dr. Jan Duffy RealScout search – all featured listing clicks go here. */
-const REALSCOUT_LISTINGS_URL = 'https://searchforaffordablehomes.com/neighborhood/83/spanish-trails'
+const REALSCOUT_LISTINGS_URL = REALSCOUT_SHARED_SEARCH_URL
 
 function listingTypeFromHref(href: string): string {
   if (href.includes('single-family')) return 'estate'
