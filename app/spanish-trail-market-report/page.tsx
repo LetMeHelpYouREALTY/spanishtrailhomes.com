@@ -9,6 +9,8 @@ import { Button } from '@/components/ui/button'
 import { featuredListings, marketHighlights } from '@/lib/spanishTrailContent'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-market-report'
 
@@ -121,10 +123,11 @@ export const metadata: Metadata = {
 export default function SpanishTrailMarketReportPage() {
   return (
     <SiteShell>
-      <header className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="market-report-hero">
+      <header className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="market-report-hero">
+      <SectionBanner headingId="market-report-hero" />
         <div className="mx-auto max-w-4xl space-y-5 px-6 text-center">
           <h1 id="market-report-hero" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-            Spanish Trail Market Report
+            Spanish Trail Homes Market Report
           </h1>
           <p className="text-base leading-relaxed text-[#f8f5ef]/85">
             Monitor real-time pricing, active inventory, and demand signals across Spanish Trail&apos;s eleven guard-gated
@@ -149,6 +152,14 @@ export default function SpanishTrailMarketReportPage() {
         </div>
         <HeroSearchWidget theme="dark" />
       </header>
+      <RealScoutSection
+        id="bhhs-listings"
+        eyebrow="Live Listings"
+        title="Browse Spanish Trail homes in real time"
+        description="Use RealScout filters to fine-tune price, home style, and guard-gated enclaves. Save favorites or request showings instantly."
+        priceMin="500000"
+        propertyTypes=",SFR,CONDO"
+      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs
@@ -161,14 +172,6 @@ export default function SpanishTrailMarketReportPage() {
         </div>
       </div>
       <MarketHighlightsSection />
-      <RealScoutSection
-        id="spanish-trail-live-listings"
-        eyebrow="Live Listings"
-        title="Browse Spanish Trail homes in real time"
-        description="Use RealScout filters to fine-tune price, home style, and guard-gated enclaves. Save favorites or request showings instantly."
-        priceMin="500000"
-        propertyTypes=",SFR,CONDO"
-      />
       <FeaturedListingsSection />
       <MarketReportFAQSection />
       <ReportingCTASection />
@@ -189,6 +192,7 @@ function MarketHighlightsSection() {
       className="bg-white py-20 sm:py-24"
       aria-labelledby="market-highlights-heading"
     >
+      <SectionBanner headingId="market-highlights-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl space-y-4">
@@ -215,6 +219,7 @@ function MarketHighlightsSection() {
               key={item.label}
               className="rounded-3xl border border-border/40 bg-white p-6 shadow-lg shadow-primary/10"
             >
+              <CardVisual seed={String(item.label)} />
               <p className="text-xs uppercase tracking-[0.4em] text-secondary">{item.label}</p>
               <p className="mt-3 font-[var(--font-playfair)] text-2xl text-[#1f2a24]">{item.value}</p>
               <p className="mt-2 text-xs uppercase tracking-[0.3em] text-muted-foreground">{item.trend} change</p>
@@ -234,6 +239,7 @@ function FeaturedListingsSection() {
       className="bg-[#f8f2e7] py-20 sm:py-24"
       aria-labelledby="featured-listings-heading"
     >
+      <SectionBanner headingId="featured-listings-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl space-y-3">
@@ -264,6 +270,7 @@ function FeaturedListingsSection() {
               key={listing.address}
               className="flex h-full flex-col justify-between rounded-3xl border border-border/40 bg-white p-6 shadow-lg shadow-primary/10"
             >
+              <CardVisual seed={String(listing.address)} />
               <div className="space-y-3">
                 <p className="text-xs uppercase tracking-[0.4em] text-[#6f5237]">{listing.mls}</p>
                 <h3 className="font-[var(--font-playfair)] text-2xl text-[#1f2a24]">
@@ -294,6 +301,7 @@ function FeaturedListingsSection() {
 function MarketReportFAQSection() {
   return (
     <section className="bg-white py-20 sm:py-24" aria-labelledby="market-report-faq-heading">
+      <SectionBanner headingId="market-report-faq-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Market Report FAQ</p>
@@ -308,6 +316,7 @@ function MarketReportFAQSection() {
         <div className="mt-12 space-y-10">
           {marketReportFaq.map((item) => (
             <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10">
+              <CardVisual seed={String(item.question)} />
               <h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">
                 {item.question}
               </h3>
@@ -322,7 +331,8 @@ function MarketReportFAQSection() {
 
 function ReportingCTASection() {
   return (
-    <section className="bg-[#0f2b1e] py-20 text-[#f8f5ef]" aria-labelledby="reporting-cta-heading">
+    <section className="bg-[#0f2b1e] py-20 text-[#f8f5ef] relative isolate overflow-hidden" aria-labelledby="reporting-cta-heading">
+      <SectionBanner headingId="reporting-cta-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h2
           id="reporting-cta-heading"

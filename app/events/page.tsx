@@ -11,6 +11,9 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { HeroBackground } from '@/components/hero-background'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { getSiteImageUrl } from '@/lib/cloudflare-images'
+
 
 const eventsNarratives = [
   {
@@ -156,19 +159,19 @@ export default function EventsPage() {
   return (
     <SiteShell>
       <EventsHero />
-      <div className="bg-white">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
-          <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Events' }]} />
-        </div>
-      </div>
       <RealScoutSection
-        id="events-listings"
+        id="bhhs-listings"
         eyebrow="Nearby Estates"
         title="Spanish Trail Homes Ready for Private Entertaining"
         description="Discover residences with indoor-outdoor venues, guest casitas, and catering-ready kitchens—ideal for hosting celebrations just steps from the clubhouse."
         priceMin="800000"
         propertyTypes=",SFR"
       />
+      <div className="bg-white">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
+          <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Events' }]} />
+        </div>
+      </div>
       <EventsNarrativesSection />
       <WeddingsSection />
       <PrivateEventsSection />
@@ -192,7 +195,7 @@ function EventsHero() {
       aria-labelledby="events-hero-heading"
     >
       <HeroBackground
-        src="https://images.unsplash.com/photo-1520854221050-0f4caff449fb?q=80&auto=format&fit=crop&w=2000"
+        src={getSiteImageUrl('h2-events-lawn')}
         overlayClassName="bg-gradient-to-b from-[#0f2b1e]/55 via-[#0f2b1e]/65 to-[#0f2b1e]/80"
         sizes="(max-width: 1024px) 100vw, 1280px"
       />
@@ -205,16 +208,10 @@ function EventsHero() {
           id="events-hero-heading"
           className="mt-5 font-[var(--font-playfair)] text-4xl leading-tight sm:text-5xl lg:text-6xl"
         >
-          Celebrate life&apos;s signature moments surrounded by Spanish Trail&apos;s
-          private beauty in Las Vegas.
+          Spanish Trail Homes Near Club Event Venues
         </h1>
         <p className="mt-6 max-w-2xl text-base leading-7 text-primary-foreground sm:text-lg">
-          From romantic ceremonies on the Lakes Course lawn to black-tie galas in
-          our skyline-view ballroom, our planning team curates every detail. For venue contracts, catering, and member sponsorship questions, contact the club&apos;s events team directly; for Spanish Trail real estate after your event—tours, timing, and membership context—call Dr. Jan Duffy at{' '}
-          <a href="tel:+17027663299" className="underline-offset-4 hover:underline">
-            (702) 766-3299
-          </a>
-          .
+          Venue contracts belong to the club. Buying or selling a Spanish Trail home around an event belongs to Dr. Jan Duffy. Call (702) 766-3299.
         </p>
       </div>
       <HeroSearchWidget theme="dark" />
@@ -229,6 +226,7 @@ function WeddingsSection() {
       className="bg-background py-20 sm:py-24"
       aria-labelledby="weddings-heading"
     >
+      <SectionBanner headingId="weddings-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.1fr_1fr]">
           <div className="space-y-5">
@@ -263,8 +261,7 @@ function WeddingsSection() {
           <div
             className="h-full rounded-3xl border border-border/60 bg-cover bg-center shadow-lg"
             style={{
-              backgroundImage:
-                "url('https://images.unsplash.com/photo-1496439786094-e6970dd64573?q=80&w=1600&auto=format&fit=crop')",
+              backgroundImage: `url('${getSiteImageUrl('h2-events-lawn')}')`,
             }}
             role="img"
             aria-label="Outdoor wedding ceremony space at Spanish Trail Country Club"
@@ -282,6 +279,7 @@ function PrivateEventsSection() {
       className="border-y border-border/60 bg-card/80"
       aria-labelledby="private-events-heading"
     >
+      <SectionBanner headingId="private-events-heading" />
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-20 lg:grid-cols-[1fr_1.1fr]">
         <div className="grid gap-6 sm:grid-cols-2">
           {[
@@ -351,6 +349,7 @@ function GolfOutingsSection() {
       className="bg-background py-20 sm:py-24"
       aria-labelledby="golf-outings-heading"
     >
+      <SectionBanner headingId="golf-outings-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.1fr_1fr]">
           <div className="space-y-5">
@@ -384,8 +383,7 @@ function GolfOutingsSection() {
           <div
             className="h-full rounded-3xl border border-border/60 bg-cover bg-center shadow-lg"
             style={{
-              backgroundImage:
-                "url('https://images.unsplash.com/photo-1493906401288-9628bd10ba1b?q=80&w=1600&auto=format&fit=crop')",
+              backgroundImage: `url('${getSiteImageUrl('h2-club-dining')}')`,
             }}
             role="img"
             aria-label="Golf outing staging area at Spanish Trail Country Club"
@@ -399,6 +397,7 @@ function GolfOutingsSection() {
 function EventsNarrativesSection() {
   return (
     <section className="bg-white py-20 sm:py-24" aria-labelledby="events-narratives-heading">
+      <SectionBanner headingId="events-narratives-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Event Venues</p>
@@ -413,6 +412,7 @@ function EventsNarrativesSection() {
         <div className="mt-12 space-y-12">
           {eventsNarratives.map((topic) => (
             <article key={topic.title} className="space-y-6 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-8 shadow-lg shadow-primary/10">
+              <CardVisual seed={String(topic.title)} />
               <h3 className="text-lg font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">
                 {topic.title}
               </h3>
@@ -436,6 +436,7 @@ function ContactSection() {
       className="border-y border-border/60 bg-card/80"
       aria-labelledby="contact-heading"
     >
+      <SectionBanner headingId="contact-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 py-20 text-center">
         <p className="text-xs uppercase tracking-[0.5em] text-secondary">
           Interested in Spanish Trail Real Estate?
@@ -468,6 +469,7 @@ function ContactSection() {
 function EventsFAQSection() {
   return (
     <section className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="events-faq-heading">
+      <SectionBanner headingId="events-faq-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Events FAQ</p>
@@ -482,6 +484,7 @@ function EventsFAQSection() {
         <div className="mt-12 space-y-10">
           {eventsFaq.map((item) => (
             <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">
+              <CardVisual seed={String(item.question)} />
               <h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">
                 {item.question}
               </h3>

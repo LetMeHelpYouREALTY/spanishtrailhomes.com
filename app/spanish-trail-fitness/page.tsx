@@ -8,6 +8,8 @@ import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-fitness'
 const pageDescription =
@@ -104,6 +106,14 @@ export default function SpanishTrailFitnessPage() {
   return (
     <SiteShell>
       <HeroSection />
+      <RealScoutSection
+        id="bhhs-listings"
+        eyebrow="Active Living"
+        title="Spanish Trail homes for fitness enthusiasts"
+        description="Find homes with easy access to the fitness center, pools, tennis courts, and golf course for an active lifestyle."
+        priceMin="600000"
+        propertyTypes=",SFR,CONDO"
+      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
           <Breadcrumbs
@@ -118,14 +128,6 @@ export default function SpanishTrailFitnessPage() {
       <FacilitySection />
       <ProgramsSection />
       <WellnessSection />
-      <RealScoutSection
-        id="fitness-homes"
-        eyebrow="Active Living"
-        title="Spanish Trail homes for fitness enthusiasts"
-        description="Find homes with easy access to the fitness center, pools, tennis courts, and golf course for an active lifestyle."
-        priceMin="600000"
-        propertyTypes=",SFR,CONDO"
-      />
       <FAQSection />
       <CTASection />
       <Script id="fitness-faq-schema" type="application/ld+json" strategy="afterInteractive">
@@ -140,11 +142,12 @@ export default function SpanishTrailFitnessPage() {
 
 function HeroSection() {
   return (
-    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="fitness-hero-heading">
+    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="fitness-hero-heading">
+      <SectionBanner headingId="fitness-hero-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <p className="text-xs uppercase tracking-[0.5em] text-[#c6aa7a]">Fitness & Wellness</p>
         <h1 id="fitness-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-          Spanish Trail Fitness Center
+          Spanish Trail Homes with Fitness Access
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           The 50,000 square-foot Spanish Trail clubhouse includes a state-of-the-art fitness facility with modern equipment, personal trainers, and group classes. Whether you&apos;re starting your day with sunrise yoga or training for your next athletic goal, our fitness center supports your wellness journey.
@@ -170,6 +173,7 @@ function HeroSection() {
 function FacilitySection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="facility-heading">
+      <SectionBanner headingId="facility-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.1fr_1fr]">
           <div className="space-y-6">
@@ -211,6 +215,7 @@ function FacilitySection() {
 function ProgramsSection() {
   return (
     <section className="border-y border-border/60 bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="programs-heading">
+      <SectionBanner headingId="programs-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Fitness Programs</p>
@@ -263,6 +268,7 @@ function ProgramsSection() {
 function WellnessSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="wellness-heading">
+      <SectionBanner headingId="wellness-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           <div className="space-y-6">
@@ -310,6 +316,7 @@ function WellnessSection() {
 function FAQSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="fitness-faq-heading">
+      <SectionBanner headingId="fitness-faq-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="fitness-faq-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Fitness Center FAQs
@@ -317,6 +324,7 @@ function FAQSection() {
         <div className="mt-10 space-y-6">
           {faqContent.map((item) => (
             <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10 text-base leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.question)} />
               <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">{item.question}</h3>
               <p>{item.answer}</p>
             </article>
@@ -329,10 +337,11 @@ function FAQSection() {
 
 function CTASection() {
   return (
-    <section className="bg-white py-16 sm:py-20" aria-labelledby="fitness-cta-heading">
+    <section className="bg-white py-16 sm:py-20 relative isolate overflow-hidden" aria-labelledby="fitness-cta-heading">
+      <SectionBanner headingId="fitness-cta-heading" />
       <div className="mx-auto max-w-6xl px-4 text-center sm:px-6">
         <h2 id="fitness-cta-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
-          Ready for an active lifestyle?
+          Tour Spanish Trail homes with fitness access
         </h2>
         <p className="mt-4 text-base leading-relaxed text-[#372a20]/85">
           Find a Spanish Trail home that supports your wellness goals. Contact Dr. Jan Duffy at <Link href="tel:+17027663299" className="underline-offset-4 hover:underline">(702) 766-3299</Link> to explore homes with easy access to fitness amenities.

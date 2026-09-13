@@ -8,6 +8,8 @@ import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-private-golf-course-homes'
 
@@ -92,6 +94,14 @@ export default function PrivateGolfCourseHomesPage() {
   return (
     <SiteShell>
       <HeroSection />
+      <RealScoutSection
+        id="bhhs-listings"
+        eyebrow="Golf Course Listings"
+        title="Spanish Trail private golf homes available now"
+        description="Review active and private-release homes with direct golf access, stunning views, and club proximity."
+        priceMin="1200000"
+        propertyTypes=",SFR"
+      />
       <div className="bg-[#f8f2e7]">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs
@@ -104,14 +114,6 @@ export default function PrivateGolfCourseHomesPage() {
         </div>
       </div>
       <CourseOverviewSection />
-      <RealScoutSection
-        id="private-golf-course-homes"
-        eyebrow="Golf Course Listings"
-        title="Spanish Trail private golf homes available now"
-        description="Review active and private-release homes with direct golf access, stunning views, and club proximity."
-        priceMin="1200000"
-        propertyTypes=",SFR"
-      />
       <MembershipSection />
       <ViewSection />
       <LifestyleSection />
@@ -128,10 +130,11 @@ export default function PrivateGolfCourseHomesPage() {
 
 function HeroSection() {
   return (
-    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="private-golf-hero-heading">
+    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="private-golf-hero-heading">
+      <SectionBanner headingId="private-golf-hero-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h1 id="private-golf-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-          Las Vegas Private Golf Homes | Spanish Trail Country Club
+          Spanish Trail Private Golf Course Homes for Sale
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           Las Vegas private golf here means Spanish Trail’s member-only 27 holes by Robert Trent Jones Jr.—not a public tee sheet. Dr. Jan Duffy matches buyers with course-front estates, villas, and custom homes, then coordinates introductions to the club for membership questions tied to your closing timeline.
@@ -157,6 +160,7 @@ function HeroSection() {
 function CourseOverviewSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="course-overview-heading">
+      <SectionBanner headingId="course-overview-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="course-overview-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           The anatomy of Spanish Trail’s 27-hole private golf experience
@@ -182,6 +186,7 @@ function CourseOverviewSection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <p>{item.detail}</p>
             </article>
@@ -195,6 +200,7 @@ function CourseOverviewSection() {
 function MembershipSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="membership-overview-heading">
+      <SectionBanner headingId="membership-overview-heading" />
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 lg:grid-cols-[1.1fr_1fr]">
         <div className="space-y-6">
           <h2 id="membership-overview-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
@@ -229,6 +235,7 @@ function MembershipSection() {
 function ViewSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="view-heading">
+      <SectionBanner headingId="view-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="view-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Maximizing views and privacy on the course</h2>
@@ -253,6 +260,7 @@ function ViewSection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <p>{item.detail}</p>
             </article>
@@ -266,6 +274,7 @@ function ViewSection() {
 function LifestyleSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="golf-lifestyle-heading">
+      <SectionBanner headingId="golf-lifestyle-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="golf-lifestyle-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Living the Spanish Trail golf lifestyle</h2>
@@ -290,6 +299,7 @@ function LifestyleSection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <p>{item.detail}</p>
             </article>
@@ -303,6 +313,7 @@ function LifestyleSection() {
 function RenovationSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="renovation-heading">
+      <SectionBanner headingId="renovation-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="renovation-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Renovating course-front homes with HOA confidence</h2>
@@ -330,6 +341,7 @@ function RenovationSection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <ul className="space-y-2">
                 {item.points.map((point) => (
@@ -347,6 +359,7 @@ function RenovationSection() {
 function BuyerProcessSection() {
   return (
     <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="buyer-process-heading">
+      <SectionBanner headingId="buyer-process-heading" />
       <div className="mx-auto max-w-6xl space-y-6 px-6">
         <h2 id="buyer-process-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
           Step-by-step path to owning a Spanish Trail golf home
@@ -370,6 +383,7 @@ function BuyerProcessSection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#1f4a35]/60 bg-[#143927] p-6 shadow-lg shadow-black/20 text-sm leading-relaxed">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#f8f5ef]">{item.title}</h3>
               <p className="text-[#f8f5ef]/80">{item.detail}</p>
             </article>
@@ -383,6 +397,7 @@ function BuyerProcessSection() {
 function FAQSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="private-golf-faq-heading">
+      <SectionBanner headingId="private-golf-faq-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="private-golf-faq-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Spanish Trail private golf FAQs
@@ -390,6 +405,7 @@ function FAQSection() {
         <div className="mt-10 space-y-6">
           {faqContent.map((item) => (
             <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-base leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.question)} />
               <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">{item.question}</h3>
               <p>{item.answer}</p>
             </article>
@@ -402,7 +418,8 @@ function FAQSection() {
 
 function CTASection() {
   return (
-    <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="private-golf-cta-heading">
+    <section className="bg-[#f8f2e7] py-16 sm:py-20 relative isolate overflow-hidden" aria-labelledby="private-golf-cta-heading">
+      <SectionBanner headingId="private-golf-cta-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6 text-center">
         <h2 id="private-golf-cta-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Ready to live on Spanish Trail’s private fairways?

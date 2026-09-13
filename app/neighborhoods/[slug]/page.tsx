@@ -4,6 +4,7 @@ import Script from 'next/script'
 import { notFound } from 'next/navigation'
 
 import { SiteShell } from '@/components/site-shell'
+import { RealScoutSection } from '@/components/realscout-section'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
@@ -14,6 +15,10 @@ import {
   getCanonicalUrl,
 } from '@/lib/structuredData'
 import { getNeighborhoodBySlug, getNeighborhoodSlugs } from '@/lib/neighborhoods'
+import { SectionBanner } from '@/components/heading-media'
+import { getSiteImageUrl } from '@/lib/cloudflare-images'
+import { DEFAULT_H1_IMAGE, NEIGHBORHOOD_CARD_IMAGES, getAssetAlt } from '@/lib/site-images'
+
 
 type NeighborhoodPageProps = {
   params: Promise<{ slug: string }>
@@ -94,9 +99,12 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
       />
 
       <HeroBackground
-        title={neighborhood.name}
-        subtitle={neighborhood.shortDescription}
+        src={getSiteImageUrl(NEIGHBORHOOD_CARD_IMAGES[slug] ?? DEFAULT_H1_IMAGE)}
+        alt={getAssetAlt(NEIGHBORHOOD_CARD_IMAGES[slug] ?? DEFAULT_H1_IMAGE)}
+        title={`${neighborhood.name} Spanish Trail Homes`}
+        subtitle="Buy and sell with Dr. Jan Duffy"
       />
+      <RealScoutSection id="bhhs-listings" />
 
       <Breadcrumbs
         items={[
@@ -119,6 +127,7 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
         </div>
 
         <section className="prose prose-[#372a20] max-w-none" aria-labelledby="about-neighborhood">
+          <SectionBanner headingId="about-neighborhood" />
           <h2 id="about-neighborhood" className="font-playfair text-2xl font-semibold text-[#2d2318]">
             About {neighborhood.name}
           </h2>
@@ -130,6 +139,7 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
         </section>
 
         <section className="mt-10" aria-labelledby="features">
+          <SectionBanner headingId="features" />
           <h2 id="features" className="font-playfair text-xl font-semibold text-[#2d2318]">
             What {neighborhood.name} Offers
           </h2>
@@ -140,7 +150,8 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
           </ul>
         </section>
 
-        <section className="mt-12 rounded-2xl border border-[#e8ddd0] bg-[#faf8f5] p-6 sm:p-8" aria-labelledby="cta">
+        <section className="mt-12 rounded-2xl border border-[#e8ddd0] bg-[#faf8f5] p-6 sm:p-8 relative isolate overflow-hidden" aria-labelledby="cta">
+          <SectionBanner headingId="cta" />
           <h2 id="cta" className="font-playfair text-xl font-semibold text-[#2d2318]">
             View Listings in {neighborhood.name}
           </h2>

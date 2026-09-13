@@ -4,6 +4,7 @@ import { useCallback, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { featuredListingsPreview } from '@/lib/spanishTrailContent'
+import { getSiteImageUrl } from '@/lib/cloudflare-images'
 import { cn } from '@/lib/utils'
 import {
   trackFeaturedListingView,
@@ -71,12 +72,11 @@ export function FeaturedListings({ activeListings = 72 }: FeaturedListingsProps)
             >
               <div className="relative aspect-[4/3] overflow-hidden bg-[#e8e4dc]">
                 <Image
-                  src={listing.image}
+                  src={getSiteImageUrl(listing.imageId)}
                   alt={`Spanish Trail Las Vegas guard-gated home at ${listing.address} — ${listing.price}`}
-                  width={400}
-                  height={300}
+                  fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="h-full w-full object-cover transition-transform duration-200 group-hover:scale-105"
+                  className="object-cover transition-transform duration-200 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
                 <div className="absolute left-0 top-0 p-3">

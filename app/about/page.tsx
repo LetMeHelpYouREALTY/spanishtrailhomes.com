@@ -3,10 +3,16 @@ import Link from 'next/link'
 import Script from 'next/script'
 
 import { SiteShell } from '@/components/site-shell'
+import { RealScoutSection } from '@/components/realscout-section'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { getAgentPortraitAbsoluteUrl } from '@/lib/agent-portraits'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { getSiteImageUrl } from '@/lib/cloudflare-images'
+import { AgentPortrait } from '@/components/agent-portrait'
+
 
 const aboutFaq = [
   {
@@ -68,7 +74,7 @@ const aboutPersonSchema = {
   givenName: 'Jan',
   familyName: 'Duffy',
   url: pageUrl,
-  image: 'https://www.spanishtrailhomes.com/images/janet-duffy.jpg',
+  image: getAgentPortraitAbsoluteUrl('duffy-circle-about'),
   jobTitle: 'REALTOR® | Berkshire Hathaway HomeServices Nevada Properties',
   email: 'DrDuffySells@SpanishTrailHomes.com',
   telephone: '+1-702-766-3299',
@@ -204,6 +210,7 @@ export default function AboutPage() {
   return (
     <SiteShell>
       <HeroSection />
+      <RealScoutSection id="bhhs-listings" />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs
@@ -238,19 +245,20 @@ function HeroSection() {
   return (
     <header className="relative isolate overflow-hidden text-[#f8f5ef]" aria-labelledby="about-hero-heading">
       <HeroBackground
-        src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&auto=format&fit=crop&w=2000"
+        src={getSiteImageUrl('h1-contact-office')}
         alt="Dr. Jan Duffy - Spanish Trail real estate agent and luxury home specialist in Las Vegas"
         overlayClassName="bg-gradient-to-b from-[#0f2b1e]/60 to-[#0f2b1e]/85"
         sizes="(max-width: 1024px) 100vw, 1200px"
       />
       <div className="absolute inset-x-0 bottom-0 -z-10 h-32 bg-linear-to-t from-[#0f2b1e]/85" />
-      <div className="mx-auto flex max-w-4xl flex-col gap-6 px-6 py-28 text-center sm:py-32">
-        <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/70">Spanish Trail Homes</p>
+      <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-6 py-28 text-center sm:py-32">
+        <AgentPortrait placement="about" size="lg" priority schema pagePath="/about" />
+        <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/70">Spanish Trail luxury realtor</p>
         <h1 id="about-hero-heading" className="font-heading text-3xl leading-tight sm:text-4xl">
-          Let Me Help You
+          Dr. Jan Duffy, exclusive Spanish Trail realtor
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85 sm:text-lg">
-          As your expert neighbor who knows every sale, every builder incentive, and every neighborhood nuance, Dr. Jan Duffy combines deep Vegas knowledge with genuine partnership. No surface-level advice. No generic recommendations. Just specific, data-driven guidance tailored to your exact situation—backed by research that understands how homebuyers and sellers make decisions.
+          Dr. Jan Duffy represents buyers and sellers inside Spanish Trail—Las Vegas ZIP 89113—exclusively. Berkshire Hathaway HomeServices Nevada Properties. License S.0197614.LLC. Neighborhood-level comps, gate-access tours, and listing strategy for this community only.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Button
@@ -275,6 +283,7 @@ function HeroSection() {
 function StorySection() {
   return (
     <section className="bg-white py-20 sm:py-24" aria-labelledby="story-heading">
+      <SectionBanner headingId="story-heading" />
       <div className="mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-[1.2fr_1fr]">
         <div className="space-y-5">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">Background</p>
@@ -292,6 +301,7 @@ function StorySection() {
           </p>
         </div>
         <div className="space-y-4 rounded-3xl border border-border/60 bg-[#f8f2e7] p-6 shadow-lg shadow-primary/10">
+          <AgentPortrait id="duffy-circle-canonical" placement="about-story" size="lg" showCaption className="mx-auto" />
           <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#6f5237]">Quick facts</h3>
           <ul className="space-y-3 text-sm leading-relaxed text-[#372a20]/85">
             <li>
@@ -316,6 +326,7 @@ function StorySection() {
 function PhilosophySection() {
   return (
     <section className="bg-[#0f2b1e] py-20 text-[#f8f5ef] sm:py-24" aria-labelledby="philosophy-heading">
+      <SectionBanner headingId="philosophy-heading" />
       <div className="mx-auto max-w-6xl space-y-8 px-6">
         <div className="space-y-4 text-center">
           <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/70">Brand Philosophy</p>
@@ -346,6 +357,7 @@ function PhilosophySection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#1f4a35]/60 bg-[#143927] p-6 shadow-lg shadow-black/20">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#f8f5ef]">{item.title}</h3>
               <p className="text-sm leading-relaxed text-[#f8f5ef]/80">{item.description}</p>
             </article>
@@ -359,6 +371,7 @@ function PhilosophySection() {
 function ApproachSection() {
   return (
     <section className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="approach-heading">
+      <SectionBanner headingId="approach-heading" />
       <div className="mx-auto max-w-6xl space-y-10 px-6">
         <div className="space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Advisory Approach</p>
@@ -376,6 +389,7 @@ function ApproachSection() {
               key={pillar.title}
               className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10"
             >
+              <CardVisual seed={String(pillar.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{pillar.title}</h3>
               <p className="text-sm leading-relaxed text-[#372a20]/85">{pillar.description}</p>
             </article>
@@ -389,6 +403,7 @@ function ApproachSection() {
 function CredentialsSection() {
   return (
     <section className="bg-white py-20 sm:py-24" aria-labelledby="credentials-heading">
+      <SectionBanner headingId="credentials-heading" />
       <div className="mx-auto max-w-6xl space-y-8 px-6">
         <div className="space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">Credentials & Recognition</p>
@@ -419,6 +434,7 @@ function CredentialsSection() {
 function CommunitySection() {
   return (
     <section className="bg-[#0f2b1e] py-20 text-[#f8f5ef] sm:py-24" aria-labelledby="community-heading">
+      <SectionBanner headingId="community-heading" />
       <div className="mx-auto max-w-6xl space-y-6 px-6">
         <div className="space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/70">Community Stewardship</p>
@@ -453,6 +469,7 @@ function CommunitySection() {
               key={item.title}
               className="rounded-3xl border border-white/15 bg-white/10 p-6 shadow-lg shadow-black/20 backdrop-blur"
             >
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-lg font-semibold text-white">{item.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-[#f8f5ef]/80">{item.description}</p>
             </article>
@@ -466,6 +483,7 @@ function CommunitySection() {
 function AboutFAQSection() {
   return (
     <section className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="about-faq-heading">
+      <SectionBanner headingId="about-faq-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">About Dr. Jan Duffy FAQ</p>
@@ -480,6 +498,7 @@ function AboutFAQSection() {
         <div className="mt-12 space-y-10">
           {aboutFaq.map((item) => (
             <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">
+              <CardVisual seed={String(item.question)} />
               <h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">
                 {item.question}
               </h3>
@@ -494,11 +513,12 @@ function AboutFAQSection() {
 
 function CTASection() {
   return (
-    <section className="bg-white py-20 sm:py-24" aria-labelledby="about-cta-heading">
+    <section className="bg-white py-20 sm:py-24 relative isolate overflow-hidden" aria-labelledby="about-cta-heading">
+      <SectionBanner headingId="about-cta-heading" />
       <div className="mx-auto max-w-4xl rounded-3xl border border-border/60 bg-[#0f2b1e] px-8 py-16 text-center text-[#f8f5ef] shadow-xl shadow-primary/20">
         <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/70">Work With Dr. Jan Duffy</p>
         <h2 id="about-cta-heading" className="mt-4 font-heading text-3xl leading-tight sm:text-4xl">
-          Let's design the next chapter of your Spanish Trail story
+          Buy or sell your Spanish Trail home
         </h2>
         <p className="mt-6 text-base leading-relaxed text-[#f8f5ef]/85">
           Whether you're refining an estate sale, relocating into the guard gates, or benchmarking your market position, Dr.

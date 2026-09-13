@@ -3,10 +3,12 @@ import Link from 'next/link'
 import Script from 'next/script'
 
 import { SiteShell } from '@/components/site-shell'
+import { RealScoutSection } from '@/components/realscout-section'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
 import { CalendlyLink } from '@/components/calendly-link'
+import { SectionBanner } from '@/components/heading-media'
 import {
   createOgImageUrl,
   createWebPageSchema,
@@ -117,10 +119,11 @@ export default function RelocationPage() {
       />
 
       <HeroBackground
-        title="Relocation & Out-of-State Buyer Support"
-        subtitle="Spanish Trail from anywhere"
-        description="Moving to Las Vegas and considering Spanish Trail? Dr. Jan Duffy helps relocation buyers navigate this guard-gated golf community from a distance—virtual tours, neighborhood comparisons, and full remote transaction coordination."
+        title="Buy a Spanish Trail Home from Out of State"
+        subtitle="Relocation realtor services for 89113"
+        description="Dr. Jan Duffy buys Spanish Trail homes for out-of-state clients: virtual tours, 11-neighborhood matching, and remote closing."
       />
+      <RealScoutSection id="bhhs-listings" />
 
       <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12">
         <Breadcrumbs
@@ -131,8 +134,9 @@ export default function RelocationPage() {
         />
 
         <section className="prose prose-[#372a20] mt-10 max-w-none" aria-labelledby="relocation-intro">
+      <SectionBanner headingId="relocation-intro" />
           <h2 id="relocation-intro" className="font-playfair text-2xl font-semibold text-[#0f2b1e]">
-            Why Spanish Trail for Relocating Buyers
+            Why Spanish Trail homes for relocating buyers
           </h2>
           <p className="text-[#0f2b1e]/90 leading-relaxed">
             Moving to Las Vegas from out of state and considering Spanish Trail? Dr. Jan Duffy specializes in helping
@@ -151,6 +155,7 @@ export default function RelocationPage() {
         </section>
 
         <section className="mt-12 max-w-none" aria-labelledby="valley-comparison-heading">
+      <SectionBanner headingId="valley-comparison-heading" />
           <h2 id="valley-comparison-heading" className="font-playfair text-2xl font-semibold text-[#0f2b1e]">
             Comparing Spanish Trail with other Las Vegas areas
           </h2>
@@ -180,6 +185,7 @@ export default function RelocationPage() {
         </section>
 
         <section className="mt-12 rounded-2xl border border-[#0f2b1e]/20 bg-[#f8f5ef] p-6 sm:p-8" aria-labelledby="relocation-cta">
+      <SectionBanner headingId="relocation-cta" />
           <h2 id="relocation-cta" className="font-playfair text-xl font-semibold text-[#0f2b1e]">
             Start Your Relocation Conversation
           </h2>
@@ -207,6 +213,7 @@ export default function RelocationPage() {
         </section>
 
         <section className="mt-12" aria-labelledby="relocation-faq">
+      <SectionBanner headingId="relocation-faq" />
           <h2 id="relocation-faq" className="font-playfair text-2xl font-semibold text-[#0f2b1e]">
             Relocation FAQ
           </h2>

@@ -8,6 +8,9 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { HeroBackground } from '@/components/hero-background'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { getSiteImageUrl } from '@/lib/cloudflare-images'
+
 
 const membershipNarratives = [
   {
@@ -169,19 +172,19 @@ export default function MembershipPage() {
   return (
     <SiteShell>
       <MembershipHero />
-      <div className="bg-white">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
-          <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Membership Guide' }]} />
-        </div>
-      </div>
       <RealScoutSection
-        id="membership-listings"
+        id="bhhs-listings"
         eyebrow="Homes for Sale"
         title="Spanish Trail Homes with Club Access"
         description="Browse homes for sale in Spanish Trail. Dr. Duffy helps you understand membership options and costs as part of your home buying process."
         priceMin="500000"
         propertyTypes=",SFR,CONDO"
       />
+      <div className="bg-white">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
+          <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Membership Guide' }]} />
+        </div>
+      </div>
       <MembershipNarrativesSection />
       <OfferingsSection />
       <ValueHighlights />
@@ -205,7 +208,7 @@ function MembershipHero() {
       aria-labelledby="membership-hero-heading"
     >
       <HeroBackground
-        src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&auto=format&fit=crop&w=2000"
+        src={getSiteImageUrl('h1-clubhouse')}
         alt="Spanish Trail Country Club membership information and amenities in Las Vegas 89113"
         overlayClassName="bg-gradient-to-b from-[#0f2b1e]/55 via-[#0f2b1e]/65 to-[#0f2b1e]/80"
         sizes="(max-width: 1024px) 100vw, 1280px"
@@ -219,7 +222,7 @@ function MembershipHero() {
           id="membership-hero-heading"
           className="mt-5 font-[var(--font-playfair)] text-4xl leading-tight sm:text-5xl lg:text-6xl"
         >
-          Understanding Spanish Trail Club Membership
+          Club Membership When You Buy or Sell a Spanish Trail Home
         </h1>
         <p className="mt-6 max-w-2xl text-base leading-7 text-primary-foreground sm:text-lg">
           Learn how country club membership works when buying or selling a home in Spanish Trail. Dr. Jan Duffy explains your options as a real estate agent—not a club representative.
@@ -237,6 +240,7 @@ function OfferingsSection() {
       className="bg-background py-20 sm:py-24"
       aria-labelledby="offerings-heading"
     >
+      <SectionBanner headingId="offerings-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-2xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">
@@ -276,6 +280,7 @@ function OfferingsSection() {
 function MembershipNarrativesSection() {
   return (
     <section className="bg-white py-20 sm:py-24" aria-labelledby="membership-narratives-heading">
+      <SectionBanner headingId="membership-narratives-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Real Estate Guidance</p>
@@ -290,6 +295,7 @@ function MembershipNarrativesSection() {
         <div className="mt-12 space-y-12">
           {membershipNarratives.map((topic) => (
             <article key={topic.title} className="space-y-6 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-8 shadow-lg shadow-primary/10">
+              <CardVisual seed={String(topic.title)} />
               <h3 className="text-lg font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">
                 {topic.title}
               </h3>
@@ -312,6 +318,7 @@ function ValueHighlights() {
       className="border-y border-border/60 bg-card/80"
       aria-labelledby="value-heading"
     >
+      <SectionBanner headingId="value-heading" />
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-20 lg:grid-cols-[1fr_1.1fr]">
         <div className="space-y-5">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">
@@ -372,6 +379,7 @@ function YoungExecutiveSection() {
       className="bg-background py-20 sm:py-24"
       aria-labelledby="young-executive-heading"
     >
+      <SectionBanner headingId="young-executive-heading" />
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 lg:grid-cols-[1.1fr_1fr]">
         <div className="space-y-5">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">
@@ -396,8 +404,7 @@ function YoungExecutiveSection() {
         <div
           className="h-full rounded-3xl border border-border/60 bg-cover bg-center shadow-lg"
           style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1524600123475-9091d53c6c87?q=80&w=1600&auto=format&fit=crop')",
+            backgroundImage: `url('${getSiteImageUrl('h2-membership-lounge')}')`,
           }}
           role="img"
           aria-label="Members socializing at Spanish Trail Country Club"
@@ -414,6 +421,7 @@ function InquirySection() {
       className="border-y border-border/60 bg-card/80"
       aria-labelledby="inquiry-heading"
     >
+      <SectionBanner headingId="inquiry-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 py-20 text-center">
         <p className="text-xs uppercase tracking-[0.5em] text-secondary">
           Schedule a Consultation
@@ -439,6 +447,7 @@ function InquirySection() {
 function MembershipFAQSection() {
   return (
     <section className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="membership-faq-heading">
+      <SectionBanner headingId="membership-faq-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Frequently Asked Questions</p>
@@ -452,6 +461,7 @@ function MembershipFAQSection() {
         <div className="mt-12 space-y-10">
           {membershipFaq.map((item) => (
             <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">
+              <CardVisual seed={String(item.question)} />
               <h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">
                 {item.question}
               </h3>

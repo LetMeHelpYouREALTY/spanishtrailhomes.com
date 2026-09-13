@@ -8,6 +8,8 @@ import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-southwest-las-vegas-luxury-homes'
 
@@ -92,6 +94,14 @@ export default function SouthwestLasVegasLuxuryHomesPage() {
   return (
     <SiteShell>
       <HeroSection />
+      <RealScoutSection
+        id="bhhs-listings"
+        eyebrow="Luxury Listings"
+        title="Spanish Trail homes anchoring Southwest Las Vegas luxury"
+        description="Discover estates, villas, and guard-gated properties that define the Southwest submarket."
+        priceMin="900000"
+        propertyTypes=",SFR"
+      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs
@@ -104,14 +114,6 @@ export default function SouthwestLasVegasLuxuryHomesPage() {
         </div>
       </div>
       <OverviewSection />
-      <RealScoutSection
-        id="southwest-las-vegas-luxury-listings"
-        eyebrow="Luxury Listings"
-        title="Spanish Trail homes anchoring Southwest Las Vegas luxury"
-        description="Discover estates, villas, and guard-gated properties that define the Southwest submarket."
-        priceMin="900000"
-        propertyTypes=",SFR"
-      />
       <ComparisonSection />
       <LifestyleSection />
       <CommuterSection />
@@ -128,10 +130,11 @@ export default function SouthwestLasVegasLuxuryHomesPage() {
 
 function HeroSection() {
   return (
-    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="southwest-hero-heading">
+    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="southwest-hero-heading">
+      <SectionBanner headingId="southwest-hero-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h1 id="southwest-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-          Spanish Trail Southwest Las Vegas Luxury Homes
+          Spanish Trail Homes in Southwest Las Vegas
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           Southwest Las Vegas balances Strip convenience with suburban calm, and Spanish Trail stands at the center of that promise. Guarded entrances, towering pines, and championship golf separate the community from newer developments nearby. I help buyers evaluate Spanish Trail alongside other elite neighborhoods so you choose the address that truly fits your goals.
@@ -157,6 +160,7 @@ function HeroSection() {
 function OverviewSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="overview-heading">
+      <SectionBanner headingId="overview-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="overview-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Southwest Las Vegas luxury from inside the guard gates
@@ -183,6 +187,7 @@ function OverviewSection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <p>{item.detail}</p>
             </article>
@@ -196,6 +201,7 @@ function OverviewSection() {
 function ComparisonSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="comparison-heading">
+      <SectionBanner headingId="comparison-heading" />
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 lg:grid-cols-[1.1fr_1fr]">
         <div className="space-y-6">
           <h2 id="comparison-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
@@ -235,6 +241,7 @@ function ComparisonSection() {
 function LifestyleSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="southwest-lifestyle-heading">
+      <SectionBanner headingId="southwest-lifestyle-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="southwest-lifestyle-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Southwest Las Vegas lifestyle advantages
@@ -261,6 +268,7 @@ function LifestyleSection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <p>{item.detail}</p>
             </article>
@@ -274,6 +282,7 @@ function LifestyleSection() {
 function CommuterSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="commuter-heading">
+      <SectionBanner headingId="commuter-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="commuter-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Commute times that keep your schedule agile
@@ -303,6 +312,7 @@ function CommuterSection() {
 function SchoolSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="school-heading">
+      <SectionBanner headingId="school-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="school-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Education and enrichment nearby</h2>
@@ -327,6 +337,7 @@ function SchoolSection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <p>{item.detail}</p>
             </article>
@@ -340,6 +351,7 @@ function SchoolSection() {
 function BuyerStrategySection() {
   return (
     <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="southwest-strategy-heading">
+      <SectionBanner headingId="southwest-strategy-heading" />
       <div className="mx-auto max-w-6xl space-y-6 px-6">
         <h2 id="southwest-strategy-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
           Strategy for Southwest Las Vegas luxury buyers
@@ -365,6 +377,7 @@ function BuyerStrategySection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#1f4a35]/60 bg-[#143927] p-6 shadow-lg shadow-black/20 text-sm leading-relaxed">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#f8f5ef]">{item.title}</h3>
               <p className="text-[#f8f5ef]/80">{item.detail}</p>
             </article>
@@ -378,6 +391,7 @@ function BuyerStrategySection() {
 function FAQSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="southwest-faq-heading">
+      <SectionBanner headingId="southwest-faq-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="southwest-faq-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Southwest Las Vegas luxury FAQs
@@ -385,6 +399,7 @@ function FAQSection() {
         <div className="mt-10 space-y-6">
           {faqContent.map((item) => (
             <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-base leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.question)} />
               <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">{item.question}</h3>
               <p>{item.answer}</p>
             </article>
@@ -397,7 +412,8 @@ function FAQSection() {
 
 function CTASection() {
   return (
-    <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="southwest-cta-heading">
+    <section className="bg-[#f8f2e7] py-16 sm:py-20 relative isolate overflow-hidden" aria-labelledby="southwest-cta-heading">
+      <SectionBanner headingId="southwest-cta-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6 text-center">
         <h2 id="southwest-cta-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Explore Southwest Las Vegas luxury with Dr. Jan

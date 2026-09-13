@@ -1,9 +1,11 @@
 import Image from 'next/image'
 
+import { getSiteImageUrl } from '@/lib/cloudflare-images'
+import { DEFAULT_H1_IMAGE, getAssetAlt } from '@/lib/site-images'
 import { cn } from '@/lib/utils'
 
-const DEFAULT_HERO_IMAGE =
-  'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&auto=format&fit=crop&w=2000'
+const DEFAULT_HERO_IMAGE = getSiteImageUrl(DEFAULT_H1_IMAGE)
+const DEFAULT_HERO_ALT = getAssetAlt(DEFAULT_H1_IMAGE)
 
 type HeroBackgroundProps = {
   src?: string
@@ -45,7 +47,7 @@ export function HeroBackground({
       <div className="absolute inset-0">
         <Image
           src={imageSrc}
-          alt={alt || (title ? `${title} hero` : '')}
+          alt={alt || (title ? `${title} — ${DEFAULT_HERO_ALT}` : DEFAULT_HERO_ALT)}
           fill
           priority={priority}
           quality={80}
