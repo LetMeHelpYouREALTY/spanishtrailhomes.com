@@ -195,7 +195,7 @@ function AquaticCentersSection() {
               {[
                 { feature: 'Two Pool Locations', description: 'Separate aquatic centers offer variety and reduce crowding' },
                 { feature: 'Lap Swimming', description: 'Dedicated lanes for fitness swimming and training' },
-                { feature: 'Recreation Areas', description: 'Family-friendly spaces for leisure swimming and play' },
+                { feature: 'Recreation Areas', description: 'Open water for leisure swimming plus a designated shallow shelf' },
                 { feature: 'Heated Spas', description: 'Hot tubs for relaxation and recovery after workouts' },
                 { feature: 'Lounging Areas', description: 'Comfortable seating with shade options and poolside service' },
               ].map((item) => (
@@ -250,8 +250,8 @@ function FeaturesSection() {
               description: 'Trained lifeguards monitor the pools during operating hours for member safety.',
             },
             {
-              title: 'Family-Friendly',
-              description: 'Welcoming environment for families with children. Designated shallow areas for young swimmers.',
+              title: 'Shallow Shelf',
+              description: 'A designated shallow area for leisure swimming alongside lap lanes and heated spas.',
             },
           ].map((item) => (
             <div key={item.title} className="rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">

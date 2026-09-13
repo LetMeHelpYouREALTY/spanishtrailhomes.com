@@ -220,7 +220,7 @@ function GateComparisonSection() {
               • <strong>The Villas & Links:</strong> Direct cart access to the clubhouse plus HOA-managed exteriors—perfect for lock-and-leave second homes while still maintaining strong guard presence.
             </p>
             <p>
-              • <strong>Springs, Gardens, and Courtyards:</strong> Serene cul-de-sacs, lush landscaping, and close proximity to playgrounds and fitness paths. These pockets attract families valuing community connection within the gates.
+              • <strong>Springs, Gardens, and Courtyards:</strong> Cul-de-sacs, mature landscaping, pocket parks, and fitness paths. Typical lots here are smaller than the Estates, with three- to five-bedroom floor plans.
             </p>
           </div>
         </div>
@@ -277,7 +277,7 @@ function LifestyleSection() {
           ))}
         </div>
         <p className="mt-8 text-sm leading-relaxed text-[#372a20]/80">
-          Residents describe Spanish Trail as a “city within a city”—secure enough for celebrities seeking anonymity yet welcoming to families who appreciate community-driven programming. I ensure buyers meet membership directors, golf pros, and lifestyle managers during discovery visits so you can envision daily life beyond the gates.
+          Residents describe Spanish Trail as a “city within a city”—24-hour staffed gates, secondary mechanical gates in several enclaves, and a posted club calendar. I ensure buyers meet membership directors, golf pros, and lifestyle managers during discovery visits so you can see daily logistics beyond the gates.
         </p>
       </div>
     </section>
@@ -370,7 +370,7 @@ function MembershipSection() {
           ))}
         </div>
         <p className="mt-8 text-sm leading-relaxed text-[#372a20]/80">
-          I coordinate introductions with membership directors so you can review initiation waitlists, sponsorship requirements, and seasonal promotions. Families relocating from California appreciate the ability to join before moving, ensuring a seamless transition once the guard gate recognizes your credentials.
+          I coordinate introductions with membership directors so you can review initiation waitlists, sponsorship requirements, and seasonal promotions. Buyers relocating from California can often start the membership conversation before closing, so gate credentials are in process when they arrive.
         </p>
       </div>
     </section>

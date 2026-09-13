@@ -150,7 +150,7 @@ export default function SpanishTrailSchoolsPage() {
       <HeroSection />
       <RealScoutSection
         id="bhhs-listings"
-        eyebrow="Family Homes"
+        eyebrow="89113 Listings"
         title="Spanish Trail homes near named schools"
         description="Browse listings by bedrooms, square footage, and neighborhood. Bishop Gorman High School is 2.2 miles; CCSD campuses serve the 89113 master plan."
         priceMin="700000"

@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     url: pageUrl,
     title: 'Spanish Trail Lifestyle | Las Vegas Living',
     description:
-      'Outdoor recreation, dining, shopping, and entertainment near Spanish Trail. Discover why families and professionals choose this premier community.',
+      'Outdoor recreation, dining, shopping, and entertainment near Spanish Trail in Las Vegas 89113.',
     images: [
       createOgImageUrl({
         title: 'Spanish Trail Lifestyle',

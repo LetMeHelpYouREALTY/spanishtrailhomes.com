@@ -219,7 +219,7 @@ function ExpertiseSection() {
               I monitor every Spanish Trail closing the moment it records. Yesterday, 8330 Carmel Ridge Court—a 2,500 sq. ft. single-family home—closed at $1,095,000, roughly 8% above the community\'s median thanks to upgraded fairway views and a reimagined chef\'s kitchen.[source](https://searchforaffordablehomes.com/neighborhood/83/spanish-trails)
             </p>
             <p>
-              That real-time insight guides both sellers wanting a premium and buyers aiming to secure value without overextending. After decades focused on Spanish Trail—advising 500+ families across purchases, sales, and long-range planning—I have walked every cul-de-sac inside the 640-acre guard gates and understand how HOA nuances, sightlines, and secondary gates impact pricing.
+              That real-time insight guides both sellers wanting a premium and buyers aiming to secure value without overextending. After decades focused on Spanish Trail—advising 500+ buyers and sellers across purchases, sales, and long-range planning—I have walked every cul-de-sac inside the 640-acre guard gates and understand how HOA nuances, sightlines, and secondary gates impact pricing.
             </p>
           </div>
           <div className="space-y-4 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm text-[#372a20]/80">
@@ -356,7 +356,7 @@ function NeighborhoodFitSection() {
             {
               title: 'Patios & Springs enclaves',
               detail:
-                'Tree-lined streets, versatile floor plans, and proximity to Bishop Gorman High School. Popular with families seeking balance between serenity and city convenience.',
+                'Tree-lined streets, versatile floor plans, and 2.2 miles to Bishop Gorman High School. About 15 minutes to the Strip via Tropicana Ave.',
             },
           ].map((item) => (
             <div key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
