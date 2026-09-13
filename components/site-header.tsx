@@ -57,9 +57,14 @@ export function SiteHeader() {
           className="flex min-w-0 items-center gap-3 justify-self-start"
         >
           <AgentPortrait placement="header" size="xs" priority className="hidden sm:block" linkToSearch={false} />
-          <p className="min-w-0 font-[var(--font-playfair)] text-base font-semibold leading-snug tracking-[0.06em] text-[#0f2b1e] sm:text-xl sm:tracking-[0.08em] lg:text-2xl">
-            Spanish Trail | Homes By Dr. Jan Duffy
-          </p>
+          <span className="min-w-0 text-left">
+            <span className="block font-[var(--font-playfair)] text-base font-semibold leading-snug tracking-[0.06em] text-[#0f2b1e] sm:text-xl sm:tracking-[0.08em] lg:text-2xl">
+              Spanish Trail | Homes
+            </span>
+            <span className="mt-0.5 block text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-[#6f5237] sm:text-xs sm:tracking-[0.32em]">
+              By Dr. Jan Duffy
+            </span>
+          </span>
         </Link>
 
           <nav className="col-start-2 row-start-1 hidden items-center justify-center gap-4 self-center lg:col-start-2 lg:flex xl:gap-6">
