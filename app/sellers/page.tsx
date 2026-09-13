@@ -13,6 +13,7 @@ import { Button } from '@/components/ui/button'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { marketStats, formatMedianPrice } from '@/lib/marketStats'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { AgentPortrait } from '@/components/agent-portrait'
 
 
 type RealScoutHomeValueProps = HTMLAttributes<HTMLElement> & {
@@ -177,7 +178,8 @@ function HeroSection() {
   return (
     <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="sellers-hero-heading">
       <SectionBanner headingId="sellers-hero-heading" />
-      <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
+      <div className="mx-auto flex max-w-4xl flex-col items-center space-y-6 px-6 text-center">
+        <AgentPortrait placement="sellers" size="lg" priority schema pagePath="/sellers" />
         <h1 id="sellers-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
           Seller Representation for Spanish Trail Homes
         </h1>

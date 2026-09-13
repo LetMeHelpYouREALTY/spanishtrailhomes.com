@@ -9,6 +9,7 @@ import { RealScoutSection } from '@/components/realscout-section'
 import { Button } from '@/components/ui/button'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { AgentPortrait } from '@/components/agent-portrait'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/services'
 const servicesPageDescription =
@@ -167,7 +168,8 @@ function HeroSection() {
   return (
     <section className="relative isolate overflow-hidden bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="services-hero-heading">
       <SectionBanner headingId="services-hero-heading" />
-      <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
+      <div className="mx-auto flex max-w-4xl flex-col items-center space-y-6 px-6 text-center">
+        <AgentPortrait placement="services" size="lg" priority schema pagePath="/services" />
         <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/75">Luxury realtor · Spanish Trail 89113</p>
         <h1 id="services-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
           Realtor services for Spanish Trail homes

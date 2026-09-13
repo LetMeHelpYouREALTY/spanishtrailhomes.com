@@ -1,5 +1,6 @@
 import Image from 'next/image'
 
+import { AgentPortrait } from '@/components/agent-portrait'
 import { cn } from '@/lib/utils'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 import {
@@ -56,6 +57,9 @@ export function SectionBanner({
               sizes="(max-width: 1024px) 100vw, 1152px"
               className="object-cover"
             />
+            <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4">
+              <AgentPortrait placement={headingId} size="sm" />
+            </div>
           </div>
         </div>
       )

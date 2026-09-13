@@ -8,8 +8,10 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { getAgentPortraitAbsoluteUrl } from '@/lib/agent-portraits'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
+import { AgentPortrait } from '@/components/agent-portrait'
 
 
 const aboutFaq = [
@@ -72,7 +74,7 @@ const aboutPersonSchema = {
   givenName: 'Jan',
   familyName: 'Duffy',
   url: pageUrl,
-  image: 'https://www.spanishtrailhomes.com/images/janet-duffy.jpg',
+  image: getAgentPortraitAbsoluteUrl('agent-duffy-about'),
   jobTitle: 'REALTOR® | Berkshire Hathaway HomeServices Nevada Properties',
   email: 'DrDuffySells@SpanishTrailHomes.com',
   telephone: '+1-702-766-3299',
@@ -249,7 +251,8 @@ function HeroSection() {
         sizes="(max-width: 1024px) 100vw, 1200px"
       />
       <div className="absolute inset-x-0 bottom-0 -z-10 h-32 bg-linear-to-t from-[#0f2b1e]/85" />
-      <div className="mx-auto flex max-w-4xl flex-col gap-6 px-6 py-28 text-center sm:py-32">
+      <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-6 py-28 text-center sm:py-32">
+        <AgentPortrait placement="about" size="lg" priority schema pagePath="/about" />
         <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/70">Spanish Trail luxury realtor</p>
         <h1 id="about-hero-heading" className="font-heading text-3xl leading-tight sm:text-4xl">
           Dr. Jan Duffy, exclusive Spanish Trail realtor
@@ -298,6 +301,7 @@ function StorySection() {
           </p>
         </div>
         <div className="space-y-4 rounded-3xl border border-border/60 bg-[#f8f2e7] p-6 shadow-lg shadow-primary/10">
+          <AgentPortrait id="agent-duffy-canonical" placement="about-story" size="lg" showCaption className="mx-auto" rounded="2xl" />
           <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#6f5237]">Quick facts</h3>
           <ul className="space-y-3 text-sm leading-relaxed text-[#372a20]/85">
             <li>

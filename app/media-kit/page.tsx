@@ -9,12 +9,14 @@ import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
 import { CalendlyLink } from '@/components/calendly-link'
 import { SectionBanner } from '@/components/heading-media'
+import { AgentPortrait } from '@/components/agent-portrait'
 import {
   createOgImageUrl,
   createWebPageSchema,
   createBreadcrumbSchema,
   getCanonicalUrl,
 } from '@/lib/structuredData'
+import { getAgentPortraitAbsoluteUrl } from '@/lib/agent-portraits'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/media-kit'
 const pageTitle = 'Spanish Trail Homes Media Kit - Dr. Jan Duffy'
@@ -39,7 +41,7 @@ const agentSchema = {
   '@type': 'RealEstateAgent',
   name: 'Dr. Jan Duffy',
   url: pageUrl,
-  image: 'https://www.spanishtrailhomes.com/images/janet-duffy.jpg',
+  image: getAgentPortraitAbsoluteUrl('agent-duffy-media'),
   jobTitle: 'REALTOR® | Berkshire Hathaway HomeServices Nevada Properties',
   email: 'DrDuffySells@SpanishTrailHomes.com',
   telephone: '+1-702-766-3299',
@@ -117,6 +119,9 @@ export default function MediaKitPage() {
         subtitle="Dr. Jan Duffy · Spanish Trail homes realtor"
         description="Press kit for the realtor who buys and sells Spanish Trail homes only."
       />
+      <div className="flex justify-center bg-[#f8f5ef] py-8">
+        <AgentPortrait placement="media" size="xl" rounded="2xl" showCaption schema pagePath="/media-kit" />
+      </div>
       <RealScoutSection id="bhhs-listings" />
 
       <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12">

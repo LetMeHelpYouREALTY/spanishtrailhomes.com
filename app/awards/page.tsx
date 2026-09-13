@@ -7,9 +7,11 @@ import { SiteShell } from '@/components/site-shell'
 import { RealScoutSection } from '@/components/realscout-section'
 import { Button } from '@/components/ui/button'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { getAgentPortraitAbsoluteUrl } from '@/lib/agent-portraits'
 import { HeroBackground } from '@/components/hero-background'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
+import { AgentPortrait } from '@/components/agent-portrait'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/awards'
@@ -138,7 +140,7 @@ const professionalProfileSchema = {
     postalCode: '89113',
     addressCountry: 'US',
   },
-  image: 'https://www.spanishtrailhomes.com/images/janet-duffy.jpg',
+  image: getAgentPortraitAbsoluteUrl('agent-duffy-awards'),
 }
 
 const awardsWebPageSchema = createWebPageSchema({
@@ -235,7 +237,8 @@ function HeroSection() {
         sizes="(max-width: 1024px) 100vw, 1280px"
       />
       <div className="absolute inset-x-0 bottom-0 -z-10 h-32 bg-linear-to-t from-[#0f2b1e]/90" />
-      <div className="mx-auto flex max-w-4xl flex-col gap-6 px-6 py-24 text-center sm:py-28">
+      <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-6 py-24 text-center sm:py-28">
+        <AgentPortrait placement="awards" size="lg" priority schema pagePath="/awards" />
         <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/70">Credentials That Safeguard Your Sale</p>
         <h1 id="awards-hero-heading" className="font-heading text-3xl font-semibold leading-tight sm:text-4xl">
           Awards for Spanish Trail Homes Representation
@@ -426,6 +429,9 @@ function AdvisoryCTASection() {
       <SectionBanner headingId="advisory-cta-heading" />
       <div className="mx-auto max-w-4xl rounded-3xl border border-border/40 bg-[#0f2b1e] px-8 py-16 text-center text-[#f8f5ef] shadow-xl shadow-primary/20">
         <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/70">Work With Dr. Jan Duffy</p>
+        <div className="mx-auto mt-6">
+          <AgentPortrait placement="advisory-cta" size="md" />
+        </div>
         <h2 id="advisory-cta-heading" className="mt-4 font-heading text-3xl leading-tight sm:text-4xl">
           Align awards-level expertise with your Spanish Trail move
         </h2>

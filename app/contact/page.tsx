@@ -4,6 +4,7 @@ import Script from 'next/script'
 
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
+import { AgentPortrait } from '@/components/agent-portrait'
 import { CalendlyInline } from '@/components/calendly-inline'
 import { CalendlyLink } from '@/components/calendly-link'
 import { RealScoutSection } from '@/components/realscout-section'
@@ -167,7 +168,8 @@ function HeroSection() {
   return (
     <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="contact-hero-heading">
       <SectionBanner headingId="contact-hero-heading" />
-      <div className="mx-auto flex max-w-4xl flex-col gap-6 px-6 text-center">
+      <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-6 text-center">
+        <AgentPortrait placement="contact-call" size="lg" priority schema pagePath="/contact" />
         <h1 id="contact-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
           Spanish Trail Homes Realtor | Dr. Jan Duffy
         </h1>

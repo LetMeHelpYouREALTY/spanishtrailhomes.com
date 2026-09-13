@@ -18,6 +18,8 @@
  *
  * 3) Monthly Search Central changelog: https://support.google.com/webmasters/answer/6211428
  */
+import { getAbsoluteSiteImageUrl } from '@/lib/cloudflare-images'
+
 const siteUrl = 'https://www.spanishtrailhomes.com'
 
 type BreadcrumbItem = {
@@ -160,6 +162,11 @@ export const createPersonSchema = () => ({
   email: 'DrDuffySells@SpanishTrailHomes.com',
   telephone: '+17027663299',
   url: siteUrl,
+  image: [
+    getAbsoluteSiteImageUrl('agent-duffy-canonical'),
+    getAbsoluteSiteImageUrl('agent-duffy-about'),
+    getAbsoluteSiteImageUrl('agent-duffy-contact-call'),
+  ],
   jobTitle: 'Real Estate Agent',
   worksFor: {
     '@type': 'Organization',

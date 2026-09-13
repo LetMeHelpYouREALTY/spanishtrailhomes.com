@@ -9,6 +9,7 @@ import { NAV_ITEMS } from '@/lib/navigation'
 import { trackPhoneClick } from '@/lib/analytics'
 import { Button } from '@/components/ui/button'
 import { CalendlyLink } from '@/components/calendly-link'
+import { AgentPortrait } from '@/components/agent-portrait'
 
 export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -25,8 +26,9 @@ export function SiteHeader() {
         <Link
           href="/"
           aria-label="Spanish Trail | Homes By Dr. Jan Duffy home"
-          className="group min-w-0 justify-self-start"
+          className="group flex min-w-0 items-center gap-3 justify-self-start"
         >
+          <AgentPortrait placement="header" size="xs" priority className="hidden sm:block" />
           <div className="text-left">
             <p className="text-[0.6rem] uppercase tracking-[0.35em] text-muted-foreground group-hover:text-secondary sm:text-[0.65rem] sm:tracking-[0.45em]">
               Berkshire Hathaway HomeServices

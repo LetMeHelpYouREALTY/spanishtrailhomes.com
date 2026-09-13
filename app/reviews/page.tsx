@@ -10,6 +10,7 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { GBP_GOOGLE_REVIEW_URL, GBP_MAPS_URL } from '@/lib/gbp-business'
 import { SectionBanner } from '@/components/heading-media'
+import { AgentPortrait } from '@/components/agent-portrait'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/reviews'
@@ -173,8 +174,9 @@ function HeroSection() {
       aria-labelledby="reviews-hero-heading"
     >
       <SectionBanner headingId="reviews-hero-heading" />
-      <div className="mx-auto max-w-4xl text-center">
-        <p className="text-xs uppercase tracking-[0.5em] text-primary-foreground/80">
+      <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
+        <AgentPortrait placement="reviews" size="lg" priority schema pagePath="/reviews" />
+        <p className="mt-6 text-xs uppercase tracking-[0.5em] text-primary-foreground/80">
           Google Business Profile
         </p>
         <h1

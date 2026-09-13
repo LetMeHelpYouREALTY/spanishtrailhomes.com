@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { marketStats, formatMedianPrice } from '@/lib/marketStats'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { AgentPortrait } from '@/components/agent-portrait'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/buyers'
@@ -162,7 +163,8 @@ function HeroSection() {
   return (
     <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="buyers-hero-heading">
       <SectionBanner headingId="buyers-hero-heading" />
-      <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
+      <div className="mx-auto flex max-w-4xl flex-col items-center space-y-6 px-6 text-center">
+        <AgentPortrait placement="buyers" size="lg" priority schema pagePath="/buyers" />
         <h1 id="buyers-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
           Buy Spanish Trail Homes | Buyer Representation
         </h1>

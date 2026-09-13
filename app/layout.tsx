@@ -8,6 +8,7 @@ import { CalendlyEventListener } from '@/components/calendly-event-listener'
 import { FloatingCalendlyButton } from '@/components/floating-calendly-button'
 import './globals.css'
 import { createOgImageUrl, structuredDataSiteUrl, getCanonicalUrl, createPersonSchema, createOrganizationSchema } from '@/lib/structuredData'
+import { getAbsoluteSiteImageUrl } from '@/lib/cloudflare-images'
 import {
   GBP_DESCRIPTION,
   GBP_EMAIL,
@@ -58,11 +59,14 @@ const structuredData = [
     '@id': localBusinessId,
     name: GBP_LEGAL_NAME,
     description: GBP_DESCRIPTION,
-    image: createOgImageUrl({
-      title: 'Spanish Trail Luxury Realtor',
-      subtitle: 'Exclusive buy, sell & tour services by Dr. Jan Duffy',
-      eyebrow: 'SpanishTrailHomes.com',
-    }),
+    image: [
+      getAbsoluteSiteImageUrl('agent-duffy-canonical'),
+      createOgImageUrl({
+        title: 'Spanish Trail Luxury Realtor',
+        subtitle: 'Exclusive buy, sell & tour services by Dr. Jan Duffy',
+        eyebrow: 'SpanishTrailHomes.com',
+      }),
+    ],
     url: siteUrl,
     telephone: GBP_PHONE_E164,
     email: GBP_EMAIL,

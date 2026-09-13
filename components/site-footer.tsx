@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Facebook, Instagram, Linkedin, Youtube } from 'lucide-react'
 import { trackPhoneClick } from '@/lib/analytics'
 import { CalendlyLink } from '@/components/calendly-link'
+import { AgentPortrait } from '@/components/agent-portrait'
 import {
   GBP_EASTER_2026_CLOSURE,
   GBP_SERVICE_AREA_LABEL,
@@ -69,13 +70,16 @@ export function SiteFooter() {
     <footer className="bg-[#352922] text-[#f8f5ef]">
       <div className="border-b border-[#be9956]/40 bg-[#3e3028]">
         <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-6 sm:px-6 md:flex-row md:items-center md:justify-between safe-area-padding">
-          <div className="space-y-2 text-xs uppercase tracking-[0.25em] sm:tracking-[0.35em]">
+          <div className="flex items-start gap-4">
+            <AgentPortrait placement="footer" size="sm" className="mt-1" />
+            <div className="space-y-2 text-xs uppercase tracking-[0.25em] sm:tracking-[0.35em]">
             <p className="font-semibold text-[#f8f5ef]">Spanish Trail | Homes By Dr. Jan Duffy</p>
             <p className="text-[#cbb8a6]">Berkshire Hathaway HomeServices Nevada Properties</p>
             <p>Dr. Jan Duffy · Luxury Real Estate Advisor</p>
             <Link href="tel:+17027663299" className="touch-target inline-flex min-h-[44px] items-center hover:text-[#be9956] hover:underline" onClick={() => trackPhoneClick('footer')}>
               (702) 766-3299 · DrDuffySells@SpanishTrailHomes.com
             </Link>
+            </div>
           </div>
           <div className="flex items-center gap-3">
             {socialLinks.map(({ icon: Icon, href, label }) => (

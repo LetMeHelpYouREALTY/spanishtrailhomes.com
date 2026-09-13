@@ -1,5 +1,6 @@
 import { ReactNode } from 'react'
 
+import { AgentPortrait } from '@/components/agent-portrait'
 import { WidgetLoadingOverlay } from '@/components/widget-loading-overlay'
 
 interface RealScoutSectionProps {
@@ -37,19 +38,22 @@ export function RealScoutSection({
       aria-labelledby={headingId}
     >
       <div className="mx-auto max-w-6xl px-6">
-        <div className="space-y-4 text-center">
-          <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">
-            {eyebrow}
-          </p>
-          <h2
-            id={headingId}
-            className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl"
-          >
-            {title}
-          </h2>
-          <p className="mx-auto max-w-3xl text-base leading-relaxed text-[#372a20]/85">
-            {description}
-          </p>
+        <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start sm:gap-8">
+          <AgentPortrait placement={`${sectionId}-listings`} size="md" />
+          <div className="space-y-4 text-center sm:flex-1 sm:text-left">
+            <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">
+              {eyebrow}
+            </p>
+            <h2
+              id={headingId}
+              className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl"
+            >
+              {title}
+            </h2>
+            <p className="mx-auto max-w-3xl text-base leading-relaxed text-[#372a20]/85 sm:mx-0">
+              {description}
+            </p>
+          </div>
         </div>
         <div className="relative mt-8 min-h-[280px] rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-xl shadow-primary/10">
           <realscout-office-listings

@@ -52,6 +52,16 @@ export function getSiteImageUrl(
   return `https://imagedelivery.net/${hash}/${imageId}/${variant}`
 }
 
-export function isCloudflareImageUrl(src: string): boolean {
-  return src.includes('imagedelivery.net') || src.includes('/cdn-cgi/imagedelivery/')
+/**
+ * Absolute URL for JSON-LD, sitemaps, and Open Graph.
+ */
+export function getAbsoluteSiteImageUrl(
+  assetId: string,
+  variant: string = CLOUDFLARE_DEFAULT_VARIANT,
+): string {
+  const src = getSiteImageUrl(assetId, variant)
+  if (src.startsWith('http://') || src.startsWith('https://')) {
+    return src
+  }
+  return `https://www.spanishtrailhomes.com${src.startsWith('/') ? src : `/${src}`}`
 }

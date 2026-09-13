@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { getNeighborhoodSlugs } from '@/lib/neighborhoods'
+import { getAgentPortraitAbsoluteUrl, resolveAgentPortrait } from '@/lib/agent-portraits'
 
 const baseUrl = 'https://www.spanishtrailhomes.com'
 
@@ -75,12 +76,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // one honest deploy time is preferable to synthetic staggered dates.
   const lastModified = new Date()
 
-  const staticEntries = routeConfig.map(({ path, priority, changeFrequency }) => ({
-    url: `${baseUrl}${path === '/' ? '' : path}`,
-    lastModified,
-    changeFrequency,
-    priority,
-  }))
+  const staticEntries = routeConfig.map(({ path, priority, changeFrequency }) => {
+    const portrait = resolveAgentPortrait(path === '/' ? 'homepage-hero' : path)
+    return {
+      url: `${baseUrl}${path === '/' ? '' : path}`,
+      lastModified,
+      changeFrequency,
+      priority,
+      images: [getAgentPortraitAbsoluteUrl(portrait.id)],
+    }
+  })
 
   const neighborhoodEntries: MetadataRoute.Sitemap = getNeighborhoodSlugs().map((slug) => {
     const path = `/neighborhoods/${slug}`
@@ -89,6 +94,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: 'monthly' as const,
       priority: 0.8,
+      images: [getAgentPortraitAbsoluteUrl('agent-duffy-neighborhoods')],
     }
   })
 

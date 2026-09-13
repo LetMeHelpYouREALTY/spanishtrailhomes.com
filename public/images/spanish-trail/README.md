@@ -1,5 +1,9 @@
 # Spanish Trail section images
 
+**Agent portraits:** `agent-duffy-*.png` are unique Dr. Jan Duffy headshot variants
+(crop, background, caption) generated from `scripts/generate-agent-portraits.py`.
+Do not replace her face with AI. Re-run the script after updating the source photo.
+
 **Primary storage:** Cloudflare Images (`spanish-trail/<asset-id>`).
 **Secondary storage:** these git-tracked PNG files.
 
