@@ -285,7 +285,7 @@ function HeroSection() {
       <div className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-32 bg-linear-to-t from-background to-transparent sm:h-36" />
 
       <div className="mx-auto flex min-h-0 max-w-6xl flex-col gap-6 px-4 pb-16 pt-14 sm:gap-8 sm:px-6 sm:pb-20 sm:pt-16 lg:gap-10 lg:pb-24 lg:pt-20">
-        <AgentPortrait id="agent-duffy-canonical" placement="homepage-hero" size="lg" priority className="self-start" />
+        <AgentPortrait id="duffy-circle-canonical" placement="homepage-hero" size="lg" priority className="self-start" />
         <div className="max-w-3xl space-y-4 sm:space-y-5">
           <h1
             id="hero-heading"

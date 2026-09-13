@@ -163,9 +163,9 @@ export const createPersonSchema = () => ({
   telephone: '+17027663299',
   url: siteUrl,
   image: [
-    getAbsoluteSiteImageUrl('agent-duffy-canonical'),
-    getAbsoluteSiteImageUrl('agent-duffy-about'),
-    getAbsoluteSiteImageUrl('agent-duffy-contact-call'),
+    getAbsoluteSiteImageUrl('duffy-circle-canonical'),
+    getAbsoluteSiteImageUrl('duffy-circle-about'),
+    getAbsoluteSiteImageUrl('duffy-circle-contact-call'),
   ],
   jobTitle: 'Real Estate Agent',
   worksFor: {

@@ -1,24 +1,24 @@
 import { getAbsoluteSiteImageUrl, getSiteImageUrl } from '@/lib/cloudflare-images'
 
 export type AgentPortraitId =
-  | 'agent-duffy-canonical'
-  | 'agent-duffy-header'
-  | 'agent-duffy-footer'
-  | 'agent-duffy-about'
-  | 'agent-duffy-contact-call'
-  | 'agent-duffy-buyers'
-  | 'agent-duffy-sellers'
-  | 'agent-duffy-listings'
-  | 'agent-duffy-tour'
-  | 'agent-duffy-golf'
-  | 'agent-duffy-neighborhoods'
-  | 'agent-duffy-relocation'
-  | 'agent-duffy-reviews'
-  | 'agent-duffy-awards'
-  | 'agent-duffy-media'
-  | 'agent-duffy-services'
-  | 'agent-duffy-market'
-  | 'agent-duffy-club'
+  | 'duffy-circle-canonical'
+  | 'duffy-circle-header'
+  | 'duffy-circle-footer'
+  | 'duffy-circle-about'
+  | 'duffy-circle-contact-call'
+  | 'duffy-circle-buyers'
+  | 'duffy-circle-sellers'
+  | 'duffy-circle-listings'
+  | 'duffy-circle-tour'
+  | 'duffy-circle-golf'
+  | 'duffy-circle-neighborhoods'
+  | 'duffy-circle-relocation'
+  | 'duffy-circle-reviews'
+  | 'duffy-circle-awards'
+  | 'duffy-circle-media'
+  | 'duffy-circle-services'
+  | 'duffy-circle-market'
+  | 'duffy-circle-club'
 
 export type AgentPortraitAsset = {
   id: AgentPortraitId
@@ -29,127 +29,127 @@ export type AgentPortraitAsset = {
 }
 
 export const AGENT_PORTRAITS: Record<AgentPortraitId, AgentPortraitAsset> = {
-  'agent-duffy-canonical': {
-    id: 'agent-duffy-canonical',
+  'duffy-circle-canonical': {
+    id: 'duffy-circle-canonical',
     alt: 'Dr. Jan Duffy, Spanish Trail homes realtor in Las Vegas NV 89113, Berkshire Hathaway HomeServices',
     caption: 'Dr. Jan Duffy · Spanish Trail Homes realtor · Las Vegas 89113',
     width: 900,
     height: 900,
   },
-  'agent-duffy-header': {
-    id: 'agent-duffy-header',
+  'duffy-circle-header': {
+    id: 'duffy-circle-header',
     alt: 'Dr. Jan Duffy headshot — exclusive Spanish Trail Las Vegas realtor, site navigation',
     caption: 'Dr. Jan Duffy, exclusive Spanish Trail realtor',
-    width: 640,
-    height: 640,
+    width: 900,
+    height: 900,
   },
-  'agent-duffy-footer': {
-    id: 'agent-duffy-footer',
+  'duffy-circle-footer': {
+    id: 'duffy-circle-footer',
     alt: 'Dr. Jan Duffy at Spanish Trail Homes, 5050 Spanish Trail Ln Las Vegas NV 89113',
     caption: 'Dr. Jan Duffy · BHHS Nevada · 5050 Spanish Trail Ln',
-    width: 800,
-    height: 800,
+    width: 900,
+    height: 900,
   },
-  'agent-duffy-about': {
-    id: 'agent-duffy-about',
+  'duffy-circle-about': {
+    id: 'duffy-circle-about',
     alt: 'Meet Dr. Jan Duffy, exclusive luxury realtor for Spanish Trail homes in Las Vegas 89113, license S.0197614.LLC',
     caption: 'Meet Dr. Jan Duffy · Spanish Trail luxury realtor',
     width: 900,
-    height: 1080,
+    height: 900,
   },
-  'agent-duffy-contact-call': {
-    id: 'agent-duffy-contact-call',
+  'duffy-circle-contact-call': {
+    id: 'duffy-circle-contact-call',
     alt: 'Call Dr. Jan Duffy at (702) 766-3299 to tour Spanish Trail homes in Las Vegas',
     caption: 'Call Dr. Jan Duffy · (702) 766-3299',
     width: 900,
     height: 900,
   },
-  'agent-duffy-buyers': {
-    id: 'agent-duffy-buyers',
+  'duffy-circle-buyers': {
+    id: 'duffy-circle-buyers',
     alt: 'Dr. Jan Duffy buyer representation for Spanish Trail homes in Las Vegas 89113',
     caption: 'Buyer representation · Spanish Trail homes',
-    width: 880,
-    height: 880,
+    width: 900,
+    height: 900,
   },
-  'agent-duffy-sellers': {
-    id: 'agent-duffy-sellers',
+  'duffy-circle-sellers': {
+    id: 'duffy-circle-sellers',
     alt: 'Dr. Jan Duffy seller representation — list a Spanish Trail home in Las Vegas 89113',
     caption: 'Seller representation · Spanish Trail listings',
-    width: 880,
-    height: 1000,
+    width: 900,
+    height: 900,
   },
-  'agent-duffy-listings': {
-    id: 'agent-duffy-listings',
+  'duffy-circle-listings': {
+    id: 'duffy-circle-listings',
     alt: 'Dr. Jan Duffy showing live Spanish Trail homes for sale inside the Las Vegas 89113 gates',
     caption: 'Showing Spanish Trail listings this week',
-    width: 860,
-    height: 860,
+    width: 900,
+    height: 900,
   },
-  'agent-duffy-tour': {
-    id: 'agent-duffy-tour',
+  'duffy-circle-tour': {
+    id: 'duffy-circle-tour',
     alt: 'Book a private Spanish Trail home tour with Dr. Jan Duffy in Las Vegas 89113',
     caption: 'Book a private tour with Dr. Jan Duffy',
-    width: 840,
-    height: 840,
+    width: 900,
+    height: 900,
   },
-  'agent-duffy-golf': {
-    id: 'agent-duffy-golf',
+  'duffy-circle-golf': {
+    id: 'duffy-circle-golf',
     alt: 'Dr. Jan Duffy, golf-course homes realtor for Spanish Trail Country Club in Las Vegas',
     caption: 'Golf-course homes realtor · Spanish Trail 89113',
     width: 900,
-    height: 960,
+    height: 900,
   },
-  'agent-duffy-neighborhoods': {
-    id: 'agent-duffy-neighborhoods',
+  'duffy-circle-neighborhoods': {
+    id: 'duffy-circle-neighborhoods',
     alt: 'Dr. Jan Duffy matching buyers to 11 Spanish Trail neighborhoods in Las Vegas 89113',
     caption: '11-neighborhood matching · Spanish Trail',
-    width: 860,
-    height: 920,
+    width: 900,
+    height: 900,
   },
-  'agent-duffy-relocation': {
-    id: 'agent-duffy-relocation',
+  'duffy-circle-relocation': {
+    id: 'duffy-circle-relocation',
     alt: 'Dr. Jan Duffy helping out-of-state buyers purchase Spanish Trail homes in Las Vegas remotely',
     caption: 'Out-of-state Spanish Trail buyers',
-    width: 880,
-    height: 880,
+    width: 900,
+    height: 900,
   },
-  'agent-duffy-reviews': {
-    id: 'agent-duffy-reviews',
+  'duffy-circle-reviews': {
+    id: 'duffy-circle-reviews',
     alt: 'Leave a Google review for Dr. Jan Duffy, Spanish Trail Homes realtor in Las Vegas',
     caption: 'Google reviews · Dr. Jan Duffy',
-    width: 820,
-    height: 820,
+    width: 900,
+    height: 900,
   },
-  'agent-duffy-awards': {
-    id: 'agent-duffy-awards',
+  'duffy-circle-awards': {
+    id: 'duffy-circle-awards',
     alt: 'Award-winning Spanish Trail realtor Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties',
     caption: 'Award-winning Spanish Trail realtor',
     width: 900,
-    height: 1040,
+    height: 900,
   },
-  'agent-duffy-media': {
-    id: 'agent-duffy-media',
+  'duffy-circle-media': {
+    id: 'duffy-circle-media',
     alt: 'Press headshot of Dr. Jan Duffy, Spanish Trail Homes realtor, Las Vegas Nevada',
     caption: 'Press headshot · Dr. Jan Duffy',
     width: 900,
     height: 900,
   },
-  'agent-duffy-services': {
-    id: 'agent-duffy-services',
+  'duffy-circle-services': {
+    id: 'duffy-circle-services',
     alt: 'Dr. Jan Duffy realtor services — buy, sell, and tour Spanish Trail homes only',
     caption: 'Realtor services for Spanish Trail homes',
-    width: 860,
+    width: 900,
     height: 900,
   },
-  'agent-duffy-market': {
-    id: 'agent-duffy-market',
+  'duffy-circle-market': {
+    id: 'duffy-circle-market',
     alt: 'Dr. Jan Duffy Spanish Trail market advisor with live 89113 Las Vegas inventory and pricing',
     caption: 'Spanish Trail market advisor',
-    width: 880,
-    height: 940,
+    width: 900,
+    height: 900,
   },
-  'agent-duffy-club': {
-    id: 'agent-duffy-club',
+  'duffy-circle-club': {
+    id: 'duffy-circle-club',
     alt: 'Dr. Jan Duffy, realtor for homes beside Spanish Trail Country Club in Las Vegas 89113',
     caption: 'Club-community realtor · Spanish Trail',
     width: 900,
@@ -158,36 +158,36 @@ export const AGENT_PORTRAITS: Record<AgentPortraitId, AgentPortraitAsset> = {
 }
 
 const PLACEMENT_RULES: Array<{ test: RegExp; id: AgentPortraitId }> = [
-  { test: /header|nav|logo|brand/, id: 'agent-duffy-header' },
-  { test: /footer|nap|hours/, id: 'agent-duffy-footer' },
-  { test: /about|story|philosophy|credential|bio/, id: 'agent-duffy-about' },
-  { test: /contact|call|phone|schedule/, id: 'agent-duffy-contact-call' },
-  { test: /buyer|buying|offer|financing/, id: 'agent-duffy-buyers' },
-  { test: /seller|selling|pricing|valuation|prepar/, id: 'agent-duffy-sellers' },
-  { test: /listing|inventory|bhhs|realscout|homes-for-sale/, id: 'agent-duffy-listings' },
-  { test: /tour|showing|lightbox|walk-through/, id: 'agent-duffy-tour' },
-  { test: /golf|fairway|tee|course/, id: 'agent-duffy-golf' },
-  { test: /neighborhood|enclave|village/, id: 'agent-duffy-neighborhoods' },
-  { test: /reloc|out-of-state|remote/, id: 'agent-duffy-relocation' },
-  { test: /review|testimonial|google-business/, id: 'agent-duffy-reviews' },
-  { test: /award|press|recognition|advisory/, id: 'agent-duffy-awards' },
-  { test: /media-kit|media-heading|headshot/, id: 'agent-duffy-media' },
-  { test: /service|offerings/, id: 'agent-duffy-services' },
-  { test: /market|insight|report|stats/, id: 'agent-duffy-market' },
-  { test: /club|membership|event|guest|amenity|pool|tennis|fitness/, id: 'agent-duffy-club' },
+  { test: /header|nav|logo|brand/, id: 'duffy-circle-header' },
+  { test: /footer|nap|hours/, id: 'duffy-circle-footer' },
+  { test: /about|story|philosophy|credential|bio/, id: 'duffy-circle-about' },
+  { test: /contact|call|phone|schedule/, id: 'duffy-circle-contact-call' },
+  { test: /buyer|buying|offer|financing/, id: 'duffy-circle-buyers' },
+  { test: /seller|selling|pricing|valuation|prepar/, id: 'duffy-circle-sellers' },
+  { test: /listing|inventory|bhhs|realscout|homes-for-sale/, id: 'duffy-circle-listings' },
+  { test: /tour|showing|lightbox|walk-through/, id: 'duffy-circle-tour' },
+  { test: /golf|fairway|tee|course/, id: 'duffy-circle-golf' },
+  { test: /neighborhood|enclave|village/, id: 'duffy-circle-neighborhoods' },
+  { test: /reloc|out-of-state|remote/, id: 'duffy-circle-relocation' },
+  { test: /review|testimonial|google-business/, id: 'duffy-circle-reviews' },
+  { test: /award|press|recognition|advisory/, id: 'duffy-circle-awards' },
+  { test: /media-kit|media-heading|headshot/, id: 'duffy-circle-media' },
+  { test: /service|offerings/, id: 'duffy-circle-services' },
+  { test: /market|insight|report|stats/, id: 'duffy-circle-market' },
+  { test: /club|membership|event|guest|amenity|pool|tennis|fitness/, id: 'duffy-circle-club' },
 ]
 
 const CYCLE: AgentPortraitId[] = [
-  'agent-duffy-canonical',
-  'agent-duffy-about',
-  'agent-duffy-buyers',
-  'agent-duffy-sellers',
-  'agent-duffy-listings',
-  'agent-duffy-golf',
-  'agent-duffy-neighborhoods',
-  'agent-duffy-services',
-  'agent-duffy-market',
-  'agent-duffy-club',
+  'duffy-circle-canonical',
+  'duffy-circle-about',
+  'duffy-circle-buyers',
+  'duffy-circle-sellers',
+  'duffy-circle-listings',
+  'duffy-circle-golf',
+  'duffy-circle-neighborhoods',
+  'duffy-circle-services',
+  'duffy-circle-market',
+  'duffy-circle-club',
 ]
 
 function hashSeed(value: string): number {
@@ -258,4 +258,4 @@ export function createAgentImageObjectSchema(placement: string, pagePath = '/') 
   }
 }
 
-export const CANONICAL_AGENT_PORTRAIT_URL = getAgentPortraitAbsoluteUrl('agent-duffy-canonical')
+export const CANONICAL_AGENT_PORTRAIT_URL = getAgentPortraitAbsoluteUrl('duffy-circle-canonical')

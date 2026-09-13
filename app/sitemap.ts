@@ -94,7 +94,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: 'monthly' as const,
       priority: 0.8,
-      images: [getAgentPortraitAbsoluteUrl('agent-duffy-neighborhoods')],
+      images: [getAgentPortraitAbsoluteUrl('duffy-circle-neighborhoods')],
     }
   })
 

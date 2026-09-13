@@ -140,7 +140,7 @@ const professionalProfileSchema = {
     postalCode: '89113',
     addressCountry: 'US',
   },
-  image: getAgentPortraitAbsoluteUrl('agent-duffy-awards'),
+  image: getAgentPortraitAbsoluteUrl('duffy-circle-awards'),
 }
 
 const awardsWebPageSchema = createWebPageSchema({

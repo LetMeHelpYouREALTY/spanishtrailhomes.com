@@ -74,7 +74,7 @@ const aboutPersonSchema = {
   givenName: 'Jan',
   familyName: 'Duffy',
   url: pageUrl,
-  image: getAgentPortraitAbsoluteUrl('agent-duffy-about'),
+  image: getAgentPortraitAbsoluteUrl('duffy-circle-about'),
   jobTitle: 'REALTOR® | Berkshire Hathaway HomeServices Nevada Properties',
   email: 'DrDuffySells@SpanishTrailHomes.com',
   telephone: '+1-702-766-3299',
@@ -301,7 +301,7 @@ function StorySection() {
           </p>
         </div>
         <div className="space-y-4 rounded-3xl border border-border/60 bg-[#f8f2e7] p-6 shadow-lg shadow-primary/10">
-          <AgentPortrait id="agent-duffy-canonical" placement="about-story" size="lg" showCaption className="mx-auto" rounded="2xl" />
+          <AgentPortrait id="duffy-circle-canonical" placement="about-story" size="lg" showCaption className="mx-auto" />
           <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#6f5237]">Quick facts</h3>
           <ul className="space-y-3 text-sm leading-relaxed text-[#372a20]/85">
             <li>

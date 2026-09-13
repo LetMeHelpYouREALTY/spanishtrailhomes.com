@@ -17,7 +17,7 @@ const SIZE_CLASS: Record<PortraitSize, string> = {
   sm: 'size-16 sm:size-[4.5rem]',
   md: 'size-28 sm:size-32',
   lg: 'size-40 sm:size-52',
-  xl: 'w-56 sm:w-72',
+  xl: 'size-56 sm:size-72',
 }
 
 const SIZE_ATTR: Record<PortraitSize, number> = {
@@ -63,7 +63,7 @@ export function AgentPortrait({
     <figure className={cn('shrink-0', className)}>
       <div
         className={cn(
-          'relative overflow-hidden bg-[#f8f5ef] shadow-md shadow-black/10 ring-2 ring-white',
+          'relative aspect-square overflow-hidden bg-transparent',
           SIZE_CLASS[size],
           radius,
         )}
@@ -75,11 +75,7 @@ export function AgentPortrait({
           height={portrait.height}
           priority={priority}
           sizes={`${px}px`}
-          className={cn(
-            'h-full w-full object-cover',
-            rounded === 'full' ? 'object-top' : 'object-center',
-            imageClassName,
-          )}
+          className={cn('h-full w-full object-contain object-center', imageClassName)}
         />
       </div>
       {showCaption ? (

@@ -41,7 +41,7 @@ const agentSchema = {
   '@type': 'RealEstateAgent',
   name: 'Dr. Jan Duffy',
   url: pageUrl,
-  image: getAgentPortraitAbsoluteUrl('agent-duffy-media'),
+  image: getAgentPortraitAbsoluteUrl('duffy-circle-media'),
   jobTitle: 'REALTOR® | Berkshire Hathaway HomeServices Nevada Properties',
   email: 'DrDuffySells@SpanishTrailHomes.com',
   telephone: '+1-702-766-3299',

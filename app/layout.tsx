@@ -60,7 +60,7 @@ const structuredData = [
     name: GBP_LEGAL_NAME,
     description: GBP_DESCRIPTION,
     image: [
-      getAbsoluteSiteImageUrl('agent-duffy-canonical'),
+      getAbsoluteSiteImageUrl('duffy-circle-canonical'),
       createOgImageUrl({
         title: 'Spanish Trail Luxury Realtor',
         subtitle: 'Exclusive buy, sell & tour services by Dr. Jan Duffy',
