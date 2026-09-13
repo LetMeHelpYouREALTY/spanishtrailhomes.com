@@ -6,7 +6,8 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { RealScoutSection } from '@/components/realscout-section'
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
-import { featuredListings, marketHighlights } from '@/lib/spanishTrailContent'
+import { marketHighlights } from '@/lib/spanishTrailContent'
+import { marketStats } from '@/lib/marketStats'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
@@ -14,30 +15,11 @@ import { SectionBanner, CardVisual } from '@/components/heading-media'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-market-report'
 
-const featuredListingsSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'ItemList',
-  itemListElement: featuredListings.map((listing, index) => ({
-    '@type': 'ListItem',
-    position: index + 1,
-    url: listing.href,
-    name: `${listing.address} | ${listing.price}`,
-    item: {
-      '@type': 'SingleFamilyResidence',
-      name: listing.address,
-      address: listing.address,
-      numberOfRooms: listing.type,
-      price: listing.price,
-      url: listing.href,
-    },
-  })),
-}
-
 const marketReportFaq = [
   {
     question: 'How often is the Spanish Trail Market Report updated?',
     answer:
-      'The market report is refreshed every Friday with the latest pricing trends, absorption rates, and inventory data from Berkshire Hathaway HomeServices, RealScout buyer activity, and private broker feedback. Dr. Jan Duffy personally compiles this data to ensure accuracy and relevance for buyers and sellers making timely decisions.',
+      `The headline stats on this page are as of ${marketStats.date_label}. Live Spanish Trail inventory is in the office listings feed above. Call Dr. Jan Duffy at (702) 766-3299 for today’s pricing, days on market, and private-network homes.`,
   },
   {
     question: 'What key metrics should I focus on when reviewing the market report?',
@@ -77,7 +59,7 @@ const marketReportFaqSchema = {
 export const metadata: Metadata = {
   title: 'Spanish Trail Market Report | Dr. Jan Duffy',
   description:
-    'Review current Spanish Trail housing stats, featured listings, and RealScout-powered search insights curated by Dr. Jan Duffy.',
+    'Review Spanish Trail housing stats as of February 2026, plus live RealScout office listings curated by Dr. Jan Duffy.',
   alternates: {
     canonical: getCanonicalUrl('/spanish-trail-market-report'),
   },
@@ -96,11 +78,11 @@ export const metadata: Metadata = {
     url: pageUrl,
     title: 'Spanish Trail Real Estate Market Report',
     description:
-      'Track pricing trends, absorption rates, and featured Spanish Trail listings updated by Dr. Jan Duffy of Berkshire Hathaway HomeServices.',
+      'Track Spanish Trail pricing trends as of February 2026, plus live office listings with Dr. Jan Duffy of Berkshire Hathaway HomeServices.',
     images: [
       createOgImageUrl({
         title: 'Spanish Trail Market Report',
-        subtitle: 'Weekly pricing & absorption insights',
+        subtitle: 'Pricing snapshot and live inventory',
         eyebrow: 'SpanishTrailHomes.com',
       }),
     ],
@@ -109,7 +91,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Spanish Trail Market Report | Dr. Jan Duffy',
     description:
-      'Stay ahead of Spanish Trail real estate trends with updated stats, featured listings, and concierge advisory from Dr. Jan Duffy.',
+      'Stay ahead of Spanish Trail real estate trends with dated market stats, live listings, and concierge advisory from Dr. Jan Duffy.',
     images: [
       createOgImageUrl({
         title: 'Spanish Trail Market Intelligence',
@@ -130,9 +112,8 @@ export default function SpanishTrailMarketReportPage() {
             Spanish Trail Homes Market Report
           </h1>
           <p className="text-base leading-relaxed text-[#f8f5ef]/85">
-            Monitor real-time pricing, active inventory, and demand signals across Spanish Trail&apos;s eleven guard-gated
-            neighborhoods. Insights are refreshed weekly by Dr. Jan Duffy to support confident purchase and listing
-            decisions.
+            Live office listings sit under this headline. The numbered stats further down are a {marketStats.date_label}{' '}
+            snapshot—call (702) 766-3299 for today&apos;s Spanish Trail pricing and inventory.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <Button
@@ -146,7 +127,7 @@ export default function SpanishTrailMarketReportPage() {
               variant="outline"
               className="rounded-full border-[#f8f5ef]/60 px-7 py-3 text-xs uppercase tracking-[0.3em] text-[#f8f5ef] hover:bg-white/10"
             >
-              <Link href="#spanish-trail-featured-listings">See featured listings</Link>
+              <Link href="#bhhs-listings">See live listings</Link>
             </Button>
           </div>
         </div>
@@ -172,14 +153,10 @@ export default function SpanishTrailMarketReportPage() {
         </div>
       </div>
       <MarketHighlightsSection />
-      <FeaturedListingsSection />
       <MarketReportFAQSection />
       <ReportingCTASection />
       <Script id="market-report-faq-schema" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(marketReportFaqSchema)}
-      </Script>
-      <Script id="featured-listings-structured-data" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(featuredListingsSchema)}
       </Script>
     </SiteShell>
   )
@@ -201,8 +178,8 @@ function MarketHighlightsSection() {
               Key metrics driving Spanish Trail decisions
             </h2>
             <p className="text-base leading-relaxed text-muted-foreground">
-              Updated every Friday from Berkshire Hathaway HomeServices data, RealScout buyer activity, and private broker
-              feedback gathered by Dr. Jan Duffy.
+              Snapshot as of {marketStats.date_label} from Berkshire Hathaway HomeServices data compiled by Dr. Jan Duffy.
+              Call (702) 766-3299 for today&apos;s absorption and private-network inventory.
             </p>
           </div>
           <Button
@@ -224,72 +201,6 @@ function MarketHighlightsSection() {
               <p className="mt-3 font-[var(--font-playfair)] text-2xl text-[#1f2a24]">{item.value}</p>
               <p className="mt-2 text-xs uppercase tracking-[0.3em] text-muted-foreground">{item.trend} change</p>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{item.context}</p>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-function FeaturedListingsSection() {
-  return (
-    <section
-      id="spanish-trail-featured-listings"
-      className="bg-[#f8f2e7] py-20 sm:py-24"
-      aria-labelledby="featured-listings-heading"
-    >
-      <SectionBanner headingId="featured-listings-heading" />
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div className="max-w-2xl space-y-3">
-            <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Featured Inventory</p>
-            <h2
-              id="featured-listings-heading"
-              className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl"
-            >
-              Spotlight Spanish Trail listings
-            </h2>
-            <p className="text-base leading-relaxed text-[#372a20]/85">
-              Preview hand-selected properties currently available through Berkshire Hathaway HomeServices Nevada
-              Properties. Reach out for private tours or off-market briefings.
-            </p>
-          </div>
-          <Button
-            asChild
-            className="rounded-full px-6 py-2 text-xs uppercase tracking-[0.3em]"
-          >
-            <Link href="https://searchforaffordablehomes.com/neighborhood/83/spanish-trails#featured-listings">
-              Speak with Dr. Duffy
-            </Link>
-          </Button>
-        </div>
-        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
-          {featuredListings.map((listing) => (
-            <article
-              key={listing.address}
-              className="flex h-full flex-col justify-between rounded-3xl border border-border/40 bg-white p-6 shadow-lg shadow-primary/10"
-            >
-              <CardVisual seed={String(listing.address)} />
-              <div className="space-y-3">
-                <p className="text-xs uppercase tracking-[0.4em] text-[#6f5237]">{listing.mls}</p>
-                <h3 className="font-[var(--font-playfair)] text-2xl text-[#1f2a24]">
-                  {listing.address}
-                </h3>
-                <p className="text-sm text-[#372a20]/80">{listing.type}</p>
-              </div>
-              <div className="mt-6 flex items-center justify-between">
-                <span className="text-lg font-semibold text-[#0f2b1e]">{listing.price}</span>
-                <Button
-                  asChild
-                  variant="link"
-                  className="text-xs uppercase tracking-[0.3em] text-primary"
-                >
-                  <Link href={listing.href} target="_blank" rel="noopener noreferrer">
-                    View Listing
-                  </Link>
-                </Button>
-              </div>
             </article>
           ))}
         </div>

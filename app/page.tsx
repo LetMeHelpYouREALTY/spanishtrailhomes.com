@@ -13,7 +13,6 @@ import { marketHighlights, neighborhoodSpotlights } from '@/lib/spanishTrailCont
 import { marketStats } from '@/lib/marketStats'
 import { createBreadcrumbSchema, createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { HeroBackground } from '@/components/hero-background'
-import { FeaturedListings } from '@/components/featured-listings'
 import { PropertyLightboxProvider } from '@/components/property-lightbox'
 import { TestimonialCarousel } from '@/components/testimonial-carousel'
 import { TourCTAStrip } from '@/components/tour-cta-strip'
@@ -861,10 +860,13 @@ function AdvancedSearchSection() {
             Search Spanish Trail homes for sale
           </h2>
           <p className="text-base leading-relaxed text-[#372a20]/85">
-            Filter by price point, property style, and lifestyle amenities using our advanced RealScout experience. Save favorites, request tours, or alert Dr. Jan Duffy when the perfect Spanish Trail property appears.
+            Filter by price point, property style, and lifestyle amenities using our advanced RealScout experience. Save favorites, request tours, or alert Dr. Jan Duffy when the perfect Spanish Trail property appears. Live office inventory is in the{' '}
+            <Link href="#bhhs-listings" className="text-[#0f2b1e] underline-offset-4 hover:underline">
+              Spanish Trail homes feed
+            </Link>{' '}
+            at the top of this page.
           </p>
         </div>
-        <FeaturedListings activeListings={marketStats.active_listings} />
         <div id="realscout-advanced-search" className="mt-12 flex justify-center">
           <div className="w-full max-w-lg rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">
             <realscout-advanced-search agent-encoded-id="QWdlbnQtMjI1MDUw"></realscout-advanced-search>
