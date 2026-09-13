@@ -7,6 +7,9 @@ import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { getSiteImageUrl } from '@/lib/cloudflare-images'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/terms'
 const termsPageDescription =
@@ -112,7 +115,7 @@ function HeroSection() {
   return (
     <header className="relative isolate overflow-hidden text-[#f8f5ef]" aria-labelledby="terms-hero-heading">
       <HeroBackground
-        src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&auto=format&fit=crop&w=2000"
+        src={getSiteImageUrl('h1-contact-office')}
         alt="Spanish Trail Homes terms of use and legal information for Las Vegas real estate services"
         overlayClassName="bg-gradient-to-b from-[#0f2b1e]/55 to-[#0f2b1e]/85"
         sizes="(max-width: 1024px) 100vw, 1280px"
@@ -150,6 +153,7 @@ function HeroSection() {
 function AgreementSection() {
   return (
     <section id="agreement" className="bg-white py-20 sm:py-24" aria-labelledby="agreement-heading">
+      <SectionBanner headingId="agreement-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6 space-y-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">Agreement Overview</p>
@@ -183,6 +187,7 @@ function AgreementSection() {
 function AuthorizedUseSection() {
   return (
     <section id="authorized-use" className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="authorized-use-heading">
+      <SectionBanner headingId="authorized-use-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-3xl space-y-4">
@@ -224,6 +229,7 @@ function ListingsDisclosureSection() {
       className="bg-white py-20 sm:py-24"
       aria-labelledby="listings-disclosure-heading"
     >
+      <SectionBanner headingId="listings-disclosure-heading" />
       <div className="mx-auto max-w-5xl px-6 space-y-6">
         <div className="space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">MLS & Listing Disclosures</p>
@@ -260,6 +266,7 @@ function IntellectualPropertySection() {
       className="bg-[#0f2b1e] py-20 text-[#f8f5ef] sm:py-24"
       aria-labelledby="intellectual-property-heading"
     >
+      <SectionBanner headingId="intellectual-property-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6 space-y-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/70">Intellectual Property</p>
@@ -273,6 +280,7 @@ function IntellectualPropertySection() {
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <article className="rounded-3xl border border-white/15 bg-white/10 p-6 shadow-lg shadow-black/20 backdrop-blur">
+              <CardVisual seed="card-1" />
             <h3 className="font-heading text-xl text-white">Usage rights</h3>
             <p className="mt-3 text-sm leading-relaxed text-[#f8f5ef]/80">
               You may view and download content for personal evaluation of Spanish Trail real estate. Any commercial reproduction
@@ -280,6 +288,7 @@ function IntellectualPropertySection() {
             </p>
           </article>
           <article className="rounded-3xl border border-white/15 bg-white/10 p-6 shadow-lg shadow-black/20 backdrop-blur">
+              <CardVisual seed="card-2" />
             <h3 className="font-heading text-xl text-white">Third-party marks</h3>
             <p className="mt-3 text-sm leading-relaxed text-[#f8f5ef]/80">
               Berkshire Hathaway HomeServices, MLS, and club trademarks remain under the control of their respective owners and
@@ -295,6 +304,7 @@ function IntellectualPropertySection() {
 function LiabilitySection() {
   return (
     <section id="liability" className="bg-white py-20 sm:py-24" aria-labelledby="liability-heading">
+      <SectionBanner headingId="liability-heading" />
       <div className="mx-auto max-w-5xl px-6 space-y-6">
         <div className="space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">Disclaimers & Liability</p>
@@ -328,6 +338,7 @@ function LiabilitySection() {
 function GoverningLawSection() {
   return (
     <section id="governing-law" className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="governing-law-heading">
+      <SectionBanner headingId="governing-law-heading" />
       <div className="mx-auto max-w-5xl px-6 space-y-6">
         <div className="space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Governing Law & Disputes</p>
@@ -358,6 +369,7 @@ function GoverningLawSection() {
 function ChangesSection() {
   return (
     <section id="changes" className="bg-white py-20 sm:py-24" aria-labelledby="changes-heading">
+      <SectionBanner headingId="changes-heading" />
       <div className="mx-auto max-w-5xl px-6 space-y-6">
         <div className="space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">Updates to These Terms</p>
@@ -387,6 +399,7 @@ function ChangesSection() {
 function ContactSection() {
   return (
     <section id="terms-contact" className="bg-white py-20 sm:py-24" aria-labelledby="terms-contact-heading">
+      <SectionBanner headingId="terms-contact-heading" />
       <div className="mx-auto max-w-4xl rounded-3xl border border-border/40 bg-[#0f2b1e] px-8 py-16 text-center text-[#f8f5ef] shadow-xl shadow-primary/20">
         <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/70">Questions About These Terms</p>
         <h2 id="terms-contact-heading" className="mt-4 font-heading text-3xl leading-tight sm:text-4xl">

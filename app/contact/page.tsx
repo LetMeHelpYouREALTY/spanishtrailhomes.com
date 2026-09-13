@@ -4,6 +4,7 @@ import Script from 'next/script'
 
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
+import { AgentPortrait } from '@/components/agent-portrait'
 import { CalendlyInline } from '@/components/calendly-inline'
 import { CalendlyLink } from '@/components/calendly-link'
 import { RealScoutSection } from '@/components/realscout-section'
@@ -16,13 +17,15 @@ import {
   shouldShowPromotedSpecialHoursNotice,
 } from '@/lib/gbp-business'
 import { marketStats, formatMedianPrice } from '@/lib/marketStats'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/contact'
 const contactPageDescription =
   `Spanish Trail luxury homes in Las Vegas. Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties—Spanish Trail specialist. Guard-gated golf community, custom estates & villas. Median ${formatMedianPrice(marketStats.median_price)} (${marketStats.date_label}). Call/text (702) 766-3299.`
 
 const contactWebPageSchema = createWebPageSchema({
-  name: 'Spanish Trail Las Vegas Real Estate Expert | Dr. Jan Duffy',
+  name: 'Contact Dr. Jan Duffy | Spanish Trail Homes Realtor',
   description: contactPageDescription,
   path: '/contact',
   type: 'ContactPage',
@@ -43,14 +46,14 @@ const contactWebPageSchema = createWebPageSchema({
 })
 
 export const metadata: Metadata = {
-  title: 'Spanish Trail Las Vegas Real Estate Expert | Dr. Jan Duffy',
+  title: 'Contact Dr. Jan Duffy | Spanish Trail Homes Realtor',
   description: contactPageDescription,
   alternates: {
     canonical: getCanonicalUrl('/contact'),
   },
   openGraph: {
     url: pageUrl,
-    title: 'Spanish Trail Las Vegas Real Estate Expert | Dr. Jan Duffy',
+    title: 'Contact Dr. Jan Duffy | Spanish Trail Homes Realtor',
     description:
       'Connect with Dr. Jan Duffy for Spanish Trail luxury homes, current market data, and private club lifestyle guidance.',
     images: [
@@ -63,7 +66,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Spanish Trail Las Vegas Real Estate Expert | Dr. Jan Duffy',
+    title: 'Contact Dr. Jan Duffy | Spanish Trail Homes Realtor',
     description:
       'Schedule a Spanish Trail strategy session with Dr. Jan Duffy—luxury guard-gated golf community specialist.',
     images: [
@@ -127,6 +130,12 @@ export default function ContactPage() {
   return (
     <SiteShell>
       <HeroSection />
+      <RealScoutSection
+        id="bhhs-listings"
+        eyebrow="Start Your Search"
+        title="See Live Spanish Trail Inventory"
+        description="Advanced filters help you pinpoint Spanish Trail homes by fairway views, secondary gates, and villa layouts."
+      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
           <Breadcrumbs
@@ -144,12 +153,6 @@ export default function ContactPage() {
       <NeighborhoodFitSection />
       <ContactCTASection />
       <GBPIntegrationSection />
-      <RealScoutSection
-        id="contact-advanced-search"
-        eyebrow="Start Your Search"
-        title="See Live Spanish Trail Inventory"
-        description="Advanced filters help you pinpoint Spanish Trail homes by fairway views, secondary gates, and villa layouts."
-      />
       <FAQSection />
       <Script id="contact-webpage-schema" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(contactWebPageSchema)}
@@ -163,13 +166,15 @@ export default function ContactPage() {
 
 function HeroSection() {
   return (
-    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="contact-hero-heading">
-      <div className="mx-auto flex max-w-4xl flex-col gap-6 px-6 text-center">
+    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="contact-hero-heading">
+      <SectionBanner headingId="contact-hero-heading" />
+      <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-6 text-center">
+        <AgentPortrait placement="contact-call" size="lg" priority schema pagePath="/contact" />
         <h1 id="contact-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-          Spanish Trail Las Vegas Real Estate Expert | Dr. Jan Duffy
+          Spanish Trail Homes Realtor | Dr. Jan Duffy
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
-          Spanish Trail's median value sits at {formatMedianPrice(marketStats.median_price)} as of {marketStats.date_label}, reflecting strong demand for guard-gated golf community living. Well-positioned listings continue to attract competitive offers, with golf-view properties and updated interiors commanding premium pricing.
+          Call (702) 766-3299 to buy or sell a Spanish Trail home. Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties. Median {formatMedianPrice(marketStats.median_price)} as of {marketStats.date_label}.
           <span className="block text-xs uppercase tracking-[0.3em] text-[#f8f5ef]/70">
             <Link href="https://searchforaffordablehomes.com/neighborhood/83/spanish-trails" className="underline-offset-4 hover:underline">
               Source: Spanish Trail Weekly Market Activity
@@ -200,9 +205,10 @@ function HeroSection() {
 function ExpertiseSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="expertise-heading">
+      <SectionBanner headingId="expertise-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="expertise-heading" className="font-[var(--font-playfair)] text-2xl text-[#1f2a24] sm:text-3xl">
-          Spanish Trail Guard-Gated Golf Community Expert
+          Spanish Trail homes realtor
         </h2>
         <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
           <div className="space-y-4 text-base leading-relaxed text-[#372a20]/85">
@@ -238,9 +244,10 @@ function ExpertiseSection() {
 function GolfLifestyleSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="golf-heading">
+      <SectionBanner headingId="golf-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="golf-heading" className="font-[var(--font-playfair)] text-2xl text-[#1f2a24] sm:text-3xl">
-          Championship 27-Hole Golf Course Lifestyle
+          What Spanish Trail homes include
         </h2>
         <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
           <div className="space-y-4 text-base leading-relaxed text-[#372a20]/85">
@@ -268,9 +275,10 @@ function GolfLifestyleSection() {
 function LuxuryInventorySection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="luxury-heading">
+      <SectionBanner headingId="luxury-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="luxury-heading" className="font-[var(--font-playfair)] text-2xl text-[#1f2a24] sm:text-3xl">
-          Luxury Estates, Villas & Golf Course Homes
+          Spanish Trail homes: estates, villas, and fairway addresses
         </h2>
         <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-[1fr_1fr]">
           <div className="space-y-4 text-base leading-relaxed text-[#372a20]/85">
@@ -304,6 +312,7 @@ function MarketSnapshotSection() {
   ]
   return (
     <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="market-heading">
+      <SectionBanner headingId="market-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="market-heading" className="font-[var(--font-playfair)] text-2xl leading-tight sm:text-3xl">
           Current Spanish Trail Market: {formatMedianPrice(marketStats.median_price)} Median ({marketStats.date_label})
@@ -327,6 +336,7 @@ function MarketSnapshotSection() {
 function NeighborhoodFitSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="neighborhood-heading">
+      <SectionBanner headingId="neighborhood-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="neighborhood-heading" className="font-[var(--font-playfair)] text-2xl text-[#1f2a24] sm:text-3xl">
           11 Neighborhoods, 1,200+ Homes—Which Fits You?
@@ -363,6 +373,7 @@ function NeighborhoodFitSection() {
 function ContactCTASection() {
   return (
     <section id="schedule" className="bg-[#f8f2e7] py-12 sm:py-20" aria-labelledby="contact-heading">
+      <SectionBanner headingId="contact-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="contact-heading" className="font-[var(--font-playfair)] text-2xl text-[#1f2a24] sm:text-3xl">
           Let&apos;s align your Spanish Trail move with this week&apos;s data
@@ -400,6 +411,7 @@ function GBPIntegrationSection() {
   
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="gbp-heading">
+      <SectionBanner headingId="gbp-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="gbp-heading" className="font-[var(--font-playfair)] text-2xl text-[#1f2a24] sm:text-3xl">
           Visit Spanish Trail | Homes By Dr. Jan Duffy
@@ -503,6 +515,7 @@ function GBPIntegrationSection() {
 function FAQSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="faq-heading">
+      <SectionBanner headingId="faq-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="faq-heading" className="font-[var(--font-playfair)] text-2xl text-[#1f2a24] sm:text-3xl">
           Spanish Trail Homes Questions Answered
@@ -510,6 +523,7 @@ function FAQSection() {
         <div className="mt-8 grid grid-cols-1 gap-6">
           {faqContent.map((item) => (
             <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-base leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.question)} />
               <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">{item.question}</h3>
               <p>{item.answer}</p>
             </article>

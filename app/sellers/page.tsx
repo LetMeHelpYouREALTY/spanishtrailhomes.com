@@ -8,9 +8,13 @@ import type { HTMLAttributes } from 'react'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { CalendlyLink } from '@/components/calendly-link'
 import { SiteShell } from '@/components/site-shell'
+import { RealScoutSection } from '@/components/realscout-section'
 import { Button } from '@/components/ui/button'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { marketStats, formatMedianPrice } from '@/lib/marketStats'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { AgentPortrait } from '@/components/agent-portrait'
+
 
 type RealScoutHomeValueProps = HTMLAttributes<HTMLElement> & {
   'agent-encoded-id': string
@@ -18,7 +22,7 @@ type RealScoutHomeValueProps = HTMLAttributes<HTMLElement> & {
 
 const pageUrl = 'https://www.spanishtrailhomes.com/sellers'
 const sellersPageDescription =
-  'Discover how Dr. Jan Duffy helps Spanish Trail homeowners price, prepare, and market for premium offers. Home valuations, concierge prep, marketing strategy, and closing roadmap.'
+  'Seller representation for Spanish Trail homes in Las Vegas 89113. Dr. Jan Duffy prices, prepares, and markets listings inside this guard-gated community—Berkshire Hathaway HomeServices Nevada Properties.'
 
 const sellersWebPageSchema = createWebPageSchema({
   name: 'Spanish Trail Home Seller Guide | Dr. Jan Duffy',
@@ -89,7 +93,7 @@ const faqSchema = {
 }
 
 export const metadata: Metadata = {
-  title: 'Spanish Trail Home Seller Guide | Dr. Jan Duffy',
+  title: 'Sell Your Spanish Trail Home | Seller Representation | Dr. Jan Duffy',
   description: sellersPageDescription,
   alternates: {
     canonical: getCanonicalUrl('/sellers'),
@@ -139,6 +143,7 @@ export default function SellersPage() {
       <style dangerouslySetInnerHTML={{ __html: realScoutHomeValueStyles }} />
       <main>
         <HeroSection />
+        <RealScoutSection id="bhhs-listings" />
         <div className="bg-white">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
             <Breadcrumbs
@@ -171,13 +176,15 @@ export default function SellersPage() {
 
 function HeroSection() {
   return (
-    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="sellers-hero-heading">
-      <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
+    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="sellers-hero-heading">
+      <SectionBanner headingId="sellers-hero-heading" />
+      <div className="mx-auto flex max-w-4xl flex-col items-center space-y-6 px-6 text-center">
+        <AgentPortrait placement="sellers" size="lg" priority schema pagePath="/sellers" />
         <h1 id="sellers-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-          Spanish Trail Seller Blueprint: Earn Premium Offers in 2026
+          Seller Representation for Spanish Trail Homes
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
-          Las Vegas buyers are eyeing Spanish Trail for its emerald fairways, private security, and effortless access to the Strip. Across all 11 neighborhoods and 1,200+ homes—villas, townhomes, and custom estates—the market rewards well-positioned listings. As of {marketStats.date_label}, median sale prices inside the gates sit at {formatMedianPrice(marketStats.median_price)}, with estates above $2.1M commanding their strongest list-to-close ratios in five years. Review the latest{' '}
+          Spanish Trail buyers shop 11 neighborhoods and 1,200+ homes—villas, townhomes, and custom estates inside the 89113 guard gates. As of {marketStats.date_label}, median sale prices sit at {formatMedianPrice(marketStats.median_price)}. Review the latest{' '}
           <Link href="/spanish-trail-market-report" className="font-medium text-[#f8f5ef] underline-offset-4 hover:underline">
             Spanish Trail market report
           </Link>{' '}
@@ -209,6 +216,7 @@ function HeroSection() {
 function HomeValueWidgetSection() {
   return (
     <section id="seller-valuation-widget" className="bg-white py-16 sm:py-20" aria-labelledby="home-value-heading">
+      <SectionBanner headingId="home-value-heading" />
       <div className="mx-auto max-w-3xl space-y-6 px-6 text-center">
         <h2 id="home-value-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Start with an interactive Spanish Trail home valuation
@@ -230,6 +238,7 @@ function HomeValueWidgetSection() {
 function MarketConfidenceSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="market-confidence-heading">
+      <SectionBanner headingId="market-confidence-heading" />
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 lg:grid-cols-[1.1fr_1fr]">
         <div className="space-y-6">
           <h2 id="market-confidence-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
@@ -274,6 +283,7 @@ function MarketConfidenceSection() {
 function PricingStrategySection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="pricing-strategy-heading">
+      <SectionBanner headingId="pricing-strategy-heading" />
       <div className="mx-auto max-w-6xl space-y-6 px-6">
         <h2 id="pricing-strategy-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Precision pricing anchored in data and narrative
@@ -303,6 +313,7 @@ function PricingStrategySection() {
             },
           ].map((card) => (
             <article key={card.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10">
+              <CardVisual seed={String(card.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{card.title}</h3>
               <p>{card.detail}</p>
             </article>
@@ -316,6 +327,7 @@ function PricingStrategySection() {
 function PreparationBlueprintSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="preparation-blueprint-heading">
+      <SectionBanner headingId="preparation-blueprint-heading" />
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 lg:grid-cols-[1.1fr_1fr]">
         <div className="space-y-6">
           <h2 id="preparation-blueprint-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
@@ -357,6 +369,7 @@ function PreparationBlueprintSection() {
 function MarketingEngineSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="marketing-engine-heading">
+      <SectionBanner headingId="marketing-engine-heading" />
       <div className="mx-auto max-w-6xl space-y-6 px-6">
         <h2 id="marketing-engine-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           A marketing engine built for qualified Spanish Trail buyers
@@ -369,6 +382,7 @@ function MarketingEngineSection() {
         </p>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <article className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed="card-2" />
             <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">Digital reach highlights</h3>
             <ul className="space-y-2">
               <li>• RealScout buyer matchmaking with instant follow-up campaigns</li>
@@ -378,6 +392,7 @@ function MarketingEngineSection() {
             </ul>
           </article>
           <article className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed="card-3" />
             <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">High-touch experiences</h3>
             <ul className="space-y-2">
               <li>• Sunset sip-and-see events featuring local culinary partners</li>
@@ -395,6 +410,7 @@ function MarketingEngineSection() {
 function TimelineAndNegotiationSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="timeline-negotiation-heading">
+      <SectionBanner headingId="timeline-negotiation-heading" />
       <div className="mx-auto max-w-6xl space-y-6 px-6">
         <h2 id="timeline-negotiation-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           A transparent timeline and negotiation plan you can trust
@@ -424,6 +440,7 @@ function TimelineAndNegotiationSection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <p>{item.detail}</p>
             </article>
@@ -437,13 +454,14 @@ function TimelineAndNegotiationSection() {
 function ClubAndLifestylePositioningSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="club-lifestyle-heading">
+      <SectionBanner headingId="club-lifestyle-heading" />
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 lg:grid-cols-[1.1fr_1fr]">
         <div className="space-y-6">
           <h2 id="club-lifestyle-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
-            Positioning Spanish Trail lifestyle and club benefits
+            How we market Spanish Trail homes
           </h2>
           <p className="text-base leading-relaxed text-[#372a20]/85">
-            Buyers aren’t just purchasing a house—they are investing in a community with 27 holes of championship golf, tennis and pickleball pavilions, resort pools, and newly refreshed culinary venues. My marketing materials highlight how your property aligns with these amenities: morning tee times two minutes away, a fitness center a cart ride from your driveway, or walking paths that connect to pocket parks. We also speak to the practical perks—guard-gated peace of mind, active social calendars, and easy access to top-rated schools like Bishop Gorman and Faith Lutheran.
+            Buyers are purchasing square footage, lot size, and a location inside a 640-acre guard-gated master plan with 27 holes of golf, tennis and pickleball courts, resort pools, and a 50,000 sq. ft. clubhouse. Marketing lists those amenities with distances: morning tee times two minutes away, a fitness center a cart ride from the driveway, walking paths to pocket parks. Named schools with distances—Bishop Gorman High School 2.2 miles via S. Rainbow Blvd., Faith Lutheran Middle &amp; High School a short drive—belong in the fact sheet, not as lifestyle labels.
           </p>
           <p className="text-base leading-relaxed text-[#372a20]/85">
             For investors and second-home owners, I showcase rental history potential, short-term lease guidelines, and the stability of the homeowners association. International buyers receive translations, relocation insight, and introductions to trusted legal resources for FIRPTA compliance. Every narrative remains consistent with Fair Housing guidelines while celebrating the unique vibrancy of life inside Spanish Trail.
@@ -469,6 +487,7 @@ function ClubAndLifestylePositioningSection() {
 function FAQSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="seller-faq-heading">
+      <SectionBanner headingId="seller-faq-heading" />
       <div className="mx-auto max-w-6xl space-y-6 px-6">
         <h2 id="seller-faq-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Spanish Trail seller FAQs
@@ -476,6 +495,7 @@ function FAQSection() {
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           {faqs.map((item) => (
             <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10 text-base leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.question)} />
               <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">{item.question}</h3>
               <p>{item.answer}</p>
             </article>
@@ -488,10 +508,11 @@ function FAQSection() {
 
 function CallToActionSection() {
   return (
-    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="seller-cta-heading">
+    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="seller-cta-heading">
+      <SectionBanner headingId="seller-cta-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h2 id="seller-cta-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-          Ready to unlock your Spanish Trail equity?
+          Ready to sell your Spanish Trail home?
         </h2>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           Every successful sale begins with clarity and collaboration. Call or text (702) 766-3299 to schedule a confidential appointment. Prefer email? Send a note to{' '}

@@ -14,16 +14,20 @@ import { marketStats } from '@/lib/marketStats'
 import { createBreadcrumbSchema, createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { HeroBackground } from '@/components/hero-background'
 import { FeaturedListings } from '@/components/featured-listings'
-import { PropertyLightboxProvider, PropertyLightboxTrigger } from '@/components/property-lightbox'
+import { PropertyLightboxProvider } from '@/components/property-lightbox'
 import { TestimonialCarousel } from '@/components/testimonial-carousel'
 import { TourCTAStrip } from '@/components/tour-cta-strip'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { getSiteImageUrl } from '@/lib/cloudflare-images'
+import { AgentPortrait } from '@/components/agent-portrait'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/'
 const homePageDescription =
-  'Spanish Trail Country Club area homes for sale in Las Vegas, NV 89113—guard-gated private golf community. Search Spanish Trail or Spanish Trails; Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.'
+  'Buy and sell Spanish Trail homes in Las Vegas 89113. Dr. Jan Duffy’s realtor services cover this community only—buyer representation, seller representation, and private tours. Also searched as Spanish Trails.'
 
 const homeWebPageSchema = createWebPageSchema({
-  name: 'Spanish Trail Country Club Homes for Sale | Las Vegas 89113 | Dr. Jan Duffy',
+  name: 'Buy and Sell Spanish Trail Homes | Realtor Services | Dr. Jan Duffy',
   description: homePageDescription,
   path: '/',
   type: 'CollectionPage',
@@ -42,31 +46,31 @@ const homeBreadcrumbSchema = createBreadcrumbSchema([
 ])
 
 export const metadata: Metadata = {
-  title: 'Spanish Trail Country Club Homes for Sale | Las Vegas 89113 | Dr. Jan Duffy',
+  title: 'Buy and Sell Spanish Trail Homes | Realtor Services | Dr. Jan Duffy',
   description: homePageDescription,
   alternates: {
     canonical: getCanonicalUrl('/'),
   },
   openGraph: {
     url: pageUrl,
-    title: 'Spanish Trail Guard-Gated Homes & Club Lifestyle | Dr. Jan Duffy',
+    title: 'Buy and Sell Spanish Trail Homes | Dr. Jan Duffy',
     description: homePageDescription,
     images: [
       createOgImageUrl({
-        title: 'Spanish Trail Luxury Homes',
-        subtitle: 'Market intelligence & club lifestyle by Dr. Jan Duffy',
+        title: 'Spanish Trail Homes Realtor',
+        subtitle: 'Buy, sell, and tour in 89113 only',
         eyebrow: 'SpanishTrailHomes.com',
       }),
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Spanish Trail Guard-Gated Homes & Club Lifestyle | Dr. Jan Duffy',
+    title: 'Buy and Sell Spanish Trail Homes | Dr. Jan Duffy',
     description: homePageDescription,
     images: [
       createOgImageUrl({
         title: 'Spanish Trail Homes',
-        subtitle: 'Guard-gated listings & concierge strategy',
+        subtitle: 'Realtor services inside the 89113 gates',
         eyebrow: 'SpanishTrailHomes.com',
       }),
     ],
@@ -75,33 +79,38 @@ export const metadata: Metadata = {
 
 const overviewStats = [
   {
-    label: 'Guard-Gated Acres',
-    value: '640+',
-    description:
-      'Lush, all-grass fairways, mature landscaping, and tranquil water features spanning the master plan.',
-  },
-  {
-    label: 'Private Golf Holes',
-    value: '27',
-    description:
-      'Robert Trent Jones Jr. championship design with 120 bunkers, lakes, and streams woven into every layout.',
-  },
-  {
     label: 'Neighborhoods',
     value: '11',
     description:
-      'Townhomes, villas, and custom estates—some with secondary gates for added privacy and exclusivity.',
+      'Dr. Duffy matches buyers and sellers across every Spanish Trail enclave—villas, townhomes, and custom estates.',
   },
   {
-    label: 'Homes',
+    label: 'Homes Inside the Gates',
     value: '1,200+',
     description:
-      'Diverse inventory across all 11 neighborhoods, from lock-and-leave villas to custom golf-course estates.',
+      'Hyper-local inventory knowledge from lock-and-leave residences to golf-course estates in ZIP 89113.',
+  },
+  {
+    label: 'Community Focus',
+    value: '89113',
+    description:
+      'Exclusive Spanish Trail practice—not a valley-wide generalist. One community, one realtor specialty.',
+  },
+  {
+    label: 'License',
+    value: 'S.0197614',
+    description:
+      'Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties. Call (702) 766-3299 for a private consult.',
   },
 ]
 
 
 const homeFaq = [
+  {
+    question: 'How is this different from other Spanish Trail or Spanish Trails listing pages?',
+    answer:
+      'Most of those pages sit on valley-wide agent sites that also sell Summerlin, Henderson, and Strip condos. This site is Dr. Jan Duffy’s exclusive Spanish Trail practice: buy, sell, and tour inside ZIP 89113 only. You get 11-neighborhood matching, guard-gate showings, and current comps—not a recycled golf-and-gates blurb. The correct community name is Spanish Trail; “Spanish Trails” is the same place.',
+  },
   {
     question: 'Is it Spanish Trail or Spanish Trails—and where is it in Las Vegas?',
     answer:
@@ -113,9 +122,14 @@ const homeFaq = [
       'Inventory in Spanish Trail remains limited, with many properties selling within the first two weeks when they are priced correctly. Dr. Jan Duffy prepares buyers with lender introductions, appraisal strategies, and neighborhood intel so they can move decisively. Her Berkshire Hathaway HomeServices network also uncovers private offerings and upcoming listings that never hit public portals, giving clients a competitive advantage.',
   },
   {
-    question: 'Which Spanish Trail neighborhoods are best for full-time residents versus seasonal owners?',
+    question: 'Why hire a realtor who only works Spanish Trail?',
     answer:
-      'Full-time residents often gravitate toward the Estates, Estates West, and Springs enclaves because they offer larger lots, dedicated office space, and proximity to top-rated schools. Seasonal owners frequently choose the Courtyards, Gardens, and Villas for their lock-and-leave convenience and optional concierge services. Dr. Duffy maps commute times, HOA details, and lifestyle amenities to match each buyer with the right Spanish Trail enclave.',
+      'Spanish Trail (sometimes searched as Spanish Trails) has 11 neighborhoods, two Tropicana gates, an HOA Architectural Review Committee, and optional club membership that is separate from the deed. A valley-wide agent rarely tracks those details daily. Dr. Jan Duffy specializes exclusively in this 89113 community—comps, gate access, and listing strategy—so buyers and sellers get neighborhood-level counsel instead of generic Las Vegas advice.',
+  },
+  {
+    question: 'Which Spanish Trail neighborhoods fit full-time residents versus seasonal owners?',
+    answer:
+      'Buyers who want larger lots and dedicated office space often look at the Estates, Estates West, and Springs. Bishop Gorman High School is about 2.2 miles northeast via S. Rainbow Blvd.; Faith Lutheran Middle & High School and Durango High School are also a short drive. Seasonal owners frequently choose the Courtyards, Gardens, and Villas for lock-and-leave convenience. Dr. Duffy maps commute times, HOA dues, and square footage to match the right enclave.',
   },
   {
     question: 'What should buyers budget for HOA dues and club memberships?',
@@ -177,8 +191,14 @@ const homeResourceSchema = {
       url: `${pageUrl}spanish-trail-insights`,
     },
     {
-    '@type': 'ListItem',
+      '@type': 'ListItem',
       position: 5,
+      name: 'Spanish Trail Realtor Services',
+      url: `${pageUrl}services`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 6,
       name: 'Las Vegas Luxury Neighborhood Comparisons',
       url: `${pageUrl}las-vegas-luxury-neighborhoods`,
     },
@@ -190,19 +210,19 @@ export default function HomePage() {
     <SiteShell>
       <PropertyLightboxProvider>
         <HeroSection />
+        <RealScoutSection
+          id="bhhs-listings"
+          title="Spanish Trail homes Dr. Duffy can show this week"
+          description="Live inventory inside the 89113 gates. Estate homes, villas, and off-market tours—schedule a showing with the community’s exclusive realtor."
+          priceMin="500000"
+        />
         <AEOAnswerSection />
         <div className="bg-white">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
             <Breadcrumbs items={[{ label: 'Home', href: '/' }]} />
           </div>
         </div>
-        <RealScoutSection
-        id="bhhs-listings"
-        title="Berkshire Hathaway Listings in Spanish Trail"
-        description="Curated inventory between $500K and $600K inside the 89113 guard gates. For estate homes, secondary-gated enclaves, or off-market tours—schedule a showing with Dr. Jan Duffy."
-        priceMin="500000"
-        priceMax="600000"
-      />
+        <RealtorServicesSection />
         <TourCTAStrip />
       <AdvancedSearchSection />
       <IntroSection />
@@ -237,10 +257,10 @@ function AEOAnswerSection() {
     <section className="bg-gradient-to-b from-[#f8f5ef] to-white py-12 sm:py-16" aria-labelledby="aeo-answer">
       <div className="mx-auto max-w-4xl px-6">
         <div className="rounded-3xl border border-[#0f2b1e]/10 bg-white p-8 shadow-xl shadow-primary/5">
-          <h2 id="aeo-answer" className="sr-only">What is Spanish Trail?</h2>
+          <h2 id="aeo-answer" className="sr-only">Who buys and sells Spanish Trail homes?</h2>
           <div className="prose prose-lg max-w-none">
             <p className="text-lg leading-relaxed text-[#1f2a24]">
-              Spanish Trail is a 640-acre guard-gated golf community in southwest Las Vegas (ZIP 89113) featuring 1,200+ homes across 11 neighborhoods, a private 27-hole Robert Trent Jones Jr. championship golf course, and resort-style amenities. Properties range from lock-and-leave villas starting around $500K to custom golf course estates exceeding $2M. Dr. Jan Duffy specializes exclusively in Spanish Trail real estate with Berkshire Hathaway HomeServices Nevada Properties.
+              Dr. Jan Duffy buys and sells Spanish Trail homes in Las Vegas ZIP 89113—also searched as Spanish Trails. Realtor services only for this community: buyer representation, seller representation, and private tours across 11 neighborhoods and 1,200+ homes. Berkshire Hathaway HomeServices Nevada Properties. Call (702) 766-3299.
             </p>
           </div>
         </div>
@@ -256,7 +276,7 @@ function HeroSection() {
       aria-labelledby="hero-heading"
     >
       <HeroBackground
-        src="https://images.unsplash.com/photo-1474926143295-7f42d6764bed?q=80&auto=format&fit=crop&w=2000"
+        src={getSiteImageUrl('h1-guard-gate')}
         alt="Spanish Trail Country Club guard-gated luxury homes and golf course in Las Vegas 89113"
         overlayClassName="bg-gradient-to-b from-[#0f2b1e]/55 to-[#0f2b1e]/80"
         priority
@@ -265,39 +285,107 @@ function HeroSection() {
       <div className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-32 bg-linear-to-t from-background to-transparent sm:h-36" />
 
       <div className="mx-auto flex min-h-0 max-w-6xl flex-col gap-6 px-4 pb-16 pt-14 sm:gap-8 sm:px-6 sm:pb-20 sm:pt-16 lg:gap-10 lg:pb-24 lg:pt-20">
+        <AgentPortrait id="duffy-circle-canonical" placement="homepage-hero" size="lg" priority className="self-start" />
         <div className="max-w-3xl space-y-4 sm:space-y-5">
           <h1
             id="hero-heading"
             className="font-heading text-3xl font-semibold leading-tight tracking-[0.06em] text-white [text-shadow:0_1px_3px_rgb(0_0_0/35%)] sm:text-4xl sm:tracking-[0.08em] lg:text-5xl xl:text-6xl"
           >
-            Spanish Trail Country Club Homes for Sale in Las Vegas
+            Buy and Sell Spanish Trail Homes
           </h1>
           <p className="text-base font-medium leading-relaxed text-white/95 sm:text-lg sm:leading-relaxed [text-shadow:0_1px_2px_rgb(0_0_0/25%)]">
-            Spanish Trail is a private guard-gated golf community in southwest Las Vegas (89113) centered on Spanish Trail Country Club. Whether you searched “Spanish Trail near me,” “Spanish Trails Las Vegas,” or country club homes, Dr. Jan Duffy helps you tour listings, read the market, and buy or sell with Berkshire Hathaway HomeServices— from first search to keys.
+            Realtor services for Spanish Trail homes only. Dr. Jan Duffy buys, sells, and tours addresses inside this 89113 community—also searched as Spanish Trails. Berkshire Hathaway HomeServices Nevada Properties.
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-3 sm:gap-4">
-          <PropertyLightboxTrigger
-            openFrom="hero"
-            variant="primary"
-            className="min-h-11 rounded-full px-8 py-3 text-xs font-semibold uppercase tracking-[0.35em] shadow-md shadow-black/20 sm:min-h-12 sm:tracking-[0.4em]"
-          />
           <Button
             asChild
-            variant="outline"
-            className="min-h-11 rounded-full border-2 border-white bg-white px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e] shadow-md shadow-black/15 hover:border-white hover:bg-[#eef2ef] hover:text-[#081810] focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f2b1e] sm:min-h-12 sm:tracking-[0.4em]"
+            className="min-h-11 rounded-full bg-white px-8 py-3 text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e] shadow-md shadow-black/20 hover:bg-[#eef2ef] sm:min-h-12 sm:tracking-[0.4em]"
           >
-            <Link href="#bhhs-listings">See What’s New</Link>
+            <Link href="/buyers">Buy in Spanish Trail</Link>
           </Button>
           <Button
             asChild
             variant="outline"
             className="min-h-11 rounded-full border-2 border-white bg-white px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e] shadow-md shadow-black/15 hover:border-white hover:bg-[#eef2ef] hover:text-[#081810] focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f2b1e] sm:min-h-12 sm:tracking-[0.4em]"
           >
-            <Link href="/neighborhoods">Explore Neighborhoods</Link>
+            <Link href="/sellers">Sell Your Home</Link>
           </Button>
+          <CalendlyLink
+            className="inline-flex min-h-11 items-center justify-center rounded-full border-2 border-white bg-transparent px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.35em] text-white shadow-md shadow-black/15 hover:bg-white/10 sm:min-h-12 sm:tracking-[0.4em]"
+            ctaText="Book a private tour"
+            ctaLocation="hero"
+          >
+            Book a Private Tour
+          </CalendlyLink>
         </div>
         <HeroSearchWidget theme="dark" />
+      </div>
+    </section>
+  )
+}
+
+const realtorServices = [
+  {
+    title: 'Buy in Spanish Trail',
+    href: '/buyers',
+    description:
+      'Representation for buyers who want this community—not a valley-wide search. Gate access, enclave matching, and offer strategy.',
+  },
+  {
+    title: 'Sell your Spanish Trail home',
+    href: '/sellers',
+    description:
+      'Pricing, prep, and marketing aimed at 89113 luxury buyers. One listing specialist who already knows the 11 neighborhoods.',
+  },
+  {
+    title: 'Private tours',
+    href: '/contact',
+    description:
+      'Guard-gate clearance and appointment-only showings. Call (702) 766-3299 or book a time on the calendar.',
+  },
+  {
+    title: 'Community counsel',
+    href: '/neighborhoods',
+    description:
+      'Which village fits your square footage and commute. HOA, Architectural Review, and relocation into 89113.',
+  },
+]
+
+function RealtorServicesSection() {
+  return (
+    <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="realtor-services-heading">
+      <SectionBanner headingId="realtor-services-heading" />
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="max-w-3xl space-y-4">
+          <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Luxury realtor services</p>
+          <h2 id="realtor-services-heading" className="font-heading text-3xl text-[#1f2a24] sm:text-4xl">
+            Realtor services for Spanish Trail homes
+          </h2>
+          <p className="text-base leading-relaxed text-[#372a20]/85">
+            This site is a realtor practice for one community. Amenities and golf live under Community. The work is buy, sell, and tour.
+          </p>
+        </div>
+        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+          {realtorServices.map((service) => (
+            <article
+              key={service.title}
+              className="rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10"
+            >
+              <CardVisual seed={service.title} />
+              <h3 className="mt-4 font-heading text-2xl text-[#1f2a24]">{service.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-[#372a20]/85">{service.description}</p>
+              <Button asChild variant="link" className="mt-2 justify-start px-0 text-xs uppercase tracking-[0.3em] text-primary">
+                <Link href={service.href}>Learn more</Link>
+              </Button>
+            </article>
+          ))}
+        </div>
+        <div className="mt-10 text-center">
+          <Button asChild className="rounded-full px-8 py-3 text-xs uppercase tracking-[0.3em]">
+            <Link href="/services">All realtor services</Link>
+          </Button>
+        </div>
       </div>
     </section>
   )
@@ -306,29 +394,30 @@ function HeroSection() {
 function IntroSection() {
   return (
     <section className="bg-white py-20" aria-labelledby="intro-heading">
+      <SectionBanner headingId="intro-heading" />
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 lg:grid-cols-[1.2fr_1fr]">
         <div className="space-y-6">
           <h2 id="intro-heading" className="font-heading text-3xl text-foreground sm:text-4xl">
-            Why Spanish Trail works for everyday life.
+            The realtor who only works Spanish Trail.
           </h2>
           <p className="text-base leading-relaxed text-muted-foreground">
-            Spanish Trail spans Tropicana Avenue, Rainbow Boulevard, and Hacienda Avenue, just west of I-215. The 640-acre master plan pairs 24/7 security with shimmering lakes, tree-lined fairways, and resort amenities—all minutes from UnCommons, The Bend, and Spring Valley essentials.
+            Spanish Trail sits at Tropicana Avenue and Rainbow Boulevard, west of I-215 in southwest Las Vegas (89113). It is a 640-acre guard-gated community with 11 neighborhoods and more than 1,200 homes. Dr. Jan Duffy practices here exclusively—buying, selling, and touring inside the gates rather than covering the entire valley.
           </p>
           <p className="text-base leading-relaxed text-muted-foreground">
-            As one of Las Vegas's original private golf communities, Spanish Trail attracts primary residents and second-home owners seeking golf community homes for sale. Expect daily conveniences—Whole Foods, Trader Joe's, Downtown Summerlin—within a 10- to 15-minute radius, plus top-tier private schools moments away.
+            Daily conveniences—Whole Foods, Trader Joe&apos;s, Downtown Summerlin—are a 10- to 15-minute drive. Bishop Gorman High School is 2.2 miles northeast via S. Rainbow Blvd.; Faith Lutheran Middle &amp; High School and Durango High School are a short drive as well. Golf, tennis, and the clubhouse are amenities of the community—not the reason this site exists.
           </p>
           <p className="text-base leading-relaxed text-muted-foreground">
-            For deeper dives, browse{' '}
-            <Link href="/spanish-trail-country-club-estate-listings" className="text-[#0f2b1e] underline-offset-4 hover:underline">
-              Spanish Trail Country Club estate listings in Las Vegas
+            Start with{' '}
+            <Link href="/services" className="text-[#0f2b1e] underline-offset-4 hover:underline">
+              Spanish Trail realtor services
             </Link>
-            , work with a{' '}
-            <Link href="/spanish-trail-gated-golf-realtor" className="text-[#0f2b1e] underline-offset-4 hover:underline">
-              Spanish Trail gated golf community realtor
+            , browse{' '}
+            <Link href="/spanish-trail-homes-for-sale-las-vegas" className="text-[#0f2b1e] underline-offset-4 hover:underline">
+              Spanish Trail homes for sale
             </Link>
-            , or preview how the club hosts{' '}
-            <Link href="/events" className="text-[#0f2b1e] underline-offset-4 hover:underline">
-              weddings and private events in Las Vegas
+            , or review the{' '}
+            <Link href="/neighborhoods" className="text-[#0f2b1e] underline-offset-4 hover:underline">
+              11 Spanish Trail neighborhoods
             </Link>
             .
           </p>
@@ -338,27 +427,27 @@ function IntroSection() {
               variant="outline"
               className="rounded-full border-[#0f2b1e]/60 px-6 py-3 text-xs uppercase tracking-[0.3em] text-[#0f2b1e] hover:bg-[#0f2b1e] hover:text-white"
             >
-              <Link href="/communities/spanish-trail">Explore Spanish Trail Community</Link>
+              <Link href="/services">Realtor services</Link>
             </Button>
           </div>
         </div>
         <div className="space-y-6">
           <div className="rounded-3xl border border-border/40 bg-white p-6 shadow-lg shadow-primary/10">
             <p className="text-xs uppercase tracking-[0.4em] text-secondary">
-              What Sets Us Apart
+              Realtor Focus
             </p>
             <ul className="mt-4 space-y-4 text-sm text-muted-foreground">
               <li className="flex gap-3">
                 <span className="mt-1 size-2 shrink-0 rounded-full bg-secondary" aria-hidden />
-                <span><strong className="text-foreground">Concierge Service</strong> — Guard-gate coordination, private showings, and vetted vendor intros from discovery to closing.</span>
+                <span><strong className="text-foreground">Buyer representation</strong> — Gate access, private tours, comps by enclave, and offer strategy for Spanish Trail only.</span>
               </li>
               <li className="flex gap-3">
                 <span className="mt-1 size-2 shrink-0 rounded-full bg-secondary" aria-hidden />
-                <span><strong className="text-foreground">Local Expertise</strong> — Deep knowledge of all 11 Spanish Trail neighborhoods, pricing trends, and club lifestyle.</span>
+                <span><strong className="text-foreground">Seller representation</strong> — Pricing, prep, and marketing aimed at 89113 and move-up luxury buyers.</span>
               </li>
               <li className="flex gap-3">
                 <span className="mt-1 size-2 shrink-0 rounded-full bg-secondary" aria-hidden />
-                <span><strong className="text-foreground">Seamless Experience</strong> — Full-service buy and sell representation with Berkshire Hathaway HomeServices reach.</span>
+                <span><strong className="text-foreground">Community counsel</strong> — HOA, Architectural Review, and neighborhood matching across all 11 villages.</span>
               </li>
             </ul>
           </div>
@@ -377,7 +466,7 @@ function IntroSection() {
               </div>
               <div>
                 <dt className="font-semibold text-foreground">Lifestyle</dt>
-                <dd>Golf, tennis, aquatics, and curated social programming</dd>
+                <dd>11 neighborhoods · 1,200+ homes · optional club membership</dd>
               </div>
               <div>
                 <dt className="font-semibold text-foreground">Business</dt>
@@ -389,7 +478,7 @@ function IntroSection() {
               variant="link"
               className="mt-2 justify-start px-0 text-xs uppercase tracking-[0.3em] text-primary"
             >
-              <Link href="/guest-info#map">View Directions to Spanish Trail Country Club</Link>
+              <Link href="/contact">Call Dr. Jan Duffy · (702) 766-3299</Link>
             </Button>
           </div>
         </div>
@@ -424,23 +513,24 @@ function StatsSection() {
 }
 
 const journeySteps = [
-  { title: 'Connect', description: 'Share your must-haves, budget, and timeline. Dr. Duffy aligns you with the right neighborhoods and financing options.' },
-  { title: 'Search & Tour', description: 'Browse live listings, private previews, and off-market opportunities. Guard-gate access and showings coordinated around your schedule.' },
-  { title: 'Offer & Close', description: 'Data-backed offers, inspection coordination, and negotiation support so you secure the right Spanish Trail home at the right price.' },
-  { title: 'Move In', description: 'From keys to concierge intros—club membership, vendors, and community connections so you feel at home from day one.' },
+  { title: 'Consult', description: 'Share your budget, timeline, and which Spanish Trail neighborhoods you want. Dr. Duffy maps the 11 enclaves to your square footage and commute needs.' },
+  { title: 'Tour', description: 'Guard-gate clearance, private showings, and off-market previews—coordinated so you see the right addresses, not a valley-wide inventory dump.' },
+  { title: 'Negotiate', description: 'Enclave-level comps, HOA document review, and offer strategy so you buy or sell at a price that matches 89113 conditions.' },
+  { title: 'Close', description: 'Inspection vendors, Architectural Review questions, and key handoff. After closing, neighborhood and club introductions if you want them.' },
 ]
 
 function JourneySection() {
   return (
     <section className="border-y border-[#0b2016] bg-[#0f2b1e] py-20 sm:py-24" aria-labelledby="journey-heading">
+      <SectionBanner headingId="journey-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4 text-center">
-          <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/75">Your Path to Spanish Trail</p>
+          <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/75">Realtor process</p>
           <h2 id="journey-heading" className="font-heading text-3xl text-[#f8f5ef] sm:text-4xl">
-            Your Spanish Trail Journey
+            How we buy, sell, and tour Spanish Trail homes
           </h2>
           <p className="text-base leading-relaxed text-[#f8f5ef]/85">
-            From first conversation to closing, Dr. Jan Duffy guides you through every step with concierge-level service.
+            Buy, sell, or tour—every engagement stays inside this community.
           </p>
         </div>
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -449,6 +539,7 @@ function JourneySection() {
               key={step.title}
               className="rounded-3xl border border-[#1f4a35]/80 bg-[#16402d] p-6 shadow-lg shadow-black/20 text-center"
             >
+              <CardVisual seed={String(step.title)} />
               <p className="text-xs uppercase tracking-[0.4em] text-[#f8f5ef]/75">Step {i + 1}</p>
               <h3 className="mt-3 font-heading text-xl text-[#f8f5ef]">{step.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-[#f8f5ef]/80">{step.description}</p>
@@ -463,15 +554,15 @@ function JourneySection() {
 function NeighborhoodSpotlightsSection() {
   return (
     <section className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="neighborhood-spotlights-heading">
+      <SectionBanner headingId="neighborhood-spotlights-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
-          <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Home Buyer Spotlight</p>
+          <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Spanish Trail community</p>
           <h2 id="neighborhood-spotlights-heading" className="font-heading text-3xl text-[#1f2a24] sm:text-4xl">
-            Preview top enclaves before you tour
+            Match the right neighborhood before you tour
           </h2>
           <p className="text-base leading-relaxed text-[#372a20]/85">
-            Inside the Spanish Trail gates you&apos;ll discover distinct lifestyles—from double-gated estates to turnkey villas.
-            Explore a snapshot below, then dive deeper into every enclave on the dedicated buyer guide.
+            Spanish Trail is not one product. Estates, villas, and fairway homes price and live differently. Dr. Duffy briefs you on the 11 enclaves, then books gate access for the addresses that fit.
           </p>
         </div>
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -495,7 +586,7 @@ function NeighborhoodSpotlightsSection() {
             variant="outline"
             className="rounded-full border-[#0d3b2c]/60 px-6 py-2 text-xs uppercase tracking-[0.3em] text-[#0d3b2c] hover:bg-[#0d3b2c]/10"
           >
-            <Link href="/buyers">See the full buyer blueprint</Link>
+            <Link href="/neighborhoods">See all 11 neighborhoods</Link>
           </Button>
         </div>
       </div>
@@ -506,6 +597,7 @@ function NeighborhoodSpotlightsSection() {
 function MarketPreviewSection() {
   return (
     <section className="border-y border-border/40 bg-white" aria-labelledby="market-preview-heading">
+      <SectionBanner headingId="market-preview-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-20">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl space-y-3">
@@ -531,6 +623,7 @@ function MarketPreviewSection() {
               key={item.label}
               className="rounded-3xl border border-border/40 bg-white p-6 shadow-md shadow-primary/10"
             >
+              <CardVisual seed={String(item.label)} />
               <p className="text-xs uppercase tracking-[0.4em] text-secondary">{item.label}</p>
                 <p className="mt-3 font-heading text-2xl text-[#1f2a24]">{item.value}</p>
               <p className="mt-2 text-xs uppercase tracking-[0.3em] text-muted-foreground">{item.trend} change</p>
@@ -544,14 +637,15 @@ function MarketPreviewSection() {
 }
 
 const insightHighlights = [
-  'Quarterly Spanish Trail housing update and pricing intel',
-  'Lifestyle briefings that showcase how residents use club amenities',
-  'Renovation, financing, and advisory guidance tailored to 89113',
+  'Weekly Spanish Trail pricing, absorption, and listing intel',
+  'Neighborhood matching across all 11 89113 enclaves',
+  'HOA, Architectural Review, and renovation counsel for sellers',
 ]
 
 function InsightsPreviewSection() {
   return (
     <section className="bg-white py-20 sm:py-24" aria-labelledby="insights-preview-heading">
+      <SectionBanner headingId="insights-preview-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Strategy & Advisory</p>
@@ -589,94 +683,64 @@ function InsightsPreviewSection() {
 
 const exploreCards = [
   {
-    title: 'Spanish Trail Market Report',
-    description: 'Weekly pricing shifts, absorption rates, and buyer demand indicators to guide smart offers.',
-    href: '/spanish-trail-market-report',
-  },
-  {
-    title: 'Spanish Trail Insights',
-    description: 'Long-form strategy briefs covering lifestyle trends, renovation ROI, and advisory tips.',
-    href: '/spanish-trail-insights',
+    title: 'Realtor Services',
+    description: 'Buy, sell, private tours, and community counsel—Dr. Jan Duffy’s Spanish Trail practice in one place.',
+    href: '/services',
   },
   {
     title: 'Buy Spanish Trail Homes',
-    description: 'Complete buyer guide with concierge tours, financing strategy, and neighborhood insights.',
+    description: 'Buyer representation: gate access, enclave matching, financing strategy, and offer support.',
     href: '/buyers',
   },
   {
     title: 'Sell Your Spanish Trail Home',
-    description: 'Expert seller services with market analysis, staging guidance, and premium positioning.',
+    description: 'Seller representation: valuation, prep, luxury marketing, and negotiation inside 89113.',
     href: '/sellers',
   },
   {
-    title: 'Live Listings & Market Hub (89113)',
-    description: 'MLS-backed search, weekly absorption stats, alerts, and private tour logistics for Spanish Trail—Las Vegas guard-gated golf homes.',
+    title: 'Spanish Trail Listings',
+    description: 'Live MLS search for guard-gated golf homes in Las Vegas ZIP 89113.',
     href: '/spanish-trail-homes-for-sale-las-vegas',
   },
   {
-    title: 'Property Types & Neighborhood Guide',
-    description: 'Villas, estates, fairway homes, pools, and enclave-by-enclave context before you shop—then jump to the listings hub to tour.',
-    href: '/homes-for-sale-in-spanish-trail-las-vegas',
+    title: '11 Neighborhoods',
+    description: 'Estates, villas, fairway homes, and townhomes—compare enclaves before you tour.',
+    href: '/neighborhoods',
   },
   {
-    title: 'Spanish Trail Community',
-    description: 'Explore the guard-gated community, amenities, and lifestyle at Spanish Trail Country Club.',
+    title: 'Spanish Trail Community Guide',
+    description: 'HOA, gates, architecture, and how the master plan is laid out in southwest Las Vegas.',
     href: '/communities/spanish-trail',
   },
   {
-    title: 'Townhomes & Villas',
-    description: 'Discover lock-and-leave Spanish Trail townhomes and villas perfect for second-home owners.',
-    href: '/spanish-trail-townhomes-villas',
+    title: 'Spanish Trail Market Report',
+    description: 'Weekly pricing shifts, absorption rates, and demand indicators for smart offers.',
+    href: '/spanish-trail-market-report',
   },
   {
-    title: 'Southwest Las Vegas Luxury',
-    description: 'Premium golf course homes for sale in southwest Las Vegas with guard-gated security and championship golf course access.',
-    href: '/spanish-trail-southwest-las-vegas-luxury-homes',
+    title: 'Schools near Spanish Trail',
+    description: 'Named campuses and distances: Bishop Gorman, Faith Lutheran, Durango, and CCSD schools.',
+    href: '/spanish-trail-schools',
   },
   {
-    title: 'Luxury Neighborhood Comparisons',
-    description: 'Compare Spanish Trail with The Ridges, Summit Club, and other guard-gated Las Vegas enclaves.',
-    href: '/las-vegas-luxury-neighborhoods',
-  },
-  {
-    title: 'Club Lifestyle & Amenities',
-    description: 'See dining, wellness, and event programming inside the 50,000 sq. ft. clubhouse.',
-    href: '/club#lifestyle',
-  },
-  {
-    title: 'About Dr. Jan Duffy',
-    description: 'Learn about Dr. Duffy\'s expertise, credentials, and concierge approach to Spanish Trail real estate.',
+    title: 'Meet Dr. Jan Duffy',
+    description: 'Exclusive Spanish Trail realtor, Berkshire Hathaway HomeServices Nevada Properties.',
     href: '/about',
-  },
-  {
-    title: 'Awards & Recognition',
-    description: 'View Dr. Jan Duffy\'s professional achievements and industry recognition.',
-    href: '/awards',
-  },
-  {
-    title: 'Membership Information',
-    description: 'Explore Spanish Trail Country Club membership categories, benefits, and lifestyle opportunities.',
-    href: '/membership',
-  },
-  {
-    title: 'Guest Information',
-    description: 'Planning a visit? Get directions, etiquette guidelines, and guest access information.',
-    href: '/guest-info',
   },
 ]
 
 function ExploreFurtherSection() {
   return (
     <section className="bg-[#f9f4eb] py-20 sm:py-24" aria-labelledby="explore-further-heading">
+      <SectionBanner headingId="explore-further-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
-          <p className="text-xs uppercase tracking-[0.5em] text-secondary">Deeper resources</p>
+          <p className="text-xs uppercase tracking-[0.5em] text-secondary">Realtor & community resources</p>
           <h2 id="explore-further-heading" className="font-heading text-3xl text-foreground sm:text-4xl">
-            Explore the full Spanish Trail knowledge base
+            Spanish Trail homes and realtor services
           </h2>
           <p className="text-base leading-relaxed text-muted-foreground">
-            Ready for details beyond the homepage? Jump into curated guides that expand on market performance, lifestyle
-            planning, and neighborhood comparisons.
+            Start with how Dr. Duffy works, then go deeper on listings, neighborhoods, and 89113 market data.
           </p>
         </div>
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -706,14 +770,15 @@ function ExploreFurtherSection() {
 function FAQSection() {
   return (
     <section className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="faq-heading">
+      <SectionBanner headingId="faq-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
-          <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Spanish Trail Homes FAQ</p>
+          <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Spanish Trail realtor FAQ</p>
         <h2 id="faq-heading" className="font-heading text-3xl text-[#1f2a24] sm:text-4xl">
-            Answers to the most frequent Spanish Trail real estate questions
+            Why work with a Spanish Trail-only realtor?
           </h2>
           <p className="text-base leading-relaxed text-[#372a20]/85">
-            Buyers and sellers trust Dr. Jan Duffy to navigate the nuances of guard-gated transactions. These answers provide clarity on timing, pricing, and strategy so you can move forward with confidence. Book a tour to see inside, or text your question.
+            Dr. Jan Duffy answers the questions buyers and sellers ask before hiring representation in this community. Book a tour or text (702) 766-3299.
           </p>
         </div>
 
@@ -735,6 +800,7 @@ function FAQSection() {
         <div className="mt-12 space-y-10">
           {homeFaq.map((item) => (
             <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">
+              <CardVisual seed={String(item.question)} />
               <h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">
                 {item.question}
               </h3>
@@ -749,13 +815,14 @@ function FAQSection() {
 
 function CTASection() {
   return (
-    <section className="bg-primary py-20 text-primary-foreground" aria-labelledby="cta-heading">
+    <section className="bg-primary py-20 text-primary-foreground relative isolate overflow-hidden" aria-labelledby="cta-heading">
+      <SectionBanner headingId="cta-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h2 id="cta-heading" className="font-heading text-3xl leading-tight sm:text-4xl">
-          Ready to Find Your Dream Home?
+          Ready to buy or sell in Spanish Trail?
         </h2>
         <p className="text-base leading-relaxed text-primary-foreground">
-          Book a tour to see inside, text your question, or request a valuation for your Spanish Trail residence. Dr. Jan Duffy is here from first search to closing.
+          Book a private tour, request a valuation, or call Dr. Jan Duffy at (702) 766-3299. Exclusive realtor service for this 89113 community.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-4">
           <CalendlyLink className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-base font-semibold text-[#0f2b1e] shadow-md hover:bg-[#f1eadd]" ctaText="Book Tour to See Inside" ctaLocation="footer">
@@ -786,11 +853,12 @@ function CTASection() {
 function AdvancedSearchSection() {
   return (
     <section className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="advanced-search-heading">
+      <SectionBanner headingId="advanced-search-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4 text-center sm:mx-auto">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Tailored Search</p>
           <h2 id="advanced-search-heading" className="font-heading text-3xl text-[#1f2a24] sm:text-4xl">
-            Customize your Spanish Trail home search in seconds
+            Search Spanish Trail homes for sale
           </h2>
           <p className="text-base leading-relaxed text-[#372a20]/85">
             Filter by price point, property style, and lifestyle amenities using our advanced RealScout experience. Save favorites, request tours, or alert Dr. Jan Duffy when the perfect Spanish Trail property appears.

@@ -8,6 +8,8 @@ import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-custom-estate-homes-strip'
 
@@ -92,6 +94,14 @@ export default function CustomEstateHomesStripPage() {
   return (
     <SiteShell>
       <HeroSection />
+      <RealScoutSection
+        id="bhhs-listings"
+        eyebrow="Estate Inventory"
+        title="Spanish Trail custom estates available now"
+        description="Hand-curated estate homes with double gates, casitas, and entertainment wings."
+        priceMin="1500000"
+        propertyTypes=",SFR"
+      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs
@@ -104,14 +114,6 @@ export default function CustomEstateHomesStripPage() {
         </div>
       </div>
       <ProximitySection />
-      <RealScoutSection
-        id="custom-estate-listings"
-        eyebrow="Estate Inventory"
-        title="Spanish Trail custom estates available now"
-        description="Hand-curated estate homes with double gates, casitas, and entertainment wings."
-        priceMin="1500000"
-        propertyTypes=",SFR"
-      />
       <EstateProfilesSection />
       <DesignHighlightsSection />
       <EntertainingSection />
@@ -128,10 +130,11 @@ export default function CustomEstateHomesStripPage() {
 
 function HeroSection() {
   return (
-    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="custom-estate-hero-heading">
+    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="custom-estate-hero-heading">
+      <SectionBanner headingId="custom-estate-hero-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h1 id="custom-estate-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-          Spanish Trail Custom Estate Homes Near the Strip
+          Spanish Trail Custom Estate Homes for Sale
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           Spanish Trail is the rare guard-gated enclave where resort-scale estates sit minutes from the Strip yet feel worlds away. Double gates, mature landscaping, and 27 holes of golf create a private sanctuary for executives, entertainers, and medical professionals who require easy access to Las Vegas’s business and cultural corridors. I orchestrate every element of the estate search so you can focus on design, privacy, and possibility.
@@ -164,6 +167,7 @@ function HeroSection() {
 function ProximitySection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="proximity-heading">
+      <SectionBanner headingId="proximity-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="proximity-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Estate privacy with Strip convenience
@@ -187,6 +191,7 @@ function ProximitySection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <p>{item.detail}</p>
             </article>
@@ -203,6 +208,7 @@ function ProximitySection() {
 function EstateProfilesSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="estate-profiles-heading">
+      <SectionBanner headingId="estate-profiles-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="estate-profiles-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Signature Spanish Trail estate profiles
@@ -230,6 +236,7 @@ function EstateProfilesSection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <p>{item.detail}</p>
             </article>
@@ -246,6 +253,7 @@ function EstateProfilesSection() {
 function DesignHighlightsSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="design-highlights-heading">
+      <SectionBanner headingId="design-highlights-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="design-highlights-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Design signatures defining Spanish Trail estates in 2026
@@ -272,6 +280,7 @@ function DesignHighlightsSection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <p>{item.detail}</p>
             </article>
@@ -288,6 +297,7 @@ function DesignHighlightsSection() {
 function EntertainingSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="entertaining-heading">
+      <SectionBanner headingId="entertaining-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="entertaining-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Entertaining like a Strip headliner from your Spanish Trail estate
@@ -317,6 +327,7 @@ function EntertainingSection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <ul className="space-y-2">
                 {item.points.map((point) => (
@@ -337,6 +348,7 @@ function EntertainingSection() {
 function TourLogisticsSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="tour-logistics-heading">
+      <SectionBanner headingId="tour-logistics-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="tour-logistics-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           How we tour Spanish Trail estates with precision
@@ -363,6 +375,7 @@ function TourLogisticsSection() {
             },
           ].map((item) => (
             <article key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">{item.title}</h3>
               <p>{item.detail}</p>
             </article>
@@ -376,6 +389,7 @@ function TourLogisticsSection() {
 function CaseStudiesSection() {
   return (
     <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="estate-case-studies-heading">
+      <SectionBanner headingId="estate-case-studies-heading" />
       <div className="mx-auto max-w-6xl space-y-8 px-6">
         <h2 id="estate-case-studies-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
           Recent Spanish Trail estate success stories
@@ -392,6 +406,7 @@ function CaseStudiesSection() {
               'Secured for $2.45M after evaluating long-term renovation plans and aligning closing with the seller’s move to another state. Included over $200K in smart-home upgrades and a year of landscaping services.',
           }].map((item) => (
             <article key={item.title} className="space-y-4 rounded-3xl border border-[#1f4a35]/60 bg-[#143927] p-6 shadow-lg shadow-black/20 text-sm leading-relaxed">
+              <CardVisual seed={String(item.title)} />
               <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#c6aa7a]">{item.title}</h3>
               <p className="text-[#f8f5ef]/80">{item.detail}</p>
             </article>
@@ -408,6 +423,7 @@ function CaseStudiesSection() {
 function FAQSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="custom-estate-faq-heading">
+      <SectionBanner headingId="custom-estate-faq-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="custom-estate-faq-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Spanish Trail custom estate FAQs
@@ -415,6 +431,7 @@ function FAQSection() {
         <div className="mt-10 space-y-6">
           {faqContent.map((item) => (
             <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-base leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.question)} />
               <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">{item.question}</h3>
               <p>{item.answer}</p>
             </article>
@@ -427,7 +444,8 @@ function FAQSection() {
 
 function CTASection() {
   return (
-    <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="custom-estate-cta-heading">
+    <section className="bg-[#f8f2e7] py-16 sm:py-20 relative isolate overflow-hidden" aria-labelledby="custom-estate-cta-heading">
+      <SectionBanner headingId="custom-estate-cta-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6 text-center">
         <h2 id="custom-estate-cta-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Your Strip-adjacent estate search starts here

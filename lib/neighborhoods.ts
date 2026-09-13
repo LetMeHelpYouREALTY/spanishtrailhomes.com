@@ -145,19 +145,19 @@ const neighborhoodsData: Omit<Neighborhood, 'slug'>[] = [
   {
     name: 'Springs',
     shortDescription:
-      'Tree-lined streets with family-friendly floor plans, community greenbelts, and proximity to Bishop Gorman High School and Faith Lutheran Academy.',
-    propertyTypes: ['Single-family homes', 'Family-oriented floor plans'],
+      'Tree-lined streets with three- to five-bedroom floor plans, community greenbelts, and a short drive to Bishop Gorman High School (2.2 miles) and Faith Lutheran Middle & High School.',
+    propertyTypes: ['Single-family homes', 'Three- to five-bedroom plans'],
     priceRange: 'Mid $500s – $1.1M',
     features: [
       'Tree-lined streets and greenbelts',
-      'Family-friendly layouts',
+      'Three- to five-bedroom layouts',
       'Near Bishop Gorman and Faith Lutheran',
       'Community pools and tennis',
     ],
     bodyParagraphs: [
-      'Springs is one of Spanish Trail’s most family-friendly neighborhoods, with tree-lined streets, community greenbelts, and floor plans designed for daily living and entertaining. Homes along Springs Way and nearby streets often feature three to five bedrooms, updated kitchens, and backyard pools.',
-      'Parents value the short drive to Bishop Gorman High School, Faith Lutheran Middle & High School, and The Meadows School. Desert Breeze Park—with dog runs, skate park, and aquatic center—is also nearby. Dr. Jan Duffy helps families compare Springs to other Spanish Trail enclaves and to neighboring communities like Summerlin.',
-      'Guard-gated security and the Spanish Trail clubhouse, tennis, and pools mean residents get both neighborhood calm and full amenity access. The Springs area appeals to buyers who want a true family home within the gates without the scale of the largest Estates.',
+      'Springs is one of Spanish Trail’s most requested neighborhoods for larger daily-living floor plans, with tree-lined streets, community greenbelts, and homes designed for work-from-home and entertaining. Homes along Springs Way and nearby streets often feature three to five bedrooms, updated kitchens, and backyard pools.',
+      'Bishop Gorman High School is about 2.2 miles northeast via S. Rainbow Blvd.; Faith Lutheran Middle & High School and The Meadows School are also a short drive. Desert Breeze Park—with dog runs, skate park, and aquatic center—is nearby. Dr. Jan Duffy helps buyers compare Springs to other Spanish Trail enclaves and to neighboring communities like Summerlin.',
+      'Guard-gated staffing and the Spanish Trail clubhouse, tennis, and pools mean residents get both a quieter street grid and full amenity access. The Springs area appeals to buyers who want more bedrooms and a manageable lot without the scale of the largest Estates.',
     ],
   },
   {
@@ -173,7 +173,7 @@ const neighborhoodsData: Omit<Neighborhood, 'slug'>[] = [
       'Schools and clubhouse nearby',
     ],
     bodyParagraphs: [
-      'Plum Creek offers a blend of single-family homes and villa-style residences within Spanish Trail’s guard gates. Streets tend to be quiet and well-maintained, with greenbelts and walking paths that encourage outdoor activity. The neighborhood appeals to both families and empty-nesters seeking a manageable footprint.',
+      'Plum Creek offers a blend of single-family homes and villa-style residences within Spanish Trail’s guard gates. Streets tend to be quiet and well-maintained, with greenbelts and walking paths. The neighborhood appeals to buyers who want a smaller footprint without leaving the 89113 master plan.',
       'Dr. Jan Duffy provides market updates and comparable sales for Plum Creek so buyers and sellers can make data-driven decisions. She also connects relocating buyers with virtual tours and closing coordination when they cannot visit in person.',
       'Residents enjoy the same Spanish Trail amenities—clubhouse, golf, tennis, fitness, dining—while benefiting from a slightly more affordable entry point than the Estates or Links. Plum Creek is a strong choice for first-time Spanish Trail buyers or those downsizing without leaving the community.',
     ],

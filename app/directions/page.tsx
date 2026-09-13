@@ -7,6 +7,8 @@ import { Button } from '@/components/ui/button'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { CopyEmbedButton } from '@/components/copy-embed-button'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { SectionBanner } from '@/components/heading-media'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/directions'
 const pageDescription =
@@ -91,6 +93,7 @@ export default function DirectionsPage() {
       </div>
 
       <section className="border-b border-border/40 bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="directions-heading">
+      <SectionBanner headingId="directions-heading" />
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Google Maps Platform</p>
           <h1 id="directions-heading" className="mt-2 font-heading text-3xl text-[#1f2a24] sm:text-4xl lg:text-5xl">
@@ -105,6 +108,7 @@ export default function DirectionsPage() {
       </section>
 
       <section className="border-b border-border/40 bg-white py-16 sm:py-20" aria-labelledby="modes-heading">
+      <SectionBanner headingId="modes-heading" />
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <h2 id="modes-heading" className="font-heading text-2xl text-[#1f2a24] sm:text-3xl">
             Transportation modes
@@ -130,6 +134,7 @@ export default function DirectionsPage() {
       </section>
 
       <section className="border-b border-border/40 bg-[#f9f4eb] py-16 sm:py-20" aria-labelledby="embed-heading">
+      <SectionBanner headingId="embed-heading" />
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <h2 id="embed-heading" className="font-heading text-2xl text-[#1f2a24] sm:text-3xl">
             Copy and paste the code to your website
@@ -164,7 +169,8 @@ export default function DirectionsPage() {
         </div>
       </section>
 
-      <section className="bg-[#0f2b1e] py-16 text-center text-primary-foreground sm:py-20" aria-labelledby="cta-heading">
+      <section className="bg-[#0f2b1e] py-16 text-center text-primary-foreground sm:py-20 relative isolate overflow-hidden" aria-labelledby="cta-heading">
+      <SectionBanner headingId="cta-heading" />
         <div className="mx-auto max-w-2xl px-4 sm:px-6">
           <h2 id="cta-heading" className="font-heading text-2xl sm:text-3xl">
             Get started at no cost

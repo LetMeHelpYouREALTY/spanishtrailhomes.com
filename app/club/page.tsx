@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ChevronRight } from 'lucide-react'
 import Script from 'next/script'
 
 import { SiteShell } from '@/components/site-shell'
@@ -11,6 +10,8 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { lifestyleHighlights } from '@/lib/spanishTrailContent'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+
 
 const clubNarratives = [
   {
@@ -168,19 +169,19 @@ export default function ClubPage() {
   return (
     <SiteShell>
       <ClubHero />
-      <div className="bg-white">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
-          <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Club' }]} />
-        </div>
-      </div>
       <RealScoutSection
-        id="club-listings"
+        id="bhhs-listings"
         eyebrow="Featured Homes"
         title="Spanish Trail Residences Moments from the Clubhouse"
         description="Preview active listings within the guard-gated community—ideal for buyers seeking proximity to the clubhouse, sports complex, and event venues."
         priceMin="600000"
         propertyTypes=",SFR,CONDO"
       />
+      <div className="bg-white">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
+          <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Club' }]} />
+        </div>
+      </div>
       <ClubNarrativesSection />
       <ClubHistory />
       <AmenitiesHighlights />
@@ -206,27 +207,20 @@ function ClubHero() {
       className="relative isolate overflow-hidden"
       aria-labelledby="club-hero-heading"
     >
-      <div
-        className="absolute inset-0 -z-10 bg-cover bg-center"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(15,43,30,0.6), rgba(15,43,30,0.75)), url('https://images.unsplash.com/photo-1454496522488-7a8e488e8606?q=80&w=2400&auto=format&fit=crop')",
-        }}
-      />
+      <SectionBanner headingId="club-hero-heading" />
       <div className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-t from-background" />
       <div className="mx-auto max-w-5xl px-6 py-28 text-primary-foreground sm:py-40">
         <p className="text-xs uppercase tracking-[0.5em] text-accent">
-          Club Life
+          Spanish Trail Homes
         </p>
         <h1
           id="club-hero-heading"
           className="mt-5 font-[var(--font-playfair)] text-4xl leading-tight sm:text-5xl lg:text-6xl"
         >
-          Where Las Vegas&apos; most discerning members gather, celebrate, and
-          unwind.
+          Spanish Trail Homes and Club Access
         </h1>
         <p className="mt-6 max-w-2xl text-base leading-7 text-primary-foreground sm:text-lg">
-          A 50,000 square-foot clubhouse provides members with a fitness facility, two aquatic centers, twelve lighted tennis courts, and event spaces throughout. Enjoy panoramic Strip sunsets and a calendar of destination-worthy experiences—all within the privacy of Spanish Trail Country Club.
+          Club amenities sit inside this 89113 community. Dr. Jan Duffy buys and sells Spanish Trail homes. Call (702) 766-3299 to tour an address.
         </p>
       </div>
       <HeroSearchWidget theme="dark" />
@@ -241,6 +235,7 @@ function ClubHistory() {
       className="border-y border-border/60 bg-card/80"
       aria-labelledby="history-heading"
     >
+      <SectionBanner headingId="history-heading" />
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-20 lg:grid-cols-[1.1fr_1fr]">
         <div className="space-y-6 text-muted-foreground">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">
@@ -321,6 +316,7 @@ function AmenitiesHighlights() {
       className="bg-background py-20 sm:py-24"
       aria-labelledby="amenities-heading"
     >
+      <SectionBanner headingId="amenities-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-2xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">
@@ -360,6 +356,7 @@ function AmenitiesHighlights() {
 function ClubNarrativesSection() {
   return (
     <section className="bg-white py-20 sm:py-24" aria-labelledby="club-narratives-heading">
+      <SectionBanner headingId="club-narratives-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Inside the Club</p>
@@ -374,6 +371,7 @@ function ClubNarrativesSection() {
         <div className="mt-12 space-y-12">
           {clubNarratives.map((topic) => (
             <article key={topic.title} className="space-y-6 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-8 shadow-lg shadow-primary/10">
+              <CardVisual seed={String(topic.title)} />
               <h3 className="text-lg font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">
                 {topic.title}
               </h3>
@@ -397,6 +395,7 @@ function LifestyleSection() {
       className="border-y border-border/60 bg-card/80"
       aria-labelledby="lifestyle-heading"
     >
+      <SectionBanner headingId="lifestyle-heading" />
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-20 lg:grid-cols-[1fr_1.1fr]">
         <div className="space-y-5">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">
@@ -445,6 +444,7 @@ function LifestyleSection() {
 function ClubFAQSection() {
   return (
     <section className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="club-faq-heading">
+      <SectionBanner headingId="club-faq-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Spanish Trail Club FAQ</p>
@@ -459,6 +459,7 @@ function ClubFAQSection() {
         <div className="mt-12 space-y-10">
           {clubFaq.map((item) => (
             <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">
+              <CardVisual seed={String(item.question)} />
               <h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">
                 {item.question}
               </h3>
@@ -477,6 +478,7 @@ function TestimonialsHighlight() {
       className="bg-background py-20 sm:py-24"
       aria-labelledby="club-testimonials-heading"
     >
+      <SectionBanner headingId="club-testimonials-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">
@@ -486,7 +488,7 @@ function TestimonialsHighlight() {
             id="club-testimonials-heading"
             className="font-[var(--font-playfair)] text-3xl text-foreground sm:text-4xl"
           >
-            Trusted by generations of Las Vegas families.
+            Trusted by Spanish Trail homeowners.
           </h2>
           <p className="text-base leading-relaxed text-muted-foreground">
             Hear from longtime members about the culture, warmth, and excellence

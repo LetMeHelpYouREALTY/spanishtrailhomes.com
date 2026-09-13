@@ -4,6 +4,7 @@ import { createContext, useCallback, useContext, useEffect, useRef, useState } f
 import Image from 'next/image'
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
+import { getSiteImageUrl } from '@/lib/cloudflare-images'
 import { cn } from '@/lib/utils'
 import {
   trackPropertyLightboxOpen,
@@ -16,12 +17,12 @@ const SMS_LISTINGS = 'sms:+17027663299?body=Alert%20me%20about%20new%20Spanish%2
 const SMS_SCHEDULE_TOUR = 'sms:+17027663299?body=I%27d%20like%20to%20schedule%20a%20Spanish%20Trail%20home%20tour'
 
 const PLACEHOLDER_PROPERTIES = [
-  { id: '1', address: '5050 Spanish Trail Ln', price: '$649,000', beds: 3, baths: 2.5, image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=300&fit=crop&q=80' },
-  { id: '2', address: '5120 Cactus Garden Dr', price: '$725,000', beds: 4, baths: 3, image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=300&fit=crop&q=80' },
-  { id: '3', address: '5080 Lakes Course Dr', price: '$589,000', beds: 3, baths: 2, image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&h=300&fit=crop&q=80' },
-  { id: '4', address: '5200 Estates West Blvd', price: '$849,000', beds: 4, baths: 3.5, image: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=400&h=300&fit=crop&q=80' },
-  { id: '5', address: '5150 Springs Way', price: '$699,000', beds: 3, baths: 2.5, image: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&h=300&fit=crop&q=80' },
-  { id: '6', address: '5100 Courtyards Ln', price: '$549,000', beds: 2, baths: 2, image: 'https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=400&h=300&fit=crop&q=80' },
+  { id: '1', address: '5050 Spanish Trail Ln', price: '$649,000', beds: 3, baths: 2.5, imageId: 'h3-listing-home-a' },
+  { id: '2', address: '5120 Cactus Garden Dr', price: '$725,000', beds: 4, baths: 3, imageId: 'h3-listing-home-b' },
+  { id: '3', address: '5080 Lakes Course Dr', price: '$589,000', beds: 3, baths: 2, imageId: 'h3-listing-home-e' },
+  { id: '4', address: '5200 Estates West Blvd', price: '$849,000', beds: 4, baths: 3.5, imageId: 'h3-listing-home-c' },
+  { id: '5', address: '5150 Springs Way', price: '$699,000', beds: 3, baths: 2.5, imageId: 'h3-listing-home-f' },
+  { id: '6', address: '5100 Courtyards Ln', price: '$549,000', beds: 2, baths: 2, imageId: 'h3-listing-home-d' },
 ]
 
 type PropertyLightboxContextValue = {
@@ -178,14 +179,13 @@ function PropertyLightboxModal({
                 key={p.id}
                 className="overflow-hidden rounded-xl border border-[#d8cdbf] bg-[#fdf9f3] shadow-sm transition-transform duration-200 hover:scale-[1.05] focus-within:scale-[1.05]"
               >
-                <div className="aspect-[4/3] overflow-hidden bg-[#e8e4dc]">
+                <div className="relative aspect-[4/3] overflow-hidden bg-[#e8e4dc]">
                   <Image
-                    src={p.image}
+                    src={getSiteImageUrl(p.imageId)}
                     alt={`Spanish Trail Las Vegas home example at ${p.address} — ${p.price}, ${p.beds} bed ${p.baths} bath`}
-                    width={400}
-                    height={300}
+                    fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="h-full w-full object-cover"
+                    className="object-cover"
                   />
                 </div>
                 <div className="p-3 sm:p-4">

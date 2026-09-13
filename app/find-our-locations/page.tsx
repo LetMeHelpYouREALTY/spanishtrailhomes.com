@@ -3,9 +3,12 @@ import Link from 'next/link'
 import Script from 'next/script'
 
 import { SiteShell } from '@/components/site-shell'
+import { RealScoutSection } from '@/components/realscout-section'
 import { Button } from '@/components/ui/button'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { SectionBanner } from '@/components/heading-media'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/find-our-locations'
 const pageDescription =
@@ -146,6 +149,7 @@ export default function FindOurLocationsPage() {
       />
 
       <HeroSection />
+      <RealScoutSection id="bhhs-listings" />
       <GetStartedSection steps={steps} />
       <ChooseLocationsSection locations={storeLocations} />
       <MapAndActionsSection
@@ -164,6 +168,7 @@ function HeroSection() {
       className="relative overflow-hidden bg-[#0f2b1e] px-6 py-20 text-primary-foreground sm:py-28"
       aria-labelledby="find-locations-heading"
     >
+      <SectionBanner headingId="find-locations-heading" />
       <div className="mx-auto max-w-4xl text-center">
         <p className="text-xs uppercase tracking-[0.5em] text-primary-foreground/80">
           Store locator
@@ -172,7 +177,7 @@ function HeroSection() {
           id="find-locations-heading"
           className="mt-4 font-[var(--font-playfair)] text-3xl tracking-tight sm:text-4xl md:text-5xl"
         >
-          Help customers find your stores
+          Visit Spanish Trail | Homes By Dr. Jan Duffy
         </h1>
         <p className="mt-6 max-w-2xl mx-auto text-base leading-7 text-primary-foreground/90 sm:text-lg">
           Add a custom map showing all your store locations to your website.
@@ -191,6 +196,7 @@ function GetStartedSection({ steps }: { steps: StepItem[] }) {
       className="bg-white py-20 sm:py-24"
       aria-labelledby="get-started-heading"
     >
+      <SectionBanner headingId="get-started-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2
           id="get-started-heading"
@@ -237,6 +243,7 @@ function ChooseLocationsSection({
       className="bg-[#f8f2e7] py-20 sm:py-24"
       aria-labelledby="choose-locations-heading"
     >
+      <SectionBanner headingId="choose-locations-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">
           Our locations
@@ -299,6 +306,7 @@ function MapAndActionsSection({
       className="bg-white py-20 sm:py-24"
       aria-labelledby="map-heading"
     >
+      <SectionBanner headingId="map-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2
           id="map-heading"
@@ -395,6 +403,7 @@ function AddMapSection() {
       className="bg-[#f8f2e7] py-20 sm:py-24"
       aria-labelledby="add-map-heading"
     >
+      <SectionBanner headingId="add-map-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2
           id="add-map-heading"

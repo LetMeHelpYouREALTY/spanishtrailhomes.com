@@ -4,9 +4,15 @@ import Script from 'next/script'
 
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { SiteShell } from '@/components/site-shell'
+import { RealScoutSection } from '@/components/realscout-section'
 import { Button } from '@/components/ui/button'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { getAgentPortraitAbsoluteUrl } from '@/lib/agent-portraits'
 import { HeroBackground } from '@/components/hero-background'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { getSiteImageUrl } from '@/lib/cloudflare-images'
+import { AgentPortrait } from '@/components/agent-portrait'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/awards'
 const awardsPageDescription =
@@ -134,7 +140,7 @@ const professionalProfileSchema = {
     postalCode: '89113',
     addressCountry: 'US',
   },
-  image: 'https://www.spanishtrailhomes.com/images/janet-duffy.jpg',
+  image: getAgentPortraitAbsoluteUrl('duffy-circle-awards'),
 }
 
 const awardsWebPageSchema = createWebPageSchema({
@@ -193,6 +199,7 @@ export default function AwardsPage() {
   return (
     <SiteShell>
       <HeroSection />
+      <RealScoutSection id="bhhs-listings" />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs
@@ -225,15 +232,16 @@ function HeroSection() {
   return (
     <header className="relative isolate overflow-hidden text-[#f8f5ef]" aria-labelledby="awards-hero-heading">
       <HeroBackground
-        src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&auto=format&fit=crop&w=2000"
+        src={getSiteImageUrl('h2-awards-study')}
         overlayClassName="bg-gradient-to-b from-[#0f2b1e]/60 to-[#0f2b1e]/85"
         sizes="(max-width: 1024px) 100vw, 1280px"
       />
       <div className="absolute inset-x-0 bottom-0 -z-10 h-32 bg-linear-to-t from-[#0f2b1e]/90" />
-      <div className="mx-auto flex max-w-4xl flex-col gap-6 px-6 py-24 text-center sm:py-28">
+      <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-6 py-24 text-center sm:py-28">
+        <AgentPortrait placement="awards" size="lg" priority schema pagePath="/awards" />
         <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/70">Credentials That Safeguard Your Sale</p>
         <h1 id="awards-hero-heading" className="font-heading text-3xl font-semibold leading-tight sm:text-4xl">
-          Recognition earned in Spanish Trail’s guard-gated market
+          Awards for Spanish Trail Homes Representation
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85 sm:text-lg">
           Dr. Jan Duffy blends academic rigor, Berkshire Hathaway HomeServices resources, and hyper-local intelligence to
@@ -262,6 +270,7 @@ function HeroSection() {
 function RecognitionTimelineSection() {
   return (
     <section id="recognition-timeline" className="bg-white py-20 sm:py-24" aria-labelledby="recognition-heading">
+      <SectionBanner headingId="recognition-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">Award History</p>
@@ -280,6 +289,7 @@ function RecognitionTimelineSection() {
               key={`${item.year}-${item.title}`}
               className="flex h-full flex-col justify-between rounded-3xl border border-border/40 bg-[#f8f2e7] p-6 shadow-lg shadow-primary/10"
             >
+              <CardVisual seed={`${item.year}-${item.title}`} />
               <div className="space-y-3">
                 <p className="text-xs uppercase tracking-[0.4em] text-secondary/80">{item.year}</p>
                 <h3 className="font-heading text-2xl text-[#1f2a24]">{item.title}</h3>
@@ -300,6 +310,7 @@ function ProfessionalMembershipsSection() {
       className="bg-[#0f2b1e] py-20 text-[#f8f5ef] sm:py-24"
       aria-labelledby="memberships-heading"
     >
+      <SectionBanner headingId="memberships-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/70">Memberships & Designations</p>
@@ -317,6 +328,7 @@ function ProfessionalMembershipsSection() {
               key={item.label}
               className="rounded-3xl border border-white/15 bg-white/5 p-6 shadow-lg shadow-black/20 backdrop-blur"
             >
+              <CardVisual seed={String(item.label)} />
               <h3 className="font-heading text-xl text-white">{item.label}</h3>
               <p className="mt-3 text-sm leading-relaxed text-[#f8f5ef]/80">{item.detail}</p>
             </article>
@@ -330,6 +342,7 @@ function ProfessionalMembershipsSection() {
 function PressHighlightsSection() {
   return (
     <section id="press-highlights" className="bg-white py-20 sm:py-24" aria-labelledby="press-heading">
+      <SectionBanner headingId="press-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl space-y-4">
@@ -356,6 +369,7 @@ function PressHighlightsSection() {
               key={`${item.outlet}-${item.headline}`}
               className="flex h-full flex-col justify-between rounded-3xl border border-border/40 bg-[#f8f2e7] p-6 shadow-lg shadow-primary/10"
             >
+              <CardVisual seed={`${item.outlet}-${item.headline}`} />
               <div className="space-y-3">
                 <p className="text-xs uppercase tracking-[0.4em] text-secondary/70">{item.outlet}</p>
                 <h3 className="font-heading text-xl text-[#1f2a24]">{item.headline}</h3>
@@ -372,6 +386,7 @@ function PressHighlightsSection() {
 function ClientImpactSection() {
   return (
     <section id="client-impact" className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="impact-heading">
+      <SectionBanner headingId="impact-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl space-y-4">
@@ -397,6 +412,7 @@ function ClientImpactSection() {
               key={item.stat}
               className="flex h-full flex-col justify-between rounded-3xl border border-[#cdbda5] bg-white p-6 shadow-lg shadow-primary/10"
             >
+              <CardVisual seed={String(item.stat)} />
               <h3 className="font-heading text-2xl text-[#1f2a24]">{item.stat}</h3>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{item.context}</p>
             </article>
@@ -409,9 +425,13 @@ function ClientImpactSection() {
 
 function AdvisoryCTASection() {
   return (
-    <section className="bg-white py-20 sm:py-24" aria-labelledby="advisory-cta-heading">
+    <section className="bg-white py-20 sm:py-24 relative isolate overflow-hidden" aria-labelledby="advisory-cta-heading">
+      <SectionBanner headingId="advisory-cta-heading" />
       <div className="mx-auto max-w-4xl rounded-3xl border border-border/40 bg-[#0f2b1e] px-8 py-16 text-center text-[#f8f5ef] shadow-xl shadow-primary/20">
         <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/70">Work With Dr. Jan Duffy</p>
+        <div className="mx-auto mt-6">
+          <AgentPortrait placement="advisory-cta" size="md" />
+        </div>
         <h2 id="advisory-cta-heading" className="mt-4 font-heading text-3xl leading-tight sm:text-4xl">
           Align awards-level expertise with your Spanish Trail move
         </h2>

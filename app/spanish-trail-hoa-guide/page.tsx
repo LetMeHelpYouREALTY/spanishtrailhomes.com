@@ -8,6 +8,8 @@ import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-hoa-guide'
 const pageDescription =
@@ -114,6 +116,14 @@ export default function SpanishTrailHOAGuidePage() {
   return (
     <SiteShell>
       <HeroSection />
+      <RealScoutSection
+        id="bhhs-listings"
+        eyebrow="Find Your Home"
+        title="Spanish Trail homes with HOA transparency"
+        description="Dr. Jan Duffy provides complete HOA documentation for every listing—fees, reserves, and rules—so you can buy with confidence."
+        priceMin="600000"
+        propertyTypes=",SFR,CONDO"
+      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
           <Breadcrumbs
@@ -129,14 +139,6 @@ export default function SpanishTrailHOAGuidePage() {
       <GateAccessSection />
       <FeesSection />
       <ArchitecturalSection />
-      <RealScoutSection
-        id="hoa-homes"
-        eyebrow="Find Your Home"
-        title="Spanish Trail homes with HOA transparency"
-        description="Dr. Jan Duffy provides complete HOA documentation for every listing—fees, reserves, and rules—so you can buy with confidence."
-        priceMin="600000"
-        propertyTypes=",SFR,CONDO"
-      />
       <FAQSection />
       <CTASection />
       <Script id="hoa-faq-schema" type="application/ld+json" strategy="afterInteractive">
@@ -151,11 +153,12 @@ export default function SpanishTrailHOAGuidePage() {
 
 function HeroSection() {
   return (
-    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="hoa-hero-heading">
+    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="hoa-hero-heading">
+      <SectionBanner headingId="hoa-hero-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <p className="text-xs uppercase tracking-[0.5em] text-[#c6aa7a]">Community Standards</p>
         <h1 id="hoa-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-          Spanish Trail HOA Las Vegas | Community Guide
+          Spanish Trail HOA Guide for Buyers and Sellers
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           Searching “Spanish Trail HOA” usually means you want fees, gates, and rules for this guard-gated Las Vegas community—not the private country club dues next door. The HOA keeps standards high across 89113; here is how orientation, access, and architectural review work before you buy or sell with Dr. Jan Duffy.
@@ -181,6 +184,7 @@ function HeroSection() {
 function OrientationSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="orientation-heading">
+      <SectionBanner headingId="orientation-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.1fr_1fr]">
           <div className="space-y-6">
@@ -222,6 +226,7 @@ function OrientationSection() {
 function GateAccessSection() {
   return (
     <section className="border-y border-border/60 bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="gate-heading">
+      <SectionBanner headingId="gate-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Guard-Gated Security</p>
@@ -274,6 +279,7 @@ function GateAccessSection() {
 function FeesSection() {
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="fees-heading">
+      <SectionBanner headingId="fees-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           <div className="space-y-6">
@@ -324,6 +330,7 @@ function FeesSection() {
 function ArchitecturalSection() {
   return (
     <section className="border-y border-border/60 bg-card/80 py-16 sm:py-20" aria-labelledby="architectural-heading">
+      <SectionBanner headingId="architectural-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.1fr_1fr]">
           <div className="space-y-6">
@@ -366,6 +373,7 @@ function ArchitecturalSection() {
 function FAQSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="hoa-faq-heading">
+      <SectionBanner headingId="hoa-faq-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="hoa-faq-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           HOA Frequently Asked Questions
@@ -373,6 +381,7 @@ function FAQSection() {
         <div className="mt-10 space-y-6">
           {faqContent.map((item) => (
             <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10 text-base leading-relaxed text-[#372a20]/85">
+              <CardVisual seed={String(item.question)} />
               <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">{item.question}</h3>
               <p>{item.answer}</p>
             </article>
@@ -385,10 +394,11 @@ function FAQSection() {
 
 function CTASection() {
   return (
-    <section className="bg-white py-16 sm:py-20" aria-labelledby="hoa-cta-heading">
+    <section className="bg-white py-16 sm:py-20 relative isolate overflow-hidden" aria-labelledby="hoa-cta-heading">
+      <SectionBanner headingId="hoa-cta-heading" />
       <div className="mx-auto max-w-6xl px-4 text-center sm:px-6">
         <h2 id="hoa-cta-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
-          Get complete HOA information before you buy
+          HOA facts before you buy or sell a Spanish Trail home
         </h2>
         <p className="mt-4 text-base leading-relaxed text-[#372a20]/85">
           Dr. Jan Duffy provides comprehensive HOA documentation for every Spanish Trail listing—fees, reserves, rules, and assessment history. Call <Link href="tel:+17027663299" className="underline-offset-4 hover:underline">(702) 766-3299</Link> for transparent guidance.

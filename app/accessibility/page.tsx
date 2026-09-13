@@ -7,6 +7,9 @@ import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { getSiteImageUrl } from '@/lib/cloudflare-images'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/accessibility'
 const accessibilityPageDescription =
@@ -118,7 +121,7 @@ function HeroSection() {
   return (
     <header className="relative isolate overflow-hidden text-[#f8f5ef]" aria-labelledby="accessibility-hero-heading">
       <HeroBackground
-        src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&auto=format&fit=crop&w=2000"
+        src={getSiteImageUrl('h2-accessible-entrance')}
         overlayClassName="bg-gradient-to-b from-[#0f2b1e]/55 to-[#0f2b1e]/85"
         sizes="(max-width: 1024px) 100vw, 1280px"
       />
@@ -155,6 +158,7 @@ function HeroSection() {
 function CommitmentSection() {
   return (
     <section id="accessibility-commitment" className="bg-white py-20 sm:py-24" aria-labelledby="commitment-heading">
+      <SectionBanner headingId="commitment-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6 space-y-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">Commitment</p>
@@ -181,6 +185,7 @@ function CommitmentSection() {
 function StandardsSection() {
   return (
     <section id="accessibility-standards" className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="standards-heading">
+      <SectionBanner headingId="standards-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-3xl space-y-4">
@@ -214,6 +219,7 @@ function StandardsSection() {
 function TestingSection() {
   return (
     <section id="accessibility-testing" className="bg-white py-20 sm:py-24" aria-labelledby="testing-heading">
+      <SectionBanner headingId="testing-heading" />
       <div className="mx-auto max-w-5xl px-6 space-y-6">
         <div className="space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">Testing Process</p>
@@ -242,6 +248,7 @@ function AssistiveTechnologySection() {
       className="bg-[#0f2b1e] py-20 text-[#f8f5ef] sm:py-24"
       aria-labelledby="assistive-technology-heading"
     >
+      <SectionBanner headingId="assistive-technology-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6 space-y-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/70">Assistive Technology Support</p>
@@ -255,6 +262,7 @@ function AssistiveTechnologySection() {
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <article className="rounded-3xl border border-white/15 bg-white/10 p-6 shadow-lg shadow-black/20 backdrop-blur">
+              <CardVisual seed="card-1" />
             <h3 className="font-heading text-xl text-white">Supported tools</h3>
             <p className="mt-3 text-sm leading-relaxed text-[#f8f5ef]/80">
               Screen readers (NVDA, JAWS, VoiceOver), screen magnifiers, voice input software, and keyboard-only navigation are
@@ -262,6 +270,7 @@ function AssistiveTechnologySection() {
             </p>
           </article>
           <article className="rounded-3xl border border-white/15 bg-white/10 p-6 shadow-lg shadow-black/20 backdrop-blur">
+              <CardVisual seed="card-2" />
             <h3 className="font-heading text-xl text-white">Responsive design</h3>
             <p className="mt-3 text-sm leading-relaxed text-[#f8f5ef]/80">
               Layouts adapt for small screens, large monitors, and assistive interfaces, ensuring consistent access to listings,
@@ -281,6 +290,7 @@ function FeedbackSection() {
       className="bg-white py-20 sm:py-24"
       aria-labelledby="feedback-heading"
     >
+      <SectionBanner headingId="feedback-heading" />
       <div className="mx-auto max-w-5xl px-6 space-y-6">
         <div className="space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">Feedback & Support</p>
@@ -314,6 +324,7 @@ function FeedbackSection() {
 function OngoingImprovementsSection() {
   return (
     <section id="accessibility-improvements" className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="improvements-heading">
+      <SectionBanner headingId="improvements-heading" />
       <div className="mx-auto max-w-5xl px-6 space-y-6">
         <div className="space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Continuous Improvement</p>
@@ -338,6 +349,7 @@ function OngoingImprovementsSection() {
 function ContactSection() {
   return (
     <section id="accessibility-contact" className="bg-white py-20 sm:py-24" aria-labelledby="accessibility-contact-heading">
+      <SectionBanner headingId="accessibility-contact-heading" />
       <div className="mx-auto max-w-4xl rounded-3xl border border-border/40 bg-[#0f2b1e] px-8 py-16 text-center text-[#f8f5ef] shadow-xl shadow-primary/20">
         <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/70">Direct Assistance</p>
         <h2 id="accessibility-contact-heading" className="mt-4 font-heading text-3xl leading-tight sm:text-4xl">

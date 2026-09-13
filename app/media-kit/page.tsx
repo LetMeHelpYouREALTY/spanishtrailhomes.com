@@ -3,16 +3,20 @@ import Link from 'next/link'
 import Script from 'next/script'
 
 import { SiteShell } from '@/components/site-shell'
+import { RealScoutSection } from '@/components/realscout-section'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
 import { CalendlyLink } from '@/components/calendly-link'
+import { SectionBanner } from '@/components/heading-media'
+import { AgentPortrait } from '@/components/agent-portrait'
 import {
   createOgImageUrl,
   createWebPageSchema,
   createBreadcrumbSchema,
   getCanonicalUrl,
 } from '@/lib/structuredData'
+import { getAgentPortraitAbsoluteUrl } from '@/lib/agent-portraits'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/media-kit'
 const pageTitle = 'Spanish Trail Homes Media Kit - Dr. Jan Duffy'
@@ -37,7 +41,7 @@ const agentSchema = {
   '@type': 'RealEstateAgent',
   name: 'Dr. Jan Duffy',
   url: pageUrl,
-  image: 'https://www.spanishtrailhomes.com/images/janet-duffy.jpg',
+  image: getAgentPortraitAbsoluteUrl('duffy-circle-media'),
   jobTitle: 'REALTOR® | Berkshire Hathaway HomeServices Nevada Properties',
   email: 'DrDuffySells@SpanishTrailHomes.com',
   telephone: '+1-702-766-3299',
@@ -112,9 +116,13 @@ export default function MediaKitPage() {
 
       <HeroBackground
         title="Spanish Trail Homes Media Kit"
-        subtitle="Dr. Jan Duffy · Luxury Real Estate Specialist"
-        description="Official media kit for press, partners, and clients. Book a consultation to buy or sell in Spanish Trail."
+        subtitle="Dr. Jan Duffy · Spanish Trail homes realtor"
+        description="Press kit for the realtor who buys and sells Spanish Trail homes only."
       />
+      <div className="flex justify-center bg-[#f8f5ef] py-8">
+        <AgentPortrait placement="media" size="xl" rounded="2xl" showCaption schema pagePath="/media-kit" />
+      </div>
+      <RealScoutSection id="bhhs-listings" />
 
       <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12">
         <Breadcrumbs
@@ -152,6 +160,7 @@ export default function MediaKitPage() {
 
         {/* Bio */}
         <section className="mb-12" aria-labelledby="bio-heading">
+      <SectionBanner headingId="bio-heading" />
           <h2 id="bio-heading" className="font-playfair text-xl font-semibold text-[#0f2b1e] sm:text-2xl">
             Bio
           </h2>
@@ -167,6 +176,7 @@ export default function MediaKitPage() {
 
         {/* Quick facts */}
         <section className="mb-12" aria-labelledby="facts-heading">
+      <SectionBanner headingId="facts-heading" />
           <h2 id="facts-heading" className="font-playfair text-xl font-semibold text-[#0f2b1e] sm:text-2xl">
             Quick Facts
           </h2>
@@ -182,6 +192,7 @@ export default function MediaKitPage() {
 
         {/* Credentials */}
         <section className="mb-12" aria-labelledby="credentials-heading">
+      <SectionBanner headingId="credentials-heading" />
           <h2 id="credentials-heading" className="font-playfair text-xl font-semibold text-[#0f2b1e] sm:text-2xl">
             Credentials & Recognition
           </h2>
@@ -194,6 +205,7 @@ export default function MediaKitPage() {
 
         {/* Media assets / headshot */}
         <section className="mb-12" aria-labelledby="media-heading">
+      <SectionBanner headingId="media-heading" />
           <h2 id="media-heading" className="font-playfair text-xl font-semibold text-[#0f2b1e] sm:text-2xl">
             Media Assets
           </h2>
@@ -216,6 +228,7 @@ export default function MediaKitPage() {
 
         {/* NAP & final CTA */}
         <section className="rounded-2xl border border-[#0f2b1e]/20 bg-[#f8f5ef] p-6 sm:p-8" aria-labelledby="contact-heading">
+      <SectionBanner headingId="contact-heading" />
           <h2 id="contact-heading" className="font-playfair text-xl font-semibold text-[#0f2b1e] sm:text-2xl">
             Contact
           </h2>

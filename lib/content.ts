@@ -4,24 +4,21 @@ export const golfCourses = [
     description:
       'Sweeping vistas and forgiving fairways welcome every tee time with golden-hour light.',
     yardage: 'Par 36 • 3,463 Yards',
-    image:
-      'https://images.unsplash.com/photo-1501856777433-9fbb13f0b2c6?q=80&w=1920&auto=format&fit=crop',
+    imageId: 'h2-golf-sunrise',
   },
   {
     name: 'Lakes Course',
     description:
       'Water-guarded greens and mature trees carve a strategic path through Spanish Trail.',
     yardage: 'Par 36 • 3,540 Yards',
-    image:
-      'https://images.unsplash.com/photo-1511296265584-9bab7f103259?q=80&w=1920&auto=format&fit=crop',
+    imageId: 'h2-golf-lakes',
   },
   {
     name: 'Canyon Course',
     description:
       'Elevation changes and desert vistas deliver the boldest test in our 27-hole collection.',
     yardage: 'Par 36 • 3,515 Yards',
-    image:
-      'https://images.unsplash.com/photo-1508873696983-2dfd5898f08b?q=80&w=1920&auto=format&fit=crop',
+    imageId: 'h2-golf-canyon',
   },
 ]
 

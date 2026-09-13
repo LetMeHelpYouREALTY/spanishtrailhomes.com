@@ -1,5 +1,6 @@
 'use client'
 
+import { AgentPortrait } from '@/components/agent-portrait'
 import { PropertyLightboxTrigger } from '@/components/property-lightbox'
 
 export function TourCTAStrip() {
@@ -10,6 +11,7 @@ export function TourCTAStrip() {
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:justify-center sm:gap-8">
+          <AgentPortrait placement="tour" size="md" />
           <div>
             <h2 id="tour-cta-heading" className="font-heading text-xl font-semibold text-[#0f2b1e] sm:text-2xl">
               Ready to walk through these homes?

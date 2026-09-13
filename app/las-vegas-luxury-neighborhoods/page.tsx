@@ -4,10 +4,13 @@ import Script from 'next/script'
 
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { SiteShell } from '@/components/site-shell'
+import { RealScoutSection } from '@/components/realscout-section'
 import { Button } from '@/components/ui/button'
 import { nearbyCommunities } from '@/lib/spanishTrailContent'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/las-vegas-luxury-neighborhoods'
 
@@ -156,10 +159,11 @@ export const metadata: Metadata = {
 export default function LuxuryNeighborhoodComparisonsPage() {
   return (
     <SiteShell>
-      <header className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="neighborhoods-hero">
+      <header className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="neighborhoods-hero">
+      <SectionBanner headingId="neighborhoods-hero" />
         <div className="mx-auto max-w-4xl space-y-5 px-6 text-center">
           <h1 id="neighborhoods-hero" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
-            Las Vegas Luxury Neighborhoods | Spanish Trail, Summerlin Golf & Beyond
+            Spanish Trail Homes vs Other Las Vegas Neighborhoods
           </h1>
           <p className="text-base leading-relaxed text-[#f8f5ef]/85">
             Evaluate Spanish Trail—southwest Las Vegas, not inside Summerlin—next to Summerlin country-club communities, Spanish Hills, The Ridges, and Red Rock Country Club. Dr. Jan Duffy clarifies geography, golf access, and HOA differences, then connects you to{' '}
@@ -186,6 +190,7 @@ export default function LuxuryNeighborhoodComparisonsPage() {
         </div>
         <HeroSearchWidget theme="dark" />
       </header>
+      <RealScoutSection id="bhhs-listings" />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs
@@ -216,6 +221,7 @@ function ComparisonGridSection() {
       className="bg-white py-20 sm:py-24"
       aria-labelledby="comparison-grid-heading"
     >
+      <SectionBanner headingId="comparison-grid-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">West Valley Highlights</p>
@@ -249,6 +255,7 @@ function ComparisonGridSection() {
 function RelocationChecklistSection() {
   return (
     <section className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="relocation-checklist-heading">
+      <SectionBanner headingId="relocation-checklist-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.1fr_1fr]">
           <div className="space-y-4">
@@ -283,6 +290,7 @@ function RelocationChecklistSection() {
 function SpanishTrailPositioningSection() {
   return (
     <section className="border-y border-border/40 bg-white" aria-labelledby="spanish-trail-positioning-heading">
+      <SectionBanner headingId="spanish-trail-positioning-heading" />
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-20 lg:grid-cols-[1fr_1.1fr]">
         <div className="space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">Why Spanish Trail</p>
@@ -338,6 +346,7 @@ function SpanishTrailPositioningSection() {
 function LuxuryNeighborhoodsFAQSection() {
   return (
     <section className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="luxury-neighborhoods-faq-heading">
+      <SectionBanner headingId="luxury-neighborhoods-faq-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Luxury Neighborhood Comparison FAQ</p>
@@ -352,6 +361,7 @@ function LuxuryNeighborhoodsFAQSection() {
         <div className="mt-12 space-y-10">
           {luxuryNeighborhoodsFaq.map((item) => (
             <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">
+              <CardVisual seed={String(item.question)} />
               <h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">
                 {item.question}
               </h3>
@@ -366,7 +376,8 @@ function LuxuryNeighborhoodsFAQSection() {
 
 function LuxuryCTASection() {
   return (
-    <section className="bg-[#0f2b1e] py-20 text-[#f8f5ef]" aria-labelledby="luxury-cta-heading">
+    <section className="bg-[#0f2b1e] py-20 text-[#f8f5ef] relative isolate overflow-hidden" aria-labelledby="luxury-cta-heading">
+      <SectionBanner headingId="luxury-cta-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h2 id="luxury-cta-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
           Let's match you with the right community

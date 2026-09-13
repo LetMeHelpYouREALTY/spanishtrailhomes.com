@@ -10,6 +10,9 @@ import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { HeroBackground } from '@/components/hero-background'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { marketStats, formatMedianPrice } from '@/lib/marketStats'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { getSiteImageUrl } from '@/lib/cloudflare-images'
+
 
 const pageUrl = 'https://www.spanishtrailhomes.com/homes-for-sale-in-spanish-trail-las-vegas'
 
@@ -126,6 +129,11 @@ export default function HomesForSaleInSpanishTrailLasVegasPage() {
   return (
     <SiteShell>
       <HeroSection />
+      <RealScoutSection
+        id="bhhs-listings"
+        title="Browse Current Homes for Sale in Spanish Trail"
+        description="View active listings with real-time updates, advanced filters, and detailed property information."
+      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs
@@ -142,11 +150,6 @@ export default function HomesForSaleInSpanishTrailLasVegasPage() {
       <LocationAndAmenitiesSection />
       <MarketDataSection />
       <NeighborhoodsSection />
-      <RealScoutSection
-        id="spanish-trail-listings"
-        title="Browse Current Homes for Sale in Spanish Trail"
-        description="View active listings with real-time updates, advanced filters, and detailed property information."
-      />
       <BuyingProcessSection />
       <HomesForSaleFAQSection />
       <CTASection />
@@ -164,7 +167,7 @@ function HeroSection() {
   return (
     <section className="relative isolate overflow-hidden text-[#f8f5ef]" aria-labelledby="hero-heading">
       <HeroBackground
-        src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&auto=format&fit=crop&w=2000"
+        src={getSiteImageUrl('h1-luxury-estate')}
         alt="Spanish Trail Country Club Las Vegas—homes for sale in guard-gated private golf community, fairway and estate architecture"
         overlayClassName="bg-gradient-to-b from-[#0f2b1e]/60 to-[#0f2b1e]/85"
         sizes="(max-width: 1024px) 100vw, 1280px"
@@ -172,7 +175,7 @@ function HeroSection() {
       <div className="mx-auto flex max-w-4xl flex-col gap-6 px-6 py-28 text-center sm:py-32">
         <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/70">Spanish Trail Real Estate</p>
         <h1 id="hero-heading" className="font-heading text-3xl leading-tight sm:text-4xl">
-          Spanish Trail Country Club Homes for Sale | Las Vegas Property Types (89113)
+          Spanish Trail Home Types | Estates, Villas & Fairway Homes
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85 sm:text-lg">
           This page is a <strong className="font-semibold text-[#f8f5ef]">read-first guide</strong> to Spanish Trail private country club real estate—villas, estates, fairway homes, pools, and how the eleven enclaves differ—not the primary MLS search surface. When you are ready for{' '}
@@ -198,7 +201,7 @@ function HeroSection() {
             variant="outline"
             className="rounded-full border-[#f8f5ef]/60 px-8 py-3 text-xs uppercase tracking-[0.35em] text-[#f8f5ef] hover:bg-white/10"
           >
-            <Link href="#spanish-trail-listings">View Listings</Link>
+            <Link href="#bhhs-listings">View Listings</Link>
           </Button>
         </div>
         <HeroSearchWidget theme="dark" />
@@ -210,10 +213,11 @@ function HeroSection() {
 function OverviewSection() {
   return (
     <section className="bg-white py-20 sm:py-24" aria-labelledby="overview-heading">
+      <SectionBanner headingId="overview-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-6">
           <h2 id="overview-heading" className="font-heading text-3xl text-[#1f2a24] sm:text-4xl">
-            Homes for Sale in Spanish Trail - Las Vegas\'s Premier Guard-Gated Community
+            Spanish Trail homes for sale by type
           </h2>
           <p className="text-base leading-relaxed text-[#372a20]/85">
             Spanish Trail features a diverse range of housing options for sale, from elegant single-family homes to grand estates, all within a luxury guard-gated community in Southwest Las Vegas. Whether you\'re seeking a sophisticated residence or an expansive estate, homes for sale in Spanish Trail offer the perfect blend of privacy, security, and world-class amenities.
@@ -255,6 +259,7 @@ function PropertyTypesSection() {
 
   return (
     <section className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="property-types-heading">
+      <SectionBanner headingId="property-types-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="property-types-heading" className="font-heading text-3xl text-[#1f2a24] sm:text-4xl">
           Types of Homes for Sale in Spanish Trail
@@ -268,6 +273,7 @@ function PropertyTypesSection() {
               key={type.title}
               className="rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10"
             >
+              <CardVisual seed={String(type.title)} />
               <h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">{type.title}</h3>
               {type.range && (
                 <p className="mt-2 text-sm text-[#6f5237]">
@@ -286,6 +292,7 @@ function PropertyTypesSection() {
 function LocationAndAmenitiesSection() {
   return (
     <section className="bg-white py-20 sm:py-24" aria-labelledby="location-heading">
+      <SectionBanner headingId="location-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           <div className="space-y-6">
@@ -342,6 +349,7 @@ function LocationAndAmenitiesSection() {
 function MarketDataSection() {
   return (
     <section className="bg-[#0f2b1e] py-20 text-[#f8f5ef] sm:py-24" aria-labelledby="market-heading">
+      <SectionBanner headingId="market-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="market-heading" className="font-heading text-3xl text-[#f8f5ef] sm:text-4xl">
           Current Market Data for Homes for Sale in Spanish Trail
@@ -406,6 +414,7 @@ function NeighborhoodsSection() {
 
   return (
     <section className="bg-white py-20 sm:py-24" aria-labelledby="neighborhoods-heading">
+      <SectionBanner headingId="neighborhoods-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="neighborhoods-heading" className="font-heading text-3xl text-[#1f2a24] sm:text-4xl">
           Spanish Trail Neighborhoods with Homes for Sale
@@ -419,6 +428,7 @@ function NeighborhoodsSection() {
               key={neighborhood.name}
               className="rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10"
             >
+              <CardVisual seed={String(neighborhood.name)} />
               <h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">
                 {neighborhood.name}
               </h3>
@@ -437,6 +447,7 @@ function NeighborhoodsSection() {
 function BuyingProcessSection() {
   return (
     <section className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="buying-process-heading">
+      <SectionBanner headingId="buying-process-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="buying-process-heading" className="font-heading text-3xl text-[#1f2a24] sm:text-4xl">
           Your Guide to Buying Homes for Sale in Spanish Trail
@@ -481,6 +492,7 @@ function BuyingProcessSection() {
 function HomesForSaleFAQSection() {
   return (
     <section className="bg-white py-20 sm:py-24" aria-labelledby="faq-heading">
+      <SectionBanner headingId="faq-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Frequently Asked Questions</p>
@@ -499,6 +511,7 @@ function HomesForSaleFAQSection() {
         <div className="mt-12 space-y-10">
           {homesForSaleFaq.map((item) => (
             <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10">
+              <CardVisual seed={String(item.question)} />
               <h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">
                 {item.question}
               </h3>
@@ -513,10 +526,11 @@ function HomesForSaleFAQSection() {
 
 function CTASection() {
   return (
-    <section className="bg-[#0f2b1e] py-20 text-[#f8f5ef] sm:py-24" aria-labelledby="cta-heading">
+    <section className="bg-[#0f2b1e] py-20 text-[#f8f5ef] sm:py-24 relative isolate overflow-hidden" aria-labelledby="cta-heading">
+      <SectionBanner headingId="cta-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h2 id="cta-heading" className="font-heading text-3xl leading-tight text-[#f8f5ef] sm:text-4xl">
-          Ready to Find Your Perfect Home in Spanish Trail?
+          Ready to buy or sell a Spanish Trail home?
         </h2>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           Connect with Dr. Jan Duffy to explore homes for sale in Spanish Trail, Las Vegas. Get access to current listings, private tours, and expert guidance throughout your home buying journey.
