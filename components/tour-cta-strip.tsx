@@ -14,7 +14,7 @@ export function TourCTAStrip() {
           <AgentPortrait placement="tour" size="md" />
           <div>
             <h2 id="tour-cta-heading" className="font-heading text-xl font-semibold text-[#0f2b1e] sm:text-2xl">
-              Ready to walk through these homes?
+              Ready to tour Spanish Trail homes?
             </h2>
             <p className="mt-1 text-sm text-[#372a20]/80 sm:text-base">
               Book a private tour with Dr. Jan Duffy — 30 minutes, no obligation.
@@ -25,7 +25,7 @@ export function TourCTAStrip() {
             variant="primary"
             className="shrink-0 rounded-full bg-[#0f2b1e] px-8 py-3 text-xs uppercase tracking-[0.4em] text-white shadow-md hover:bg-[#0f2b1e]/90"
           >
-            See Available Homes 🏡
+            Book a Private Tour
           </PropertyLightboxTrigger>
         </div>
       </div>

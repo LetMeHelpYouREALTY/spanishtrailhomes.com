@@ -30,107 +30,25 @@ export const marketHighlights = [
     label: 'Total Listings',
     value: `${marketStats.active_listings} Active`,
     trend: '+',
-    context: 'Across single-family, condo, and townhome offerings.',
+    context: `As of ${marketStats.date_label}. Call (702) 766-3299 for today’s count.`,
   },
   {
     label: 'Median Price',
     value: formatMedianPrice(marketStats.median_price),
     trend: '-',
-    context: 'Spanish Trail guard-gated community.',
+    context: `As of ${marketStats.date_label}. Spanish Trail guard-gated community.`,
   },
   {
     label: 'Price Per Sq Ft',
     value: `$${marketStats.price_per_sqft}`,
     trend: '-',
-    context: 'Neighborhood-level data within the gates.',
+    context: `As of ${marketStats.date_label}. Neighborhood-level data within the gates.`,
   },
   {
     label: 'Average Days on Market',
     value: `${marketStats.avg_days_on_market} Days`,
     trend: '-',
-    context: 'Balanced pace with luxury buyer activity.',
-  },
-]
-
-export const featuredListings = [
-  {
-    address: '8330 Carmel Ridge Court',
-    price: '$1,095,000',
-    type: 'Single-Family • 3 Bed • 3 Bath • 2,500 Sq Ft',
-    mls: 'MLS# 2733586',
-    href: 'https://bhhsnv.com/single-family/glv/2733586/8330-carmel-ridge-court-las-vegas-nv-89113',
-  },
-  {
-    address: '7283 Mission Hills Drive',
-    price: '$630,000',
-    type: 'Condo/Townhome • 2 Bed • 2 Bath • 2,065 Sq Ft',
-    mls: 'MLS# 2732075',
-    href: 'https://bhhsnv.com/condo-townhouse/glv/2732075/7283-mission-hills-drive-las-vegas-nv-89113',
-  },
-  {
-    address: '22 Burning Tree Court',
-    price: '$2,590,000',
-    type: 'Estate Residence • 4 Bed • 5 Bath • 6,361 Sq Ft',
-    mls: 'MLS# 2732026',
-    href: 'https://bhhsnv.com/single-family/glv/2732026/22-burning-tree-court-las-vegas-nv-89113',
-  },
-]
-
-/** 6 featured listings for preview above RealScout widget (update weekly). */
-export const featuredListingsPreview = [
-  {
-    address: '8330 Carmel Ridge Court',
-    price: '$1,095,000',
-    beds: 3,
-    baths: 3,
-    mls: '2733586',
-    href: 'https://bhhsnv.com/single-family/glv/2733586/8330-carmel-ridge-court-las-vegas-nv-89113',
-    imageId: 'h3-listing-home-a',
-  },
-  {
-    address: '7283 Mission Hills Drive',
-    price: '$630,000',
-    beds: 2,
-    baths: 2,
-    mls: '2732075',
-    href: 'https://bhhsnv.com/condo-townhouse/glv/2732075/7283-mission-hills-drive-las-vegas-nv-89113',
-    imageId: 'h3-listing-home-b',
-  },
-  {
-    address: '22 Burning Tree Court',
-    price: '$2,590,000',
-    beds: 4,
-    baths: 5,
-    mls: '2732026',
-    href: 'https://bhhsnv.com/single-family/glv/2732026/22-burning-tree-court-las-vegas-nv-89113',
-    imageId: 'h3-listing-home-c',
-  },
-  {
-    address: '5120 Cactus Garden Dr',
-    price: '$725,000',
-    beds: 4,
-    baths: 3,
-    mls: '2731000',
-    href: 'https://bhhsnv.com/',
-    imageId: 'h3-listing-home-d',
-  },
-  {
-    address: '5080 Lakes Course Dr',
-    price: '$589,000',
-    beds: 3,
-    baths: 2,
-    mls: '2730999',
-    href: 'https://bhhsnv.com/',
-    imageId: 'h3-listing-home-e',
-  },
-  {
-    address: '5150 Springs Way',
-    price: '$699,000',
-    beds: 3,
-    baths: 2.5,
-    mls: '2730998',
-    href: 'https://bhhsnv.com/',
-    imageId: 'h3-listing-home-f',
+    context: `As of ${marketStats.date_label}. Balanced pace with luxury buyer activity.`,
   },
 ]
 
