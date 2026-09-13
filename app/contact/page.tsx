@@ -12,8 +12,8 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import {
-  GBP_EASTER_2026_CLOSURE,
   GBP_SERVICE_AREA_LABEL,
+  getVisibleSpecialHours,
   shouldShowPromotedSpecialHoursNotice,
 } from '@/lib/gbp-business'
 import { marketStats, formatMedianPrice } from '@/lib/marketStats'
@@ -495,7 +495,9 @@ function GBPIntegrationSection() {
                   <div className="mt-2 border-t border-[#d8cdbf] pt-2">
                     <dt className="font-semibold text-[#0f2b1e]">Special hours (Google Business Profile)</dt>
                     <dd>
-                      {GBP_EASTER_2026_CLOSURE.label}: {GBP_EASTER_2026_CLOSURE.detail}
+                      {getVisibleSpecialHours()
+                        .map((hour) => `${hour.label}: ${hour.detail}`)
+                        .join(' · ')}
                     </dd>
                   </div>
                 ) : null}

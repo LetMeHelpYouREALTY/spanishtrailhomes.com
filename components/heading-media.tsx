@@ -1,6 +1,7 @@
 import Image from 'next/image'
 
 import { AgentPortrait } from '@/components/agent-portrait'
+import { GbpSectionSupport } from '@/components/gbp-section-support'
 import { ListingImageLink } from '@/components/listing-image-link'
 import { cn } from '@/lib/utils'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
@@ -33,20 +34,27 @@ export function SectionBanner({
   switch (resolvedLevel) {
     case 'h1':
       return (
-        <div className={cn('absolute inset-0 -z-10', className)} aria-hidden={false}>
-          <ListingImageLink className="absolute inset-0" label={`${media.alt} — open live Spanish Trail listings`}>
-            <Image
-              src={src}
-              alt={media.alt}
-              fill
-              priority={priority}
-              quality={80}
-              sizes="100vw"
-              className="object-cover"
-            />
-          </ListingImageLink>
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#0f2b1e]/55 to-[#0f2b1e]/80" />
-        </div>
+        <>
+          <div className={cn('absolute inset-0 -z-10', className)} aria-hidden={false}>
+            <ListingImageLink className="absolute inset-0" label={`${media.alt} — open live Spanish Trail listings`}>
+              <Image
+                src={src}
+                alt={media.alt}
+                fill
+                priority={priority}
+                quality={80}
+                sizes="100vw"
+                className="object-cover"
+              />
+            </ListingImageLink>
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#0f2b1e]/55 to-[#0f2b1e]/80" />
+          </div>
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] px-4 pb-4 sm:px-6">
+            <div className="pointer-events-auto mx-auto max-w-6xl rounded-xl bg-[#0f2b1e]/80 p-3 backdrop-blur-sm">
+              <GbpSectionSupport variant="onDark" />
+            </div>
+          </div>
+        </>
       )
     case 'h2':
       return (
@@ -66,6 +74,7 @@ export function SectionBanner({
               <AgentPortrait placement={headingId} size="sm" linkToSearch={false} />
             </div>
           </div>
+          <GbpSectionSupport className="mt-3" />
         </div>
       )
     case 'h3':

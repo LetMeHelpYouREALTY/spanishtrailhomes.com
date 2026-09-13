@@ -8,16 +8,19 @@ import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { RealScoutSection } from '@/components/realscout-section'
 import {
+  GBP_DIRECTIONS_URL,
   GBP_EMAIL,
   GBP_GEO,
+  GBP_GOOGLE_REVIEW_URL,
   GBP_LEGAL_NAME,
   GBP_LOCALITY,
-  GBP_MAPS_URL,
+  GBP_MAP_EMBED_URL,
   GBP_PHONE_DISPLAY,
   GBP_PHONE_E164,
   GBP_POSTAL,
   GBP_PROFILE_SHARE_URL,
   GBP_REGION,
+  GBP_SMS_HREF,
   GBP_STREET,
 } from '@/lib/gbp-business'
 import {
@@ -32,11 +35,6 @@ const pageUrl = `${structuredDataSiteUrl}${path}`
 const pageTitle = 'Spanish Trail Homes office | 5050 Spanish Trail Ln, Las Vegas 89113'
 const pageDescription =
   'Visit Dr. Jan Duffy at 5050 Spanish Trail Ln, Las Vegas, NV 89113. Call (702) 766-3299 for directions, guard-gate showings, and Spanish Trail home tours. Hours Sunday–Saturday 9:00 AM–6:00 PM.'
-
-const directionsUrl =
-  'https://www.google.com/maps/dir/?api=1&destination=5050+Spanish+Trail+Ln,+Las+Vegas,+NV+89113'
-const mapEmbedUrl =
-  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3234.1155408815076!2d-115.28609452341818!3d36.10914500736459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c8bf27532cd0f3%3A0xba327d02c4e3709e!2sSpanish%20Trail%20Country%20Club!5e0!3m2!1sen!2sus!4v1731191452004!5m2!1sen!2sus'
 
 const webPageSchema = createWebPageSchema({
   name: pageTitle,
@@ -148,12 +146,15 @@ export default function FindOurLocationsPage() {
                   <Link href={`tel:${GBP_PHONE_E164}`}>Call {GBP_PHONE_DISPLAY}</Link>
                 </Button>
                 <Button asChild variant="outline" className="rounded-full border-[#0f2b1e] px-6 py-3 text-xs uppercase tracking-[0.3em] text-[#0f2b1e]">
-                  <Link href={directionsUrl} target="_blank" rel="noopener noreferrer">
+                  <Link href={GBP_SMS_HREF}>Text {GBP_PHONE_DISPLAY}</Link>
+                </Button>
+                <Button asChild variant="outline" className="rounded-full border-[#0f2b1e] px-6 py-3 text-xs uppercase tracking-[0.3em] text-[#0f2b1e]">
+                  <Link href={GBP_DIRECTIONS_URL} target="_blank" rel="noopener noreferrer">
                     Get directions
                   </Link>
                 </Button>
                 <Button asChild variant="outline" className="rounded-full border-[#0f2b1e] px-6 py-3 text-xs uppercase tracking-[0.3em] text-[#0f2b1e]">
-                  <Link href={GBP_MAPS_URL} target="_blank" rel="noopener noreferrer">
+                  <Link href={GBP_GOOGLE_REVIEW_URL} target="_blank" rel="noopener noreferrer">
                     View Google reviews
                   </Link>
                 </Button>
@@ -175,7 +176,7 @@ export default function FindOurLocationsPage() {
             <div className="overflow-hidden rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] shadow-lg">
               <iframe
                 title={`${GBP_LEGAL_NAME} at ${GBP_STREET}, ${GBP_LOCALITY}, ${GBP_REGION} ${GBP_POSTAL}`}
-                src={mapEmbedUrl}
+                src={GBP_MAP_EMBED_URL}
                 className="h-[400px] w-full border-0"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
