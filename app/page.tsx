@@ -729,6 +729,16 @@ const exploreCards = [
     description: 'Exclusive Spanish Trail realtor, Berkshire Hathaway HomeServices Nevada Properties.',
     href: '/about',
   },
+  {
+    title: 'Office and map',
+    description: '5050 Spanish Trail Ln, Las Vegas, NV 89113. Call, directions, and Google reviews.',
+    href: '/find-our-locations',
+  },
+  {
+    title: 'Site index',
+    description: 'Crawlable list of listings, 11 neighborhoods, amenities, and realtor pages.',
+    href: '/site-index',
+  },
 ]
 
 function ExploreFurtherSection() {

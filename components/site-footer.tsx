@@ -47,6 +47,8 @@ export function SiteFooter() {
         { label: 'HOA guide', href: '/spanish-trail-hoa-guide' },
         { label: 'Golf course', href: '/golf' },
         { label: 'Club & amenities', href: '/club' },
+        { label: 'Membership', href: '/membership' },
+        { label: 'Guest information', href: '/guest-info' },
       ],
     },
     {
@@ -58,6 +60,8 @@ export function SiteFooter() {
         { label: 'Contact Us', href: '/contact' },
         { label: 'Office Location', href: '/find-our-locations' },
         { label: 'Google Business Profile', href: '/google-business-profile' },
+        { label: 'Media kit', href: '/media-kit' },
+        { label: 'Site index', href: '/site-index' },
       ],
     },
   ]
