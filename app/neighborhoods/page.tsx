@@ -124,7 +124,7 @@ export default function NeighborhoodsHubPage() {
                   {n.priceRange}
                 </p>
                 <Button asChild variant="outline" size="sm" className="w-fit">
-                  <Link href={`/neighborhoods/${n.slug}`}>Explore {n.name}</Link>
+                  <Link href={`/neighborhoods/${n.slug}`}>Homes for sale in {n.name}</Link>
                 </Button>
               </article>
             </li>
@@ -132,10 +132,10 @@ export default function NeighborhoodsHubPage() {
         </ul>
 
         <section className="mt-14 border-t border-[#e8ddd0] pt-10">
-          <h2 className="mb-4 text-2xl font-semibold text-[#2d2318]">Buy or sell in this neighborhood</h2>
+          <h2 className="mb-4 text-2xl font-semibold text-[#2d2318]">Homes for sale in each enclave</h2>
           <p className="mb-6 text-[#5c4a3a]">
-            Ready to see what’s for sale in your favorite neighborhood? Browse current Spanish Trail
-            listings or reach out for a personalized market briefing.
+            Open an enclave to see live listings in that neighborhood&apos;s typical price band, plus sold comps
+            Dr. Jan Duffy will verify before you tour or list.
           </p>
           <div className="flex flex-wrap gap-4">
             <Button asChild>

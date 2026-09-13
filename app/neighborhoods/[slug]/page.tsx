@@ -6,7 +6,8 @@ import { notFound } from 'next/navigation'
 import { SiteShell } from '@/components/site-shell'
 import { RealScoutSection } from '@/components/realscout-section'
 import { Breadcrumbs } from '@/components/breadcrumbs'
-import { Button } from '@/components/ui/button'
+import { Button, buttonVariants } from '@/components/ui/button'
+import { CalendlyLink } from '@/components/calendly-link'
 import { HeroBackground } from '@/components/hero-background'
 import {
   createOgImageUrl,
@@ -14,7 +15,12 @@ import {
   createBreadcrumbSchema,
   getCanonicalUrl,
 } from '@/lib/structuredData'
-import { getNeighborhoodBySlug, getNeighborhoodSlugs } from '@/lib/neighborhoods'
+import {
+  getNeighborhoodBySlug,
+  getNeighborhoodFaqs,
+  getNeighborhoodListingFilter,
+  getNeighborhoodSlugs,
+} from '@/lib/neighborhoods'
 import { SectionBanner } from '@/components/heading-media'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 import { DEFAULT_H1_IMAGE, NEIGHBORHOOD_CARD_IMAGES, getAssetAlt } from '@/lib/site-images'
@@ -33,8 +39,8 @@ export async function generateMetadata({ params }: NeighborhoodPageProps): Promi
   const neighborhood = getNeighborhoodBySlug(slug)
   if (!neighborhood) return { title: 'Neighborhood Not Found' }
 
-  const title = `${neighborhood.name} | Spanish Trail Neighborhood | Dr. Jan Duffy`
-  const description = `${neighborhood.shortDescription} Browse homes for sale in ${neighborhood.name} and connect with Dr. Jan Duffy for market data and listings.`
+  const title = `Homes for Sale in ${neighborhood.name}, Spanish Trail 89113 | Dr. Jan Duffy`
+  const description = `${neighborhood.shortDescription} Live listings in ${neighborhood.name}'s ${neighborhood.priceRange} band. Buy or sell with Dr. Jan Duffy. Call (702) 766-3299.`
 
   return {
     title,
@@ -46,8 +52,8 @@ export async function generateMetadata({ params }: NeighborhoodPageProps): Promi
       description,
       images: [
         createOgImageUrl({
-          title: neighborhood.name,
-          subtitle: 'Spanish Trail Neighborhood',
+          title: `Homes for sale in ${neighborhood.name}`,
+          subtitle: 'Spanish Trail 89113 listing hub',
           eyebrow: 'SpanishTrailHomes.com',
         }),
       ],
@@ -62,8 +68,12 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
   if (!neighborhood) notFound()
 
   const path = `/neighborhoods/${slug}`
+  const listing = getNeighborhoodListingFilter(neighborhood.slug)
+  const faqs = getNeighborhoodFaqs(neighborhood)
+  const h1 = `Homes for sale in ${neighborhood.name}, Spanish Trail 89113`
+
   const neighborhoodWebPageSchema = createWebPageSchema({
-    name: `${neighborhood.name} | Spanish Trail Neighborhood`,
+    name: h1,
     description: neighborhood.shortDescription,
     path,
     type: 'WebPage',
@@ -87,6 +97,19 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
     { name: neighborhood.name, url: path },
   ])
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  }
+
   return (
     <SiteShell>
       <Script
@@ -94,17 +117,36 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
         type="application/ld+json"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify([neighborhoodWebPageSchema, neighborhoodBreadcrumbSchema]),
+          __html: JSON.stringify([neighborhoodWebPageSchema, neighborhoodBreadcrumbSchema, faqSchema]),
         }}
       />
 
       <HeroBackground
         src={getSiteImageUrl(NEIGHBORHOOD_CARD_IMAGES[slug] ?? DEFAULT_H1_IMAGE)}
         alt={getAssetAlt(NEIGHBORHOOD_CARD_IMAGES[slug] ?? DEFAULT_H1_IMAGE)}
-        title={`${neighborhood.name} Spanish Trail Homes`}
-        subtitle="Buy and sell with Dr. Jan Duffy"
+        title={h1}
+        subtitle={`Buy and sell ${neighborhood.name} homes with Dr. Jan Duffy · ${neighborhood.priceRange}`}
+        description="Live GLVAR inventory in this enclave's typical price band. Confirm the street with Dr. Duffy before you tour."
       />
-      <RealScoutSection id="bhhs-listings" />
+      <RealScoutSection
+        id="bhhs-listings"
+        eyebrow={`${neighborhood.name} inventory`}
+        title={`${neighborhood.name} homes for sale`}
+        description={
+          <>
+            Showing Spanish Trail homes in {neighborhood.name}&apos;s typical band ({neighborhood.priceRange}
+            ). The widget filters by price and property type—Dr. Jan Duffy confirms the street, square footage, and
+            gate access before a showing. Call{' '}
+            <a href="tel:+17027663299" className="underline underline-offset-4 hover:no-underline">
+              (702) 766-3299
+            </a>
+            .
+          </>
+        }
+        priceMin={listing.priceMin}
+        priceMax={listing.priceMax}
+        propertyTypes={listing.propertyTypes}
+      />
 
       <Breadcrumbs
         items={[
@@ -141,33 +183,77 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
         <section className="mt-10" aria-labelledby="features">
           <SectionBanner headingId="features" />
           <h2 id="features" className="font-playfair text-xl font-semibold text-[#2d2318]">
-            What {neighborhood.name} Offers
+            What {neighborhood.name} offers
           </h2>
           <ul className="mt-4 list-inside list-disc space-y-2 text-[#5c4a3a]">
-            {neighborhood.features.map((f, i) => (
-              <li key={i}>{f}</li>
+            {neighborhood.features.map((f) => (
+              <li key={f}>{f}</li>
             ))}
           </ul>
         </section>
+      </div>
 
-        <section className="mt-12 rounded-2xl border border-[#e8ddd0] bg-[#faf8f5] p-6 sm:p-8 relative isolate overflow-hidden" aria-labelledby="cta">
+      <RealScoutSection
+        id={`${slug}-sold`}
+        eyebrow="Recent sales"
+        title={`Sold homes in the ${neighborhood.name} price band`}
+        description={
+          <>
+            Live sold feed in {neighborhood.name}&apos;s {neighborhood.priceRange} range. Dr. Duffy will confirm street,
+            square footage, close price, and date from GLVAR before you write an offer or set a list price—no guessed
+            comps on this page.
+          </>
+        }
+        listingStatus="Sold"
+        priceMin={listing.priceMin}
+        priceMax={listing.priceMax}
+        propertyTypes={listing.propertyTypes}
+      />
+
+      <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:py-14">
+        <section className="mt-2" aria-labelledby={`${slug}-faq-heading`}>
+          <SectionBanner headingId={`${slug}-faq-heading`} />
+          <h2 id={`${slug}-faq-heading`} className="font-playfair text-2xl font-semibold text-[#2d2318]">
+            {neighborhood.name} buyer and seller questions
+          </h2>
+          <dl className="mt-6 space-y-6">
+            {faqs.map((item) => (
+              <div key={item.question}>
+                <dt className="font-semibold text-[#2d2318]">{item.question}</dt>
+                <dd className="mt-2 text-[#5c4a3a] leading-relaxed">{item.answer}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+
+        <section
+          className="relative isolate mt-12 overflow-hidden rounded-2xl border border-[#e8ddd0] bg-[#faf8f5] p-6 sm:p-8"
+          aria-labelledby="cta"
+        >
           <SectionBanner headingId="cta" />
           <h2 id="cta" className="font-playfair text-xl font-semibold text-[#2d2318]">
-            View Listings in {neighborhood.name}
+            Tour {neighborhood.name} or price a home here
           </h2>
           <p className="mt-2 text-[#5c4a3a]">
-            See current homes for sale across Spanish Trail and filter by area. Dr. Jan Duffy can provide
-            a tailored market briefing and private showings for {neighborhood.name} and surrounding enclaves.
+            Dr. Jan Duffy buys and sells {neighborhood.name} addresses inside Spanish Trail, Las Vegas NV 89113.
+            Berkshire Hathaway HomeServices Nevada Properties. 5050 Spanish Trail Ln. Call (702) 766-3299.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
-            <Button asChild>
-              <Link href="/spanish-trail-homes-for-sale-las-vegas">Browse Spanish Trail Listings</Link>
+            <CalendlyLink
+              className={buttonVariants()}
+              ctaText={`Tour ${neighborhood.name}`}
+              ctaLocation={`${slug}-hub`}
+            >
+              Book a {neighborhood.name} tour
+            </CalendlyLink>
+            <Button asChild variant="outline">
+              <a href="tel:+17027663299">Call (702) 766-3299</a>
             </Button>
             <Button asChild variant="outline">
-              <Link href="/contact">Contact Dr. Jan Duffy</Link>
+              <Link href="/sellers">Seller CMA for this enclave</Link>
             </Button>
             <Button asChild variant="ghost" size="sm">
-              <Link href="/neighborhoods">All 11 Neighborhoods</Link>
+              <Link href="/neighborhoods">All 11 neighborhoods</Link>
             </Button>
           </div>
         </section>
@@ -178,7 +264,7 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
           </Link>
           {' · '}
           <Link href="/spanish-trail-homes-for-sale-las-vegas" className="underline underline-offset-4 hover:no-underline">
-            Homes for Sale
+            All Spanish Trail Homes for Sale
           </Link>
           {' · '}
           <Link href="/contact" className="underline underline-offset-4 hover:no-underline">
