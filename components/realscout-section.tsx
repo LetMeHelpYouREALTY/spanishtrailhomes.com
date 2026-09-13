@@ -3,6 +3,8 @@ import { ReactNode } from 'react'
 import { AgentPortrait } from '@/components/agent-portrait'
 import { WidgetLoadingOverlay } from '@/components/widget-loading-overlay'
 
+type ListingStatus = 'For Sale' | 'Sold' | 'In Contract' | 'For Rent' | 'Rented'
+
 interface RealScoutSectionProps {
   id?: string
   eyebrow?: string
@@ -11,7 +13,28 @@ interface RealScoutSectionProps {
   priceMin?: string
   priceMax?: string
   propertyTypes?: string
+  listingStatus?: ListingStatus
+  sortOrder?: string
   className?: string
+}
+
+function listingOverlayMessage(status: ListingStatus): string {
+  switch (status) {
+    case 'For Sale':
+      return 'Loading listings…'
+    case 'Sold':
+      return 'Loading sold comps…'
+    case 'In Contract':
+      return 'Loading pending listings…'
+    case 'For Rent':
+      return 'Loading rentals…'
+    case 'Rented':
+      return 'Loading rented comps…'
+    default: {
+      const _exhaustive: never = status
+      return _exhaustive
+    }
+  }
 }
 
 export function RealScoutSection({
@@ -26,6 +49,8 @@ export function RealScoutSection({
   priceMin = '0',
   priceMax,
   propertyTypes = ',SFR',
+  listingStatus = 'For Sale',
+  sortOrder = 'NEWEST',
   className,
 }: RealScoutSectionProps) {
   const sectionId = id ?? 'spanish-trail-listings'
@@ -58,13 +83,16 @@ export function RealScoutSection({
         <div className="relative mt-8 min-h-[280px] rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-xl shadow-primary/10">
           <realscout-office-listings
             agent-encoded-id="QWdlbnQtMjI1MDUw"
-            sort-order="NEWEST"
-            listing-status="For Sale"
+            sort-order={sortOrder}
+            listing-status={listingStatus}
             property-types={propertyTypes}
             price-min={priceMin}
             price-max={priceMax}
           />
-          <WidgetLoadingOverlay selector="realscout-office-listings" message="Loading listings…" />
+          <WidgetLoadingOverlay
+            selector={`#${sectionId} realscout-office-listings`}
+            message={listingOverlayMessage(listingStatus)}
+          />
         </div>
       </div>
     </section>

@@ -3,20 +3,6 @@
  * Aligns with GBP and existing copy (neighborhoodClusters, neighborhoodSpotlights in spanishTrailContent).
  */
 
-export type Neighborhood = {
-  slug: string
-  name: string
-  shortDescription: string
-  /** SEO-friendly body content; target ~300+ words per page. */
-  bodyParagraphs: string[]
-  /** Property types commonly found (e.g. "Single-family estates", "Golf villas"). */
-  propertyTypes: string[]
-  /** Price range description (e.g. "Mid $600s – $1.2M"). */
-  priceRange: string
-  /** Distinguishing features for bullets. */
-  features: string[]
-}
-
 export const NEIGHBORHOOD_SLUGS = [
   'estates',
   'estates-west',
@@ -32,6 +18,20 @@ export const NEIGHBORHOOD_SLUGS = [
 ] as const
 
 export type NeighborhoodSlug = (typeof NEIGHBORHOOD_SLUGS)[number]
+
+export type Neighborhood = {
+  slug: NeighborhoodSlug
+  name: string
+  shortDescription: string
+  /** SEO-friendly body content; target ~300+ words per page. */
+  bodyParagraphs: string[]
+  /** Property types commonly found (e.g. "Single-family estates", "Golf villas"). */
+  propertyTypes: string[]
+  /** Price range description (e.g. "Mid $600s – $1.2M"). */
+  priceRange: string
+  /** Distinguishing features for bullets. */
+  features: string[]
+}
 
 const neighborhoodsData: Omit<Neighborhood, 'slug'>[] = [
   {
@@ -61,13 +61,13 @@ const neighborhoodsData: Omit<Neighborhood, 'slug'>[] = [
     features: [
       'Golf course and fairway proximity',
       'Updated kitchens and resort-style pools',
-      'Quiet cul-de-sacs and tree-lined streets',
+      'Cul-de-sacs and tree-lined streets',
       'Quick access to clubhouse and Tropicana gate',
     ],
     bodyParagraphs: [
       'Estates West sits on the western side of Spanish Trail with the same guard-gated security and country club lifestyle as the main Estates. Homes here often feature slightly more recent builds or full renovations, appealing to buyers who want estate-scale living without a heavy custom project. Golf frontage and fairway views are common, and many streets back to the Sunrise or Ridge courses.',
       'Dr. Jan Duffy helps buyers and sellers in Estates West understand how their home compares to recent sales in the enclave and across Spanish Trail. She provides listing preparation advice for sellers and negotiation guidance for buyers in this competitive segment.',
-      'Residents enjoy the same clubhouse, tennis, fitness, and dining as the rest of Spanish Trail, with convenient access to the Tropicana gate for quick trips to the Strip, airport, or Summerlin. Families and empty-nesters alike value the balance of privacy and community that Estates West offers.',
+      'Residents enjoy the same clubhouse, tennis, fitness, and dining as the rest of Spanish Trail, with convenient access to the Tropicana gate for trips to the Strip, Harry Reid International Airport (about 18 minutes via Tropicana Ave), or Summerlin.',
     ],
   },
   {
@@ -84,7 +84,7 @@ const neighborhoodsData: Omit<Neighborhood, 'slug'>[] = [
     ],
     bodyParagraphs: [
       'The Courtyards at Spanish Trail are designed for buyers who want lock-and-leave convenience without sacrificing style. Interior courtyards, private pools, and covered patios create outdoor living spaces that feel secluded even on smaller lots. Many homes have been updated with modern kitchens, spa baths, and smart-home features.',
-      'This neighborhood appeals to seasonal residents, second-home buyers, and empty-nesters who want to travel without worrying about maintenance. Dr. Jan Duffy regularly works with out-of-state buyers relocating to Spanish Trail and can coordinate virtual tours, inspections, and closings for remote purchasers.',
+      'This neighborhood appeals to seasonal owners and second-home buyers who want lock-and-leave layouts with less day-to-day maintenance. Dr. Jan Duffy regularly works with out-of-state buyers relocating to Spanish Trail and can coordinate virtual tours, inspections, and closings for remote purchasers.',
       'Proximity to the clubhouse, fitness center, and Bar & Grill makes the Courtyards ideal for those who prefer to walk or cart to daily activities. The neighborhood’s location near Tropicana and Rainbow provides quick access to dining, shopping, and the I-215 beltway.',
     ],
   },
@@ -97,13 +97,13 @@ const neighborhoodsData: Omit<Neighborhood, 'slug'>[] = [
     features: [
       'Garden-oriented lots and landscaping',
       'Community greenbelts and walking paths',
-      'Family-friendly floor plans',
-      'Close to schools and Desert Breeze Park',
+      'Three- and four-bedroom layouts',
+      '2.2 miles to Bishop Gorman High School; Desert Breeze Park nearby',
     ],
     bodyParagraphs: [
       'The Gardens at Spanish Trail offer a more intimate scale than the Estates while still delivering guard-gated security and country club access. Mature trees, garden beds, and community greenbelts give the area a park-like feel. Many homes feature updated interiors and outdoor living spaces suited to Las Vegas’s climate.',
       'Buyers in the Gardens often prioritize walkability, neighborhood character, and value per square foot. Dr. Jan Duffy provides market briefings that include sold comparables in the Gardens and adjacent enclaves so clients can make informed offers in a competitive market.',
-      'Families appreciate the proximity to Bishop Gorman High School, Faith Lutheran Academy, and Desert Breeze Park. The Spanish Trail clubhouse, tennis, and pools are still only minutes away, making the Gardens a strong choice for those who want community amenities without the largest lot size.',
+      'Bishop Gorman High School is 2.2 miles northeast via S. Rainbow Blvd.; Faith Lutheran Middle & High School and Desert Breeze Park are a short drive. The Spanish Trail clubhouse, tennis, and pools are still only minutes away, making the Gardens a strong choice for those who want club amenities without the largest lot size.',
     ],
   },
   {
@@ -245,4 +245,63 @@ export function getNeighborhoodBySlug(slug: string): Neighborhood | undefined {
 
 export function getNeighborhoodSlugs(): NeighborhoodSlug[] {
   return [...NEIGHBORHOOD_SLUGS]
+}
+
+export type NeighborhoodListingFilter = {
+  priceMin: string
+  priceMax?: string
+  propertyTypes: string
+}
+
+const LISTING_FILTERS: Record<NeighborhoodSlug, NeighborhoodListingFilter> = {
+  estates: { priceMin: '1000000', propertyTypes: ',SFR' },
+  'estates-west': { priceMin: '900000', priceMax: '2500000', propertyTypes: ',SFR' },
+  courtyards: { priceMin: '600000', priceMax: '1200000', propertyTypes: ',SFR' },
+  gardens: { priceMin: '500000', priceMax: '1000000', propertyTypes: ',SFR' },
+  links: { priceMin: '600000', priceMax: '1400000', propertyTypes: ',SFR' },
+  carmels: { priceMin: '600000', priceMax: '1300000', propertyTypes: ',SFR' },
+  springs: { priceMin: '500000', priceMax: '1100000', propertyTypes: ',SFR' },
+  'plum-creek': { priceMin: '500000', priceMax: '1000000', propertyTypes: ',SFR' },
+  villas: { priceMin: '400000', priceMax: '900000', propertyTypes: ',SFR,CONDO' },
+  islands: { priceMin: '500000', priceMax: '1200000', propertyTypes: ',SFR' },
+  'innisbrook-estates': { priceMin: '800000', priceMax: '2000000', propertyTypes: ',SFR' },
+}
+
+export function getNeighborhoodListingFilter(slug: NeighborhoodSlug): NeighborhoodListingFilter {
+  return LISTING_FILTERS[slug]
+}
+
+/** "The Islands'" not "The Islands's"; "Springs'" stays Springs'. */
+export function neighborhoodPossessive(name: string): string {
+  return name.endsWith('s') ? `${name}'` : `${name}'s`
+}
+
+export type NeighborhoodFaq = {
+  question: string
+  answer: string
+}
+
+export function getNeighborhoodFaqs(neighborhood: Neighborhood): NeighborhoodFaq[] {
+  const highlight = neighborhood.features[0]
+  const housing = neighborhood.propertyTypes.join(', ').toLowerCase()
+  const owned = neighborhoodPossessive(neighborhood.name)
+
+  return [
+    {
+      question: `What homes are for sale in ${neighborhood.name} right now?`,
+      answer: `The live feed on this page shows office listings in ${owned} typical band (${neighborhood.priceRange}). RealScout filters by price and property type, not by subdivision name, so Dr. Jan Duffy confirms the Spanish Trail street before you tour. Call (702) 766-3299 for gate-access showings.`,
+    },
+    {
+      question: `What do ${neighborhood.name} homes typically cost?`,
+      answer: `${neighborhood.name} inventory is generally ${neighborhood.priceRange}. Stock is ${housing}. ${highlight}. Ask Dr. Duffy for a CMA on a specific address—never rely on a community median alone.`,
+    },
+    {
+      question: `Can I tour ${neighborhood.name} if I am not a club member?`,
+      answer: `Yes. Dr. Jan Duffy schedules guard-gate clearance and listing access for ${neighborhood.name} showings. Club membership is separate from the deed. Call or text (702) 766-3299 or book a tour to get on the gate list.`,
+    },
+    {
+      question: `Can you pull recent sold comps for ${neighborhood.name}?`,
+      answer: `Yes. Closed sales on ${neighborhood.name} streets change weekly. Dr. Duffy will send the last recorded sales with address, square footage, close price, and date from GLVAR before you write an offer or set a list price. Text (702) 766-3299 for a CMA in ${neighborhood.name}.`,
+    },
+  ]
 }
