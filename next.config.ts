@@ -18,6 +18,9 @@ const nextConfig: NextConfig = {
       { source: '/projects/:path*', destination: '/contact', permanent: true },
       { source: '/chats', destination: '/contact', permanent: true },
       { source: '/chats/:path*', destination: '/contact', permanent: true },
+      { source: '/address-autocomplete', destination: '/find-our-locations', permanent: true },
+      { source: '/amenity-map', destination: '/find-our-locations', permanent: true },
+      { source: '/directions', destination: '/find-our-locations', permanent: true },
     ]
   },
   images: {

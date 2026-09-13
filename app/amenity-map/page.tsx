@@ -31,7 +31,8 @@ const amenityMapWebPageSchema = createWebPageSchema({
 export const metadata: Metadata = {
   title: 'Add an Amenity Map to Your Website | Google Maps Platform',
   description: pageDescription,
-  alternates: { canonical: getCanonicalUrl('/amenity-map') },
+  robots: { index: false, follow: false },
+  alternates: { canonical: getCanonicalUrl('/find-our-locations') },
   openGraph: {
     url: pageUrl,
     title: 'Add an Amenity Map to Your Website',
