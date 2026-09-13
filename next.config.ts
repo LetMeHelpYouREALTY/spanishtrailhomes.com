@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
     return [
       { source: '/market-data', destination: '/spanish-trail-market-report', permanent: true },
       { source: '/homes', destination: '/spanish-trail-homes-for-sale-las-vegas', permanent: true },
+      { source: '/address-autocomplete', destination: '/find-our-locations', permanent: true },
+      { source: '/amenity-map', destination: '/find-our-locations', permanent: true },
+      { source: '/directions', destination: '/find-our-locations', permanent: true },
       { source: '/images/janet-duffy.jpg', destination: '/images/spanish-trail/duffy-circle-canonical.png', permanent: true },
       {
         source: '/images/spanish-trail/agent-duffy-:variant.png',

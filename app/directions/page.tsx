@@ -31,7 +31,8 @@ const directionsWebPageSchema = createWebPageSchema({
 export const metadata: Metadata = {
   title: 'Add Directions to Your Website | Google Maps Platform',
   description: pageDescription,
-  alternates: { canonical: getCanonicalUrl('/directions') },
+  robots: { index: false, follow: false },
+  alternates: { canonical: getCanonicalUrl('/find-our-locations') },
   openGraph: {
     url: pageUrl,
     title: 'Add Directions to Your Website',
