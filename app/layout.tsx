@@ -9,6 +9,7 @@ import { FloatingCalendlyButton } from '@/components/floating-calendly-button'
 import './globals.css'
 import { createOgImageUrl, structuredDataSiteUrl, getCanonicalUrl, createPersonSchema, createOrganizationSchema } from '@/lib/structuredData'
 import { getAbsoluteSiteImageUrl } from '@/lib/cloudflare-images'
+import { REALSCOUT_SHARED_SEARCH_ORIGIN } from '@/lib/realscout'
 import {
   GBP_DESCRIPTION,
   GBP_EMAIL,
@@ -245,11 +246,13 @@ export default function RootLayout({
         {/* Preconnect to external domains for faster resource loading */}
         <link rel="preconnect" href="https://www.realscout.com" />
         <link rel="preconnect" href="https://em.realscout.com" />
+        <link rel="preconnect" href={REALSCOUT_SHARED_SEARCH_ORIGIN} />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://d1buiexcd5gara.cloudfront.net" />
         <link rel="dns-prefetch" href="https://assets.calendly.com" />
+        <link rel="dns-prefetch" href={REALSCOUT_SHARED_SEARCH_ORIGIN} />
         <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
         
         <Script

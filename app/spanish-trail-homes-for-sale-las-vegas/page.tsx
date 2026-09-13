@@ -11,6 +11,7 @@ import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
 import { marketStats, formatMedianPrice } from '@/lib/marketStats'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { RealScoutSearchLink } from '@/components/listing-image-link'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-homes-for-sale-las-vegas'
@@ -169,7 +170,7 @@ function HeroSection() {
             variant="outline"
             className="rounded-full border-[#f8f5ef]/60 px-8 py-3 text-xs uppercase tracking-[0.3em] text-[#f8f5ef] hover:bg-white/10"
           >
-            <Link href="#homes-for-sale-listings">View Listings</Link>
+            <RealScoutSearchLink location="listings-hub-hero">View Listings</RealScoutSearchLink>
           </Button>
         </div>
         <HeroSearchWidget theme="dark" />

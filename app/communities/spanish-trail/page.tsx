@@ -10,6 +10,7 @@ import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { HeroBackground } from '@/components/hero-background'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { ListingPhotoPanel } from '@/components/listing-image-link'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 
 
@@ -357,13 +358,9 @@ function DetailsSection() {
             <Link href="/buyers">View Current Listings</Link>
           </Button>
         </div>
-        <div
-          className="h-full rounded-3xl border border-border/60 bg-cover bg-center shadow-lg"
-          style={{
-              backgroundImage: `url('${getSiteImageUrl('h2-golf-sunrise')}')`,
-          }}
-          role="img"
-          aria-label="Spanish Trail residences with golf course views"
+        <ListingPhotoPanel
+          src={getSiteImageUrl('h2-golf-sunrise')}
+          label="Spanish Trail residences with golf course views"
         />
       </div>
     </section>
