@@ -17,8 +17,8 @@ import {
   shouldShowPromotedSpecialHoursNotice,
 } from '@/lib/gbp-business'
 import { marketStats, formatMedianPrice } from '@/lib/marketStats'
-import { REALSCOUT_SHARED_SEARCH_URL } from '@/lib/realscout'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { RealScoutSearchLink } from '@/components/listing-image-link'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/contact'
@@ -177,9 +177,9 @@ function HeroSection() {
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           Call (702) 766-3299 to buy or sell a Spanish Trail home. Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties. Median {formatMedianPrice(marketStats.median_price)} as of {marketStats.date_label}.
           <span className="block text-xs uppercase tracking-[0.3em] text-[#f8f5ef]/70">
-            <Link href={REALSCOUT_SHARED_SEARCH_URL} target="_blank" rel="noopener noreferrer" className="underline-offset-4 hover:underline">
+            <RealScoutSearchLink location="contact-hero" className="underline-offset-4 hover:underline">
               Source: Spanish Trail Weekly Market Activity
-            </Link>
+            </RealScoutSearchLink>
           </span>
         </p>
         <div className="flex flex-wrap items-center justify-center gap-4">
@@ -218,9 +218,9 @@ function ExpertiseSection() {
             </h3>
             <p>
               I monitor every Spanish Trail closing the moment it records. Yesterday, 8330 Carmel Ridge Court—a 2,500 sq. ft. single-family home—closed at $1,095,000, roughly 8% above the community\'s median thanks to upgraded fairway views and a reimagined chef\'s kitchen.{' '}
-              <Link href={REALSCOUT_SHARED_SEARCH_URL} target="_blank" rel="noopener noreferrer" className="underline-offset-4 hover:underline">
+              <RealScoutSearchLink location="contact-source" className="underline-offset-4 hover:underline">
                 Spanish Trail listings
-              </Link>
+              </RealScoutSearchLink>
             </p>
             <p>
               That real-time insight guides both sellers wanting a premium and buyers aiming to secure value without overextending. After decades focused on Spanish Trail—advising 500+ families across purchases, sales, and long-range planning—I have walked every cul-de-sac inside the 640-acre guard gates and understand how HOA nuances, sightlines, and secondary gates impact pricing.
@@ -260,9 +260,9 @@ function GolfLifestyleSection() {
             </h3>
             <p>
               The Spanish Trail Country Club anchors the community with Robert Trent Jones Jr.\'s 27-hole layout. The Lakes nine delivers cascading water features, Sunrise showcases mature pines and gentle slopes, while Canyon introduces elevation changes that thrill low-handicap players. Demand for golf-view homes remains intense—this week\'s 22 Burning Tree Court tour generated four qualified showings, all citing the championship course as their non-negotiable.{' '}
-              <Link href={REALSCOUT_SHARED_SEARCH_URL} target="_blank" rel="noopener noreferrer" className="underline-offset-4 hover:underline">
+              <RealScoutSearchLink location="contact-source" className="underline-offset-4 hover:underline">
                 Spanish Trail listings
-              </Link>
+              </RealScoutSearchLink>
             </p>
           </div>
           <div className="space-y-4 text-base leading-relaxed text-[#372a20]/85">

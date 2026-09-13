@@ -1,6 +1,7 @@
 import { ReactNode } from 'react'
 
 import { AgentPortrait } from '@/components/agent-portrait'
+import { RealScoutSearchLink } from '@/components/listing-image-link'
 import { WidgetLoadingOverlay } from '@/components/widget-loading-overlay'
 
 type ListingStatus = 'For Sale' | 'Sold' | 'In Contract' | 'For Rent' | 'Rented'
@@ -94,6 +95,15 @@ export function RealScoutSection({
             message={listingOverlayMessage(listingStatus)}
           />
         </div>
+        <p className="mt-4 text-center text-sm leading-relaxed text-[#372a20]/85 sm:text-left">
+          <RealScoutSearchLink
+            location="office-listings-widget"
+            className="font-medium text-[#0f2b1e] underline-offset-4 hover:underline"
+          >
+            Open the full Spanish Trail search
+          </RealScoutSearchLink>
+          {' '}if the grid is slow or empty.
+        </p>
       </div>
     </section>
   )

@@ -6,11 +6,38 @@ import { usePathname } from 'next/navigation'
 import { ChevronDown, Menu, Phone, X } from 'lucide-react'
 
 import { NAV_ITEMS } from '@/lib/navigation'
-import { REALSCOUT_SHARED_SEARCH_URL } from '@/lib/realscout'
 import { trackPhoneClick } from '@/lib/analytics'
+import { REALSCOUT_SHARED_SEARCH_URL } from '@/lib/realscout'
 import { Button } from '@/components/ui/button'
 import { CalendlyLink } from '@/components/calendly-link'
 import { AgentPortrait } from '@/components/agent-portrait'
+import { RealScoutSearchLink } from '@/components/listing-image-link'
+
+function HeaderNavChild({
+  href,
+  label,
+  className,
+  onNavigate,
+}: {
+  href: string
+  label: string
+  className: string
+  onNavigate?: () => void
+}) {
+  if (href === REALSCOUT_SHARED_SEARCH_URL) {
+    return (
+      <RealScoutSearchLink location="nav" className={className} onClick={onNavigate}>
+        {label}
+      </RealScoutSearchLink>
+    )
+  }
+
+  return (
+    <Link href={href} className={className} onClick={onNavigate}>
+      {label}
+    </Link>
+  )
+}
 
 export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -95,14 +122,13 @@ export function SiteHeader() {
                             </p>
                             <div className="flex flex-col">
                               {(children ?? []).map((child) => (
-                                <Link
+                                <HeaderNavChild
                                   key={child.label}
                                   href={child.href}
+                                  label={child.label}
                                   className="px-4 py-1.5 text-sm text-[#1f2a24] hover:bg-[#f5f3ef] hover:text-secondary"
-                                  onClick={() => setActiveFlyout(null)}
-                                >
-                                  {child.label}
-                                </Link>
+                                  onNavigate={() => setActiveFlyout(null)}
+                                />
                               ))}
                             </div>
                           </div>
@@ -116,6 +142,12 @@ export function SiteHeader() {
           </nav>
 
           <div className="hidden shrink-0 items-center justify-end gap-3 justify-self-end lg:col-start-3 lg:flex">
+            <RealScoutSearchLink
+              location="header"
+              className="rounded-full border border-[#0f2b1e]/40 px-5 py-2 text-xs font-medium uppercase tracking-[0.28em] text-[#0f2b1e] hover:bg-[#0f2b1e]/10"
+            >
+              Live listings
+            </RealScoutSearchLink>
             <Link
               href="tel:+17027663299"
               className="inline-flex items-center gap-2 rounded-full border border-[#0f2b1e]/40 px-6 py-2 text-xs font-medium uppercase tracking-[0.28em] text-[#0f2b1e] hover:bg-[#0f2b1e]/10"
@@ -183,14 +215,13 @@ export function SiteHeader() {
                               {groupName}
                             </p>
                             {(children ?? []).map((child) => (
-                              <Link
+                              <HeaderNavChild
                                 key={child.label}
                                 href={child.href}
+                                label={child.label}
                                 className="touch-target flex min-h-[44px] items-center py-2 text-sm uppercase tracking-[0.2em] text-[#4d5c55] hover:text-secondary hover:underline"
-                                onClick={() => setMobileOpen(false)}
-                              >
-                                {child.label}
-                              </Link>
+                                onNavigate={() => setMobileOpen(false)}
+                              />
                             ))}
                           </div>
                         ))
@@ -215,9 +246,9 @@ export function SiteHeader() {
                 (702) 766-3299
               </Link>
               <Button asChild variant="link" className="touch-target min-h-[44px] justify-start px-0 text-sm uppercase tracking-[0.32em]">
-                <Link href={REALSCOUT_SHARED_SEARCH_URL} target="_blank" rel="noopener noreferrer">
+                <RealScoutSearchLink location="header-mobile">
                   View Listings →
-                </Link>
+                </RealScoutSearchLink>
               </Button>
             </div>
           </div>

@@ -1,52 +1,71 @@
-import {
-  REALSCOUT_SHARED_SEARCH_LABEL,
-  REALSCOUT_SHARED_SEARCH_URL,
-} from '@/lib/realscout'
-import { cn } from '@/lib/utils'
+'use client'
+
+import { forwardRef, type MouseEventHandler, type ReactNode } from 'react'
+import { trackRealscoutSharedSearchClick } from '@/lib/analytics'
+import { REALSCOUT_SHARED_SEARCH_URL } from '@/lib/realscout'
 
 type ListingImageLinkProps = {
-  children: React.ReactNode
   className?: string
-  label?: string
+  children: ReactNode
 }
 
-/** Wraps a photo so a click opens the shared RealScout Spanish Trail search. */
-export function ListingImageLink({
-  children,
-  className,
-  label = REALSCOUT_SHARED_SEARCH_LABEL,
-}: ListingImageLinkProps) {
+/**
+ * Wraps a listing photo so a click opens the canonical Spanish Trail
+ * RealScout shared search. Decorative photos stay decorative; the
+ * surrounding link is the accessible name.
+ */
+export function ListingImageLink({ className, children }: ListingImageLinkProps) {
+  const handleClick = () => {
+    trackRealscoutSharedSearchClick('listing_photo')
+  }
+
   return (
     <a
       href={REALSCOUT_SHARED_SEARCH_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className={cn(
-        'block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#be9956] focus-visible:ring-offset-2',
-        className,
-      )}
-      aria-label={label}
+      className={className}
+      aria-label="Open Spanish Trail homes for sale on RealScout (opens in a new tab)"
+      onClick={handleClick}
     >
       {children}
     </a>
   )
 }
 
-type ListingPhotoPanelProps = {
-  src: string
-  label: string
+type RealScoutSearchLinkProps = {
+  children: ReactNode
   className?: string
+  location: string
+  label?: string
+  onClick?: MouseEventHandler<HTMLAnchorElement>
 }
 
-/** Clickable CSS-background photo used as a section-side image. */
-export function ListingPhotoPanel({ src, label, className }: ListingPhotoPanelProps) {
-  return (
-    <ListingImageLink label={label} className={cn('h-full min-h-[16rem]', className)}>
-      <div
-        className="h-full min-h-[16rem] rounded-3xl border border-border/60 bg-cover bg-center shadow-lg"
-        style={{ backgroundImage: `url('${src}')` }}
-        aria-hidden
-      />
-    </ListingImageLink>
-  )
-}
+/**
+ * Text or button link to the canonical RealScout shared search.
+ * Forwards the underlying <a> so `Button asChild` still works.
+ */
+export const RealScoutSearchLink = forwardRef<HTMLAnchorElement, RealScoutSearchLinkProps>(
+  function RealScoutSearchLink({ children, className, location, label, onClick }, ref) {
+    const handleClick: MouseEventHandler<HTMLAnchorElement> = (event) => {
+      trackRealscoutSharedSearchClick(location)
+      onClick?.(event)
+    }
+
+    return (
+      <a
+        ref={ref}
+        href={REALSCOUT_SHARED_SEARCH_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+        aria-label={label}
+        onClick={handleClick}
+      >
+        {children}
+      </a>
+    )
+  }
+)
+
+RealScoutSearchLink.displayName = 'RealScoutSearchLink'

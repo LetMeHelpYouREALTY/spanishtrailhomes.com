@@ -12,6 +12,7 @@ import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/st
 import { marketStats, formatMedianPrice } from '@/lib/marketStats'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { AgentPortrait } from '@/components/agent-portrait'
+import { RealScoutSearchLink } from '@/components/listing-image-link'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/buyers'
@@ -179,7 +180,7 @@ function HeroSection() {
             asChild
             className="rounded-full bg-white px-8 py-3 text-xs uppercase tracking-[0.3em] text-[#0f2b1e] hover:bg-[#efe5d8]"
           >
-            <Link href="#bhhs-listings">Explore Listings</Link>
+            <RealScoutSearchLink location="buyers-hero">Explore Listings</RealScoutSearchLink>
           </Button>
           <CalendlyLink className="inline-flex items-center justify-center rounded-full border border-[#f8f5ef]/60 bg-white px-8 py-3 text-xs font-medium uppercase tracking-[0.3em] text-[#0f2b1e] hover:bg-[#efe5d8]">
             Book a Tour
@@ -549,7 +550,7 @@ function BuyerCTASection() {
             variant="outline"
             className="rounded-full border-[#f8f5ef]/60 px-8 py-3 text-xs uppercase tracking-[0.3em] text-[#f8f5ef] hover:bg-white/10"
           >
-            <Link href="#bhhs-listings">View Homes</Link>
+            <RealScoutSearchLink location="buyers-cta">View Homes</RealScoutSearchLink>
           </Button>
         </div>
       </div>

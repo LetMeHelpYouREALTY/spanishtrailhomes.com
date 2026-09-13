@@ -7,10 +7,10 @@ import { RealScoutSection } from '@/components/realscout-section'
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { featuredListings, marketHighlights } from '@/lib/spanishTrailContent'
-import { REALSCOUT_SHARED_SEARCH_URL } from '@/lib/realscout'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { RealScoutSearchLink } from '@/components/listing-image-link'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-market-report'
@@ -260,9 +260,9 @@ function FeaturedListingsSection() {
             asChild
             className="rounded-full px-6 py-2 text-xs uppercase tracking-[0.3em]"
           >
-            <Link href={REALSCOUT_SHARED_SEARCH_URL} target="_blank" rel="noopener noreferrer">
+            <RealScoutSearchLink location="market-report">
               Speak with Dr. Duffy
-            </Link>
+            </RealScoutSearchLink>
           </Button>
         </div>
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -286,9 +286,9 @@ function FeaturedListingsSection() {
                   variant="link"
                   className="text-xs uppercase tracking-[0.3em] text-primary"
                 >
-                  <Link href={listing.href} target="_blank" rel="noopener noreferrer">
+                  <RealScoutSearchLink location="market-report-card">
                     View Listing
-                  </Link>
+                  </RealScoutSearchLink>
                 </Button>
               </div>
             </article>

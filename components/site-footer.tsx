@@ -5,6 +5,8 @@ import { Facebook, Instagram, Linkedin, Youtube } from 'lucide-react'
 import { trackPhoneClick } from '@/lib/analytics'
 import { CalendlyLink } from '@/components/calendly-link'
 import { AgentPortrait } from '@/components/agent-portrait'
+import { RealScoutSearchLink } from '@/components/listing-image-link'
+import { REALSCOUT_SHARED_SEARCH_URL } from '@/lib/realscout'
 import {
   GBP_EASTER_2026_CLOSURE,
   GBP_SERVICE_AREA_LABEL,
@@ -27,6 +29,7 @@ export function SiteFooter() {
     {
       heading: 'Homes for Sale',
       links: [
+        { label: 'Live Spanish Trail search', href: REALSCOUT_SHARED_SEARCH_URL, external: true },
         { label: 'All Spanish Trail Homes', href: '/spanish-trail-homes-for-sale-las-vegas' },
         { label: 'Estate Listings', href: '/spanish-trail-country-club-estate-listings' },
         { label: 'Golf Course Properties', href: '/spanish-trail-luxury-golf-course-properties' },
@@ -137,12 +140,21 @@ export function SiteFooter() {
             <ul className="space-y-0 text-sm tracking-[0.15em] sm:tracking-[0.2em]">
               {section.links.map((link) => (
                 <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="touch-target flex min-h-[40px] items-center text-[#e5d7c8] transition-colors hover:text-[#be9956] hover:underline"
-                  >
-                    {link.label}
-                  </Link>
+                  {'external' in link && link.external ? (
+                    <RealScoutSearchLink
+                      location="footer"
+                      className="touch-target flex min-h-[40px] items-center text-[#e5d7c8] transition-colors hover:text-[#be9956] hover:underline"
+                    >
+                      {link.label}
+                    </RealScoutSearchLink>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="touch-target flex min-h-[40px] items-center text-[#e5d7c8] transition-colors hover:text-[#be9956] hover:underline"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
