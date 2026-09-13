@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from 'next'
 import { Playfair_Display, Lato } from 'next/font/google'
 import Script from 'next/script'
 import { ThemeProvider } from 'next-themes'
-import DeployBanner from '../components/deploy-banner'
 import { CalendlyWidgetScript } from '@/components/calendly-widget-script'
 import { CalendlyEventListener } from '@/components/calendly-event-listener'
 import { FloatingCalendlyButton } from '@/components/floating-calendly-button'
@@ -294,7 +293,6 @@ gtag('config', 'G-X68WWN997N', {
           storageKey="theme"
         >
           <CalendlyEventListener />
-          <DeployBanner />
           {children}
           <FloatingCalendlyButton />
         </ThemeProvider>

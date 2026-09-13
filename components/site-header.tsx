@@ -142,12 +142,6 @@ export function SiteHeader() {
           </nav>
 
           <div className="hidden shrink-0 items-center justify-end gap-3 justify-self-end lg:col-start-3 lg:flex">
-            <RealScoutSearchLink
-              location="header"
-              className="rounded-full border border-[#0f2b1e]/40 px-5 py-2 text-xs font-medium uppercase tracking-[0.28em] text-[#0f2b1e] hover:bg-[#0f2b1e]/10"
-            >
-              Live listings
-            </RealScoutSearchLink>
             <Link
               href="tel:+17027663299"
               className="inline-flex items-center gap-2 rounded-full border border-[#0f2b1e]/40 px-6 py-2 text-xs font-medium uppercase tracking-[0.28em] text-[#0f2b1e] hover:bg-[#0f2b1e]/10"

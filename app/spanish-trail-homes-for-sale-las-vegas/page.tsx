@@ -12,6 +12,7 @@ import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
 import { marketStats, formatMedianPrice } from '@/lib/marketStats'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { RealScoutSearchLink } from '@/components/listing-image-link'
+import { HeroMarketPulse } from '@/components/hero-market-pulse'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-homes-for-sale-las-vegas'
@@ -161,6 +162,7 @@ function HeroSection() {
           </Link>
           .
         </p>
+        <HeroMarketPulse className="text-center" />
         <div className="flex flex-wrap justify-center gap-4">
           <Button asChild className="rounded-full bg-white px-8 py-3 text-xs uppercase tracking-[0.3em] text-[#0f2b1e] hover:bg-[#efe5d8]">
             <Link href="/contact">Talk with Dr. Jan Duffy</Link>
