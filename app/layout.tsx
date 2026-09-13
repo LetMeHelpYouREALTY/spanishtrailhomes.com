@@ -10,20 +10,24 @@ import { createOgImageUrl, structuredDataSiteUrl, getCanonicalUrl, createPersonS
 import { getAbsoluteSiteImageUrl } from '@/lib/cloudflare-images'
 import { REALSCOUT_SHARED_SEARCH_ORIGIN } from '@/lib/realscout'
 import {
+  GBP_ACCESSIBILITY_FEATURES,
   GBP_DESCRIPTION,
   GBP_EMAIL,
   GBP_GEO,
   GBP_LEGAL_NAME,
   GBP_MAIN_HOURS_CLOSES,
   GBP_MAIN_HOURS_OPENS,
+  GBP_MAPS_URL,
   GBP_PHONE_E164,
   GBP_POSTAL,
   GBP_LOCALITY,
   GBP_REGION,
   GBP_SAME_AS,
   GBP_SERVICE_AREA_LABEL,
+  GBP_SMS_HREF,
   GBP_STREET,
   GBP_COUNTRY,
+  getSpecialOpeningHoursSpecification,
 } from '@/lib/gbp-business'
 
 const siteUrl = structuredDataSiteUrl
@@ -94,6 +98,23 @@ const structuredData = [
       latitude: GBP_GEO.latitude,
       longitude: GBP_GEO.longitude,
     },
+    hasMap: GBP_MAPS_URL,
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        contactType: 'customer service',
+        telephone: GBP_PHONE_E164,
+        email: GBP_EMAIL,
+        areaServed: GBP_SERVICE_AREA_LABEL,
+        availableLanguage: 'English',
+      },
+      {
+        '@type': 'ContactPoint',
+        contactType: 'SMS',
+        telephone: GBP_PHONE_E164,
+        url: GBP_SMS_HREF,
+      },
+    ],
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
@@ -102,7 +123,10 @@ const structuredData = [
         closes: GBP_MAIN_HOURS_CLOSES,
       },
     ],
-    accessibilityFeature: ['Wheelchair accessible parking lot', 'Wheelchair accessible entrance'],
+    ...(getSpecialOpeningHoursSpecification().length
+      ? { specialOpeningHoursSpecification: getSpecialOpeningHoursSpecification() }
+      : {}),
+    accessibilityFeature: [...GBP_ACCESSIBILITY_FEATURES],
     sameAs: [...GBP_SAME_AS],
     additionalProperty: [
       {

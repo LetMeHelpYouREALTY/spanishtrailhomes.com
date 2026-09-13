@@ -13,7 +13,24 @@ import {
   getCanonicalUrl,
   structuredDataSiteUrl,
 } from '@/lib/structuredData'
-import { GBP_GOOGLE_REVIEW_URL, GBP_PROFILE_SHARE_URL } from '@/lib/gbp-business'
+import {
+  GBP_CATEGORY,
+  GBP_DESCRIPTION,
+  GBP_DIRECTIONS_URL,
+  GBP_GOOGLE_REVIEW_URL,
+  GBP_LEGAL_NAME,
+  GBP_PHONE_DISPLAY,
+  GBP_PHONE_E164,
+  GBP_PROFILE_SHARE_URL,
+  GBP_SERVICE_AREA_LABEL,
+  GBP_SMS_HREF,
+  GBP_STREET,
+  GBP_LOCALITY,
+  GBP_REGION,
+  GBP_POSTAL,
+  GBP_WEBSITE,
+  getVisibleSpecialHours,
+} from '@/lib/gbp-business'
 import { SectionBanner } from '@/components/heading-media'
 
 
@@ -24,7 +41,7 @@ const pageDescription =
 /** Primary “view profile” link (Google share URL). Maps URL kept for schema + Maps-focused CTAs. */
 const gbpUrl = GBP_PROFILE_SHARE_URL
 const reviewLink = GBP_GOOGLE_REVIEW_URL
-const mapsDirectionsUrl = 'https://www.google.com/maps/dir/?api=1&destination=5050+Spanish+Trail+Ln,+Las+Vegas,+NV+89113'
+const mapsDirectionsUrl = GBP_DIRECTIONS_URL
 
 /** WebPage + BreadcrumbList only: LocalBusiness/RealEstateAgent lives in root layout (#localBusiness). */
 const webPageSchema = createWebPageSchema({
@@ -210,24 +227,32 @@ function BusinessInfoSection() {
                 <dl className="space-y-4 text-sm">
                   <div>
                     <dt className="font-semibold text-[#0f2b1e]">Business Name</dt>
-                    <dd className="mt-1 text-[#372a20]/85">Spanish Trail | Homes By Dr. Jan Duffy</dd>
+                    <dd className="mt-1 text-[#372a20]/85">{GBP_LEGAL_NAME}</dd>
                   </div>
                   <div>
                     <dt className="font-semibold text-[#0f2b1e]">Category</dt>
-                    <dd className="mt-1 text-[#372a20]/85">Real Estate Agent</dd>
+                    <dd className="mt-1 text-[#372a20]/85">{GBP_CATEGORY}</dd>
                   </div>
                   <div>
                     <dt className="font-semibold text-[#0f2b1e]">Phone</dt>
                     <dd className="mt-1">
-                      <Link href="tel:+17027663299" className="text-[#0f2b1e] underline underline-offset-2 hover:text-[#1f4a35]">
-                        (702) 766-3299
+                      <Link href={`tel:${GBP_PHONE_E164}`} className="text-[#0f2b1e] underline underline-offset-2 hover:text-[#1f4a35]">
+                        {GBP_PHONE_DISPLAY}
+                      </Link>
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="font-semibold text-[#0f2b1e]">Chat</dt>
+                    <dd className="mt-1">
+                      <Link href={GBP_SMS_HREF} className="text-[#0f2b1e] underline underline-offset-2 hover:text-[#1f4a35]">
+                        Text {GBP_PHONE_DISPLAY}
                       </Link>
                     </dd>
                   </div>
                   <div>
                     <dt className="font-semibold text-[#0f2b1e]">Website</dt>
                     <dd className="mt-1">
-                      <Link href="https://www.spanishtrailhomes.com" className="text-[#0f2b1e] underline underline-offset-2 hover:text-[#1f4a35]">
+                      <Link href={GBP_WEBSITE} className="text-[#0f2b1e] underline underline-offset-2 hover:text-[#1f4a35]">
                         www.spanishtrailhomes.com
                       </Link>
                     </dd>
@@ -240,9 +265,11 @@ function BusinessInfoSection() {
                   Location
                 </h3>
                 <address className="not-italic text-sm text-[#372a20]/85">
-                  <p className="font-semibold text-[#0f2b1e]">5050 Spanish Trail Ln</p>
-                  <p>Las Vegas, NV 89113</p>
-                  <p className="mt-2 text-xs text-[#372a20]/70">Service Area: Las Vegas, NV</p>
+                  <p className="font-semibold text-[#0f2b1e]">{GBP_STREET}</p>
+                  <p>
+                    {GBP_LOCALITY}, {GBP_REGION} {GBP_POSTAL}
+                  </p>
+                  <p className="mt-2 text-xs text-[#372a20]/70">Service area: {GBP_SERVICE_AREA_LABEL}</p>
                 </address>
                 <div className="mt-4">
                   <Button
@@ -264,12 +291,18 @@ function BusinessInfoSection() {
                 <dl className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <dt className="text-[#372a20]/85">Sunday – Saturday</dt>
-                    <dd className="font-medium text-[#0f2b1e]">9:00 AM – 6:00 PM</dd>
+                    <dd className="font-medium text-[#0f2b1e]">9:00 AM–6:00 PM</dd>
                   </div>
-                  <div className="pt-2 border-t border-[#d8cdbf]">
-                    <dt className="font-semibold text-[#0f2b1e]">Special Hours</dt>
-                    <dd className="mt-1 text-[#372a20]/85">Feb 16, 2026 (Washington&apos;s Birthday): 10:00 AM – 6:00 PM</dd>
-                  </div>
+                  {getVisibleSpecialHours().length > 0 ? (
+                    <div className="pt-2 border-t border-[#d8cdbf]">
+                      <dt className="font-semibold text-[#0f2b1e]">Special Hours</dt>
+                      <dd className="mt-1 text-[#372a20]/85">
+                        {getVisibleSpecialHours()
+                          .map((hour) => `${hour.label}: ${hour.detail}`)
+                          .join(' · ')}
+                      </dd>
+                    </div>
+                  ) : null}
                 </dl>
               </div>
             </div>
@@ -280,8 +313,8 @@ function BusinessInfoSection() {
               <h3 className="text-xs font-semibold uppercase tracking-[0.3em] text-[#6f5237] mb-4">
                 About This Business
               </h3>
-              <p className="text-sm leading-relaxed text-[#372a20]/85">
-                Your trusted local real estate expert for Spanish Trail, Las Vegas. Dr. Jan Duffy provides precise market updates, helping residents buy and sell homes with confidence. We specialize in the Spanish Trail community, offering unparalleled insights and achieving swift, successful sales, like full-price offers in just four days! Get the latest market values and personalized service for your home.
+              <p className="whitespace-pre-line text-sm leading-relaxed text-[#372a20]/85">
+                {GBP_DESCRIPTION}
               </p>
             </div>
 
@@ -454,14 +487,22 @@ function ConnectSection() {
         <p className="mt-3 max-w-2xl text-base leading-relaxed text-white/80">
           Multiple ways to reach Dr. Jan Duffy directly through Google.
         </p>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
           <Link
-            href="tel:+17027663299"
+            href={`tel:${GBP_PHONE_E164}`}
             className="flex flex-col items-center rounded-2xl bg-white/10 p-6 text-center transition-colors hover:bg-white/20"
           >
             <span className="text-3xl mb-3">📞</span>
             <span className="text-lg font-semibold">Call</span>
-            <span className="mt-1 text-sm text-white/70">(702) 766-3299</span>
+            <span className="mt-1 text-sm text-white/70">{GBP_PHONE_DISPLAY}</span>
+          </Link>
+          <Link
+            href={GBP_SMS_HREF}
+            className="flex flex-col items-center rounded-2xl bg-white/10 p-6 text-center transition-colors hover:bg-white/20"
+          >
+            <span className="text-3xl mb-3">💬</span>
+            <span className="text-lg font-semibold">Text</span>
+            <span className="mt-1 text-sm text-white/70">{GBP_PHONE_DISPLAY}</span>
           </Link>
           <Link
             href={mapsDirectionsUrl}

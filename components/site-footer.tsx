@@ -8,8 +8,12 @@ import { AgentPortrait } from '@/components/agent-portrait'
 import { RealScoutSearchLink } from '@/components/listing-image-link'
 import { REALSCOUT_SHARED_SEARCH_URL } from '@/lib/realscout'
 import {
-  GBP_EASTER_2026_CLOSURE,
+  GBP_DIRECTIONS_URL,
+  GBP_GOOGLE_REVIEW_URL,
+  GBP_PROFILE_SHARE_URL,
   GBP_SERVICE_AREA_LABEL,
+  GBP_SMS_HREF,
+  getVisibleSpecialHours,
   shouldShowPromotedSpecialHoursNotice,
 } from '@/lib/gbp-business'
 
@@ -123,10 +127,29 @@ export function SiteFooter() {
               <>
                 <br />
                 <span className="text-[#efe5d8]">
-                  {GBP_EASTER_2026_CLOSURE.label}: {GBP_EASTER_2026_CLOSURE.detail}
+                  {getVisibleSpecialHours()
+                    .map((hour) => `${hour.label}: ${hour.detail}`)
+                    .join(' · ')}
                 </span>
               </>
             ) : null}
+          </p>
+          <p className="flex flex-wrap gap-x-3 gap-y-1 text-xs uppercase tracking-[0.2em] text-[#efe5d8]">
+            <Link href="tel:+17027663299" className="hover:text-[#be9956] hover:underline" onClick={() => trackPhoneClick('footer')}>
+              Call
+            </Link>
+            <Link href={GBP_SMS_HREF} className="hover:text-[#be9956] hover:underline">
+              Text
+            </Link>
+            <Link href={GBP_DIRECTIONS_URL} target="_blank" rel="noopener noreferrer" className="hover:text-[#be9956] hover:underline">
+              Directions
+            </Link>
+            <Link href={GBP_GOOGLE_REVIEW_URL} target="_blank" rel="noopener noreferrer" className="hover:text-[#be9956] hover:underline">
+              Google reviews
+            </Link>
+            <Link href={GBP_PROFILE_SHARE_URL} target="_blank" rel="noopener noreferrer" className="hover:text-[#be9956] hover:underline">
+              Google profile
+            </Link>
           </p>
           <CalendlyLink 
             className="touch-target inline-flex min-h-[44px] items-center rounded-full border border-[#be9956] px-5 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#be9956] transition-colors hover:bg-[#be9956] hover:text-[#352922]" 
