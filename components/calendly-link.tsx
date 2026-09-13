@@ -1,8 +1,7 @@
 'use client'
 
 import { trackCtaClick } from '@/lib/analytics'
-
-const CALENDLY_URL = 'https://calendly.com/drjanduffy/showing'
+import { CALENDLY_URL } from '@/lib/calendly'
 
 type CalendlyLinkProps = {
   children?: React.ReactNode

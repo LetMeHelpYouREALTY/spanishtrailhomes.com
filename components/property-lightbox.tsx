@@ -11,8 +11,7 @@ import {
   trackPropertyLightboxBookTour,
   trackPropertyLightboxTextAlert,
 } from '@/lib/analytics'
-
-const CALENDLY_TOUR_URL = 'https://calendly.com/drduffy/spanish-trail-showing'
+import { CALENDLY_URL } from '@/lib/calendly'
 const SMS_LISTINGS = 'sms:+17027663299?body=Alert%20me%20about%20new%20Spanish%20Trail%20listings'
 const SMS_SCHEDULE_TOUR = 'sms:+17027663299?body=I%27d%20like%20to%20schedule%20a%20Spanish%20Trail%20home%20tour'
 
@@ -137,9 +136,9 @@ function PropertyLightboxModal({
   const openCalendly = useCallback(() => {
     trackPropertyLightboxBookTour(propertiesViewed)
     if (typeof window !== 'undefined' && window.Calendly) {
-      window.Calendly.initPopupWidget({ url: CALENDLY_TOUR_URL })
+      window.Calendly.initPopupWidget({ url: CALENDLY_URL })
     } else {
-      window.open(CALENDLY_TOUR_URL, '_blank', 'noopener,noreferrer')
+      window.open(CALENDLY_URL, '_blank', 'noopener,noreferrer')
     }
   }, [propertiesViewed])
 

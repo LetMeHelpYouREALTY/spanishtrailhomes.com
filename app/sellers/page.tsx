@@ -2,11 +2,9 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Script from 'next/script'
 
-import React, { createElement } from 'react'
-import type { HTMLAttributes } from 'react'
-
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { CalendlyLink } from '@/components/calendly-link'
+import { CalendlyInline } from '@/components/calendly-inline'
 import { SiteShell } from '@/components/site-shell'
 import { RealScoutSection } from '@/components/realscout-section'
 import { Button } from '@/components/ui/button'
@@ -14,11 +12,6 @@ import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/st
 import { marketStats, formatMedianPrice } from '@/lib/marketStats'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { AgentPortrait } from '@/components/agent-portrait'
-
-
-type RealScoutHomeValueProps = HTMLAttributes<HTMLElement> & {
-  'agent-encoded-id': string
-}
 
 const pageUrl = 'https://www.spanishtrailhomes.com/sellers'
 const sellersPageDescription =
@@ -42,19 +35,6 @@ const sellersWebPageSchema = createWebPageSchema({
     },
   },
 })
-
-const realScoutHomeValueStyles = `
-  realscout-home-value {
-    --rs-hvw-background-color: #ffffff;
-    --rs-hvw-title-color: #000000;
-    --rs-hvw-subtitle-color: rgba(28, 30, 38, 0.5);
-    --rs-hvw-primary-button-text-color: #ffffff;
-    --rs-hvw-primary-button-color: rgb(35, 93, 137);
-    --rs-hvw-secondary-button-text-color: rgb(35, 93, 137);
-    --rs-hvw-secondary-button-color: #ffffff;
-    --rs-hvw-widget-width: auto;
-  }
-`
 
 const faqs = [
   {
@@ -140,7 +120,6 @@ export const metadata: Metadata = {
 export default function SellersPage() {
   return (
     <SiteShell>
-      <style dangerouslySetInnerHTML={{ __html: realScoutHomeValueStyles }} />
       <main>
         <HeroSection />
         <RealScoutSection id="bhhs-listings" />
@@ -198,7 +177,7 @@ function HeroSection() {
             asChild
             className="rounded-full bg-white px-8 py-3 text-xs uppercase tracking-[0.3em] text-[#0f2b1e] hover:bg-[#efe5d8]"
           >
-            <Link href="#seller-valuation-widget">Check My Value</Link>
+            <Link href="#seller-valuation-widget">Book a listing consult</Link>
           </Button>
           <Button
             asChild
@@ -219,16 +198,17 @@ function HomeValueWidgetSection() {
       <SectionBanner headingId="home-value-heading" />
       <div className="mx-auto max-w-3xl space-y-6 px-6 text-center">
         <h2 id="home-value-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
-          Start with an interactive Spanish Trail home valuation
+          Book a Spanish Trail listing consult
         </h2>
           <p className="text-base leading-relaxed text-[#372a20]/85">
-            RealScout's valuation engine pulls live MLS comps, private sales, and buyer demand signals specific to <Link href="/communities/spanish-trail" className="text-[#0f2b1e] underline-offset-4 hover:underline">Spanish Trail's eleven guard-gated enclaves</Link>. Enter your address, confirm home details, and you'll receive a dynamic range updated as new listings appear or close. I immediately review your submission, overlay hyperlocal insights—<Link href="/club" className="text-[#0f2b1e] underline-offset-4 hover:underline">club membership status</Link>, renovation scope, <Link href="/spanish-trail-waterfront-golf-homes" className="text-[#0f2b1e] underline-offset-4 hover:underline">Strip or golf frontage</Link>—and share a custom equity roadmap within 24 hours.
+            Pick a time with Dr. Jan Duffy. She prices from live MLS comps, private sales, and demand on{' '}
+            <Link href="/communities/spanish-trail" className="text-[#0f2b1e] underline-offset-4 hover:underline">
+              Spanish Trail&apos;s eleven guard-gated enclaves
+            </Link>
+            —not a generic web form. Call (702) 766-3299 if you need a same-day CMA.
           </p>
-        <p className="text-base leading-relaxed text-[#372a20]/85">
-          Prefer a white-glove conversation? Indicate your ideal move-out window and I’ll coordinate a confidential consultation that includes net proceeds estimates, pre-inspection guidance, and tailored vendor introductions. No automated tool replaces professional eyes-on-the-ground, so treat this widget as your launch pad and lean on me for the nuance that transforms curiosity into a signed contract.
-        </p>
         <div className="rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10">
-          <RealScoutHomeValue agent-encoded-id="QWdlbnQtMjI1MDUw" />
+          <CalendlyInline height={700} minWidth={320} className="w-full" />
         </div>
       </div>
     </section>
@@ -536,16 +516,12 @@ function CallToActionSection() {
             variant="outline"
             className="rounded-full border-[#f8f5ef]/60 px-8 py-3 text-xs uppercase tracking-[0.3em] text-[#f8f5ef] hover:bg-white/10"
           >
-            <Link href="#seller-valuation-widget">View Home Value</Link>
+            <Link href="#seller-valuation-widget">Book a listing consult</Link>
           </Button>
         </div>
       </div>
     </section>
   )
-}
-
-function RealScoutHomeValue(props: RealScoutHomeValueProps) {
-  return createElement('realscout-home-value' as any, props)
 }
 
 

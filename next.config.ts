@@ -8,6 +8,14 @@ const nextConfig: NextConfig = {
     return [
       { source: '/market-data', destination: '/spanish-trail-market-report', permanent: true },
       { source: '/homes', destination: '/spanish-trail-homes-for-sale-las-vegas', permanent: true },
+<<<<<<< HEAD
+=======
+      { source: '/address-autocomplete', destination: '/find-our-locations', permanent: true },
+      { source: '/amenity-map', destination: '/find-our-locations', permanent: true },
+      { source: '/directions', destination: '/find-our-locations', permanent: true },
+      { source: '/projects/:path*', destination: '/contact', permanent: true },
+      { source: '/chats/:path*', destination: '/contact', permanent: true },
+>>>>>>> 36694b3 (Replace homemade forms with one Calendly booking URL)
       { source: '/images/janet-duffy.jpg', destination: '/images/spanish-trail/duffy-circle-canonical.png', permanent: true },
       {
         source: '/images/spanish-trail/agent-duffy-:variant.png',
