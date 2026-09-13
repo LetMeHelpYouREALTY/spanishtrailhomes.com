@@ -65,7 +65,7 @@ const eventsFaq = [
   {
     question: 'Does the club accommodate cultural or fusion celebrations?',
     answer:
-      'Absolutely. The culinary and planning teams excel at creating menus and experiences that honor cultural traditions. From South Asian baraats to Latin-inspired receptions, the club collaborates with families to incorporate rituals, decor, and entertainment that feel authentic.',
+      'Absolutely. The culinary and planning teams can build menus and production around the rituals, decor, and entertainment the hosts specify.',
   },
   {
     question: 'How can I tour Spanish Trail homes after attending an event?',

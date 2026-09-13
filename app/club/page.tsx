@@ -17,14 +17,14 @@ const clubNarratives = [
   {
     title: 'Club Lifestyle for Members and Residents',
     paragraphs: [
-      'Spanish Trail Country Club has evolved into a social sanctuary where every day carries a sense of occasion. Morning routines begin in the fitness pavilion with personal trainers, Pilates reformers, and spa-level locker rooms. By lunchtime, executives and creatives gather on the terrace for strategy sessions overlooking the Lakes nine. Evenings can mean wine-pairing dinners, cigar tastings on the veranda, or kids splashing in the pool while parents enjoy sunset cocktails.',
-      'Because the club sits within a master-planned, guard-gated community, members benefit from a built-in support system. Concierge teams coordinate airport transportation, book tee times, and secure reservations at partner restaurants across Summerlin and the Strip. Residents credit Spanish Trail with creating a safe, connected environment where neighbors quickly become friends. Dr. Duffy helps buyers find homes that align with their preferred pace and social circles.'
+      'Spanish Trail Country Club has evolved into a social sanctuary where every day carries a sense of occasion. Morning routines begin in the fitness pavilion with personal trainers, Pilates reformers, and spa-level locker rooms. By lunchtime, executives and creatives gather on the terrace for strategy sessions overlooking the Lakes nine. Evenings can mean wine-pairing dinners, cigar tastings on the veranda, or a lap in the resort pool before sunset.',
+      'Because the club sits within a master-planned, guard-gated community, members benefit from a built-in support system. Concierge teams coordinate airport transportation, book tee times, and secure reservations at partner restaurants across Summerlin and the Strip. Guard gates, posted club hours, and concierge desks keep daily logistics predictable. Dr. Duffy helps buyers find homes that align with their preferred pace and commute.',
     ],
   },
   {
-    title: 'Programming that Elevates Every Generation',
+    title: 'Programming on the club calendar',
     paragraphs: [
-      'Spanish Trail Country Club\'s programming committee curates activations for all ages. Young families enjoy junior golf academies, swim instruction, and themed holiday festivals that embrace Las Vegas flair. Professionals tap into networking breakfasts, speaker panels featuring hospitality leaders, and elegant member trips to Napa and Pebble Beach. Retirees appreciate weekday tennis mixers, art workshops, and philanthropic initiatives that support local schools.',
+      'Spanish Trail Country Club\'s programming committee posts a calendar that includes junior golf academies, swim instruction, themed holiday festivals, networking breakfasts, speaker panels, member trips, weekday tennis mixers, art workshops, and philanthropic events. Confirm current dates with the club.',
       'Each program is designed to ensure members discover value beyond the fairways, reinforcing Spanish Trail\'s position as the social heartbeat of west Las Vegas. Understanding this forward momentum helps buyers view Spanish Trail not only as a property investment but as an enduring lifestyle commitment.'
     ],
   },
@@ -58,7 +58,7 @@ const clubFaq = [
   {
     question: 'What are the most popular golf programs for new members?',
     answer:
-      'New members gravitate toward professional coaching packages, nine-and-dine evenings, and mixed-team tournaments that foster camaraderie. Junior academies and ladies\' leagues fill quickly each season. Contact the golf pro shop for program details and availability.',
+      'New members gravitate toward professional coaching packages, nine-and-dine evenings, and mixed-team tournaments. Junior academies and posted member leagues fill quickly each season. Contact the golf pro shop for program details and availability.',
   },
   {
     question: 'Can members reserve private workspace or meeting rooms?',
@@ -66,9 +66,9 @@ const clubFaq = [
       'Yes. The clubhouse features flexible meeting suites equipped with high-speed connectivity, presentation technology, and catering options. Members use these spaces for board meetings, podcast recordings, or remote-work sessions between rounds. Contact the club for availability and booking.',
   },
   {
-    question: 'How does the club support families with children?',
+    question: 'What youth and junior programming does the club offer?',
     answer:
-      'Spanish Trail offers supervised kids\' clubs, seasonal camps, swim teams, and teen socials curated by youth programming specialists. Parents appreciate the safe environment, dedicated staff, and ability to enjoy adult-only events knowing their children are engaged nearby. Contact the club for program schedules and enrollment.',
+      'Spanish Trail posts supervised kids\' clubs, seasonal camps, swim teams, teen socials, and junior golf academies. Confirm schedules, staffing, and enrollment with the club.',
   },
 ]
 

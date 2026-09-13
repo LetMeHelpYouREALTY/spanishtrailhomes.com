@@ -32,7 +32,7 @@ const guestNarratives = [
   {
     title: 'Exploring Spanish Trail Amenities',
     paragraphs: [
-      'Beyond golf, visitors can schedule time at the fitness pavilion, tennis complex, or resort-style pools. The pro shop offers merchandise from top designers, and spa providers deliver revitalizing treatments ranging from deep-tissue massage to post-round recovery sessions. Families appreciate children’s programming and the game lounge, which keeps younger guests entertained while adults socialize nearby.',
+      'Beyond golf, visitors can schedule time at the fitness pavilion, tennis complex, or resort-style pools. The pro shop offers merchandise from top designers, and spa providers deliver revitalizing treatments ranging from deep-tissue massage to post-round recovery sessions. Junior golf clinics, the game lounge, and pool hours are posted at the clubhouse.',
       'For extended stays, Dr. Duffy curates off-property excursions that complement the Spanish Trail experience—think reserved seating at Allegiant Stadium events, culinary tours of Chinatown, or sunset hikes at Red Rock Canyon. She also recommends Spanish Trail homes that feature guest casitas or lock-off suites ideal for hosting friends and relatives.'
     ],
   },

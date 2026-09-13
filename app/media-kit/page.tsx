@@ -169,7 +169,7 @@ export default function MediaKitPage() {
             guard-gated golf communities across Las Vegas. With a Ph.D. in Market Research & Consumer Behavior and
             deep roots in the 89113 corridor, she combines data-led preparation, concierge-level service, and
             community fluency to guide clients through high-stakes transactions. She has advised hundreds of
-            Spanish Trail families and is recognized by Berkshire Hathaway HomeServices Luxury Golf Homes (top 2%
+            Spanish Trail buyers and sellers and is recognized by Berkshire Hathaway HomeServices Luxury Golf Homes (top 2%
             network-wide), Las Vegas REALTORS® Top 25 Luxury Producer, and RealScout as Spanish Trail Market Expert.
           </p>
         </section>

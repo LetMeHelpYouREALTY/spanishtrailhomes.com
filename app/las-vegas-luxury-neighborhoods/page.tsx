@@ -23,7 +23,7 @@ const comparisonHighlights = [
   {
     name: 'Red Rock Country Club',
     insight:
-      'Two Arnold Palmer courses, family-focused amenities, and immediate Downtown Summerlin access. Strong alternative for golf-centric households.',
+      'Two Arnold Palmer courses, junior golf and swim programming, and immediate Downtown Summerlin access. Strong alternative for golf-centric households.',
   },
   {
     name: 'The Summit Club',
@@ -73,7 +73,7 @@ const luxuryNeighborhoodsFaq = [
   {
     question: 'How does Spanish Trail compare to The Ridges in terms of price and lifestyle?',
     answer:
-      'Spanish Trail typically offers better value per square foot with established landscaping and mature amenities, while The Ridges features newer construction and ultra-modern architecture at a premium. Spanish Trail\'s triple-course golf and guard-gated security appeal to buyers seeking established community character, while The Ridges attracts those prioritizing new-build technology and elevated HOA programming. Dr. Duffy provides detailed comparisons during neighborhood tours.',
+      'Spanish Trail typically offers better value per square foot with mature landscaping and long-standing amenities, while The Ridges features newer construction and ultra-modern architecture at a premium. Spanish Trail\'s 27-hole golf and 24-hour guard gates appeal to buyers who want a finished master plan; The Ridges attracts those prioritizing new-build technology and elevated HOA programming. Dr. Duffy provides detailed comparisons during neighborhood tours.',
   },
   {
     question: 'What makes Spanish Trail stand out among Las Vegas luxury communities?',
@@ -88,12 +88,12 @@ const luxuryNeighborhoodsFaq = [
   {
     question: 'How do club memberships differ between Spanish Trail and other luxury communities?',
     answer:
-      'Spanish Trail offers several membership categories (for example Full Golf, Young Executive, Lifestyle, and Corporate—confirm current names and availability with the club). Red Rock Country Club has two Arnold Palmer courses with family-focused programming. The Ridges ties to Bear’s Best. The Summit Club is a separate ultra-luxury private experience. Dr. Duffy arranges meetings with membership directors wherever you tour so you can review categories, initiation and dues, waitlists, and reciprocity from official materials—not comparisons based on rumor.',
+      'Spanish Trail offers several membership categories (for example Full Golf, Young Executive, Lifestyle, and Corporate—confirm current names and availability with the club). Red Rock Country Club has two Arnold Palmer courses plus junior golf, swim, and fitness programming. The Ridges ties to Bear’s Best. The Summit Club is a separate ultra-luxury private experience. Dr. Duffy arranges meetings with membership directors wherever you tour so you can review categories, initiation and dues, waitlists, and reciprocity from official materials—not comparisons based on rumor.',
   },
   {
     question: 'What factors should I prioritize when comparing luxury neighborhoods?',
     answer:
-      'Consider: 1) Lifestyle match (golf-centric, family-focused, lock-and-leave), 2) Commute times to work, entertainment, and services, 3) Resale value and market stability, 4) Club membership costs and availability, 5) Architectural style and renovation flexibility, 6) HOA fees and services provided, 7) Community maturity and established amenities. Dr. Duffy helps clients evaluate these factors systematically during consultation sessions.',
+      'Consider: 1) Lifestyle match (golf-centric, lock-and-leave, or daily clubhouse use), 2) Commute times to work, entertainment, and services, 3) Resale value and market stability, 4) Club membership costs and availability, 5) Architectural style and renovation flexibility, 6) HOA fees and services provided, 7) Community maturity and posted amenities. Dr. Duffy helps clients evaluate these factors systematically during consultation sessions.',
   },
 ]
 

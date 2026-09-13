@@ -292,7 +292,7 @@ function NeighborhoodHighlightsSection() {
             },
             {
               title: 'Springs & Plum Creek',
-              detail: 'Tree-lined streets, quick walk to community pocket parks, and strong demand from families wanting Bishop Gorman and Faith Lutheran access.',
+              detail: 'Tree-lined streets, a short walk to community pocket parks, 2.2 miles to Bishop Gorman High School, and a short drive to Faith Lutheran Middle & High School.',
             },
             {
               title: 'Courtyards & Gardens',

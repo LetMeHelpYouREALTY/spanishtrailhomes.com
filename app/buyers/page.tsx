@@ -308,13 +308,13 @@ function PropertyPathwaysSection() {
             {
               title: 'Estates, Estates West & Islands',
               summary:
-                'Custom residences on expansive lots with Strip or triple-fairway views. Perfect for entertainers, car collectors, and multigenerational households seeking casitas.',
+                'Custom residences on expansive lots with Strip or triple-fairway views. Casitas, collector garages, and entertainer yards are common on these streets.',
               highlight: 'Homes above $2M secure strong list-to-close ratios when outdoor living spaces and smart-home systems are turnkey.',
             },
             {
               title: 'Springs & Plum Creek',
               summary:
-                'Tree-lined streets, close proximity to Bishop Gorman High School, and community parks make these enclaves favorites among families balancing work and schooling in Summerlin and Spring Valley.',
+                'Tree-lined streets, 2.2 miles to Bishop Gorman High School, and community pocket parks. Typical commute toward Summerlin and Spring Valley employment corridors.',
               highlight: 'Updated kitchens and flexible loft layouts remain the top priorities among relocating professionals.',
             },
             {

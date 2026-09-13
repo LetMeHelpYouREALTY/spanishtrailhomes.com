@@ -315,7 +315,7 @@ function LocationAndAmenitiesSection() {
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-1 inline-block size-2 rounded-full bg-[#0f2b1e]" aria-hidden />
-                  <span>Top-tier private schools moments away</span>
+                  <span>Bishop Gorman High School 2.2 miles; Faith Lutheran a short drive</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-1 inline-block size-2 rounded-full bg-[#0f2b1e]" aria-hidden />
@@ -393,7 +393,7 @@ function NeighborhoodsSection() {
       name: 'Links at Spanish Trail',
       range: '2,000-4,800 sq. ft.',
       description:
-        'Homes in Links at Spanish Trail range from around 2,000 square feet to more than 4,800 square feet, with a number of different floor plans available. This neighborhood offers diverse options for families and golf enthusiasts.',
+        'Homes in Links at Spanish Trail range from around 2,000 square feet to more than 4,800 square feet, with a number of different floor plans available along the golf routing.',
     },
     {
       name: 'Islands at Spanish Trail',
@@ -456,7 +456,7 @@ function BuyingProcessSection() {
           <div className="space-y-6">
             <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#6f5237]">Working with Dr. Jan Duffy</h3>
             <p className="text-base leading-relaxed text-[#372a20]/85">
-              When searching for homes for sale in Spanish Trail, Dr. Jan Duffy provides expert guidance throughout the entire buying process. With decades of experience focused on Spanish Trail and 500+ families advised in the community, she offers insider knowledge about each neighborhood, pricing trends, and off-market opportunities.
+              When searching for homes for sale in Spanish Trail, Dr. Jan Duffy provides expert guidance throughout the entire buying process. With decades of experience focused on Spanish Trail and 500+ buyers and sellers advised in the community, she offers insider knowledge about each neighborhood, pricing trends, and off-market opportunities.
             </p>
             <p className="text-base leading-relaxed text-[#372a20]/85">
               Dr. Duffy coordinates private tours, guard gate access, <Link href="/membership" className="text-[#0f2b1e] underline-offset-4 hover:underline">club membership introductions</Link>, and provides comprehensive market analysis to ensure you make informed decisions when purchasing homes for sale in Spanish Trail.

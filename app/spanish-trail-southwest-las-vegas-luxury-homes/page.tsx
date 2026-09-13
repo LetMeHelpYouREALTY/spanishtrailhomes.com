@@ -166,7 +166,7 @@ function OverviewSection() {
           Southwest Las Vegas luxury from inside the guard gates
         </h2>
         <p className="mt-4 text-base leading-relaxed text-[#372a20]/85">
-          Southwest Las Vegas continues to attract professionals, entertainers, and relocating families seeking proximity to the Strip without sacrificing serenity. Spanish Trail delivers all of that with a mature guard-gated community, established golf club, and decades of proven value.
+          Southwest Las Vegas continues to attract professionals, entertainers, and relocating buyers who want 15-minute Strip and airport access without living on a resort corridor. Spanish Trail delivers that with a 640-acre guard-gated master plan, Spanish Trail Country Club, and decades of recorded sales.
         </p>
         <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
           {[
@@ -218,7 +218,7 @@ function ComparisonSection() {
               • <strong>Spanish Trail vs. Southern Highlands:</strong> Southern Highlands features newer builds and custom lots further south; Spanish Trail provides immediate access to Spring Valley hospitals and world-class dining along the Flamingo and Durango corridors.
             </p>
             <p>
-              • <strong>Spanish Trail vs. Rhodes Ranch:</strong> Rhodes Ranch is more family-focused with public golf access; Spanish Trail remains private, more exclusive, and commands higher resale due to limited inventory and club prestige.
+              • <strong>Spanish Trail vs. Rhodes Ranch:</strong> Rhodes Ranch offers public golf access; Spanish Trail is a private 27-hole club behind 24-hour guard gates and typically trades at a higher price per square foot on limited inventory.
             </p>
           </div>
         </div>
@@ -317,13 +317,13 @@ function SchoolSection() {
         <h2 id="school-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Education and enrichment nearby</h2>
         <p className="mt-4 text-base leading-relaxed text-[#372a20]/85">
-          Families appreciate Spanish Trail’s access to reputable schools and enrichment programs throughout Southwest Las Vegas.</p>
+          Named campuses and drive times from 5050 Spanish Trail Ln: Frank Kim Elementary, Grant Sawyer Middle, and Spring Valley High School serve the CCSD zone; Bishop Gorman High School is 2.2 miles via S. Rainbow Blvd.; Faith Lutheran Middle & High School is a short drive into Summerlin.</p>
         <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
           {[
             {
               title: 'Faith Lutheran & Bishop Gorman',
               detail:
-                'Top-tier private schools within 10–15 minutes offering AP, arts, and athletics. Carpool lanes are easy to navigate from the guard gates.',
+                'Faith Lutheran Middle & High School and Bishop Gorman High School are a 10–15 minute drive. Confirm current programs, hours, and admissions with each campus.',
             },
             {
               title: 'Charter & magnet options',

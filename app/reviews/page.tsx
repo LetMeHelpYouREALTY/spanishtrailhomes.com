@@ -616,7 +616,7 @@ function CTASection() {
           </div>
           <div className="rounded-2xl bg-white/10 p-6 text-center">
             <p className="font-[var(--font-playfair)] text-3xl">500+</p>
-            <p className="mt-1 text-sm text-white/70">Spanish Trail families advised</p>
+            <p className="mt-1 text-sm text-white/70">Spanish Trail buyers and sellers advised</p>
           </div>
           <div className="rounded-2xl bg-white/10 p-6 text-center">
             <p className="font-[var(--font-playfair)] text-3xl">11</p>
