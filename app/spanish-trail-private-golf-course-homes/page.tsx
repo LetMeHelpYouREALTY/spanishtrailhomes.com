@@ -7,7 +7,7 @@ import { RealScoutSection } from '@/components/realscout-section'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
-import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
+import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 
 
@@ -90,6 +90,13 @@ const faqSchema = {
   })),
 }
 
+
+const webPageSchema = createWebPageSchema({
+  name: typeof metadata.title === 'string' ? metadata.title : 'Spanish Trail Homes',
+  description: typeof metadata.description === 'string' ? metadata.description : '',
+  path: '/spanish-trail-private-golf-course-homes',
+})
+
 export default function PrivateGolfCourseHomesPage() {
   return (
     <SiteShell>
@@ -123,6 +130,9 @@ export default function PrivateGolfCourseHomesPage() {
       <CTASection />
       <Script id="private-golf-course-faq-schema" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(faqSchema)}
+      </Script>
+      <Script id="spanish-trail-private-golf-course-homes-webpage-schema" type="application/ld+json">
+        {JSON.stringify(webPageSchema)}
       </Script>
     </SiteShell>
   )

@@ -34,10 +34,10 @@ export function SectionBanner({
     case 'h1':
       return (
         <div className={cn('absolute inset-0 -z-10', className)} aria-hidden={false}>
-          <ListingImageLink className="absolute inset-0" label={media.alt}>
+          <ListingImageLink className="absolute inset-0" label={`${media.alt} — open live Spanish Trail listings`}>
             <Image
               src={src}
-              alt=""
+              alt={media.alt}
               fill
               priority={priority}
               quality={80}
@@ -52,10 +52,10 @@ export function SectionBanner({
       return (
         <div className={cn('mx-auto w-full max-w-6xl px-4 pt-8 sm:px-6 sm:pt-10', className)}>
           <div className="relative aspect-[16/7] overflow-hidden rounded-2xl sm:aspect-[21/8]">
-            <ListingImageLink className="absolute inset-0" label={media.alt}>
+            <ListingImageLink className="absolute inset-0" label={`${media.alt} — open live Spanish Trail listings`}>
               <Image
                 src={src}
-                alt=""
+                alt={media.alt}
                 fill
                 quality={75}
                 sizes="(max-width: 1024px) 100vw, 1152px"
@@ -93,12 +93,12 @@ export function CardVisual({ seed, className, alt }: CardVisualProps) {
 
   return (
     <ListingImageLink
-      label={imageAlt}
+      label={`${imageAlt} — open live Spanish Trail listings`}
       className={cn('relative mb-3 aspect-[4/3] w-full overflow-hidden rounded-xl', className)}
     >
       <Image
         src={src}
-        alt=""
+        alt={imageAlt}
         fill
         quality={70}
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -129,12 +129,12 @@ export function HeadingPicture({
 
   return (
     <ListingImageLink
-      label={alt}
+      label={`${alt} — open live Spanish Trail listings`}
       className={cn('relative w-full overflow-hidden', aspect, className)}
     >
       <Image
         src={src}
-        alt=""
+        alt={alt}
         fill
         priority={priority}
         quality={level === 'h1' ? 80 : 75}

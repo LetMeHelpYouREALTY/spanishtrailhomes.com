@@ -8,7 +8,7 @@ import { RealScoutSection } from '@/components/realscout-section'
 import { Button } from '@/components/ui/button'
 import { nearbyCommunities } from '@/lib/spanishTrailContent'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
-import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
+import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 
 
@@ -156,6 +156,13 @@ export const metadata: Metadata = {
   },
 }
 
+
+const webPageSchema = createWebPageSchema({
+  name: typeof metadata.title === 'string' ? metadata.title : 'Spanish Trail Homes',
+  description: typeof metadata.description === 'string' ? metadata.description : '',
+  path: '/las-vegas-luxury-neighborhoods',
+})
+
 export default function LuxuryNeighborhoodComparisonsPage() {
   return (
     <SiteShell>
@@ -209,6 +216,9 @@ export default function LuxuryNeighborhoodComparisonsPage() {
       <LuxuryCTASection />
       <Script id="luxury-neighborhoods-faq-schema" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(luxuryNeighborhoodsFaqSchema)}
+      </Script>
+      <Script id="las-vegas-luxury-neighborhoods-webpage-schema" type="application/ld+json">
+        {JSON.stringify(webPageSchema)}
       </Script>
     </SiteShell>
   )

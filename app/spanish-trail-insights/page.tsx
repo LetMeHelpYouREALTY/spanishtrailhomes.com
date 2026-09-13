@@ -8,7 +8,7 @@ import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { homeDeepDive, neighborhoodSpotlights } from '@/lib/spanishTrailContent'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
-import { createOgImageUrl, getCanonicalUrl, createArticleSchema, createBreadcrumbSchema } from '@/lib/structuredData'
+import { createOgImageUrl, createWebPageSchema, getCanonicalUrl, createArticleSchema, createBreadcrumbSchema } from '@/lib/structuredData'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 
 
@@ -123,6 +123,13 @@ export const metadata: Metadata = {
   },
 }
 
+
+const webPageSchema = createWebPageSchema({
+  name: typeof metadata.title === 'string' ? metadata.title : 'Spanish Trail Homes',
+  description: typeof metadata.description === 'string' ? metadata.description : '',
+  path: '/spanish-trail-insights',
+})
+
 export default function SpanishTrailInsightsPage() {
   return (
     <SiteShell>
@@ -186,6 +193,9 @@ export default function SpanishTrailInsightsPage() {
       </Script>
       <Script id="insights-breadcrumb-schema" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(insightsBreadcrumbSchema)}
+      </Script>
+      <Script id="spanish-trail-insights-webpage-schema" type="application/ld+json">
+        {JSON.stringify(webPageSchema)}
       </Script>
     </SiteShell>
   )

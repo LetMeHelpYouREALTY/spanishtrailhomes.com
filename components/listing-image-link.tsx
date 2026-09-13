@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { forwardRef, type MouseEventHandler, type ReactNode } from 'react'
 import { trackRealscoutSharedSearchClick } from '@/lib/analytics'
 import { REALSCOUT_SHARED_SEARCH_URL } from '@/lib/realscout'
@@ -45,14 +46,17 @@ type ListingPhotoPanelProps = {
   className?: string
 }
 
-/** Clickable CSS-background photo used as a section-side image. */
+/** Clickable section-side photo. Uses an img src so Google can extract the image. */
 export function ListingPhotoPanel({ src, label, className }: ListingPhotoPanelProps) {
   return (
-    <ListingImageLink label={label} className={cn('h-full min-h-[16rem]', className)}>
-      <div
-        className="h-full min-h-[16rem] rounded-3xl border border-border/60 bg-cover bg-center shadow-lg"
-        style={{ backgroundImage: `url('${src}')` }}
-        aria-hidden
+    <ListingImageLink label={`${label} — open live Spanish Trail listings`} className={cn('relative block h-full min-h-[16rem]', className)}>
+      <Image
+        src={src}
+        alt={label}
+        fill
+        quality={75}
+        sizes="(max-width: 1024px) 100vw, 480px"
+        className="rounded-3xl border border-border/60 object-cover shadow-lg"
       />
     </ListingImageLink>
   )

@@ -203,6 +203,23 @@ export function getAssetAlt(assetId: string): string {
   return ALTS[assetId] ?? 'Spanish Trail Las Vegas guard-gated golf community real estate'
 }
 
+/**
+ * Preferred still image for a route. Used as WebPage.primaryImageOfPage and
+ * og:image companion so Google Search / Discover can pick a thumbnail from
+ * schema.org ImageObject plus Open Graph (Search Central, March 2026).
+ */
+export function resolvePagePreferredImage(path: string): SiteImageAsset {
+  const normalized = path.trim().toLowerCase().replace(/\/+$/, '') || '/'
+  const seed = normalized === '/' ? 'hero' : normalized.replace(/^\//, '').replace(/\//g, '-')
+  return (
+    resolveHeadingMedia(seed) ?? {
+      id: DEFAULT_H1_IMAGE,
+      alt: getAssetAlt(DEFAULT_H1_IMAGE),
+      level: 'h1',
+    }
+  )
+}
+
 export function resolveHeadingMedia(headingId: string): SiteImageAsset | null {
   const normalized = headingId.trim().toLowerCase()
   if (!normalized || normalized === 'aeo-answer') return null
