@@ -1,5 +1,7 @@
 import Link from 'next/link'
 
+import { BrandLockup } from '@/components/brand-lockup'
+
 import {
   GBP_ACCESSIBILITY_FEATURES,
   GBP_ADDRESS_LINE,
@@ -42,13 +44,10 @@ export function GbpSectionSupport({ variant = 'onLight', className }: GbpSection
         className
       )}
     >
-      <p className={cn('font-medium', onDark ? 'text-white' : 'text-[#0f2b1e]')}>
-        {GBP_LEGAL_NAME}
-        {compact ? null : ` · ${GBP_CATEGORY}`}
-      </p>
+      <BrandLockup variant="section" tone={onDark ? 'dark' : 'light'} />
       {compact ? null : (
-        <p>
-          {GBP_ADDRESS_LINE} · {GBP_HOURS_LABEL} · Service area {GBP_SERVICE_AREA_LABEL}
+        <p className="mt-1">
+          {GBP_CATEGORY} · {GBP_ADDRESS_LINE} · {GBP_HOURS_LABEL} · Service area {GBP_SERVICE_AREA_LABEL}
         </p>
       )}
       <p className="mt-1 flex flex-wrap gap-x-3 gap-y-1">

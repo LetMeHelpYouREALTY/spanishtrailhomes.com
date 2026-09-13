@@ -11,6 +11,7 @@ import { getAbsoluteSiteImageUrl } from '@/lib/cloudflare-images'
 import { REALSCOUT_SHARED_SEARCH_ORIGIN } from '@/lib/realscout'
 import {
   GBP_ACCESSIBILITY_FEATURES,
+  GBP_BRAND_NAME,
   GBP_DESCRIPTION,
   GBP_EMAIL,
   GBP_GEO,
@@ -207,7 +208,7 @@ const structuredData = [
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: GBP_LEGAL_NAME,
+    default: GBP_BRAND_NAME,
     template: '%s | Spanish Trail Homes',
   },
   description: rootDefaultDescription,

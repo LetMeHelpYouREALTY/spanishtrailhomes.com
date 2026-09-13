@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Script from 'next/script'
 
+import { BrandLockup } from '@/components/brand-lockup'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { SectionBanner } from '@/components/heading-media'
 import { SiteShell } from '@/components/site-shell'
@@ -80,9 +81,7 @@ export default function FindOurLocationsPage() {
         <SectionBanner headingId="find-locations-heading" />
         <div className="relative mx-auto max-w-4xl text-center">
           <p className="text-xs uppercase tracking-[0.5em] text-primary-foreground/80">Office and map</p>
-          <h1 id="find-locations-heading" className="mt-4 font-[var(--font-playfair)] text-3xl tracking-tight sm:text-4xl md:text-5xl">
-            {GBP_LEGAL_NAME}
-          </h1>
+          <BrandLockup as="h1" id="find-locations-heading" variant="hero" tone="dark" align="center" className="mt-4" />
           <p className="mt-6 mx-auto max-w-2xl text-base leading-7 text-primary-foreground/90 sm:text-lg">
             {GBP_STREET}, {GBP_LOCALITY}, {GBP_REGION} {GBP_POSTAL}. Call{' '}
             <a href={`tel:${GBP_PHONE_E164}`} className="underline underline-offset-2">
