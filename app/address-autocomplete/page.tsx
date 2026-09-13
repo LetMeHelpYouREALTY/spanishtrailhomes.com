@@ -36,8 +36,9 @@ const webPageSchema = createWebPageSchema({
 export const metadata: Metadata = {
   title: 'Address Autocomplete | Google Maps Platform | Spanish Trail Homes',
   description: pageDescription,
+  robots: { index: false, follow: false },
   alternates: {
-    canonical: getCanonicalUrl('/address-autocomplete'),
+    canonical: getCanonicalUrl('/find-our-locations'),
   },
   openGraph: {
     url: pageUrl,
