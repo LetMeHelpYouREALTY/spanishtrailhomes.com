@@ -23,6 +23,8 @@ import {
   neighborhoodPossessive,
 } from '@/lib/neighborhoods'
 import { SectionBanner } from '@/components/heading-media'
+import { BackPageOverview } from '@/components/back-page-overview'
+import { BACK_PAGE_SPEAKABLE, getNeighborhoodOverview } from '@/lib/back-page-overviews'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 import { DEFAULT_H1_IMAGE, NEIGHBORHOOD_CARD_IMAGES, getAssetAlt } from '@/lib/site-images'
 
@@ -79,6 +81,7 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
     path,
     type: 'WebPage',
     extra: {
+      speakable: BACK_PAGE_SPEAKABLE,
       about: {
         '@type': 'Place',
         name: neighborhood.name,
@@ -129,6 +132,7 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
         subtitle={`${neighborhood.priceRange} · Buy or sell with Dr. Jan Duffy`}
         description="Live inventory in this enclave’s typical price band. Dr. Duffy confirms the Spanish Trail street before you tour."
       />
+      <BackPageOverview headingId={`${slug}-overview-heading`} {...getNeighborhoodOverview(neighborhood)} />
       <RealScoutSection
         id="bhhs-listings"
         eyebrow={`${neighborhood.name} inventory`}

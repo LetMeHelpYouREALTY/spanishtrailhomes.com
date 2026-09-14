@@ -9,6 +9,8 @@ import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
 import { CalendlyLink } from '@/components/calendly-link'
 import { SectionBanner } from '@/components/heading-media'
+import { BackPageOverview } from '@/components/back-page-overview'
+import { BACK_PAGE_SPEAKABLE, TOPIC_OVERVIEWS } from '@/lib/back-page-overviews'
 import {
   createOgImageUrl,
   createWebPageSchema,
@@ -27,6 +29,7 @@ const relocationWebPageSchema = createWebPageSchema({
   path: '/relocation',
   type: 'WebPage',
   extra: {
+    speakable: BACK_PAGE_SPEAKABLE,
     about: {
       '@type': 'Service',
       name: 'Relocation and Out-of-State Buyer Support',
@@ -123,6 +126,8 @@ export default function RelocationPage() {
         subtitle="Relocation realtor services for 89113"
         description="Dr. Jan Duffy buys Spanish Trail homes for out-of-state clients: virtual tours, 11-neighborhood matching, and remote closing."
       />
+
+      <BackPageOverview headingId="relocation-overview-heading" {...TOPIC_OVERVIEWS.relocation} />
       <RealScoutSection id="bhhs-listings" />
 
       <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12">

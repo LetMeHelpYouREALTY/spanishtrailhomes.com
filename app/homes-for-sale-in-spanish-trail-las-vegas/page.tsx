@@ -11,6 +11,8 @@ import { HeroBackground } from '@/components/hero-background'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { marketStats, formatMedianPrice } from '@/lib/marketStats'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { BackPageOverview } from '@/components/back-page-overview'
+import { BACK_PAGE_SPEAKABLE, TOPIC_OVERVIEWS } from '@/lib/back-page-overviews'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 import { RealScoutSearchLink } from '@/components/listing-image-link'
 
@@ -124,12 +126,14 @@ const webPageSchema = createWebPageSchema({
   description:
     'Property types, square footage, neighborhoods, and amenities for homes for sale in Spanish Trail, Las Vegas—guard-gated golf community in zip 89113. Pair with the live listings hub for MLS snapshots and tours.',
   path: '/homes-for-sale-in-spanish-trail-las-vegas',
+  extra: { speakable: BACK_PAGE_SPEAKABLE },
 })
 
 export default function HomesForSaleInSpanishTrailLasVegasPage() {
   return (
     <SiteShell>
       <HeroSection />
+      <BackPageOverview headingId="property-types-overview-heading" {...TOPIC_OVERVIEWS['property-types']} />
       <RealScoutSection
         id="bhhs-listings"
         title="Browse Current Homes for Sale in Spanish Trail"

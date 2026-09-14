@@ -9,6 +9,8 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { BackPageOverview } from '@/components/back-page-overview'
+import { BACK_PAGE_SPEAKABLE, TOPIC_OVERVIEWS } from '@/lib/back-page-overviews'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-hoa-guide'
@@ -19,6 +21,7 @@ const webPageSchema = createWebPageSchema({
   name: 'Spanish Trail HOA Las Vegas | Fees, Gates & New Owner Information',
   description: pageDescription,
   path: '/spanish-trail-hoa-guide',
+  extra: { speakable: BACK_PAGE_SPEAKABLE },
 })
 
 export const metadata: Metadata = {
@@ -116,6 +119,7 @@ export default function SpanishTrailHOAGuidePage() {
   return (
     <SiteShell>
       <HeroSection />
+      <BackPageOverview headingId="hoa-overview-heading" {...TOPIC_OVERVIEWS.hoa} />
       <RealScoutSection
         id="bhhs-listings"
         eyebrow="Find Your Home"

@@ -10,6 +10,8 @@ import { featuredListings, marketHighlights } from '@/lib/spanishTrailContent'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { BackPageOverview } from '@/components/back-page-overview'
+import { BACK_PAGE_SPEAKABLE, TOPIC_OVERVIEWS } from '@/lib/back-page-overviews'
 import { RealScoutSearchLink } from '@/components/listing-image-link'
 
 
@@ -126,6 +128,7 @@ const webPageSchema = createWebPageSchema({
   name: typeof metadata.title === 'string' ? metadata.title : 'Spanish Trail Homes',
   description: typeof metadata.description === 'string' ? metadata.description : '',
   path: '/spanish-trail-market-report',
+  extra: { speakable: BACK_PAGE_SPEAKABLE },
 })
 
 export default function SpanishTrailMarketReportPage() {
@@ -160,6 +163,7 @@ export default function SpanishTrailMarketReportPage() {
         </div>
         <HeroSearchWidget theme="dark" />
       </header>
+      <BackPageOverview headingId="market-overview-heading" {...TOPIC_OVERVIEWS.market} />
       <RealScoutSection
         id="bhhs-listings"
         eyebrow="Live Listings"
