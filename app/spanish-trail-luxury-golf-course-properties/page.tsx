@@ -10,6 +10,8 @@ import { Button } from '@/components/ui/button'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { marketStats } from '@/lib/marketStats'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { BackPageOverview } from '@/components/back-page-overview'
+import { BACK_PAGE_SPEAKABLE, TOPIC_OVERVIEWS } from '@/lib/back-page-overviews'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-luxury-golf-course-properties'
@@ -101,12 +103,14 @@ const webPageSchema = createWebPageSchema({
   name: typeof metadata.title === 'string' ? metadata.title : 'Spanish Trail Homes',
   description: typeof metadata.description === 'string' ? metadata.description : '',
   path: '/spanish-trail-luxury-golf-course-properties',
+  extra: { speakable: BACK_PAGE_SPEAKABLE },
 })
 
 export default function LuxuryGolfCoursePropertiesPage() {
   return (
     <SiteShell>
       <HeroSection />
+      <BackPageOverview headingId="luxury-golf-overview-heading" {...TOPIC_OVERVIEWS['luxury-golf']} />
       <RealScoutSection
         id="bhhs-listings"
         eyebrow="Golf Frontage Listings"

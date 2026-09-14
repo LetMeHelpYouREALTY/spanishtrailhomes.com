@@ -14,6 +14,8 @@ import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/st
 import { marketStats, formatMedianPrice } from '@/lib/marketStats'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { AgentPortrait } from '@/components/agent-portrait'
+import { BackPageOverview } from '@/components/back-page-overview'
+import { BACK_PAGE_SPEAKABLE, TOPIC_OVERVIEWS } from '@/lib/back-page-overviews'
 
 
 type RealScoutHomeValueProps = HTMLAttributes<HTMLElement> & {
@@ -30,6 +32,7 @@ const sellersWebPageSchema = createWebPageSchema({
   path: '/sellers',
   type: 'CollectionPage',
   extra: {
+    speakable: BACK_PAGE_SPEAKABLE,
     about: {
       '@type': 'Service',
       serviceType: 'Spanish Trail Listing Representation',
@@ -143,6 +146,7 @@ export default function SellersPage() {
       <style dangerouslySetInnerHTML={{ __html: realScoutHomeValueStyles }} />
       <main>
         <HeroSection />
+        <BackPageOverview headingId="sellers-overview-heading" {...TOPIC_OVERVIEWS.sellers} />
         <RealScoutSection id="bhhs-listings" />
         <div className="bg-white">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">

@@ -13,6 +13,8 @@ import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { HeroBackground } from '@/components/hero-background'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { BackPageOverview } from '@/components/back-page-overview'
+import { BACK_PAGE_SPEAKABLE, TOPIC_OVERVIEWS } from '@/lib/back-page-overviews'
 import { ListingImageLink } from '@/components/listing-image-link'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 import { getAssetAlt } from '@/lib/site-images'
@@ -119,6 +121,7 @@ const golfWebPageSchema = createWebPageSchema({
   description: golfPageDescription,
   path: '/golf',
   extra: {
+    speakable: BACK_PAGE_SPEAKABLE,
     about: {
       '@type': 'SportsActivityLocation',
       name: 'Spanish Trail Country Club Golf',
@@ -179,6 +182,7 @@ export default function GolfPage() {
   return (
     <SiteShell>
       <GolfHero />
+      <BackPageOverview headingId="golf-overview-heading" {...TOPIC_OVERVIEWS.golf} />
       <RealScoutSection
         id="bhhs-listings"
         eyebrow="Golf Course Homes"

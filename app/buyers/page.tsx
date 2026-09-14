@@ -13,6 +13,8 @@ import { marketStats, formatMedianPrice } from '@/lib/marketStats'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { AgentPortrait } from '@/components/agent-portrait'
 import { RealScoutSearchLink } from '@/components/listing-image-link'
+import { BackPageOverview } from '@/components/back-page-overview'
+import { BACK_PAGE_SPEAKABLE, TOPIC_OVERVIEWS } from '@/lib/back-page-overviews'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/buyers'
@@ -25,6 +27,7 @@ const buyersWebPageSchema = createWebPageSchema({
   path: '/buyers',
   type: 'CollectionPage',
   extra: {
+    speakable: BACK_PAGE_SPEAKABLE,
     about: {
       '@type': 'Service',
       serviceType: 'Spanish Trail Buyer Representation',
@@ -123,6 +126,7 @@ export default function BuyersPage() {
   return (
     <SiteShell>
       <HeroSection />
+      <BackPageOverview headingId="buyers-overview-heading" {...TOPIC_OVERVIEWS.buyers} />
       <RealScoutSection
         id="bhhs-listings"
         eyebrow="Live Listings"

@@ -9,6 +9,8 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { BackPageOverview } from '@/components/back-page-overview'
+import { BACK_PAGE_SPEAKABLE, TOPIC_OVERVIEWS } from '@/lib/back-page-overviews'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-schools'
@@ -19,6 +21,7 @@ const webPageSchema = createWebPageSchema({
   name: 'Spanish Trail Schools | Las Vegas School Guide',
   description: pageDescription,
   path: '/spanish-trail-schools',
+  extra: { speakable: BACK_PAGE_SPEAKABLE },
 })
 
 export const metadata: Metadata = {
@@ -148,6 +151,7 @@ export default function SpanishTrailSchoolsPage() {
   return (
     <SiteShell>
       <HeroSection />
+      <BackPageOverview headingId="schools-overview-heading" {...TOPIC_OVERVIEWS.schools} />
       <RealScoutSection
         id="bhhs-listings"
         eyebrow="Family Homes"

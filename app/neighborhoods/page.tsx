@@ -15,6 +15,8 @@ import {
 } from '@/lib/structuredData'
 import { NEIGHBORHOODS } from '@/lib/neighborhoods'
 import { CardVisual } from '@/components/heading-media'
+import { BackPageOverview } from '@/components/back-page-overview'
+import { BACK_PAGE_SPEAKABLE, TOPIC_OVERVIEWS } from '@/lib/back-page-overviews'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 import { getAssetAlt } from '@/lib/site-images'
 
@@ -30,6 +32,7 @@ const neighborhoodsWebPageSchema = createWebPageSchema({
   path: '/neighborhoods',
   type: 'CollectionPage',
   extra: {
+    speakable: BACK_PAGE_SPEAKABLE,
     mainEntity: {
       '@type': 'ItemList',
       numberOfItems: NEIGHBORHOODS.length,
@@ -92,6 +95,7 @@ export default function NeighborhoodsHubPage() {
         title="Spanish Trail Homes | 11 Neighborhoods"
         subtitle="Match the enclave, then buy or sell with Dr. Jan Duffy"
       />
+      <BackPageOverview headingId="neighborhoods-overview-heading" {...TOPIC_OVERVIEWS.neighborhoods} />
       <RealScoutSection id="bhhs-listings" />
 
       <Breadcrumbs

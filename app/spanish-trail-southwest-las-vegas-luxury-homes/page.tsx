@@ -9,6 +9,8 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { BackPageOverview } from '@/components/back-page-overview'
+import { BACK_PAGE_SPEAKABLE, TOPIC_OVERVIEWS } from '@/lib/back-page-overviews'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-southwest-las-vegas-luxury-homes'
@@ -95,12 +97,14 @@ const webPageSchema = createWebPageSchema({
   name: typeof metadata.title === 'string' ? metadata.title : 'Spanish Trail Homes',
   description: typeof metadata.description === 'string' ? metadata.description : '',
   path: '/spanish-trail-southwest-las-vegas-luxury-homes',
+  extra: { speakable: BACK_PAGE_SPEAKABLE },
 })
 
 export default function SouthwestLasVegasLuxuryHomesPage() {
   return (
     <SiteShell>
       <HeroSection />
+      <BackPageOverview headingId="southwest-overview-heading" {...TOPIC_OVERVIEWS.southwest} />
       <RealScoutSection
         id="bhhs-listings"
         eyebrow="Luxury Listings"
