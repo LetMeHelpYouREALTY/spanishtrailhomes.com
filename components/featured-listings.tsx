@@ -72,7 +72,7 @@ export function FeaturedListings({ activeListings = 72 }: FeaturedListingsProps)
                   </span>
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <span className="text-sm font-medium text-white drop-shadow-md">
+                  <span className="rounded-md bg-black/60 px-2 py-1 text-sm font-medium text-white">
                     {listing.beds} bed · {listing.baths} bath
                   </span>
                 </div>

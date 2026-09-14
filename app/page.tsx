@@ -289,7 +289,7 @@ function HeroSection() {
         <div className="max-w-3xl space-y-4 sm:space-y-5">
           <h1
             id="hero-heading"
-            className="font-heading text-3xl font-semibold leading-tight tracking-[0.06em] text-white sm:text-4xl sm:tracking-[0.08em] lg:text-5xl xl:text-6xl"
+            className="font-heading text-3xl font-bold leading-[1.12] tracking-tight text-white sm:text-4xl lg:text-5xl xl:text-6xl"
           >
             Buy and Sell Spanish Trail Homes
           </h1>

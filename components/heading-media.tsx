@@ -54,7 +54,7 @@ export function SectionBanner({
             <div className={cn('pointer-events-none absolute inset-0', HERO_PHOTO_OVERLAY_CLASS)} />
           </div>
           <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] px-4 pb-4 sm:px-6">
-            <div className="pointer-events-auto mx-auto max-w-6xl rounded-xl bg-black/40 p-3 backdrop-blur-md">
+            <div className="pointer-events-auto mx-auto max-w-6xl rounded-xl bg-black/55 p-3">
               <GbpSectionSupport variant="onDark" />
             </div>
           </div>

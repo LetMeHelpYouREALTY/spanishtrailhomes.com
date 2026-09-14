@@ -305,17 +305,15 @@ realscout-advanced-search {
   font-family: var(--font-playfair), serif;
 }
 
-/* Photo heroes: a 1px drop, no blur — glow made lettering look soft. */
-.hero-photo-copy :is(h1, h2, h3, p, li) {
-  text-shadow: 0 1px 0 rgb(0 0 0 / 78%);
-}
-
-.hero-photo-copy :is(a, button) {
+/* Photo heroes/sections: never halo type. Contrast sits on the photo, not the glyphs. */
+.hero-photo-copy,
+.hero-photo-copy :is(h1, h2, h3, p, li, a, button, span) {
   text-shadow: none;
 }
 
-.hero-photo-copy :is(h1, h2, h3, p, li) a {
-  text-shadow: 0 1px 0 rgb(0 0 0 / 78%);
+.hero-photo-copy :is(h1, h2) {
+  -webkit-font-smoothing: auto;
+  letter-spacing: -0.02em;
 }
 
 .skip-link {

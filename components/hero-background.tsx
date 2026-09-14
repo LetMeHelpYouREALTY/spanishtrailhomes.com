@@ -66,14 +66,14 @@ export function HeroBackground({
       <div className={cn('pointer-events-none absolute inset-0', HERO_PHOTO_OVERLAY_CLASS, overlayClassName)} />
       {isTextHero ? (
         <div className={cn('pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-4 py-12 text-center', HERO_PHOTO_TEXT_SHADOW_CLASS)}>
-          <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+          <h1 className="font-heading text-3xl font-bold tracking-tight text-white sm:text-4xl">
             {title}
           </h1>
           {subtitle ? (
-            <p className="mt-2 text-lg text-white">{subtitle}</p>
+            <p className="mt-2 text-lg font-medium text-white">{subtitle}</p>
           ) : null}
           {description ? (
-            <p className="mx-auto mt-4 max-w-2xl text-base text-white/95">
+            <p className="mx-auto mt-4 max-w-2xl text-base font-medium text-white">
               {description}
             </p>
           ) : null}
