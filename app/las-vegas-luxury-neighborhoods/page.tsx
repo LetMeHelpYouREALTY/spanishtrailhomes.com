@@ -88,7 +88,7 @@ const luxuryNeighborhoodsFaq = [
   {
     question: 'How do club memberships differ between Spanish Trail and other luxury communities?',
     answer:
-      'Spanish Trail offers several membership categories (for example Full Golf, Young Executive, Lifestyle, and Corporate—confirm current names and availability with the club). Red Rock Country Club has two Arnold Palmer courses with family-focused programming. The Ridges ties to Bear’s Best. The Summit Club is a separate ultra-luxury private experience. Dr. Duffy arranges meetings with membership directors wherever you tour so you can review categories, initiation and dues, waitlists, and reciprocity from official materials—not comparisons based on rumor.',
+      'Spanish Trail offers several membership categories (for example Full Golf, Young Executive, Lifestyle, and Corporate—confirm current names, eligibility, and availability with the club). Red Rock Country Club has two Arnold Palmer courses. The Ridges ties to Bear’s Best. The Summit Club is a separate private club. Dr. Duffy arranges meetings with membership directors wherever you tour so you can review categories, initiation and dues, waitlists, and reciprocity from official materials—not comparisons based on rumor.',
   },
   {
     question: 'What factors should I prioritize when comparing luxury neighborhoods?',

@@ -7,7 +7,8 @@ import { Button } from '@/components/ui/button'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { FaqSection } from '@/components/faq-section'
 import { SectionBanner } from '@/components/heading-media'
-import { createOgImageUrl, createWebPageSchema, createFaqSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, createFaqSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import {
   GBP_DIRECTIONS_URL,
   GBP_FULL_ADDRESS,
@@ -51,13 +52,7 @@ export const metadata: Metadata = {
     url: pageUrl,
     title: pageTitle,
     description: pageDescription,
-    images: [
-      createOgImageUrl({
-        title: 'Directions to Spanish Trail',
-        subtitle: `${GBP_STREET} · Las Vegas 89113`,
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
-    ],
+    images: [sitePhotoOg('h2-directions-approach')],
   },
 }
 

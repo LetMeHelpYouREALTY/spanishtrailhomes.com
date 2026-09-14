@@ -1,4 +1,4 @@
-import { getSiteImageUrl } from '@/lib/cloudflare-images'
+import { getAbsoluteSiteImageUrl, getSiteImageUrl } from '@/lib/cloudflare-images'
 
 export type HeadingLevel = 'h1' | 'h2' | 'h3'
 
@@ -83,6 +83,14 @@ const ALTS: Record<string, string> = {
     'Guest casita courtyard at a Spanish Trail Las Vegas golf estate',
   'h2-reviews-terrace':
     'Spanish Trail Country Club terrace in Las Vegas used for client hospitality',
+  'h2-parks-greenbelt':
+    'HOA greenbelt walking path with desert landscaping and golf turf inside Spanish Trail, Las Vegas 89113',
+  'h2-shopping-plaza':
+    'Twilight patio and Mediterranean retail buildings near Spanish Trail in southwest Las Vegas 89113',
+  'h2-tennis-proshop':
+    'Spanish Trail Country Club tennis pro shop with racquets and a view of lighted courts in Las Vegas',
+  'h2-club-history':
+    'Mediterranean Spanish Trail Country Club clubhouse colonnade and golf green at golden hour in Las Vegas 89113',
   'h2-golf-sunrise':
     'Sunrise nine golf holes at Spanish Trail Country Club, Las Vegas',
   'h2-golf-lakes':
@@ -153,8 +161,27 @@ const RULES: MediaRule[] = [
   { test: /reloc|skyline|southwest|valley/, id: 'h2-valley-skyline' },
   { test: /hoa|orientation|gate-access|landscap/, id: 'h3-hoa-landscaping' },
   { test: /guest|casita|etiquette|arrival/, id: 'h2-guest-casita' },
-  { test: /accessib/, id: 'h2-accessible-entrance' },
-  { test: /gbp|google-business|find-locations|find-our|site-index/, id: 'h1-office-exterior', level: 'h1' },
+  { test: /accessib|commitment|standards|testing|assistive|feedback|improvements/, id: 'h2-accessible-entrance' },
+  { test: /wedding/, id: 'h2-events-lawn' },
+  { test: /proshop/, id: 'h2-tennis-proshop' },
+  { test: /shop|retail/, id: 'h2-shopping-plaza' },
+  { test: /park|outdoor|things-to-do|greenbelt/, id: 'h2-parks-greenbelt' },
+  { test: /history/, id: 'h2-club-history' },
+  { test: /share-heading|qr-code|best-practices|resident-stories/, id: 'h2-reviews-terrace' },
+  { test: /location-heading|choose-locations|comparison|proximity|commuter|local-essentials|address/, id: 'h2-community-map' },
+  { test: /gbp|google-business|find-locations|find-our|site-index|business-info|get-started|connect-heading/, id: 'h1-office-exterior', level: 'h1' },
+  { test: /expertise|approach|philosophy|story|facts|impact|advisory|insight|media-heading/, id: 'h2-awards-study' },
+  { test: /amenities|highlights|onsite|programs|offerings|facility|facilities|features/, id: 'h2-club-history' },
+  { test: /benefits/, id: 'h2-reviews-terrace' },
+  { test: /agreement|authorized|liability|governing|intellectual|changes|sharing|data-|communications|listings-disclosure/, id: 'h1-contact-office' },
+  { test: /financing|fees|inquiry|investment|home-value|strategy|value-heading|timeline/, id: 'h2-kitchen-fairway' },
+  { test: /buying-process|buying-experience|offer-closing|property-types|property-pathways|overview|details/, id: 'h1-luxury-estate', level: 'h1' },
+  { test: /view-|view-heading|indoor-outdoor|entertaining|renovation|elements/, id: 'h3-strip-view-patio' },
+  { test: /narratives|experience-heading/, id: 'h2-club-dining' },
+  { test: /luxury-heading|luxury-cta/, id: 'h1-luxury-estate', level: 'h1' },
+  { test: /architectural-heading/, id: 'h2-architecture' },
+  { test: /featured-listings/, id: 'h3-listing-home-a' },
+  { test: /young-executive/, id: 'h2-membership-lounge' },
   { test: /direction/, id: 'h2-directions-approach' },
   { test: /map|amenity/, id: 'h2-community-map' },
   { test: /contact|office|about|privacy|terms|security|cookie/, id: 'h1-contact-office' },
@@ -163,6 +190,7 @@ const RULES: MediaRule[] = [
   { test: /dining|grill|social/, id: 'h2-club-dining' },
   { test: /neighborhood|street|community/, id: 'h2-neighborhood-street' },
   { test: /guard|gate|security/, id: 'h1-guard-gate', level: 'h1' },
+  { test: /cta/, id: 'h1-guard-gate', level: 'h1' },
   { test: /hero/, id: 'h1-guard-gate', level: 'h1' },
 ]
 
@@ -175,7 +203,7 @@ function hashSeed(value: string): number {
 }
 
 function isHeroHeading(headingId: string): boolean {
-  return /hero|^cta-|contact-heading|connect-heading|advisory-cta|get-started|find-locations-heading|amenity-map-heading/i.test(
+  return /hero|^cta-|contact-heading|connect-heading|advisory-cta|get-started|find-locations-heading|amenity-map-heading|address-heading/i.test(
     headingId,
   )
 }
@@ -212,6 +240,13 @@ function mapH1ToH2(id: string): string {
 
 export function getAssetAlt(assetId: string): string {
   return ALTS[assetId] ?? 'Spanish Trail Las Vegas guard-gated golf community real estate'
+}
+
+export function sitePhotoOg(assetId: string) {
+  return {
+    url: getAbsoluteSiteImageUrl(assetId),
+    alt: getAssetAlt(assetId),
+  }
 }
 
 export function resolveHeadingMedia(headingId: string): SiteImageAsset | null {

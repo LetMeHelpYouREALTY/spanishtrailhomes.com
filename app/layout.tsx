@@ -9,6 +9,7 @@ import { FloatingCalendlyButton } from '@/components/floating-calendly-button'
 import './globals.css'
 import { createOgImageUrl, structuredDataSiteUrl, getCanonicalUrl, createPersonSchema, createOrganizationSchema } from '@/lib/structuredData'
 import { getAbsoluteSiteImageUrl } from '@/lib/cloudflare-images'
+import { getAssetAlt } from '@/lib/site-images'
 import {
   GBP_DESCRIPTION,
   GBP_EMAIL,
@@ -74,6 +75,23 @@ const structuredData = [
       }),
     ],
     hasMap: GBP_MAPS_URL,
+    photo: [
+      {
+        '@type': 'ImageObject',
+        contentUrl: getAbsoluteSiteImageUrl('h1-office-exterior'),
+        name: getAssetAlt('h1-office-exterior'),
+      },
+      {
+        '@type': 'ImageObject',
+        contentUrl: getAbsoluteSiteImageUrl('h1-guard-gate'),
+        name: getAssetAlt('h1-guard-gate'),
+      },
+      {
+        '@type': 'ImageObject',
+        contentUrl: getAbsoluteSiteImageUrl('h2-accessible-entrance'),
+        name: getAssetAlt('h2-accessible-entrance'),
+      },
+    ],
     url: siteUrl,
     telephone: GBP_PHONE_E164,
     email: GBP_EMAIL,

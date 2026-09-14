@@ -213,7 +213,7 @@ function MembershipSection() {
             <p>
               • <strong>Full Golf:</strong> Unlimited tee times, tournament eligibility, locker and bag storage, and reciprocal privileges at select Robert Trent Jones Jr. clubs.</p>
             <p>
-              • <strong>Young Executive:</strong> Designed for members under 40 with reduced initiation fees. Access to the same golf benefits with a community of professionals balancing work and play.</p>
+              • <strong>Young Executive:</strong> A named club category with its own initiation schedule. Confirm current eligibility, dues, and golf access with the membership office.</p>
             <p>
               • <strong>Lifestyle:</strong> Social, racquet, pool, and fitness access for homeowners who may golf occasionally but want to plug into the club’s social calendar.</p>
           </div>

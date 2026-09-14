@@ -5,7 +5,8 @@ import Script from 'next/script'
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { Breadcrumbs } from '@/components/breadcrumbs'
-import { createOgImageUrl, createWebPageSchema, createFaqSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, createFaqSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner } from '@/components/heading-media'
 import { FaqSection } from '@/components/faq-section'
 import {
@@ -93,25 +94,13 @@ export const metadata: Metadata = {
     title: 'Office Location | Spanish Trail Homes',
     description:
       'Map, hours, and directions to 5050 Spanish Trail Ln, Las Vegas, NV 89113. Dr. Jan Duffy · (702) 766-3299.',
-    images: [
-      createOgImageUrl({
-        title: 'Find Our Locations',
-        subtitle: '5050 Spanish Trail Ln · Las Vegas 89113',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
-    ],
+    images: [sitePhotoOg('h1-office-exterior')],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Office Location | Spanish Trail Homes',
     description: 'Map and hours for 5050 Spanish Trail Ln, Las Vegas, NV 89113. Call (702) 766-3299.',
-    images: [
-      createOgImageUrl({
-        title: 'Office Location',
-        subtitle: '5050 Spanish Trail Ln · Dr. Jan Duffy',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
-    ],
+    images: [sitePhotoOg('h1-office-exterior')],
   },
 }
 

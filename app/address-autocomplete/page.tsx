@@ -6,6 +6,7 @@ import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { FaqSection } from '@/components/faq-section'
+import { SectionBanner } from '@/components/heading-media'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { createOgImageUrl, createWebPageSchema, createFaqSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { GBP_FULL_ADDRESS, GBP_PHONE_DISPLAY, GBP_PHONE_E164 } from '@/lib/gbp-business'
@@ -71,8 +72,9 @@ export default function AddressLookupPage() {
         </div>
       </div>
 
-      <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="address-heading">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <section className="relative isolate overflow-hidden bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="address-heading">
+        <SectionBanner headingId="address-heading" />
+        <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
           <p className="text-xs uppercase tracking-[0.35em] text-[#f8f5ef]/70">Spanish Trail 89113</p>
           <h1 id="address-heading" className="mt-2 font-heading text-3xl sm:text-4xl lg:text-5xl">
             Look up a Spanish Trail address

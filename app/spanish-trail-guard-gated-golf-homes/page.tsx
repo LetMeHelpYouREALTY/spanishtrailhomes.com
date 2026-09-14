@@ -69,7 +69,7 @@ const faqContent = [
   {
     question: 'Do I need a club membership to own a guard-gated golf home?',
     answer:
-      'Club membership is optional but highly complementary. Buyers focused on golf typically select Full Golf or Young Executive categories; those seeking social access often join the Lifestyle plan for fitness, dining, and tennis privileges. I outline initiation fees, monthly dues, and transfer options so you can decide the right mix of security and club access for your household.',
+      'Club membership is optional and separate from the deed. Golf-oriented buyers typically compare Full Golf with other published club categories; those seeking dining, fitness, and tennis often review the Lifestyle plan. Dr. Duffy outlines initiation, monthly dues, and transfer options from current club materials so you can decide before you write an offer.',
   },
   {
     question: 'Which enclaves inside the gates feel most private?',
