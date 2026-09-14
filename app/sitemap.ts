@@ -1,6 +1,8 @@
 import type { MetadataRoute } from 'next'
 import { getNeighborhoodSlugs } from '@/lib/neighborhoods'
 import { getAgentPortraitAbsoluteUrl, resolveAgentPortrait } from '@/lib/agent-portraits'
+import { getAbsoluteSiteImageUrl } from '@/lib/cloudflare-images'
+import { resolvePageHeroImageId } from '@/lib/site-images'
 
 const baseUrl = 'https://www.spanishtrailhomes.com'
 
@@ -78,12 +80,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticEntries = routeConfig.map(({ path, priority, changeFrequency }) => {
     const portrait = resolveAgentPortrait(path === '/' ? 'homepage-hero' : path)
+    const heroId = resolvePageHeroImageId(path)
     return {
       url: `${baseUrl}${path === '/' ? '' : path}`,
       lastModified,
       changeFrequency,
       priority,
-      images: [getAgentPortraitAbsoluteUrl(portrait.id)],
+      images: [getAgentPortraitAbsoluteUrl(portrait.id), getAbsoluteSiteImageUrl(heroId)],
     }
   })
 
@@ -94,7 +97,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: 'monthly' as const,
       priority: 0.8,
-      images: [getAgentPortraitAbsoluteUrl('duffy-circle-neighborhoods')],
+      images: [
+        getAgentPortraitAbsoluteUrl('duffy-circle-neighborhoods'),
+        getAbsoluteSiteImageUrl(resolvePageHeroImageId(`/neighborhoods/${slug}`)),
+      ],
     }
   })
 

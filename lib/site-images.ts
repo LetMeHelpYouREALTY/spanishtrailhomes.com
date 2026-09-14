@@ -85,6 +85,10 @@ const ALTS: Record<string, string> = {
     'Lakes nine water hazards at Spanish Trail Country Club, Las Vegas',
   'h2-golf-canyon':
     'Canyon nine desert elevation golf at Spanish Trail Country Club, Las Vegas',
+  'h2-clubhouse-arrival':
+    'Spanish Trail Country Club clubhouse arrival court and valet drive in Las Vegas 89113',
+  'h2-office-map':
+    'Aerial view of Spanish Trail guard-gated golf community streets and fairways in Las Vegas 89113',
   'h3-motor-court':
     'Double motor court of a custom Spanish Trail Las Vegas estate',
   'h3-putting-green':
@@ -138,6 +142,7 @@ const RULES: MediaRule[] = [
   { test: /golf-canyon|canyon/, id: 'h2-golf-canyon' },
   { test: /golf|fairway|tee|scorecard|course/, id: 'h1-golf-fairway', level: 'h1' },
   { test: /estate|custom|motor|strip-view/, id: 'h1-luxury-estate', level: 'h1' },
+  { test: /clubhouse-arrival|valet|porte/, id: 'h2-clubhouse-arrival' },
   { test: /clubhouse|club-hero|club-life|membership|lounge/, id: 'h1-clubhouse', level: 'h1' },
   { test: /villa|townhome|courtyard|lock-and-leave/, id: 'h1-villa-courtyard', level: 'h1' },
   { test: /architecture|design|style|hometype|enclave/, id: 'h2-architecture' },
@@ -147,9 +152,11 @@ const RULES: MediaRule[] = [
   { test: /review|testimonial/, id: 'h2-reviews-terrace' },
   { test: /reloc|skyline|southwest|valley/, id: 'h2-valley-skyline' },
   { test: /hoa|orientation|gate-access|landscap/, id: 'h3-hoa-landscaping' },
-  { test: /guest|casita|etiquette|arrival/, id: 'h2-guest-casita' },
+  { test: /guest|casita|etiquette/, id: 'h2-guest-casita' },
   { test: /accessib/, id: 'h2-accessible-entrance' },
-  { test: /map|direction|location|amenity/, id: 'h2-community-map' },
+  { test: /office-map|aerial|overview/, id: 'h2-office-map' },
+  { test: /gbp|google-business|business-info|connect-heading/, id: 'h1-contact-office' },
+  { test: /map|direction|location|amenity|autocomplete/, id: 'h2-office-map' },
   { test: /contact|office|about|privacy|terms|security|cookie/, id: 'h1-contact-office' },
   { test: /seller|pricing|valuation|prepar|market/, id: 'h2-kitchen-fairway' },
   { test: /buyer|tour|journey|concierge/, id: 'h1-luxury-estate', level: 'h1' },
@@ -243,6 +250,13 @@ export function resolveListingMedia(index: number): SiteImageAsset {
 
 export function mediaUrl(assetId: string): string {
   return getSiteImageUrl(assetId)
+}
+
+export const SITE_IMAGE_IDS = Object.keys(ALTS)
+
+export function resolvePageHeroImageId(path: string): string {
+  const media = resolveHeadingMedia(path.replace(/^\//, '') || 'hero')
+  return media?.id ?? DEFAULT_H1_IMAGE
 }
 
 export const GOLF_COURSE_IMAGES = {

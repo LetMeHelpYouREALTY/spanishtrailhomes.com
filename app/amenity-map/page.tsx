@@ -3,89 +3,118 @@ import Link from 'next/link'
 import Script from 'next/script'
 
 import { SiteShell } from '@/components/site-shell'
-import { Button } from '@/components/ui/button'
 import { Breadcrumbs } from '@/components/breadcrumbs'
-import { CopyEmbedButton } from '@/components/copy-embed-button'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
-import { SectionBanner } from '@/components/heading-media'
-
+import { CardVisual, SectionBanner } from '@/components/heading-media'
+import { GbpLocalActions } from '@/components/gbp-local-actions'
+import { GoogleMapEmbed } from '@/components/google-map-embed'
+import { RealScoutSection } from '@/components/realscout-section'
+import {
+  createBreadcrumbSchema,
+  createFaqPageSchema,
+  createOgImageUrl,
+  createWebPageSchema,
+  getCanonicalUrl,
+} from '@/lib/structuredData'
+import { GBP_FULL_ADDRESS, GBP_LEGAL_NAME, GBP_PHONE_DISPLAY, GBP_PHONE_E164 } from '@/lib/gbp-business'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/amenity-map'
 const pageDescription =
-  'Add an amenity map to your website with Google Maps Platform. Show nearby restaurants, parks, parking, and more. Copy and paste the embed code—get started at no cost.'
+  'Map of what sits around Spanish Trail in Las Vegas 89113: Tropicana and Rainbow access, I-215, Bishop Gorman High School (2.2 miles), Durango High School, and the private 27-hole club inside the gates. Call Dr. Jan Duffy at (702) 766-3299.'
 
-const amenityMapWebPageSchema = createWebPageSchema({
-  name: 'Amenity Map for Your Website | Google Maps Platform',
+const faqContent = [
+  {
+    question: 'What is inside the Spanish Trail gates besides homes?',
+    answer:
+      'Spanish Trail Country Club operates a private 27-hole golf course (Sunrise, Lakes, and Canyon nines), clubhouse dining, tennis and pickleball courts, a fitness studio, and resort pools. Club membership is separate from the HOA deed. Dr. Jan Duffy explains both before you write an offer.',
+  },
+  {
+    question: 'How far is Bishop Gorman High School from Spanish Trail?',
+    answer:
+      'Bishop Gorman High School is about 2.2 miles northeast via S. Rainbow Blvd. Faith Lutheran Middle & High School and Durango High School are also a short drive. Commute times vary with Tropicana and Rainbow traffic.',
+  },
+  {
+    question: 'How close is Spanish Trail to I-215 and the airport?',
+    answer:
+      'The 215 beltway is a short drive via Rainbow or Durango. Harry Reid International Airport is typically 18–25 minutes depending on traffic. Call (702) 766-3299 for a showing timed around your flight.',
+  },
+  {
+    question: 'Can I tour amenities without living in Spanish Trail yet?',
+    answer:
+      'The golf club is private. Dr. Duffy coordinates guest access with membership staff when you are under contract or previewing as a serious buyer. Start with a home tour appointment at (702) 766-3299.',
+  },
+]
+
+const AMENITIES = [
+  {
+    title: '27-hole private golf',
+    detail: 'Robert Trent Jones Jr. Sunrise, Lakes, and Canyon nines sit inside the 640-acre gates.',
+  },
+  {
+    title: 'Clubhouse dining & events',
+    detail: 'Member dining, wine events, and lawn gatherings at the Spanish Trail Country Club clubhouse.',
+  },
+  {
+    title: 'Tennis, pickleball & fitness',
+    detail: 'Lighted courts and a fitness studio with pool-terrace access for lock-and-leave owners.',
+  },
+  {
+    title: 'Tropicana & Rainbow access',
+    detail: 'Two community gates, I-215 nearby, and a 18–25 minute drive to Harry Reid Airport in typical traffic.',
+  },
+  {
+    title: 'Bishop Gorman High School — 2.2 miles',
+    detail: 'Northeast via S. Rainbow Blvd. Durango High School and Faith Lutheran are also a short drive.',
+  },
+  {
+    title: 'Spring Valley & Summerlin',
+    detail: 'Spanish Trail (89113) sits south of Summerlin and east of the Spring Mountains corridor, with 89117 a short drive north.',
+  },
+]
+
+const webPageSchema = createWebPageSchema({
+  name: 'Spanish Trail Las Vegas Amenity Map | Golf, Courts, Commute',
   description: pageDescription,
   path: '/amenity-map',
-  type: 'WebPage',
   extra: {
-    about: {
-      '@type': 'SoftwareApplication',
-      name: 'Google Maps Platform',
-      applicationCategory: 'DeveloperApplication',
-    },
+    about: { '@id': 'https://www.spanishtrailhomes.com/#localBusiness' },
   },
 })
 
+const breadcrumbSchema = createBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Amenity Map', url: '/amenity-map' },
+])
+
 export const metadata: Metadata = {
-  title: 'Add an Amenity Map to Your Website | Google Maps Platform',
+  title: 'Spanish Trail Amenity Map | Las Vegas 89113 Golf, Courts, Commute',
   description: pageDescription,
   alternates: { canonical: getCanonicalUrl('/amenity-map') },
   openGraph: {
     url: pageUrl,
-    title: 'Add an Amenity Map to Your Website',
-    description:
-      'Use Google Maps Platform to show nearby amenities—restaurants, parks, parking, and more. Copy and paste the code to your website. Get started at no cost.',
+    title: 'Spanish Trail Amenity Map | Las Vegas 89113',
+    description: pageDescription,
     images: [
       createOgImageUrl({
-        title: 'Amenity Map for Your Website',
-        subtitle: 'Google Maps Platform • Nearby places',
+        title: 'Spanish Trail Amenity Map',
+        subtitle: 'Golf, club, Tropicana access · 89113',
         eyebrow: 'SpanishTrailHomes.com',
       }),
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Add an Amenity Map to Your Website',
-    description: 'Show nearby amenities with Google Maps. Copy-paste embed code. Get started at no cost.',
+    title: 'Spanish Trail Amenity Map | Las Vegas 89113',
+    description: pageDescription,
   },
 }
-
-const PLACE_TYPES = [
-  'Restaurants',
-  'Parks',
-  'Parking',
-  'Grocery stores',
-  'Gas stations',
-  'Pharmacies',
-  'Gyms & fitness',
-  'Schools',
-  'Hospitals & clinics',
-  'Banks & ATMs',
-  'Shopping centers',
-  'Coffee shops',
-  'Hotels',
-]
-
-/** Standard Google Maps embed URL for Spanish Trail Country Club (no API key required for basic embed). */
-const MAP_EMBED_URL =
-  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3234.1155408815076!2d-115.28609452341818!3d36.10914500736459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c8bf27532cd0f3%3A0xba327d02c4e3709e!2sSpanish%20Trail%20Country%20Club!5e0!3m2!1sen!2sus!4v1731191452004!5m2!1sen!2sus'
-
-const EMBED_CODE = `<iframe
-  src="${MAP_EMBED_URL}"
-  width="600"
-  height="450"
-  style="border:0;"
-  allowFullScreen
-  loading="lazy"
-  referrerPolicy="no-referrer-when-downgrade"
-  title="Map of Spanish Trail Country Club"
-></iframe>`
 
 export default function AmenityMapPage() {
   return (
     <SiteShell>
+      <Script id="amenity-map-schema" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify([webPageSchema, breadcrumbSchema, createFaqPageSchema(faqContent)])}
+      </Script>
+
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
           <Breadcrumbs
@@ -97,126 +126,84 @@ export default function AmenityMapPage() {
         </div>
       </div>
 
-      <section className="border-b border-border/40 bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="amenity-map-heading">
-      <SectionBanner headingId="amenity-map-heading" />
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Google Maps Platform</p>
-          <h1 id="amenity-map-heading" className="mt-2 font-heading text-3xl text-[#1f2a24] sm:text-4xl lg:text-5xl">
-            Add an amenity map to your website
+      <section
+        className="relative isolate overflow-hidden bg-[#0f2b1e] py-16 text-primary-foreground sm:py-24"
+        aria-labelledby="amenity-map-heading"
+      >
+        <SectionBanner headingId="amenity-map-heading" level="h1" priority />
+        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
+          <p className="text-xs uppercase tracking-[0.5em] text-primary-foreground/80">Las Vegas 89113</p>
+          <h1 id="amenity-map-heading" className="mt-3 font-[var(--font-playfair)] text-3xl sm:text-4xl md:text-5xl">
+            Spanish Trail amenity map for homebuyers
           </h1>
-          <p className="mt-6 max-w-3xl text-base leading-relaxed text-[#372a20]/90 sm:text-lg">
-            Use Google Maps Platform to show nearby amenities on your website. Select from different types of
-            places—restaurants, parks, parking, and more. Simply copy and paste the code to your website. Get started
-            at no cost.
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-primary-foreground/90 sm:text-lg">
+            {GBP_LEGAL_NAME} maps golf, courts, gates, and commute distances around {GBP_FULL_ADDRESS}. Call{' '}
+            <Link href={`tel:${GBP_PHONE_E164}`} className="underline underline-offset-4">
+              {GBP_PHONE_DISPLAY}
+            </Link>{' '}
+            to tour.
           </p>
+          <GbpLocalActions variant="dark" className="mt-8 justify-center" />
         </div>
       </section>
 
-      <section className="border-b border-border/40 bg-white py-16 sm:py-20" aria-labelledby="place-types-heading">
-      <SectionBanner headingId="place-types-heading" />
+      <RealScoutSection
+        id="bhhs-listings"
+        eyebrow="Live inventory"
+        title="Homes beside these amenities"
+        description="Filter Spanish Trail listings by golf exposure, villa vs estate, and gate."
+      />
+
+      <section className="bg-white py-16 sm:py-20" aria-labelledby="place-types-heading">
+        <SectionBanner headingId="place-types-heading" />
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <h2 id="place-types-heading" className="font-heading text-2xl text-[#1f2a24] sm:text-3xl">
-            Types of places you can show
+          <h2 id="place-types-heading" className="font-[var(--font-playfair)] text-2xl text-[#1f2a24] sm:text-3xl">
+            What buyers ask about around 89113
           </h2>
-          <p className="mt-3 text-base text-[#372a20]/85">
-            Display one or more place types so visitors see what’s nearby—dining, recreation, services, and more.
-          </p>
-          <ul className="mt-8 grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3" role="list">
-            {PLACE_TYPES.map((name) => (
-              <li key={name} className="flex items-center gap-2 text-[#372a20]/90">
-                <span className="size-1.5 rounded-full bg-[#0f2b1e]" aria-hidden />
-                {name}
+          <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {AMENITIES.map((item) => (
+              <li key={item.title} className="rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-sm">
+                <CardVisual seed={item.title} />
+                <h3 className="text-lg font-semibold text-[#0f2b1e]">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-[#372a20]/85">{item.detail}</p>
               </li>
             ))}
           </ul>
         </div>
       </section>
 
-      <section className="border-b border-border/40 bg-[#f9f4eb] py-16 sm:py-20" aria-labelledby="embed-heading">
-      <SectionBanner headingId="embed-heading" />
+      <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="embed-heading">
+        <SectionBanner headingId="embed-heading" />
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <h2 id="embed-heading" className="font-heading text-2xl text-[#1f2a24] sm:text-3xl">
-            Copy and paste the code to your website
+          <h2 id="embed-heading" className="font-[var(--font-playfair)] text-2xl text-[#1f2a24] sm:text-3xl">
+            Community pin on Google Maps
           </h2>
-          <p className="mt-3 text-base text-[#372a20]/85">
-            Use the embed below on any page. Replace the iframe <code className="rounded bg-[#0f2b1e]/10 px-1 py-0.5 text-sm">src</code> with your
-            own map URL from Google Maps (Share → Embed a map) to show a different location or search.
+          <p className="mt-3 max-w-2xl text-base text-[#372a20]/85">
+            The map marks Spanish Trail Country Club at 5050 Spanish Trail Ln. Use it to plan a showing—not as a
+            substitute for a gate pass.
           </p>
-          <div className="relative mt-8 overflow-hidden rounded-2xl border border-[#d8cdbf] bg-[#1f2a24] shadow-lg">
-            <div className="flex items-center justify-between border-b border-[#372a20]/50 px-4 py-3 text-xs font-medium uppercase tracking-wider text-[#cbb8a6]">
-              <span>HTML embed code</span>
-              <CopyEmbedButton code={EMBED_CODE} />
-            </div>
-            <pre className="overflow-x-auto p-4 text-sm leading-relaxed text-[#e5d7c8]">
-              <code>{EMBED_CODE}</code>
-            </pre>
-          </div>
-          <div className="mt-8 rounded-2xl border border-[#d8cdbf] bg-white p-2 shadow-md">
-            <p className="mb-3 text-center text-sm font-medium text-[#372a20]/80">Preview</p>
-            <iframe
-              src={MAP_EMBED_URL}
-              width="100%"
-              height="350"
-              className="rounded-xl border-0"
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Map of Spanish Trail Country Club"
-            />
-          </div>
-          <p className="mt-6 text-sm text-[#372a20]/75">
-            For custom amenity layers (e.g. filter by place type or radius), use{' '}
-            <a
-              href="https://developers.google.com/maps/documentation/javascript/place-details"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#0f2b1e] underline underline-offset-2 hover:no-underline"
-            >
-              Google Maps Platform APIs
-            </a>{' '}
-            (Maps JavaScript API and Places API). New users get free monthly credit.
-          </p>
-        </div>
-      </section>
-
-      <section className="bg-[#0f2b1e] py-16 text-center text-primary-foreground sm:py-20 relative isolate overflow-hidden" aria-labelledby="cta-heading">
-      <SectionBanner headingId="cta-heading" />
-        <div className="mx-auto max-w-2xl px-4 sm:px-6">
-          <h2 id="cta-heading" className="font-heading text-2xl sm:text-3xl">
-            Get started at no cost
-          </h2>
-          <p className="mt-4 text-base leading-relaxed text-[#f8f5ef]/90">
-            Google Maps Platform offers a free tier so you can add maps and nearby places to your site without upfront
-            cost. Create an account, enable the APIs you need, and start embedding.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <Button
-              asChild
-              className="rounded-full bg-white px-8 py-3 text-base font-semibold text-[#0f2b1e] shadow-md hover:bg-[#f1eadd]"
-            >
-              <a
-                href="https://developers.google.com/maps/get-started"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Get started with Google Maps Platform (opens in new tab)"
-              >
-                Get started with Google Maps Platform
-              </a>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              className="rounded-full border-[#f8f5ef]/50 bg-transparent px-6 py-2 text-[#f8f5ef] hover:bg-white/10"
-            >
-              <Link href="/contact">Contact us for custom maps</Link>
-            </Button>
+          <div className="mt-8 overflow-hidden rounded-3xl border border-[#d8cdbf] bg-white shadow-md">
+            <GoogleMapEmbed heightClassName="h-[420px]" />
           </div>
         </div>
       </section>
 
-      <Script id="amenity-map-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(amenityMapWebPageSchema)}
-      </Script>
+      <section className="bg-white py-16 sm:py-20" aria-labelledby="amenity-faq-heading">
+        <SectionBanner headingId="amenity-faq-heading" />
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <h2 id="amenity-faq-heading" className="font-[var(--font-playfair)] text-2xl text-[#1f2a24] sm:text-3xl">
+            Amenity FAQ
+          </h2>
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {faqContent.map((item) => (
+              <article key={item.question} className="rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6">
+                <h3 className="text-lg font-semibold text-[#0f2b1e]">{item.question}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-[#372a20]/85">{item.answer}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
     </SiteShell>
   )
 }

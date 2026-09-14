@@ -43,19 +43,22 @@ async function main() {
   for (const file of files) {
     const assetId = file.replace(/\.png$/i, '')
     const imageId = `${PREFIX}/${assetId}`
-    const body = new FormData()
     const bytes = await readFile(path.join(SOURCE_DIR, file))
-    body.append('file', new Blob([bytes], { type: 'image/png' }), file)
-    body.append('id', imageId)
-    body.append('requireSignedURLs', 'false')
-    body.append('metadata', JSON.stringify({ source: 'git', assetId }))
+    const makeBody = () => {
+      const body = new FormData()
+      body.append('file', new Blob([bytes], { type: 'image/png' }), file)
+      body.append('id', imageId)
+      body.append('requireSignedURLs', 'false')
+      body.append('metadata', JSON.stringify({ source: 'git', assetId }))
+      return body
+    }
 
     const response = await fetch(
       `https://api.cloudflare.com/client/v4/accounts/${accountId}/images/v1`,
       {
         method: 'POST',
         headers: { Authorization: `Bearer ${token}` },
-        body,
+        body: makeBody(),
       },
     )
 
@@ -71,6 +74,29 @@ async function main() {
       response.status === 409 ||
       JSON.stringify(json).toLowerCase().includes('already exist') ||
       JSON.stringify(json).toLowerCase().includes('duplicate')
+
+    if (alreadyExists && process.env.CLOUDFLARE_IMAGES_OVERWRITE === '1') {
+      const del = await fetch(
+        `https://api.cloudflare.com/client/v4/accounts/${accountId}/images/v1/${encodeURIComponent(imageId)}`,
+        { method: 'DELETE', headers: { Authorization: `Bearer ${token}` } },
+      )
+      if (del.ok) {
+        const retry = await fetch(
+          `https://api.cloudflare.com/client/v4/accounts/${accountId}/images/v1`,
+          {
+            method: 'POST',
+            headers: { Authorization: `Bearer ${token}` },
+            body: makeBody(),
+          },
+        )
+        const retryJson = await retry.json().catch(() => ({}))
+        if (retry.ok && retryJson.success) {
+          uploaded += 1
+          console.log(`replaced ${imageId}`)
+          continue
+        }
+      }
+    }
 
     if (alreadyExists) {
       skipped += 1

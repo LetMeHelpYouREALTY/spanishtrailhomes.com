@@ -273,3 +273,53 @@ export const createAggregateRatingSchema = ({
   itemReviewed: { '@id': `${siteUrl}#localBusiness` },
 })
 
+type FaqItem = {
+  question: string
+  answer: string
+}
+
+/** FAQPage JSON-LD. Visible Q&A on the same page must match these strings. */
+export const createFaqPageSchema = (items: FaqItem[]) => ({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+})
+
+type SiteImageObjectInput = {
+  assetId: string
+  name: string
+  caption?: string
+  path?: string
+}
+
+/** ImageObject for heading/section photos used in sitemap, OG, and page JSON-LD. */
+export const createSiteImageObjectSchema = ({
+  assetId,
+  name,
+  caption,
+  path = '/',
+}: SiteImageObjectInput) => {
+  const contentUrl = getAbsoluteSiteImageUrl(assetId)
+  const pageUrl = buildAbsoluteUrl(path)
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ImageObject',
+    '@id': `${contentUrl}#${assetId}`,
+    contentUrl,
+    url: contentUrl,
+    name,
+    caption: caption ?? name,
+    encodingFormat: 'image/png',
+    creditText: 'Spanish Trail | Homes By Dr. Jan Duffy',
+    copyrightNotice: '© Spanish Trail | Homes By Dr. Jan Duffy',
+    mainEntityOfPage: pageUrl,
+  }
+}
+

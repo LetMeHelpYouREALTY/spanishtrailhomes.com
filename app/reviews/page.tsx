@@ -7,7 +7,7 @@ import { SiteShell } from '@/components/site-shell'
 import { RealScoutSection } from '@/components/realscout-section'
 import { Button } from '@/components/ui/button'
 import { Breadcrumbs } from '@/components/breadcrumbs'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createOgImageUrl, createWebPageSchema, getCanonicalUrl, createFaqPageSchema } from '@/lib/structuredData'
 import { GBP_GOOGLE_REVIEW_URL, GBP_MAPS_URL } from '@/lib/gbp-business'
 import { SectionBanner } from '@/components/heading-media'
 import { AgentPortrait } from '@/components/agent-portrait'
@@ -136,6 +136,24 @@ const bestPractices: BestPracticeItem[] = [
   },
 ]
 
+const reviewFaq = [
+  {
+    question: 'Where do I leave a Google review for Dr. Jan Duffy?',
+    answer:
+      'Use the official review link on this page (g.page) or open the Google Business Profile for Spanish Trail | Homes By Dr. Jan Duffy. The office is 5050 Spanish Trail Ln, Las Vegas, NV 89113. Call (702) 766-3299 if the form does not load.',
+  },
+  {
+    question: 'Do reviews help this listing on Google Maps?',
+    answer:
+      'Yes. Recent, specific reviews about buying or selling a Spanish Trail home help the Business Profile appear more often in Maps and local Search. Keep comments about the transaction, the address, and the service—not about protected classes.',
+  },
+  {
+    question: 'Can I review without buying a home?',
+    answer:
+      'Google asks reviewers to share a real experience. If you toured with Dr. Duffy, listed a home, or closed in Spanish Trail, that is a valid review. Do not post fake reviews.',
+  },
+]
+
 export default function ReviewsPage() {
   return (
     <SiteShell>
@@ -144,7 +162,7 @@ export default function ReviewsPage() {
         type="application/ld+json"
         strategy="afterInteractive"
       >
-        {JSON.stringify(webPageSchema)}
+        {JSON.stringify([webPageSchema, createFaqPageSchema(reviewFaq)])}
       </Script>
 
       <Breadcrumbs
@@ -162,6 +180,7 @@ export default function ReviewsPage() {
       <ShareSection />
       <BestPracticesSection bestPractices={bestPractices} />
       <NegativeReviewsSection />
+      <ReviewsFaqSection />
       <CTASection />
     </SiteShell>
   )
@@ -616,12 +635,33 @@ function CTASection() {
           </div>
           <div className="rounded-2xl bg-white/10 p-6 text-center">
             <p className="font-[var(--font-playfair)] text-3xl">500+</p>
-            <p className="mt-1 text-sm text-white/70">Spanish Trail families advised</p>
+            <p className="mt-1 text-sm text-white/70">Spanish Trail buyers and sellers advised</p>
           </div>
           <div className="rounded-2xl bg-white/10 p-6 text-center">
             <p className="font-[var(--font-playfair)] text-3xl">11</p>
             <p className="mt-1 text-sm text-white/70">Neighborhoods inside the gates</p>
           </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function ReviewsFaqSection() {
+  return (
+    <section className="bg-white py-16 sm:py-20" aria-labelledby="reviews-faq-heading">
+      <SectionBanner headingId="reviews-faq-heading" />
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <h2 id="reviews-faq-heading" className="font-[var(--font-playfair)] text-2xl text-[#1f2a24] sm:text-3xl">
+          Google review FAQ
+        </h2>
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
+          {reviewFaq.map((item) => (
+            <article key={item.question} className="rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6">
+              <h3 className="text-lg font-semibold text-[#0f2b1e]">{item.question}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-[#372a20]/85">{item.answer}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>

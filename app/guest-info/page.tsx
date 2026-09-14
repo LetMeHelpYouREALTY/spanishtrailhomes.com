@@ -387,7 +387,7 @@ function ArrivalSection() {
         <div
           className="h-full rounded-3xl border border-border/60 bg-cover bg-center shadow-lg guest-arrival-background"
           role="img"
-          aria-label="Clubhouse interior at Spanish Trail Country Club"
+          aria-label="Spanish Trail Country Club clubhouse arrival court and valet drive in Las Vegas 89113"
         />
       </div>
     </section>

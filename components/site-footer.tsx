@@ -54,6 +54,7 @@ export function SiteFooter() {
         { label: 'Client Reviews', href: '/reviews' },
         { label: 'Contact Us', href: '/contact' },
         { label: 'Office Location', href: '/find-our-locations' },
+        { label: 'Directions', href: '/directions' },
         { label: 'Google Business Profile', href: '/google-business-profile' },
       ],
     },
@@ -111,7 +112,7 @@ export function SiteFooter() {
             Exclusive realtor for Spanish Trail homes in 89113.
           </p>
           <p className="text-xs leading-relaxed text-[#cbb8a6]">
-            Hours: Sun–Sat 9:00 AM–6:00 PM · Service area: {GBP_SERVICE_AREA_LABEL}
+            Hours: Sun–Sat 9:00 AM–6:00 PM · Service area: {GBP_SERVICE_AREA_LABEL} · Summerlin · Spring Valley · Las Vegas 89117
             {shouldShowPromotedSpecialHoursNotice() ? (
               <>
                 <br />
