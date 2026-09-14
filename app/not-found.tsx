@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Home, Search, Phone } from 'lucide-react'
 import { Metadata } from 'next'
 
+import { SiteShell } from '@/components/site-shell'
 import { HeadingPicture } from '@/components/heading-media'
 import { getAssetAlt } from '@/lib/site-images'
 
@@ -16,8 +17,8 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <div className="flex min-h-screen flex-col bg-background">
-      <main className="flex flex-1 flex-col items-center justify-center px-4 py-16 sm:px-6 lg:px-8">
+    <SiteShell>
+      <div className="flex flex-1 flex-col items-center justify-center px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <HeadingPicture
             assetId="h1-guard-gate"
@@ -104,8 +105,8 @@ export default function NotFound() {
             </nav>
           </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </SiteShell>
   )
 }
 

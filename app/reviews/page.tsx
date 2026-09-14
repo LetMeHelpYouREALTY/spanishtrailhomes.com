@@ -7,9 +7,10 @@ import { SiteShell } from '@/components/site-shell'
 import { RealScoutSection } from '@/components/realscout-section'
 import { Button } from '@/components/ui/button'
 import { Breadcrumbs } from '@/components/breadcrumbs'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createOgImageUrl, createWebPageSchema, createFaqSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { GBP_GOOGLE_REVIEW_URL, GBP_MAPS_URL } from '@/lib/gbp-business'
 import { SectionBanner } from '@/components/heading-media'
+import { FaqSection } from '@/components/faq-section'
 import { AgentPortrait } from '@/components/agent-portrait'
 
 
@@ -136,6 +137,26 @@ const bestPractices: BestPracticeItem[] = [
   },
 ]
 
+const reviewsFaq = [
+  {
+    question: 'Where should I leave a review for Dr. Jan Duffy?',
+    answer:
+      'Google Business Profile is the review we ask for first. It appears on Search and Maps for Spanish Trail | Homes By Dr. Jan Duffy. Use the button on this page or call (702) 766-3299 if you need the link texted to you.',
+  },
+  {
+    question: 'Do I need a Google account to review Spanish Trail Homes?',
+    answer:
+      'Yes. Google requires a signed-in account to post. The review should describe the real estate service you received—tours, pricing, negotiation—not protected-class characteristics of a neighborhood.',
+  },
+  {
+    question: 'Can Dr. Duffy respond to my Google review?',
+    answer:
+      'Yes. She monitors the Spanish Trail Homes profile and replies when a review needs a follow-up. Office hours are Sunday–Saturday 9:00 AM–6:00 PM at 5050 Spanish Trail Ln, Las Vegas, NV 89113.',
+  },
+]
+
+const reviewsFaqSchema = createFaqSchema(reviewsFaq)
+
 export default function ReviewsPage() {
   return (
     <SiteShell>
@@ -144,7 +165,7 @@ export default function ReviewsPage() {
         type="application/ld+json"
         strategy="afterInteractive"
       >
-        {JSON.stringify(webPageSchema)}
+        {JSON.stringify([webPageSchema, reviewsFaqSchema])}
       </Script>
 
       <Breadcrumbs
@@ -162,6 +183,14 @@ export default function ReviewsPage() {
       <ShareSection />
       <BestPracticesSection bestPractices={bestPractices} />
       <NegativeReviewsSection />
+      <FaqSection
+        headingId="reviews-faq-heading"
+        eyebrow="Google reviews"
+        heading="Questions about leaving a review"
+        intro="A specific review of the transaction helps the next Spanish Trail buyer or seller decide whether to call."
+        items={reviewsFaq}
+        tone="white"
+      />
       <CTASection />
     </SiteShell>
   )

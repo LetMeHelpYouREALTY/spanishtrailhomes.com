@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
 import { CalendlyLink } from '@/components/calendly-link'
 import { SectionBanner } from '@/components/heading-media'
+import { FaqList } from '@/components/faq-section'
 import {
   createOgImageUrl,
   createWebPageSchema,
@@ -217,14 +218,7 @@ export default function RelocationPage() {
           <h2 id="relocation-faq" className="font-playfair text-2xl font-semibold text-[#0f2b1e]">
             Relocation FAQ
           </h2>
-          <ul className="mt-6 space-y-6">
-            {relocationFaq.map((item) => (
-              <li key={item.question} className="rounded-xl border border-[#d8cdbf] bg-white p-6 shadow-sm">
-                <h3 className="font-semibold text-[#0f2b1e]">{item.question}</h3>
-                <p className="mt-2 text-[#0f2b1e]/90 leading-relaxed">{item.answer}</p>
-              </li>
-            ))}
-          </ul>
+          <FaqList items={relocationFaq} />
         </section>
 
         <p className="mt-10 text-center text-sm text-[#0f2b1e]/70">

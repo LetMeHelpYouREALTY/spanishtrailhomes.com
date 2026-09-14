@@ -11,7 +11,7 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { marketHighlights, neighborhoodSpotlights } from '@/lib/spanishTrailContent'
 import { marketStats } from '@/lib/marketStats'
-import { createBreadcrumbSchema, createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createBreadcrumbSchema, createFaqSchema, createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { HeroBackground } from '@/components/hero-background'
 import { FeaturedListings } from '@/components/featured-listings'
 import { PropertyLightboxProvider } from '@/components/property-lightbox'
@@ -20,6 +20,7 @@ import { TourCTAStrip } from '@/components/tour-cta-strip'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 import { AgentPortrait } from '@/components/agent-portrait'
+import { FaqSection } from '@/components/faq-section'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/'
@@ -148,18 +149,7 @@ const homeFaq = [
   },
 ]
 
-const homeFaqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: homeFaq.map((item) => ({
-    '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: item.answer,
-    },
-  })),
-}
+const homeFaqSchema = createFaqSchema(homeFaq)
 
 const homeResourceSchema = {
   '@context': 'https://schema.org',
@@ -233,7 +223,14 @@ export default function HomePage() {
       <TestimonialCarousel />
       <InsightsPreviewSection />
       <ExploreFurtherSection />
-      <FAQSection />
+      <FaqSection
+        headingId="faq-heading"
+        eyebrow="Spanish Trail realtor FAQ"
+        heading="Why work with a Spanish Trail-only realtor?"
+        intro="Dr. Jan Duffy answers the questions buyers and sellers ask before hiring representation in this community. Book a tour or text (702) 766-3299."
+        items={homeFaq}
+        showCtas
+      />
       <CTASection />
       </PropertyLightboxProvider>
       <Script id="home-breadcrumb-schema" type="application/ld+json" strategy="afterInteractive">
@@ -257,8 +254,10 @@ function AEOAnswerSection() {
     <section className="bg-gradient-to-b from-[#f8f5ef] to-white py-12 sm:py-16" aria-labelledby="aeo-answer">
       <div className="mx-auto max-w-4xl px-6">
         <div className="rounded-3xl border border-[#0f2b1e]/10 bg-white p-8 shadow-xl shadow-primary/5">
-          <h2 id="aeo-answer" className="sr-only">Who buys and sells Spanish Trail homes?</h2>
-          <div className="prose prose-lg max-w-none">
+          <h2 id="aeo-answer" className="font-heading text-2xl text-[#1f2a24] sm:text-3xl">
+            Who buys and sells Spanish Trail homes?
+          </h2>
+          <div className="prose prose-lg mt-4 max-w-none">
             <p className="text-lg leading-relaxed text-[#1f2a24]">
               Dr. Jan Duffy buys and sells Spanish Trail homes in Las Vegas ZIP 89113—also searched as Spanish Trails. Realtor services only for this community: buyer representation, seller representation, and private tours across 11 neighborhoods and 1,200+ homes. Berkshire Hathaway HomeServices Nevada Properties. Call (702) 766-3299.
             </p>
@@ -376,7 +375,7 @@ function RealtorServicesSection() {
               <h3 className="mt-4 font-heading text-2xl text-[#1f2a24]">{service.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-[#372a20]/85">{service.description}</p>
               <Button asChild variant="link" className="mt-2 justify-start px-0 text-xs uppercase tracking-[0.3em] text-primary">
-                <Link href={service.href}>Learn more</Link>
+                <Link href={service.href}>{service.title}</Link>
               </Button>
             </article>
           ))}
@@ -644,8 +643,7 @@ const insightHighlights = [
 
 function InsightsPreviewSection() {
   return (
-    <section className="bg-white py-20 sm:py-24" aria-labelledby="insights-preview-heading">
-      <SectionBanner headingId="insights-preview-heading" />
+    <section className="bg-white py-16 sm:py-20" aria-labelledby="insights-preview-heading">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Strategy & Advisory</p>
@@ -731,8 +729,7 @@ const exploreCards = [
 
 function ExploreFurtherSection() {
   return (
-    <section className="bg-[#f9f4eb] py-20 sm:py-24" aria-labelledby="explore-further-heading">
-      <SectionBanner headingId="explore-further-heading" />
+    <section className="bg-[#f9f4eb] py-16 sm:py-20" aria-labelledby="explore-further-heading">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">Realtor & community resources</p>
@@ -756,56 +753,10 @@ function ExploreFurtherSection() {
                 </p>
                 <p className="text-sm leading-relaxed text-[#372a20]/85">{card.description}</p>
               </div>
-              <span className="mt-6 text-xs font-semibold uppercase tracking-[0.3em] text-[#0f2b1e] group-hover:text-[#0b2016]">
-                Discover &rarr;
+              <span className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-[#0f2b1e] group-hover:text-[#0b2016]">
+                {card.title} &rarr;
               </span>
             </Link>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-function FAQSection() {
-  return (
-    <section className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="faq-heading">
-      <SectionBanner headingId="faq-heading" />
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="max-w-3xl space-y-4">
-          <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Spanish Trail realtor FAQ</p>
-        <h2 id="faq-heading" className="font-heading text-3xl text-[#1f2a24] sm:text-4xl">
-            Why work with a Spanish Trail-only realtor?
-          </h2>
-          <p className="text-base leading-relaxed text-[#372a20]/85">
-            Dr. Jan Duffy answers the questions buyers and sellers ask before hiring representation in this community. Book a tour or text (702) 766-3299.
-          </p>
-        </div>
-
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <CalendlyLink className="inline-flex items-center justify-center rounded-full bg-[#0f2b1e] px-8 py-3 text-base font-semibold text-white shadow-md hover:bg-[#0f2b1e]/90" ctaText="Book Tour to See Inside" ctaLocation="faq">
-            Book Tour to See Inside
-          </CalendlyLink>
-          <Button
-            asChild
-            variant="outline"
-            className="rounded-full border-[#0f2b1e]/60 px-6 py-2 text-sm font-medium text-[#0f2b1e] hover:bg-[#0f2b1e]/10"
-          >
-            <TrackedSmsLink intent="question" href="sms:+17027663299?body=I%20have%20a%20question%20about%20Spanish%20Trail%20homes" className="inline-flex items-center" aria-label="Text your question to 702-766-3299">
-              Text Your Question: 702-766-3299
-            </TrackedSmsLink>
-          </Button>
-        </div>
-
-        <div className="mt-12 space-y-10">
-          {homeFaq.map((item) => (
-            <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">
-              <CardVisual seed={String(item.question)} />
-              <h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">
-                {item.question}
-              </h3>
-              <p className="text-base leading-relaxed text-[#372a20]/85">{item.answer}</p>
-            </article>
           ))}
         </div>
       </div>

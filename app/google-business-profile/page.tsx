@@ -15,6 +15,7 @@ import {
 } from '@/lib/structuredData'
 import { GBP_GOOGLE_REVIEW_URL, GBP_PROFILE_SHARE_URL } from '@/lib/gbp-business'
 import { SectionBanner } from '@/components/heading-media'
+import { FaqList } from '@/components/faq-section'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/google-business-profile'
@@ -532,21 +533,7 @@ function FAQSection() {
         >
           Frequently Asked Questions
         </h2>
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {faqs.map((faq) => (
-            <div
-              key={faq.question}
-              className="rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/5"
-            >
-              <h3 className="text-lg font-semibold text-[#0f2b1e]">
-                {faq.question}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-[#372a20]/85">
-                {faq.answer}
-              </p>
-            </div>
-          ))}
-        </div>
+        <FaqList items={faqs} />
         <div className="mt-10 text-center">
           <Button
             asChild

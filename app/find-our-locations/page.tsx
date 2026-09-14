@@ -12,7 +12,7 @@ import { SectionBanner } from '@/components/heading-media'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/find-our-locations'
 const pageDescription =
-  'Find Spanish Trail Homes locations. Add a custom map of our store locations to your website. Get started at no cost—choose your locations and add the map to your site.'
+  'Office and showing location for Spanish Trail | Homes By Dr. Jan Duffy: 5050 Spanish Trail Ln, Las Vegas, NV 89113. Call (702) 766-3299. Sunday–Saturday 9:00 AM–6:00 PM.'
 
 type StoreLocation = {
   name: string
@@ -46,7 +46,7 @@ const storeLocations: StoreLocation[] = [
 ]
 
 const webPageSchema = createWebPageSchema({
-  name: 'Find Our Locations | Store Locator | Spanish Trail Homes',
+  name: 'Office Location | 5050 Spanish Trail Ln | Spanish Trail Homes',
   description: pageDescription,
   path: '/find-our-locations',
   type: 'WebPage',
@@ -74,32 +74,32 @@ const webPageSchema = createWebPageSchema({
 })
 
 export const metadata: Metadata = {
-  title: 'Find Our Locations | Store Locator | Spanish Trail Homes',
+  title: 'Office Location | 5050 Spanish Trail Ln | Spanish Trail Homes',
   description: pageDescription,
   alternates: {
     canonical: getCanonicalUrl('/find-our-locations'),
   },
   openGraph: {
     url: pageUrl,
-    title: 'Find Our Locations | Store Locator | Spanish Trail Homes',
+    title: 'Office Location | Spanish Trail Homes',
     description:
-      'Help customers find your stores. Add a custom map showing all your store locations to your website. Get started at no cost.',
+      'Map, hours, and directions to 5050 Spanish Trail Ln, Las Vegas, NV 89113. Dr. Jan Duffy · (702) 766-3299.',
     images: [
       createOgImageUrl({
         title: 'Find Our Locations',
-        subtitle: 'Store locator & custom map for your site',
+        subtitle: '5050 Spanish Trail Ln · Las Vegas 89113',
         eyebrow: 'SpanishTrailHomes.com',
       }),
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Find Our Locations | Store Locator',
-    description: 'Add a custom map of our locations to your website. Get started at no cost.',
+    title: 'Office Location | Spanish Trail Homes',
+    description: 'Map and hours for 5050 Spanish Trail Ln, Las Vegas, NV 89113. Call (702) 766-3299.',
     images: [
       createOgImageUrl({
-        title: 'Find Our Locations',
-        subtitle: 'Store locator · Spanish Trail Homes',
+        title: 'Office Location',
+        subtitle: '5050 Spanish Trail Ln · Dr. Jan Duffy',
         eyebrow: 'SpanishTrailHomes.com',
       }),
     ],
@@ -110,19 +110,19 @@ type StepItem = { title: string; description: string }
 
 const steps: StepItem[] = [
   {
-    title: 'Get started at no cost',
+    title: 'Call before you drive',
     description:
-      'No setup fees or subscriptions. Use our store locator and map on your website to help customers find Spanish Trail Homes and connect with Dr. Jan Duffy.',
+      'Guard gates need clearance. Call (702) 766-3299 so Dr. Jan Duffy can notify the Tropicana gate for a tour or office meeting.',
   },
   {
-    title: 'Choose your store locations',
+    title: 'Meet at 5050 Spanish Trail Ln',
     description:
-      'We list our primary location at Spanish Trail Country Club. You can link to this page or embed the map so visitors see our address, hours, and contact options.',
+      'The office is inside Spanish Trail Country Club, Las Vegas NV 89113. Hours are Sunday–Saturday 9:00 AM–6:00 PM. Wheelchair accessible entrance and parking.',
   },
   {
-    title: 'Add the map to your site',
+    title: 'Tour or list from here',
     description:
-      'Link to this Find Our Locations page from your site, or use the embedded map section below. Contact us for a custom embed code or to add more locations.',
+      'Use the map below for driving directions, then book a private showing or seller consult. This is a realtor office—not a public clubhouse walk-in.',
   },
 ]
 
@@ -171,7 +171,7 @@ function HeroSection() {
       <SectionBanner headingId="find-locations-heading" />
       <div className="mx-auto max-w-4xl text-center">
         <p className="text-xs uppercase tracking-[0.5em] text-primary-foreground/80">
-          Store locator
+          Office location
         </p>
         <h1
           id="find-locations-heading"
@@ -180,10 +180,7 @@ function HeroSection() {
           Visit Spanish Trail | Homes By Dr. Jan Duffy
         </h1>
         <p className="mt-6 max-w-2xl mx-auto text-base leading-7 text-primary-foreground/90 sm:text-lg">
-          Add a custom map showing all your store locations to your website.
-        </p>
-        <p className="mt-3 text-sm font-medium text-primary-foreground/90">
-          Get started at no cost
+          5050 Spanish Trail Ln, Las Vegas, NV 89113. Sunday–Saturday 9:00 AM–6:00 PM. Call (702) 766-3299 for gate clearance.
         </p>
       </div>
     </section>
@@ -205,7 +202,7 @@ function GetStartedSection({ steps }: { steps: StepItem[] }) {
           How it works
         </h2>
         <p className="mt-3 max-w-2xl text-base leading-relaxed text-[#372a20]/85">
-          Use our store locator and map to help visitors find Spanish Trail Homes. No cost to get started.
+          Guard-gated showing access, map pin, and office hours for Dr. Jan Duffy’s Spanish Trail practice.
         </p>
         <ul className="mt-10 grid gap-8 sm:grid-cols-1 md:grid-cols-3">
           {steps.map((step, index) => (

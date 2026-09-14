@@ -58,11 +58,12 @@ const routeConfig: Array<{
   { path: '/media-kit', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/contact', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/find-our-locations', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/directions', priority: 0.7, changeFrequency: 'monthly' },
+  { path: '/amenity-map', priority: 0.7, changeFrequency: 'monthly' },
+  { path: '/site-index', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/google-business-profile', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/reviews', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/address-autocomplete', priority: 0.7, changeFrequency: 'monthly' },
-  { path: '/amenity-map', priority: 0.7, changeFrequency: 'monthly' },
-  { path: '/directions', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/awards', priority: 0.7, changeFrequency: 'monthly' },
   
   // Legal pages - lower priority

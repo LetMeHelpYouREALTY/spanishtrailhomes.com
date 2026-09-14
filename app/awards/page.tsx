@@ -6,10 +6,11 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { SiteShell } from '@/components/site-shell'
 import { RealScoutSection } from '@/components/realscout-section'
 import { Button } from '@/components/ui/button'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createOgImageUrl, createWebPageSchema, createFaqSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { getAgentPortraitAbsoluteUrl } from '@/lib/agent-portraits'
 import { HeroBackground } from '@/components/hero-background'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { FaqSection } from '@/components/faq-section'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 import { AgentPortrait } from '@/components/agent-portrait'
 
@@ -195,6 +196,26 @@ export const metadata: Metadata = {
   },
 }
 
+const awardsFaq = [
+  {
+    question: 'What awards has Dr. Jan Duffy received for Spanish Trail work?',
+    answer:
+      'Recent honors include Berkshire Hathaway HomeServices Luxury Golf Homes recognition (top 2% of the network), Las Vegas REALTORS® Top 25 Luxury Producer, and RealScout Spanish Trail Market Expert. License S.0197614.LLC.',
+  },
+  {
+    question: 'Do awards change how Dr. Duffy prices a Spanish Trail listing?',
+    answer:
+      'Credentials do not replace comps. She prices from enclave-level sales, days on market, and current 89113 inventory. Awards reflect closed volume and client outcomes—not a markup.',
+  },
+  {
+    question: 'How do I verify Dr. Duffy’s license and brokerage?',
+    answer:
+      'Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties. Call (702) 766-3299 or visit 5050 Spanish Trail Ln, Las Vegas, NV 89113 Sunday–Saturday 9:00 AM–6:00 PM.',
+  },
+]
+
+const awardsFaqSchema = createFaqSchema(awardsFaq)
+
 export default function AwardsPage() {
   return (
     <SiteShell>
@@ -214,11 +235,22 @@ export default function AwardsPage() {
       <ProfessionalMembershipsSection />
       <PressHighlightsSection />
       <ClientImpactSection />
+      <FaqSection
+        headingId="awards-faq-heading"
+        eyebrow="Awards FAQ"
+        heading="Questions about Dr. Duffy’s credentials"
+        intro="Awards document production. Representation still comes down to 89113 comps, gate access, and a clear plan to buy or sell."
+        items={awardsFaq}
+        tone="white"
+      />
       <AdvisoryCTASection />
+      <Script id="awards-faq-schema" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(awardsFaqSchema)}
+      </Script>
       <Script id="awards-recognition-schema" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(awardsSchema)}
       </Script>
-      <Script id="janet-duffy-profile-schema" type="application/ld+json" strategy="afterInteractive">
+      <Script id="jan-duffy-profile-schema" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(professionalProfileSchema)}
       </Script>
       <Script id="awards-webpage-schema" type="application/ld+json" strategy="afterInteractive">

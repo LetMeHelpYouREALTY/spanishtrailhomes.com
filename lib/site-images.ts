@@ -129,6 +129,7 @@ type MediaRule = {
 
 const RULES: MediaRule[] = [
   { test: /aeo-answer/, id: 'skip' },
+  { test: /faq/, id: 'skip' },
   { test: /waterfront|lakes-course|lake/, id: 'h1-waterfront', level: 'h1' },
   { test: /pool|aquatic|spa/, id: 'h1-pool', level: 'h1' },
   { test: /tennis|pickleball|racquet/, id: 'h2-tennis' },

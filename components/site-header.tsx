@@ -54,7 +54,7 @@ export function SiteHeader() {
                   <div className="flex items-center gap-0.5">
                     <Link
                       href={item.href}
-                      className={`text-sm font-semibold uppercase tracking-[0.32em] transition-colors hover:text-secondary hover:underline ${isActive ? 'text-secondary' : 'text-[#1f2a24]'}`}
+                      className={`text-sm font-semibold uppercase tracking-[0.18em] transition-colors hover:text-secondary hover:underline ${isActive ? 'text-secondary' : 'text-[#1f2a24]'}`}
                     >
                       {item.label}
                     </Link>

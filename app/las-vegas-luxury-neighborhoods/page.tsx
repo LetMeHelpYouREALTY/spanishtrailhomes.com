@@ -9,8 +9,8 @@ import { Button } from '@/components/ui/button'
 import { nearbyCommunities } from '@/lib/spanishTrailContent'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
-import { SectionBanner, CardVisual } from '@/components/heading-media'
-
+import { SectionBanner } from '@/components/heading-media'
+import { FaqList } from '@/components/faq-section'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/las-vegas-luxury-neighborhoods'
 
@@ -73,7 +73,7 @@ const luxuryNeighborhoodsFaq = [
   {
     question: 'How does Spanish Trail compare to The Ridges in terms of price and lifestyle?',
     answer:
-      'Spanish Trail typically offers better value per square foot with established landscaping and mature amenities, while The Ridges features newer construction and ultra-modern architecture at a premium. Spanish Trail\'s triple-course golf and guard-gated security appeal to buyers seeking established community character, while The Ridges attracts those prioritizing new-build technology and elevated HOA programming. Dr. Duffy provides detailed comparisons during neighborhood tours.',
+      'Spanish Trail typically offers better value per square foot with mature landscaping and a 27-hole private golf course, while The Ridges features newer construction and contemporary architecture at a premium. Spanish Trail’s guard-gated layout and club amenities appeal to buyers who want lock-and-leave golf living in 89113; The Ridges attracts those prioritizing new-build systems and different HOA programming. Dr. Duffy provides square-footage, dues, and commute comparisons during neighborhood tours.',
   },
   {
     question: 'What makes Spanish Trail stand out among Las Vegas luxury communities?',
@@ -358,17 +358,7 @@ function LuxuryNeighborhoodsFAQSection() {
           </p>
         </div>
 
-        <div className="mt-12 space-y-10">
-          {luxuryNeighborhoodsFaq.map((item) => (
-            <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">
-              <CardVisual seed={String(item.question)} />
-              <h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">
-                {item.question}
-              </h3>
-              <p className="text-base leading-relaxed text-[#372a20]/85">{item.answer}</p>
-            </article>
-          ))}
-        </div>
+        <FaqList items={luxuryNeighborhoodsFaq} />
       </div>
     </section>
   )

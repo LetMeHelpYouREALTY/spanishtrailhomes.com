@@ -10,6 +10,7 @@ import { featuredListings, marketHighlights } from '@/lib/spanishTrailContent'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { FaqList } from '@/components/faq-section'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-market-report'
@@ -313,17 +314,7 @@ function MarketReportFAQSection() {
           </p>
         </div>
 
-        <div className="mt-12 space-y-10">
-          {marketReportFaq.map((item) => (
-            <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10">
-              <CardVisual seed={String(item.question)} />
-              <h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">
-                {item.question}
-              </h3>
-              <p className="text-base leading-relaxed text-[#372a20]/85">{item.answer}</p>
-            </article>
-          ))}
-        </div>
+        <FaqList items={marketReportFaq} />
       </div>
     </section>
   )
@@ -341,8 +332,8 @@ function ReportingCTASection() {
           Need a custom valuation or pricing strategy?
         </h2>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
-          Receive a personalized equity review, staged listing plan, or weekly buyer demand digest crafted by Dr. Jan Duffy
-          Duffy. Share your goals and preferred timeline to get started.
+          Receive a personalized equity review, staged listing plan, or weekly buyer demand digest crafted by Dr. Jan Duffy.
+          Share your goals and preferred timeline to get started.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Button

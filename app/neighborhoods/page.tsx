@@ -11,10 +11,12 @@ import {
   createOgImageUrl,
   createWebPageSchema,
   createBreadcrumbSchema,
+  createFaqSchema,
   getCanonicalUrl,
 } from '@/lib/structuredData'
 import { NEIGHBORHOODS } from '@/lib/neighborhoods'
 import { CardVisual } from '@/components/heading-media'
+import { FaqSection } from '@/components/faq-section'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 import { getAssetAlt } from '@/lib/site-images'
 
@@ -47,6 +49,26 @@ const neighborhoodsBreadcrumbSchema = createBreadcrumbSchema([
   { name: 'Home', url: '/' },
   { name: 'Neighborhoods', url: '/neighborhoods' },
 ])
+
+const neighborhoodsFaq = [
+  {
+    question: 'How many neighborhoods are inside Spanish Trail?',
+    answer:
+      'Eleven: The Estates, Estates West, The Courtyards, The Gardens, The Links, The Carmels, The Springs, Plum Creek, The Villas, The Islands, and Innisbrook Estates. All sit inside the guard gates in Las Vegas ZIP 89113.',
+  },
+  {
+    question: 'Which Spanish Trail neighborhood should I tour first?',
+    answer:
+      'Start with square footage, lock-and-leave needs, and golf frontage—not a valley-wide map. Dr. Jan Duffy matches those constraints to the 11 enclaves, then clears the gate. Call (702) 766-3299.',
+  },
+  {
+    question: 'Can I see live listings by neighborhood?',
+    answer:
+      'Yes. Each enclave page is a listing hub with the typical price band for that village. Open an enclave, or search all Spanish Trail homes for sale with Dr. Duffy.',
+  },
+]
+
+const neighborhoodsFaqSchema = createFaqSchema(neighborhoodsFaq)
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -82,7 +104,7 @@ export default function NeighborhoodsHubPage() {
         type="application/ld+json"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify([neighborhoodsWebPageSchema, neighborhoodsBreadcrumbSchema]),
+          __html: JSON.stringify([neighborhoodsWebPageSchema, neighborhoodsBreadcrumbSchema, neighborhoodsFaqSchema]),
         }}
       />
 
@@ -147,6 +169,13 @@ export default function NeighborhoodsHubPage() {
           </div>
         </section>
       </div>
+      <FaqSection
+        headingId="neighborhoods-faq-heading"
+        eyebrow="Spanish Trail neighborhoods"
+        heading="How to choose among the 11 enclaves"
+        intro="Match square footage, golf frontage, and lock-and-leave needs before you tour. Dr. Jan Duffy clears the gate for the villages that fit."
+        items={neighborhoodsFaq}
+      />
     </SiteShell>
   )
 }

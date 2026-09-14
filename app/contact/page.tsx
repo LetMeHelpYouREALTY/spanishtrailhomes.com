@@ -17,8 +17,8 @@ import {
   shouldShowPromotedSpecialHoursNotice,
 } from '@/lib/gbp-business'
 import { marketStats, formatMedianPrice } from '@/lib/marketStats'
-import { SectionBanner, CardVisual } from '@/components/heading-media'
-
+import { SectionBanner } from '@/components/heading-media'
+import { FaqList } from '@/components/faq-section'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/contact'
 const contactPageDescription =
@@ -520,15 +520,7 @@ function FAQSection() {
         <h2 id="faq-heading" className="font-[var(--font-playfair)] text-2xl text-[#1f2a24] sm:text-3xl">
           Spanish Trail Homes Questions Answered
         </h2>
-        <div className="mt-8 grid grid-cols-1 gap-6">
-          {faqContent.map((item) => (
-            <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-base leading-relaxed text-[#372a20]/85">
-              <CardVisual seed={String(item.question)} />
-              <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">{item.question}</h3>
-              <p>{item.answer}</p>
-            </article>
-          ))}
-        </div>
+        <FaqList items={faqContent} />
       </div>
     </section>
   )

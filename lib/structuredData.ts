@@ -54,6 +54,24 @@ export const createBreadcrumbSchema = (items: BreadcrumbItem[]) => ({
   })),
 })
 
+export type FaqSchemaItem = {
+  question: string
+  answer: string
+}
+
+export const createFaqSchema = (items: FaqSchemaItem[]) => ({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+})
+
 export const createWebPageSchema = ({ name, description, path, type = 'WebPage', extra = {} }: WebPageSchemaInput) => {
   const url = buildAbsoluteUrl(path)
 
