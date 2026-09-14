@@ -19,7 +19,6 @@ import {
  * off-site to searchforaffordablehomes.com.
  */
 export default function DeployBanner() {
-  const [isVisible, setIsVisible] = useState(false)
   const [isDismissed, setIsDismissed] = useState(false)
 
   useEffect(() => {
@@ -27,7 +26,6 @@ export default function DeployBanner() {
     if (dismissed === 'true') {
       setIsDismissed(true)
     }
-    setIsVisible(true)
   }, [])
 
   const handleDismiss = () => {
@@ -35,7 +33,7 @@ export default function DeployBanner() {
     setIsDismissed(true)
   }
 
-  if (!isVisible || isDismissed) return null
+  if (isDismissed) return null
 
   return (
     <div className="relative z-40 w-full border-b border-[#0f2b1e]/15 bg-[#0f2b1e] text-[#f8f5ef]">

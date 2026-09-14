@@ -33,10 +33,9 @@ export function SiteHeader() {
             <p className="text-[0.6rem] uppercase tracking-[0.35em] text-muted-foreground group-hover:text-secondary sm:text-[0.65rem] sm:tracking-[0.45em]">
               Berkshire Hathaway HomeServices
             </p>
-            <p className="font-[var(--font-playfair)] text-base font-semibold leading-snug tracking-[0.04em] text-[#0f2b1e] sm:text-xl sm:tracking-[0.06em] lg:text-2xl">
-              <span className="whitespace-nowrap">Spanish Trail</span>
-              <span className="hidden sm:inline"> | </span>
-              <span className="mt-0.5 block text-sm tracking-[0.04em] sm:mt-0 sm:inline sm:text-[inherit]">
+            <p className="font-[var(--font-playfair)] text-base font-semibold leading-snug tracking-[0.04em] text-[#0f2b1e] sm:text-xl sm:tracking-[0.06em] lg:text-[1.35rem]">
+              <span className="block whitespace-nowrap">Spanish Trail</span>
+              <span className="mt-0.5 block text-sm font-semibold tracking-[0.04em] sm:text-base">
                 Homes By Dr.&nbsp;Jan&nbsp;Duffy
               </span>
             </p>
