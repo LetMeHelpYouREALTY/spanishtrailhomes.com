@@ -8,8 +8,9 @@ import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { featuredListings, marketHighlights } from '@/lib/spanishTrailContent'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
-import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
+import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { RealScoutSearchLink } from '@/components/listing-image-link'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-market-report'
@@ -120,10 +121,17 @@ export const metadata: Metadata = {
   },
 }
 
+
+const webPageSchema = createWebPageSchema({
+  name: typeof metadata.title === 'string' ? metadata.title : 'Spanish Trail Homes',
+  description: typeof metadata.description === 'string' ? metadata.description : '',
+  path: '/spanish-trail-market-report',
+})
+
 export default function SpanishTrailMarketReportPage() {
   return (
     <SiteShell>
-      <header className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="market-report-hero">
+      <header className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden hero-photo-copy" aria-labelledby="market-report-hero">
       <SectionBanner headingId="market-report-hero" />
         <div className="mx-auto max-w-4xl space-y-5 px-6 text-center">
           <h1 id="market-report-hero" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
@@ -180,6 +188,9 @@ export default function SpanishTrailMarketReportPage() {
       </Script>
       <Script id="featured-listings-structured-data" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(featuredListingsSchema)}
+      </Script>
+      <Script id="spanish-trail-market-report-webpage-schema" type="application/ld+json">
+        {JSON.stringify(webPageSchema)}
       </Script>
     </SiteShell>
   )
@@ -259,9 +270,9 @@ function FeaturedListingsSection() {
             asChild
             className="rounded-full px-6 py-2 text-xs uppercase tracking-[0.3em]"
           >
-            <Link href="https://searchforaffordablehomes.com/neighborhood/83/spanish-trails#featured-listings">
+            <RealScoutSearchLink location="market-report">
               Speak with Dr. Duffy
-            </Link>
+            </RealScoutSearchLink>
           </Button>
         </div>
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -285,9 +296,9 @@ function FeaturedListingsSection() {
                   variant="link"
                   className="text-xs uppercase tracking-[0.3em] text-primary"
                 >
-                  <Link href={listing.href} target="_blank" rel="noopener noreferrer">
+                  <RealScoutSearchLink location="market-report-card">
                     View Listing
-                  </Link>
+                  </RealScoutSearchLink>
                 </Button>
               </div>
             </article>
@@ -331,7 +342,7 @@ function MarketReportFAQSection() {
 
 function ReportingCTASection() {
   return (
-    <section className="bg-[#0f2b1e] py-20 text-[#f8f5ef] relative isolate overflow-hidden" aria-labelledby="reporting-cta-heading">
+    <section className="bg-[#0f2b1e] py-20 text-[#f8f5ef] relative isolate overflow-hidden hero-photo-copy" aria-labelledby="reporting-cta-heading">
       <SectionBanner headingId="reporting-cta-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h2

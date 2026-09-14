@@ -247,11 +247,10 @@ function HeroSection() {
       <HeroBackground
         src={getSiteImageUrl('h1-contact-office')}
         alt="Dr. Jan Duffy - Spanish Trail real estate agent and luxury home specialist in Las Vegas"
-        overlayClassName="bg-gradient-to-b from-[#0f2b1e]/60 to-[#0f2b1e]/85"
         sizes="(max-width: 1024px) 100vw, 1200px"
       />
-      <div className="absolute inset-x-0 bottom-0 -z-10 h-32 bg-linear-to-t from-[#0f2b1e]/85" />
-      <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-6 py-28 text-center sm:py-32">
+      <div className="absolute inset-x-0 bottom-0 -z-10 h-32 bg-linear-to-t from-background to-transparent" />
+      <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-6 py-28 text-center hero-photo-copy sm:py-32">
         <AgentPortrait placement="about" size="lg" priority schema pagePath="/about" />
         <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/70">Spanish Trail luxury realtor</p>
         <h1 id="about-hero-heading" className="font-heading text-3xl leading-tight sm:text-4xl">

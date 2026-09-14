@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Star } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { structuredDataSiteUrl } from '@/lib/structuredData'
 import { GBP_GOOGLE_REVIEW_URL } from '@/lib/gbp-business'
 import {
   trackTestimonialView,
@@ -68,12 +67,6 @@ const TESTIMONIALS = [
 
 const SWIPE_THRESHOLD = 50
 
-const realEstateAgentReviewed = {
-  '@type': 'RealEstateAgent' as const,
-  name: 'Spanish Trail | Homes By Dr. Jan Duffy',
-  url: structuredDataSiteUrl,
-}
-
 export function TestimonialCarousel() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
@@ -119,12 +112,6 @@ export function TestimonialCarousel() {
   const handleReviewsCtaClick = useCallback(() => {
     trackReviewsLinkClick('reviews_page')
   }, [])
-
-  const getSourceDestination = (sourceUrl: string, source: string): string => {
-    if (sourceUrl.includes('g.page') || source.includes('Google')) return 'google'
-    if (sourceUrl.includes('zillow') || source.includes('Zillow')) return 'zillow'
-    return 'internal'
-  }
 
   return (
     <section
@@ -211,30 +198,6 @@ export function TestimonialCarousel() {
           </div>
         </div>
       </div>
-
-      {/* Schema.org Review markup for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'ItemList',
-            itemListElement: TESTIMONIALS.map((t, i) => ({
-              '@type': 'ListItem',
-              position: i + 1,
-              item: {
-                '@type': 'Review',
-                itemReviewed: realEstateAgentReviewed,
-                author: { '@type': 'Person', name: t.name.replace(/^—\s*/, '').split(',')[0].trim() },
-                reviewRating: { '@type': 'Rating', ratingValue: t.rating, bestRating: 5, worstRating: 1 },
-                reviewBody: t.quote,
-                datePublished: t.datePublished,
-                publisher: { '@type': 'Organization', name: t.source },
-              },
-            })),
-          }),
-        }}
-      />
     </section>
   )
 }

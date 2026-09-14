@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from 'next'
 import { Playfair_Display, Lato } from 'next/font/google'
 import Script from 'next/script'
 import { ThemeProvider } from 'next-themes'
-import DeployBanner from '../components/deploy-banner'
 import { CalendlyWidgetScript } from '@/components/calendly-widget-script'
 import { CalendlyEventListener } from '@/components/calendly-event-listener'
 import { FloatingCalendlyButton } from '@/components/floating-calendly-button'
@@ -10,20 +9,25 @@ import './globals.css'
 import { createOgImageUrl, structuredDataSiteUrl, getCanonicalUrl, createPersonSchema, createOrganizationSchema } from '@/lib/structuredData'
 import { getAbsoluteSiteImageUrl } from '@/lib/cloudflare-images'
 import {
+  GBP_ACCESSIBILITY_FEATURES,
+  GBP_BRAND_NAME,
   GBP_DESCRIPTION,
   GBP_EMAIL,
   GBP_GEO,
   GBP_LEGAL_NAME,
   GBP_MAIN_HOURS_CLOSES,
   GBP_MAIN_HOURS_OPENS,
+  GBP_MAPS_URL,
   GBP_PHONE_E164,
   GBP_POSTAL,
   GBP_LOCALITY,
   GBP_REGION,
   GBP_SAME_AS,
   GBP_SERVICE_AREA_LABEL,
+  GBP_SMS_HREF,
   GBP_STREET,
   GBP_COUNTRY,
+  getSpecialOpeningHoursSpecification,
 } from '@/lib/gbp-business'
 
 const siteUrl = structuredDataSiteUrl
@@ -94,6 +98,23 @@ const structuredData = [
       latitude: GBP_GEO.latitude,
       longitude: GBP_GEO.longitude,
     },
+    hasMap: GBP_MAPS_URL,
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        contactType: 'customer service',
+        telephone: GBP_PHONE_E164,
+        email: GBP_EMAIL,
+        areaServed: GBP_SERVICE_AREA_LABEL,
+        availableLanguage: 'English',
+      },
+      {
+        '@type': 'ContactPoint',
+        contactType: 'SMS',
+        telephone: GBP_PHONE_E164,
+        url: GBP_SMS_HREF,
+      },
+    ],
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
@@ -102,7 +123,10 @@ const structuredData = [
         closes: GBP_MAIN_HOURS_CLOSES,
       },
     ],
-    accessibilityFeature: ['Wheelchair accessible parking lot', 'Wheelchair accessible entrance'],
+    ...(getSpecialOpeningHoursSpecification().length
+      ? { specialOpeningHoursSpecification: getSpecialOpeningHoursSpecification() }
+      : {}),
+    accessibilityFeature: [...GBP_ACCESSIBILITY_FEATURES],
     sameAs: [...GBP_SAME_AS],
     additionalProperty: [
       {
@@ -183,7 +207,7 @@ const structuredData = [
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: GBP_LEGAL_NAME,
+    default: GBP_BRAND_NAME,
     template: '%s | Spanish Trail Homes',
   },
   description: rootDefaultDescription,
@@ -220,7 +244,13 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/favicon.ico', sizes: '48x48', type: 'image/x-icon' },
+      { url: '/favicon-48.png', sizes: '48x48', type: 'image/png' },
+      { url: '/favicon-192.png', sizes: '192x192', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: [{ url: '/favicon-192.png', sizes: '192x192', type: 'image/png' }],
   },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
@@ -243,8 +273,6 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         {/* Preconnect to external domains for faster resource loading */}
-        <link rel="preconnect" href="https://www.realscout.com" />
-        <link rel="preconnect" href="https://em.realscout.com" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -265,16 +293,12 @@ gtag('config', 'G-X68WWN997N', {
   send_page_view: true
 });`}
         </Script>
-        <Script
-          id="realscout-widget"
-          src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
-          type="module"
-          strategy="afterInteractive"
+        {/* LocalBusiness + WebSite JSON-LD in the original HTML (not JS-injected). */}
+        <script
+          id="schema-structured-data"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
-        {/* LocalBusiness + WebSite JSON-LD — validate in Rich Results Test when editing structuredData above */}
-        <Script id="schema-structured-data" type="application/ld+json" strategy="afterInteractive">
-          {JSON.stringify(structuredData)}
-        </Script>
         <CalendlyWidgetScript />
       </head>
       <body
@@ -291,7 +315,6 @@ gtag('config', 'G-X68WWN997N', {
           storageKey="theme"
         >
           <CalendlyEventListener />
-          <DeployBanner />
           {children}
           <FloatingCalendlyButton />
         </ThemeProvider>

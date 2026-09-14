@@ -9,6 +9,7 @@ import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { HeroBackground } from '@/components/hero-background'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { ListingPhotoPanel } from '@/components/listing-image-link'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 
 
@@ -210,11 +211,10 @@ function MembershipHero() {
       <HeroBackground
         src={getSiteImageUrl('h1-clubhouse')}
         alt="Spanish Trail Country Club membership information and amenities in Las Vegas 89113"
-        overlayClassName="bg-gradient-to-b from-[#0f2b1e]/55 via-[#0f2b1e]/65 to-[#0f2b1e]/80"
         sizes="(max-width: 1024px) 100vw, 1280px"
       />
       <div className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-linear-to-t from-background" />
-      <div className="mx-auto max-w-5xl px-6 py-28 text-primary-foreground sm:py-40">
+      <div className="mx-auto max-w-5xl px-6 py-28 text-primary-foreground hero-photo-copy sm:py-40">
         <p className="text-xs uppercase tracking-[0.5em] text-accent">
           Membership Guide
         </p>
@@ -401,13 +401,9 @@ function YoungExecutiveSection() {
           </div>
         </div>
 
-        <div
-          className="h-full rounded-3xl border border-border/60 bg-cover bg-center shadow-lg"
-          style={{
-            backgroundImage: `url('${getSiteImageUrl('h2-membership-lounge')}')`,
-          }}
-          role="img"
-          aria-label="Members socializing at Spanish Trail Country Club"
+        <ListingPhotoPanel
+          src={getSiteImageUrl('h2-membership-lounge')}
+          label="Members socializing at Spanish Trail Country Club"
         />
       </div>
     </section>

@@ -7,7 +7,7 @@ import { RealScoutSection } from '@/components/realscout-section'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
-import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
+import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { marketStats } from '@/lib/marketStats'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 
@@ -96,6 +96,13 @@ const faqSchema = {
   })),
 }
 
+
+const webPageSchema = createWebPageSchema({
+  name: typeof metadata.title === 'string' ? metadata.title : 'Spanish Trail Homes',
+  description: typeof metadata.description === 'string' ? metadata.description : '',
+  path: '/spanish-trail-luxury-golf-course-properties',
+})
+
 export default function LuxuryGolfCoursePropertiesPage() {
   return (
     <SiteShell>
@@ -130,13 +137,16 @@ export default function LuxuryGolfCoursePropertiesPage() {
       <Script id="luxury-golf-faq-schema" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(faqSchema)}
       </Script>
+      <Script id="spanish-trail-luxury-golf-course-properties-webpage-schema" type="application/ld+json">
+        {JSON.stringify(webPageSchema)}
+      </Script>
     </SiteShell>
   )
 }
 
 function HeroSection() {
   return (
-    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="luxury-golf-hero-heading">
+    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden hero-photo-copy" aria-labelledby="luxury-golf-hero-heading">
       <SectionBanner headingId="luxury-golf-hero-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h1 id="luxury-golf-hero-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">

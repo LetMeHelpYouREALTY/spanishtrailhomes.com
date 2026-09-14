@@ -5,19 +5,21 @@ import Script from 'next/script'
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { AgentPortrait } from '@/components/agent-portrait'
+import { BrandLockup } from '@/components/brand-lockup'
+import { Breadcrumbs } from '@/components/breadcrumbs'
 import { CalendlyInline } from '@/components/calendly-inline'
 import { CalendlyLink } from '@/components/calendly-link'
 import { RealScoutSection } from '@/components/realscout-section'
-import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import {
-  GBP_EASTER_2026_CLOSURE,
   GBP_SERVICE_AREA_LABEL,
+  getVisibleSpecialHours,
   shouldShowPromotedSpecialHoursNotice,
 } from '@/lib/gbp-business'
 import { marketStats, formatMedianPrice } from '@/lib/marketStats'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { RealScoutSearchLink } from '@/components/listing-image-link'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/contact'
@@ -166,7 +168,7 @@ export default function ContactPage() {
 
 function HeroSection() {
   return (
-    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="contact-hero-heading">
+    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden hero-photo-copy" aria-labelledby="contact-hero-heading">
       <SectionBanner headingId="contact-hero-heading" />
       <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-6 text-center">
         <AgentPortrait placement="contact-call" size="lg" priority schema pagePath="/contact" />
@@ -176,9 +178,9 @@ function HeroSection() {
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           Call (702) 766-3299 to buy or sell a Spanish Trail home. Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties. Median {formatMedianPrice(marketStats.median_price)} as of {marketStats.date_label}.
           <span className="block text-xs uppercase tracking-[0.3em] text-[#f8f5ef]/70">
-            <Link href="https://searchforaffordablehomes.com/neighborhood/83/spanish-trails" className="underline-offset-4 hover:underline">
+            <RealScoutSearchLink location="contact-hero" className="underline-offset-4 hover:underline">
               Source: Spanish Trail Weekly Market Activity
-            </Link>
+            </RealScoutSearchLink>
           </span>
         </p>
         <div className="flex flex-wrap items-center justify-center gap-4">
@@ -216,7 +218,10 @@ function ExpertiseSection() {
               Weekly data, lived-in perspective
             </h3>
             <p>
-              I monitor every Spanish Trail closing the moment it records. Yesterday, 8330 Carmel Ridge Court—a 2,500 sq. ft. single-family home—closed at $1,095,000, roughly 8% above the community\'s median thanks to upgraded fairway views and a reimagined chef\'s kitchen.[source](https://searchforaffordablehomes.com/neighborhood/83/spanish-trails)
+              I monitor every Spanish Trail closing the moment it records. Yesterday, 8330 Carmel Ridge Court—a 2,500 sq. ft. single-family home—closed at $1,095,000, roughly 8% above the community\'s median thanks to upgraded fairway views and a reimagined chef\'s kitchen.{' '}
+              <RealScoutSearchLink location="contact-source" className="underline-offset-4 hover:underline">
+                Spanish Trail listings
+              </RealScoutSearchLink>
             </p>
             <p>
               That real-time insight guides both sellers wanting a premium and buyers aiming to secure value without overextending. After decades focused on Spanish Trail—advising 500+ families across purchases, sales, and long-range planning—I have walked every cul-de-sac inside the 640-acre guard gates and understand how HOA nuances, sightlines, and secondary gates impact pricing.
@@ -255,7 +260,10 @@ function GolfLifestyleSection() {
               Sunrise, Lakes, Canyon: three distinct personalities
             </h3>
             <p>
-              The Spanish Trail Country Club anchors the community with Robert Trent Jones Jr.\'s 27-hole layout. The Lakes nine delivers cascading water features, Sunrise showcases mature pines and gentle slopes, while Canyon introduces elevation changes that thrill low-handicap players. Demand for golf-view homes remains intense—this week\'s 22 Burning Tree Court tour generated four qualified showings, all citing the championship course as their non-negotiable.[source](https://searchforaffordablehomes.com/neighborhood/83/spanish-trails)
+              The Spanish Trail Country Club anchors the community with Robert Trent Jones Jr.\'s 27-hole layout. The Lakes nine delivers cascading water features, Sunrise showcases mature pines and gentle slopes, while Canyon introduces elevation changes that thrill low-handicap players. Demand for golf-view homes remains intense—this week\'s 22 Burning Tree Court tour generated four qualified showings, all citing the championship course as their non-negotiable.{' '}
+              <RealScoutSearchLink location="contact-source" className="underline-offset-4 hover:underline">
+                Spanish Trail listings
+              </RealScoutSearchLink>
             </p>
           </div>
           <div className="space-y-4 text-base leading-relaxed text-[#372a20]/85">
@@ -413,9 +421,8 @@ function GBPIntegrationSection() {
     <section className="bg-white py-16 sm:py-20" aria-labelledby="gbp-heading">
       <SectionBanner headingId="gbp-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <h2 id="gbp-heading" className="font-[var(--font-playfair)] text-2xl text-[#1f2a24] sm:text-3xl">
-          Visit Spanish Trail | Homes By Dr. Jan Duffy
-        </h2>
+        <p className="text-xs uppercase tracking-[0.4em] text-[#6f5237]">Visit</p>
+        <BrandLockup as="h2" id="gbp-heading" variant="section" className="mt-2" />
         <p className="mt-4 text-base leading-relaxed text-[#372a20]/85">
           Located at Spanish Trail Country Club in Las Vegas. Connect with Dr. Jan Duffy for luxury real estate consultations and private tours.
         </p>
@@ -488,7 +495,9 @@ function GBPIntegrationSection() {
                   <div className="mt-2 border-t border-[#d8cdbf] pt-2">
                     <dt className="font-semibold text-[#0f2b1e]">Special hours (Google Business Profile)</dt>
                     <dd>
-                      {GBP_EASTER_2026_CLOSURE.label}: {GBP_EASTER_2026_CLOSURE.detail}
+                      {getVisibleSpecialHours()
+                        .map((hour) => `${hour.label}: ${hour.detail}`)
+                        .join(' · ')}
                     </dd>
                   </div>
                 ) : null}

@@ -12,6 +12,7 @@ import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/st
 import { marketStats, formatMedianPrice } from '@/lib/marketStats'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
+import { RealScoutSearchLink } from '@/components/listing-image-link'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/homes-for-sale-in-spanish-trail-las-vegas'
@@ -169,10 +170,9 @@ function HeroSection() {
       <HeroBackground
         src={getSiteImageUrl('h1-luxury-estate')}
         alt="Spanish Trail Country Club Las Vegas—homes for sale in guard-gated private golf community, fairway and estate architecture"
-        overlayClassName="bg-gradient-to-b from-[#0f2b1e]/60 to-[#0f2b1e]/85"
         sizes="(max-width: 1024px) 100vw, 1280px"
       />
-      <div className="mx-auto flex max-w-4xl flex-col gap-6 px-6 py-28 text-center sm:py-32">
+      <div className="mx-auto flex max-w-4xl flex-col gap-6 px-6 py-28 text-center hero-photo-copy sm:py-32">
         <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/70">Spanish Trail Real Estate</p>
         <h1 id="hero-heading" className="font-heading text-3xl leading-tight sm:text-4xl">
           Spanish Trail Home Types | Estates, Villas & Fairway Homes
@@ -201,7 +201,7 @@ function HeroSection() {
             variant="outline"
             className="rounded-full border-[#f8f5ef]/60 px-8 py-3 text-xs uppercase tracking-[0.35em] text-[#f8f5ef] hover:bg-white/10"
           >
-            <Link href="#bhhs-listings">View Listings</Link>
+            <RealScoutSearchLink location="property-types-hero">View Listings</RealScoutSearchLink>
           </Button>
         </div>
         <HeroSearchWidget theme="dark" />
@@ -526,7 +526,7 @@ function HomesForSaleFAQSection() {
 
 function CTASection() {
   return (
-    <section className="bg-[#0f2b1e] py-20 text-[#f8f5ef] sm:py-24 relative isolate overflow-hidden" aria-labelledby="cta-heading">
+    <section className="bg-[#0f2b1e] py-20 text-[#f8f5ef] sm:py-24 relative isolate overflow-hidden hero-photo-copy" aria-labelledby="cta-heading">
       <SectionBanner headingId="cta-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h2 id="cta-heading" className="font-heading text-3xl leading-tight text-[#f8f5ef] sm:text-4xl">

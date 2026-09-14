@@ -77,6 +77,10 @@ export function trackRealscoutSignupFromPreview(conversionSource: string) {
   trackEvent('realscout_signup_from_preview', { conversion_source: conversionSource })
 }
 
+export function trackRealscoutSharedSearchClick(location: string) {
+  trackEvent('realscout_shared_search_click', { location })
+}
+
 /** CTA / phone / SMS */
 export function trackCtaClick(ctaText: string, ctaLocation: string) {
   trackEvent('cta_click', { cta_text: ctaText, cta_location: ctaLocation })
