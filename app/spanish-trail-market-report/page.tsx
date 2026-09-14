@@ -8,7 +8,8 @@ import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { featuredListings, marketHighlights } from '@/lib/spanishTrailContent'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
-import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
+import { getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
 
@@ -99,11 +100,7 @@ export const metadata: Metadata = {
     description:
       'Track pricing trends, absorption rates, and featured Spanish Trail listings updated by Dr. Jan Duffy of Berkshire Hathaway HomeServices.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Market Report',
-        subtitle: 'Weekly pricing & absorption insights',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-kitchen-fairway'),
     ],
   },
   twitter: {
@@ -112,11 +109,7 @@ export const metadata: Metadata = {
     description:
       'Stay ahead of Spanish Trail real estate trends with updated stats, featured listings, and concierge advisory from Dr. Jan Duffy.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Market Intelligence',
-        subtitle: 'Data-driven advisory by Dr. Jan Duffy',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-kitchen-fairway'),
     ],
   },
 }

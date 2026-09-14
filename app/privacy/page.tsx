@@ -6,7 +6,8 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
-import { createOgImageUrl, createWebPageSchema, createFaqSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, createFaqSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner } from '@/components/heading-media'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 import { FaqSection } from '@/components/faq-section'
@@ -119,11 +120,7 @@ export const metadata: Metadata = {
     description:
       'Understand data practices, consent preferences, and contact options for privacy-related requests on SpanishTrailHomes.com.',
     images: [
-      createOgImageUrl({
-        title: 'Privacy Policy',
-        subtitle: 'How SpanishTrailHomes.com safeguards your data',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-contact-office'),
     ],
   },
   twitter: {
@@ -132,11 +129,7 @@ export const metadata: Metadata = {
     description:
       'Learn how your personal information is protected when you work with Dr. Jan Duffy for Spanish Trail real estate.',
     images: [
-      createOgImageUrl({
-        title: 'Privacy Policy',
-        subtitle: 'Data protection & client confidentiality',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-contact-office'),
     ],
   },
 }

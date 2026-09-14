@@ -7,7 +7,8 @@ import { CalendlyLink } from '@/components/calendly-link'
 import { SiteShell } from '@/components/site-shell'
 import { RealScoutSection } from '@/components/realscout-section'
 import { Button } from '@/components/ui/button'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
 import { AgentPortrait } from '@/components/agent-portrait'
@@ -120,11 +121,7 @@ export const metadata: Metadata = {
     title: 'Spanish Trail Realtor Services | Dr. Jan Duffy',
     description: servicesPageDescription,
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Realtor Services',
-        subtitle: 'Buy, sell, and tour inside 89113',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-contact-office'),
     ],
   },
   twitter: {
@@ -132,11 +129,7 @@ export const metadata: Metadata = {
     title: 'Spanish Trail Realtor Services | Dr. Jan Duffy',
     description: servicesPageDescription,
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Realtor Services',
-        subtitle: 'Exclusive luxury representation',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-contact-office'),
     ],
   },
 }

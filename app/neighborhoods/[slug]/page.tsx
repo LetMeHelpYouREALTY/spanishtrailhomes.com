@@ -10,7 +10,6 @@ import { Button, buttonVariants } from '@/components/ui/button'
 import { CalendlyLink } from '@/components/calendly-link'
 import { HeroBackground } from '@/components/hero-background'
 import {
-  createOgImageUrl,
   createWebPageSchema,
   createBreadcrumbSchema,
   getCanonicalUrl,
@@ -25,7 +24,7 @@ import {
 import { SectionBanner } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
-import { DEFAULT_H1_IMAGE, NEIGHBORHOOD_CARD_IMAGES, getAssetAlt } from '@/lib/site-images'
+import { DEFAULT_H1_IMAGE, NEIGHBORHOOD_CARD_IMAGES, getAssetAlt, sitePhotoOg } from '@/lib/site-images'
 
 
 type NeighborhoodPageProps = {
@@ -52,13 +51,7 @@ export async function generateMetadata({ params }: NeighborhoodPageProps): Promi
       url: `https://www.spanishtrailhomes.com/neighborhoods/${slug}`,
       title,
       description,
-      images: [
-        createOgImageUrl({
-          title: `Homes for sale in ${neighborhood.name}`,
-          subtitle: 'Spanish Trail 89113 listing hub',
-          eyebrow: 'SpanishTrailHomes.com',
-        }),
-      ],
+      images: [sitePhotoOg(NEIGHBORHOOD_CARD_IMAGES[slug] ?? DEFAULT_H1_IMAGE)],
     },
     twitter: { card: 'summary_large_image', title, description },
   }

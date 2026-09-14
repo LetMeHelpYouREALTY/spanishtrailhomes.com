@@ -7,7 +7,8 @@ import { RealScoutSection } from '@/components/realscout-section'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
-import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
+import { getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
 
@@ -38,11 +39,7 @@ export const metadata: Metadata = {
     description:
       'Discover how Dr. Jan Duffy helps buyers and sellers leverage Spanish Trail’s guard gates, golf amenities, and luxury positioning.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Gated Golf Realtor',
-        subtitle: 'Luxury representation by Dr. Jan Duffy',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-office-exterior'),
     ],
   },
   twitter: {
@@ -51,11 +48,7 @@ export const metadata: Metadata = {
     description:
       'Concierge representation for Spanish Trail gated golf homes—timing, negotiation, and membership access guided by Dr. Jan Duffy.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Luxury Realtor',
-        subtitle: 'Guard-gated golf expertise & strategy',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-office-exterior'),
     ],
   },
 }

@@ -7,7 +7,8 @@ import { RealScoutSection } from '@/components/realscout-section'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
-import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
+import { getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
 
@@ -38,11 +39,7 @@ export const metadata: Metadata = {
     description:
       'Compare Spanish Trail to other Southwest Las Vegas luxury enclaves. Discover estates, amenities, and buyer strategy with Dr. Jan Duffy.',
     images: [
-      createOgImageUrl({
-        title: 'Southwest Las Vegas Luxury',
-        subtitle: 'Why Spanish Trail leads the 89113 market',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-valley-skyline'),
     ],
   },
   twitter: {
@@ -51,11 +48,7 @@ export const metadata: Metadata = {
     description:
       'Guard-gated Spanish Trail offers prime Southwest Las Vegas luxury real estate. See how it stacks up with nearby communities.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Luxury Living',
-        subtitle: 'Compare Southwest Las Vegas enclaves',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-valley-skyline'),
     ],
   },
 }
@@ -167,7 +160,7 @@ function OverviewSection() {
           Southwest Las Vegas luxury from inside the guard gates
         </h2>
         <p className="mt-4 text-base leading-relaxed text-[#372a20]/85">
-          Southwest Las Vegas continues to attract professionals, entertainers, and relocating families seeking proximity to the Strip without sacrificing serenity. Spanish Trail delivers all of that with a mature guard-gated community, established golf club, and decades of proven value.
+          Southwest Las Vegas continues to attract professionals, entertainers, and relocating buyers seeking proximity to the Strip without sacrificing serenity. Spanish Trail delivers all of that with a mature guard-gated community, an established golf club, and decades of proven value.
         </p>
         <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
           {[
@@ -318,7 +311,7 @@ function SchoolSection() {
         <h2 id="school-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Education and enrichment nearby</h2>
         <p className="mt-4 text-base leading-relaxed text-[#372a20]/85">
-          Families appreciate Spanish Trail’s access to reputable schools and enrichment programs throughout Southwest Las Vegas.</p>
+          Buyers often weigh commute times to Bishop Gorman (about 2.2 miles) and nearby campuses when comparing Spanish Trail to other Southwest Las Vegas golf communities.</p>
         <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
           {[
             {

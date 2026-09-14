@@ -8,7 +8,8 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { FaqSection } from '@/components/faq-section'
 import { SectionBanner } from '@/components/heading-media'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
-import { createOgImageUrl, createWebPageSchema, createFaqSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, createFaqSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { GBP_FULL_ADDRESS, GBP_PHONE_DISPLAY, GBP_PHONE_E164 } from '@/lib/gbp-business'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/address-autocomplete'
@@ -43,11 +44,7 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
     images: [
-      createOgImageUrl({
-        title: 'Look up a Spanish Trail address',
-        subtitle: '89113 comps, tours, and gate access',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-community-map'),
     ],
   },
 }

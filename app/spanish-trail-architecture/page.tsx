@@ -6,7 +6,8 @@ import { SiteShell } from '@/components/site-shell'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
 
@@ -43,11 +44,7 @@ export const metadata: Metadata = {
     description:
       'Custom estates, Mediterranean villas, and semi-custom homes in Spanish Trail Las Vegas. Explore the architectural diversity.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Architecture',
-        subtitle: 'Mediterranean & desert luxury styles',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-architecture'),
     ],
   },
   twitter: {
@@ -56,11 +53,7 @@ export const metadata: Metadata = {
     description:
       'From Mediterranean estates to desert-modern designs, explore Spanish Trail architectural styles.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Architecture',
-        subtitle: 'Luxury home styles in Las Vegas',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-architecture'),
     ],
   },
 }

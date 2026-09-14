@@ -8,7 +8,8 @@ import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { homeDeepDive, neighborhoodSpotlights } from '@/lib/spanishTrailContent'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
-import { createOgImageUrl, getCanonicalUrl, createArticleSchema, createBreadcrumbSchema } from '@/lib/structuredData'
+import { getCanonicalUrl, createArticleSchema, createBreadcrumbSchema } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
 
@@ -102,11 +103,7 @@ export const metadata: Metadata = {
     description:
       'Explore data-backed commentary on Spanish Trail real estate, amenities, and strategy from Dr. Jan Duffy of Berkshire Hathaway HomeServices.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Insights',
-        subtitle: 'Market analysis & advisory guidance',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-awards-study'),
     ],
   },
   twitter: {
@@ -115,11 +112,7 @@ export const metadata: Metadata = {
     description:
       'Get deep-dive analysis on Spanish Trail real estate trends, renovations, and club lifestyle from Dr. Jan Duffy.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Advisory',
-        subtitle: 'Concierge insights for buyers & sellers',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-awards-study'),
     ],
   },
 }

@@ -6,7 +6,8 @@ import { CalendlyInline } from '@/components/calendly-inline'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { HeroBackground } from '@/components/hero-background'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
@@ -127,11 +128,7 @@ export const metadata: Metadata = {
     description:
       'Understand membership options, costs, and transfers when buying or selling a Spanish Trail home. Real estate guidance from Dr. Jan Duffy.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Membership',
-        subtitle: 'Guide for home buyers & sellers',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-membership-lounge'),
     ],
   },
   twitter: {
@@ -140,11 +137,7 @@ export const metadata: Metadata = {
     description:
       'Learn how club membership works when buying or selling a Spanish Trail home.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Membership',
-        subtitle: 'For home buyers & sellers',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-membership-lounge'),
     ],
   },
 }

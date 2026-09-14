@@ -5,7 +5,8 @@ import Script from 'next/script'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
-import { createOgImageUrl, createWebPageSchema, createFaqSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, createFaqSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { getAgentPortraitAbsoluteUrl } from '@/lib/agent-portraits'
 import { HeroBackground } from '@/components/hero-background'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
@@ -173,11 +174,7 @@ export const metadata: Metadata = {
     description:
       'Review Berkshire Hathaway honors, RealScout achievements, and professional memberships that support Spanish Trail clients.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Awards & Recognition',
-        subtitle: 'Dr. Jan Duffy • Berkshire Hathaway HomeServices',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-awards-study'),
     ],
   },
   twitter: {
@@ -186,11 +183,7 @@ export const metadata: Metadata = {
     description:
       'Spanish Trail-focused REALTOR® with Berkshire Hathaway honors, luxury marketing credentials, and media features.',
     images: [
-      createOgImageUrl({
-        title: 'Awards & Recognition',
-        subtitle: 'Spanish Trail leadership by Dr. Jan Duffy',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-awards-study'),
     ],
   },
 }

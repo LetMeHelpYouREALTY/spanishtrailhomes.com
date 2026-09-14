@@ -8,7 +8,8 @@ import { RealScoutSection } from '@/components/realscout-section'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
-import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
+import { getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { marketStats, formatMedianPrice } from '@/lib/marketStats'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
@@ -40,11 +41,7 @@ export const metadata: Metadata = {
     description:
       'Discover guard-gated Spanish Trail listings, market data, and private tour options with Dr. Jan Duffy—Las Vegas luxury golf community specialist.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Homes for Sale',
-        subtitle: 'Active listings & concierge tours with Dr. Jan Duffy',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h3-listing-home-a'),
     ],
   },
   twitter: {
@@ -53,11 +50,7 @@ export const metadata: Metadata = {
     description:
       'Explore Spanish Trail guard-gated golf homes, villas, and estates with Dr. Jan Duffy. Live market data and private tours available.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Listings',
-        subtitle: 'Live market data & private showings',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h3-listing-home-a'),
     ],
   },
 }
@@ -293,7 +286,7 @@ function NeighborhoodHighlightsSection() {
             },
             {
               title: 'Springs & Plum Creek',
-              detail: 'Tree-lined streets, quick walk to community pocket parks, and strong demand from families wanting Bishop Gorman and Faith Lutheran access.',
+              detail: 'Tree-lined streets, a short walk to community pocket parks, and strong demand from buyers commuting to Bishop Gorman and Faith Lutheran.',
             },
             {
               title: 'Courtyards & Gardens',

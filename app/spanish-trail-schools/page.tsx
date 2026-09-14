@@ -6,7 +6,8 @@ import { SiteShell } from '@/components/site-shell'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
 
@@ -44,11 +45,7 @@ export const metadata: Metadata = {
     description:
       'Named CCSD campuses and nearby private schools with distances for Spanish Trail buyers.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Schools',
-        subtitle: 'Named schools and distances',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-schools-campus'),
     ],
   },
   twitter: {
@@ -57,11 +54,7 @@ export const metadata: Metadata = {
     description:
       'Schools serving Spanish Trail homes in Las Vegas. Named campuses and distances for 89113 buyers.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Schools',
-        subtitle: 'Clark County School District',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-schools-campus'),
     ],
   },
 }

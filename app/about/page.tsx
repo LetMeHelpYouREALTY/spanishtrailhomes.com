@@ -6,7 +6,8 @@ import { SiteShell } from '@/components/site-shell'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { getAgentPortraitAbsoluteUrl } from '@/lib/agent-portraits'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
@@ -21,9 +22,9 @@ const aboutFaq = [
       'Dr. Duffy brings a unique combination of deep Spanish Trail knowledge, Berkshire Hathaway HomeServices resources, and research-backed expertise in buyer/seller psychology. She understands the emotional and practical challenges of buying and selling, applying data-led preparation, concierge project management, and deep club/community fluency to every transaction. Her approach translates complex market data into actionable strategy while coordinating multi-disciplinary teams with discretion.',
   },
   {
-    question: 'How many Spanish Trail families has Dr. Duffy worked with?',
+    question: 'How many Spanish Trail clients has Dr. Duffy worked with?',
     answer:
-      'Dr. Duffy has advised over 500 Spanish Trail families across purchases, sales, and long-range planning. Her daily presence inside the community—reviewing listings, coordinating with gate staff, and previewing renovations—keeps clients ahead of market headlines and positioned to act when the right opportunity appears.',
+      'Dr. Duffy has advised over 500 Spanish Trail clients across purchases, sales, and long-range planning. Her daily presence inside the community—reviewing listings, coordinating with gate staff, and previewing renovations—keeps clients ahead of market headlines and positioned to act when the right opportunity appears.',
   },
   {
     question: 'What credentials and awards has Dr. Jan Duffy received?',
@@ -184,11 +185,7 @@ export const metadata: Metadata = {
       description:
         'Meet Dr. Jan Duffy, luxury real estate advisor serving Spanish Trail. Research-backed expertise that understands how homebuyers and sellers make decisions, combined with deep local knowledge and concierge service.',
     images: [
-      createOgImageUrl({
-        title: 'About Dr. Jan Duffy',
-        subtitle: 'Spanish Trail REALTOR® • Concierge advisory',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-contact-office'),
     ],
   },
   twitter: {
@@ -197,11 +194,7 @@ export const metadata: Metadata = {
     description:
       'Learn how Dr. Jan Duffy combines data, club insights, and concierge service for Spanish Trail clients.',
     images: [
-      createOgImageUrl({
-        title: 'Meet Dr. Jan Duffy',
-        subtitle: 'Spanish Trail real estate leadership',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-contact-office'),
     ],
   },
 }
@@ -304,7 +297,7 @@ function StorySection() {
           <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#6f5237]">Quick facts</h3>
           <ul className="space-y-3 text-sm leading-relaxed text-[#372a20]/85">
             <li>
-              <strong className="font-semibold text-[#0f2b1e]">500+</strong> Spanish Trail families advised across purchases,
+              <strong className="font-semibold text-[#0f2b1e]">500+</strong> Spanish Trail clients advised across purchases,
               sales, and long-range planning
             </li>
             <li>

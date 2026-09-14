@@ -10,7 +10,6 @@ import { CalendlyLink } from '@/components/calendly-link'
 import { SectionBanner } from '@/components/heading-media'
 import { AgentPortrait } from '@/components/agent-portrait'
 import {
-  createOgImageUrl,
   createWebPageSchema,
   createBreadcrumbSchema,
   createFaqSchema,
@@ -19,7 +18,7 @@ import {
 import { getAgentPortraitAbsoluteUrl } from '@/lib/agent-portraits'
 import { FaqSection } from '@/components/faq-section'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
-import { getAssetAlt } from '@/lib/site-images'
+import { getAssetAlt, sitePhotoOg } from '@/lib/site-images'
 import {
   GBP_EMAIL,
   GBP_FULL_ADDRESS,
@@ -79,11 +78,7 @@ export const metadata: Metadata = {
     description:
       'Media kit for Dr. Jan Duffy—Spanish Trail luxury real estate expert. Bio, credentials, and contact. Book a consultation for buying or selling in Las Vegas guard-gated golf community.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Homes Media Kit',
-        subtitle: 'Dr. Jan Duffy · Luxury Real Estate',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-awards-study'),
     ],
   },
   twitter: {

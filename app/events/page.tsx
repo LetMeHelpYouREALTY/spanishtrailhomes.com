@@ -9,7 +9,8 @@ import { CalendlyInline } from '@/components/calendly-inline'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { HeroBackground } from '@/components/hero-background'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
@@ -133,11 +134,7 @@ export const metadata: Metadata = {
     description:
       'Plan weddings, galas, and corporate gatherings at Spanish Trail Country Club in Las Vegas.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Events',
-        subtitle: 'Weddings - Galas - Golf Outings',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-events-lawn'),
     ],
   },
   twitter: {
@@ -146,11 +143,7 @@ export const metadata: Metadata = {
     description:
       'Discover bespoke planning for weddings, private celebrations, and golf outings at Spanish Trail Country Club.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Events',
-        subtitle: 'Celebrate at Spanish Trail',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-events-lawn'),
     ],
   },
 }

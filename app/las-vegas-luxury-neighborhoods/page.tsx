@@ -8,7 +8,8 @@ import { RealScoutSection } from '@/components/realscout-section'
 import { Button } from '@/components/ui/button'
 import { nearbyCommunities } from '@/lib/spanishTrailContent'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
-import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
+import { getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
 
@@ -134,11 +135,7 @@ export const metadata: Metadata = {
     description:
       'Evaluate Spanish Trail alongside The Ridges, Red Rock Country Club, and more. Guidance by Dr. Jan Duffy, Berkshire Hathaway HomeServices.',
     images: [
-      createOgImageUrl({
-        title: 'Las Vegas Luxury Comparisons',
-        subtitle: 'Spanish Trail vs. top west valley communities',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-neighborhood-street'),
     ],
   },
   twitter: {
@@ -147,11 +144,7 @@ export const metadata: Metadata = {
     description:
       'See how Spanish Trail stacks up against The Ridges, Red Rock CC, Spanish Hills, and The Summit Club.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail vs. Las Vegas Luxury',
-        subtitle: 'Concierge comparisons for discerning buyers',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-neighborhood-street'),
     ],
   },
 }

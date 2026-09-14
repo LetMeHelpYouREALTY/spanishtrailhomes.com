@@ -10,7 +10,8 @@ import { CalendlyLink } from '@/components/calendly-link'
 import { RealScoutSection } from '@/components/realscout-section'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import {
   GBP_EASTER_2026_CLOSURE,
   GBP_SERVICE_AREA_LABEL,
@@ -57,11 +58,7 @@ export const metadata: Metadata = {
     description:
       'Connect with Dr. Jan Duffy for Spanish Trail luxury homes, current market data, and private club lifestyle guidance.',
     images: [
-      createOgImageUrl({
-        title: 'Connect with Dr. Jan Duffy',
-        subtitle: 'Spanish Trail strategy sessions & private tours',
-        eyebrow: 'Contact • SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-contact-office'),
     ],
   },
   twitter: {
@@ -70,11 +67,7 @@ export const metadata: Metadata = {
     description:
       'Schedule a Spanish Trail strategy session with Dr. Jan Duffy—luxury guard-gated golf community specialist.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Consultation',
-        subtitle: 'Call (702) 766-3299 or plan a private tour',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-contact-office'),
     ],
   },
 }

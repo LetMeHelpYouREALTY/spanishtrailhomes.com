@@ -126,11 +126,11 @@ const ALTS: Record<string, string> = {
   'h3-listing-home-c':
     'Twilight custom estate listing in Spanish Trail Las Vegas',
   'h3-listing-home-d':
-    'Golf villa patio opening to a Spanish Trail Las Vegas fairway',
+    'Golf villa great room opening to a Spanish Trail Las Vegas fairway with desert palms',
   'h3-listing-home-e':
-    'Lakeside golf home terrace in Spanish Trail Las Vegas',
+    'Lakeside Mediterranean golf home terrace at sunset in Spanish Trail Las Vegas',
   'h3-listing-home-f':
-    'Tree-lined Spanish Trail Las Vegas home with greenbelt frontage',
+    'Single-story desert golf-neighborhood home on a Spanish Trail Las Vegas street',
 }
 
 type MediaRule = {
@@ -309,4 +309,63 @@ export const NEIGHBORHOOD_CARD_IMAGES: Record<string, string> = {
   villas: 'h3-townhome-villa',
   islands: 'h1-waterfront',
   'innisbrook-estates': 'h3-listing-home-c',
+}
+
+/** Real community photos for Open Graph, Twitter, and sitemap image entries. */
+export const PAGE_OG_PHOTOS: Record<string, string> = {
+  '/': 'h1-guard-gate',
+  '/buyers': 'h1-luxury-estate',
+  '/sellers': 'h2-kitchen-fairway',
+  '/services': 'h1-contact-office',
+  '/communities/spanish-trail': 'h1-guard-gate',
+  '/spanish-trail-homes-for-sale-las-vegas': 'h3-listing-home-a',
+  '/homes-for-sale-in-spanish-trail-las-vegas': 'h3-listing-home-b',
+  '/club': 'h1-clubhouse',
+  '/golf': 'h1-golf-fairway',
+  '/events': 'h2-events-lawn',
+  '/membership': 'h2-membership-lounge',
+  '/guest-info': 'h2-guest-casita',
+  '/relocation': 'h2-valley-skyline',
+  '/neighborhoods': 'h2-neighborhood-street',
+  '/spanish-trail-lifestyle': 'h2-club-dining',
+  '/spanish-trail-schools': 'h2-schools-campus',
+  '/spanish-trail-tennis': 'h2-tennis',
+  '/spanish-trail-fitness': 'h2-fitness',
+  '/spanish-trail-pools': 'h1-pool',
+  '/spanish-trail-architecture': 'h2-architecture',
+  '/spanish-trail-hoa-guide': 'h3-hoa-landscaping',
+  '/spanish-trail-guard-gated-golf-homes': 'h1-guard-gate',
+  '/spanish-trail-country-club-estate-listings': 'h1-luxury-estate',
+  '/spanish-trail-custom-estate-homes-strip': 'h3-strip-view-patio',
+  '/spanish-trail-waterfront-golf-homes': 'h1-waterfront',
+  '/spanish-trail-townhomes-villas': 'h1-villa-courtyard',
+  '/spanish-trail-southwest-las-vegas-luxury-homes': 'h2-valley-skyline',
+  '/spanish-trail-luxury-golf-course-properties': 'h1-golf-fairway',
+  '/spanish-trail-private-golf-course-homes': 'h1-golf-fairway',
+  '/spanish-trail-gated-golf-realtor': 'h1-office-exterior',
+  '/spanish-trail-market-report': 'h2-kitchen-fairway',
+  '/spanish-trail-insights': 'h2-awards-study',
+  '/las-vegas-luxury-neighborhoods': 'h2-neighborhood-street',
+  '/about': 'h1-contact-office',
+  '/media-kit': 'h2-awards-study',
+  '/contact': 'h1-contact-office',
+  '/find-our-locations': 'h1-office-exterior',
+  '/directions': 'h2-directions-approach',
+  '/amenity-map': 'h2-community-map',
+  '/site-index': 'h1-office-exterior',
+  '/google-business-profile': 'h1-office-exterior',
+  '/reviews': 'h2-reviews-terrace',
+  '/address-autocomplete': 'h2-community-map',
+  '/awards': 'h2-awards-study',
+  '/privacy': 'h1-contact-office',
+  '/terms': 'h1-contact-office',
+  '/accessibility': 'h2-accessible-entrance',
+}
+
+export function ogPhotoForPath(path: string): string {
+  if (path.startsWith('/neighborhoods/') && path !== '/neighborhoods') {
+    const slug = path.slice('/neighborhoods/'.length)
+    return NEIGHBORHOOD_CARD_IMAGES[slug] ?? 'h2-neighborhood-street'
+  }
+  return PAGE_OG_PHOTOS[path] ?? DEFAULT_H1_IMAGE
 }

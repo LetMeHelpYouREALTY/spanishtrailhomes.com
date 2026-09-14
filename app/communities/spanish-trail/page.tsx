@@ -8,7 +8,8 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Metadata } from 'next'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { HeroBackground } from '@/components/hero-background'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
@@ -46,11 +47,7 @@ export const metadata: Metadata = {
     description:
       'Tour Spanish Trail Country Club real estate—guard-gated Las Vegas 89113—with Dr. Jan Duffy.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Community Guide',
-        subtitle: 'Neighborhood insights & active listings',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-guard-gate'),
     ],
   },
   twitter: {
@@ -59,11 +56,7 @@ export const metadata: Metadata = {
     description:
       'Explore Spanish Trail homes, amenities, and buyer guides curated by Dr. Jan Duffy.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Homes',
-        subtitle: 'Guard-gated community insights & listings',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-guard-gate'),
     ],
   },
 }

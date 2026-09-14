@@ -8,7 +8,6 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
 import {
-  createOgImageUrl,
   createWebPageSchema,
   createBreadcrumbSchema,
   createFaqSchema,
@@ -18,7 +17,7 @@ import { NEIGHBORHOODS } from '@/lib/neighborhoods'
 import { CardVisual } from '@/components/heading-media'
 import { FaqSection } from '@/components/faq-section'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
-import { getAssetAlt } from '@/lib/site-images'
+import { getAssetAlt, sitePhotoOg } from '@/lib/site-images'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/neighborhoods'
@@ -82,11 +81,7 @@ export const metadata: Metadata = {
     description:
       'All 11 Spanish Trail neighborhoods: Estates, Courtyards, Links, Springs, Villas, and more. Neighborhood guides and current listings with Dr. Jan Duffy.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Neighborhoods',
-        subtitle: '11 distinct communities inside the gates',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-neighborhood-street'),
     ],
   },
   twitter: {

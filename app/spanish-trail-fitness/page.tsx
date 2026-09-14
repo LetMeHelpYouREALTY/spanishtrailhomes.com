@@ -6,7 +6,8 @@ import { SiteShell } from '@/components/site-shell'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
 
@@ -43,11 +44,7 @@ export const metadata: Metadata = {
     description:
       'State-of-the-art fitness facility with personal training and group classes at Spanish Trail Country Club.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Fitness',
-        subtitle: 'Gym & wellness programs',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-fitness'),
     ],
   },
   twitter: {
@@ -56,11 +53,7 @@ export const metadata: Metadata = {
     description:
       'Modern fitness facility with personal training and classes within the Spanish Trail clubhouse.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Fitness',
-        subtitle: 'State-of-the-art equipment & training',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-fitness'),
     ],
   },
 }

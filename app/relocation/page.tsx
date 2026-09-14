@@ -10,9 +10,9 @@ import { HeroBackground } from '@/components/hero-background'
 import { CalendlyLink } from '@/components/calendly-link'
 import { SectionBanner } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
-import { createOgImageUrl, createWebPageSchema, createBreadcrumbSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, createBreadcrumbSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
-import { getAssetAlt } from '@/lib/site-images'
+import { getAssetAlt, sitePhotoOg } from '@/lib/site-images'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/relocation'
 const pageTitle = 'Relocation & Out-of-State Buyer Support | Spanish Trail Homes'
@@ -90,11 +90,7 @@ export const metadata: Metadata = {
     description:
       'Relocating to Las Vegas? Dr. Jan Duffy helps out-of-state buyers navigate Spanish Trail with virtual tours, neighborhood comparisons, and remote transaction coordination.',
     images: [
-      createOgImageUrl({
-        title: 'Relocation & Out-of-State Buyers',
-        subtitle: 'Spanish Trail from anywhere',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-valley-skyline'),
     ],
   },
   twitter: {

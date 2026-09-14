@@ -7,9 +7,9 @@ import { CalendlyWidgetScript } from '@/components/calendly-widget-script'
 import { CalendlyEventListener } from '@/components/calendly-event-listener'
 import { FloatingCalendlyButton } from '@/components/floating-calendly-button'
 import './globals.css'
-import { createOgImageUrl, structuredDataSiteUrl, getCanonicalUrl, createPersonSchema, createOrganizationSchema } from '@/lib/structuredData'
+import { structuredDataSiteUrl, getCanonicalUrl, createPersonSchema, createOrganizationSchema } from '@/lib/structuredData'
 import { getAbsoluteSiteImageUrl } from '@/lib/cloudflare-images'
-import { getAssetAlt } from '@/lib/site-images'
+import { getAssetAlt, sitePhotoOg } from '@/lib/site-images'
 import {
   GBP_DESCRIPTION,
   GBP_EMAIL,
@@ -68,11 +68,7 @@ const structuredData = [
       getAbsoluteSiteImageUrl('h1-golf-fairway'),
       getAbsoluteSiteImageUrl('h2-accessible-entrance'),
       getAbsoluteSiteImageUrl('h1-contact-office'),
-      createOgImageUrl({
-        title: 'Spanish Trail Luxury Realtor',
-        subtitle: 'Exclusive buy, sell & tour services by Dr. Jan Duffy',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      getAbsoluteSiteImageUrl('h2-directions-approach'),
     ],
     hasMap: GBP_MAPS_URL,
     photo: [
@@ -224,14 +220,14 @@ export const metadata: Metadata = {
     title: GBP_LEGAL_NAME,
     description: rootDefaultDescription,
     siteName: GBP_LEGAL_NAME,
-    images: [createOgImageUrl({ title: 'Spanish Trail Luxury Realtor', subtitle: 'Buy, sell, and tour homes in Las Vegas 89113 with Dr. Jan Duffy' })],
+    images: [sitePhotoOg('h1-guard-gate')],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
     title: GBP_LEGAL_NAME,
     description: rootDefaultDescription,
-    images: [createOgImageUrl({ title: 'Spanish Trail Homes', subtitle: 'Luxury realtor services inside the 89113 gates', eyebrow: 'SpanishTrailHomes.com' })],
+    images: [sitePhotoOg('h1-guard-gate')],
   },
   robots: {
     index: true,

@@ -6,7 +6,8 @@ import { SiteShell } from '@/components/site-shell'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
 
@@ -43,11 +44,7 @@ export const metadata: Metadata = {
     description:
       'Resort-style pools, spas, and aquatic programs at Spanish Trail Country Club in Las Vegas.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Pools',
-        subtitle: 'Two aquatic centers',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-pool'),
     ],
   },
   twitter: {
@@ -56,11 +53,7 @@ export const metadata: Metadata = {
     description:
       'Resort-style swimming and aquatic fitness at Spanish Trail Country Club.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Pools',
-        subtitle: 'Resort-style swimming',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-pool'),
     ],
   },
 }
@@ -186,7 +179,7 @@ function AquaticCentersSection() {
               {[
                 { feature: 'Two Pool Locations', description: 'Separate aquatic centers offer variety and reduce crowding' },
                 { feature: 'Lap Swimming', description: 'Dedicated lanes for fitness swimming and training' },
-                { feature: 'Recreation Areas', description: 'Family-friendly spaces for leisure swimming and play' },
+                { feature: 'Recreation Areas', description: 'Open recreation deck for leisure swimming' },
                 { feature: 'Heated Spas', description: 'Hot tubs for relaxation and recovery after workouts' },
                 { feature: 'Lounging Areas', description: 'Comfortable seating with shade options and poolside service' },
               ].map((item) => (

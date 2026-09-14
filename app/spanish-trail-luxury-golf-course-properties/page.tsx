@@ -7,7 +7,8 @@ import { RealScoutSection } from '@/components/realscout-section'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
-import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
+import { getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { marketStats } from '@/lib/marketStats'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
@@ -39,11 +40,7 @@ export const metadata: Metadata = {
     description:
       'See Spanish Trail luxury golf course estates, renovation trends, and buyer strategies guided by Dr. Jan Duffy.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Golf Estate Collection',
-        subtitle: 'Luxury fairway homes & market strategy',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-golf-fairway'),
     ],
   },
   twitter: {
@@ -52,11 +49,7 @@ export const metadata: Metadata = {
     description:
       'Discover premier golf frontage homes, lakeside vistas, and custom estates with Dr. Jan Duffy in Spanish Trail.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Luxury Golf Homes',
-        subtitle: 'Premier fairway estates by Dr. Jan Duffy',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-golf-fairway'),
     ],
   },
 }

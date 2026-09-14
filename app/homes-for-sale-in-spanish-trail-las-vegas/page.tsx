@@ -8,7 +8,8 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { HeroBackground } from '@/components/hero-background'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { marketStats, formatMedianPrice } from '@/lib/marketStats'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
@@ -41,11 +42,7 @@ export const metadata: Metadata = {
     description:
       'Discover elegant single-family homes, grand estates, and luxury villas for sale in Spanish Trail, Las Vegas. Guard-gated golf community with 27-hole championship course.',
     images: [
-      createOgImageUrl({
-        title: 'Homes for Sale in Spanish Trail Las Vegas',
-        subtitle: 'Guard-gated golf community luxury homes',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h3-listing-home-b'),
     ],
   },
   twitter: {
@@ -54,11 +51,7 @@ export const metadata: Metadata = {
     description:
       'Browse elegant homes, grand estates, and luxury villas in Spanish Trail. Guard-gated golf community minutes from the Las Vegas Strip.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Homes for Sale',
-        subtitle: 'Luxury guard-gated community in Las Vegas',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h3-listing-home-b'),
     ],
   },
 }

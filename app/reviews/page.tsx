@@ -6,7 +6,8 @@ import Script from 'next/script'
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { Breadcrumbs } from '@/components/breadcrumbs'
-import { createOgImageUrl, createWebPageSchema, createFaqSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, createFaqSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { GBP_GOOGLE_REVIEW_URL, GBP_MAPS_URL } from '@/lib/gbp-business'
 import { SectionBanner } from '@/components/heading-media'
 import { FaqSection } from '@/components/faq-section'
@@ -60,11 +61,7 @@ export const metadata: Metadata = {
     description:
       'Share your experience with Dr. Jan Duffy. Reviews help future clients find trusted real estate guidance in Spanish Trail.',
     images: [
-      createOgImageUrl({
-        title: 'Leave a Review',
-        subtitle: 'Share your Spanish Trail experience',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-reviews-terrace'),
     ],
   },
   twitter: {
@@ -72,11 +69,7 @@ export const metadata: Metadata = {
     title: 'Leave a Google Review | Dr. Jan Duffy',
     description: 'Reviews build trust. Share your experience working with Dr. Jan Duffy.',
     images: [
-      createOgImageUrl({
-        title: 'Leave a Review',
-        subtitle: 'Google Business Profile',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-reviews-terrace'),
     ],
   },
 }
@@ -643,7 +636,7 @@ function CTASection() {
           </div>
           <div className="rounded-2xl bg-white/10 p-6 text-center">
             <p className="font-[var(--font-playfair)] text-3xl">500+</p>
-            <p className="mt-1 text-sm text-white/70">Spanish Trail families advised</p>
+            <p className="mt-1 text-sm text-white/70">Spanish Trail clients advised</p>
           </div>
           <div className="rounded-2xl bg-white/10 p-6 text-center">
             <p className="font-[var(--font-playfair)] text-3xl">11</p>

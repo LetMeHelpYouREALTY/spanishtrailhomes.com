@@ -11,7 +11,8 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { marketHighlights, neighborhoodSpotlights } from '@/lib/spanishTrailContent'
 import { marketStats } from '@/lib/marketStats'
-import { createBreadcrumbSchema, createFaqSchema, createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createBreadcrumbSchema, createFaqSchema, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { HeroBackground } from '@/components/hero-background'
 import { FeaturedListings } from '@/components/featured-listings'
 import { PropertyLightboxProvider } from '@/components/property-lightbox'
@@ -58,11 +59,7 @@ export const metadata: Metadata = {
     title: 'Buy and Sell Spanish Trail Homes | Dr. Jan Duffy',
     description: homePageDescription,
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Homes Realtor',
-        subtitle: 'Buy, sell, and tour in 89113 only',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-guard-gate'),
     ],
   },
   twitter: {
@@ -70,11 +67,7 @@ export const metadata: Metadata = {
     title: 'Buy and Sell Spanish Trail Homes | Dr. Jan Duffy',
     description: homePageDescription,
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Homes',
-        subtitle: 'Realtor services inside the 89113 gates',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-guard-gate'),
     ],
   },
 }

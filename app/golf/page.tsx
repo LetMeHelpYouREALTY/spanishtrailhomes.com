@@ -10,11 +10,11 @@ import { Button } from '@/components/ui/button'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { HeroBackground } from '@/components/hero-background'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
-import { getAssetAlt } from '@/lib/site-images'
+import { getAssetAlt, sitePhotoOg } from '@/lib/site-images'
 
 
 const golfNarratives = [
@@ -146,11 +146,7 @@ export const metadata: Metadata = {
     description:
       'Discover the Sunrise, Lakes, and Canyon nines, practice facilities, and golf programming at Spanish Trail Country Club.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Golf',
-        subtitle: '27-hole experience by Robert Trent Jones Jr.',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-golf-fairway'),
     ],
   },
   twitter: {
@@ -159,11 +155,7 @@ export const metadata: Metadata = {
     description:
       'Explore Spanish Trail\'s 27 championship holes designed by Robert Trent Jones Jr.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Golf Club',
-        subtitle: 'Sunrise - Lakes - Canyon nines',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-golf-fairway'),
     ],
   },
 }

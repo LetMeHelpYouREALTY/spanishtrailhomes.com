@@ -8,7 +8,8 @@ import { RealScoutSection } from '@/components/realscout-section'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { marketStats, formatMedianPrice } from '@/lib/marketStats'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
@@ -97,11 +98,7 @@ export const metadata: Metadata = {
       description:
         'Explore Las Vegas golf course homes for sale in Spanish Trail with personalized search, gated access coordination, and negotiation strategy from Dr. Jan Duffy, Berkshire Hathaway HomeServices.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Buyer Roadmap',
-        subtitle: 'Concierge tours & negotiation strategy by Dr. Jan Duffy',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-luxury-estate'),
     ],
   },
   twitter: {
@@ -110,11 +107,7 @@ export const metadata: Metadata = {
     description:
       'Discover Spanish Trail guard-gated homes, villas, and estates with concierge tours, data-backed strategy, and club insights tailored to your lifestyle.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Buyer Concierge',
-        subtitle: 'Live listings, financing strategy, private tours',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-luxury-estate'),
     ],
   },
 }
@@ -315,7 +308,7 @@ function PropertyPathwaysSection() {
             {
               title: 'Springs & Plum Creek',
               summary:
-                'Tree-lined streets, close proximity to Bishop Gorman High School, and community parks make these enclaves favorites among families balancing work and schooling in Summerlin and Spring Valley.',
+                'Tree-lined streets, a short drive to Bishop Gorman High School, and community parks make these enclaves a frequent match for buyers who work in Summerlin or Spring Valley.',
               highlight: 'Updated kitchens and flexible loft layouts remain the top priorities among relocating professionals.',
             },
             {

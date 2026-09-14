@@ -6,7 +6,8 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
-import { createOgImageUrl, createWebPageSchema, createFaqSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, createFaqSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner } from '@/components/heading-media'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 import { FaqSection } from '@/components/faq-section'
@@ -65,11 +66,7 @@ export const metadata: Metadata = {
     description:
       'See the inclusive design practices, assistive technology support, and contact information for accessibility requests on SpanishTrailHomes.com.',
     images: [
-      createOgImageUrl({
-        title: 'Accessibility Commitment',
-        subtitle: 'Inclusive access to SpanishTrailHomes.com',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-accessible-entrance'),
     ],
   },
   twitter: {
@@ -78,11 +75,7 @@ export const metadata: Metadata = {
     description:
       'Discover how SpanishTrailHomes.com meets WCAG guidance and how to request accommodations or report usability issues.',
     images: [
-      createOgImageUrl({
-        title: 'Accessibility Support',
-        subtitle: 'WCAG-aligned experience & request channels',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-accessible-entrance'),
     ],
   },
 }

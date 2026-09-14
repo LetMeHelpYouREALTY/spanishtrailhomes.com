@@ -7,7 +7,8 @@ import { RealScoutSection } from '@/components/realscout-section'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
-import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
+import { getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
 
@@ -38,11 +39,7 @@ export const metadata: Metadata = {
     description:
       'Tour Spanish Trail custom estates minutes from the Strip with Dr. Jan Duffy. Explore double-gated enclaves, luxury amenities, and curated buyer journeys.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Custom Estates',
-        subtitle: 'Minutes from the Strip with guard-gated privacy',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h3-strip-view-patio'),
     ],
   },
   twitter: {
@@ -51,11 +48,7 @@ export const metadata: Metadata = {
     description:
       'Secure private tours of double-gated Spanish Trail estates offering proximity to the Las Vegas Strip. Guided by Dr. Jan Duffy.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Custom Estates',
-        subtitle: 'Luxury living near the Las Vegas Strip',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h3-strip-view-patio'),
     ],
   },
 }

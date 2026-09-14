@@ -10,7 +10,8 @@ import { CalendlyLink } from '@/components/calendly-link'
 import { SiteShell } from '@/components/site-shell'
 import { RealScoutSection } from '@/components/realscout-section'
 import { Button } from '@/components/ui/button'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { marketStats, formatMedianPrice } from '@/lib/marketStats'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
@@ -116,11 +117,7 @@ export const metadata: Metadata = {
     description:
       'Maximize your equity with Dr. Jan Duffy’s Spanish Trail seller strategy—precision pricing, concierge prep, luxury marketing, and RealScout-powered valuation tools.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Seller Blueprint',
-        subtitle: 'Pricing strategy • Concierge prep • Premium marketing',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-kitchen-fairway'),
     ],
   },
   twitter: {
@@ -129,11 +126,7 @@ export const metadata: Metadata = {
     description:
       'Sell your Spanish Trail home with a proven valuation, preparation, and marketing roadmap. Schedule a private strategy session with Dr. Jan Duffy.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Seller Strategy',
-        subtitle: 'Equity planning & negotiation by Dr. Jan Duffy',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-kitchen-fairway'),
     ],
   },
 }

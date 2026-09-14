@@ -8,7 +8,8 @@ import { Button } from '@/components/ui/button'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { lifestyleHighlights } from '@/lib/spanishTrailContent'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
 
@@ -66,9 +67,9 @@ const clubFaq = [
       'Yes. The clubhouse features flexible meeting suites equipped with high-speed connectivity, presentation technology, and catering options. Members use these spaces for board meetings, podcast recordings, or remote-work sessions between rounds. Contact the club for availability and booking.',
   },
   {
-    question: 'How does the club support families with children?',
+    question: 'What youth and guest programming does the club offer?',
     answer:
-      'Spanish Trail offers supervised kids\' clubs, seasonal camps, swim teams, and teen socials curated by youth programming specialists. Parents appreciate the safe environment, dedicated staff, and ability to enjoy adult-only events knowing their children are engaged nearby. Contact the club for program schedules and enrollment.',
+      'Spanish Trail Country Club lists supervised kids’ clubs, seasonal camps, swim teams, and teen socials through its youth programming staff. Hours, enrollment, and guest policies come from the club—not from a home listing. Contact the club for current schedules.',
   },
 ]
 
@@ -143,11 +144,7 @@ export const metadata: Metadata = {
     description:
       'Discover clubhouse amenities, dining venues, and curated social experiences at Spanish Trail Country Club.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Club Lifestyle',
-        subtitle: 'Dining • Wellness • Social events',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-clubhouse'),
     ],
   },
   twitter: {
@@ -156,11 +153,7 @@ export const metadata: Metadata = {
     description:
       'Uncover luxury amenities, dining, and events at Spanish Trail Country Club.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Country Club',
-        subtitle: 'Member lifestyle in Las Vegas',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-clubhouse'),
     ],
   },
 }

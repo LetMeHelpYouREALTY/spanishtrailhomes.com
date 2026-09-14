@@ -7,7 +7,8 @@ import { Button } from '@/components/ui/button'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { FaqSection } from '@/components/faq-section'
 import { SectionBanner } from '@/components/heading-media'
-import { createOgImageUrl, createWebPageSchema, createFaqSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, createFaqSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { GBP_FULL_ADDRESS, GBP_PHONE_DISPLAY, GBP_PHONE_E164, GBP_STREET } from '@/lib/gbp-business'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/amenity-map'
@@ -54,11 +55,7 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
     images: [
-      createOgImageUrl({
-        title: 'Near Spanish Trail',
-        subtitle: 'Groceries, campuses, airport from 89113',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-community-map'),
     ],
   },
 }

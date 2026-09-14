@@ -4,7 +4,8 @@ import Script from 'next/script'
 
 import { SiteShell } from '@/components/site-shell'
 import { Breadcrumbs } from '@/components/breadcrumbs'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { GBP_FULL_ADDRESS, GBP_PHONE_DISPLAY } from '@/lib/gbp-business'
 import { NEIGHBORHOODS } from '@/lib/neighborhoods'
 import { SectionBanner } from '@/components/heading-media'
@@ -82,11 +83,7 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Homes site index',
-        subtitle: 'Every realtor and community page',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-office-exterior'),
     ],
   },
 }

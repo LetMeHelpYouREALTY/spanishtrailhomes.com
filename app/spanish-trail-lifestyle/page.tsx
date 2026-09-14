@@ -6,13 +6,14 @@ import { SiteShell } from '@/components/site-shell'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-lifestyle'
 const pageDescription =
-  'Discover the Spanish Trail lifestyle in Las Vegas. From Red Rock Canyon hiking to world-class shopping and dining, explore what makes this guard-gated community exceptional.'
+  'Outdoor recreation, dining, shopping, and entertainment near Spanish Trail in Las Vegas 89113. Guard-gated golf living with clubhouse, tennis, and pool access.'
 
 const webPageSchema = createWebPageSchema({
   name: 'Spanish Trail Lifestyle | Living in Las Vegas',
@@ -41,13 +42,9 @@ export const metadata: Metadata = {
     url: pageUrl,
     title: 'Spanish Trail Lifestyle | Las Vegas Living',
     description:
-      'Outdoor recreation, dining, shopping, and entertainment near Spanish Trail. Discover why families and professionals choose this premier community.',
+      'Outdoor recreation, dining, shopping, and entertainment near Spanish Trail in Las Vegas 89113. Guard-gated golf living with clubhouse, tennis, and pool access.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Lifestyle',
-        subtitle: 'Living in Las Vegas',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-club-dining'),
     ],
   },
   twitter: {
@@ -56,11 +53,7 @@ export const metadata: Metadata = {
     description:
       'Things to do, dining, and shopping near Spanish Trail in Las Vegas.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Living',
-        subtitle: 'Recreation, dining & shopping',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-club-dining'),
     ],
   },
 }

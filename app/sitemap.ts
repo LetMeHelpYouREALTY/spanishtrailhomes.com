@@ -1,6 +1,8 @@
 import type { MetadataRoute } from 'next'
 import { getNeighborhoodSlugs } from '@/lib/neighborhoods'
 import { getAgentPortraitAbsoluteUrl, resolveAgentPortrait } from '@/lib/agent-portraits'
+import { getAbsoluteSiteImageUrl } from '@/lib/cloudflare-images'
+import { ogPhotoForPath } from '@/lib/site-images'
 
 const baseUrl = 'https://www.spanishtrailhomes.com'
 
@@ -57,12 +59,12 @@ const routeConfig: Array<{
   { path: '/about', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/media-kit', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/contact', priority: 0.8, changeFrequency: 'monthly' },
-  { path: '/find-our-locations', priority: 0.8, changeFrequency: 'monthly' },
-  { path: '/directions', priority: 0.7, changeFrequency: 'monthly' },
-  { path: '/amenity-map', priority: 0.7, changeFrequency: 'monthly' },
+  { path: '/find-our-locations', priority: 0.9, changeFrequency: 'weekly' },
+  { path: '/directions', priority: 0.9, changeFrequency: 'weekly' },
+  { path: '/amenity-map', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/site-index', priority: 0.6, changeFrequency: 'monthly' },
-  { path: '/google-business-profile', priority: 0.8, changeFrequency: 'monthly' },
-  { path: '/reviews', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/google-business-profile', priority: 0.9, changeFrequency: 'weekly' },
+  { path: '/reviews', priority: 0.9, changeFrequency: 'weekly' },
   { path: '/address-autocomplete', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/awards', priority: 0.7, changeFrequency: 'monthly' },
   
@@ -79,12 +81,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticEntries = routeConfig.map(({ path, priority, changeFrequency }) => {
     const portrait = resolveAgentPortrait(path === '/' ? 'homepage-hero' : path)
+    const communityPhoto = getAbsoluteSiteImageUrl(ogPhotoForPath(path))
     return {
       url: `${baseUrl}${path === '/' ? '' : path}`,
       lastModified,
       changeFrequency,
       priority,
-      images: [getAgentPortraitAbsoluteUrl(portrait.id)],
+      images: [communityPhoto, getAgentPortraitAbsoluteUrl(portrait.id)],
     }
   })
 
@@ -95,7 +98,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: 'monthly' as const,
       priority: 0.8,
-      images: [getAgentPortraitAbsoluteUrl('duffy-circle-neighborhoods')],
+      images: [
+        getAbsoluteSiteImageUrl(ogPhotoForPath(path)),
+        getAgentPortraitAbsoluteUrl('duffy-circle-neighborhoods'),
+      ],
     }
   })
 

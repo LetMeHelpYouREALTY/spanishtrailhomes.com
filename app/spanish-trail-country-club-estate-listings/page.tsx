@@ -7,7 +7,8 @@ import { RealScoutSection } from '@/components/realscout-section'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
-import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
+import { getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { marketStats } from '@/lib/marketStats'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
@@ -39,11 +40,7 @@ export const metadata: Metadata = {
     description:
       'Tour custom estates in Las Vegas within Spanish Trail Country Club—golf frontage, casitas, and resort-scale amenities curated by Dr. Jan Duffy.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Estate Listings',
-        subtitle: 'Custom homes & double-gated enclaves',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-luxury-estate'),
     ],
   },
   twitter: {
@@ -52,11 +49,7 @@ export const metadata: Metadata = {
     description:
       'Exclusive Las Vegas estate listings, tailored buying strategies, and club integration for Spanish Trail Country Club.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Country Club Estates',
-        subtitle: 'Concierge representation by Dr. Jan Duffy',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-luxury-estate'),
     ],
   },
 }

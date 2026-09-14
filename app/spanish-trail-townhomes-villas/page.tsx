@@ -7,7 +7,8 @@ import { RealScoutSection } from '@/components/realscout-section'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
-import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
+import { getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
 
@@ -38,11 +39,7 @@ export const metadata: Metadata = {
     description:
       'Explore guard-gated Spanish Trail villas, Links residences, and lock-and-leave townhomes with bespoke services from Dr. Jan Duffy.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Villas & Townhomes',
-        subtitle: 'Lock-and-leave living with concierge support',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-villa-courtyard'),
     ],
   },
   twitter: {
@@ -51,11 +48,7 @@ export const metadata: Metadata = {
     description:
       'Discover the Villas, Links, Courtyards, and Springs enclaves for turnkey Spanish Trail living minutes from the Strip.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Townhomes',
-        subtitle: 'HOA insights & curated buyer services',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-villa-courtyard'),
     ],
   },
 }

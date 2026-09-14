@@ -6,7 +6,8 @@ import { SiteShell } from '@/components/site-shell'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
 
@@ -43,11 +44,7 @@ export const metadata: Metadata = {
     description:
       'Everything new owners need to know about Spanish Trail HOA, from orientation to architectural guidelines.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail HOA Guide',
-        subtitle: 'New owner orientation & rules',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h3-hoa-landscaping'),
     ],
   },
   twitter: {
@@ -56,11 +53,7 @@ export const metadata: Metadata = {
     description:
       'HOA orientation, gate access, and community standards for Spanish Trail homeowners.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail HOA',
-        subtitle: 'Community standards & guidelines',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h3-hoa-landscaping'),
     ],
   },
 }
