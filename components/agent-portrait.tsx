@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Script from 'next/script'
 
+import { ListingImageLink } from '@/components/listing-image-link'
 import { cn } from '@/lib/utils'
 import {
   AGENT_PORTRAITS,
@@ -39,6 +40,8 @@ type AgentPortraitProps = {
   schema?: boolean
   pagePath?: string
   id?: AgentPortraitId
+  /** When false, skip the RealScout search link (use when already inside another <a>). */
+  linkToSearch?: boolean
 }
 
 export function AgentPortrait({
@@ -52,6 +55,7 @@ export function AgentPortrait({
   schema = false,
   pagePath = '/',
   id,
+  linkToSearch = true,
 }: AgentPortraitProps) {
   const portrait = id ? AGENT_PORTRAITS[id] : resolveAgentPortrait(placement)
   const src = getAgentPortraitSrc(portrait.id)
@@ -59,24 +63,32 @@ export function AgentPortrait({
   const radius =
     rounded === 'full' ? 'rounded-full' : rounded === '2xl' ? 'rounded-2xl' : 'rounded-none'
 
+  const frameClass = cn(
+    'relative shrink-0 overflow-hidden bg-transparent',
+    SIZE_CLASS[size],
+    radius,
+  )
+
+  const image = (
+    <Image
+      src={src}
+      alt={portrait.alt}
+      fill
+      priority={priority}
+      sizes={`${px}px`}
+      className={cn('object-contain object-center', imageClassName)}
+    />
+  )
+
   return (
     <figure className={cn('shrink-0', className)}>
-      <div
-        className={cn(
-          'relative shrink-0 overflow-hidden bg-transparent',
-          SIZE_CLASS[size],
-          radius,
-        )}
-      >
-        <Image
-          src={src}
-          alt={portrait.alt}
-          fill
-          priority={priority}
-          sizes={`${px}px`}
-          className={cn('object-contain object-center', imageClassName)}
-        />
-      </div>
+      {linkToSearch ? (
+        <ListingImageLink label={portrait.alt} className={frameClass}>
+          {image}
+        </ListingImageLink>
+      ) : (
+        <div className={frameClass}>{image}</div>
+      )}
       {showCaption ? (
         <figcaption className="mt-3 max-w-[16rem] text-center text-xs leading-relaxed text-[#5c4a3a]">
           {portrait.caption}

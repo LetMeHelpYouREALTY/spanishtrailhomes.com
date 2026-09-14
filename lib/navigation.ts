@@ -1,3 +1,5 @@
+import { REALSCOUT_SHARED_SEARCH_URL } from '@/lib/realscout'
+
 export type NavItem = {
   label: string
   href: string
@@ -14,6 +16,7 @@ export const NAV_ITEMS: NavItem[] = [
     href: '/buyers',
     children: [
       { label: 'Buy Spanish Trail homes', href: '/buyers', group: 'Realtor services' },
+      { label: 'Live Spanish Trail search', href: REALSCOUT_SHARED_SEARCH_URL, group: 'Homes' },
       { label: 'Spanish Trail listings', href: LISTINGS_HREF, group: 'Homes' },
       { label: 'Match a neighborhood', href: '/neighborhoods', group: 'Homes' },
     ],
@@ -30,6 +33,7 @@ export const NAV_ITEMS: NavItem[] = [
     label: 'Homes',
     href: LISTINGS_HREF,
     children: [
+      { label: 'Live Spanish Trail search', href: REALSCOUT_SHARED_SEARCH_URL, group: 'Listings' },
       { label: 'All Spanish Trail homes for sale', href: LISTINGS_HREF, group: 'Listings' },
       { label: '11 neighborhoods', href: '/neighborhoods', group: 'Listings' },
       { label: 'Estates', href: '/spanish-trail-country-club-estate-listings', group: 'Listings' },

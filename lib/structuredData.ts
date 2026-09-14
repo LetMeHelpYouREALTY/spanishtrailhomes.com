@@ -13,12 +13,16 @@
  *    VideoObject: when a page embeds a player, add JSON-LD via createVideoObjectSchema() in this module; see
  *    https://developers.google.com/search/docs/appearance/structured-data/video — do not emit VideoObject without an embed.
  *
+ *    FAQPage JSON-LD may remain for on-page Q&A; Google retired FAQ rich results in Search
+ *    (May–June 2026). Do not expect FAQ stars in SERPs.
+ *
  * 2) Google Search Console (property must match www host): Sitemaps status, URL Inspection on / and /contact,
  *    Page indexing for errors, Enhancements for structured-data warnings.
  *
- * 3) Monthly Search Central changelog: https://support.google.com/webmasters/answer/6211428
+ * 3) Search Central docs updates: https://developers.google.com/search/docs/appearance/google-images#specify-preferred-image
  */
 import { getAbsoluteSiteImageUrl } from '@/lib/cloudflare-images'
+import { resolvePagePreferredImage } from '@/lib/site-images'
 
 const siteUrl = 'https://www.spanishtrailhomes.com'
 
@@ -54,8 +58,35 @@ export const createBreadcrumbSchema = (items: BreadcrumbItem[]) => ({
   })),
 })
 
+export const createImageObjectSchema = (pathOrAsset: { path: string } | { assetId: string; caption?: string }) => {
+  const media =
+    'path' in pathOrAsset
+      ? resolvePagePreferredImage(pathOrAsset.path)
+      : {
+          id: pathOrAsset.assetId,
+          alt: pathOrAsset.caption ?? resolvePagePreferredImage('/').alt,
+        }
+  const imageUrl = getAbsoluteSiteImageUrl(media.id)
+
+  return {
+    '@type': 'ImageObject' as const,
+    ...('path' in pathOrAsset ? { '@id': `${buildAbsoluteUrl(pathOrAsset.path)}#primaryimage` } : {}),
+    url: imageUrl,
+    contentUrl: imageUrl,
+    caption: media.alt,
+    representativeOfPage: true,
+  }
+}
+
 export const createWebPageSchema = ({ name, description, path, type = 'WebPage', extra = {} }: WebPageSchemaInput) => {
   const url = buildAbsoluteUrl(path)
+  const {
+    primaryImageOfPage: extraPrimaryImage,
+    image: extraImage,
+    about: extraAbout,
+    ...restExtra
+  } = extra
+  const preferredImage = extraPrimaryImage ?? createImageObjectSchema({ path })
 
   return {
     '@context': 'https://schema.org',
@@ -67,7 +98,10 @@ export const createWebPageSchema = ({ name, description, path, type = 'WebPage',
     inLanguage: 'en-US',
     // Reference root layout WebSite (#website); avoid duplicating WebSite properties per page.
     isPartOf: { '@id': `${siteUrl}#website` },
-    ...extra,
+    about: extraAbout ?? { '@id': `${siteUrl}#localBusiness` },
+    primaryImageOfPage: preferredImage,
+    image: extraImage ?? (preferredImage as { url: string }).url,
+    ...restExtra,
   }
 }
 
@@ -147,10 +181,7 @@ export const createOgImageUrl = ({ title, subtitle, eyebrow }: OgImageOptions) =
   return `${siteUrl}/api/og?${params.toString()}`
 }
 
-/**
- * Person schema for Dr. Jan Duffy - 2026 AEO/GEO optimization
- * Enhances entity recognition and citation by AI search engines
- */
+/** Person schema for Dr. Jan Duffy — entity identity for Search, not an AEO/GEO ranking lever. */
 export const createPersonSchema = () => ({
   '@context': 'https://schema.org',
   '@type': 'Person',
@@ -193,9 +224,7 @@ export const createPersonSchema = () => ({
   ],
 })
 
-/**
- * Organization schema for Berkshire Hathaway HomeServices - 2026 GEO
- */
+/** Brokerage Organization node referenced by Person.worksFor. */
 export const createOrganizationSchema = () => ({
   '@context': 'https://schema.org',
   '@type': 'Organization',
@@ -218,8 +247,8 @@ type ArticleSchemaInput = {
 }
 
 /**
- * Article schema for insight/blog pages - Critical for AEO 2026
- * AI answer engines prioritize content with proper Article markup
+ * Article schema for insight pages. Include a preferred image so Search/Discover
+ * can select a thumbnail from markup as well as og:image.
  */
 export const createArticleSchema = ({
   headline,
@@ -230,6 +259,7 @@ export const createArticleSchema = ({
   articleSection = 'Real Estate',
 }: ArticleSchemaInput) => {
   const url = buildAbsoluteUrl(path)
+  const image = createImageObjectSchema({ path })
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -237,6 +267,7 @@ export const createArticleSchema = ({
     headline,
     description,
     url,
+    image: image.url,
     datePublished,
     dateModified: dateModified || datePublished,
     author: { '@id': `${siteUrl}#person` },
@@ -255,8 +286,10 @@ type AggregateRatingSchemaInput = {
 }
 
 /**
- * AggregateRating schema - 2026 SEO best practice
- * Increases CTR by 20-30% when displayed in search results
+ * AggregateRating for a third-party entity only (for example the country club).
+ * Do not attach star ratings to this site's own LocalBusiness / RealEstateAgent —
+ * self-serving reviews are ineligible for review snippets.
+ * @see https://developers.google.com/search/docs/appearance/structured-data/review-snippet
  */
 export const createAggregateRatingSchema = ({
   ratingValue,

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { XIcon, ChevronDownIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { RealScoutSearchLink } from '@/components/listing-image-link'
 
 export default function DeployBanner() {
   const [isVisible, setIsVisible] = useState(false)
@@ -85,12 +86,7 @@ export default function DeployBanner() {
 
               <div className="flex shrink-0 flex-wrap items-center gap-2 sm:gap-3">
                 <Button variant="default" size="sm" asChild>
-                  <a
-                    href="https://searchforaffordablehomes.com/neighborhood/83/spanish-trails"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2"
-                  >
+                  <RealScoutSearchLink location="deploy-banner" className="flex items-center gap-2">
                     <svg className="h-4 w-4" viewBox="0 0 20 20" fill="none">
                       <path
                         d="M4 10h12M10 4l6 6-6 6"
@@ -102,7 +98,7 @@ export default function DeployBanner() {
                     </svg>
                     <span className="hidden sm:inline">View Listings</span>
                     <span className="sm:hidden">Listings</span>
-                  </a>
+                  </RealScoutSearchLink>
                 </Button>
 
                 <Button variant="outline" size="sm" asChild>

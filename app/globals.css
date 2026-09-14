@@ -305,6 +305,17 @@ realscout-advanced-search {
   font-family: var(--font-playfair), serif;
 }
 
+/* Photo heroes/sections: never halo type. Contrast sits on the photo, not the glyphs. */
+.hero-photo-copy,
+.hero-photo-copy :is(h1, h2, h3, p, li, a, button, span) {
+  text-shadow: none;
+}
+
+.hero-photo-copy :is(h1, h2) {
+  -webkit-font-smoothing: auto;
+  letter-spacing: -0.02em;
+}
+
 .skip-link {
   position: absolute;
   left: -999px;

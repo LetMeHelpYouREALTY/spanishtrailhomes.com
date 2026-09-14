@@ -1,3 +1,6 @@
+import { REALSCOUT_SHARED_SEARCH_URL } from '@/lib/realscout'
+import { marketStats, formatMedianPrice } from './marketStats'
+
 export const neighborhoodSpotlights = [
   {
     name: 'The Estates & Estates West',
@@ -20,8 +23,6 @@ export const neighborhoodSpotlights = [
       'Tree-lined streets with three- to five-bedroom floor plans, community greenbelts, and a short drive to Bishop Gorman High School (2.2 miles) and Faith Lutheran Middle & High School.',
   },
 ]
-
-import { marketStats, formatMedianPrice } from './marketStats'
 
 export const marketStatsExport = marketStats
 
@@ -58,21 +59,21 @@ export const featuredListings = [
     price: '$1,095,000',
     type: 'Single-Family • 3 Bed • 3 Bath • 2,500 Sq Ft',
     mls: 'MLS# 2733586',
-    href: 'https://bhhsnv.com/single-family/glv/2733586/8330-carmel-ridge-court-las-vegas-nv-89113',
+    href: REALSCOUT_SHARED_SEARCH_URL,
   },
   {
     address: '7283 Mission Hills Drive',
     price: '$630,000',
     type: 'Condo/Townhome • 2 Bed • 2 Bath • 2,065 Sq Ft',
     mls: 'MLS# 2732075',
-    href: 'https://bhhsnv.com/condo-townhouse/glv/2732075/7283-mission-hills-drive-las-vegas-nv-89113',
+    href: REALSCOUT_SHARED_SEARCH_URL,
   },
   {
     address: '22 Burning Tree Court',
     price: '$2,590,000',
     type: 'Estate Residence • 4 Bed • 5 Bath • 6,361 Sq Ft',
     mls: 'MLS# 2732026',
-    href: 'https://bhhsnv.com/single-family/glv/2732026/22-burning-tree-court-las-vegas-nv-89113',
+    href: REALSCOUT_SHARED_SEARCH_URL,
   },
 ]
 
@@ -84,7 +85,7 @@ export const featuredListingsPreview = [
     beds: 3,
     baths: 3,
     mls: '2733586',
-    href: 'https://bhhsnv.com/single-family/glv/2733586/8330-carmel-ridge-court-las-vegas-nv-89113',
+    href: REALSCOUT_SHARED_SEARCH_URL,
     imageId: 'h3-listing-home-a',
   },
   {
@@ -93,7 +94,7 @@ export const featuredListingsPreview = [
     beds: 2,
     baths: 2,
     mls: '2732075',
-    href: 'https://bhhsnv.com/condo-townhouse/glv/2732075/7283-mission-hills-drive-las-vegas-nv-89113',
+    href: REALSCOUT_SHARED_SEARCH_URL,
     imageId: 'h3-listing-home-b',
   },
   {
@@ -102,7 +103,7 @@ export const featuredListingsPreview = [
     beds: 4,
     baths: 5,
     mls: '2732026',
-    href: 'https://bhhsnv.com/single-family/glv/2732026/22-burning-tree-court-las-vegas-nv-89113',
+    href: REALSCOUT_SHARED_SEARCH_URL,
     imageId: 'h3-listing-home-c',
   },
   {
@@ -111,7 +112,7 @@ export const featuredListingsPreview = [
     beds: 4,
     baths: 3,
     mls: '2731000',
-    href: 'https://bhhsnv.com/',
+    href: REALSCOUT_SHARED_SEARCH_URL,
     imageId: 'h3-listing-home-d',
   },
   {
@@ -120,7 +121,7 @@ export const featuredListingsPreview = [
     beds: 3,
     baths: 2,
     mls: '2730999',
-    href: 'https://bhhsnv.com/',
+    href: REALSCOUT_SHARED_SEARCH_URL,
     imageId: 'h3-listing-home-e',
   },
   {
@@ -129,7 +130,7 @@ export const featuredListingsPreview = [
     beds: 3,
     baths: 2.5,
     mls: '2730998',
-    href: 'https://bhhsnv.com/',
+    href: REALSCOUT_SHARED_SEARCH_URL,
     imageId: 'h3-listing-home-f',
   },
 ]

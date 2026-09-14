@@ -12,6 +12,7 @@ import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/st
 import { marketStats, formatMedianPrice } from '@/lib/marketStats'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { AgentPortrait } from '@/components/agent-portrait'
+import { RealScoutSearchLink } from '@/components/listing-image-link'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/buyers'
@@ -161,7 +162,7 @@ export default function BuyersPage() {
 
 function HeroSection() {
   return (
-    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="buyers-hero-heading">
+    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden hero-photo-copy" aria-labelledby="buyers-hero-heading">
       <SectionBanner headingId="buyers-hero-heading" />
       <div className="mx-auto flex max-w-4xl flex-col items-center space-y-6 px-6 text-center">
         <AgentPortrait placement="buyers" size="lg" priority schema pagePath="/buyers" />
@@ -179,7 +180,7 @@ function HeroSection() {
             asChild
             className="rounded-full bg-white px-8 py-3 text-xs uppercase tracking-[0.3em] text-[#0f2b1e] hover:bg-[#efe5d8]"
           >
-            <Link href="#bhhs-listings">Explore Listings</Link>
+            <RealScoutSearchLink location="buyers-hero">Explore Listings</RealScoutSearchLink>
           </Button>
           <CalendlyLink className="inline-flex items-center justify-center rounded-full border border-[#f8f5ef]/60 bg-white px-8 py-3 text-xs font-medium uppercase tracking-[0.3em] text-[#0f2b1e] hover:bg-[#efe5d8]">
             Book a Tour
@@ -521,7 +522,7 @@ function FAQSection() {
 
 function BuyerCTASection() {
   return (
-    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="buyers-cta-heading">
+    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden hero-photo-copy" aria-labelledby="buyers-cta-heading">
       <SectionBanner headingId="buyers-cta-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h2 id="buyers-cta-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
@@ -549,7 +550,7 @@ function BuyerCTASection() {
             variant="outline"
             className="rounded-full border-[#f8f5ef]/60 px-8 py-3 text-xs uppercase tracking-[0.3em] text-[#f8f5ef] hover:bg-white/10"
           >
-            <Link href="#bhhs-listings">View Homes</Link>
+            <RealScoutSearchLink location="buyers-cta">View Homes</RealScoutSearchLink>
           </Button>
         </div>
       </div>

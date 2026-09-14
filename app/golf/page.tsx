@@ -13,6 +13,7 @@ import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { HeroBackground } from '@/components/hero-background'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { ListingImageLink } from '@/components/listing-image-link'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 import { getAssetAlt } from '@/lib/site-images'
 
@@ -216,11 +217,10 @@ function GolfHero() {
       <HeroBackground
         src={getSiteImageUrl('h1-golf-fairway')}
         alt="Spanish Trail Country Club private golf course fairways and greens, Las Vegas Nevada"
-        overlayClassName="bg-gradient-to-b from-[#0f2b1e]/60 via-[#0f2b1e]/65 to-[#0f2b1e]/80"
         sizes="(max-width: 1024px) 100vw, 1280px"
       />
       <div className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-linear-to-t from-background" />
-      <div className="mx-auto max-w-5xl px-6 py-28 text-primary-foreground sm:py-40">
+      <div className="mx-auto max-w-5xl px-6 py-28 text-primary-foreground hero-photo-copy sm:py-40">
         <p className="text-xs uppercase tracking-[0.5em] text-accent">
           Golf at Spanish Trail
         </p>
@@ -282,15 +282,18 @@ function CourseTour() {
               key={course.name}
               className="group relative overflow-hidden rounded-3xl border border-border/60 bg-card shadow-sm transition-all hover:-translate-y-2 hover:shadow-lg"
             >
-              <div className="relative h-48 overflow-hidden">
+              <ListingImageLink
+                className="relative h-48 overflow-hidden"
+                label={getAssetAlt(course.imageId)}
+              >
                 <Image
                   src={getSiteImageUrl(course.imageId)}
-                  alt={getAssetAlt(course.imageId)}
+                  alt=""
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-              </div>
+              </ListingImageLink>
               <div className="space-y-3 p-6">
                 <p className="text-xs uppercase tracking-[0.3em] text-secondary">
                   {course.yardage}

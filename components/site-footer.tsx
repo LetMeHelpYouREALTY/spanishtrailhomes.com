@@ -3,11 +3,18 @@
 import Link from 'next/link'
 import { Facebook, Instagram, Linkedin, Youtube } from 'lucide-react'
 import { trackPhoneClick } from '@/lib/analytics'
-import { CalendlyLink } from '@/components/calendly-link'
 import { AgentPortrait } from '@/components/agent-portrait'
+import { BrandLockup } from '@/components/brand-lockup'
+import { CalendlyLink } from '@/components/calendly-link'
+import { RealScoutSearchLink } from '@/components/listing-image-link'
+import { REALSCOUT_SHARED_SEARCH_URL } from '@/lib/realscout'
 import {
-  GBP_EASTER_2026_CLOSURE,
+  GBP_DIRECTIONS_URL,
+  GBP_GOOGLE_REVIEW_URL,
+  GBP_PROFILE_SHARE_URL,
   GBP_SERVICE_AREA_LABEL,
+  GBP_SMS_HREF,
+  getVisibleSpecialHours,
   shouldShowPromotedSpecialHoursNotice,
 } from '@/lib/gbp-business'
 
@@ -27,6 +34,7 @@ export function SiteFooter() {
     {
       heading: 'Homes for Sale',
       links: [
+        { label: 'Live Spanish Trail search', href: REALSCOUT_SHARED_SEARCH_URL, external: true },
         { label: 'All Spanish Trail Homes', href: '/spanish-trail-homes-for-sale-las-vegas' },
         { label: 'Estate Listings', href: '/spanish-trail-country-club-estate-listings' },
         { label: 'Golf Course Properties', href: '/spanish-trail-luxury-golf-course-properties' },
@@ -44,6 +52,8 @@ export function SiteFooter() {
         { label: 'HOA guide', href: '/spanish-trail-hoa-guide' },
         { label: 'Golf course', href: '/golf' },
         { label: 'Club & amenities', href: '/club' },
+        { label: 'Membership', href: '/membership' },
+        { label: 'Guest information', href: '/guest-info' },
       ],
     },
     {
@@ -55,6 +65,8 @@ export function SiteFooter() {
         { label: 'Contact Us', href: '/contact' },
         { label: 'Office Location', href: '/find-our-locations' },
         { label: 'Google Business Profile', href: '/google-business-profile' },
+        { label: 'Media kit', href: '/media-kit' },
+        { label: 'Site index', href: '/site-index' },
       ],
     },
   ]
@@ -72,11 +84,11 @@ export function SiteFooter() {
         <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-6 sm:px-6 md:flex-row md:items-center md:justify-between safe-area-padding">
           <div className="flex items-start gap-4">
             <AgentPortrait placement="footer" size="sm" className="mt-1" />
-            <div className="space-y-2 text-xs uppercase tracking-[0.25em] sm:tracking-[0.35em]">
-            <p className="font-semibold text-[#f8f5ef]">Spanish Trail | Homes By Dr. Jan Duffy</p>
-            <p className="text-[#cbb8a6]">Berkshire Hathaway HomeServices Nevada Properties</p>
-            <p>Dr. Jan Duffy · Luxury Real Estate Advisor</p>
-            <Link href="tel:+17027663299" className="touch-target inline-flex min-h-[44px] items-center hover:text-[#be9956] hover:underline" onClick={() => trackPhoneClick('footer')}>
+            <div className="space-y-2 text-xs sm:tracking-[0.02em]">
+            <BrandLockup variant="footer" tone="dark" />
+            <p className="uppercase tracking-[0.25em] text-[#cbb8a6] sm:tracking-[0.35em]">Berkshire Hathaway HomeServices Nevada Properties</p>
+            <p className="uppercase tracking-[0.25em] sm:tracking-[0.35em]">Dr. Jan Duffy · Luxury Real Estate Advisor</p>
+            <Link href="tel:+17027663299" className="touch-target inline-flex min-h-[44px] items-center uppercase tracking-[0.25em] hover:text-[#be9956] hover:underline sm:tracking-[0.35em]" onClick={() => trackPhoneClick('footer')}>
               (702) 766-3299 · DrDuffySells@SpanishTrailHomes.com
             </Link>
             </div>
@@ -116,10 +128,29 @@ export function SiteFooter() {
               <>
                 <br />
                 <span className="text-[#efe5d8]">
-                  {GBP_EASTER_2026_CLOSURE.label}: {GBP_EASTER_2026_CLOSURE.detail}
+                  {getVisibleSpecialHours()
+                    .map((hour) => `${hour.label}: ${hour.detail}`)
+                    .join(' · ')}
                 </span>
               </>
             ) : null}
+          </p>
+          <p className="flex flex-wrap gap-x-3 gap-y-1 text-xs uppercase tracking-[0.2em] text-[#efe5d8]">
+            <Link href="tel:+17027663299" className="hover:text-[#be9956] hover:underline" onClick={() => trackPhoneClick('footer')}>
+              Call
+            </Link>
+            <Link href={GBP_SMS_HREF} className="hover:text-[#be9956] hover:underline">
+              Text
+            </Link>
+            <Link href={GBP_DIRECTIONS_URL} target="_blank" rel="noopener noreferrer" className="hover:text-[#be9956] hover:underline">
+              Directions
+            </Link>
+            <Link href={GBP_GOOGLE_REVIEW_URL} target="_blank" rel="noopener noreferrer" className="hover:text-[#be9956] hover:underline">
+              Google reviews
+            </Link>
+            <Link href={GBP_PROFILE_SHARE_URL} target="_blank" rel="noopener noreferrer" className="hover:text-[#be9956] hover:underline">
+              Google profile
+            </Link>
           </p>
           <CalendlyLink 
             className="touch-target inline-flex min-h-[44px] items-center rounded-full border border-[#be9956] px-5 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#be9956] transition-colors hover:bg-[#be9956] hover:text-[#352922]" 
@@ -137,12 +168,21 @@ export function SiteFooter() {
             <ul className="space-y-0 text-sm tracking-[0.15em] sm:tracking-[0.2em]">
               {section.links.map((link) => (
                 <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="touch-target flex min-h-[40px] items-center text-[#e5d7c8] transition-colors hover:text-[#be9956] hover:underline"
-                  >
-                    {link.label}
-                  </Link>
+                  {'external' in link && link.external ? (
+                    <RealScoutSearchLink
+                      location="footer"
+                      className="touch-target flex min-h-[40px] items-center text-[#e5d7c8] transition-colors hover:text-[#be9956] hover:underline"
+                    >
+                      {link.label}
+                    </RealScoutSearchLink>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="touch-target flex min-h-[40px] items-center text-[#e5d7c8] transition-colors hover:text-[#be9956] hover:underline"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
