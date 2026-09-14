@@ -175,7 +175,7 @@ function hashSeed(value: string): number {
 }
 
 function isHeroHeading(headingId: string): boolean {
-  return /hero|^cta-|contact-heading|connect-heading|advisory-cta|get-started|find-locations-heading|directions-heading|amenity-map-heading/i.test(
+  return /hero|^cta-|contact-heading|connect-heading|advisory-cta|get-started|find-locations-heading|amenity-map-heading/i.test(
     headingId,
   )
 }

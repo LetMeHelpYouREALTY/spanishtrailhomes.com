@@ -82,7 +82,7 @@ export default function DirectionsPage() {
       </div>
 
       <section className="relative isolate overflow-hidden bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="directions-heading">
-        <SectionBanner headingId="directions-heading" />
+        <SectionBanner headingId="directions-heading" level="h1" />
         <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
           <p className="text-xs uppercase tracking-[0.35em] text-[#f8f5ef]/75">Guard-gated 89113</p>
           <h1 id="directions-heading" className="mt-2 font-heading text-3xl text-white sm:text-4xl lg:text-5xl">
@@ -101,10 +101,10 @@ export default function DirectionsPage() {
                 Open Google Directions
               </Link>
             </Button>
-            <Button asChild variant="outline" className="rounded-full border-[#f8f5ef]/60 text-[#f8f5ef] hover:bg-white/10">
+            <Button asChild variant="outline" className="rounded-full border-white bg-white/10 text-white hover:bg-white/20">
               <Link href={`tel:${GBP_PHONE_E164}`}>Call {GBP_PHONE_DISPLAY}</Link>
             </Button>
-            <Button asChild variant="outline" className="rounded-full border-[#f8f5ef]/60 text-[#f8f5ef] hover:bg-white/10">
+            <Button asChild variant="outline" className="rounded-full border-white bg-white/10 text-white hover:bg-white/20">
               <Link href={GBP_MAPS_URL} target="_blank" rel="noopener noreferrer">
                 Google Business Profile
               </Link>

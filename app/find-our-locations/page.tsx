@@ -200,7 +200,7 @@ export default function FindOurLocationsPage() {
 function HeroSection() {
   return (
     <section
-      className="relative overflow-hidden bg-[#0f2b1e] px-6 py-20 text-primary-foreground sm:py-28"
+      className="relative isolate overflow-hidden bg-[#0f2b1e] px-6 py-20 text-primary-foreground sm:py-28"
       aria-labelledby="find-locations-heading"
     >
       <SectionBanner headingId="find-locations-heading" />
