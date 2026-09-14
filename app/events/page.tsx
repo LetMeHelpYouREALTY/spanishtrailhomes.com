@@ -188,6 +188,7 @@ function EventsHero() {
     >
       <HeroBackground
         src={getSiteImageUrl('h2-events-lawn')}
+        alt="Spanish Trail Country Club event lawn and clubhouse at twilight in Las Vegas 89113"
         overlayClassName="bg-gradient-to-b from-[#0f2b1e]/55 via-[#0f2b1e]/65 to-[#0f2b1e]/80"
         sizes="(max-width: 1024px) 100vw, 1280px"
       />

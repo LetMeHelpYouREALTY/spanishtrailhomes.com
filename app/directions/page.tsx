@@ -6,6 +6,7 @@ import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { FaqSection } from '@/components/faq-section'
+import { SectionBanner } from '@/components/heading-media'
 import { createOgImageUrl, createWebPageSchema, createFaqSchema, getCanonicalUrl } from '@/lib/structuredData'
 import {
   GBP_DIRECTIONS_URL,
@@ -80,13 +81,14 @@ export default function DirectionsPage() {
         </div>
       </div>
 
-      <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="directions-heading">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <p className="text-xs uppercase tracking-[0.35em] text-[#6f5237]">Guard-gated 89113</p>
-          <h1 id="directions-heading" className="mt-2 font-heading text-3xl text-[#1f2a24] sm:text-4xl lg:text-5xl">
+      <section className="relative isolate overflow-hidden bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="directions-heading">
+        <SectionBanner headingId="directions-heading" />
+        <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
+          <p className="text-xs uppercase tracking-[0.35em] text-[#f8f5ef]/75">Guard-gated 89113</p>
+          <h1 id="directions-heading" className="mt-2 font-heading text-3xl text-white sm:text-4xl lg:text-5xl">
             Directions to Spanish Trail Country Club
           </h1>
-          <p className="mt-6 max-w-3xl text-base leading-relaxed text-[#372a20]/90 sm:text-lg">
+          <p className="mt-6 max-w-3xl text-base leading-relaxed text-white/90 sm:text-lg">
             {GBP_LEGAL_NAME} meets buyers and sellers at {GBP_FULL_ADDRESS}. Hours: {GBP_HOURS_DISPLAY}. Call{' '}
             <Link href={`tel:${GBP_PHONE_E164}`} className="underline-offset-4 hover:underline">
               {GBP_PHONE_DISPLAY}
@@ -94,15 +96,15 @@ export default function DirectionsPage() {
             for gate clearance before you drive over.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild className="rounded-full">
+            <Button asChild className="rounded-full bg-white text-[#0f2b1e] hover:bg-[#efe5d8]">
               <Link href={GBP_DIRECTIONS_URL} target="_blank" rel="noopener noreferrer">
                 Open Google Directions
               </Link>
             </Button>
-            <Button asChild variant="outline" className="rounded-full">
+            <Button asChild variant="outline" className="rounded-full border-[#f8f5ef]/60 text-[#f8f5ef] hover:bg-white/10">
               <Link href={`tel:${GBP_PHONE_E164}`}>Call {GBP_PHONE_DISPLAY}</Link>
             </Button>
-            <Button asChild variant="outline" className="rounded-full">
+            <Button asChild variant="outline" className="rounded-full border-[#f8f5ef]/60 text-[#f8f5ef] hover:bg-white/10">
               <Link href={GBP_MAPS_URL} target="_blank" rel="noopener noreferrer">
                 Google Business Profile
               </Link>

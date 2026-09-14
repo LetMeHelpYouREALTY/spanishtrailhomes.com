@@ -48,7 +48,9 @@ const ALTS: Record<string, string> = {
   'h1-pool':
     'Spanish Trail Country Club resort pool and spa deck in Las Vegas',
   'h1-contact-office':
-    'Spanish Trail real estate office interior at 5050 Spanish Trail Ln, Las Vegas',
+    'Professional Spanish Trail real estate office at 5050 Spanish Trail Ln with a community map and golf-course view in Las Vegas 89113',
+  'h1-office-exterior':
+    'Spanish Trail clubhouse office exterior at 5050 Spanish Trail Ln, Las Vegas NV 89113, matching the Google Business Profile pin',
   'h2-kitchen-fairway':
     'Luxury kitchen overlooking a Spanish Trail golf fairway in Las Vegas',
   'h2-club-dining':
@@ -68,13 +70,15 @@ const ALTS: Record<string, string> = {
   'h2-events-lawn':
     'Spanish Trail Country Club event lawn and clubhouse at twilight in Las Vegas',
   'h2-awards-study':
-    'Professional study for Spanish Trail luxury real estate advisory in Las Vegas',
+    'Professional study overlooking desert golf and palms for Spanish Trail luxury real estate advisory in Las Vegas 89113',
   'h2-accessible-entrance':
-    'Accessible entrance and parking at Spanish Trail Country Club, Las Vegas',
+    'Wheelchair-accessible ramp, ADA parking stall, and level entrance at Spanish Trail Country Club in Las Vegas 89113',
+  'h2-directions-approach':
+    'Palm-lined boulevard approaching the Spanish Trail guard gates from Tropicana and Rainbow in Las Vegas 89113',
   'h2-community-map':
     'Overview of Spanish Trail gated golf community streets and fairways in Las Vegas',
   'h2-schools-campus':
-    'Campus architecture near Spanish Trail Las Vegas 89113',
+    'Desert campus architecture and athletic field near Spanish Trail Las Vegas 89113',
   'h2-guest-casita':
     'Guest casita courtyard at a Spanish Trail Las Vegas golf estate',
   'h2-reviews-terrace':
@@ -150,7 +154,9 @@ const RULES: MediaRule[] = [
   { test: /hoa|orientation|gate-access|landscap/, id: 'h3-hoa-landscaping' },
   { test: /guest|casita|etiquette|arrival/, id: 'h2-guest-casita' },
   { test: /accessib/, id: 'h2-accessible-entrance' },
-  { test: /map|direction|location|amenity/, id: 'h2-community-map' },
+  { test: /gbp|google-business|find-locations|find-our|site-index/, id: 'h1-office-exterior', level: 'h1' },
+  { test: /direction/, id: 'h2-directions-approach' },
+  { test: /map|amenity/, id: 'h2-community-map' },
   { test: /contact|office|about|privacy|terms|security|cookie/, id: 'h1-contact-office' },
   { test: /seller|pricing|valuation|prepar|market/, id: 'h2-kitchen-fairway' },
   { test: /buyer|tour|journey|concierge/, id: 'h1-luxury-estate', level: 'h1' },
@@ -169,7 +175,9 @@ function hashSeed(value: string): number {
 }
 
 function isHeroHeading(headingId: string): boolean {
-  return /hero|^cta-|contact-heading|connect-heading|advisory-cta|get-started/i.test(headingId)
+  return /hero|^cta-|contact-heading|connect-heading|advisory-cta|get-started|find-locations-heading|directions-heading|amenity-map-heading/i.test(
+    headingId,
+  )
 }
 
 function inferLevel(headingId: string): HeadingLevel {
@@ -193,6 +201,8 @@ function mapH1ToH2(id: string): string {
       return 'h1-pool'
     case 'h1-contact-office':
       return 'h1-contact-office'
+    case 'h1-office-exterior':
+      return 'h1-office-exterior'
     case 'h1-guard-gate':
       return 'h2-neighborhood-street'
     default:

@@ -18,6 +18,8 @@ import {
 } from '@/lib/structuredData'
 import { getAgentPortraitAbsoluteUrl } from '@/lib/agent-portraits'
 import { FaqSection } from '@/components/faq-section'
+import { getSiteImageUrl } from '@/lib/cloudflare-images'
+import { getAssetAlt } from '@/lib/site-images'
 import {
   GBP_EMAIL,
   GBP_FULL_ADDRESS,
@@ -141,6 +143,8 @@ export default function MediaKitPage() {
       />
 
       <HeroBackground
+        src={getSiteImageUrl('h2-awards-study')}
+        alt={getAssetAlt('h2-awards-study')}
         title="Spanish Trail Homes Media Kit"
         subtitle="Dr. Jan Duffy · Spanish Trail homes realtor"
         description="Press kit for the realtor who buys and sells Spanish Trail homes only."

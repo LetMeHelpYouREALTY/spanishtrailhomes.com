@@ -17,14 +17,14 @@ const clubNarratives = [
   {
     title: 'Club Lifestyle for Members and Residents',
     paragraphs: [
-      'Spanish Trail Country Club has evolved into a social sanctuary where every day carries a sense of occasion. Morning routines begin in the fitness pavilion with personal trainers, Pilates reformers, and spa-level locker rooms. By lunchtime, executives and creatives gather on the terrace for strategy sessions overlooking the Lakes nine. Evenings can mean wine-pairing dinners, cigar tastings on the veranda, or kids splashing in the pool while parents enjoy sunset cocktails.',
-      'Because the club sits within a master-planned, guard-gated community, members benefit from a built-in support system. Concierge teams coordinate airport transportation, book tee times, and secure reservations at partner restaurants across Summerlin and the Strip. Residents credit Spanish Trail with creating a safe, connected environment where neighbors quickly become friends. Dr. Duffy helps buyers find homes that align with their preferred pace and social circles.'
+      'Spanish Trail Country Club has evolved into a social sanctuary where every day carries a sense of occasion. Morning routines begin in the fitness pavilion with personal trainers, Pilates reformers, and spa-level locker rooms. By lunchtime, executives and creatives gather on the terrace for strategy sessions overlooking the Lakes nine. Evenings can mean wine-pairing dinners, cigar tastings on the veranda, or sunset cocktails beside the resort pool.',
+      'Because the club sits within a master-planned, guard-gated community, members benefit from a built-in support system. Concierge teams coordinate airport transportation, book tee times, and secure reservations at partner restaurants across Summerlin and the Strip. Residents credit Spanish Trail with creating a connected club environment where neighbors quickly become friends. Dr. Duffy helps buyers find homes that align with their preferred pace and social circles.'
     ],
   },
   {
     title: 'Programming that Elevates Every Generation',
     paragraphs: [
-      'Spanish Trail Country Club\'s programming committee curates activations for all ages. Young families enjoy junior golf academies, swim instruction, and themed holiday festivals that embrace Las Vegas flair. Professionals tap into networking breakfasts, speaker panels featuring hospitality leaders, and elegant member trips to Napa and Pebble Beach. Retirees appreciate weekday tennis mixers, art workshops, and philanthropic initiatives that support local schools.',
+      'Spanish Trail Country Club\'s programming committee curates activations across the calendar. Members can join junior golf academies, swim instruction, themed holiday festivals with Las Vegas flair, networking breakfasts, speaker panels featuring hospitality leaders, and member trips to Napa and Pebble Beach. Weekday tennis mixers, art workshops, and philanthropic initiatives that support named campuses add more reasons to use the club beyond tee times.',
       'Each program is designed to ensure members discover value beyond the fairways, reinforcing Spanish Trail\'s position as the social heartbeat of west Las Vegas. Understanding this forward momentum helps buyers view Spanish Trail not only as a property investment but as an enduring lifestyle commitment.'
     ],
   },

@@ -245,7 +245,7 @@ function HeroSection() {
     <header className="relative isolate overflow-hidden text-[#f8f5ef]" aria-labelledby="about-hero-heading">
       <HeroBackground
         src={getSiteImageUrl('h1-contact-office')}
-        alt="Dr. Jan Duffy - Spanish Trail real estate agent and luxury home specialist in Las Vegas"
+        alt="Professional Spanish Trail real estate office at 5050 Spanish Trail Ln, Las Vegas 89113"
         overlayClassName="bg-gradient-to-b from-[#0f2b1e]/60 to-[#0f2b1e]/85"
         sizes="(max-width: 1024px) 100vw, 1200px"
       />

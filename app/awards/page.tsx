@@ -263,6 +263,7 @@ function HeroSection() {
     <header className="relative isolate overflow-hidden text-[#f8f5ef]" aria-labelledby="awards-hero-heading">
       <HeroBackground
         src={getSiteImageUrl('h2-awards-study')}
+        alt="Professional study overlooking desert golf and palms for Spanish Trail luxury real estate advisory in Las Vegas 89113"
         overlayClassName="bg-gradient-to-b from-[#0f2b1e]/60 to-[#0f2b1e]/85"
         sizes="(max-width: 1024px) 100vw, 1280px"
       />

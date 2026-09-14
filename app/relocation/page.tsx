@@ -10,12 +10,9 @@ import { HeroBackground } from '@/components/hero-background'
 import { CalendlyLink } from '@/components/calendly-link'
 import { SectionBanner } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
-import {
-  createOgImageUrl,
-  createWebPageSchema,
-  createBreadcrumbSchema,
-  getCanonicalUrl,
-} from '@/lib/structuredData'
+import { createOgImageUrl, createWebPageSchema, createBreadcrumbSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { getSiteImageUrl } from '@/lib/cloudflare-images'
+import { getAssetAlt } from '@/lib/site-images'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/relocation'
 const pageTitle = 'Relocation & Out-of-State Buyer Support | Spanish Trail Homes'
@@ -120,6 +117,8 @@ export default function RelocationPage() {
       />
 
       <HeroBackground
+        src={getSiteImageUrl('h2-valley-skyline')}
+        alt={getAssetAlt('h2-valley-skyline')}
         title="Buy a Spanish Trail Home from Out of State"
         subtitle="Relocation realtor services for 89113"
         description="Dr. Jan Duffy buys Spanish Trail homes for out-of-state clients: virtual tours, 11-neighborhood matching, and remote closing."

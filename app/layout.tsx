@@ -24,6 +24,7 @@ import {
   GBP_SERVICE_AREA_LABEL,
   GBP_STREET,
   GBP_COUNTRY,
+  GBP_MAPS_URL,
 } from '@/lib/gbp-business'
 
 const siteUrl = structuredDataSiteUrl
@@ -61,12 +62,18 @@ const structuredData = [
     description: GBP_DESCRIPTION,
     image: [
       getAbsoluteSiteImageUrl('duffy-circle-canonical'),
+      getAbsoluteSiteImageUrl('h1-office-exterior'),
+      getAbsoluteSiteImageUrl('h1-guard-gate'),
+      getAbsoluteSiteImageUrl('h1-golf-fairway'),
+      getAbsoluteSiteImageUrl('h2-accessible-entrance'),
+      getAbsoluteSiteImageUrl('h1-contact-office'),
       createOgImageUrl({
         title: 'Spanish Trail Luxury Realtor',
         subtitle: 'Exclusive buy, sell & tour services by Dr. Jan Duffy',
         eyebrow: 'SpanishTrailHomes.com',
       }),
     ],
+    hasMap: GBP_MAPS_URL,
     url: siteUrl,
     telephone: GBP_PHONE_E164,
     email: GBP_EMAIL,

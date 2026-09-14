@@ -7,6 +7,7 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { GBP_FULL_ADDRESS, GBP_PHONE_DISPLAY } from '@/lib/gbp-business'
 import { NEIGHBORHOODS } from '@/lib/neighborhoods'
+import { SectionBanner } from '@/components/heading-media'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/site-index'
 const pageTitle = 'Site Index | Spanish Trail Homes | Dr. Jan Duffy'
@@ -110,6 +111,7 @@ export default function SiteIndexPage() {
       </div>
 
       <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="site-index-heading">
+        <SectionBanner headingId="site-index-heading" />
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <p className="text-xs uppercase tracking-[0.35em] text-[#6f5237]">Spanish Trail Homes</p>
           <h1 id="site-index-heading" className="mt-2 font-heading text-3xl text-[#1f2a24] sm:text-4xl">
