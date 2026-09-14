@@ -186,7 +186,7 @@ const benefits = [
   },
   {
     title: 'Resort-Level Recreation',
-    copy: 'Beyond golf, enjoy tennis, swimming, fitness, and social events designed for families and professionals alike.',
+    copy: 'Beyond golf, the club lists tennis, swimming, fitness, and scheduled social events on the amenity calendar.',
   },
 ]
 

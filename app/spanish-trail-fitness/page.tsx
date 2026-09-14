@@ -3,7 +3,6 @@ import Link from 'next/link'
 import Script from 'next/script'
 
 import { SiteShell } from '@/components/site-shell'
-import { RealScoutSection } from '@/components/realscout-section'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
@@ -106,14 +105,6 @@ export default function SpanishTrailFitnessPage() {
   return (
     <SiteShell>
       <HeroSection />
-      <RealScoutSection
-        id="bhhs-listings"
-        eyebrow="Active Living"
-        title="Spanish Trail homes for fitness enthusiasts"
-        description="Find homes with easy access to the fitness center, pools, tennis courts, and golf course for an active lifestyle."
-        priceMin="600000"
-        propertyTypes=",SFR,CONDO"
-      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
           <Breadcrumbs

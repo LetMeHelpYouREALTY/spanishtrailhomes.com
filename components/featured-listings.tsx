@@ -11,9 +11,10 @@ import {
   trackFeaturedListingClick,
   trackRealscoutSignupFromPreview,
 } from '@/lib/analytics'
+import { SITE_LISTINGS_HREF } from '@/lib/navigation'
+import { MlsDisclaimer } from '@/components/mls-disclaimer'
 
-/** Dr. Jan Duffy RealScout search – all featured listing clicks go here. */
-const REALSCOUT_LISTINGS_URL = 'https://searchforaffordablehomes.com/neighborhood/83/spanish-trails'
+const LISTINGS_HREF = `${SITE_LISTINGS_HREF}#bhhs-listings`
 
 function listingTypeFromHref(href: string): string {
   if (href.includes('single-family')) return 'estate'
@@ -46,13 +47,11 @@ export function FeaturedListings({ activeListings = 72 }: FeaturedListingsProps)
       </h3>
       <p className="mt-2 text-base text-[#372a20]/85">
         <Link
-          href={REALSCOUT_LISTINGS_URL}
-          target="_blank"
-          rel="noopener noreferrer"
+          href={LISTINGS_HREF}
           onClick={handleCtaClick}
           className="text-[#0f2b1e] underline-offset-4 hover:underline"
         >
-          View {activeListings} more properties with free search account
+          View {activeListings} more Spanish Trail homes on this site
         </Link>
       </p>
 
@@ -63,12 +62,10 @@ export function FeaturedListings({ activeListings = 72 }: FeaturedListingsProps)
             className="group relative overflow-hidden rounded-xl border border-[#d8cdbf] bg-white shadow-md transition-shadow hover:shadow-xl"
           >
             <Link
-              href={REALSCOUT_LISTINGS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={LISTINGS_HREF}
               onClick={() => handleCardClick(listing)}
               className="flex w-full flex-col text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0f2b1e] focus-visible:ring-offset-2"
-              aria-label={`View Spanish Trail homes with Dr. Jan Duffy – ${listing.address} ${listing.price}`}
+              aria-label={`Search Spanish Trail homes with Dr. Jan Duffy – ${listing.address} ${listing.price}`}
             >
               <div className="relative aspect-[4/3] overflow-hidden bg-[#e8e4dc]">
                 <Image
@@ -91,7 +88,7 @@ export function FeaturedListings({ activeListings = 72 }: FeaturedListingsProps)
                 </div>
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-200 group-hover:opacity-100">
                   <span className="rounded-md bg-[#0f2b1e] px-4 py-2 text-sm font-medium text-white shadow-lg">
-                    View Details
+                    Search live listings
                   </span>
                 </div>
               </div>
@@ -99,10 +96,9 @@ export function FeaturedListings({ activeListings = 72 }: FeaturedListingsProps)
                 <p className="truncate text-sm font-medium text-[#1f2a24]" title={listing.address}>
                   {listing.address}
                 </p>
-                <p className="mt-0.5 text-xs text-[#372a20]/70">{listing.mls}</p>
+                <p className="mt-0.5 text-xs text-[#372a20]/70">MLS# {listing.mls}</p>
               </div>
             </Link>
-            {/* Schema.org RealEstateListing per card */}
             <script
               type="application/ld+json"
               dangerouslySetInnerHTML={{
@@ -111,7 +107,7 @@ export function FeaturedListings({ activeListings = 72 }: FeaturedListingsProps)
                   '@type': 'RealEstateListing',
                   name: `Spanish Trail home at ${listing.address}`,
                   description: `${listing.beds} bed, ${listing.baths} bath Spanish Trail home at ${listing.address} for ${listing.price}`,
-                  url: listing.href,
+                  url: `https://www.spanishtrailhomes.com${SITE_LISTINGS_HREF}`,
                   address: {
                     '@type': 'PostalAddress',
                     streetAddress: listing.address,
@@ -135,18 +131,17 @@ export function FeaturedListings({ activeListings = 72 }: FeaturedListingsProps)
 
       <div className="mt-8">
         <Link
-          href={REALSCOUT_LISTINGS_URL}
-          target="_blank"
-          rel="noopener noreferrer"
+          href={LISTINGS_HREF}
           onClick={handleCtaClick}
           className={cn(
             'inline-flex w-full items-center justify-center rounded-full bg-[#0f2b1e] px-6 py-4 text-base font-semibold text-white shadow-md transition-colors hover:bg-[#0f2b1e]/90 focus-visible:ring-2 focus-visible:ring-[#0f2b1e] focus-visible:ring-offset-2 sm:w-auto sm:min-w-[280px]',
           )}
-          aria-label="Search all Spanish Trail homes with Dr. Jan Duffy RealScout"
+          aria-label="Search all Spanish Trail homes with Dr. Jan Duffy"
         >
-          Search All Spanish Trail Homes →
+          Search all Spanish Trail homes →
         </Link>
       </div>
+      <MlsDisclaimer />
     </div>
   )
 }

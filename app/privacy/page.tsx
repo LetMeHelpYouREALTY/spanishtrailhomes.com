@@ -6,9 +6,10 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
-import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { createOgImageUrl, createWebPageSchema, createFaqSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { SectionBanner } from '@/components/heading-media'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
+import { FaqSection } from '@/components/faq-section'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/privacy'
@@ -70,6 +71,30 @@ const privacySchema = {
   description:
     'Privacy practices for SpanishTrailHomes.com detailing data collection, usage, sharing, cookies, marketing communications, and contact information.',
 }
+
+const privacyFaq = [
+  {
+    question: 'What personal information does SpanishTrailHomes.com collect?',
+    answer:
+      'Contact forms, RealScout registrations, and tour requests collect name, email, phone, property interest, and timeline. Analytics collect device and page-view data. Submission is optional except when you ask Dr. Jan Duffy to work a file.',
+  },
+  {
+    question: 'Do you sell my data?',
+    answer:
+      'No. Personal details are never sold. Sharing is limited to escrow, transaction coordinators, and vendors under contract when they are needed to complete a Spanish Trail purchase or sale.',
+  },
+  {
+    question: 'How do I request a correction or deletion?',
+    answer:
+      'Email DrDuffySells@SpanishTrailHomes.com or call (702) 766-3299. Nevada brokerage record-retention rules may require keeping transaction files for a set period even after a marketing opt-out.',
+  },
+  {
+    question: 'Who operates this privacy policy?',
+    answer:
+      'Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties, License S.0197614.LLC. Office: 5050 Spanish Trail Ln, Las Vegas, NV 89113. Hours Sunday–Saturday 9:00 AM–6:00 PM.',
+  },
+]
+const privacyFaqSchema = createFaqSchema(privacyFaq)
 
 const privacyWebPageSchema = createWebPageSchema({
   name: 'Privacy Policy | SpanishTrailHomes.com',
@@ -136,12 +161,22 @@ export default function PrivacyPage() {
       <InformationSharingSection />
       <OptOutSection />
       <SecuritySection />
+      <FaqSection
+        headingId="privacy-faq-heading"
+        eyebrow="Privacy FAQ"
+        heading="Common privacy questions"
+        items={privacyFaq}
+        tone="white"
+      />
       <ContactSection />
       <Script id="privacy-policy-schema" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(privacySchema)}
       </Script>
       <Script id="privacy-webpage-schema" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(privacyWebPageSchema)}
+      </Script>
+      <Script id="privacy-faq-schema" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(privacyFaqSchema)}
       </Script>
     </SiteShell>
   )
@@ -207,7 +242,6 @@ function DataCollectionSection() {
               key={item.label}
               className="rounded-3xl border border-border/40 bg-[#f8f2e7] p-6 shadow-lg shadow-primary/10"
             >
-              <CardVisual seed={String(item.label)} />
               <h3 className="font-heading text-xl text-[#1f2a24]">{item.label}</h3>
               <p className="mt-4 text-sm leading-relaxed text-[#372a20]/85">{item.description}</p>
             </article>
@@ -245,7 +279,6 @@ function DataUsageSection() {
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
           {dataUses.map((item) => (
             <article key={item.label} className="rounded-3xl border border-[#cdbda5] bg-white p-6 shadow-lg shadow-primary/10">
-              <CardVisual seed={String(item.label)} />
               <h3 className="font-heading text-xl text-[#1f2a24]">{item.label}</h3>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
             </article>
@@ -308,7 +341,6 @@ function InformationSharingSection() {
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <article className="rounded-3xl border border-white/15 bg-white/10 p-6 shadow-lg shadow-black/20 backdrop-blur">
-              <CardVisual seed="card-3" />
             <h3 className="font-heading text-xl text-white">Service partners bound by contract</h3>
             <p className="mt-3 text-sm leading-relaxed text-[#f8f5ef]/80">
               Escrow officers, transaction coordinators, professional photographers, and marketing vendors supporting Spanish
@@ -316,7 +348,6 @@ function InformationSharingSection() {
             </p>
           </article>
           <article className="rounded-3xl border border-white/15 bg-white/10 p-6 shadow-lg shadow-black/20 backdrop-blur">
-              <CardVisual seed="card-4" />
             <h3 className="font-heading text-xl text-white">Legal or regulatory disclosures</h3>
             <p className="mt-3 text-sm leading-relaxed text-[#f8f5ef]/80">
               Data may be disclosed when required by subpoenas, court orders, Nevada Real Estate Division audits, or to enforce

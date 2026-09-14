@@ -3,7 +3,6 @@ import Link from 'next/link'
 import Script from 'next/script'
 
 import { SiteShell } from '@/components/site-shell'
-import { RealScoutSection } from '@/components/realscout-section'
 import { Button } from '@/components/ui/button'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import {
@@ -120,7 +119,6 @@ export default function GoogleBusinessProfilePage() {
       />
 
       <HeroSection />
-      <RealScoutSection id="bhhs-listings" />
       <BusinessInfoSection />
       <ProfileFeaturesSection features={profileFeatures} />
       <ReviewsHighlightSection />

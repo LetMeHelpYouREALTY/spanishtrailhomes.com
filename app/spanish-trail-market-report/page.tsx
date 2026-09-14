@@ -260,7 +260,7 @@ function FeaturedListingsSection() {
             asChild
             className="rounded-full px-6 py-2 text-xs uppercase tracking-[0.3em]"
           >
-            <Link href="https://searchforaffordablehomes.com/neighborhood/83/spanish-trails#featured-listings">
+            <Link href="/contact">
               Speak with Dr. Duffy
             </Link>
           </Button>
@@ -286,8 +286,8 @@ function FeaturedListingsSection() {
                   variant="link"
                   className="text-xs uppercase tracking-[0.3em] text-primary"
                 >
-                  <Link href={listing.href} target="_blank" rel="noopener noreferrer">
-                    View Listing
+                  <Link href="/spanish-trail-homes-for-sale-las-vegas#bhhs-listings">
+                    Search live listings
                   </Link>
                 </Button>
               </div>

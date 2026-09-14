@@ -7,7 +7,6 @@ import Script from 'next/script'
 import { SiteShell } from '@/components/site-shell'
 import { golfCourses } from '@/lib/content'
 import { Button } from '@/components/ui/button'
-import { RealScoutSection } from '@/components/realscout-section'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { HeroBackground } from '@/components/hero-background'
@@ -179,14 +178,6 @@ export default function GolfPage() {
   return (
     <SiteShell>
       <GolfHero />
-      <RealScoutSection
-        id="bhhs-listings"
-        eyebrow="Golf Course Homes"
-        title="Spanish Trail Residences with Fairway Views"
-        description="Scroll current listings positioned along the Sunrise, Lakes, and Canyon nines. Adjust filters to target cart-path privacy, pool homes, or lock-and-leave villas."
-        priceMin="700000"
-        propertyTypes=",SFR"
-      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Golf' }]} />

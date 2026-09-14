@@ -3,7 +3,6 @@ import Link from 'next/link'
 import Script from 'next/script'
 
 import { SiteShell } from '@/components/site-shell'
-import { RealScoutSection } from '@/components/realscout-section'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
@@ -14,9 +13,17 @@ import {
   createOgImageUrl,
   createWebPageSchema,
   createBreadcrumbSchema,
+  createFaqSchema,
   getCanonicalUrl,
 } from '@/lib/structuredData'
 import { getAgentPortraitAbsoluteUrl } from '@/lib/agent-portraits'
+import { FaqSection } from '@/components/faq-section'
+import {
+  GBP_EMAIL,
+  GBP_FULL_ADDRESS,
+  GBP_PHONE_DISPLAY,
+  GBP_PHONE_E164,
+} from '@/lib/gbp-business'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/media-kit'
 const pageTitle = 'Spanish Trail Homes Media Kit - Dr. Jan Duffy'
@@ -99,6 +106,24 @@ const credentials = [
   'RealScout Spanish Trail Market Expert',
 ]
 
+const mediaKitFaq = [
+  {
+    question: 'How do I request a headshot or logo?',
+    answer: `Email ${GBP_EMAIL} or call ${GBP_PHONE_DISPLAY}. High-resolution files and usage guidelines are provided for press and partnership use. Office: ${GBP_FULL_ADDRESS}.`,
+  },
+  {
+    question: 'Who is the Spanish Trail listing specialist?',
+    answer:
+      'Dr. Jan Duffy, License S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties. She buys and sells Spanish Trail homes in Las Vegas ZIP 89113 only.',
+  },
+  {
+    question: 'Can reporters quote market numbers from this site?',
+    answer:
+      'Yes, with attribution to Dr. Jan Duffy / Spanish Trail | Homes By Dr. Jan Duffy and a date stamp. Confirm current medians on the weekly market report before publishing a figure.',
+  },
+]
+const mediaKitFaqSchema = createFaqSchema(mediaKitFaq)
+
 export default function MediaKitPage() {
   return (
     <SiteShell>
@@ -110,6 +135,7 @@ export default function MediaKitPage() {
             mediaKitWebPageSchema,
             mediaKitBreadcrumbSchema,
             agentSchema,
+            mediaKitFaqSchema,
           ]),
         }}
       />
@@ -122,7 +148,6 @@ export default function MediaKitPage() {
       <div className="flex justify-center bg-[#f8f5ef] py-8">
         <AgentPortrait placement="media" size="xl" rounded="2xl" showCaption schema pagePath="/media-kit" />
       </div>
-      <RealScoutSection id="bhhs-listings" />
 
       <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12">
         <Breadcrumbs
@@ -150,7 +175,7 @@ export default function MediaKitPage() {
               Book Appointment
             </CalendlyLink>
             <Button variant="outline" size="lg" asChild className="rounded-full border-[#0f2b1e]/40">
-              <Link href="tel:+17027663299">(702) 766-3299</Link>
+            <Link href={`tel:${GBP_PHONE_E164}`}>(702) 766-3299</Link>
             </Button>
             <Button variant="ghost" size="lg" asChild>
               <Link href="mailto:DrDuffySells@SpanishTrailHomes.com">Email Dr. Duffy</Link>
@@ -169,7 +194,7 @@ export default function MediaKitPage() {
             guard-gated golf communities across Las Vegas. With a Ph.D. in Market Research & Consumer Behavior and
             deep roots in the 89113 corridor, she combines data-led preparation, concierge-level service, and
             community fluency to guide clients through high-stakes transactions. She has advised hundreds of
-            Spanish Trail families and is recognized by Berkshire Hathaway HomeServices Luxury Golf Homes (top 2%
+            Spanish Trail buyers and sellers and is recognized by Berkshire Hathaway HomeServices Luxury Golf Homes (top 2%
             network-wide), Las Vegas REALTORS® Top 25 Luxury Producer, and RealScout as Spanish Trail Market Expert.
           </p>
         </section>
@@ -225,6 +250,15 @@ export default function MediaKitPage() {
             to request high-resolution files and usage guidelines.
           </p>
         </section>
+
+        <FaqSection
+          headingId="media-kit-faq-heading"
+          eyebrow="Press FAQ"
+          heading="Media kit questions"
+          items={mediaKitFaq}
+          tone="white"
+          className="mb-12 px-0 sm:px-0"
+        />
 
         {/* NAP & final CTA */}
         <section className="rounded-2xl border border-[#0f2b1e]/20 bg-[#f8f5ef] p-6 sm:p-8" aria-labelledby="contact-heading">

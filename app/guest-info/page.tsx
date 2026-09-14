@@ -4,7 +4,6 @@ import Script from 'next/script'
 
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
-import { RealScoutSection } from '@/components/realscout-section'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { HeroBackground } from '@/components/hero-background'
@@ -150,14 +149,6 @@ export default function GuestInfoPage() {
   return (
     <SiteShell>
       <GuestHero />
-      <RealScoutSection
-        id="bhhs-listings"
-        eyebrow="Plan Your Stay"
-        title="Spanish Trail Homes Available for Your Next Visit"
-        description="Browse current inventory to extend your connection with the community—perfect for guests exploring membership or long-term stays."
-        priceMin="500000"
-        propertyTypes=",SFR,CONDO"
-      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guest Information' }]} />

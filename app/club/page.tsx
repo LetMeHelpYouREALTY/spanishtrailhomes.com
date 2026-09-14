@@ -5,7 +5,6 @@ import Script from 'next/script'
 import { SiteShell } from '@/components/site-shell'
 import { amenities, testimonials } from '@/lib/content'
 import { Button } from '@/components/ui/button'
-import { RealScoutSection } from '@/components/realscout-section'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { lifestyleHighlights } from '@/lib/spanishTrailContent'
@@ -170,14 +169,6 @@ export default function ClubPage() {
   return (
     <SiteShell>
       <ClubHero />
-      <RealScoutSection
-        id="bhhs-listings"
-        eyebrow="Featured Homes"
-        title="Spanish Trail Residences Moments from the Clubhouse"
-        description="Preview active listings within the guard-gated community—ideal for buyers seeking proximity to the clubhouse, sports complex, and event venues."
-        priceMin="600000"
-        propertyTypes=",SFR,CONDO"
-      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Club' }]} />

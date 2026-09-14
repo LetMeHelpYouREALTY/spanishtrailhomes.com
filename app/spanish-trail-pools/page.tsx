@@ -3,7 +3,6 @@ import Link from 'next/link'
 import Script from 'next/script'
 
 import { SiteShell } from '@/components/site-shell'
-import { RealScoutSection } from '@/components/realscout-section'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
@@ -106,14 +105,6 @@ export default function SpanishTrailPoolsPage() {
   return (
     <SiteShell>
       <HeroSection />
-      <RealScoutSection
-        id="bhhs-listings"
-        eyebrow="Pool Living"
-        title="Spanish Trail homes for pool lovers"
-        description="Find homes near the aquatic centers or with private pools for year-round swimming in the Las Vegas sun."
-        priceMin="600000"
-        propertyTypes=",SFR,CONDO"
-      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
           <Breadcrumbs
@@ -250,8 +241,8 @@ function FeaturesSection() {
               description: 'Trained lifeguards monitor the pools during operating hours for member safety.',
             },
             {
-              title: 'Family-Friendly',
-              description: 'Welcoming environment for families with children. Designated shallow areas for young swimmers.',
+              title: 'Shallow-end swim area',
+              description: 'Designated shallow areas sit beside lap lanes so guests can choose depth by skill.',
             },
           ].map((item) => (
             <div key={item.title} className="rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">

@@ -6,7 +6,6 @@ import Script from 'next/script'
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { CalendlyInline } from '@/components/calendly-inline'
-import { RealScoutSection } from '@/components/realscout-section'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { HeroBackground } from '@/components/hero-background'
@@ -160,14 +159,6 @@ export default function EventsPage() {
   return (
     <SiteShell>
       <EventsHero />
-      <RealScoutSection
-        id="bhhs-listings"
-        eyebrow="Nearby Estates"
-        title="Spanish Trail Homes Ready for Private Entertaining"
-        description="Discover residences with indoor-outdoor venues, guest casitas, and catering-ready kitchens—ideal for hosting celebrations just steps from the clubhouse."
-        priceMin="800000"
-        propertyTypes=",SFR"
-      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Events' }]} />

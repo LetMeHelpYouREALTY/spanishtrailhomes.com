@@ -6,9 +6,10 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
-import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { createOgImageUrl, createWebPageSchema, createFaqSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { SectionBanner } from '@/components/heading-media'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
+import { FaqSection } from '@/components/faq-section'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/terms'
@@ -79,6 +80,25 @@ export const metadata: Metadata = {
   },
 }
 
+const termsFaq = [
+  {
+    question: 'Is MLS listing data guaranteed accurate?',
+    answer:
+      'No. GLVAR MLS data is deemed reliable but not guaranteed. Confirm square footage, status, and HOA dues with Dr. Jan Duffy before writing an offer. License S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties.',
+  },
+  {
+    question: 'Can I scrape or republish listings from this site?',
+    answer:
+      'No. IDX rules prohibit copying, redistributing, or reselling MLS data. Personal, non-commercial viewing is allowed. Call (702) 766-3299 with data-use questions.',
+  },
+  {
+    question: 'Who operates SpanishTrailHomes.com?',
+    answer:
+      'Dr. Jan Duffy, Spanish Trail | Homes By Dr. Jan Duffy, 5050 Spanish Trail Ln, Las Vegas, NV 89113. Hours Sunday–Saturday 9:00 AM–6:00 PM.',
+  },
+]
+const termsFaqSchema = createFaqSchema(termsFaq)
+
 export default function TermsPage() {
   return (
     <SiteShell>
@@ -100,12 +120,22 @@ export default function TermsPage() {
       <LiabilitySection />
       <GoverningLawSection />
       <ChangesSection />
+      <FaqSection
+        headingId="terms-faq-heading"
+        eyebrow="Terms FAQ"
+        heading="MLS and site-use questions"
+        items={termsFaq}
+        tone="white"
+      />
       <ContactSection />
       <Script id="terms-of-use-schema" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(termsSchema)}
       </Script>
       <Script id="terms-webpage-schema" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(termsWebPageSchema)}
+      </Script>
+      <Script id="terms-faq-schema" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(termsFaqSchema)}
       </Script>
     </SiteShell>
   )
@@ -280,7 +310,6 @@ function IntellectualPropertySection() {
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <article className="rounded-3xl border border-white/15 bg-white/10 p-6 shadow-lg shadow-black/20 backdrop-blur">
-              <CardVisual seed="card-1" />
             <h3 className="font-heading text-xl text-white">Usage rights</h3>
             <p className="mt-3 text-sm leading-relaxed text-[#f8f5ef]/80">
               You may view and download content for personal evaluation of Spanish Trail real estate. Any commercial reproduction
@@ -288,7 +317,6 @@ function IntellectualPropertySection() {
             </p>
           </article>
           <article className="rounded-3xl border border-white/15 bg-white/10 p-6 shadow-lg shadow-black/20 backdrop-blur">
-              <CardVisual seed="card-2" />
             <h3 className="font-heading text-xl text-white">Third-party marks</h3>
             <p className="mt-3 text-sm leading-relaxed text-[#f8f5ef]/80">
               Berkshire Hathaway HomeServices, MLS, and club trademarks remain under the control of their respective owners and
@@ -312,7 +340,7 @@ function LiabilitySection() {
             Limitation of liability and general disclaimers
           </h2>
           <p className="text-base leading-relaxed text-muted-foreground">
-            SpanishTrailHomes.com is provided on an “as is” basis. While best efforts are made to ensure accuracy, neither Dr.
+            SpanishTrailHomes.com is provided on an “as is” basis. While best efforts are made to ensure accuracy, neither
             Dr. Jan Duffy nor Berkshire Hathaway HomeServices Nevada Properties warrant uninterrupted or error-free access.
           </p>
         </div>

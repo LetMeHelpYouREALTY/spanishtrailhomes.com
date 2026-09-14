@@ -3,7 +3,6 @@ import Link from 'next/link'
 import Script from 'next/script'
 
 import { SiteShell } from '@/components/site-shell'
-import { RealScoutSection } from '@/components/realscout-section'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
@@ -119,14 +118,6 @@ export default function SpanishTrailLifestylePage() {
   return (
     <SiteShell>
       <HeroSection />
-      <RealScoutSection
-        id="bhhs-listings"
-        eyebrow="Find Your Home"
-        title="Spanish Trail homes for every lifestyle"
-        description="Whether you seek golf course views, lock-and-leave convenience, or space for a growing family, browse current listings in this premier Las Vegas community."
-        priceMin="600000"
-        propertyTypes=",SFR,CONDO"
-      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
           <Breadcrumbs

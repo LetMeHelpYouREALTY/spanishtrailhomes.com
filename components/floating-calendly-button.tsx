@@ -79,7 +79,18 @@ export function FloatingCalendlyButton() {
   const hideOnContact = pathname === '/contact'
   /** Homepage: header + hero CTAs already include Book a Tour; skip FAB to avoid stacking with listing widgets. */
   const hideOnHome = pathname === '/'
-  const showFAB = mounted && !hideOnContact && !hideOnHome && !hideDueToAppointment
+  const hideOnUtility = [
+    '/privacy',
+    '/terms',
+    '/accessibility',
+    '/media-kit',
+    '/site-index',
+    '/directions',
+    '/find-our-locations',
+    '/reviews',
+    '/awards',
+  ].includes(pathname)
+  const showFAB = mounted && !hideOnContact && !hideOnHome && !hideOnUtility && !hideDueToAppointment
 
   if (!showFAB) return null
 
@@ -87,7 +98,7 @@ export function FloatingCalendlyButton() {
     <>
       <div
         className={cn(
-          'fixed bottom-6 left-1/2 z-[9999] -translate-x-1/2 sm:left-auto sm:right-6 sm:translate-x-0',
+          'fixed bottom-24 left-1/2 z-[40] -translate-x-1/2 sm:bottom-8 sm:left-auto sm:right-6 sm:translate-x-0',
           'transition-opacity duration-300',
         )}
         style={{

@@ -3,7 +3,6 @@ import Link from 'next/link'
 import Script from 'next/script'
 
 import { SiteShell } from '@/components/site-shell'
-import { RealScoutSection } from '@/components/realscout-section'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
@@ -106,14 +105,6 @@ export default function SpanishTrailArchitecturePage() {
   return (
     <SiteShell>
       <HeroSection />
-      <RealScoutSection
-        id="bhhs-listings"
-        eyebrow="Browse by Style"
-        title="Spanish Trail homes across architectural styles"
-        description="From Mediterranean villas to contemporary estates, explore homes that match your aesthetic preferences."
-        priceMin="600000"
-        propertyTypes=",SFR,CONDO"
-      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
           <Breadcrumbs

@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ChevronDown, Menu, Phone, X } from 'lucide-react'
 
-import { NAV_ITEMS } from '@/lib/navigation'
+import { NAV_ITEMS, SITE_LISTINGS_HREF } from '@/lib/navigation'
 import { trackPhoneClick } from '@/lib/analytics'
 import { Button } from '@/components/ui/button'
 import { CalendlyLink } from '@/components/calendly-link'
@@ -33,8 +33,12 @@ export function SiteHeader() {
             <p className="text-[0.6rem] uppercase tracking-[0.35em] text-muted-foreground group-hover:text-secondary sm:text-[0.65rem] sm:tracking-[0.45em]">
               Berkshire Hathaway HomeServices
             </p>
-            <p className="font-[var(--font-playfair)] text-base font-semibold leading-snug tracking-[0.06em] text-[#0f2b1e] sm:text-xl sm:tracking-[0.08em] lg:text-2xl">
-              Spanish Trail | Homes By Dr. Jan Duffy
+            <p className="font-[var(--font-playfair)] text-base font-semibold leading-snug tracking-[0.04em] text-[#0f2b1e] sm:text-xl sm:tracking-[0.06em] lg:text-2xl">
+              <span className="whitespace-nowrap">Spanish Trail</span>
+              <span className="hidden sm:inline"> | </span>
+              <span className="mt-0.5 block text-sm tracking-[0.04em] sm:mt-0 sm:inline sm:text-[inherit]">
+                Homes By Dr.&nbsp;Jan&nbsp;Duffy
+              </span>
             </p>
           </div>
         </Link>
@@ -117,14 +121,14 @@ export function SiteHeader() {
           <div className="hidden shrink-0 items-center justify-end gap-3 justify-self-end lg:col-start-3 lg:flex">
             <Link
               href="tel:+17027663299"
-              className="inline-flex items-center gap-2 rounded-full border border-[#0f2b1e]/40 px-6 py-2 text-xs font-medium uppercase tracking-[0.28em] text-[#0f2b1e] hover:bg-[#0f2b1e]/10"
+              className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-[#0f2b1e]/40 px-5 py-2 text-xs font-medium uppercase tracking-[0.12em] text-[#0f2b1e] hover:bg-[#0f2b1e]/10"
               aria-label="Call 702-766-3299"
               onClick={() => trackPhoneClick('header')}
             >
-              <Phone className="size-4" aria-hidden />
+              <Phone className="size-4 shrink-0" aria-hidden />
               (702) 766-3299
             </Link>
-            <CalendlyLink className="rounded-full bg-[#0f2b1e] px-6 py-2 text-xs font-medium uppercase tracking-[0.32em] text-white hover:bg-[#0c2118]" ctaText="Book a Tour" ctaLocation="header">
+            <CalendlyLink className="whitespace-nowrap rounded-full bg-[#0f2b1e] px-5 py-2 text-xs font-medium uppercase tracking-[0.16em] text-white hover:bg-[#0c2118]" ctaText="Book a Tour" ctaLocation="header">
               Book a Tour
             </CalendlyLink>
           </div>
@@ -213,9 +217,9 @@ export function SiteHeader() {
                 <Phone className="size-4" aria-hidden />
                 (702) 766-3299
               </Link>
-              <Button asChild variant="link" className="touch-target min-h-[44px] justify-start px-0 text-sm uppercase tracking-[0.32em]">
-                <Link href="https://searchforaffordablehomes.com/neighborhood/83/spanish-trails" target="_blank" rel="noopener noreferrer">
-                  View Listings →
+              <Button asChild variant="link" className="touch-target min-h-[44px] justify-start px-0 text-sm uppercase tracking-[0.18em]">
+                <Link href={SITE_LISTINGS_HREF}>
+                  Spanish Trail listings →
                 </Link>
               </Button>
             </div>

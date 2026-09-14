@@ -6,9 +6,10 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
-import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { createOgImageUrl, createWebPageSchema, createFaqSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { SectionBanner } from '@/components/heading-media'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
+import { FaqSection } from '@/components/faq-section'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/accessibility'
@@ -86,6 +87,25 @@ export const metadata: Metadata = {
   },
 }
 
+const accessibilityFaq = [
+  {
+    question: 'How do I request an accommodation?',
+    answer:
+      'Call (702) 766-3299 or email DrDuffySells@SpanishTrailHomes.com. Describe the page, assistive technology, and the barrier. Alternate formats (plain-text email, large print) are available for market reports and property briefs.',
+  },
+  {
+    question: 'Is the office wheelchair accessible?',
+    answer:
+      'Google Business Profile lists wheelchair accessible entrance and parking at 5050 Spanish Trail Ln, Las Vegas, NV 89113. Call before you drive so Dr. Jan Duffy can arrange gate clearance Sunday–Saturday 9:00 AM–6:00 PM.',
+  },
+  {
+    question: 'Can I use the site with a keyboard or screen reader?',
+    answer:
+      'Primary pages support keyboard navigation, skip-to-content, and semantic headings. Listing widgets are third-party RealScout components; if a widget is not usable, call (702) 766-3299 and Dr. Duffy will send matching inventory by email or phone.',
+  },
+]
+const accessibilityFaqSchema = createFaqSchema(accessibilityFaq)
+
 export default function AccessibilityPage() {
   return (
     <SiteShell>
@@ -106,12 +126,22 @@ export default function AccessibilityPage() {
       <AssistiveTechnologySection />
       <FeedbackSection />
       <OngoingImprovementsSection />
+      <FaqSection
+        headingId="accessibility-faq-heading"
+        eyebrow="Accessibility FAQ"
+        heading="Access, parking, and alternate formats"
+        items={accessibilityFaq}
+        tone="white"
+      />
       <ContactSection />
       <Script id="accessibility-schema" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(accessibilitySchema)}
       </Script>
       <Script id="accessibility-webpage-schema" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(accessibilityWebPageSchema)}
+      </Script>
+      <Script id="accessibility-faq-schema" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(accessibilityFaqSchema)}
       </Script>
     </SiteShell>
   )
@@ -262,7 +292,6 @@ function AssistiveTechnologySection() {
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <article className="rounded-3xl border border-white/15 bg-white/10 p-6 shadow-lg shadow-black/20 backdrop-blur">
-              <CardVisual seed="card-1" />
             <h3 className="font-heading text-xl text-white">Supported tools</h3>
             <p className="mt-3 text-sm leading-relaxed text-[#f8f5ef]/80">
               Screen readers (NVDA, JAWS, VoiceOver), screen magnifiers, voice input software, and keyboard-only navigation are
@@ -270,7 +299,6 @@ function AssistiveTechnologySection() {
             </p>
           </article>
           <article className="rounded-3xl border border-white/15 bg-white/10 p-6 shadow-lg shadow-black/20 backdrop-blur">
-              <CardVisual seed="card-2" />
             <h3 className="font-heading text-xl text-white">Responsive design</h3>
             <p className="mt-3 text-sm leading-relaxed text-[#f8f5ef]/80">
               Layouts adapt for small screens, large monitors, and assistive interfaces, ensuring consistent access to listings,

@@ -4,7 +4,6 @@ import Link from 'next/link'
 import Script from 'next/script'
 
 import { SiteShell } from '@/components/site-shell'
-import { RealScoutSection } from '@/components/realscout-section'
 import { Button } from '@/components/ui/button'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { createOgImageUrl, createWebPageSchema, createFaqSchema, getCanonicalUrl } from '@/lib/structuredData'
@@ -176,7 +175,6 @@ export default function ReviewsPage() {
       />
 
       <HeroSection />
-      <RealScoutSection id="bhhs-listings" />
       <ReviewLinkSection />
       <BenefitsSection benefits={benefits} />
       <QRCodeSection />

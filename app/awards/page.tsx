@@ -4,7 +4,6 @@ import Script from 'next/script'
 
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { SiteShell } from '@/components/site-shell'
-import { RealScoutSection } from '@/components/realscout-section'
 import { Button } from '@/components/ui/button'
 import { createOgImageUrl, createWebPageSchema, createFaqSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { getAgentPortraitAbsoluteUrl } from '@/lib/agent-portraits'
@@ -220,7 +219,6 @@ export default function AwardsPage() {
   return (
     <SiteShell>
       <HeroSection />
-      <RealScoutSection id="bhhs-listings" />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs

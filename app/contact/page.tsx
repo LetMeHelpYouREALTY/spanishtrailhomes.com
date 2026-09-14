@@ -176,8 +176,8 @@ function HeroSection() {
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           Call (702) 766-3299 to buy or sell a Spanish Trail home. Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties. Median {formatMedianPrice(marketStats.median_price)} as of {marketStats.date_label}.
           <span className="block text-xs uppercase tracking-[0.3em] text-[#f8f5ef]/70">
-            <Link href="https://searchforaffordablehomes.com/neighborhood/83/spanish-trails" className="underline-offset-4 hover:underline">
-              Source: Spanish Trail Weekly Market Activity
+            <Link href="/spanish-trail-market-report" className="underline-offset-4 hover:underline">
+              Source: Spanish Trail weekly market report
             </Link>
           </span>
         </p>
@@ -216,10 +216,14 @@ function ExpertiseSection() {
               Weekly data, lived-in perspective
             </h3>
             <p>
-              I monitor every Spanish Trail closing the moment it records. Yesterday, 8330 Carmel Ridge Court—a 2,500 sq. ft. single-family home—closed at $1,095,000, roughly 8% above the community\'s median thanks to upgraded fairway views and a reimagined chef\'s kitchen.[source](https://searchforaffordablehomes.com/neighborhood/83/spanish-trails)
+              I monitor every Spanish Trail closing the moment it records. Yesterday, 8330 Carmel Ridge Court—a 2,500 sq. ft. single-family home—closed at $1,095,000, roughly 8% above the community&apos;s median thanks to upgraded fairway views and a reimagined chef&apos;s kitchen. See the{' '}
+              <Link href="/spanish-trail-market-report" className="underline-offset-4 hover:underline">
+                Spanish Trail market report
+              </Link>{' '}
+              for this week&apos;s stats.
             </p>
             <p>
-              That real-time insight guides both sellers wanting a premium and buyers aiming to secure value without overextending. After decades focused on Spanish Trail—advising 500+ families across purchases, sales, and long-range planning—I have walked every cul-de-sac inside the 640-acre guard gates and understand how HOA nuances, sightlines, and secondary gates impact pricing.
+              That real-time insight guides both sellers wanting a premium and buyers aiming to secure value without overextending. After decades focused on Spanish Trail—advising 500+ buyers and sellers across purchases, sales, and long-range planning—I have walked every cul-de-sac inside the 640-acre guard gates and understand how HOA nuances, sightlines, and secondary gates impact pricing.
             </p>
           </div>
           <div className="space-y-4 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm text-[#372a20]/80">
@@ -255,7 +259,11 @@ function GolfLifestyleSection() {
               Sunrise, Lakes, Canyon: three distinct personalities
             </h3>
             <p>
-              The Spanish Trail Country Club anchors the community with Robert Trent Jones Jr.\'s 27-hole layout. The Lakes nine delivers cascading water features, Sunrise showcases mature pines and gentle slopes, while Canyon introduces elevation changes that thrill low-handicap players. Demand for golf-view homes remains intense—this week\'s 22 Burning Tree Court tour generated four qualified showings, all citing the championship course as their non-negotiable.[source](https://searchforaffordablehomes.com/neighborhood/83/spanish-trails)
+              The Spanish Trail Country Club anchors the community with Robert Trent Jones Jr.&apos;s 27-hole layout. The Lakes nine delivers cascading water features, Sunrise showcases mature pines and gentle slopes, while Canyon introduces elevation changes that thrill low-handicap players. Demand for golf-view homes remains intense—this week&apos;s 22 Burning Tree Court tour generated four qualified showings, all citing the championship course as their non-negotiable. See current{' '}
+              <Link href="/spanish-trail-homes-for-sale-las-vegas" className="underline-offset-4 hover:underline">
+                Spanish Trail homes for sale
+              </Link>
+              .
             </p>
           </div>
           <div className="space-y-4 text-base leading-relaxed text-[#372a20]/85">
@@ -356,7 +364,7 @@ function NeighborhoodFitSection() {
             {
               title: 'Patios & Springs enclaves',
               detail:
-                'Tree-lined streets, versatile floor plans, and proximity to Bishop Gorman High School. Popular with families seeking balance between serenity and city convenience.',
+                'Tree-lined streets, versatile floor plans, and a short drive to Bishop Gorman High School (2.2 miles via S. Rainbow Blvd.).',
             },
           ].map((item) => (
             <div key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">

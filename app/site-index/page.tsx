@@ -127,7 +127,7 @@ export default function SiteIndexPage() {
             <h2 id={`${group.heading}-heading`} className="font-heading text-2xl text-[#1f2a24]">
               {group.heading}
             </h2>
-            <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+            <ul className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
               {group.links.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-[#0f2b1e] underline-offset-4 hover:underline">

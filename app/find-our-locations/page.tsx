@@ -3,11 +3,20 @@ import Link from 'next/link'
 import Script from 'next/script'
 
 import { SiteShell } from '@/components/site-shell'
-import { RealScoutSection } from '@/components/realscout-section'
 import { Button } from '@/components/ui/button'
 import { Breadcrumbs } from '@/components/breadcrumbs'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createOgImageUrl, createWebPageSchema, createFaqSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { SectionBanner } from '@/components/heading-media'
+import { FaqSection } from '@/components/faq-section'
+import {
+  GBP_DIRECTIONS_URL,
+  GBP_EMAIL,
+  GBP_HOURS_DISPLAY,
+  GBP_MAPS_URL,
+  GBP_PHONE_DISPLAY,
+  GBP_PHONE_E164,
+  GBP_STREET,
+} from '@/lib/gbp-business'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/find-our-locations'
@@ -35,13 +44,13 @@ const storeLocations: StoreLocation[] = [
     city: 'Las Vegas',
     state: 'NV',
     zip: '89113',
-    phone: '(702) 766-3299',
-    email: 'DrDuffySells@SpanishTrailHomes.com',
-    hours: 'Sunday–Saturday 9:00 AM–6:00 PM',
+    phone: GBP_PHONE_DISPLAY,
+    email: GBP_EMAIL,
+    hours: GBP_HOURS_DISPLAY,
     mapEmbedUrl:
       'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3234.1155408815076!2d-115.28609452341818!3d36.10914500736459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c8bf27532cd0f3%3A0xba327d02c4e3709e!2sSpanish%20Trail%20Country%20Club!5e0!3m2!1sen!2sus!4v1731191452004!5m2!1sen!2sus',
-    directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=5050+Spanish+Trail+Ln,+Las+Vegas,+NV+89113',
-    gbpUrl: 'https://maps.app.goo.gl/9QG1zTx5B7jG1wfP9',
+    directionsUrl: GBP_DIRECTIONS_URL,
+    gbpUrl: GBP_MAPS_URL,
   },
 ]
 
@@ -126,6 +135,23 @@ const steps: StepItem[] = [
   },
 ]
 
+const locationFaq = [
+  {
+    question: 'Do I need gate clearance to visit the office?',
+    answer: `Yes. Spanish Trail is guard-gated. Call ${GBP_PHONE_DISPLAY} before you drive so Dr. Jan Duffy can notify the Tropicana gate. This is a realtor office appointment—not a public clubhouse walk-in.`,
+  },
+  {
+    question: 'What are the office hours?',
+    answer: `${GBP_HOURS_DISPLAY} at ${GBP_STREET}, Las Vegas, NV 89113. Wheelchair accessible entrance and parking are listed on the Google Business Profile.`,
+  },
+  {
+    question: 'Can I tour a home from this address?',
+    answer:
+      'Yes. Book a showing or seller consult, then Dr. Duffy arranges gate access for the listing address. Use the directions page if you need turn-by-turn from the Strip or I-215.',
+  },
+]
+const locationFaqSchema = createFaqSchema(locationFaq)
+
 export default function FindOurLocationsPage() {
   const primaryLocation = storeLocations[0]
   const gbpUrl = primaryLocation.gbpUrl
@@ -149,7 +175,6 @@ export default function FindOurLocationsPage() {
       />
 
       <HeroSection />
-      <RealScoutSection id="bhhs-listings" />
       <GetStartedSection steps={steps} />
       <ChooseLocationsSection locations={storeLocations} />
       <MapAndActionsSection
@@ -158,6 +183,16 @@ export default function FindOurLocationsPage() {
         mapsDirectionsUrl={mapsDirectionsUrl}
       />
       <AddMapSection />
+      <FaqSection
+        headingId="find-locations-faq-heading"
+        eyebrow="Office FAQ"
+        heading="Visiting 5050 Spanish Trail Ln"
+        items={locationFaq}
+        showCtas
+      />
+      <Script id="find-our-locations-faq-schema" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(locationFaqSchema)}
+      </Script>
     </SiteShell>
   )
 }
@@ -243,16 +278,16 @@ function ChooseLocationsSection({
       <SectionBanner headingId="choose-locations-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">
-          Our locations
+          Office location
         </p>
         <h2
           id="choose-locations-heading"
           className="mt-2 font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl"
         >
-          Choose your store locations
+          Spanish Trail | Homes By Dr. Jan Duffy
         </h2>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#372a20]/85">
-          Spanish Trail Homes is represented by Dr. Jan Duffy at Spanish Trail Country Club. Visit us for luxury real estate consultations and private tours.
+          One office inside Spanish Trail Country Club. Call before you drive so the Tropicana gate can clear your visit.
         </p>
         <ul className="mt-10 space-y-6">
           {locations.map((loc) => (
@@ -266,7 +301,7 @@ function ChooseLocationsSection({
               </p>
               <p className="mt-1 text-sm">
                 <Link
-                  href={`tel:${loc.phone.replace(/\D/g, '')}`}
+                  href={`tel:${GBP_PHONE_E164}`}
                   className="text-[#0f2b1e] underline underline-offset-2 hover:text-[#1f4a35]"
                 >
                   {loc.phone}
@@ -327,7 +362,7 @@ function MapAndActionsSection({
               <p>
                 <strong className="text-[#0f2b1e]">Phone:</strong>{' '}
                 <Link
-                  href={`tel:${location.phone.replace(/\D/g, '')}`}
+                  href={`tel:${GBP_PHONE_E164}`}
                   className="underline underline-offset-2 hover:text-[#0f2b1e]"
                 >
                   {location.phone}
@@ -348,7 +383,7 @@ function MapAndActionsSection({
                 asChild
                 className="rounded-full bg-[#0f2b1e] px-6 py-3 text-xs uppercase tracking-[0.3em] text-white hover:bg-[#1f4a35]"
               >
-                <Link href={`tel:${location.phone.replace(/\D/g, '')}`}>
+                <Link href={`tel:${GBP_PHONE_E164}`}>
                   Call {location.phone}
                 </Link>
               </Button>
@@ -397,33 +432,39 @@ function MapAndActionsSection({
 function AddMapSection() {
   return (
     <section
-      className="bg-[#f8f2e7] py-20 sm:py-24"
+      className="bg-[#f8f2e7] py-16 sm:py-20"
       aria-labelledby="add-map-heading"
     >
-      <SectionBanner headingId="add-map-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2
           id="add-map-heading"
           className="font-[var(--font-playfair)] text-2xl text-[#1f2a24] sm:text-3xl"
         >
-          Add the map to your site
+          Gate clearance before you arrive
         </h2>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#372a20]/85">
-          Link to this Find Our Locations page from your website so customers can see our address, get directions, and contact us. Need a custom embed or multiple locations? We can help.
+          Spanish Trail is guard-gated. Do not treat this page as a public clubhouse walk-in. Call {GBP_PHONE_DISPLAY} so Dr. Jan Duffy can notify the Tropicana gate, then use the map pin for driving directions to {GBP_STREET}.
         </p>
         <div className="mt-8 flex flex-wrap gap-4">
           <Button
             asChild
             className="rounded-full bg-[#0f2b1e] px-6 py-3 text-xs uppercase tracking-[0.3em] text-white hover:bg-[#1f4a35]"
           >
-            <Link href="/contact">Contact us for embed options</Link>
+            <Link href={`tel:${GBP_PHONE_E164}`}>Call {GBP_PHONE_DISPLAY}</Link>
           </Button>
           <Button
             asChild
             variant="outline"
             className="rounded-full border-[#0f2b1e] px-6 py-3 text-xs uppercase tracking-[0.3em] text-[#0f2b1e] hover:bg-[#0f2b1e] hover:text-white"
           >
-            <Link href="/contact#map">View contact & map</Link>
+            <Link href="/contact">Book a consult</Link>
+          </Button>
+          <Button
+            asChild
+            variant="outline"
+            className="rounded-full border-[#0f2b1e] px-6 py-3 text-xs uppercase tracking-[0.3em] text-[#0f2b1e] hover:bg-[#0f2b1e] hover:text-white"
+          >
+            <Link href="/directions">Full directions page</Link>
           </Button>
         </div>
       </div>
