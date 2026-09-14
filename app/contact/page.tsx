@@ -168,7 +168,7 @@ export default function ContactPage() {
 
 function HeroSection() {
   return (
-    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="contact-hero-heading">
+    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden hero-photo-copy" aria-labelledby="contact-hero-heading">
       <SectionBanner headingId="contact-hero-heading" />
       <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-6 text-center">
         <AgentPortrait placement="contact-call" size="lg" priority schema pagePath="/contact" />

@@ -166,7 +166,7 @@ const webPageSchema = createWebPageSchema({
 export default function LuxuryNeighborhoodComparisonsPage() {
   return (
     <SiteShell>
-      <header className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="neighborhoods-hero">
+      <header className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden hero-photo-copy" aria-labelledby="neighborhoods-hero">
       <SectionBanner headingId="neighborhoods-hero" />
         <div className="mx-auto max-w-4xl space-y-5 px-6 text-center">
           <h1 id="neighborhoods-hero" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">
@@ -386,7 +386,7 @@ function LuxuryNeighborhoodsFAQSection() {
 
 function LuxuryCTASection() {
   return (
-    <section className="bg-[#0f2b1e] py-20 text-[#f8f5ef] relative isolate overflow-hidden" aria-labelledby="luxury-cta-heading">
+    <section className="bg-[#0f2b1e] py-20 text-[#f8f5ef] relative isolate overflow-hidden hero-photo-copy" aria-labelledby="luxury-cta-heading">
       <SectionBanner headingId="luxury-cta-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h2 id="luxury-cta-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">

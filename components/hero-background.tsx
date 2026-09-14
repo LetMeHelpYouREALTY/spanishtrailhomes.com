@@ -2,6 +2,11 @@ import Image from 'next/image'
 
 import { ListingImageLink } from '@/components/listing-image-link'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
+import {
+  HERO_PHOTO_IMAGE_CLASS,
+  HERO_PHOTO_OVERLAY_CLASS,
+  HERO_PHOTO_TEXT_SHADOW_CLASS,
+} from '@/lib/photo-overlay'
 import { DEFAULT_H1_IMAGE, getAssetAlt } from '@/lib/site-images'
 import { cn } from '@/lib/utils'
 
@@ -14,6 +19,7 @@ type HeroBackgroundProps = {
   priority?: boolean
   sizes?: string
   className?: string
+  /** Optional extra overlay classes. The shared light scrim is always applied. */
   overlayClassName?: string
   imageClassName?: string
   /** When set, renders hero with title/subtitle overlay (uses src or default image). */
@@ -54,27 +60,25 @@ export function HeroBackground({
           priority={priority}
           quality={80}
           sizes={sizes}
-          className={cn('object-cover', imageClassName)}
+          className={cn(HERO_PHOTO_IMAGE_CLASS, imageClassName)}
         />
       </ListingImageLink>
-      {overlayClassName ? (
-        <div className={cn('pointer-events-none absolute inset-0', overlayClassName)} />
-      ) : null}
+      <div className={cn('pointer-events-none absolute inset-0', HERO_PHOTO_OVERLAY_CLASS, overlayClassName)} />
       {isTextHero ? (
-        <div
-          className={cn(
-            'pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-4 py-12 text-center',
-            !overlayClassName && 'bg-gradient-to-b from-[#0f2b1e]/60 to-[#0f2b1e]/85',
-          )}
-        >
-          <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">{title}</h1>
-          {subtitle ? <p className="mt-2 text-lg text-white/90">{subtitle}</p> : null}
+        <div className={cn('pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-4 py-12 text-center', HERO_PHOTO_TEXT_SHADOW_CLASS)}>
+          <h1 className="font-heading text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            {title}
+          </h1>
+          {subtitle ? (
+            <p className="mt-2 text-lg font-medium text-white">{subtitle}</p>
+          ) : null}
           {description ? (
-            <p className="mx-auto mt-4 max-w-2xl text-base text-white/85">{description}</p>
+            <p className="mx-auto mt-4 max-w-2xl text-base font-medium text-white">
+              {description}
+            </p>
           ) : null}
         </div>
       ) : null}
     </div>
   )
 }
-

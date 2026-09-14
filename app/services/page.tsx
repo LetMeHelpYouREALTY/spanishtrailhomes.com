@@ -167,7 +167,7 @@ export default function ServicesPage() {
 
 function HeroSection() {
   return (
-    <section className="relative isolate overflow-hidden bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20" aria-labelledby="services-hero-heading">
+    <section className="relative isolate overflow-hidden bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 hero-photo-copy" aria-labelledby="services-hero-heading">
       <SectionBanner headingId="services-hero-heading" />
       <div className="mx-auto flex max-w-4xl flex-col items-center space-y-6 px-6 text-center">
         <AgentPortrait placement="services" size="lg" priority schema pagePath="/services" />

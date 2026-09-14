@@ -162,7 +162,7 @@ export default function BuyersPage() {
 
 function HeroSection() {
   return (
-    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="buyers-hero-heading">
+    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden hero-photo-copy" aria-labelledby="buyers-hero-heading">
       <SectionBanner headingId="buyers-hero-heading" />
       <div className="mx-auto flex max-w-4xl flex-col items-center space-y-6 px-6 text-center">
         <AgentPortrait placement="buyers" size="lg" priority schema pagePath="/buyers" />
@@ -522,7 +522,7 @@ function FAQSection() {
 
 function BuyerCTASection() {
   return (
-    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden" aria-labelledby="buyers-cta-heading">
+    <section className="bg-[#0f2b1e] py-16 text-[#f8f5ef] sm:py-20 relative isolate overflow-hidden hero-photo-copy" aria-labelledby="buyers-cta-heading">
       <SectionBanner headingId="buyers-cta-heading" />
       <div className="mx-auto max-w-4xl space-y-6 px-6 text-center">
         <h2 id="buyers-cta-heading" className="font-[var(--font-playfair)] text-3xl leading-tight sm:text-4xl">

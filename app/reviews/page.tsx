@@ -170,7 +170,7 @@ export default function ReviewsPage() {
 function HeroSection() {
   return (
     <section
-      className="relative overflow-hidden bg-[#0f2b1e] px-6 py-20 text-primary-foreground sm:py-28 isolate"
+      className="relative overflow-hidden bg-[#0f2b1e] px-6 py-20 text-primary-foreground sm:py-28 isolate hero-photo-copy"
       aria-labelledby="reviews-hero-heading"
     >
       <SectionBanner headingId="reviews-hero-heading" />
@@ -578,7 +578,7 @@ function NegativeReviewsSection() {
 function CTASection() {
   return (
     <section
-      className="bg-[#0f2b1e] py-20 sm:py-24 text-white relative isolate overflow-hidden"
+      className="bg-[#0f2b1e] py-20 sm:py-24 text-white relative isolate overflow-hidden hero-photo-copy"
       aria-labelledby="cta-heading"
     >
       <SectionBanner headingId="cta-heading" />

@@ -16,7 +16,7 @@ export function HeroSearchWidget({ theme = 'dark', className }: HeroSearchWidget
       : 'border-[#d8cdbf] bg-[#fdf9f3] shadow-lg shadow-primary/10'
 
   const linkStyles =
-    theme === 'dark' ? 'text-white/90' : 'text-[#0f2b1e]'
+    theme === 'dark' ? 'text-white' : 'text-[#0f2b1e]'
 
   return (
     <>

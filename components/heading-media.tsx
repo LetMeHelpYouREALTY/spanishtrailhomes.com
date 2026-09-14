@@ -4,6 +4,10 @@ import { AgentPortrait } from '@/components/agent-portrait'
 import { GbpSectionSupport } from '@/components/gbp-section-support'
 import { ListingImageLink } from '@/components/listing-image-link'
 import { cn } from '@/lib/utils'
+import {
+  HERO_PHOTO_IMAGE_CLASS,
+  HERO_PHOTO_OVERLAY_CLASS,
+} from '@/lib/photo-overlay'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 import {
   resolveCardMedia,
@@ -44,13 +48,13 @@ export function SectionBanner({
                 priority={priority}
                 quality={80}
                 sizes="100vw"
-                className="object-cover"
+                className={HERO_PHOTO_IMAGE_CLASS}
               />
             </ListingImageLink>
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#0f2b1e]/55 to-[#0f2b1e]/80" />
+            <div className={cn('pointer-events-none absolute inset-0', HERO_PHOTO_OVERLAY_CLASS)} />
           </div>
           <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] px-4 pb-4 sm:px-6">
-            <div className="pointer-events-auto mx-auto max-w-6xl rounded-xl bg-[#0f2b1e]/80 p-3 backdrop-blur-sm">
+            <div className="pointer-events-auto mx-auto max-w-6xl rounded-xl bg-black/55 p-3">
               <GbpSectionSupport variant="onDark" />
             </div>
           </div>
@@ -67,7 +71,7 @@ export function SectionBanner({
                 fill
                 quality={75}
                 sizes="(max-width: 1024px) 100vw, 1152px"
-                className="object-cover transition-transform duration-300 hover:scale-[1.03]"
+                className={cn(HERO_PHOTO_IMAGE_CLASS, 'transition-transform duration-300 hover:scale-[1.03]')}
               />
             </ListingImageLink>
             <div className="pointer-events-none absolute bottom-3 right-3 sm:bottom-4 sm:right-4">
@@ -111,7 +115,7 @@ export function CardVisual({ seed, className, alt }: CardVisualProps) {
         fill
         quality={70}
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        className="object-cover transition-transform duration-300 hover:scale-[1.03]"
+        className={cn(HERO_PHOTO_IMAGE_CLASS, 'transition-transform duration-300 hover:scale-[1.03]')}
       />
     </ListingImageLink>
   )
@@ -148,7 +152,7 @@ export function HeadingPicture({
         priority={priority}
         quality={level === 'h1' ? 80 : 75}
         sizes={level === 'h1' ? '100vw' : '(max-width: 1024px) 100vw, 800px'}
-        className="object-cover transition-transform duration-300 hover:scale-[1.03]"
+        className={cn(HERO_PHOTO_IMAGE_CLASS, 'transition-transform duration-300 hover:scale-[1.03]')}
       />
     </ListingImageLink>
   )
