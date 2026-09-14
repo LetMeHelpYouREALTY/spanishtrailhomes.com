@@ -305,9 +305,17 @@ realscout-advanced-search {
   font-family: var(--font-playfair), serif;
 }
 
-/* Photo heroes: keep cream type readable without a green image wash. */
-.hero-photo-copy {
-  text-shadow: 0 2px 20px rgb(0 0 0 / 60%), 0 1px 4px rgb(0 0 0 / 50%);
+/* Photo heroes: a 1px drop, no blur — glow made lettering look soft. */
+.hero-photo-copy :is(h1, h2, h3, p, li) {
+  text-shadow: 0 1px 0 rgb(0 0 0 / 78%);
+}
+
+.hero-photo-copy :is(a, button) {
+  text-shadow: none;
+}
+
+.hero-photo-copy :is(h1, h2, h3, p, li) a {
+  text-shadow: 0 1px 0 rgb(0 0 0 / 78%);
 }
 
 .skip-link {

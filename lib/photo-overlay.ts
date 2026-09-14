@@ -9,5 +9,5 @@ export const HERO_PHOTO_OVERLAY_CLASS =
 export const HERO_PHOTO_IMAGE_CLASS =
   'object-cover brightness-[1.12] contrast-[1.06] saturate-[1.16]'
 
-/** Inherited text-shadow for cream/white copy sitting on a live photo. */
+/** Crisp 1px edge on headings/body; buttons stay unshadowed. */
 export const HERO_PHOTO_TEXT_SHADOW_CLASS = 'hero-photo-copy'

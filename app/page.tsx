@@ -293,7 +293,7 @@ function HeroSection() {
           >
             Buy and Sell Spanish Trail Homes
           </h1>
-          <p className="text-base font-medium leading-relaxed text-white/95 sm:text-lg sm:leading-relaxed">
+          <p className="text-base font-medium leading-relaxed text-white sm:text-lg sm:leading-relaxed">
             Realtor services for Spanish Trail homes only. Dr. Jan Duffy buys, sells, and tours addresses inside this 89113 community—also searched as Spanish Trails. Berkshire Hathaway HomeServices Nevada Properties.
           </p>
           <HeroMarketPulse />
@@ -301,19 +301,19 @@ function HeroSection() {
         <div className="flex flex-wrap items-center gap-3 sm:gap-4">
           <Button
             asChild
-            className="min-h-11 rounded-full bg-white px-8 py-3 text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e] shadow-md shadow-black/20 hover:bg-[#eef2ef] sm:min-h-12 sm:tracking-[0.4em]"
+            className="min-h-11 rounded-full bg-white px-8 py-3 text-xs font-semibold uppercase tracking-[0.28em] text-[#0f2b1e] shadow-md shadow-black/20 [text-shadow:none] hover:bg-[#eef2ef] sm:min-h-12 sm:tracking-[0.32em]"
           >
             <Link href="/buyers">Buy in Spanish Trail</Link>
           </Button>
           <Button
             asChild
             variant="outline"
-            className="min-h-11 rounded-full border-2 border-white bg-white px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e] shadow-md shadow-black/15 hover:border-white hover:bg-[#eef2ef] hover:text-[#081810] focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f2b1e] sm:min-h-12 sm:tracking-[0.4em]"
+            className="min-h-11 rounded-full border-2 border-white bg-white px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.28em] text-[#0f2b1e] shadow-md shadow-black/15 [text-shadow:none] hover:border-white hover:bg-[#eef2ef] hover:text-[#081810] focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f2b1e] sm:min-h-12 sm:tracking-[0.32em]"
           >
             <Link href="/sellers">Sell Your Home</Link>
           </Button>
           <CalendlyLink
-            className="inline-flex min-h-11 items-center justify-center rounded-full border-2 border-white bg-transparent px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.35em] text-white shadow-md shadow-black/15 hover:bg-white/10 sm:min-h-12 sm:tracking-[0.4em]"
+            className="inline-flex min-h-11 items-center justify-center rounded-full border-2 border-white bg-transparent px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.28em] text-white shadow-md shadow-black/15 [text-shadow:none] hover:bg-white/10 sm:min-h-12 sm:tracking-[0.32em]"
             ctaText="Book a private tour"
             ctaLocation="hero"
           >

@@ -44,7 +44,7 @@ export function HeroMarketPulse({ className }: HeroMarketPulseProps) {
   }, [])
 
   return (
-    <p className={cn('text-sm leading-relaxed text-white/90', className)}>
+    <p className={cn('text-sm leading-relaxed text-white', className)}>
       {stats.touringThisWeek} buyers toured Spanish Trail this week
       {' · '}
       {stats.activeListings} homes on the market
