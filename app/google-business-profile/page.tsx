@@ -9,11 +9,11 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import {
   createBreadcrumbSchema,
   createFaqPageSchema,
-  createOgImageUrl,
   createWebPageSchema,
   getCanonicalUrl,
   structuredDataSiteUrl,
 } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { GBP_DIRECTIONS_URL, GBP_EMAIL, GBP_GOOGLE_REVIEW_URL, GBP_PHONE_DISPLAY, GBP_PHONE_E164, GBP_PROFILE_SHARE_URL } from '@/lib/gbp-business'
 import { SectionBanner } from '@/components/heading-media'
 import { GbpLocalActions } from '@/components/gbp-local-actions'
@@ -56,25 +56,13 @@ export const metadata: Metadata = {
     title: 'Google Business Profile | Dr. Jan Duffy | Spanish Trail Homes',
     description:
       'View Dr. Jan Duffy\'s verified Google Business Profile. See reviews, hours, location, and connect via Google.',
-    images: [
-      createOgImageUrl({
-        title: 'Google Business Profile',
-        subtitle: 'Dr. Jan Duffy · Spanish Trail Homes',
-        eyebrow: 'Verified on Google',
-      }),
-    ],
+    images: [sitePhotoOg('h1-office-exterior')],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Google Business Profile | Dr. Jan Duffy',
     description: 'View our verified Google Business Profile. See reviews and connect directly.',
-    images: [
-      createOgImageUrl({
-        title: 'Google Business Profile',
-        subtitle: 'Spanish Trail Homes',
-        eyebrow: 'Verified on Google',
-      }),
-    ],
+    images: [sitePhotoOg('h1-office-exterior')],
   },
 }
 

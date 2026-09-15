@@ -3,17 +3,17 @@ import Link from 'next/link'
 import Script from 'next/script'
 
 import { SiteShell } from '@/components/site-shell'
-import { RealScoutSection } from '@/components/realscout-section'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
-import { SectionBanner, CardVisual } from '@/components/heading-media'
-
+import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
+import { SectionBanner } from '@/components/heading-media'
+import { FaqList } from '@/components/faq-section'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-lifestyle'
 const pageDescription =
-  'Discover the Spanish Trail lifestyle in Las Vegas. From Red Rock Canyon hiking to world-class shopping and dining, explore what makes this guard-gated community exceptional.'
+  'Outdoor recreation, dining, shopping, and entertainment near Spanish Trail in Las Vegas 89113. Guard-gated golf living with clubhouse, tennis, and pool access.'
 
 const webPageSchema = createWebPageSchema({
   name: 'Spanish Trail Lifestyle | Living in Las Vegas',
@@ -42,13 +42,9 @@ export const metadata: Metadata = {
     url: pageUrl,
     title: 'Spanish Trail Lifestyle | Las Vegas Living',
     description:
-      'Outdoor recreation, dining, shopping, and entertainment near Spanish Trail. Discover why families and professionals choose this premier community.',
+      'Outdoor recreation, dining, shopping, and entertainment near Spanish Trail in Las Vegas 89113. Guard-gated golf living with clubhouse, tennis, and pool access.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Lifestyle',
-        subtitle: 'Living in Las Vegas',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-club-dining'),
     ],
   },
   twitter: {
@@ -57,11 +53,7 @@ export const metadata: Metadata = {
     description:
       'Things to do, dining, and shopping near Spanish Trail in Las Vegas.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Living',
-        subtitle: 'Recreation, dining & shopping',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-club-dining'),
     ],
   },
 }
@@ -119,14 +111,6 @@ export default function SpanishTrailLifestylePage() {
   return (
     <SiteShell>
       <HeroSection />
-      <RealScoutSection
-        id="bhhs-listings"
-        eyebrow="Find Your Home"
-        title="Spanish Trail homes for every lifestyle"
-        description="Whether you seek golf course views, lock-and-leave convenience, or space for a growing family, browse current listings in this premier Las Vegas community."
-        priceMin="600000"
-        propertyTypes=",SFR,CONDO"
-      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
           <Breadcrumbs
@@ -434,15 +418,7 @@ function FAQSection() {
         <h2 id="lifestyle-faq-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Spanish Trail Lifestyle FAQs
         </h2>
-        <div className="mt-10 space-y-6">
-          {faqContent.map((item) => (
-            <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10 text-base leading-relaxed text-[#372a20]/85">
-              <CardVisual seed={String(item.question)} />
-              <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">{item.question}</h3>
-              <p>{item.answer}</p>
-            </article>
-          ))}
-        </div>
+        <FaqList items={faqContent} />
       </div>
     </section>
   )

@@ -1,4 +1,4 @@
-import { getSiteImageUrl } from '@/lib/cloudflare-images'
+import { getAbsoluteSiteImageUrl, getSiteImageUrl } from '@/lib/cloudflare-images'
 
 export type HeadingLevel = 'h1' | 'h2' | 'h3'
 
@@ -48,7 +48,9 @@ const ALTS: Record<string, string> = {
   'h1-pool':
     'Spanish Trail Country Club resort pool and spa deck in Las Vegas',
   'h1-contact-office':
-    'Spanish Trail real estate office interior at 5050 Spanish Trail Ln, Las Vegas',
+    'Professional Spanish Trail real estate office at 5050 Spanish Trail Ln with a community map and golf-course view in Las Vegas 89113',
+  'h1-office-exterior':
+    'Spanish Trail clubhouse office exterior at 5050 Spanish Trail Ln, Las Vegas NV 89113, matching the Google Business Profile pin',
   'h2-kitchen-fairway':
     'Luxury kitchen overlooking a Spanish Trail golf fairway in Las Vegas',
   'h2-club-dining':
@@ -68,17 +70,27 @@ const ALTS: Record<string, string> = {
   'h2-events-lawn':
     'Spanish Trail Country Club event lawn and clubhouse at twilight in Las Vegas',
   'h2-awards-study':
-    'Professional study for Spanish Trail luxury real estate advisory in Las Vegas',
+    'Professional study overlooking desert golf and palms for Spanish Trail luxury real estate advisory in Las Vegas 89113',
   'h2-accessible-entrance':
-    'Wheelchair-accessible ramp and parking at Spanish Trail Country Club, Las Vegas 89113',
+    'Wheelchair-accessible ramp, ADA parking stall, and level entrance at Spanish Trail Country Club in Las Vegas 89113',
+  'h2-directions-approach':
+    'Palm-lined boulevard approaching the Spanish Trail guard gates from Tropicana and Rainbow in Las Vegas 89113',
   'h2-community-map':
     'Overview of Spanish Trail gated golf community streets and fairways in Las Vegas',
   'h2-schools-campus':
-    'Campus architecture near Spanish Trail Las Vegas 89113',
+    'Desert campus architecture and athletic field near Spanish Trail Las Vegas 89113',
   'h2-guest-casita':
     'Guest casita courtyard at a Spanish Trail Las Vegas golf estate',
   'h2-reviews-terrace':
-    'Spanish Trail Country Club terrace overlooking a Las Vegas golf fairway used for client hospitality',
+    'Spanish Trail Country Club terrace overlooking desert golf and palms in Las Vegas 89113',
+  'h2-parks-greenbelt':
+    'HOA greenbelt walking path with desert landscaping and golf turf inside Spanish Trail, Las Vegas 89113',
+  'h2-shopping-plaza':
+    'Twilight patio and Mediterranean retail buildings near Spanish Trail in southwest Las Vegas 89113',
+  'h2-tennis-proshop':
+    'Spanish Trail Country Club tennis pro shop with racquets and a view of lighted courts in Las Vegas',
+  'h2-club-history':
+    'Mediterranean Spanish Trail Country Club clubhouse colonnade and golf green at golden hour in Las Vegas 89113',
   'h2-golf-sunrise':
     'Sunrise nine golf holes at Spanish Trail Country Club, Las Vegas',
   'h2-golf-lakes':
@@ -104,7 +116,7 @@ const ALTS: Record<string, string> = {
   'h3-gatehouse':
     'Secondary gatehouse inside Spanish Trail, Las Vegas guard-gated community',
   'h3-spa-bath':
-    'Spa bath with golf-course view in a Spanish Trail Las Vegas luxury home',
+    'Spa bath with a desert golf-course view in a Spanish Trail Las Vegas luxury home',
   'h3-cart-path':
     'Golf cart path through Spanish Trail Country Club in Las Vegas',
   'h3-townhome-villa':
@@ -118,11 +130,11 @@ const ALTS: Record<string, string> = {
   'h3-listing-home-c':
     'Twilight custom estate listing in Spanish Trail Las Vegas',
   'h3-listing-home-d':
-    'Golf villa patio opening to a Spanish Trail Las Vegas fairway',
+    'Golf villa great room opening to a Spanish Trail Las Vegas fairway with desert palms',
   'h3-listing-home-e':
-    'Lakeside golf home terrace in Spanish Trail Las Vegas',
+    'Lakeside Mediterranean golf home terrace at sunset in Spanish Trail Las Vegas',
   'h3-listing-home-f':
-    'Tree-lined Spanish Trail Las Vegas home with greenbelt frontage',
+    'Single-story desert golf-neighborhood home on a Spanish Trail Las Vegas street',
 }
 
 type MediaRule = {
@@ -133,6 +145,7 @@ type MediaRule = {
 
 const RULES: MediaRule[] = [
   { test: /aeo-answer/, id: 'skip' },
+  { test: /faq/, id: 'skip' },
   { test: /waterfront|lakes-course|lake/, id: 'h1-waterfront', level: 'h1' },
   { test: /pool|aquatic|spa/, id: 'h1-pool', level: 'h1' },
   { test: /tennis|pickleball|racquet/, id: 'h2-tennis' },
@@ -152,17 +165,38 @@ const RULES: MediaRule[] = [
   { test: /review|testimonial/, id: 'h2-reviews-terrace' },
   { test: /reloc|skyline|southwest|valley/, id: 'h2-valley-skyline' },
   { test: /hoa|orientation|gate-access|landscap/, id: 'h3-hoa-landscaping' },
-  { test: /guest|casita|etiquette/, id: 'h2-guest-casita' },
-  { test: /accessib/, id: 'h2-accessible-entrance' },
+  { test: /guest|casita|etiquette|arrival/, id: 'h2-guest-casita' },
+  { test: /accessib|commitment|standards|testing|assistive|feedback|improvements/, id: 'h2-accessible-entrance' },
+  { test: /wedding/, id: 'h2-events-lawn' },
+  { test: /proshop/, id: 'h2-tennis-proshop' },
+  { test: /shop|retail/, id: 'h2-shopping-plaza' },
+  { test: /park|outdoor|things-to-do|greenbelt/, id: 'h2-parks-greenbelt' },
+  { test: /history/, id: 'h2-club-history' },
+  { test: /share-heading|qr-code|best-practices|resident-stories/, id: 'h2-reviews-terrace' },
   { test: /office-map|aerial|overview/, id: 'h2-office-map' },
-  { test: /gbp|google-business|business-info|connect-heading/, id: 'h1-contact-office' },
-  { test: /map|direction|location|amenity|autocomplete/, id: 'h2-office-map' },
+  { test: /location-heading|choose-locations|comparison|proximity|commuter|local-essentials|address/, id: 'h2-community-map' },
+  { test: /gbp|google-business|find-locations|find-our|site-index|business-info|get-started|connect-heading/, id: 'h1-office-exterior', level: 'h1' },
+  { test: /expertise|approach|philosophy|story|facts|impact|advisory|insight|media-heading/, id: 'h2-awards-study' },
+  { test: /offerings-heading|membership-narratives|young-executive/, id: 'h2-membership-lounge' },
+  { test: /amenities|highlights|onsite|programs|offerings|facility|facilities|features/, id: 'h2-club-history' },
+  { test: /benefits/, id: 'h2-reviews-terrace' },
+  { test: /agreement|authorized|liability|governing|intellectual|changes|sharing|data-|communications|listings-disclosure/, id: 'h1-contact-office' },
+  { test: /financing|fees|inquiry|investment|home-value|strategy|value-heading|timeline/, id: 'h2-kitchen-fairway' },
+  { test: /buying-process|buying-experience|offer-closing|property-types|property-pathways|overview|details/, id: 'h1-luxury-estate', level: 'h1' },
+  { test: /view-|view-heading|indoor-outdoor|entertaining|renovation|elements/, id: 'h3-strip-view-patio' },
+  { test: /narratives|experience-heading/, id: 'h2-club-dining' },
+  { test: /luxury-heading|luxury-cta/, id: 'h1-luxury-estate', level: 'h1' },
+  { test: /architectural-heading/, id: 'h2-architecture' },
+  { test: /featured-listings/, id: 'h3-listing-home-a' },
+  { test: /direction/, id: 'h2-directions-approach' },
+  { test: /map|amenity|autocomplete/, id: 'h2-office-map' },
   { test: /contact|office|about|privacy|terms|security|cookie/, id: 'h1-contact-office' },
   { test: /seller|pricing|valuation|prepar|market/, id: 'h2-kitchen-fairway' },
   { test: /buyer|tour|journey|concierge/, id: 'h1-luxury-estate', level: 'h1' },
   { test: /dining|grill|social/, id: 'h2-club-dining' },
   { test: /neighborhood|street|community/, id: 'h2-neighborhood-street' },
   { test: /guard|gate|security/, id: 'h1-guard-gate', level: 'h1' },
+  { test: /cta/, id: 'h1-guard-gate', level: 'h1' },
   { test: /hero/, id: 'h1-guard-gate', level: 'h1' },
 ]
 
@@ -175,7 +209,9 @@ function hashSeed(value: string): number {
 }
 
 function isHeroHeading(headingId: string): boolean {
-  return /hero|^cta-|contact-heading|connect-heading|advisory-cta|get-started/i.test(headingId)
+  return /hero|^cta-|contact-heading|connect-heading|advisory-cta|get-started|find-locations-heading|amenity-map-heading|address-heading/i.test(
+    headingId,
+  )
 }
 
 function inferLevel(headingId: string): HeadingLevel {
@@ -199,6 +235,8 @@ function mapH1ToH2(id: string): string {
       return 'h1-pool'
     case 'h1-contact-office':
       return 'h1-contact-office'
+    case 'h1-office-exterior':
+      return 'h1-office-exterior'
     case 'h1-guard-gate':
       return 'h2-neighborhood-street'
     default:
@@ -208,6 +246,13 @@ function mapH1ToH2(id: string): string {
 
 export function getAssetAlt(assetId: string): string {
   return ALTS[assetId] ?? 'Spanish Trail Las Vegas guard-gated golf community real estate'
+}
+
+export function sitePhotoOg(assetId: string) {
+  return {
+    url: getAbsoluteSiteImageUrl(assetId),
+    alt: getAssetAlt(assetId),
+  }
 }
 
 export function resolveHeadingMedia(headingId: string): SiteImageAsset | null {
@@ -277,4 +322,63 @@ export const NEIGHBORHOOD_CARD_IMAGES: Record<string, string> = {
   villas: 'h3-townhome-villa',
   islands: 'h1-waterfront',
   'innisbrook-estates': 'h3-listing-home-c',
+}
+
+/** Real community photos for Open Graph, Twitter, and sitemap image entries. */
+export const PAGE_OG_PHOTOS: Record<string, string> = {
+  '/': 'h1-guard-gate',
+  '/buyers': 'h1-luxury-estate',
+  '/sellers': 'h2-kitchen-fairway',
+  '/services': 'h1-contact-office',
+  '/communities/spanish-trail': 'h1-guard-gate',
+  '/spanish-trail-homes-for-sale-las-vegas': 'h3-listing-home-a',
+  '/homes-for-sale-in-spanish-trail-las-vegas': 'h3-listing-home-b',
+  '/club': 'h1-clubhouse',
+  '/golf': 'h1-golf-fairway',
+  '/events': 'h2-events-lawn',
+  '/membership': 'h2-membership-lounge',
+  '/guest-info': 'h2-guest-casita',
+  '/relocation': 'h2-valley-skyline',
+  '/neighborhoods': 'h2-neighborhood-street',
+  '/spanish-trail-lifestyle': 'h2-club-dining',
+  '/spanish-trail-schools': 'h2-schools-campus',
+  '/spanish-trail-tennis': 'h2-tennis',
+  '/spanish-trail-fitness': 'h2-fitness',
+  '/spanish-trail-pools': 'h1-pool',
+  '/spanish-trail-architecture': 'h2-architecture',
+  '/spanish-trail-hoa-guide': 'h3-hoa-landscaping',
+  '/spanish-trail-guard-gated-golf-homes': 'h1-guard-gate',
+  '/spanish-trail-country-club-estate-listings': 'h1-luxury-estate',
+  '/spanish-trail-custom-estate-homes-strip': 'h3-strip-view-patio',
+  '/spanish-trail-waterfront-golf-homes': 'h1-waterfront',
+  '/spanish-trail-townhomes-villas': 'h1-villa-courtyard',
+  '/spanish-trail-southwest-las-vegas-luxury-homes': 'h2-valley-skyline',
+  '/spanish-trail-luxury-golf-course-properties': 'h1-golf-fairway',
+  '/spanish-trail-private-golf-course-homes': 'h1-golf-fairway',
+  '/spanish-trail-gated-golf-realtor': 'h1-office-exterior',
+  '/spanish-trail-market-report': 'h2-kitchen-fairway',
+  '/spanish-trail-insights': 'h2-awards-study',
+  '/las-vegas-luxury-neighborhoods': 'h2-neighborhood-street',
+  '/about': 'h1-contact-office',
+  '/media-kit': 'h2-awards-study',
+  '/contact': 'h1-contact-office',
+  '/find-our-locations': 'h1-office-exterior',
+  '/directions': 'h2-directions-approach',
+  '/amenity-map': 'h2-office-map',
+  '/site-index': 'h1-office-exterior',
+  '/google-business-profile': 'h1-office-exterior',
+  '/reviews': 'h2-reviews-terrace',
+  '/address-autocomplete': 'h2-office-map',
+  '/awards': 'h2-awards-study',
+  '/privacy': 'h1-contact-office',
+  '/terms': 'h1-contact-office',
+  '/accessibility': 'h2-accessible-entrance',
+}
+
+export function ogPhotoForPath(path: string): string {
+  if (path.startsWith('/neighborhoods/') && path !== '/neighborhoods') {
+    const slug = path.slice('/neighborhoods/'.length)
+    return NEIGHBORHOOD_CARD_IMAGES[slug] ?? 'h2-neighborhood-street'
+  }
+  return PAGE_OG_PHOTOS[path] ?? DEFAULT_H1_IMAGE
 }

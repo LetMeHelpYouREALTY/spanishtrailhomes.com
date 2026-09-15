@@ -7,8 +7,10 @@ import { RealScoutSection } from '@/components/realscout-section'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
-import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
+import { getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { FaqList } from '@/components/faq-section'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-townhomes-villas'
@@ -37,11 +39,7 @@ export const metadata: Metadata = {
     description:
       'Explore guard-gated Spanish Trail villas, Links residences, and lock-and-leave townhomes with bespoke services from Dr. Jan Duffy.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Villas & Townhomes',
-        subtitle: 'Lock-and-leave living with concierge support',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-villa-courtyard'),
     ],
   },
   twitter: {
@@ -50,11 +48,7 @@ export const metadata: Metadata = {
     description:
       'Discover the Villas, Links, Courtyards, and Springs enclaves for turnkey Spanish Trail living minutes from the Strip.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Townhomes',
-        subtitle: 'HOA insights & curated buyer services',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-villa-courtyard'),
     ],
   },
 }
@@ -418,15 +412,7 @@ function FAQSection() {
         <h2 id="townhome-faq-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Spanish Trail villa buyer FAQs
         </h2>
-        <div className="mt-10 space-y-6">
-          {faqContent.map((item) => (
-            <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-base leading-relaxed text-[#372a20]/85">
-              <CardVisual seed={String(item.question)} />
-              <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">{item.question}</h3>
-              <p>{item.answer}</p>
-            </article>
-          ))}
-        </div>
+        <FaqList items={faqContent} />
       </div>
     </section>
   )

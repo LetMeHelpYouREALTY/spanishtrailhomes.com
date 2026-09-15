@@ -8,8 +8,10 @@ import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { featuredListings, marketHighlights } from '@/lib/spanishTrailContent'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
-import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
+import { getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { FaqList } from '@/components/faq-section'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-market-report'
@@ -98,11 +100,7 @@ export const metadata: Metadata = {
     description:
       'Track pricing trends, absorption rates, and featured Spanish Trail listings updated by Dr. Jan Duffy of Berkshire Hathaway HomeServices.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Market Report',
-        subtitle: 'Weekly pricing & absorption insights',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-kitchen-fairway'),
     ],
   },
   twitter: {
@@ -111,11 +109,7 @@ export const metadata: Metadata = {
     description:
       'Stay ahead of Spanish Trail real estate trends with updated stats, featured listings, and concierge advisory from Dr. Jan Duffy.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Market Intelligence',
-        subtitle: 'Data-driven advisory by Dr. Jan Duffy',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-kitchen-fairway'),
     ],
   },
 }
@@ -259,7 +253,7 @@ function FeaturedListingsSection() {
             asChild
             className="rounded-full px-6 py-2 text-xs uppercase tracking-[0.3em]"
           >
-            <Link href="https://searchforaffordablehomes.com/neighborhood/83/spanish-trails#featured-listings">
+            <Link href="/contact">
               Speak with Dr. Duffy
             </Link>
           </Button>
@@ -285,8 +279,8 @@ function FeaturedListingsSection() {
                   variant="link"
                   className="text-xs uppercase tracking-[0.3em] text-primary"
                 >
-                  <Link href={listing.href} target="_blank" rel="noopener noreferrer">
-                    View Listing
+                  <Link href="/spanish-trail-homes-for-sale-las-vegas#bhhs-listings">
+                    Search live listings
                   </Link>
                 </Button>
               </div>
@@ -313,17 +307,7 @@ function MarketReportFAQSection() {
           </p>
         </div>
 
-        <div className="mt-12 space-y-10">
-          {marketReportFaq.map((item) => (
-            <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10">
-              <CardVisual seed={String(item.question)} />
-              <h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">
-                {item.question}
-              </h3>
-              <p className="text-base leading-relaxed text-[#372a20]/85">{item.answer}</p>
-            </article>
-          ))}
-        </div>
+        <FaqList items={marketReportFaq} />
       </div>
     </section>
   )
@@ -341,8 +325,8 @@ function ReportingCTASection() {
           Need a custom valuation or pricing strategy?
         </h2>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
-          Receive a personalized equity review, staged listing plan, or weekly buyer demand digest crafted by Dr. Jan Duffy
-          Duffy. Share your goals and preferred timeline to get started.
+          Receive a personalized equity review, staged listing plan, or weekly buyer demand digest crafted by Dr. Jan Duffy.
+          Share your goals and preferred timeline to get started.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Button

@@ -3,12 +3,13 @@ import Link from 'next/link'
 import Script from 'next/script'
 
 import { SiteShell } from '@/components/site-shell'
-import { RealScoutSection } from '@/components/realscout-section'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { FaqList } from '@/components/faq-section'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-schools'
@@ -44,11 +45,7 @@ export const metadata: Metadata = {
     description:
       'Named CCSD campuses and nearby private schools with distances for Spanish Trail buyers.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Schools',
-        subtitle: 'Named schools and distances',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-schools-campus'),
     ],
   },
   twitter: {
@@ -57,11 +54,7 @@ export const metadata: Metadata = {
     description:
       'Schools serving Spanish Trail homes in Las Vegas. Named campuses and distances for 89113 buyers.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Schools',
-        subtitle: 'Clark County School District',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-schools-campus'),
     ],
   },
 }
@@ -148,14 +141,6 @@ export default function SpanishTrailSchoolsPage() {
   return (
     <SiteShell>
       <HeroSection />
-      <RealScoutSection
-        id="bhhs-listings"
-        eyebrow="Family Homes"
-        title="Spanish Trail homes near named schools"
-        description="Browse listings by bedrooms, square footage, and neighborhood. Bishop Gorman High School is 2.2 miles; CCSD campuses serve the 89113 master plan."
-        priceMin="700000"
-        propertyTypes=",SFR"
-      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
           <Breadcrumbs
@@ -306,15 +291,7 @@ function FAQSection() {
         <h2 id="schools-faq-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           School FAQs for Spanish Trail Buyers
         </h2>
-        <div className="mt-10 space-y-6">
-          {faqContent.map((item) => (
-            <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-base leading-relaxed text-[#372a20]/85">
-              <CardVisual seed={String(item.question)} />
-              <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">{item.question}</h3>
-              <p>{item.answer}</p>
-            </article>
-          ))}
-        </div>
+        <FaqList items={faqContent} />
       </div>
     </section>
   )

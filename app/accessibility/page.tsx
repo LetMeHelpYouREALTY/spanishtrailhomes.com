@@ -7,7 +7,8 @@ import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
 import { GbpFaqList } from '@/components/gbp-faq-list'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl, createFaqPageSchema } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl, createFaqPageSchema } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 
@@ -65,11 +66,7 @@ export const metadata: Metadata = {
     description:
       'See the inclusive design practices, assistive technology support, and contact information for accessibility requests on SpanishTrailHomes.com.',
     images: [
-      createOgImageUrl({
-        title: 'Accessibility Commitment',
-        subtitle: 'Inclusive access to SpanishTrailHomes.com',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-accessible-entrance'),
     ],
   },
   twitter: {
@@ -78,11 +75,7 @@ export const metadata: Metadata = {
     description:
       'Discover how SpanishTrailHomes.com meets WCAG guidance and how to request accommodations or report usability issues.',
     images: [
-      createOgImageUrl({
-        title: 'Accessibility Support',
-        subtitle: 'WCAG-aligned experience & request channels',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-accessible-entrance'),
     ],
   },
 }
@@ -150,6 +143,7 @@ function HeroSection() {
     <header className="relative isolate overflow-hidden text-[#f8f5ef]" aria-labelledby="accessibility-hero-heading">
       <HeroBackground
         src={getSiteImageUrl('h2-accessible-entrance')}
+        alt="Wheelchair-accessible ramp, ADA parking stall, and level entrance at Spanish Trail Country Club in Las Vegas 89113"
         overlayClassName="bg-gradient-to-b from-[#0f2b1e]/55 to-[#0f2b1e]/85"
         sizes="(max-width: 1024px) 100vw, 1280px"
       />
@@ -290,7 +284,6 @@ function AssistiveTechnologySection() {
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <article className="rounded-3xl border border-white/15 bg-white/10 p-6 shadow-lg shadow-black/20 backdrop-blur">
-              <CardVisual seed="card-1" />
             <h3 className="font-heading text-xl text-white">Supported tools</h3>
             <p className="mt-3 text-sm leading-relaxed text-[#f8f5ef]/80">
               Screen readers (NVDA, JAWS, VoiceOver), screen magnifiers, voice input software, and keyboard-only navigation are
@@ -298,7 +291,6 @@ function AssistiveTechnologySection() {
             </p>
           </article>
           <article className="rounded-3xl border border-white/15 bg-white/10 p-6 shadow-lg shadow-black/20 backdrop-blur">
-              <CardVisual seed="card-2" />
             <h3 className="font-heading text-xl text-white">Responsive design</h3>
             <p className="mt-3 text-sm leading-relaxed text-[#f8f5ef]/80">
               Layouts adapt for small screens, large monitors, and assistive interfaces, ensuring consistent access to listings,

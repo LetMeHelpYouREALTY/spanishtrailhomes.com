@@ -2,6 +2,7 @@ import { ReactNode } from 'react'
 
 import { AgentPortrait } from '@/components/agent-portrait'
 import { WidgetLoadingOverlay } from '@/components/widget-loading-overlay'
+import { MlsDisclaimer } from '@/components/mls-disclaimer'
 
 type ListingStatus = 'For Sale' | 'Sold' | 'In Contract' | 'For Rent' | 'Rented'
 
@@ -94,6 +95,7 @@ export function RealScoutSection({
             message={listingOverlayMessage(listingStatus)}
           />
         </div>
+        <MlsDisclaimer className="mt-4 text-xs leading-relaxed text-[#372a20]/70" />
       </div>
     </section>
   )

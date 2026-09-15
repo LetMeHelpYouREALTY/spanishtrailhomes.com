@@ -3,12 +3,13 @@ import Script from 'next/script'
 
 import { SiteShell } from '@/components/site-shell'
 import { CalendlyInline } from '@/components/calendly-inline'
-import { RealScoutSection } from '@/components/realscout-section'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { HeroBackground } from '@/components/hero-background'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { FaqList } from '@/components/faq-section'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 
 
@@ -23,7 +24,7 @@ const membershipNarratives = [
   {
     title: 'Membership Categories at a Glance',
     paragraphs: [
-      'Full golf members enjoy unlimited tee times across all 27 holes, tournament access, and reciprocal privileges at partner clubs. Social and lifestyle members access dining, tennis, pools, fitness, and the full social calendar without golf privileges. Young executive memberships offer reduced initiation fees for members under 40. Corporate memberships allow businesses to designate multiple users for client entertainment.',
+      'Full golf members enjoy unlimited tee times across all 27 holes, tournament access, and reciprocal privileges at partner clubs. Social and lifestyle members access dining, tennis, pools, fitness, and the full social calendar without golf privileges. Additional club categories—including Young Executive and Corporate—have their own initiation schedules; confirm eligibility and pricing with the membership office.',
       'Dr. Duffy provides an overview of each category so home buyers can evaluate which tier fits their lifestyle. She recommends contacting the club directly for current pricing and availability, and can facilitate that introduction.'
     ],
   },
@@ -127,11 +128,7 @@ export const metadata: Metadata = {
     description:
       'Understand membership options, costs, and transfers when buying or selling a Spanish Trail home. Real estate guidance from Dr. Jan Duffy.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Membership',
-        subtitle: 'Guide for home buyers & sellers',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-membership-lounge'),
     ],
   },
   twitter: {
@@ -140,11 +137,7 @@ export const metadata: Metadata = {
     description:
       'Learn how club membership works when buying or selling a Spanish Trail home.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Membership',
-        subtitle: 'For home buyers & sellers',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-membership-lounge'),
     ],
   },
 }
@@ -156,7 +149,7 @@ const membershipOptions = [
   },
   {
     title: 'Young Executive Membership',
-    copy: 'Reduced initiation fees for members under 40, including mentorship programs and networking events.',
+    copy: 'A club membership category with its own initiation schedule. Confirm current eligibility and dues with the membership office.',
   },
   {
     title: 'Corporate Golf Membership',
@@ -172,14 +165,6 @@ export default function MembershipPage() {
   return (
     <SiteShell>
       <MembershipHero />
-      <RealScoutSection
-        id="bhhs-listings"
-        eyebrow="Homes for Sale"
-        title="Spanish Trail Homes with Club Access"
-        description="Browse homes for sale in Spanish Trail. Dr. Duffy helps you understand membership options and costs as part of your home buying process."
-        priceMin="500000"
-        propertyTypes=",SFR,CONDO"
-      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Membership Guide' }]} />
@@ -383,21 +368,21 @@ function YoungExecutiveSection() {
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 lg:grid-cols-[1.1fr_1fr]">
         <div className="space-y-5">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">
-            Young Executive Program
+            Club membership tiers
           </p>
           <h2
             id="young-executive-heading"
             className="font-[var(--font-playfair)] text-3xl text-foreground sm:text-4xl"
           >
-            Reduced initiation for members under 40
+            Ask the club about current initiation incentives
           </h2>
           <p className="text-base leading-relaxed text-muted-foreground">
-            Spanish Trail offers a young executive membership with reduced initiation fees for members under 40. This makes country club living more accessible for younger buyers. Contact the club directly for current eligibility and pricing.
+            Spanish Trail Country Club membership is optional and separate from HOA dues. After a home tour, Dr. Jan Duffy can introduce you to the membership office so you can confirm current initiation specials, dues, and waitlists directly with the club.
           </p>
           <div className="space-y-3 text-sm text-muted-foreground">
-            <p>• Progressive dues structure as you advance in age</p>
-            <p>• Full access to golf, tennis, pools, and dining</p>
-            <p>• Networking events with established members</p>
+            <p>• Golf, tennis, pools, and dining access vary by membership category</p>
+            <p>• Initiation and dues are set by the club, not by the listing price</p>
+            <p>• Confirm transfer rules before you write an offer on a golf-course home</p>
           </div>
         </div>
 
@@ -407,7 +392,7 @@ function YoungExecutiveSection() {
             backgroundImage: `url('${getSiteImageUrl('h2-membership-lounge')}')`,
           }}
           role="img"
-          aria-label="Members socializing at Spanish Trail Country Club"
+          aria-label="Spanish Trail Country Club membership lounge overlooking Las Vegas fairways"
         />
       </div>
     </section>
@@ -458,17 +443,7 @@ function MembershipFAQSection() {
           </p>
         </div>
 
-        <div className="mt-12 space-y-10">
-          {membershipFaq.map((item) => (
-            <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">
-              <CardVisual seed={String(item.question)} />
-              <h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">
-                {item.question}
-              </h3>
-              <p className="text-base leading-relaxed text-[#372a20]/85">{item.answer}</p>
-            </article>
-          ))}
-        </div>
+        <FaqList items={membershipFaq} />
       </div>
     </section>
   )

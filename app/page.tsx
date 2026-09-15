@@ -11,15 +11,18 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { marketHighlights, neighborhoodSpotlights } from '@/lib/spanishTrailContent'
 import { marketStats } from '@/lib/marketStats'
-import { createBreadcrumbSchema, createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createBreadcrumbSchema, createFaqSchema, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { HeroBackground } from '@/components/hero-background'
 import { FeaturedListings } from '@/components/featured-listings'
 import { PropertyLightboxProvider } from '@/components/property-lightbox'
 import { TestimonialCarousel } from '@/components/testimonial-carousel'
 import { TourCTAStrip } from '@/components/tour-cta-strip'
-import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { SectionBanner } from '@/components/heading-media'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 import { AgentPortrait } from '@/components/agent-portrait'
+import { FaqSection } from '@/components/faq-section'
+import { MlsDisclaimer } from '@/components/mls-disclaimer'
 import { GbpLocalActions } from '@/components/gbp-local-actions'
 
 
@@ -57,11 +60,7 @@ export const metadata: Metadata = {
     title: 'Buy and Sell Spanish Trail Homes | Dr. Jan Duffy',
     description: homePageDescription,
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Homes Realtor',
-        subtitle: 'Buy, sell, and tour in 89113 only',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-guard-gate'),
     ],
   },
   twitter: {
@@ -69,11 +68,7 @@ export const metadata: Metadata = {
     title: 'Buy and Sell Spanish Trail Homes | Dr. Jan Duffy',
     description: homePageDescription,
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Homes',
-        subtitle: 'Realtor services inside the 89113 gates',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-guard-gate'),
     ],
   },
 }
@@ -154,18 +149,7 @@ const homeFaq = [
   },
 ]
 
-const homeFaqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: homeFaq.map((item) => ({
-    '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: item.answer,
-    },
-  })),
-}
+const homeFaqSchema = createFaqSchema(homeFaq)
 
 const homeResourceSchema = {
   '@context': 'https://schema.org',
@@ -216,12 +200,6 @@ export default function HomePage() {
     <SiteShell>
       <PropertyLightboxProvider>
         <HeroSection />
-        <RealScoutSection
-          id="bhhs-listings"
-          title="Spanish Trail homes Dr. Duffy can show this week"
-          description="Live inventory inside the 89113 gates. Estate homes, villas, and off-market tours—schedule a showing with the community’s exclusive realtor."
-          priceMin="500000"
-        />
         <AEOAnswerSection />
         <div className="bg-white">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
@@ -239,7 +217,14 @@ export default function HomePage() {
       <TestimonialCarousel />
       <InsightsPreviewSection />
       <ExploreFurtherSection />
-      <FAQSection />
+      <FaqSection
+        headingId="faq-heading"
+        eyebrow="Spanish Trail realtor FAQ"
+        heading="Why work with a Spanish Trail-only realtor?"
+        intro="Dr. Jan Duffy answers the questions buyers and sellers ask before hiring representation in this community. Book a tour or text (702) 766-3299."
+        items={homeFaq}
+        showCtas
+      />
       <CTASection />
       </PropertyLightboxProvider>
       <Script id="home-breadcrumb-schema" type="application/ld+json" strategy="afterInteractive">
@@ -263,8 +248,10 @@ function AEOAnswerSection() {
     <section className="bg-gradient-to-b from-[#f8f5ef] to-white py-12 sm:py-16" aria-labelledby="aeo-answer">
       <div className="mx-auto max-w-4xl px-6">
         <div className="rounded-3xl border border-[#0f2b1e]/10 bg-white p-8 shadow-xl shadow-primary/5">
-          <h2 id="aeo-answer" className="sr-only">Who buys and sells Spanish Trail homes?</h2>
-          <div className="prose prose-lg max-w-none">
+          <h2 id="aeo-answer" className="font-heading text-2xl text-[#1f2a24] sm:text-3xl">
+            Who buys and sells Spanish Trail homes?
+          </h2>
+          <div className="prose prose-lg mt-4 max-w-none">
             <p className="text-lg leading-relaxed text-[#1f2a24]">
               Dr. Jan Duffy buys and sells Spanish Trail homes in Las Vegas ZIP 89113—also searched as Spanish Trails. Realtor services only for this community: buyer representation, seller representation, and private tours across 11 neighborhoods and 1,200+ homes. Berkshire Hathaway HomeServices Nevada Properties. Call (702) 766-3299.
             </p>
@@ -362,7 +349,6 @@ const realtorServices = [
 function RealtorServicesSection() {
   return (
     <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="realtor-services-heading">
-      <SectionBanner headingId="realtor-services-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Luxury realtor services</p>
@@ -379,11 +365,10 @@ function RealtorServicesSection() {
               key={service.title}
               className="rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10"
             >
-              <CardVisual seed={service.title} />
-              <h3 className="mt-4 font-heading text-2xl text-[#1f2a24]">{service.title}</h3>
+              <h3 className="font-heading text-2xl text-[#1f2a24]">{service.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-[#372a20]/85">{service.description}</p>
               <Button asChild variant="link" className="mt-2 justify-start px-0 text-xs uppercase tracking-[0.3em] text-primary">
-                <Link href={service.href}>Learn more</Link>
+                <Link href={service.href}>{service.title}</Link>
               </Button>
             </article>
           ))}
@@ -400,8 +385,7 @@ function RealtorServicesSection() {
 
 function IntroSection() {
   return (
-    <section className="bg-white py-20" aria-labelledby="intro-heading">
-      <SectionBanner headingId="intro-heading" />
+    <section className="bg-white py-16 sm:py-20" aria-labelledby="intro-heading">
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 lg:grid-cols-[1.2fr_1fr]">
         <div className="space-y-6">
           <h2 id="intro-heading" className="font-heading text-3xl text-foreground sm:text-4xl">
@@ -528,15 +512,14 @@ const journeySteps = [
 
 function JourneySection() {
   return (
-    <section className="border-y border-[#0b2016] bg-[#0f2b1e] py-20 sm:py-24" aria-labelledby="journey-heading">
-      <SectionBanner headingId="journey-heading" />
+    <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="journey-heading">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="max-w-3xl space-y-4 text-center">
-          <p className="text-xs uppercase tracking-[0.5em] text-[#f8f5ef]/75">Realtor process</p>
-          <h2 id="journey-heading" className="font-heading text-3xl text-[#f8f5ef] sm:text-4xl">
+        <div className="max-w-3xl space-y-4">
+          <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Realtor process</p>
+          <h2 id="journey-heading" className="font-heading text-3xl text-[#1f2a24] sm:text-4xl">
             How we buy, sell, and tour Spanish Trail homes
           </h2>
-          <p className="text-base leading-relaxed text-[#f8f5ef]/85">
+          <p className="text-base leading-relaxed text-[#372a20]/85">
             Buy, sell, or tour—every engagement stays inside this community.
           </p>
         </div>
@@ -544,12 +527,11 @@ function JourneySection() {
           {journeySteps.map((step, i) => (
             <article
               key={step.title}
-              className="rounded-3xl border border-[#1f4a35]/80 bg-[#16402d] p-6 shadow-lg shadow-black/20 text-center"
+              className="rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10"
             >
-              <CardVisual seed={String(step.title)} />
-              <p className="text-xs uppercase tracking-[0.4em] text-[#f8f5ef]/75">Step {i + 1}</p>
-              <h3 className="mt-3 font-heading text-xl text-[#f8f5ef]">{step.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-[#f8f5ef]/80">{step.description}</p>
+              <p className="text-xs uppercase tracking-[0.4em] text-[#6f5237]">Step {i + 1}</p>
+              <h3 className="mt-3 font-heading text-xl text-[#1f2a24]">{step.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-[#372a20]/85">{step.description}</p>
             </article>
           ))}
         </div>
@@ -560,8 +542,7 @@ function JourneySection() {
 
 function NeighborhoodSpotlightsSection() {
   return (
-    <section className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="neighborhood-spotlights-heading">
-      <SectionBanner headingId="neighborhood-spotlights-heading" />
+    <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="neighborhood-spotlights-heading">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Spanish Trail community</p>
@@ -604,8 +585,7 @@ function NeighborhoodSpotlightsSection() {
 function MarketPreviewSection() {
   return (
     <section className="border-y border-border/40 bg-white" aria-labelledby="market-preview-heading">
-      <SectionBanner headingId="market-preview-heading" />
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-20">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl space-y-3">
             <p className="text-xs uppercase tracking-[0.5em] text-secondary">Market Snapshot</p>
@@ -630,7 +610,6 @@ function MarketPreviewSection() {
               key={item.label}
               className="rounded-3xl border border-border/40 bg-white p-6 shadow-md shadow-primary/10"
             >
-              <CardVisual seed={String(item.label)} />
               <p className="text-xs uppercase tracking-[0.4em] text-secondary">{item.label}</p>
                 <p className="mt-3 font-heading text-2xl text-[#1f2a24]">{item.value}</p>
               <p className="mt-2 text-xs uppercase tracking-[0.3em] text-muted-foreground">{item.trend} change</p>
@@ -651,8 +630,7 @@ const insightHighlights = [
 
 function InsightsPreviewSection() {
   return (
-    <section className="bg-white py-20 sm:py-24" aria-labelledby="insights-preview-heading">
-      <SectionBanner headingId="insights-preview-heading" />
+    <section className="bg-white py-16 sm:py-20" aria-labelledby="insights-preview-heading">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Strategy & Advisory</p>
@@ -690,37 +668,22 @@ function InsightsPreviewSection() {
 
 const exploreCards = [
   {
-    title: 'Realtor Services',
-    description: 'Buy, sell, private tours, and community counsel—Dr. Jan Duffy’s Spanish Trail practice in one place.',
-    href: '/services',
-  },
-  {
-    title: 'Buy Spanish Trail Homes',
-    description: 'Buyer representation: gate access, enclave matching, financing strategy, and offer support.',
-    href: '/buyers',
-  },
-  {
-    title: 'Sell Your Spanish Trail Home',
-    description: 'Seller representation: valuation, prep, luxury marketing, and negotiation inside 89113.',
-    href: '/sellers',
-  },
-  {
-    title: 'Spanish Trail Listings',
+    title: 'Spanish Trail listings',
     description: 'Live MLS search for guard-gated golf homes in Las Vegas ZIP 89113.',
     href: '/spanish-trail-homes-for-sale-las-vegas',
   },
   {
-    title: '11 Neighborhoods',
+    title: '11 neighborhoods',
     description: 'Estates, villas, fairway homes, and townhomes—compare enclaves before you tour.',
     href: '/neighborhoods',
   },
   {
-    title: 'Spanish Trail Community Guide',
+    title: 'Spanish Trail community guide',
     description: 'HOA, gates, architecture, and how the master plan is laid out in southwest Las Vegas.',
     href: '/communities/spanish-trail',
   },
   {
-    title: 'Spanish Trail Market Report',
+    title: 'Spanish Trail market report',
     description: 'Weekly pricing shifts, absorption rates, and demand indicators for smart offers.',
     href: '/spanish-trail-market-report',
   },
@@ -738,8 +701,7 @@ const exploreCards = [
 
 function ExploreFurtherSection() {
   return (
-    <section className="bg-[#f9f4eb] py-20 sm:py-24" aria-labelledby="explore-further-heading">
-      <SectionBanner headingId="explore-further-heading" />
+    <section className="bg-[#f9f4eb] py-16 sm:py-20" aria-labelledby="explore-further-heading">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">Realtor & community resources</p>
@@ -763,56 +725,10 @@ function ExploreFurtherSection() {
                 </p>
                 <p className="text-sm leading-relaxed text-[#372a20]/85">{card.description}</p>
               </div>
-              <span className="mt-6 text-xs font-semibold uppercase tracking-[0.3em] text-[#0f2b1e] group-hover:text-[#0b2016]">
-                Discover &rarr;
+              <span className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-[#0f2b1e] group-hover:text-[#0b2016]">
+                {card.title} &rarr;
               </span>
             </Link>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-function FAQSection() {
-  return (
-    <section className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="faq-heading">
-      <SectionBanner headingId="faq-heading" />
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="max-w-3xl space-y-4">
-          <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Spanish Trail realtor FAQ</p>
-        <h2 id="faq-heading" className="font-heading text-3xl text-[#1f2a24] sm:text-4xl">
-            Why work with a Spanish Trail-only realtor?
-          </h2>
-          <p className="text-base leading-relaxed text-[#372a20]/85">
-            Dr. Jan Duffy answers the questions buyers and sellers ask before hiring representation in this community. Book a tour or text (702) 766-3299.
-          </p>
-        </div>
-
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <CalendlyLink className="inline-flex items-center justify-center rounded-full bg-[#0f2b1e] px-8 py-3 text-base font-semibold text-white shadow-md hover:bg-[#0f2b1e]/90" ctaText="Book Tour to See Inside" ctaLocation="faq">
-            Book Tour to See Inside
-          </CalendlyLink>
-          <Button
-            asChild
-            variant="outline"
-            className="rounded-full border-[#0f2b1e]/60 px-6 py-2 text-sm font-medium text-[#0f2b1e] hover:bg-[#0f2b1e]/10"
-          >
-            <TrackedSmsLink intent="question" href="sms:+17027663299?body=I%20have%20a%20question%20about%20Spanish%20Trail%20homes" className="inline-flex items-center" aria-label="Text your question to 702-766-3299">
-              Text Your Question: 702-766-3299
-            </TrackedSmsLink>
-          </Button>
-        </div>
-
-        <div className="mt-12 space-y-10">
-          {homeFaq.map((item) => (
-            <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">
-              <CardVisual seed={String(item.question)} />
-              <h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">
-                {item.question}
-              </h3>
-              <p className="text-base leading-relaxed text-[#372a20]/85">{item.answer}</p>
-            </article>
           ))}
         </div>
       </div>
@@ -860,25 +776,33 @@ function CTASection() {
 
 function AdvancedSearchSection() {
   return (
-    <section className="bg-[#f8f2e7] py-20 sm:py-24" aria-labelledby="advanced-search-heading">
-      <SectionBanner headingId="advanced-search-heading" />
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="max-w-3xl space-y-4 text-center sm:mx-auto">
-          <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Tailored Search</p>
-          <h2 id="advanced-search-heading" className="font-heading text-3xl text-[#1f2a24] sm:text-4xl">
-            Search Spanish Trail homes for sale
-          </h2>
-          <p className="text-base leading-relaxed text-[#372a20]/85">
-            Filter by price point, property style, and lifestyle amenities using our advanced RealScout experience. Save favorites, request tours, or alert Dr. Jan Duffy when the perfect Spanish Trail property appears.
-          </p>
-        </div>
-        <FeaturedListings activeListings={marketStats.active_listings} />
-        <div id="realscout-advanced-search" className="mt-12 flex justify-center">
-          <div className="w-full max-w-lg rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">
-            <realscout-advanced-search agent-encoded-id="QWdlbnQtMjI1MDUw"></realscout-advanced-search>
+    <>
+      <RealScoutSection
+        id="bhhs-listings"
+        title="Spanish Trail homes Dr. Duffy can show this week"
+        description="Live inventory inside the 89113 gates. Estate homes, villas, and off-market tours—schedule a showing with the community’s exclusive realtor."
+        priceMin="500000"
+      />
+      <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="advanced-search-heading">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="max-w-3xl space-y-4 text-center sm:mx-auto">
+            <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Tailored Search</p>
+            <h2 id="advanced-search-heading" className="font-heading text-3xl text-[#1f2a24] sm:text-4xl">
+              Search Spanish Trail homes for sale
+            </h2>
+            <p className="text-base leading-relaxed text-[#372a20]/85">
+              Filter by price, beds, and property type. Save the search, then text Dr. Jan Duffy at (702) 766-3299 for gate access.
+            </p>
+          </div>
+          <FeaturedListings activeListings={marketStats.active_listings} />
+          <div id="realscout-advanced-search" className="mt-12 flex justify-center">
+            <div className="w-full max-w-lg rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">
+              <realscout-advanced-search agent-encoded-id="QWdlbnQtMjI1MDUw"></realscout-advanced-search>
+              <MlsDisclaimer />
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   )
 }

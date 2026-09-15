@@ -8,9 +8,11 @@ import { RealScoutSection } from '@/components/realscout-section'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
-import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
+import { getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { marketStats, formatMedianPrice } from '@/lib/marketStats'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { FaqList } from '@/components/faq-section'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-homes-for-sale-las-vegas'
@@ -39,11 +41,7 @@ export const metadata: Metadata = {
     description:
       'Discover guard-gated Spanish Trail listings, market data, and private tour options with Dr. Jan Duffy—Las Vegas luxury golf community specialist.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Homes for Sale',
-        subtitle: 'Active listings & concierge tours with Dr. Jan Duffy',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h3-listing-home-a'),
     ],
   },
   twitter: {
@@ -52,11 +50,7 @@ export const metadata: Metadata = {
     description:
       'Explore Spanish Trail guard-gated golf homes, villas, and estates with Dr. Jan Duffy. Live market data and private tours available.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Listings',
-        subtitle: 'Live market data & private showings',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h3-listing-home-a'),
     ],
   },
 }
@@ -292,7 +286,7 @@ function NeighborhoodHighlightsSection() {
             },
             {
               title: 'Springs & Plum Creek',
-              detail: 'Tree-lined streets, quick walk to community pocket parks, and strong demand from families wanting Bishop Gorman and Faith Lutheran access.',
+              detail: 'Tree-lined streets, a short walk to community pocket parks, and strong demand from buyers commuting to Bishop Gorman and Faith Lutheran.',
             },
             {
               title: 'Courtyards & Gardens',
@@ -428,15 +422,7 @@ function FAQSection() {
         <h2 id="faq-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Live listings, alerts & tour questions
         </h2>
-        <div className="mt-10 space-y-6">
-          {faqContent.map((item) => (
-            <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-base leading-relaxed text-[#372a20]/85">
-              <CardVisual seed={String(item.question)} />
-              <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">{item.question}</h3>
-              <p>{item.answer}</p>
-            </article>
-          ))}
-        </div>
+        <FaqList items={faqContent} />
       </div>
     </section>
   )

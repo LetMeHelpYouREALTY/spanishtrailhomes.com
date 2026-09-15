@@ -6,7 +6,8 @@ export type NavItem = {
   group?: string
 }
 
-const LISTINGS_HREF = '/spanish-trail-homes-for-sale-las-vegas'
+export const SITE_LISTINGS_HREF = '/spanish-trail-homes-for-sale-las-vegas'
+const LISTINGS_HREF = SITE_LISTINGS_HREF
 
 export const NAV_ITEMS: NavItem[] = [
   {

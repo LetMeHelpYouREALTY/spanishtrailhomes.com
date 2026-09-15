@@ -8,9 +8,10 @@ import { RealScoutSection } from '@/components/realscout-section'
 import { Button } from '@/components/ui/button'
 import { nearbyCommunities } from '@/lib/spanishTrailContent'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
-import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
-import { SectionBanner, CardVisual } from '@/components/heading-media'
-
+import { getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
+import { SectionBanner } from '@/components/heading-media'
+import { FaqList } from '@/components/faq-section'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/las-vegas-luxury-neighborhoods'
 
@@ -73,7 +74,7 @@ const luxuryNeighborhoodsFaq = [
   {
     question: 'How does Spanish Trail compare to The Ridges in terms of price and lifestyle?',
     answer:
-      'Spanish Trail typically offers better value per square foot with established landscaping and mature amenities, while The Ridges features newer construction and ultra-modern architecture at a premium. Spanish Trail\'s triple-course golf and guard-gated security appeal to buyers seeking established community character, while The Ridges attracts those prioritizing new-build technology and elevated HOA programming. Dr. Duffy provides detailed comparisons during neighborhood tours.',
+      'Spanish Trail typically offers better value per square foot with mature landscaping and a 27-hole private golf course, while The Ridges features newer construction and contemporary architecture at a premium. Spanish Trail’s guard-gated layout and club amenities appeal to buyers who want lock-and-leave golf living in 89113; The Ridges attracts those prioritizing new-build systems and different HOA programming. Dr. Duffy provides square-footage, dues, and commute comparisons during neighborhood tours.',
   },
   {
     question: 'What makes Spanish Trail stand out among Las Vegas luxury communities?',
@@ -88,7 +89,7 @@ const luxuryNeighborhoodsFaq = [
   {
     question: 'How do club memberships differ between Spanish Trail and other luxury communities?',
     answer:
-      'Spanish Trail offers several membership categories (for example Full Golf, Young Executive, Lifestyle, and Corporate—confirm current names and availability with the club). Red Rock Country Club has two Arnold Palmer courses with family-focused programming. The Ridges ties to Bear’s Best. The Summit Club is a separate ultra-luxury private experience. Dr. Duffy arranges meetings with membership directors wherever you tour so you can review categories, initiation and dues, waitlists, and reciprocity from official materials—not comparisons based on rumor.',
+      'Spanish Trail offers several membership categories (for example Full Golf, Young Executive, Lifestyle, and Corporate—confirm current names, eligibility, and availability with the club). Red Rock Country Club has two Arnold Palmer courses. The Ridges ties to Bear’s Best. The Summit Club is a separate private club. Dr. Duffy arranges meetings with membership directors wherever you tour so you can review categories, initiation and dues, waitlists, and reciprocity from official materials—not comparisons based on rumor.',
   },
   {
     question: 'What factors should I prioritize when comparing luxury neighborhoods?',
@@ -134,11 +135,7 @@ export const metadata: Metadata = {
     description:
       'Evaluate Spanish Trail alongside The Ridges, Red Rock Country Club, and more. Guidance by Dr. Jan Duffy, Berkshire Hathaway HomeServices.',
     images: [
-      createOgImageUrl({
-        title: 'Las Vegas Luxury Comparisons',
-        subtitle: 'Spanish Trail vs. top west valley communities',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-neighborhood-street'),
     ],
   },
   twitter: {
@@ -147,11 +144,7 @@ export const metadata: Metadata = {
     description:
       'See how Spanish Trail stacks up against The Ridges, Red Rock CC, Spanish Hills, and The Summit Club.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail vs. Las Vegas Luxury',
-        subtitle: 'Concierge comparisons for discerning buyers',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-neighborhood-street'),
     ],
   },
 }
@@ -358,17 +351,7 @@ function LuxuryNeighborhoodsFAQSection() {
           </p>
         </div>
 
-        <div className="mt-12 space-y-10">
-          {luxuryNeighborhoodsFaq.map((item) => (
-            <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">
-              <CardVisual seed={String(item.question)} />
-              <h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">
-                {item.question}
-              </h3>
-              <p className="text-base leading-relaxed text-[#372a20]/85">{item.answer}</p>
-            </article>
-          ))}
-        </div>
+        <FaqList items={luxuryNeighborhoodsFaq} />
       </div>
     </section>
   )

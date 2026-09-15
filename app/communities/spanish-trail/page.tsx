@@ -8,8 +8,10 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Metadata } from 'next'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { HeroBackground } from '@/components/hero-background'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { FaqList } from '@/components/faq-section'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 
 
@@ -45,11 +47,7 @@ export const metadata: Metadata = {
     description:
       'Tour Spanish Trail Country Club real estate—guard-gated Las Vegas 89113—with Dr. Jan Duffy.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Community Guide',
-        subtitle: 'Neighborhood insights & active listings',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-guard-gate'),
     ],
   },
   twitter: {
@@ -58,11 +56,7 @@ export const metadata: Metadata = {
     description:
       'Explore Spanish Trail homes, amenities, and buyer guides curated by Dr. Jan Duffy.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Homes',
-        subtitle: 'Guard-gated community insights & listings',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-guard-gate'),
     ],
   },
 }
@@ -185,7 +179,7 @@ const benefits = [
   },
   {
     title: 'Resort-Level Recreation',
-    copy: 'Beyond golf, enjoy tennis, swimming, fitness, and social events designed for families and professionals alike.',
+    copy: 'Beyond golf, the club lists tennis, swimming, fitness, and scheduled social events on the amenity calendar.',
   },
 ]
 
@@ -511,17 +505,7 @@ function CommunityFAQSection() {
           </p>
         </div>
 
-        <div className="mt-12 space-y-10">
-          {communityFaq.map((item) => (
-            <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">
-              <CardVisual seed={String(item.question)} />
-              <h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">
-                {item.question}
-              </h3>
-              <p className="text-base leading-relaxed text-[#372a20]/85">{item.answer}</p>
-            </article>
-          ))}
-        </div>
+        <FaqList items={communityFaq} />
       </div>
     </section>
   )

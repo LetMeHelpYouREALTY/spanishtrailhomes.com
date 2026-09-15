@@ -3,7 +3,6 @@ import Link from 'next/link'
 import Script from 'next/script'
 
 import { SiteShell } from '@/components/site-shell'
-import { RealScoutSection } from '@/components/realscout-section'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
@@ -12,13 +11,20 @@ import { SectionBanner } from '@/components/heading-media'
 import { AgentPortrait } from '@/components/agent-portrait'
 import { GbpFaqList } from '@/components/gbp-faq-list'
 import {
-  createOgImageUrl,
   createWebPageSchema,
   createBreadcrumbSchema,
   createFaqPageSchema,
   getCanonicalUrl,
 } from '@/lib/structuredData'
 import { getAgentPortraitAbsoluteUrl } from '@/lib/agent-portraits'
+import { getSiteImageUrl } from '@/lib/cloudflare-images'
+import { getAssetAlt, sitePhotoOg } from '@/lib/site-images'
+import {
+  GBP_EMAIL,
+  GBP_FULL_ADDRESS,
+  GBP_PHONE_DISPLAY,
+  GBP_PHONE_E164,
+} from '@/lib/gbp-business'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/media-kit'
 const pageTitle = 'Spanish Trail Homes Media Kit - Dr. Jan Duffy'
@@ -72,11 +78,7 @@ export const metadata: Metadata = {
     description:
       'Media kit for Dr. Jan Duffy—Spanish Trail luxury real estate expert. Bio, credentials, and contact. Book a consultation for buying or selling in Las Vegas guard-gated golf community.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Homes Media Kit',
-        subtitle: 'Dr. Jan Duffy · Luxury Real Estate',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-awards-study'),
     ],
   },
   twitter: {
@@ -141,6 +143,8 @@ export default function MediaKitPage() {
       />
 
       <HeroBackground
+        src={getSiteImageUrl('h2-awards-study')}
+        alt={getAssetAlt('h2-awards-study')}
         title="Spanish Trail Homes Media Kit"
         subtitle="Dr. Jan Duffy · Spanish Trail homes realtor"
         description="Press kit for the realtor who buys and sells Spanish Trail homes only."
@@ -148,7 +152,6 @@ export default function MediaKitPage() {
       <div className="flex justify-center bg-[#f8f5ef] py-8">
         <AgentPortrait placement="media" size="xl" rounded="2xl" showCaption schema pagePath="/media-kit" />
       </div>
-      <RealScoutSection id="bhhs-listings" />
 
       <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12">
         <Breadcrumbs
@@ -176,7 +179,7 @@ export default function MediaKitPage() {
               Book Appointment
             </CalendlyLink>
             <Button variant="outline" size="lg" asChild className="rounded-full border-[#0f2b1e]/40">
-              <Link href="tel:+17027663299">(702) 766-3299</Link>
+            <Link href={`tel:${GBP_PHONE_E164}`}>(702) 766-3299</Link>
             </Button>
             <Button variant="ghost" size="lg" asChild>
               <Link href="mailto:DrDuffySells@SpanishTrailHomes.com">Email Dr. Duffy</Link>
@@ -230,8 +233,6 @@ export default function MediaKitPage() {
         </section>
 
         <GbpFaqList headingId="media-kit-faq-heading" title="Media kit FAQ" items={mediaKitFaq} />
-
-        {/* Media assets / headshot */}
         <section className="mb-12" aria-labelledby="media-heading">
       <SectionBanner headingId="media-heading" />
           <h2 id="media-heading" className="font-playfair text-xl font-semibold text-[#0f2b1e] sm:text-2xl">

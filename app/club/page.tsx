@@ -5,26 +5,27 @@ import Script from 'next/script'
 import { SiteShell } from '@/components/site-shell'
 import { amenities, testimonials } from '@/lib/content'
 import { Button } from '@/components/ui/button'
-import { RealScoutSection } from '@/components/realscout-section'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { lifestyleHighlights } from '@/lib/spanishTrailContent'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { FaqList } from '@/components/faq-section'
 
 
 const clubNarratives = [
   {
     title: 'Club Lifestyle for Members and Residents',
     paragraphs: [
-      'Spanish Trail Country Club has evolved into a social sanctuary where every day carries a sense of occasion. Morning routines begin in the fitness pavilion with personal trainers, Pilates reformers, and spa-level locker rooms. By lunchtime, executives and creatives gather on the terrace for strategy sessions overlooking the Lakes nine. Evenings can mean wine-pairing dinners, cigar tastings on the veranda, or kids splashing in the pool while parents enjoy sunset cocktails.',
-      'Because the club sits within a master-planned, guard-gated community, members benefit from a built-in support system. Concierge teams coordinate airport transportation, book tee times, and secure reservations at partner restaurants across Summerlin and the Strip. Residents credit Spanish Trail with creating a safe, connected environment where neighbors quickly become friends. Dr. Duffy helps buyers find homes that align with their preferred pace and social circles.'
+      'Spanish Trail Country Club has evolved into a social sanctuary where every day carries a sense of occasion. Morning routines begin in the fitness pavilion with personal trainers, Pilates reformers, and spa-level locker rooms. By lunchtime, executives and creatives gather on the terrace for strategy sessions overlooking the Lakes nine. Evenings can mean wine-pairing dinners, cigar tastings on the veranda, or sunset cocktails beside the resort pool.',
+      'Because the club sits within a master-planned, guard-gated community, members benefit from a built-in support system. Concierge teams coordinate airport transportation, book tee times, and secure reservations at partner restaurants across Summerlin and the Strip. Residents credit Spanish Trail with creating a connected club environment where neighbors quickly become friends. Dr. Duffy helps buyers find homes that align with their preferred pace and social circles.'
     ],
   },
   {
     title: 'Programming that Elevates Every Generation',
     paragraphs: [
-      'Spanish Trail Country Club\'s programming committee curates activations for all ages. Young families enjoy junior golf academies, swim instruction, and themed holiday festivals that embrace Las Vegas flair. Professionals tap into networking breakfasts, speaker panels featuring hospitality leaders, and elegant member trips to Napa and Pebble Beach. Retirees appreciate weekday tennis mixers, art workshops, and philanthropic initiatives that support local schools.',
+      'Spanish Trail Country Club\'s programming committee curates activations across the calendar. Members can join junior golf academies, swim instruction, themed holiday festivals with Las Vegas flair, networking breakfasts, speaker panels featuring hospitality leaders, and member trips to Napa and Pebble Beach. Weekday tennis mixers, art workshops, and philanthropic initiatives that support named campuses add more reasons to use the club beyond tee times.',
       'Each program is designed to ensure members discover value beyond the fairways, reinforcing Spanish Trail\'s position as the social heartbeat of west Las Vegas. Understanding this forward momentum helps buyers view Spanish Trail not only as a property investment but as an enduring lifestyle commitment.'
     ],
   },
@@ -66,9 +67,9 @@ const clubFaq = [
       'Yes. The clubhouse features flexible meeting suites equipped with high-speed connectivity, presentation technology, and catering options. Members use these spaces for board meetings, podcast recordings, or remote-work sessions between rounds. Contact the club for availability and booking.',
   },
   {
-    question: 'How does the club support families with children?',
+    question: 'What youth and guest programming does the club offer?',
     answer:
-      'Spanish Trail offers supervised kids\' clubs, seasonal camps, swim teams, and teen socials curated by youth programming specialists. Parents appreciate the safe environment, dedicated staff, and ability to enjoy adult-only events knowing their children are engaged nearby. Contact the club for program schedules and enrollment.',
+      'Spanish Trail Country Club lists supervised kids’ clubs, seasonal camps, swim teams, and teen socials through its youth programming staff. Hours, enrollment, and guest policies come from the club—not from a home listing. Contact the club for current schedules.',
   },
 ]
 
@@ -143,11 +144,7 @@ export const metadata: Metadata = {
     description:
       'Discover clubhouse amenities, dining venues, and curated social experiences at Spanish Trail Country Club.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Club Lifestyle',
-        subtitle: 'Dining • Wellness • Social events',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-clubhouse'),
     ],
   },
   twitter: {
@@ -156,11 +153,7 @@ export const metadata: Metadata = {
     description:
       'Uncover luxury amenities, dining, and events at Spanish Trail Country Club.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Country Club',
-        subtitle: 'Member lifestyle in Las Vegas',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-clubhouse'),
     ],
   },
 }
@@ -169,14 +162,6 @@ export default function ClubPage() {
   return (
     <SiteShell>
       <ClubHero />
-      <RealScoutSection
-        id="bhhs-listings"
-        eyebrow="Featured Homes"
-        title="Spanish Trail Residences Moments from the Clubhouse"
-        description="Preview active listings within the guard-gated community—ideal for buyers seeking proximity to the clubhouse, sports complex, and event venues."
-        priceMin="600000"
-        propertyTypes=",SFR,CONDO"
-      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Club' }]} />
@@ -456,17 +441,7 @@ function ClubFAQSection() {
           </p>
         </div>
 
-        <div className="mt-12 space-y-10">
-          {clubFaq.map((item) => (
-            <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">
-              <CardVisual seed={String(item.question)} />
-              <h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">
-                {item.question}
-              </h3>
-              <p className="text-base leading-relaxed text-[#372a20]/85">{item.answer}</p>
-            </article>
-          ))}
-        </div>
+        <FaqList items={clubFaq} />
       </div>
     </section>
   )

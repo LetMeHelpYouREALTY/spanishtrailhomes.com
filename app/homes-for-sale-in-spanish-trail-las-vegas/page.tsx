@@ -8,9 +8,11 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { HeroBackground } from '@/components/hero-background'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { marketStats, formatMedianPrice } from '@/lib/marketStats'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { FaqList } from '@/components/faq-section'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 
 
@@ -40,11 +42,7 @@ export const metadata: Metadata = {
     description:
       'Discover elegant single-family homes, grand estates, and luxury villas for sale in Spanish Trail, Las Vegas. Guard-gated golf community with 27-hole championship course.',
     images: [
-      createOgImageUrl({
-        title: 'Homes for Sale in Spanish Trail Las Vegas',
-        subtitle: 'Guard-gated golf community luxury homes',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h3-listing-home-b'),
     ],
   },
   twitter: {
@@ -53,11 +51,7 @@ export const metadata: Metadata = {
     description:
       'Browse elegant homes, grand estates, and luxury villas in Spanish Trail. Guard-gated golf community minutes from the Las Vegas Strip.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Homes for Sale',
-        subtitle: 'Luxury guard-gated community in Las Vegas',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h3-listing-home-b'),
     ],
   },
 }
@@ -393,7 +387,7 @@ function NeighborhoodsSection() {
       name: 'Links at Spanish Trail',
       range: '2,000-4,800 sq. ft.',
       description:
-        'Homes in Links at Spanish Trail range from around 2,000 square feet to more than 4,800 square feet, with a number of different floor plans available. This neighborhood offers diverse options for families and golf enthusiasts.',
+        'Homes in Links at Spanish Trail range from around 2,000 square feet to more than 4,800 square feet, with a number of different floor plans available.',
     },
     {
       name: 'Islands at Spanish Trail',
@@ -456,7 +450,7 @@ function BuyingProcessSection() {
           <div className="space-y-6">
             <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#6f5237]">Working with Dr. Jan Duffy</h3>
             <p className="text-base leading-relaxed text-[#372a20]/85">
-              When searching for homes for sale in Spanish Trail, Dr. Jan Duffy provides expert guidance throughout the entire buying process. With decades of experience focused on Spanish Trail and 500+ families advised in the community, she offers insider knowledge about each neighborhood, pricing trends, and off-market opportunities.
+              When searching for homes for sale in Spanish Trail, Dr. Jan Duffy provides expert guidance throughout the entire buying process. With decades of experience focused on Spanish Trail and 500+ buyers and sellers advised in the community, she offers insider knowledge about each neighborhood, pricing trends, and off-market opportunities.
             </p>
             <p className="text-base leading-relaxed text-[#372a20]/85">
               Dr. Duffy coordinates private tours, guard gate access, <Link href="/membership" className="text-[#0f2b1e] underline-offset-4 hover:underline">club membership introductions</Link>, and provides comprehensive market analysis to ensure you make informed decisions when purchasing homes for sale in Spanish Trail.
@@ -508,17 +502,7 @@ function HomesForSaleFAQSection() {
           </p>
         </div>
 
-        <div className="mt-12 space-y-10">
-          {homesForSaleFaq.map((item) => (
-            <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10">
-              <CardVisual seed={String(item.question)} />
-              <h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">
-                {item.question}
-              </h3>
-              <p className="text-base leading-relaxed text-[#372a20]/85">{item.answer}</p>
-            </article>
-          ))}
-        </div>
+        <FaqList items={homesForSaleFaq} />
       </div>
     </section>
   )

@@ -3,13 +3,14 @@ import Link from 'next/link'
 import Script from 'next/script'
 
 import { SiteShell } from '@/components/site-shell'
-import { RealScoutSection } from '@/components/realscout-section'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { getAgentPortraitAbsoluteUrl } from '@/lib/agent-portraits'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { FaqList } from '@/components/faq-section'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 import { AgentPortrait } from '@/components/agent-portrait'
 
@@ -184,11 +185,7 @@ export const metadata: Metadata = {
       description:
         'Meet Dr. Jan Duffy, luxury real estate advisor serving Spanish Trail. Research-backed expertise that understands how homebuyers and sellers make decisions, combined with deep local knowledge and concierge service.',
     images: [
-      createOgImageUrl({
-        title: 'About Dr. Jan Duffy',
-        subtitle: 'Spanish Trail REALTOR® • Concierge advisory',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-contact-office'),
     ],
   },
   twitter: {
@@ -197,11 +194,7 @@ export const metadata: Metadata = {
     description:
       'Learn how Dr. Jan Duffy combines data, club insights, and concierge service for Spanish Trail clients.',
     images: [
-      createOgImageUrl({
-        title: 'Meet Dr. Jan Duffy',
-        subtitle: 'Spanish Trail real estate leadership',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-contact-office'),
     ],
   },
 }
@@ -210,7 +203,6 @@ export default function AboutPage() {
   return (
     <SiteShell>
       <HeroSection />
-      <RealScoutSection id="bhhs-listings" />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs
@@ -246,7 +238,7 @@ function HeroSection() {
     <header className="relative isolate overflow-hidden text-[#f8f5ef]" aria-labelledby="about-hero-heading">
       <HeroBackground
         src={getSiteImageUrl('h1-contact-office')}
-        alt="Dr. Jan Duffy - Spanish Trail real estate agent and luxury home specialist in Las Vegas"
+        alt="Professional Spanish Trail real estate office at 5050 Spanish Trail Ln, Las Vegas 89113"
         overlayClassName="bg-gradient-to-b from-[#0f2b1e]/60 to-[#0f2b1e]/85"
         sizes="(max-width: 1024px) 100vw, 1200px"
       />
@@ -495,17 +487,7 @@ function AboutFAQSection() {
           </p>
         </div>
 
-        <div className="mt-12 space-y-10">
-          {aboutFaq.map((item) => (
-            <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">
-              <CardVisual seed={String(item.question)} />
-              <h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">
-                {item.question}
-              </h3>
-              <p className="text-base leading-relaxed text-[#372a20]/85">{item.answer}</p>
-            </article>
-          ))}
-        </div>
+        <FaqList items={aboutFaq} />
       </div>
     </section>
   )

@@ -11,10 +11,10 @@ import { GoogleMapEmbed } from '@/components/google-map-embed'
 import {
   createBreadcrumbSchema,
   createFaqPageSchema,
-  createOgImageUrl,
   createWebPageSchema,
   getCanonicalUrl,
 } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import {
   GBP_EMAIL,
   GBP_FULL_ADDRESS,
@@ -74,13 +74,7 @@ export const metadata: Metadata = {
     url: pageUrl,
     title: 'Visit Spanish Trail | Homes By Dr. Jan Duffy',
     description: pageDescription,
-    images: [
-      createOgImageUrl({
-        title: 'Office Location',
-        subtitle: '5050 Spanish Trail Ln, Las Vegas, NV 89113',
-        eyebrow: '(702) 766-3299',
-      }),
-    ],
+    images: [sitePhotoOg('h1-office-exterior')],
   },
   twitter: {
     card: 'summary_large_image',

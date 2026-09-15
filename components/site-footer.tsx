@@ -7,8 +7,19 @@ import { CalendlyLink } from '@/components/calendly-link'
 import { AgentPortrait } from '@/components/agent-portrait'
 import { GbpLocalActions } from '@/components/gbp-local-actions'
 import {
+  GBP_DIRECTIONS_URL,
   GBP_EASTER_2026_CLOSURE,
+  GBP_EMAIL,
+  GBP_FULL_ADDRESS,
+  GBP_GOOGLE_REVIEW_URL,
+  GBP_HOURS_SHORT,
+  GBP_LEGAL_NAME,
+  GBP_MAPS_URL,
+  GBP_PHONE_DISPLAY,
+  GBP_PHONE_E164,
+  GBP_PROFILE_SHARE_URL,
   GBP_SERVICE_AREA_LABEL,
+  GBP_STREET,
   shouldShowPromotedSpecialHoursNotice,
 } from '@/lib/gbp-business'
 
@@ -57,6 +68,8 @@ export function SiteFooter() {
         { label: 'Office Location', href: '/find-our-locations' },
         { label: 'Directions', href: '/directions' },
         { label: 'Google Business Profile', href: '/google-business-profile' },
+        { label: 'Media Kit', href: '/media-kit' },
+        { label: 'Site Index', href: '/site-index' },
       ],
     },
   ]
@@ -75,11 +88,11 @@ export function SiteFooter() {
           <div className="flex items-start gap-4">
             <AgentPortrait placement="footer" size="sm" className="mt-1" />
             <div className="space-y-2 text-xs uppercase tracking-[0.25em] sm:tracking-[0.35em]">
-            <p className="font-semibold text-[#f8f5ef]">Spanish Trail | Homes By Dr. Jan Duffy</p>
+            <p className="font-semibold text-[#f8f5ef]">{GBP_LEGAL_NAME}</p>
             <p className="text-[#cbb8a6]">Berkshire Hathaway HomeServices Nevada Properties</p>
             <p>Dr. Jan Duffy · Luxury Real Estate Advisor</p>
-            <Link href="tel:+17027663299" className="touch-target inline-flex min-h-[44px] items-center hover:text-[#be9956] hover:underline" onClick={() => trackPhoneClick('footer')}>
-              (702) 766-3299 · DrDuffySells@SpanishTrailHomes.com
+            <Link href={`tel:${GBP_PHONE_E164}`} className="touch-target inline-flex min-h-[44px] items-center hover:text-[#be9956] hover:underline" onClick={() => trackPhoneClick('footer')}>
+              {GBP_PHONE_DISPLAY} · {GBP_EMAIL}
             </Link>
             </div>
           </div>
@@ -103,8 +116,8 @@ export function SiteFooter() {
           <p className="text-xs uppercase tracking-[0.3em] text-[#cbb8a6] sm:tracking-[0.4em]">
             Spanish Trail Luxury Realtor
           </p>
-          <p className="font-[var(--font-playfair)] text-lg tracking-[0.06em] sm:text-xl sm:tracking-[0.08em]">
-            5050 Spanish Trail Ln<br />Las Vegas, NV 89113
+          <p className="font-[var(--font-playfair)] text-lg tracking-[0.04em] sm:text-xl">
+            {GBP_STREET}<br />Las Vegas, NV 89113
           </p>
           <p className="text-xs uppercase tracking-[0.25em] text-[#be9956]">
             Veteran-Owned Business
@@ -113,7 +126,7 @@ export function SiteFooter() {
             Exclusive realtor for Spanish Trail homes in 89113.
           </p>
           <p className="text-xs leading-relaxed text-[#cbb8a6]">
-            Hours: Sun–Sat 9:00 AM–6:00 PM · Service area: {GBP_SERVICE_AREA_LABEL} · Summerlin · Spring Valley · Las Vegas 89117
+            Hours: {GBP_HOURS_SHORT} · Service area: {GBP_SERVICE_AREA_LABEL} · Summerlin · Spring Valley · Las Vegas 89117
             {shouldShowPromotedSpecialHoursNotice() ? (
               <>
                 <br />
@@ -123,6 +136,24 @@ export function SiteFooter() {
               </>
             ) : null}
           </p>
+          <nav aria-label="Office actions" className="flex flex-wrap gap-x-3 gap-y-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#be9956]">
+            <Link href={`tel:${GBP_PHONE_E164}`} onClick={() => trackPhoneClick('footer-nap')} className="min-h-10 inline-flex items-center hover:text-[#f8f5ef]">
+              Call
+            </Link>
+            <Link href={`sms:${GBP_PHONE_E164}`} className="min-h-10 inline-flex items-center hover:text-[#f8f5ef]">
+              Text
+            </Link>
+            <Link href={GBP_DIRECTIONS_URL} target="_blank" rel="noopener noreferrer" className="min-h-10 inline-flex items-center hover:text-[#f8f5ef]">
+              Directions
+            </Link>
+            <Link href={GBP_GOOGLE_REVIEW_URL} target="_blank" rel="noopener noreferrer" className="min-h-10 inline-flex items-center hover:text-[#f8f5ef]">
+              Google reviews
+            </Link>
+            <Link href={GBP_MAPS_URL} target="_blank" rel="noopener noreferrer" className="min-h-10 inline-flex items-center hover:text-[#f8f5ef]">
+              Google profile
+            </Link>
+          </nav>
+          <p className="sr-only">{GBP_FULL_ADDRESS} · {GBP_PROFILE_SHARE_URL}</p>
           <CalendlyLink 
             className="touch-target inline-flex min-h-[44px] items-center rounded-full border border-[#be9956] px-5 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#be9956] transition-colors hover:bg-[#be9956] hover:text-[#352922]" 
             ctaText="Book a Showing" 
@@ -137,7 +168,7 @@ export function SiteFooter() {
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#be9956] sm:tracking-[0.3em]">
               {section.heading}
             </p>
-            <ul className="space-y-0 text-sm tracking-[0.15em] sm:tracking-[0.2em]">
+            <ul className="space-y-0 text-sm leading-snug">
               {section.links.map((link) => (
                 <li key={link.label}>
                   <Link

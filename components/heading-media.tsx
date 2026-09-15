@@ -47,8 +47,8 @@ export function SectionBanner({
       )
     case 'h2':
       return (
-        <div className={cn('mx-auto w-full max-w-6xl px-4 pt-8 sm:px-6 sm:pt-10', className)}>
-          <div className="relative aspect-[16/7] overflow-hidden rounded-2xl sm:aspect-[21/8]">
+        <div className={cn('mx-auto w-full max-w-6xl px-4 pt-6 sm:px-6 sm:pt-8', className)}>
+          <div className="relative aspect-[21/6] overflow-hidden rounded-2xl sm:aspect-[3/1]">
             <Image
               src={src}
               alt={media.alt}

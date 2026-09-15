@@ -6,12 +6,13 @@ import Script from 'next/script'
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { CalendlyInline } from '@/components/calendly-inline'
-import { RealScoutSection } from '@/components/realscout-section'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { HeroBackground } from '@/components/hero-background'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { FaqList } from '@/components/faq-section'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 
 
@@ -133,11 +134,7 @@ export const metadata: Metadata = {
     description:
       'Plan weddings, galas, and corporate gatherings at Spanish Trail Country Club in Las Vegas.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Events',
-        subtitle: 'Weddings - Galas - Golf Outings',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-events-lawn'),
     ],
   },
   twitter: {
@@ -146,11 +143,7 @@ export const metadata: Metadata = {
     description:
       'Discover bespoke planning for weddings, private celebrations, and golf outings at Spanish Trail Country Club.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Events',
-        subtitle: 'Celebrate at Spanish Trail',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-events-lawn'),
     ],
   },
 }
@@ -159,14 +152,6 @@ export default function EventsPage() {
   return (
     <SiteShell>
       <EventsHero />
-      <RealScoutSection
-        id="bhhs-listings"
-        eyebrow="Nearby Estates"
-        title="Spanish Trail Homes Ready for Private Entertaining"
-        description="Discover residences with indoor-outdoor venues, guest casitas, and catering-ready kitchens—ideal for hosting celebrations just steps from the clubhouse."
-        priceMin="800000"
-        propertyTypes=",SFR"
-      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Events' }]} />
@@ -196,6 +181,7 @@ function EventsHero() {
     >
       <HeroBackground
         src={getSiteImageUrl('h2-events-lawn')}
+        alt="Spanish Trail Country Club event lawn and clubhouse at twilight in Las Vegas 89113"
         overlayClassName="bg-gradient-to-b from-[#0f2b1e]/55 via-[#0f2b1e]/65 to-[#0f2b1e]/80"
         sizes="(max-width: 1024px) 100vw, 1280px"
       />
@@ -481,17 +467,7 @@ function EventsFAQSection() {
           </p>
         </div>
 
-        <div className="mt-12 space-y-10">
-          {eventsFaq.map((item) => (
-            <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">
-              <CardVisual seed={String(item.question)} />
-              <h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">
-                {item.question}
-              </h3>
-              <p className="text-base leading-relaxed text-[#372a20]/85">{item.answer}</p>
-            </article>
-          ))}
-        </div>
+        <FaqList items={eventsFaq} />
       </div>
     </section>
   )

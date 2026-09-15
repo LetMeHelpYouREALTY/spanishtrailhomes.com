@@ -4,13 +4,14 @@ import Script from 'next/script'
 
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
-import { RealScoutSection } from '@/components/realscout-section'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { HeroBackground } from '@/components/hero-background'
 import { localEssentials } from '@/lib/spanishTrailContent'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { FaqList } from '@/components/faq-section'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 
 
@@ -32,7 +33,7 @@ const guestNarratives = [
   {
     title: 'Exploring Spanish Trail Amenities',
     paragraphs: [
-      'Beyond golf, visitors can schedule time at the fitness pavilion, tennis complex, or resort-style pools. The pro shop offers merchandise from top designers, and spa providers deliver revitalizing treatments ranging from deep-tissue massage to post-round recovery sessions. Families appreciate children’s programming and the game lounge, which keeps younger guests entertained while adults socialize nearby.',
+      'Beyond golf, visitors can schedule time at the fitness pavilion, tennis complex, or resort-style pools. The pro shop offers merchandise from top designers, and spa providers deliver revitalizing treatments ranging from deep-tissue massage to post-round recovery sessions. The club also lists children’s programming and a game lounge—confirm hours and guest rules with the membership office.',
       'For extended stays, Dr. Duffy curates off-property excursions that complement the Spanish Trail experience—think reserved seating at Allegiant Stadium events, culinary tours of Chinatown, or sunset hikes at Red Rock Canyon. She also recommends Spanish Trail homes that feature guest casitas or lock-off suites ideal for hosting friends and relatives.'
     ],
   },
@@ -123,11 +124,7 @@ export const metadata: Metadata = {
     description:
       'Access directions, arrival tips, and concierge support for your visit to Spanish Trail Country Club.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Guest Guide',
-        subtitle: 'Arrival tips, concierge contacts, club etiquette',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-guest-casita'),
     ],
   },
   twitter: {
@@ -136,11 +133,7 @@ export const metadata: Metadata = {
     description:
       'Review arrival instructions, etiquette, and concierge contacts before visiting Spanish Trail Country Club.',
     images: [
-      createOgImageUrl({
-        title: 'Plan Your Spanish Trail Visit',
-        subtitle: 'Concierge support & guest essentials',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-guest-casita'),
     ],
   },
 }
@@ -149,14 +142,6 @@ export default function GuestInfoPage() {
   return (
     <SiteShell>
       <GuestHero />
-      <RealScoutSection
-        id="bhhs-listings"
-        eyebrow="Plan Your Stay"
-        title="Spanish Trail Homes Available for Your Next Visit"
-        description="Browse current inventory to extend your connection with the community—perfect for guests exploring membership or long-term stays."
-        priceMin="500000"
-        propertyTypes=",SFR,CONDO"
-      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guest Information' }]} />
@@ -533,17 +518,7 @@ function GuestFAQSection() {
           </p>
         </div>
 
-        <div className="mt-12 space-y-10">
-          {guestFaq.map((item) => (
-            <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">
-              <CardVisual seed={String(item.question)} />
-              <h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">
-                {item.question}
-              </h3>
-              <p className="text-base leading-relaxed text-[#372a20]/85">{item.answer}</p>
-            </article>
-          ))}
-        </div>
+        <FaqList items={guestFaq} />
       </div>
     </section>
   )

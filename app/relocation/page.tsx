@@ -9,12 +9,10 @@ import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
 import { CalendlyLink } from '@/components/calendly-link'
 import { SectionBanner } from '@/components/heading-media'
-import {
-  createOgImageUrl,
-  createWebPageSchema,
-  createBreadcrumbSchema,
-  getCanonicalUrl,
-} from '@/lib/structuredData'
+import { FaqList } from '@/components/faq-section'
+import { createWebPageSchema, createBreadcrumbSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { getSiteImageUrl } from '@/lib/cloudflare-images'
+import { getAssetAlt, sitePhotoOg } from '@/lib/site-images'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/relocation'
 const pageTitle = 'Relocation & Out-of-State Buyer Support | Spanish Trail Homes'
@@ -92,11 +90,7 @@ export const metadata: Metadata = {
     description:
       'Relocating to Las Vegas? Dr. Jan Duffy helps out-of-state buyers navigate Spanish Trail with virtual tours, neighborhood comparisons, and remote transaction coordination.',
     images: [
-      createOgImageUrl({
-        title: 'Relocation & Out-of-State Buyers',
-        subtitle: 'Spanish Trail from anywhere',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-valley-skyline'),
     ],
   },
   twitter: {
@@ -119,6 +113,8 @@ export default function RelocationPage() {
       />
 
       <HeroBackground
+        src={getSiteImageUrl('h2-valley-skyline')}
+        alt={getAssetAlt('h2-valley-skyline')}
         title="Buy a Spanish Trail Home from Out of State"
         subtitle="Relocation realtor services for 89113"
         description="Dr. Jan Duffy buys Spanish Trail homes for out-of-state clients: virtual tours, 11-neighborhood matching, and remote closing."
@@ -217,14 +213,7 @@ export default function RelocationPage() {
           <h2 id="relocation-faq" className="font-playfair text-2xl font-semibold text-[#0f2b1e]">
             Relocation FAQ
           </h2>
-          <ul className="mt-6 space-y-6">
-            {relocationFaq.map((item) => (
-              <li key={item.question} className="rounded-xl border border-[#d8cdbf] bg-white p-6 shadow-sm">
-                <h3 className="font-semibold text-[#0f2b1e]">{item.question}</h3>
-                <p className="mt-2 text-[#0f2b1e]/90 leading-relaxed">{item.answer}</p>
-              </li>
-            ))}
-          </ul>
+          <FaqList items={relocationFaq} />
         </section>
 
         <p className="mt-10 text-center text-sm text-[#0f2b1e]/70">

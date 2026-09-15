@@ -7,8 +7,10 @@ import { RealScoutSection } from '@/components/realscout-section'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
-import { createOgImageUrl, getCanonicalUrl } from '@/lib/structuredData'
+import { getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { FaqList } from '@/components/faq-section'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-waterfront-golf-homes'
@@ -37,11 +39,7 @@ export const metadata: Metadata = {
     description:
       'Explore Spanish Trail’s lakeside golf homes—tranquil water views, private club amenities, and bespoke service from Dr. Jan Duffy.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Waterfront Homes',
-        subtitle: 'Lakeside golf living & concierge tours',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-waterfront'),
     ],
   },
   twitter: {
@@ -50,11 +48,7 @@ export const metadata: Metadata = {
     description:
       'Premier waterfront golf properties in Spanish Trail curated by Dr. Jan Duffy. View listings, amenities, and buying strategies.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Waterfront Golf Homes',
-        subtitle: 'Exclusive lakeside estates & buyer strategy',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-waterfront'),
     ],
   },
 }
@@ -398,15 +392,7 @@ function FAQSection() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id="waterfront-faq-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Spanish Trail waterfront golf FAQs</h2>
-        <div className="mt-10 space-y-6">
-          {faqContent.map((item) => (
-            <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-base leading-relaxed text-[#372a20]/85">
-              <CardVisual seed={String(item.question)} />
-              <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">{item.question}</h3>
-              <p>{item.answer}</p>
-            </article>
-          ))}
-        </div>
+        <FaqList items={faqContent} />
       </div>
     </section>
   )

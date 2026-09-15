@@ -3,13 +3,13 @@ import Link from 'next/link'
 import Script from 'next/script'
 
 import { SiteShell } from '@/components/site-shell'
-import { RealScoutSection } from '@/components/realscout-section'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
-import { SectionBanner, CardVisual } from '@/components/heading-media'
-
+import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
+import { SectionBanner } from '@/components/heading-media'
+import { FaqList } from '@/components/faq-section'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-pools'
 const pageDescription =
@@ -44,11 +44,7 @@ export const metadata: Metadata = {
     description:
       'Resort-style pools, spas, and aquatic programs at Spanish Trail Country Club in Las Vegas.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Pools',
-        subtitle: 'Two aquatic centers',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-pool'),
     ],
   },
   twitter: {
@@ -57,11 +53,7 @@ export const metadata: Metadata = {
     description:
       'Resort-style swimming and aquatic fitness at Spanish Trail Country Club.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Pools',
-        subtitle: 'Resort-style swimming',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-pool'),
     ],
   },
 }
@@ -106,14 +98,6 @@ export default function SpanishTrailPoolsPage() {
   return (
     <SiteShell>
       <HeroSection />
-      <RealScoutSection
-        id="bhhs-listings"
-        eyebrow="Pool Living"
-        title="Spanish Trail homes for pool lovers"
-        description="Find homes near the aquatic centers or with private pools for year-round swimming in the Las Vegas sun."
-        priceMin="600000"
-        propertyTypes=",SFR,CONDO"
-      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
           <Breadcrumbs
@@ -195,7 +179,7 @@ function AquaticCentersSection() {
               {[
                 { feature: 'Two Pool Locations', description: 'Separate aquatic centers offer variety and reduce crowding' },
                 { feature: 'Lap Swimming', description: 'Dedicated lanes for fitness swimming and training' },
-                { feature: 'Recreation Areas', description: 'Family-friendly spaces for leisure swimming and play' },
+                { feature: 'Recreation Areas', description: 'Open recreation deck for leisure swimming' },
                 { feature: 'Heated Spas', description: 'Hot tubs for relaxation and recovery after workouts' },
                 { feature: 'Lounging Areas', description: 'Comfortable seating with shade options and poolside service' },
               ].map((item) => (
@@ -250,8 +234,8 @@ function FeaturesSection() {
               description: 'Trained lifeguards monitor the pools during operating hours for member safety.',
             },
             {
-              title: 'Family-Friendly',
-              description: 'Welcoming environment for families with children. Designated shallow areas for young swimmers.',
+              title: 'Shallow-end swim area',
+              description: 'Designated shallow areas sit beside lap lanes so guests can choose depth by skill.',
             },
           ].map((item) => (
             <div key={item.title} className="rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">
@@ -321,15 +305,7 @@ function FAQSection() {
         <h2 id="pools-faq-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Aquatic Center FAQs
         </h2>
-        <div className="mt-10 space-y-6">
-          {faqContent.map((item) => (
-            <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10 text-base leading-relaxed text-[#372a20]/85">
-              <CardVisual seed={String(item.question)} />
-              <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">{item.question}</h3>
-              <p>{item.answer}</p>
-            </article>
-          ))}
-        </div>
+        <FaqList items={faqContent} />
       </div>
     </section>
   )

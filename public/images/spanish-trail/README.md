@@ -25,3 +25,11 @@ Upload git copies to Cloudflare:
 ```bash
 CLOUDFLARE_ACCOUNT_ID=… CLOUDFLARE_API_TOKEN=… pnpm images:upload
 ```
+
+Replace existing custom IDs (required after regenerating a PNG with the same name):
+
+```bash
+CLOUDFLARE_ACCOUNT_ID=… CLOUDFLARE_API_TOKEN=… pnpm images:upload:overwrite
+```
+
+Do **not** replace `duffy-circle-*.png` with generated lifestyle photos. Those portraits are the supplied gold-circle headshot.

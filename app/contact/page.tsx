@@ -10,7 +10,8 @@ import { CalendlyLink } from '@/components/calendly-link'
 import { RealScoutSection } from '@/components/realscout-section'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import {
   GBP_EASTER_2026_CLOSURE,
   GBP_SERVICE_AREA_LABEL,
@@ -20,7 +21,7 @@ import { marketStats, formatMedianPrice } from '@/lib/marketStats'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { GoogleMapEmbed } from '@/components/google-map-embed'
 import { GbpLocalActions } from '@/components/gbp-local-actions'
-
+import { FaqList } from '@/components/faq-section'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/contact'
 const contactPageDescription =
@@ -59,11 +60,7 @@ export const metadata: Metadata = {
     description:
       'Connect with Dr. Jan Duffy for Spanish Trail luxury homes, current market data, and private club lifestyle guidance.',
     images: [
-      createOgImageUrl({
-        title: 'Connect with Dr. Jan Duffy',
-        subtitle: 'Spanish Trail strategy sessions & private tours',
-        eyebrow: 'Contact • SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-contact-office'),
     ],
   },
   twitter: {
@@ -72,11 +69,7 @@ export const metadata: Metadata = {
     description:
       'Schedule a Spanish Trail strategy session with Dr. Jan Duffy—luxury guard-gated golf community specialist.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Consultation',
-        subtitle: 'Call (702) 766-3299 or plan a private tour',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-contact-office'),
     ],
   },
 }
@@ -178,8 +171,8 @@ function HeroSection() {
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           Call (702) 766-3299 to buy or sell a Spanish Trail home. Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties. Median {formatMedianPrice(marketStats.median_price)} as of {marketStats.date_label}.
           <span className="block text-xs uppercase tracking-[0.3em] text-[#f8f5ef]/70">
-            <Link href="https://searchforaffordablehomes.com/neighborhood/83/spanish-trails" className="underline-offset-4 hover:underline">
-              Source: Spanish Trail Weekly Market Activity
+            <Link href="/spanish-trail-market-report" className="underline-offset-4 hover:underline">
+              Source: Spanish Trail weekly market report
             </Link>
           </span>
         </p>
@@ -218,10 +211,14 @@ function ExpertiseSection() {
               Weekly data, lived-in perspective
             </h3>
             <p>
-              I monitor every Spanish Trail closing the moment it records. Yesterday, 8330 Carmel Ridge Court—a 2,500 sq. ft. single-family home—closed at $1,095,000, roughly 8% above the community\'s median thanks to upgraded fairway views and a reimagined chef\'s kitchen.[source](https://searchforaffordablehomes.com/neighborhood/83/spanish-trails)
+              I monitor every Spanish Trail closing the moment it records. Yesterday, 8330 Carmel Ridge Court—a 2,500 sq. ft. single-family home—closed at $1,095,000, roughly 8% above the community&apos;s median thanks to upgraded fairway views and a reimagined chef&apos;s kitchen. See the{' '}
+              <Link href="/spanish-trail-market-report" className="underline-offset-4 hover:underline">
+                Spanish Trail market report
+              </Link>{' '}
+              for this week&apos;s stats.
             </p>
             <p>
-              That real-time insight guides both sellers wanting a premium and buyers aiming to secure value without overextending. After decades focused on Spanish Trail—advising 500+ buyer and seller households across purchases, sales, and long-range planning—I have walked every cul-de-sac inside the 640-acre guard gates and understand how HOA nuances, sightlines, and secondary gates impact pricing.
+              That real-time insight guides both sellers wanting a premium and buyers aiming to secure value without overextending. After decades focused on Spanish Trail—advising 500+ buyers and sellers across purchases, sales, and long-range planning—I have walked every cul-de-sac inside the 640-acre guard gates and understand how HOA nuances, sightlines, and secondary gates impact pricing.
             </p>
           </div>
           <div className="space-y-4 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm text-[#372a20]/80">
@@ -257,7 +254,11 @@ function GolfLifestyleSection() {
               Sunrise, Lakes, Canyon: three distinct personalities
             </h3>
             <p>
-              The Spanish Trail Country Club anchors the community with Robert Trent Jones Jr.\'s 27-hole layout. The Lakes nine delivers cascading water features, Sunrise showcases mature pines and gentle slopes, while Canyon introduces elevation changes that thrill low-handicap players. Demand for golf-view homes remains intense—this week\'s 22 Burning Tree Court tour generated four qualified showings, all citing the championship course as their non-negotiable.[source](https://searchforaffordablehomes.com/neighborhood/83/spanish-trails)
+              The Spanish Trail Country Club anchors the community with Robert Trent Jones Jr.&apos;s 27-hole layout. The Lakes nine delivers cascading water features, Sunrise showcases mature pines and gentle slopes, while Canyon introduces elevation changes that thrill low-handicap players. Demand for golf-view homes remains intense—this week&apos;s 22 Burning Tree Court tour generated four qualified showings, all citing the championship course as their non-negotiable. See current{' '}
+              <Link href="/spanish-trail-homes-for-sale-las-vegas" className="underline-offset-4 hover:underline">
+                Spanish Trail homes for sale
+              </Link>
+              .
             </p>
           </div>
           <div className="space-y-4 text-base leading-relaxed text-[#372a20]/85">
@@ -358,7 +359,7 @@ function NeighborhoodFitSection() {
             {
               title: 'Patios & Springs enclaves',
               detail:
-                'Tree-lined streets, 3–5 bedroom floor plans, and a 2.2-mile drive to Bishop Gorman High School via S. Rainbow Blvd. Strong demand from full-time residents who want square footage plus Tropicana/Rainbow access.',
+                'Tree-lined streets, versatile floor plans, and a 2.2-mile drive to Bishop Gorman High School via S. Rainbow Blvd.',
             },
           ].map((item) => (
             <div key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
@@ -485,15 +486,7 @@ function FAQSection() {
         <h2 id="faq-heading" className="font-[var(--font-playfair)] text-2xl text-[#1f2a24] sm:text-3xl">
           Spanish Trail Homes Questions Answered
         </h2>
-        <div className="mt-8 grid grid-cols-1 gap-6">
-          {faqContent.map((item) => (
-            <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-base leading-relaxed text-[#372a20]/85">
-              <CardVisual seed={String(item.question)} />
-              <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">{item.question}</h3>
-              <p>{item.answer}</p>
-            </article>
-          ))}
-        </div>
+        <FaqList items={faqContent} />
       </div>
     </section>
   )

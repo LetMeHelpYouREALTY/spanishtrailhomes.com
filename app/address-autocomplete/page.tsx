@@ -12,10 +12,10 @@ import { RealScoutSection } from '@/components/realscout-section'
 import {
   createBreadcrumbSchema,
   createFaqPageSchema,
-  createOgImageUrl,
   createWebPageSchema,
   getCanonicalUrl,
 } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { GBP_FULL_ADDRESS, GBP_LEGAL_NAME, GBP_PHONE_DISPLAY, GBP_PHONE_E164 } from '@/lib/gbp-business'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/address-autocomplete'
@@ -82,13 +82,7 @@ export const metadata: Metadata = {
     url: pageUrl,
     title: 'Find a Spanish Trail Las Vegas Address',
     description: pageDescription,
-    images: [
-      createOgImageUrl({
-        title: 'Find a Spanish Trail Address',
-        subtitle: 'Confirm 89113 streets, gates, and tours',
-        eyebrow: '(702) 766-3299',
-      }),
-    ],
+    images: [sitePhotoOg('h2-office-map')],
   },
   twitter: {
     card: 'summary_large_image',

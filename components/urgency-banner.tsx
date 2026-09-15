@@ -118,7 +118,11 @@ export function UrgencyBanner() {
   const handleCtaClick = useCallback(() => {
     trackUrgencyBannerClick('see_available')
     const el = document.getElementById('bhhs-listings')
-    el?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      return
+    }
+    window.location.href = '/spanish-trail-homes-for-sale-las-vegas#bhhs-listings'
   }, [])
 
   const messages = [

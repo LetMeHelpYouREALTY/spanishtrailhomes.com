@@ -11,10 +11,10 @@ import { GoogleMapEmbed } from '@/components/google-map-embed'
 import {
   createBreadcrumbSchema,
   createFaqPageSchema,
-  createOgImageUrl,
   createWebPageSchema,
   getCanonicalUrl,
 } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { getAbsoluteSiteImageUrl } from '@/lib/cloudflare-images'
 import {
   GBP_DIRECTIONS_URL,
@@ -79,13 +79,7 @@ export const metadata: Metadata = {
     url: pageUrl,
     title: 'Directions to Spanish Trail | Homes By Dr. Jan Duffy',
     description: pageDescription,
-    images: [
-      createOgImageUrl({
-        title: 'Directions to Spanish Trail Homes',
-        subtitle: '5050 Spanish Trail Ln, Las Vegas, NV 89113',
-        eyebrow: 'Google Maps · (702) 766-3299',
-      }),
-    ],
+    images: [sitePhotoOg('h2-directions-approach')],
   },
   twitter: {
     card: 'summary_large_image',

@@ -4,10 +4,10 @@ import Link from 'next/link'
 import Script from 'next/script'
 
 import { SiteShell } from '@/components/site-shell'
-import { RealScoutSection } from '@/components/realscout-section'
 import { Button } from '@/components/ui/button'
 import { Breadcrumbs } from '@/components/breadcrumbs'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl, createFaqPageSchema } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl, createFaqPageSchema } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { GBP_GOOGLE_REVIEW_URL, GBP_MAPS_URL } from '@/lib/gbp-business'
 import { SectionBanner } from '@/components/heading-media'
 import { AgentPortrait } from '@/components/agent-portrait'
@@ -61,11 +61,7 @@ export const metadata: Metadata = {
     description:
       'Share your experience with Dr. Jan Duffy. Reviews help future clients find trusted real estate guidance in Spanish Trail.',
     images: [
-      createOgImageUrl({
-        title: 'Leave a Review',
-        subtitle: 'Share your Spanish Trail experience',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-reviews-terrace'),
     ],
   },
   twitter: {
@@ -73,11 +69,7 @@ export const metadata: Metadata = {
     title: 'Leave a Google Review | Dr. Jan Duffy',
     description: 'Reviews build trust. Share your experience working with Dr. Jan Duffy.',
     images: [
-      createOgImageUrl({
-        title: 'Leave a Review',
-        subtitle: 'Google Business Profile',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-reviews-terrace'),
     ],
   },
 }
@@ -154,7 +146,6 @@ const reviewFaq = [
       'Google asks reviewers to share a real experience. If you toured with Dr. Duffy, listed a home, or closed in Spanish Trail, that is a valid review. Do not post fake reviews.',
   },
 ]
-
 export default function ReviewsPage() {
   return (
     <SiteShell>
@@ -174,7 +165,6 @@ export default function ReviewsPage() {
       />
 
       <HeroSection />
-      <RealScoutSection id="bhhs-listings" />
       <ReviewLinkSection />
       <BenefitsSection benefits={benefits} />
       <QRCodeSection />

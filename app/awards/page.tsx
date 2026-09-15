@@ -4,16 +4,16 @@ import Script from 'next/script'
 
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { SiteShell } from '@/components/site-shell'
-import { RealScoutSection } from '@/components/realscout-section'
 import { Button } from '@/components/ui/button'
 import { GbpFaqList } from '@/components/gbp-faq-list'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl, createFaqPageSchema } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl, createFaqPageSchema } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { getAgentPortraitAbsoluteUrl } from '@/lib/agent-portraits'
 import { HeroBackground } from '@/components/hero-background'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
-import { AgentPortrait } from '@/components/agent-portrait'
 import { GbpLocalActions } from '@/components/gbp-local-actions'
+import { AgentPortrait } from '@/components/agent-portrait'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/awards'
@@ -176,11 +176,7 @@ export const metadata: Metadata = {
     description:
       'Review Berkshire Hathaway honors, RealScout achievements, and professional memberships that support Spanish Trail clients.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Awards & Recognition',
-        subtitle: 'Dr. Jan Duffy • Berkshire Hathaway HomeServices',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-awards-study'),
     ],
   },
   twitter: {
@@ -189,11 +185,7 @@ export const metadata: Metadata = {
     description:
       'Spanish Trail-focused REALTOR® with Berkshire Hathaway honors, luxury marketing credentials, and media features.',
     images: [
-      createOgImageUrl({
-        title: 'Awards & Recognition',
-        subtitle: 'Spanish Trail leadership by Dr. Jan Duffy',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h2-awards-study'),
     ],
   },
 }
@@ -220,12 +212,10 @@ const awardsFaq = [
       'Nevada license S.0197614.LLC with Berkshire Hathaway HomeServices Nevada Properties. Email DrDuffySells@SpanishTrailHomes.com or open the Google Business Profile for the same NAP as this site.',
   },
 ]
-
 export default function AwardsPage() {
   return (
     <SiteShell>
       <HeroSection />
-      <RealScoutSection id="bhhs-listings" />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs
@@ -242,6 +232,9 @@ export default function AwardsPage() {
       <ClientImpactSection />
       <GbpFaqList headingId="awards-faq-heading" title="Awards FAQ for Spanish Trail buyers and sellers" items={awardsFaq} />
       <AdvisoryCTASection />
+      <Script id="awards-faq-schema" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(createFaqPageSchema(awardsFaq))}
+      </Script>
       <Script id="awards-recognition-schema" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(awardsSchema)}
       </Script>
@@ -250,9 +243,6 @@ export default function AwardsPage() {
       </Script>
       <Script id="awards-webpage-schema" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(awardsWebPageSchema)}
-      </Script>
-      <Script id="awards-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(createFaqPageSchema(awardsFaq))}
       </Script>
     </SiteShell>
   )
@@ -263,6 +253,7 @@ function HeroSection() {
     <header className="relative isolate overflow-hidden text-[#f8f5ef]" aria-labelledby="awards-hero-heading">
       <HeroBackground
         src={getSiteImageUrl('h2-awards-study')}
+        alt="Professional study overlooking desert golf and palms for Spanish Trail luxury real estate advisory in Las Vegas 89113"
         overlayClassName="bg-gradient-to-b from-[#0f2b1e]/60 to-[#0f2b1e]/85"
         sizes="(max-width: 1024px) 100vw, 1280px"
       />

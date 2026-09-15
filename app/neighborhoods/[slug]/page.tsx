@@ -10,7 +10,6 @@ import { Button, buttonVariants } from '@/components/ui/button'
 import { CalendlyLink } from '@/components/calendly-link'
 import { HeroBackground } from '@/components/hero-background'
 import {
-  createOgImageUrl,
   createWebPageSchema,
   createBreadcrumbSchema,
   getCanonicalUrl,
@@ -23,8 +22,9 @@ import {
   neighborhoodPossessive,
 } from '@/lib/neighborhoods'
 import { SectionBanner } from '@/components/heading-media'
+import { FaqList } from '@/components/faq-section'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
-import { DEFAULT_H1_IMAGE, NEIGHBORHOOD_CARD_IMAGES, getAssetAlt } from '@/lib/site-images'
+import { DEFAULT_H1_IMAGE, NEIGHBORHOOD_CARD_IMAGES, getAssetAlt, sitePhotoOg } from '@/lib/site-images'
 
 
 type NeighborhoodPageProps = {
@@ -51,13 +51,7 @@ export async function generateMetadata({ params }: NeighborhoodPageProps): Promi
       url: `https://www.spanishtrailhomes.com/neighborhoods/${slug}`,
       title,
       description,
-      images: [
-        createOgImageUrl({
-          title: `Homes for sale in ${neighborhood.name}`,
-          subtitle: 'Spanish Trail 89113 listing hub',
-          eyebrow: 'SpanishTrailHomes.com',
-        }),
-      ],
+      images: [sitePhotoOg(NEIGHBORHOOD_CARD_IMAGES[slug] ?? DEFAULT_H1_IMAGE)],
     },
     twitter: { card: 'summary_large_image', title, description },
   }
@@ -213,18 +207,10 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
         </section>
 
         <section className="mt-12" aria-labelledby={`${slug}-faq-heading`}>
-          <SectionBanner headingId={`${slug}-faq-heading`} />
           <h2 id={`${slug}-faq-heading`} className="font-playfair text-2xl font-semibold text-[#2d2318]">
             {neighborhood.name} buyer and seller questions
           </h2>
-          <dl className="mt-6 space-y-6">
-            {faqs.map((item) => (
-              <div key={item.question}>
-                <dt className="font-semibold text-[#2d2318]">{item.question}</dt>
-                <dd className="mt-2 text-[#5c4a3a] leading-relaxed">{item.answer}</dd>
-              </div>
-            ))}
-          </dl>
+          <FaqList items={faqs} className="mt-6" />
         </section>
 
         <section

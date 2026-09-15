@@ -15,7 +15,8 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx}\"",
-    "images:upload": "node scripts/upload-cloudflare-images.mjs"
+    "images:upload": "node scripts/upload-cloudflare-images.mjs",
+    "images:upload:overwrite": "node scripts/upload-cloudflare-images.mjs --overwrite"
   },
   "dependencies": {
     "@radix-ui/react-alert-dialog": "^1.1.14",

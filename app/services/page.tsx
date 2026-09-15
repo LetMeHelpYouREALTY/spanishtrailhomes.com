@@ -7,8 +7,10 @@ import { CalendlyLink } from '@/components/calendly-link'
 import { SiteShell } from '@/components/site-shell'
 import { RealScoutSection } from '@/components/realscout-section'
 import { Button } from '@/components/ui/button'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { FaqList } from '@/components/faq-section'
 import { AgentPortrait } from '@/components/agent-portrait'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/services'
@@ -119,11 +121,7 @@ export const metadata: Metadata = {
     title: 'Spanish Trail Realtor Services | Dr. Jan Duffy',
     description: servicesPageDescription,
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Realtor Services',
-        subtitle: 'Buy, sell, and tour inside 89113',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-contact-office'),
     ],
   },
   twitter: {
@@ -131,11 +129,7 @@ export const metadata: Metadata = {
     title: 'Spanish Trail Realtor Services | Dr. Jan Duffy',
     description: servicesPageDescription,
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Realtor Services',
-        subtitle: 'Exclusive luxury representation',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-contact-office'),
     ],
   },
 }
@@ -282,15 +276,7 @@ function FAQSection() {
         <h2 id="services-faq-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Realtor service questions
         </h2>
-        <div className="mt-10 space-y-8">
-          {faqContent.map((item) => (
-            <article key={item.question} className="rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10">
-              <CardVisual seed={item.question} />
-              <h3 className="mt-4 text-lg font-semibold uppercase tracking-[0.2em] text-[#0f2b1e]">{item.question}</h3>
-              <p className="mt-3 text-base leading-relaxed text-[#372a20]/85">{item.answer}</p>
-            </article>
-          ))}
-        </div>
+        <FaqList items={faqContent} />
       </div>
     </section>
   )

@@ -7,14 +7,14 @@ import Script from 'next/script'
 import { SiteShell } from '@/components/site-shell'
 import { golfCourses } from '@/lib/content'
 import { Button } from '@/components/ui/button'
-import { RealScoutSection } from '@/components/realscout-section'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { HeroBackground } from '@/components/hero-background'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { FaqList } from '@/components/faq-section'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
-import { getAssetAlt } from '@/lib/site-images'
+import { getAssetAlt, sitePhotoOg } from '@/lib/site-images'
 
 
 const golfNarratives = [
@@ -146,11 +146,7 @@ export const metadata: Metadata = {
     description:
       'Discover the Sunrise, Lakes, and Canyon nines, practice facilities, and golf programming at Spanish Trail Country Club.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Golf',
-        subtitle: '27-hole experience by Robert Trent Jones Jr.',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-golf-fairway'),
     ],
   },
   twitter: {
@@ -159,11 +155,7 @@ export const metadata: Metadata = {
     description:
       'Explore Spanish Trail\'s 27 championship holes designed by Robert Trent Jones Jr.',
     images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Golf Club',
-        subtitle: 'Sunrise - Lakes - Canyon nines',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
+      sitePhotoOg('h1-golf-fairway'),
     ],
   },
 }
@@ -178,14 +170,6 @@ export default function GolfPage() {
   return (
     <SiteShell>
       <GolfHero />
-      <RealScoutSection
-        id="bhhs-listings"
-        eyebrow="Golf Course Homes"
-        title="Spanish Trail Residences with Fairway Views"
-        description="Scroll current listings positioned along the Sunrise, Lakes, and Canyon nines. Adjust filters to target cart-path privacy, pool homes, or lock-and-leave villas."
-        priceMin="700000"
-        propertyTypes=",SFR"
-      />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Golf' }]} />
@@ -494,17 +478,7 @@ function GolfFAQSection() {
           </p>
         </div>
 
-        <div className="mt-12 space-y-10">
-          {golfFaq.map((item) => (
-            <article key={item.question} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">
-              <CardVisual seed={String(item.question)} />
-              <h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">
-                {item.question}
-              </h3>
-              <p className="text-base leading-relaxed text-[#372a20]/85">{item.answer}</p>
-            </article>
-          ))}
-        </div>
+        <FaqList items={golfFaq} />
       </div>
     </section>
   )

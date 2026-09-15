@@ -11,10 +11,10 @@ import { RealScoutSection } from '@/components/realscout-section'
 import {
   createBreadcrumbSchema,
   createFaqPageSchema,
-  createOgImageUrl,
   createWebPageSchema,
   getCanonicalUrl,
 } from '@/lib/structuredData'
+import { sitePhotoOg } from '@/lib/site-images'
 import { GBP_FULL_ADDRESS, GBP_LEGAL_NAME, GBP_PHONE_DISPLAY, GBP_PHONE_E164 } from '@/lib/gbp-business'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/amenity-map'
@@ -93,13 +93,7 @@ export const metadata: Metadata = {
     url: pageUrl,
     title: 'Spanish Trail Amenity Map | Las Vegas 89113',
     description: pageDescription,
-    images: [
-      createOgImageUrl({
-        title: 'Spanish Trail Amenity Map',
-        subtitle: 'Golf, club, Tropicana access · 89113',
-        eyebrow: 'SpanishTrailHomes.com',
-      }),
-    ],
+    images: [sitePhotoOg('h2-office-map')],
   },
   twitter: {
     card: 'summary_large_image',
