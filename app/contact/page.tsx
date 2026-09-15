@@ -18,7 +18,9 @@ import {
   shouldShowPromotedSpecialHoursNotice,
 } from '@/lib/gbp-business'
 import { marketStats, formatMedianPrice } from '@/lib/marketStats'
-import { SectionBanner } from '@/components/heading-media'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
+import { GoogleMapEmbed } from '@/components/google-map-embed'
+import { GbpLocalActions } from '@/components/gbp-local-actions'
 import { FaqList } from '@/components/faq-section'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/contact'
@@ -121,7 +123,7 @@ const contactFaqSchema = {
 
 export default function ContactPage() {
   return (
-    <SiteShell>
+    <SiteShell showVisitOffice={false}>
       <HeroSection />
       <RealScoutSection
         id="bhhs-listings"
@@ -357,7 +359,7 @@ function NeighborhoodFitSection() {
             {
               title: 'Patios & Springs enclaves',
               detail:
-                'Tree-lined streets, versatile floor plans, and a short drive to Bishop Gorman High School (2.2 miles via S. Rainbow Blvd.).',
+                'Tree-lined streets, versatile floor plans, and a 2.2-mile drive to Bishop Gorman High School via S. Rainbow Blvd.',
             },
           ].map((item) => (
             <div key={item.title} className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
@@ -407,9 +409,6 @@ function ContactCTASection() {
 }
 
 function GBPIntegrationSection() {
-  const gbpUrl = 'https://maps.app.goo.gl/9QG1zTx5B7jG1wfP9'
-  const mapsDirectionsUrl = 'https://www.google.com/maps/dir/?api=1&destination=5050+Spanish+Trail+Ln,+Las+Vegas,+NV+89113'
-  
   return (
     <section className="bg-white py-16 sm:py-20" aria-labelledby="gbp-heading">
       <SectionBanner headingId="gbp-heading" />
@@ -446,34 +445,7 @@ function GBPIntegrationSection() {
               </div>
             </div>
             
-            <div className="flex flex-wrap gap-3">
-              <Button
-                asChild
-                className="rounded-full bg-[#0f2b1e] px-6 py-3 text-xs uppercase tracking-[0.3em] text-white hover:bg-[#1f4a35]"
-              >
-                <Link href="tel:+17027663299">
-                  Call (702) 766-3299
-                </Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                className="rounded-full border-[#0f2b1e] px-6 py-3 text-xs uppercase tracking-[0.3em] text-[#0f2b1e] hover:bg-[#0f2b1e] hover:text-white"
-              >
-                <Link href={mapsDirectionsUrl} target="_blank" rel="noopener noreferrer">
-                  Get Directions
-                </Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                className="rounded-full border-[#0f2b1e] px-6 py-3 text-xs uppercase tracking-[0.3em] text-[#0f2b1e] hover:bg-[#0f2b1e] hover:text-white"
-              >
-                <Link href={gbpUrl} target="_blank" rel="noopener noreferrer">
-                  View Google Reviews
-                </Link>
-              </Button>
-            </div>
+            <GbpLocalActions />
             
             <div className="rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 text-sm text-[#372a20]/85">
               <p className="mb-2 font-semibold uppercase tracking-[0.3em] text-[#0f2b1e]">Business hours</p>
@@ -498,14 +470,7 @@ function GBPIntegrationSection() {
           </div>
           
           <div className="overflow-hidden rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] shadow-lg">
-            <iframe
-              title="Spanish Trail Homes Location - 5050 Spanish Trail Ln, Las Vegas, NV 89113"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3234.1155408815076!2d-115.28609452341818!3d36.10914500736459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c8bf27532cd0f3%3A0xba327d02c4e3709e!2sSpanish%20Trail%20Country%20Club!5e0!3m2!1sen!2sus!4v1731191452004!5m2!1sen!2sus"
-              className="h-[400px] w-full border-0"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              allowFullScreen
-            />
+            <GoogleMapEmbed />
           </div>
         </div>
       </div>

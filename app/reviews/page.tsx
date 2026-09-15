@@ -6,12 +6,12 @@ import Script from 'next/script'
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { Breadcrumbs } from '@/components/breadcrumbs'
-import { createWebPageSchema, createFaqSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl, createFaqPageSchema } from '@/lib/structuredData'
 import { sitePhotoOg } from '@/lib/site-images'
 import { GBP_GOOGLE_REVIEW_URL, GBP_MAPS_URL } from '@/lib/gbp-business'
 import { SectionBanner } from '@/components/heading-media'
-import { FaqSection } from '@/components/faq-section'
 import { AgentPortrait } from '@/components/agent-portrait'
+import { GbpLocalActions } from '@/components/gbp-local-actions'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/reviews'
@@ -129,26 +129,23 @@ const bestPractices: BestPracticeItem[] = [
   },
 ]
 
-const reviewsFaq = [
+const reviewFaq = [
   {
-    question: 'Where should I leave a review for Dr. Jan Duffy?',
+    question: 'Where do I leave a Google review for Dr. Jan Duffy?',
     answer:
-      'Google Business Profile is the review we ask for first. It appears on Search and Maps for Spanish Trail | Homes By Dr. Jan Duffy. Use the button on this page or call (702) 766-3299 if you need the link texted to you.',
+      'Use the official review link on this page (g.page) or open the Google Business Profile for Spanish Trail | Homes By Dr. Jan Duffy. The office is 5050 Spanish Trail Ln, Las Vegas, NV 89113. Call (702) 766-3299 if the form does not load.',
   },
   {
-    question: 'Do I need a Google account to review Spanish Trail Homes?',
+    question: 'Do reviews help this listing on Google Maps?',
     answer:
-      'Yes. Google requires a signed-in account to post. The review should describe the real estate service you received—tours, pricing, negotiation—not protected-class characteristics of a neighborhood.',
+      'Yes. Recent, specific reviews about buying or selling a Spanish Trail home help the Business Profile appear more often in Maps and local Search. Keep comments about the transaction, the address, and the service—not about protected classes.',
   },
   {
-    question: 'Can Dr. Duffy respond to my Google review?',
+    question: 'Can I review without buying a home?',
     answer:
-      'Yes. She monitors the Spanish Trail Homes profile and replies when a review needs a follow-up. Office hours are Sunday–Saturday 9:00 AM–6:00 PM at 5050 Spanish Trail Ln, Las Vegas, NV 89113.',
+      'Google asks reviewers to share a real experience. If you toured with Dr. Duffy, listed a home, or closed in Spanish Trail, that is a valid review. Do not post fake reviews.',
   },
 ]
-
-const reviewsFaqSchema = createFaqSchema(reviewsFaq)
-
 export default function ReviewsPage() {
   return (
     <SiteShell>
@@ -157,7 +154,7 @@ export default function ReviewsPage() {
         type="application/ld+json"
         strategy="afterInteractive"
       >
-        {JSON.stringify([webPageSchema, reviewsFaqSchema])}
+        {JSON.stringify([webPageSchema, createFaqPageSchema(reviewFaq)])}
       </Script>
 
       <Breadcrumbs
@@ -174,14 +171,7 @@ export default function ReviewsPage() {
       <ShareSection />
       <BestPracticesSection bestPractices={bestPractices} />
       <NegativeReviewsSection />
-      <FaqSection
-        headingId="reviews-faq-heading"
-        eyebrow="Google reviews"
-        heading="Questions about leaving a review"
-        intro="A specific review of the transaction helps the next Spanish Trail buyer or seller decide whether to call."
-        items={reviewsFaq}
-        tone="white"
-      />
+      <ReviewsFaqSection />
       <CTASection />
     </SiteShell>
   )
@@ -232,6 +222,7 @@ function HeroSection() {
             </Link>
           </Button>
         </div>
+        <GbpLocalActions variant="dark" className="mt-8 justify-center" />
       </div>
     </section>
   )
@@ -377,7 +368,7 @@ function QRCodeSection() {
               {/* QR Code placeholder - using a Google Charts API generated QR code */}
               <div className="bg-white p-4 rounded-2xl">
                 <Image
-                  src={`https://chart.googleapis.com/chart?cht=qr&chl=${encodeURIComponent(reviewLink)}&chs=200x200&chld=H|0`}
+                  src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(reviewLink)}`}
                   alt="QR code to leave a Google review for Dr. Jan Duffy — Spanish Trail Homes, Las Vegas"
                   width={200}
                   height={200}
@@ -636,12 +627,33 @@ function CTASection() {
           </div>
           <div className="rounded-2xl bg-white/10 p-6 text-center">
             <p className="font-[var(--font-playfair)] text-3xl">500+</p>
-            <p className="mt-1 text-sm text-white/70">Spanish Trail clients advised</p>
+            <p className="mt-1 text-sm text-white/70">Spanish Trail buyers and sellers advised</p>
           </div>
           <div className="rounded-2xl bg-white/10 p-6 text-center">
             <p className="font-[var(--font-playfair)] text-3xl">11</p>
             <p className="mt-1 text-sm text-white/70">Neighborhoods inside the gates</p>
           </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function ReviewsFaqSection() {
+  return (
+    <section className="bg-white py-16 sm:py-20" aria-labelledby="reviews-faq-heading">
+      <SectionBanner headingId="reviews-faq-heading" />
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <h2 id="reviews-faq-heading" className="font-[var(--font-playfair)] text-2xl text-[#1f2a24] sm:text-3xl">
+          Google review FAQ
+        </h2>
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
+          {reviewFaq.map((item) => (
+            <article key={item.question} className="rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6">
+              <h3 className="text-lg font-semibold text-[#0f2b1e]">{item.question}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-[#372a20]/85">{item.answer}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>

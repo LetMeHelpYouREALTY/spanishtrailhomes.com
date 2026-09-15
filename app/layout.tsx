@@ -22,10 +22,10 @@ import {
   GBP_LOCALITY,
   GBP_REGION,
   GBP_SAME_AS,
-  GBP_SERVICE_AREA_LABEL,
+  GBP_MAPS_URL,
+  GBP_SERVICE_AREAS,
   GBP_STREET,
   GBP_COUNTRY,
-  GBP_MAPS_URL,
 } from '@/lib/gbp-business'
 
 const siteUrl = structuredDataSiteUrl
@@ -66,11 +66,11 @@ const structuredData = [
       getAbsoluteSiteImageUrl('h1-office-exterior'),
       getAbsoluteSiteImageUrl('h1-guard-gate'),
       getAbsoluteSiteImageUrl('h1-golf-fairway'),
+      getAbsoluteSiteImageUrl('h1-luxury-estate'),
       getAbsoluteSiteImageUrl('h2-accessible-entrance'),
       getAbsoluteSiteImageUrl('h1-contact-office'),
       getAbsoluteSiteImageUrl('h2-directions-approach'),
     ],
-    hasMap: GBP_MAPS_URL,
     photo: [
       {
         '@type': 'ImageObject',
@@ -88,20 +88,15 @@ const structuredData = [
         name: getAssetAlt('h2-accessible-entrance'),
       },
     ],
+    hasMap: GBP_MAPS_URL,
     url: siteUrl,
     telephone: GBP_PHONE_E164,
     email: GBP_EMAIL,
     priceRange: '$$$',
-    areaServed: [
-      {
-        '@type': 'Place',
-        name: 'Spanish Trail, Las Vegas, NV 89113',
-      },
-      {
-        '@type': 'Place',
-        name: GBP_SERVICE_AREA_LABEL,
-      },
-    ],
+    areaServed: GBP_SERVICE_AREAS.map((area) => ({
+      '@type': 'Place',
+      name: area.name,
+    })),
     address: {
       '@type': 'PostalAddress',
       streetAddress: GBP_STREET,
@@ -266,6 +261,7 @@ export default function RootLayout({
         {/* Preconnect to external domains for faster resource loading */}
         <link rel="preconnect" href="https://www.realscout.com" />
         <link rel="preconnect" href="https://em.realscout.com" />
+        <link rel="preconnect" href="https://imagedelivery.net" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

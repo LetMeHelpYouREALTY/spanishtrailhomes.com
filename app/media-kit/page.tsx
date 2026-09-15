@@ -9,14 +9,14 @@ import { HeroBackground } from '@/components/hero-background'
 import { CalendlyLink } from '@/components/calendly-link'
 import { SectionBanner } from '@/components/heading-media'
 import { AgentPortrait } from '@/components/agent-portrait'
+import { GbpFaqList } from '@/components/gbp-faq-list'
 import {
   createWebPageSchema,
   createBreadcrumbSchema,
-  createFaqSchema,
+  createFaqPageSchema,
   getCanonicalUrl,
 } from '@/lib/structuredData'
 import { getAgentPortraitAbsoluteUrl } from '@/lib/agent-portraits'
-import { FaqSection } from '@/components/faq-section'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 import { getAssetAlt, sitePhotoOg } from '@/lib/site-images'
 import {
@@ -105,21 +105,26 @@ const credentials = [
 
 const mediaKitFaq = [
   {
+    question: 'What is the official name and NAP for press?',
+    answer:
+      'Business name: Spanish Trail | Homes By Dr. Jan Duffy. Address: 5050 Spanish Trail Ln, Las Vegas, NV 89113. Phone: (702) 766-3299. Email: DrDuffySells@SpanishTrailHomes.com. Hours: Sunday–Saturday 9:00 AM–6:00 PM.',
+  },
+  {
+    question: 'What is Dr. Jan Duffy’s license number?',
+    answer:
+      'Nevada real estate license S.0197614.LLC with Berkshire Hathaway HomeServices Nevada Properties. Never use “Janet” in copy.',
+  },
+  {
     question: 'How do I request a headshot or logo?',
-    answer: `Email ${GBP_EMAIL} or call ${GBP_PHONE_DISPLAY}. High-resolution files and usage guidelines are provided for press and partnership use. Office: ${GBP_FULL_ADDRESS}.`,
+    answer:
+      'Email DrDuffySells@SpanishTrailHomes.com or call (702) 766-3299. High-resolution files and usage guidelines are released for press and partnership use only.',
   },
   {
-    question: 'Who is the Spanish Trail listing specialist?',
+    question: 'Where is the Google Business Profile?',
     answer:
-      'Dr. Jan Duffy, License S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties. She buys and sells Spanish Trail homes in Las Vegas ZIP 89113 only.',
-  },
-  {
-    question: 'Can reporters quote market numbers from this site?',
-    answer:
-      'Yes, with attribution to Dr. Jan Duffy / Spanish Trail | Homes By Dr. Jan Duffy and a date stamp. Confirm current medians on the weekly market report before publishing a figure.',
+      'Open the Google Maps pin for 5050 Spanish Trail Ln or the Google Business Profile share link on this site. Reviews and hours must match this NAP.',
   },
 ]
-const mediaKitFaqSchema = createFaqSchema(mediaKitFaq)
 
 export default function MediaKitPage() {
   return (
@@ -132,7 +137,7 @@ export default function MediaKitPage() {
             mediaKitWebPageSchema,
             mediaKitBreadcrumbSchema,
             agentSchema,
-            mediaKitFaqSchema,
+            createFaqPageSchema(mediaKitFaq),
           ]),
         }}
       />
@@ -227,7 +232,7 @@ export default function MediaKitPage() {
           </ul>
         </section>
 
-        {/* Media assets / headshot */}
+        <GbpFaqList headingId="media-kit-faq-heading" title="Media kit FAQ" items={mediaKitFaq} />
         <section className="mb-12" aria-labelledby="media-heading">
       <SectionBanner headingId="media-heading" />
           <h2 id="media-heading" className="font-playfair text-xl font-semibold text-[#0f2b1e] sm:text-2xl">
@@ -249,15 +254,6 @@ export default function MediaKitPage() {
             to request high-resolution files and usage guidelines.
           </p>
         </section>
-
-        <FaqSection
-          headingId="media-kit-faq-heading"
-          eyebrow="Press FAQ"
-          heading="Media kit questions"
-          items={mediaKitFaq}
-          tone="white"
-          className="mb-12 px-0 sm:px-0"
-        />
 
         {/* NAP & final CTA */}
         <section className="rounded-2xl border border-[#0f2b1e]/20 bg-[#f8f5ef] p-6 sm:p-8" aria-labelledby="contact-heading">
@@ -288,7 +284,7 @@ export default function MediaKitPage() {
             </Link>
           </p>
           <p className="mt-2 text-sm text-[#0f2b1e]/80">
-            5050 Spanish Trail Ln, Las Vegas, NV 89113
+            5050 Spanish Trail Ln, Las Vegas, NV 89113 · Sunday–Saturday 9:00 AM–6:00 PM
           </p>
           <div className="mt-6">
             <CalendlyLink

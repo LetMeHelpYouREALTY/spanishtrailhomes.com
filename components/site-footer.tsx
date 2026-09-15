@@ -5,6 +5,7 @@ import { Facebook, Instagram, Linkedin, Youtube } from 'lucide-react'
 import { trackPhoneClick } from '@/lib/analytics'
 import { CalendlyLink } from '@/components/calendly-link'
 import { AgentPortrait } from '@/components/agent-portrait'
+import { GbpLocalActions } from '@/components/gbp-local-actions'
 import {
   GBP_DIRECTIONS_URL,
   GBP_EASTER_2026_CLOSURE,
@@ -65,6 +66,7 @@ export function SiteFooter() {
         { label: 'Client Reviews', href: '/reviews' },
         { label: 'Contact Us', href: '/contact' },
         { label: 'Office Location', href: '/find-our-locations' },
+        { label: 'Directions', href: '/directions' },
         { label: 'Google Business Profile', href: '/google-business-profile' },
         { label: 'Media Kit', href: '/media-kit' },
         { label: 'Site Index', href: '/site-index' },
@@ -124,7 +126,7 @@ export function SiteFooter() {
             Exclusive realtor for Spanish Trail homes in 89113.
           </p>
           <p className="text-xs leading-relaxed text-[#cbb8a6]">
-            Hours: {GBP_HOURS_SHORT} · Service area: {GBP_SERVICE_AREA_LABEL}
+            Hours: {GBP_HOURS_SHORT} · Service area: {GBP_SERVICE_AREA_LABEL} · Summerlin · Spring Valley · Las Vegas 89117
             {shouldShowPromotedSpecialHoursNotice() ? (
               <>
                 <br />
@@ -159,6 +161,7 @@ export function SiteFooter() {
           >
             Book a Showing
           </CalendlyLink>
+          <GbpLocalActions variant="dark" className="pt-1" />
         </div>
         {footerLinks.map((section) => (
           <div key={section.heading} className="space-y-3">

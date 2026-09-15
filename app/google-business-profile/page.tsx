@@ -3,18 +3,21 @@ import Link from 'next/link'
 import Script from 'next/script'
 
 import { SiteShell } from '@/components/site-shell'
+import { RealScoutSection } from '@/components/realscout-section'
 import { Button } from '@/components/ui/button'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import {
   createBreadcrumbSchema,
+  createFaqPageSchema,
   createWebPageSchema,
   getCanonicalUrl,
   structuredDataSiteUrl,
 } from '@/lib/structuredData'
-import { GBP_GOOGLE_REVIEW_URL, GBP_PROFILE_SHARE_URL } from '@/lib/gbp-business'
 import { sitePhotoOg } from '@/lib/site-images'
+import { GBP_DIRECTIONS_URL, GBP_EMAIL, GBP_GOOGLE_REVIEW_URL, GBP_PHONE_DISPLAY, GBP_PHONE_E164, GBP_PROFILE_SHARE_URL } from '@/lib/gbp-business'
 import { SectionBanner } from '@/components/heading-media'
-import { FaqList } from '@/components/faq-section'
+import { GbpLocalActions } from '@/components/gbp-local-actions'
+import { GoogleMapEmbed } from '@/components/google-map-embed'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/google-business-profile'
@@ -24,7 +27,7 @@ const pageDescription =
 /** Primary “view profile” link (Google share URL). Maps URL kept for schema + Maps-focused CTAs. */
 const gbpUrl = GBP_PROFILE_SHARE_URL
 const reviewLink = GBP_GOOGLE_REVIEW_URL
-const mapsDirectionsUrl = 'https://www.google.com/maps/dir/?api=1&destination=5050+Spanish+Trail+Ln,+Las+Vegas,+NV+89113'
+const mapsDirectionsUrl = GBP_DIRECTIONS_URL
 
 /** WebPage + BreadcrumbList only: LocalBusiness/RealEstateAgent lives in root layout (#localBusiness). */
 const webPageSchema = createWebPageSchema({
@@ -92,11 +95,34 @@ const profileFeatures: ProfileFeature[] = [
   },
 ]
 
+const gbpFaqs = [
+  {
+    question: 'Is this Google Business Profile verified?',
+    answer:
+      'Yes, the Google Business Profile for Spanish Trail | Homes By Dr. Jan Duffy is verified by Google. Business hours, 5050 Spanish Trail Ln, Las Vegas, NV 89113, and (702) 766-3299 match this website.',
+  },
+  {
+    question: 'How do I leave a review?',
+    answer:
+      'Click Leave a Review on this page, or search Spanish Trail Homes Dr. Jan Duffy on Google Maps. You need a Google account to post. Reviews help future Spanish Trail buyers and sellers find the listing on Search and Maps.',
+  },
+  {
+    question: 'Can I contact Dr. Duffy through Google?',
+    answer:
+      'Yes. Call (702) 766-3299 from the profile, get directions to 5050 Spanish Trail Ln, or open this website. Gate access for showings still requires an appointment.',
+  },
+  {
+    question: 'What information is on the Google Business Profile?',
+    answer:
+      'Hours Sunday–Saturday 9:00 AM–6:00 PM, map pin, phone, website, photos, accessibility attributes, and client reviews for Spanish Trail real estate in Las Vegas 89113.',
+  },
+]
+
 export default function GoogleBusinessProfilePage() {
   return (
-    <SiteShell>
+    <SiteShell showVisitOffice={false}>
       <Script id="gbp-page-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify([webPageSchema, gbpBreadcrumbSchema])}
+        {JSON.stringify([webPageSchema, gbpBreadcrumbSchema, createFaqPageSchema(gbpFaqs)])}
       </Script>
 
       <Breadcrumbs
@@ -107,6 +133,7 @@ export default function GoogleBusinessProfilePage() {
       />
 
       <HeroSection />
+      <RealScoutSection id="bhhs-listings" />
       <BusinessInfoSection />
       <ProfileFeaturesSection features={profileFeatures} />
       <ReviewsHighlightSection />
@@ -145,25 +172,7 @@ function HeroSection() {
         <p className="mt-6 max-w-2xl mx-auto text-base leading-7 text-primary-foreground/80 sm:text-lg">
           Your trusted local real estate expert for Spanish Trail, Las Vegas. Providing precise market updates and helping residents buy and sell homes with confidence.
         </p>
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <Button
-            asChild
-            className="rounded-full bg-white px-8 py-3 text-xs uppercase tracking-[0.3em] text-[#0f2b1e] hover:bg-[#efe5d8]"
-          >
-            <Link href={gbpUrl} target="_blank" rel="noopener noreferrer">
-              View on Google
-            </Link>
-          </Button>
-          <Button
-            asChild
-            variant="outline"
-            className="rounded-full border-white/60 px-8 py-3 text-xs uppercase tracking-[0.3em] text-white hover:bg-white/10"
-          >
-            <Link href={reviewLink} target="_blank" rel="noopener noreferrer">
-              Leave a Review
-            </Link>
-          </Button>
-        </div>
+          <GbpLocalActions variant="dark" className="mt-10 justify-center" />
       </div>
     </section>
   )
@@ -206,8 +215,16 @@ function BusinessInfoSection() {
                   <div>
                     <dt className="font-semibold text-[#0f2b1e]">Phone</dt>
                     <dd className="mt-1">
-                      <Link href="tel:+17027663299" className="text-[#0f2b1e] underline underline-offset-2 hover:text-[#1f4a35]">
-                        (702) 766-3299
+                      <Link href={`tel:${GBP_PHONE_E164}`} className="text-[#0f2b1e] underline underline-offset-2 hover:text-[#1f4a35]">
+                        {GBP_PHONE_DISPLAY}
+                      </Link>
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="font-semibold text-[#0f2b1e]">Email</dt>
+                    <dd className="mt-1">
+                      <Link href={`mailto:${GBP_EMAIL}`} className="text-[#0f2b1e] underline underline-offset-2 hover:text-[#1f4a35]">
+                        {GBP_EMAIL}
                       </Link>
                     </dd>
                   </div>
@@ -229,7 +246,7 @@ function BusinessInfoSection() {
                 <address className="not-italic text-sm text-[#372a20]/85">
                   <p className="font-semibold text-[#0f2b1e]">5050 Spanish Trail Ln</p>
                   <p>Las Vegas, NV 89113</p>
-                  <p className="mt-2 text-xs text-[#372a20]/70">Service Area: Las Vegas, NV</p>
+                  <p className="mt-2 text-xs text-[#372a20]/70">Service area: Las Vegas, NV 89113 · 89117 · Summerlin · Spring Valley</p>
                 </address>
                 <div className="mt-4">
                   <Button
@@ -253,10 +270,7 @@ function BusinessInfoSection() {
                     <dt className="text-[#372a20]/85">Sunday – Saturday</dt>
                     <dd className="font-medium text-[#0f2b1e]">9:00 AM – 6:00 PM</dd>
                   </div>
-                  <div className="pt-2 border-t border-[#d8cdbf]">
-                    <dt className="font-semibold text-[#0f2b1e]">Special Hours</dt>
-                    <dd className="mt-1 text-[#372a20]/85">Feb 16, 2026 (Washington&apos;s Birthday): 10:00 AM – 6:00 PM</dd>
-                  </div>
+
                 </dl>
               </div>
             </div>
@@ -289,14 +303,7 @@ function BusinessInfoSection() {
             </div>
 
             <div className="overflow-hidden rounded-3xl border border-[#d8cdbf] shadow-lg">
-              <iframe
-                title="Spanish Trail Homes Location - 5050 Spanish Trail Ln, Las Vegas, NV 89113"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3234.1155408815076!2d-115.28609452341818!3d36.10914500736459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c8bf27532cd0f3%3A0xba327d02c4e3709e!2sSpanish%20Trail%20Country%20Club!5e0!3m2!1sen!2sus!4v1731191452004!5m2!1sen!2sus"
-                className="h-[300px] w-full border-0"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-              />
+              <GoogleMapEmbed heightClassName="h-[300px]" />
             </div>
           </div>
         </div>
@@ -487,25 +494,6 @@ function ConnectSection() {
 }
 
 function FAQSection() {
-  const faqs = [
-    {
-      question: 'Is this Google Business Profile verified?',
-      answer: 'Yes, our Google Business Profile is verified by Google. This means the business information has been confirmed as accurate and the profile is managed by the authorized business owner.',
-    },
-    {
-      question: 'How do I leave a review?',
-      answer: 'Click the "Leave a Review" button on this page, or search for "Spanish Trail Homes Dr. Jan Duffy" on Google and click the reviews section. You\'ll need a Google account to post a review.',
-    },
-    {
-      question: 'Can I contact Dr. Duffy through Google?',
-      answer: 'Yes! You can call directly by clicking the phone number on our Google Business Profile, get directions via Google Maps, or visit our website. All contact methods are available on the profile.',
-    },
-    {
-      question: 'What information is on the Google Business Profile?',
-      answer: 'Our profile includes business hours, location with map, phone number, website link, client reviews, photos, and a description of our real estate services specializing in Spanish Trail.',
-    },
-  ]
-
   return (
     <section
       className="bg-white py-20 sm:py-24"
@@ -519,7 +507,21 @@ function FAQSection() {
         >
           Frequently Asked Questions
         </h2>
-        <FaqList items={faqs} />
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
+          {gbpFaqs.map((faq) => (
+            <div
+              key={faq.question}
+              className="rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/5"
+            >
+              <h3 className="text-lg font-semibold text-[#0f2b1e]">
+                {faq.question}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-[#372a20]/85">
+                {faq.answer}
+              </p>
+            </div>
+          ))}
+        </div>
         <div className="mt-10 text-center">
           <Button
             asChild

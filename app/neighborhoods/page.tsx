@@ -7,15 +7,15 @@ import { RealScoutSection } from '@/components/realscout-section'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
+import { GbpFaqList } from '@/components/gbp-faq-list'
 import {
   createWebPageSchema,
   createBreadcrumbSchema,
-  createFaqSchema,
+  createFaqPageSchema,
   getCanonicalUrl,
 } from '@/lib/structuredData'
 import { NEIGHBORHOODS } from '@/lib/neighborhoods'
 import { CardVisual } from '@/components/heading-media'
-import { FaqSection } from '@/components/faq-section'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 import { getAssetAlt, sitePhotoOg } from '@/lib/site-images'
 
@@ -49,26 +49,6 @@ const neighborhoodsBreadcrumbSchema = createBreadcrumbSchema([
   { name: 'Neighborhoods', url: '/neighborhoods' },
 ])
 
-const neighborhoodsFaq = [
-  {
-    question: 'How many neighborhoods are inside Spanish Trail?',
-    answer:
-      'Eleven: The Estates, Estates West, The Courtyards, The Gardens, The Links, The Carmels, The Springs, Plum Creek, The Villas, The Islands, and Innisbrook Estates. All sit inside the guard gates in Las Vegas ZIP 89113.',
-  },
-  {
-    question: 'Which Spanish Trail neighborhood should I tour first?',
-    answer:
-      'Start with square footage, lock-and-leave needs, and golf frontage—not a valley-wide map. Dr. Jan Duffy matches those constraints to the 11 enclaves, then clears the gate. Call (702) 766-3299.',
-  },
-  {
-    question: 'Can I see live listings by neighborhood?',
-    answer:
-      'Yes. Each enclave page is a listing hub with the typical price band for that village. Open an enclave, or search all Spanish Trail homes for sale with Dr. Duffy.',
-  },
-]
-
-const neighborhoodsFaqSchema = createFaqSchema(neighborhoodsFaq)
-
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
@@ -91,6 +71,29 @@ export const metadata: Metadata = {
   },
 }
 
+const neighborhoodsFaq = [
+  {
+    question: 'How many neighborhoods are inside Spanish Trail?',
+    answer:
+      'Spanish Trail has 11 enclaves: Estates, Estates West, Courtyards, Gardens, Links, Carmels, Springs, Plum Creek, Villas, Islands, and Innisbrook Estates. Dr. Jan Duffy matches square footage, commute, and HOA dues to the right village.',
+  },
+  {
+    question: 'Where is Spanish Trail relative to Bishop Gorman High School?',
+    answer:
+      'Bishop Gorman High School is about 2.2 miles northeast of Spanish Trail via S. Rainbow Blvd. Faith Lutheran Middle & High School and Durango High School are also a short drive. The community ZIP is 89113.',
+  },
+  {
+    question: 'How do I tour a Spanish Trail neighborhood?',
+    answer:
+      'Call (702) 766-3299 for guard-gate clearance. The office is 5050 Spanish Trail Ln, Las Vegas, NV 89113, Sunday–Saturday 9:00 AM–6:00 PM. Open an enclave page for live listings, then book a private showing.',
+  },
+  {
+    question: 'Which enclaves are lock-and-leave versus larger lots?',
+    answer:
+      'Courtyards, Gardens, and Villas are often chosen for lock-and-leave square footage. Estates, Estates West, and Springs typically offer larger lots and dedicated office space. Dr. Duffy maps HOA dues and commute times before you tour.',
+  },
+]
+
 export default function NeighborhoodsHubPage() {
   return (
     <SiteShell>
@@ -99,7 +102,11 @@ export default function NeighborhoodsHubPage() {
         type="application/ld+json"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify([neighborhoodsWebPageSchema, neighborhoodsBreadcrumbSchema, neighborhoodsFaqSchema]),
+          __html: JSON.stringify([
+            neighborhoodsWebPageSchema,
+            neighborhoodsBreadcrumbSchema,
+            createFaqPageSchema(neighborhoodsFaq),
+          ]),
         }}
       />
 
@@ -163,14 +170,13 @@ export default function NeighborhoodsHubPage() {
             </Button>
           </div>
         </section>
+
+        <GbpFaqList
+          headingId="neighborhoods-faq-heading"
+          title="Spanish Trail neighborhood FAQ"
+          items={neighborhoodsFaq}
+        />
       </div>
-      <FaqSection
-        headingId="neighborhoods-faq-heading"
-        eyebrow="Spanish Trail neighborhoods"
-        heading="How to choose among the 11 enclaves"
-        intro="Match square footage, golf frontage, and lock-and-leave needs before you tour. Dr. Jan Duffy clears the gate for the villages that fit."
-        items={neighborhoodsFaq}
-      />
     </SiteShell>
   )
 }

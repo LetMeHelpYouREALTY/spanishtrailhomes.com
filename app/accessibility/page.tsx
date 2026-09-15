@@ -6,11 +6,11 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
-import { createWebPageSchema, createFaqSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { GbpFaqList } from '@/components/gbp-faq-list'
+import { createWebPageSchema, getCanonicalUrl, createFaqPageSchema } from '@/lib/structuredData'
 import { sitePhotoOg } from '@/lib/site-images'
-import { SectionBanner } from '@/components/heading-media'
+import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
-import { FaqSection } from '@/components/faq-section'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/accessibility'
@@ -82,22 +82,26 @@ export const metadata: Metadata = {
 
 const accessibilityFaq = [
   {
-    question: 'How do I request an accommodation?',
+    question: 'Is the Spanish Trail office entrance wheelchair accessible?',
     answer:
-      'Call (702) 766-3299 or email DrDuffySells@SpanishTrailHomes.com. Describe the page, assistive technology, and the barrier. Alternate formats (plain-text email, large print) are available for market reports and property briefs.',
+      'Google Business Profile lists a wheelchair accessible entrance and accessible parking at 5050 Spanish Trail Ln, Las Vegas, NV 89113. Call (702) 766-3299 before a visit so Dr. Jan Duffy can confirm gate access and parking.',
   },
   {
-    question: 'Is the office wheelchair accessible?',
+    question: 'How do I request an accessible showing or document format?',
     answer:
-      'Google Business Profile lists wheelchair accessible entrance and parking at 5050 Spanish Trail Ln, Las Vegas, NV 89113. Call before you drive so Dr. Jan Duffy can arrange gate clearance Sunday–Saturday 9:00 AM–6:00 PM.',
+      'Email DrDuffySells@SpanishTrailHomes.com or call (702) 766-3299. Large-print or plain-text property briefs are available. Hours are Sunday–Saturday 9:00 AM–6:00 PM.',
   },
   {
-    question: 'Can I use the site with a keyboard or screen reader?',
+    question: 'What accessibility standard does this site follow?',
     answer:
-      'Primary pages support keyboard navigation, skip-to-content, and semantic headings. Listing widgets are third-party RealScout components; if a widget is not usable, call (702) 766-3299 and Dr. Duffy will send matching inventory by email or phone.',
+      'SpanishTrailHomes.com aims to conform to WCAG 2.2 AA: keyboard navigation, screen-reader landmarks, and image alt text that names Spanish Trail location and service.',
+  },
+  {
+    question: 'Who do I contact if a page blocks a screen reader?',
+    answer:
+      'Use the feedback section on this page. We respond within two business days. For an active listing or contract, call (702) 766-3299 so a tour is not delayed.',
   },
 ]
-const accessibilityFaqSchema = createFaqSchema(accessibilityFaq)
 
 export default function AccessibilityPage() {
   return (
@@ -119,13 +123,7 @@ export default function AccessibilityPage() {
       <AssistiveTechnologySection />
       <FeedbackSection />
       <OngoingImprovementsSection />
-      <FaqSection
-        headingId="accessibility-faq-heading"
-        eyebrow="Accessibility FAQ"
-        heading="Access, parking, and alternate formats"
-        items={accessibilityFaq}
-        tone="white"
-      />
+      <GbpFaqList headingId="accessibility-faq-heading" title="Accessibility FAQ" items={accessibilityFaq} />
       <ContactSection />
       <Script id="accessibility-schema" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(accessibilitySchema)}
@@ -134,7 +132,7 @@ export default function AccessibilityPage() {
         {JSON.stringify(accessibilityWebPageSchema)}
       </Script>
       <Script id="accessibility-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(accessibilityFaqSchema)}
+        {JSON.stringify(createFaqPageSchema(accessibilityFaq))}
       </Script>
     </SiteShell>
   )
@@ -395,6 +393,10 @@ function ContactSection() {
             Submit contact form
           </Link>
         </div>
+        <p className="mt-6 text-sm text-[#f8f5ef]/80">
+          Spanish Trail | Homes By Dr. Jan Duffy · 5050 Spanish Trail Ln, Las Vegas, NV 89113 · Sunday–Saturday 9:00 AM–6:00
+          PM
+        </p>
         <p className="mt-6 text-xs text-[#f8f5ef]/70">
           Effective November 10, 2025. We welcome feedback to help enhance accessibility across every Spanish Trail touchpoint.
         </p>
