@@ -82,7 +82,7 @@ const ALTS: Record<string, string> = {
   'h2-guest-casita':
     'Guest casita courtyard at a Spanish Trail Las Vegas golf estate',
   'h2-reviews-terrace':
-    'Spanish Trail Country Club terrace in Las Vegas used for client hospitality',
+    'Spanish Trail Country Club terrace overlooking desert golf and palms in Las Vegas 89113',
   'h2-parks-greenbelt':
     'HOA greenbelt walking path with desert landscaping and golf turf inside Spanish Trail, Las Vegas 89113',
   'h2-shopping-plaza':
@@ -112,7 +112,7 @@ const ALTS: Record<string, string> = {
   'h3-gatehouse':
     'Secondary gatehouse inside Spanish Trail, Las Vegas guard-gated community',
   'h3-spa-bath':
-    'Spa bath with golf-course view in a Spanish Trail Las Vegas luxury home',
+    'Spa bath with a desert golf-course view in a Spanish Trail Las Vegas luxury home',
   'h3-cart-path':
     'Golf cart path through Spanish Trail Country Club in Las Vegas',
   'h3-townhome-villa':
