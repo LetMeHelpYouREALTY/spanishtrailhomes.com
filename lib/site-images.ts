@@ -44,7 +44,7 @@ const ALTS: Record<string, string> = {
   'h1-waterfront':
     'Waterfront golf-course home patio and lake at Spanish Trail Las Vegas',
   'h1-villa-courtyard':
-    'Lock-and-leave Spanish Trail villa courtyard with fountain in Las Vegas',
+    'Lock-and-leave Spanish Trail villa courtyard with fountain, bougainvillea, and desert sky in Las Vegas 89113',
   'h1-pool':
     'Spanish Trail Country Club resort pool and spa deck in Las Vegas',
   'h1-contact-office':
@@ -54,7 +54,7 @@ const ALTS: Record<string, string> = {
   'h2-kitchen-fairway':
     'Luxury kitchen overlooking a Spanish Trail golf fairway in Las Vegas',
   'h2-club-dining':
-    'Spanish Trail Country Club dining patio overlooking a golf lake in Las Vegas',
+    'Spanish Trail Country Club dining terrace overlooking a desert golf lake in Las Vegas 89113',
   'h2-tennis':
     'Lighted tennis courts at Spanish Trail Country Club in Las Vegas 89113',
   'h2-fitness':
@@ -64,11 +64,11 @@ const ALTS: Record<string, string> = {
   'h2-architecture':
     'Mediterranean cream stucco architecture of a Spanish Trail Las Vegas luxury home',
   'h2-neighborhood-street':
-    'Tree-lined street inside Spanish Trail guard-gated neighborhoods, Las Vegas 89113',
+    'Desert-landscaped street of clay-tile Mediterranean homes inside Spanish Trail, Las Vegas 89113',
   'h2-valley-skyline':
     'Southwest Las Vegas valley and Strip skyline from Spanish Trail golf fairways',
   'h2-events-lawn':
-    'Spanish Trail Country Club event lawn and clubhouse at twilight in Las Vegas',
+    'Spanish Trail Country Club desert event lawn, date palms, and Mediterranean clubhouse at twilight in Las Vegas 89113',
   'h2-awards-study':
     'Professional study overlooking desert golf and palms for Spanish Trail luxury real estate advisory in Las Vegas 89113',
   'h2-accessible-entrance':
@@ -128,7 +128,7 @@ const ALTS: Record<string, string> = {
   'h3-listing-home-b':
     'Single-story courtyard villa for sale in Spanish Trail Las Vegas',
   'h3-listing-home-c':
-    'Twilight custom estate listing in Spanish Trail Las Vegas',
+    'Twilight custom clay-tile estate listing in Spanish Trail Las Vegas 89113',
   'h3-listing-home-d':
     'Golf villa great room opening to a Spanish Trail Las Vegas fairway with desert palms',
   'h3-listing-home-e':
@@ -175,9 +175,11 @@ const RULES: MediaRule[] = [
   { test: /share-heading|qr-code|best-practices|resident-stories/, id: 'h2-reviews-terrace' },
   { test: /office-map|aerial|overview/, id: 'h2-office-map' },
   { test: /location-heading|choose-locations|comparison|proximity|commuter|local-essentials|address/, id: 'h2-community-map' },
-  { test: /gbp|google-business|find-locations|find-our|site-index|business-info|get-started|connect-heading/, id: 'h1-office-exterior', level: 'h1' },
+  { test: /gbp|google-business|find-locations|find-our|site-index|business-info|get-started|connect-heading|visit-office/, id: 'h1-office-exterior', level: 'h1' },
+  { test: /services-hero|services-practice|services-cta/, id: 'h1-contact-office', level: 'h1' },
+  { test: /lifestyle-hero/, id: 'h2-club-dining' },
   { test: /expertise|approach|philosophy|story|facts|impact|advisory|insight|media-heading/, id: 'h2-awards-study' },
-  { test: /offerings-heading|membership-narratives|young-executive/, id: 'h2-membership-lounge' },
+  { test: /membership-offerings|membership-narratives|young-executive/, id: 'h2-membership-lounge' },
   { test: /amenities|highlights|onsite|programs|offerings|facility|facilities|features/, id: 'h2-club-history' },
   { test: /benefits/, id: 'h2-reviews-terrace' },
   { test: /agreement|authorized|liability|governing|intellectual|changes|sharing|data-|communications|listings-disclosure/, id: 'h1-contact-office' },
@@ -275,6 +277,12 @@ export function resolveHeadingMedia(headingId: string): SiteImageAsset | null {
 }
 
 export function resolveCardMedia(seed: string): SiteImageAsset {
+  const normalized = seed.trim().toLowerCase()
+  const neighborhoodId = NEIGHBORHOOD_CARD_IMAGES[normalized]
+  if (neighborhoodId) {
+    return { id: neighborhoodId, alt: getAssetAlt(neighborhoodId), level: 'h3' }
+  }
+
   const index = hashSeed(seed) % H3_CYCLE.length
   const id = H3_CYCLE[index]
   return { id, alt: getAssetAlt(id), level: 'h3' }

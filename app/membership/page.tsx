@@ -223,16 +223,16 @@ function OfferingsSection() {
     <section
       id="offerings"
       className="bg-background py-20 sm:py-24"
-      aria-labelledby="offerings-heading"
+      aria-labelledby="membership-offerings-heading"
     >
-      <SectionBanner headingId="offerings-heading" />
+      <SectionBanner headingId="membership-offerings-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-2xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">
             Membership Categories
           </p>
           <h2
-            id="offerings-heading"
+            id="membership-offerings-heading"
             className="font-[var(--font-playfair)] text-3xl text-foreground sm:text-4xl"
           >
             Club membership options at Spanish Trail

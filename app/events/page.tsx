@@ -28,7 +28,7 @@ const eventsNarratives = [
     title: 'Weddings with Las Vegas Glamour',
     paragraphs: [
       'Spanish Trail weddings capture the best of Las Vegas: the drama of skyline views paired with the serenity of palm-lined lakes. Couples often exchange vows on the Lakes Course lawn before transitioning to cocktail hour on the terrace, where the Strip twinkles in the background. Indoors, the ballroom adapts to grand stages, choreographed first dances, and immersive decor that astonishes guests.',
-      'Many couples who host weddings at Spanish Trail later inquire about purchasing homes in the community. Dr. Jan Duffy provides property tours tailored to newlyweds who envision owning Spanish Trail real estate, highlighting homes ideal for hosting family gatherings and entertaining.'
+      'Many couples who host weddings at Spanish Trail later inquire about purchasing homes in the community. Dr. Jan Duffy provides property tours tailored to newlyweds who envision owning Spanish Trail real estate, highlighting homes with motor courts, outdoor kitchens, and guest casitas for entertaining.'
     ],
   },
   {
