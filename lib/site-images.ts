@@ -171,6 +171,7 @@ const RULES: MediaRule[] = [
   { test: /location-heading|choose-locations|comparison|proximity|commuter|local-essentials|address/, id: 'h2-community-map' },
   { test: /gbp|google-business|find-locations|find-our|site-index|business-info|get-started|connect-heading/, id: 'h1-office-exterior', level: 'h1' },
   { test: /expertise|approach|philosophy|story|facts|impact|advisory|insight|media-heading/, id: 'h2-awards-study' },
+  { test: /offerings-heading|membership-narratives|young-executive/, id: 'h2-membership-lounge' },
   { test: /amenities|highlights|onsite|programs|offerings|facility|facilities|features/, id: 'h2-club-history' },
   { test: /benefits/, id: 'h2-reviews-terrace' },
   { test: /agreement|authorized|liability|governing|intellectual|changes|sharing|data-|communications|listings-disclosure/, id: 'h1-contact-office' },
