@@ -20,6 +20,7 @@ import { TourCTAStrip } from '@/components/tour-cta-strip'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 import { AgentPortrait } from '@/components/agent-portrait'
+import { GbpLocalActions } from '@/components/gbp-local-actions'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/'
@@ -145,6 +146,11 @@ const homeFaq = [
     question: 'How can sellers maximize exposure for Spanish Trail listings?',
     answer:
       'Sellers working with Dr. Duffy benefit from multi-layered marketing: Berkshire Hathaway HomeServices global syndication, hyperlocal campaigns targeting 89113 and Summerlin move-up buyers, and private preview events for Dr. Duffy’s concierge clients. In addition, she deploys analytics-driven pricing models and property-specific landing pages to capture leads around the clock—essential for Spanish Trail homes where discerning buyers often preview online before booking a showing.',
+  },
+  {
+    question: 'Where is the Spanish Trail office on Google Maps?',
+    answer:
+      'Spanish Trail | Homes By Dr. Jan Duffy is at 5050 Spanish Trail Ln, Las Vegas, NV 89113. Hours are Sunday–Saturday 9:00 AM–6:00 PM. Use Call, Get Directions, or View Google Reviews on this page, or open the Google Business Profile. Phone (702) 766-3299.',
   },
 ]
 
@@ -319,6 +325,7 @@ function HeroSection() {
             Book a Private Tour
           </CalendlyLink>
         </div>
+        <GbpLocalActions variant="dark" />
         <HeroSearchWidget theme="dark" />
       </div>
     </section>
@@ -825,6 +832,7 @@ function CTASection() {
           Book a private tour, request a valuation, or call Dr. Jan Duffy at (702) 766-3299. Exclusive realtor service for this 89113 community.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-4">
+          <GbpLocalActions variant="dark" className="justify-center" />
           <CalendlyLink className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-base font-semibold text-[#0f2b1e] shadow-md hover:bg-[#f1eadd]" ctaText="Book Tour to See Inside" ctaLocation="footer">
             Book Tour to See Inside
           </CalendlyLink>

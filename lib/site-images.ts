@@ -56,7 +56,7 @@ const ALTS: Record<string, string> = {
   'h2-tennis':
     'Lighted tennis courts at Spanish Trail Country Club in Las Vegas 89113',
   'h2-fitness':
-    'Spanish Trail Country Club fitness studio with pool terrace views in Las Vegas',
+    'Spanish Trail Country Club desert fitness studio with golf-fairway and Spring Mountains views in Las Vegas 89113',
   'h2-membership-lounge':
     'Spanish Trail Country Club membership lounge overlooking Las Vegas fairways',
   'h2-architecture':
@@ -70,7 +70,7 @@ const ALTS: Record<string, string> = {
   'h2-awards-study':
     'Professional study for Spanish Trail luxury real estate advisory in Las Vegas',
   'h2-accessible-entrance':
-    'Accessible entrance and parking at Spanish Trail Country Club, Las Vegas',
+    'Wheelchair-accessible ramp and parking at Spanish Trail Country Club, Las Vegas 89113',
   'h2-community-map':
     'Overview of Spanish Trail gated golf community streets and fairways in Las Vegas',
   'h2-schools-campus':
@@ -78,7 +78,7 @@ const ALTS: Record<string, string> = {
   'h2-guest-casita':
     'Guest casita courtyard at a Spanish Trail Las Vegas golf estate',
   'h2-reviews-terrace':
-    'Spanish Trail Country Club terrace in Las Vegas used for client hospitality',
+    'Spanish Trail Country Club terrace overlooking a Las Vegas golf fairway used for client hospitality',
   'h2-golf-sunrise':
     'Sunrise nine golf holes at Spanish Trail Country Club, Las Vegas',
   'h2-golf-lakes':

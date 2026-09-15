@@ -130,7 +130,7 @@ const contactFaqSchema = {
 
 export default function ContactPage() {
   return (
-    <SiteShell>
+    <SiteShell showVisitOffice={false}>
       <HeroSection />
       <RealScoutSection
         id="bhhs-listings"

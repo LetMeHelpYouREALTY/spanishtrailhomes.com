@@ -7,10 +7,12 @@ import { RealScoutSection } from '@/components/realscout-section'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
+import { GbpFaqList } from '@/components/gbp-faq-list'
 import {
   createOgImageUrl,
   createWebPageSchema,
   createBreadcrumbSchema,
+  createFaqPageSchema,
   getCanonicalUrl,
 } from '@/lib/structuredData'
 import { NEIGHBORHOODS } from '@/lib/neighborhoods'
@@ -74,6 +76,29 @@ export const metadata: Metadata = {
   },
 }
 
+const neighborhoodsFaq = [
+  {
+    question: 'How many neighborhoods are inside Spanish Trail?',
+    answer:
+      'Spanish Trail has 11 enclaves: Estates, Estates West, Courtyards, Gardens, Links, Carmels, Springs, Plum Creek, Villas, Islands, and Innisbrook Estates. Dr. Jan Duffy matches square footage, commute, and HOA dues to the right village.',
+  },
+  {
+    question: 'Where is Spanish Trail relative to Bishop Gorman High School?',
+    answer:
+      'Bishop Gorman High School is about 2.2 miles northeast of Spanish Trail via S. Rainbow Blvd. Faith Lutheran Middle & High School and Durango High School are also a short drive. The community ZIP is 89113.',
+  },
+  {
+    question: 'How do I tour a Spanish Trail neighborhood?',
+    answer:
+      'Call (702) 766-3299 for guard-gate clearance. The office is 5050 Spanish Trail Ln, Las Vegas, NV 89113, Sunday–Saturday 9:00 AM–6:00 PM. Open an enclave page for live listings, then book a private showing.',
+  },
+  {
+    question: 'Which enclaves are lock-and-leave versus larger lots?',
+    answer:
+      'Courtyards, Gardens, and Villas are often chosen for lock-and-leave square footage. Estates, Estates West, and Springs typically offer larger lots and dedicated office space. Dr. Duffy maps HOA dues and commute times before you tour.',
+  },
+]
+
 export default function NeighborhoodsHubPage() {
   return (
     <SiteShell>
@@ -82,7 +107,11 @@ export default function NeighborhoodsHubPage() {
         type="application/ld+json"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify([neighborhoodsWebPageSchema, neighborhoodsBreadcrumbSchema]),
+          __html: JSON.stringify([
+            neighborhoodsWebPageSchema,
+            neighborhoodsBreadcrumbSchema,
+            createFaqPageSchema(neighborhoodsFaq),
+          ]),
         }}
       />
 
@@ -146,6 +175,12 @@ export default function NeighborhoodsHubPage() {
             </Button>
           </div>
         </section>
+
+        <GbpFaqList
+          headingId="neighborhoods-faq-heading"
+          title="Spanish Trail neighborhood FAQ"
+          items={neighborhoodsFaq}
+        />
       </div>
     </SiteShell>
   )

@@ -312,7 +312,7 @@ function LiabilitySection() {
             Limitation of liability and general disclaimers
           </h2>
           <p className="text-base leading-relaxed text-muted-foreground">
-            SpanishTrailHomes.com is provided on an “as is” basis. While best efforts are made to ensure accuracy, neither Dr.
+            SpanishTrailHomes.com is provided on an “as is” basis. While best efforts are made to ensure accuracy, neither
             Dr. Jan Duffy nor Berkshire Hathaway HomeServices Nevada Properties warrant uninterrupted or error-free access.
           </p>
         </div>
@@ -423,6 +423,10 @@ function ContactSection() {
             Submit contact form
           </Link>
         </div>
+        <p className="mt-6 text-sm text-[#f8f5ef]/80">
+          Spanish Trail | Homes By Dr. Jan Duffy · 5050 Spanish Trail Ln, Las Vegas, NV 89113 · (702) 766-3299 ·
+          Sunday–Saturday 9:00 AM–6:00 PM
+        </p>
         <p className="mt-6 text-xs text-[#f8f5ef]/70">
           Effective November 10, 2025. Replace prior versions of the SpanishTrailHomes.com Terms of Use.
         </p>

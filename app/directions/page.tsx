@@ -119,7 +119,7 @@ const ROUTES = [
 
 export default function DirectionsPage() {
   return (
-    <SiteShell>
+    <SiteShell showVisitOffice={false}>
       <Script id="directions-schema" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify([webPageSchema, breadcrumbSchema, createFaqPageSchema(faqContent)])}
       </Script>

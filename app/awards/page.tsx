@@ -6,12 +6,14 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { SiteShell } from '@/components/site-shell'
 import { RealScoutSection } from '@/components/realscout-section'
 import { Button } from '@/components/ui/button'
-import { createOgImageUrl, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { GbpFaqList } from '@/components/gbp-faq-list'
+import { createOgImageUrl, createWebPageSchema, getCanonicalUrl, createFaqPageSchema } from '@/lib/structuredData'
 import { getAgentPortraitAbsoluteUrl } from '@/lib/agent-portraits'
 import { HeroBackground } from '@/components/hero-background'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 import { AgentPortrait } from '@/components/agent-portrait'
+import { GbpLocalActions } from '@/components/gbp-local-actions'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/awards'
@@ -135,6 +137,7 @@ const professionalProfileSchema = {
   telephone: '+1-702-766-3299',
   address: {
     '@type': 'PostalAddress',
+    streetAddress: '5050 Spanish Trail Ln',
     addressLocality: 'Las Vegas',
     addressRegion: 'NV',
     postalCode: '89113',
@@ -195,6 +198,29 @@ export const metadata: Metadata = {
   },
 }
 
+const awardsFaq = [
+  {
+    question: 'Where is Dr. Jan Duffy’s Spanish Trail office?',
+    answer:
+      'Spanish Trail | Homes By Dr. Jan Duffy is at 5050 Spanish Trail Ln, Las Vegas, NV 89113. Hours are Sunday–Saturday 9:00 AM–6:00 PM. Call (702) 766-3299 for a strategy call or gate-access showing.',
+  },
+  {
+    question: 'Which awards apply to Spanish Trail listings?',
+    answer:
+      'Recognition includes Berkshire Hathaway HomeServices Luxury Golf Homes (top two percent of network volume), Las Vegas REALTORS® Top 25 Luxury Producer, RealScout Spanish Trail Market Expert, and BHHS Leading Edge Society. Awards support listing strategy inside ZIP 89113—not valley-wide branding.',
+  },
+  {
+    question: 'How do awards help a Spanish Trail seller?',
+    answer:
+      'Credentials signal brokerage reach and pricing discipline. Dr. Duffy uses that network plus 11-neighborhood comps so a golf-course estate or villa is positioned to 89113 buyers instead of a generic luxury blast.',
+  },
+  {
+    question: 'How do I verify license and brokerage?',
+    answer:
+      'Nevada license S.0197614.LLC with Berkshire Hathaway HomeServices Nevada Properties. Email DrDuffySells@SpanishTrailHomes.com or open the Google Business Profile for the same NAP as this site.',
+  },
+]
+
 export default function AwardsPage() {
   return (
     <SiteShell>
@@ -214,15 +240,19 @@ export default function AwardsPage() {
       <ProfessionalMembershipsSection />
       <PressHighlightsSection />
       <ClientImpactSection />
+      <GbpFaqList headingId="awards-faq-heading" title="Awards FAQ for Spanish Trail buyers and sellers" items={awardsFaq} />
       <AdvisoryCTASection />
       <Script id="awards-recognition-schema" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(awardsSchema)}
       </Script>
-      <Script id="janet-duffy-profile-schema" type="application/ld+json" strategy="afterInteractive">
+      <Script id="jan-duffy-profile-schema" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(professionalProfileSchema)}
       </Script>
       <Script id="awards-webpage-schema" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(awardsWebPageSchema)}
+      </Script>
+      <Script id="awards-faq-schema" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(createFaqPageSchema(awardsFaq))}
       </Script>
     </SiteShell>
   )
@@ -262,6 +292,7 @@ function HeroSection() {
             <Link href="/spanish-trail-insights">See Market Advisory</Link>
           </Button>
         </div>
+        <GbpLocalActions variant="dark" className="justify-center" />
       </div>
     </header>
   )

@@ -1,6 +1,7 @@
 'use client'
 
 import { AgentPortrait } from '@/components/agent-portrait'
+import { GbpLocalActions } from '@/components/gbp-local-actions'
 import { PropertyLightboxTrigger } from '@/components/property-lightbox'
 
 export function TourCTAStrip() {
@@ -28,6 +29,7 @@ export function TourCTAStrip() {
             See Available Homes 🏡
           </PropertyLightboxTrigger>
         </div>
+        <GbpLocalActions className="mt-6 justify-center" />
       </div>
     </section>
   )

@@ -11,6 +11,7 @@ import { createOgImageUrl, createWebPageSchema, getCanonicalUrl, createFaqPageSc
 import { GBP_GOOGLE_REVIEW_URL, GBP_MAPS_URL } from '@/lib/gbp-business'
 import { SectionBanner } from '@/components/heading-media'
 import { AgentPortrait } from '@/components/agent-portrait'
+import { GbpLocalActions } from '@/components/gbp-local-actions'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/reviews'
@@ -231,6 +232,7 @@ function HeroSection() {
             </Link>
           </Button>
         </div>
+        <GbpLocalActions variant="dark" className="mt-8 justify-center" />
       </div>
     </section>
   )
@@ -376,7 +378,7 @@ function QRCodeSection() {
               {/* QR Code placeholder - using a Google Charts API generated QR code */}
               <div className="bg-white p-4 rounded-2xl">
                 <Image
-                  src={`https://chart.googleapis.com/chart?cht=qr&chl=${encodeURIComponent(reviewLink)}&chs=200x200&chld=H|0`}
+                  src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(reviewLink)}`}
                   alt="QR code to leave a Google review for Dr. Jan Duffy — Spanish Trail Homes, Las Vegas"
                   width={200}
                   height={200}

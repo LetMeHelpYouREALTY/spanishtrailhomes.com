@@ -422,6 +422,10 @@ function ContactSection() {
             Submit contact form
           </Link>
         </div>
+        <p className="mt-6 text-sm text-[#f8f5ef]/80">
+          Spanish Trail | Homes By Dr. Jan Duffy · 5050 Spanish Trail Ln, Las Vegas, NV 89113 · (702) 766-3299 ·
+          Sunday–Saturday 9:00 AM–6:00 PM
+        </p>
         <p className="mt-6 text-xs text-[#f8f5ef]/70">
           Effective November 10, 2025. Updates will be posted here with revised effective dates.
         </p>

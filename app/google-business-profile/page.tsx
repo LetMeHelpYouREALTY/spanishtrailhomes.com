@@ -132,7 +132,7 @@ const gbpFaqs = [
 
 export default function GoogleBusinessProfilePage() {
   return (
-    <SiteShell>
+    <SiteShell showVisitOffice={false}>
       <Script id="gbp-page-schema" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify([webPageSchema, gbpBreadcrumbSchema, createFaqPageSchema(gbpFaqs)])}
       </Script>

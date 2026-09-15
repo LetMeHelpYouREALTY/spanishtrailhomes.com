@@ -5,6 +5,7 @@ import { Facebook, Instagram, Linkedin, Youtube } from 'lucide-react'
 import { trackPhoneClick } from '@/lib/analytics'
 import { CalendlyLink } from '@/components/calendly-link'
 import { AgentPortrait } from '@/components/agent-portrait'
+import { GbpLocalActions } from '@/components/gbp-local-actions'
 import {
   GBP_EASTER_2026_CLOSURE,
   GBP_SERVICE_AREA_LABEL,
@@ -129,6 +130,7 @@ export function SiteFooter() {
           >
             Book a Showing
           </CalendlyLink>
+          <GbpLocalActions variant="dark" className="pt-1" />
         </div>
         {footerLinks.map((section) => (
           <div key={section.heading} className="space-y-3">

@@ -21,9 +21,9 @@ const aboutFaq = [
       'Dr. Duffy brings a unique combination of deep Spanish Trail knowledge, Berkshire Hathaway HomeServices resources, and research-backed expertise in buyer/seller psychology. She understands the emotional and practical challenges of buying and selling, applying data-led preparation, concierge project management, and deep club/community fluency to every transaction. Her approach translates complex market data into actionable strategy while coordinating multi-disciplinary teams with discretion.',
   },
   {
-    question: 'How many Spanish Trail families has Dr. Duffy worked with?',
+    question: 'How many Spanish Trail buyers and sellers has Dr. Duffy worked with?',
     answer:
-      'Dr. Duffy has advised over 500 Spanish Trail families across purchases, sales, and long-range planning. Her daily presence inside the community—reviewing listings, coordinating with gate staff, and previewing renovations—keeps clients ahead of market headlines and positioned to act when the right opportunity appears.',
+      'Dr. Duffy has advised over 500 Spanish Trail buyers and sellers across purchases, sales, and long-range planning. Her daily presence inside the community—reviewing listings, coordinating with gate staff, and previewing renovations—keeps clients ahead of market headlines and positioned to act when the right opportunity appears.',
   },
   {
     question: 'What credentials and awards has Dr. Jan Duffy received?',
@@ -305,7 +305,7 @@ function StorySection() {
           <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#6f5237]">Quick facts</h3>
           <ul className="space-y-3 text-sm leading-relaxed text-[#372a20]/85">
             <li>
-              <strong className="font-semibold text-[#0f2b1e]">500+</strong> Spanish Trail families advised across purchases,
+              <strong className="font-semibold text-[#0f2b1e]">500+</strong> Spanish Trail buyers and sellers advised across purchases,
               sales, and long-range planning
             </li>
             <li>

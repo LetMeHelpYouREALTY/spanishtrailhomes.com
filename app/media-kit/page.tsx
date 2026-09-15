@@ -10,10 +10,12 @@ import { HeroBackground } from '@/components/hero-background'
 import { CalendlyLink } from '@/components/calendly-link'
 import { SectionBanner } from '@/components/heading-media'
 import { AgentPortrait } from '@/components/agent-portrait'
+import { GbpFaqList } from '@/components/gbp-faq-list'
 import {
   createOgImageUrl,
   createWebPageSchema,
   createBreadcrumbSchema,
+  createFaqPageSchema,
   getCanonicalUrl,
 } from '@/lib/structuredData'
 import { getAgentPortraitAbsoluteUrl } from '@/lib/agent-portraits'
@@ -99,6 +101,29 @@ const credentials = [
   'RealScout Spanish Trail Market Expert',
 ]
 
+const mediaKitFaq = [
+  {
+    question: 'What is the official name and NAP for press?',
+    answer:
+      'Business name: Spanish Trail | Homes By Dr. Jan Duffy. Address: 5050 Spanish Trail Ln, Las Vegas, NV 89113. Phone: (702) 766-3299. Email: DrDuffySells@SpanishTrailHomes.com. Hours: Sunday–Saturday 9:00 AM–6:00 PM.',
+  },
+  {
+    question: 'What is Dr. Jan Duffy’s license number?',
+    answer:
+      'Nevada real estate license S.0197614.LLC with Berkshire Hathaway HomeServices Nevada Properties. Never use “Janet” in copy.',
+  },
+  {
+    question: 'How do I request a headshot or logo?',
+    answer:
+      'Email DrDuffySells@SpanishTrailHomes.com or call (702) 766-3299. High-resolution files and usage guidelines are released for press and partnership use only.',
+  },
+  {
+    question: 'Where is the Google Business Profile?',
+    answer:
+      'Open the Google Maps pin for 5050 Spanish Trail Ln or the Google Business Profile share link on this site. Reviews and hours must match this NAP.',
+  },
+]
+
 export default function MediaKitPage() {
   return (
     <SiteShell>
@@ -110,6 +135,7 @@ export default function MediaKitPage() {
             mediaKitWebPageSchema,
             mediaKitBreadcrumbSchema,
             agentSchema,
+            createFaqPageSchema(mediaKitFaq),
           ]),
         }}
       />
@@ -169,7 +195,7 @@ export default function MediaKitPage() {
             guard-gated golf communities across Las Vegas. With a Ph.D. in Market Research & Consumer Behavior and
             deep roots in the 89113 corridor, she combines data-led preparation, concierge-level service, and
             community fluency to guide clients through high-stakes transactions. She has advised hundreds of
-            Spanish Trail families and is recognized by Berkshire Hathaway HomeServices Luxury Golf Homes (top 2%
+            Spanish Trail buyers and sellers and is recognized by Berkshire Hathaway HomeServices Luxury Golf Homes (top 2%
             network-wide), Las Vegas REALTORS® Top 25 Luxury Producer, and RealScout as Spanish Trail Market Expert.
           </p>
         </section>
@@ -202,6 +228,8 @@ export default function MediaKitPage() {
             ))}
           </ul>
         </section>
+
+        <GbpFaqList headingId="media-kit-faq-heading" title="Media kit FAQ" items={mediaKitFaq} />
 
         {/* Media assets / headshot */}
         <section className="mb-12" aria-labelledby="media-heading">
@@ -255,7 +283,7 @@ export default function MediaKitPage() {
             </Link>
           </p>
           <p className="mt-2 text-sm text-[#0f2b1e]/80">
-            5050 Spanish Trail Ln, Las Vegas, NV 89113
+            5050 Spanish Trail Ln, Las Vegas, NV 89113 · Sunday–Saturday 9:00 AM–6:00 PM
           </p>
           <div className="mt-6">
             <CalendlyLink

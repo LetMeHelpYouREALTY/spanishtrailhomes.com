@@ -99,7 +99,7 @@ export const metadata: Metadata = {
 
 export default function AddressAutocompletePage() {
   return (
-    <SiteShell>
+    <SiteShell showVisitOffice={false}>
       <Script id="address-autocomplete-schema" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify([webPageSchema, breadcrumbSchema, createFaqPageSchema(faqContent)])}
       </Script>

@@ -110,7 +110,7 @@ export const metadata: Metadata = {
 
 export default function AmenityMapPage() {
   return (
-    <SiteShell>
+    <SiteShell showVisitOffice={false}>
       <Script id="amenity-map-schema" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify([webPageSchema, breadcrumbSchema, createFaqPageSchema(faqContent)])}
       </Script>
