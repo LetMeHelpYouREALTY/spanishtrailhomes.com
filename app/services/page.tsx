@@ -189,12 +189,12 @@ function HeroSection() {
 
 function OfferingsSection() {
   return (
-    <section className="bg-white py-16 sm:py-20" aria-labelledby="offerings-heading">
-      <SectionBanner headingId="offerings-heading" />
+    <section className="bg-white py-16 sm:py-20" aria-labelledby="services-practice-heading">
+      <SectionBanner headingId="services-practice-heading" />
       <div className="mx-auto max-w-6xl space-y-8 px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.35em] text-[#6f5237]">The practice</p>
-          <h2 id="offerings-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
+          <h2 id="services-practice-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
             One community. Full realtor service.
           </h2>
           <p className="text-base leading-relaxed text-[#372a20]/85">

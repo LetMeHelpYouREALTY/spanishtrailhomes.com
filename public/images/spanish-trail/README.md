@@ -9,9 +9,10 @@ generated from `scripts/generate-agent-portraits.py` using
 **Secondary storage:** these git-tracked PNG files.
 
 Heading images (`h1-*`, `h2-*`, `h3-*`) match on-page H1/H2/H3 topics. Regenerated 2026-09-15:
-`h2-fitness` (desert club gym, not tropical), `h2-accessible-entrance` (ramp + accessible parking),
-`h2-reviews-terrace` (Spanish Trail golf terrace, not a lake valley).
-Earlier: `h2-awards-study`, `h3-listing-home-a`, `h2-clubhouse-arrival`, `h2-office-map`.
+`h2-events-lawn` (desert club lawn, not East Coast plantation), `h2-club-dining` (Las Vegas terrace, not Florida jungle),
+`h1-villa-courtyard` (desert villa court), `h2-neighborhood-street` (89113 street + Spring Mountains),
+`h3-listing-home-c` (clay-tile twilight estate). Earlier: fitness, accessible entrance, reviews terrace,
+awards study, listing homes, clubhouse arrival, office map.
 
 Runtime URLs are resolved in `lib/cloudflare-images.ts`:
 

@@ -2,6 +2,7 @@ import Link from 'next/link'
 
 import { GbpLocalActions } from '@/components/gbp-local-actions'
 import { GoogleMapEmbed } from '@/components/google-map-embed'
+import { SectionBanner } from '@/components/heading-media'
 import {
   GBP_EMAIL,
   GBP_FULL_ADDRESS,
@@ -23,6 +24,7 @@ export function VisitOfficeStrip({ headingId = 'visit-office-heading' }: VisitOf
       className="border-t border-[#d8cdbf] bg-[#f8f2e7] py-12 sm:py-16"
       aria-labelledby={headingId}
     >
+      <SectionBanner headingId={headingId} />
       <div className="mx-auto grid max-w-6xl gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_1.1fr] lg:items-center">
         <div className="space-y-4">
           <p className="text-xs uppercase tracking-[0.4em] text-[#6f5237]">Google Business Profile</p>

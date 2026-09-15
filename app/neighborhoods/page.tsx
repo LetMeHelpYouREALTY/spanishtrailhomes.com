@@ -68,6 +68,9 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: pageTitle,
     description: pageDescription,
+    images: [
+      sitePhotoOg('h2-neighborhood-street'),
+    ],
   },
 }
 
