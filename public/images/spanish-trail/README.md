@@ -5,32 +5,35 @@ generated from `scripts/generate-agent-portraits.py` using
 `scripts/assets/duffy-circle-source.jpg`. They are the supplied gold circle
 (no caption bars, no extra rings, no zoom). Do not replace her face with AI.
 
-**Primary storage:** Cloudflare Images (`spanish-trail/<asset-id>`).
-**Secondary storage:** these git-tracked PNG files.
+**Primary storage (hosted Cloudflare Images):** custom IDs `spanish-trail/<asset-id>`
+**Secondary storage:** these git-tracked PNG files (Vercel origin backup)
+
+Cloudflare Images account (dashboard Developer Resources):
+
+- Account ID: `2cc579c1ec9e426ed585e933ebf4753b`
+- Account hash: `byE6BTe9lNqo21V57n4aPQ`
+- Delivery: `https://imagedelivery.net/byE6BTe9lNqo21V57n4aPQ/<image_id>/public`
+
+Example after upload:
+
+`https://imagedelivery.net/byE6BTe9lNqo21V57n4aPQ/spanish-trail/h1-guard-gate/public`
 
 Heading images (`h1-*`, `h2-*`, `h3-*`) match on-page H1/H2/H3 topics. Regenerated 2026-09-15:
-`h2-events-lawn` (desert club lawn, not East Coast plantation), `h2-club-dining` (Las Vegas terrace, not Florida jungle),
-`h1-villa-courtyard` (desert villa court), `h2-neighborhood-street` (89113 street + Spring Mountains),
-`h3-listing-home-c` (clay-tile twilight estate). Earlier: fitness, accessible entrance, reviews terrace,
-awards study, listing homes, clubhouse arrival, office map.
+`h2-fitness` (desert club gym, not tropical), `h2-accessible-entrance` (ramp + accessible parking),
+`h2-reviews-terrace` (Spanish Trail golf terrace, not a lake valley).
+Earlier: `h2-awards-study`, `h3-listing-home-a`, `h2-clubhouse-arrival`, `h2-office-map`.
 
 Runtime URLs are resolved in `lib/cloudflare-images.ts`:
 
-1. If `NEXT_PUBLIC_CLOUDFLARE_IMAGES_HASH` is set, browsers load
-   `https://imagedelivery.net/<hash>/spanish-trail/<asset-id>/public`
+1. If `NEXT_PUBLIC_CLOUDFLARE_IMAGES_HASH` is set to the account hash, browsers load
+   `https://imagedelivery.net/byE6BTe9lNqo21V57n4aPQ/spanish-trail/<asset-id>/public`
    (or `NEXT_PUBLIC_CLOUDFLARE_IMAGES_BASE` for a custom domain).
 2. Otherwise the site serves this folder from Vercel/git.
 
-Upload git copies to Cloudflare:
+Upload git copies into hosted Images (token required — Images Edit):
 
 ```bash
-CLOUDFLARE_ACCOUNT_ID=… CLOUDFLARE_API_TOKEN=… pnpm images:upload
+CLOUDFLARE_API_TOKEN=… pnpm images:upload
 ```
 
-Replace existing custom IDs (required after regenerating a PNG with the same name):
-
-```bash
-CLOUDFLARE_ACCOUNT_ID=… CLOUDFLARE_API_TOKEN=… pnpm images:upload:overwrite
-```
-
-Do **not** replace `duffy-circle-*.png` with generated lifestyle photos. Those portraits are the supplied gold-circle headshot.
+Then set `NEXT_PUBLIC_CLOUDFLARE_IMAGES_HASH=byE6BTe9lNqo21V57n4aPQ` on Vercel Production/Preview/Development and redeploy. Do not set the hash before the upload: hosted URLs return `err=9404` until the custom IDs exist.
