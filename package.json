@@ -16,7 +16,8 @@
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx}\"",
     "images:upload": "node scripts/upload-cloudflare-images.mjs",
-    "images:upload:overwrite": "node scripts/upload-cloudflare-images.mjs --overwrite"
+    "images:upload:overwrite": "node scripts/upload-cloudflare-images.mjs --overwrite",
+    "images:upload:from-url": "node scripts/upload-cloudflare-images.mjs --from-url --overwrite"
   },
   "dependencies": {
     "@radix-ui/react-alert-dialog": "^1.1.14",
