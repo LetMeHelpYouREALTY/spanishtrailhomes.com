@@ -1,0 +1,22 @@
+name: Upload Cloudflare Images
+
+# Manual only: GitHub cannot safely test whether CLOUDFLARE_API_TOKEN exists in `if:`.
+# Add repo secret CLOUDFLARE_API_TOKEN (Account → Cloudflare Images → Edit), then run this workflow.
+on:
+  workflow_dispatch:
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Upload hosted images
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: 2cc579c1ec9e426ed585e933ebf4753b
+        run: node scripts/upload-cloudflare-images.mjs --overwrite
