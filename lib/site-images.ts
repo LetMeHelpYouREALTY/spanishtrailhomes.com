@@ -42,7 +42,7 @@ const ALTS: Record<string, string> = {
   'h1-clubhouse':
     'Two-story Mediterranean Spanish Trail Country Club clubhouse, porte-cochere, and putting green in Las Vegas 89113',
   'h1-waterfront':
-    'Waterfront golf-course home patio and lake at Spanish Trail Las Vegas',
+    'Waterfront golf-course home patio on a Spanish Trail lake at sunset, Las Vegas 89113',
   'h1-villa-courtyard':
     'Lock-and-leave Spanish Trail villa courtyard with fountain, bougainvillea, and desert sky in Las Vegas 89113',
   'h1-pool':
@@ -76,7 +76,7 @@ const ALTS: Record<string, string> = {
   'h2-directions-approach':
     'Palm-lined boulevard approaching the Spanish Trail guard gates from Tropicana and Rainbow in Las Vegas 89113',
   'h2-community-map':
-    'Overview of Spanish Trail gated golf community streets and fairways in Las Vegas',
+    'Aerial of Spanish Trail guard-gated golf streets, fairways, and homes in southwest Las Vegas 89113',
   'h2-schools-campus':
     'Desert campus architecture and athletic field near Spanish Trail Las Vegas 89113',
   'h2-guest-casita':

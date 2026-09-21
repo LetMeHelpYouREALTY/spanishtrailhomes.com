@@ -20,9 +20,10 @@ Example after upload:
 
 Heading images (`h1-*`, `h2-*`, `h3-*`) match on-page H1/H2/H3 topics. Regenerated 2026-09-21 from headings:
 `h1-golf-fairway` (H1: homes on a private 27-hole course), `h1-clubhouse` (two-story clubhouse, not a palace),
-`h2-golf-canyon` / `h2-golf-lakes` / `h2-golf-sunrise` (Canyon, Lakes, Sunrise nines with homes),
+`h1-waterfront` (H1: waterfront golf homes), `h2-golf-canyon` / `h2-golf-lakes` / `h2-golf-sunrise` (Canyon, Lakes, Sunrise nines with homes),
 `h2-valley-skyline` and `h3-strip-view-patio` (Las Vegas Strip, not a generic skyline),
-`h3-cart-path`, `h3-gatehouse`, `h3-golf-bunker` (desert community, not fog/Florida/remote mountain).
+`h2-community-map` (flat 89113 gated golf aerial), `h3-cart-path`, `h3-gatehouse`, `h3-golf-bunker`.
+Also replaced leftover `public/og-image.png` (was a v0 demo screenshot) from the homepage H1.
 Earlier 2026-09-15: `h2-fitness`, `h2-accessible-entrance`, `h2-reviews-terrace`.
 
 Runtime URLs are resolved in `lib/cloudflare-images.ts`:
