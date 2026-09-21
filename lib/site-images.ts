@@ -94,15 +94,9 @@ const ALTS: Record<string, string> = {
   'h2-golf-sunrise':
     'Sunrise nine at Spanish Trail Country Club with fairway homes at first light, Las Vegas 89113',
   'h2-golf-lakes':
-<<<<<<< HEAD
     'Lakes nine water hazard, fountain, and golf-front homes at Spanish Trail Country Club, Las Vegas',
   'h2-golf-canyon':
     'Canyon nine desert-elevation green with ridge homes at Spanish Trail Country Club, Las Vegas 89113',
-=======
-    'Lakes nine peninsula green and irrigation lake at Spanish Trail Country Club, Las Vegas 89113',
-  'h2-golf-canyon':
-    'Canyon nine desert-elevation fairway and bunkers at Spanish Trail Country Club, Las Vegas 89113',
->>>>>>> cursor/heading-images-6347
   'h2-clubhouse-arrival':
     'Spanish Trail Country Club clubhouse arrival court and valet drive in Las Vegas 89113',
   'h2-office-map':
@@ -114,29 +108,17 @@ const ALTS: Record<string, string> = {
   'h3-spa-pool':
     'Resort spa pool at a Spanish Trail Las Vegas golf estate',
   'h3-golf-bunker':
-<<<<<<< HEAD
     'Raked sand bunker and green in front of Spanish Trail Las Vegas golf-course homes',
-=======
-    'Sand bunker and putting green on the Spanish Trail private golf course with desert mountains in Las Vegas 89113',
->>>>>>> cursor/heading-images-6347
   'h3-pickleball':
     'Pickleball courts beside the Mediterranean clubhouse at Spanish Trail Country Club in Las Vegas 89113',
   'h3-strip-view-patio':
     'Twilight Mediterranean patio with Las Vegas Strip horizon from a Spanish Trail golf home',
   'h3-gatehouse':
-<<<<<<< HEAD
     'Desert-landscaped secondary gatehouse inside Spanish Trail, Las Vegas guard-gated community',
   'h3-spa-bath':
     'Spa bath with a desert golf-course view in a Spanish Trail Las Vegas luxury home',
   'h3-cart-path':
     'Desert golf cart path past fairway homes at Spanish Trail Country Club in Las Vegas 89113',
-=======
-    'Secondary stucco gatehouse and iron gate inside Spanish Trail, Las Vegas 89113',
-  'h3-spa-bath':
-    'Spa bath with a desert golf-course view in a Spanish Trail Las Vegas luxury home',
-  'h3-cart-path':
-    'Palm-lined golf cart path beside a fairway lake at Spanish Trail Country Club, Las Vegas 89113',
->>>>>>> cursor/heading-images-6347
   'h3-townhome-villa':
     'Spanish Trail Las Vegas townhome villas with clay-tile roofs, desert courtyards, and golf-course backdrop',
   'h3-hoa-landscaping':
