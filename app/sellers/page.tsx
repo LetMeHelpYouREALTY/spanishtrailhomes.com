@@ -376,7 +376,7 @@ function MarketingEngineSection() {
         </p>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <article className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
-              <CardVisual seed="card-2" />
+              <CardVisual seed="Digital reach highlights" />
             <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">Digital reach highlights</h3>
             <ul className="space-y-2">
               <li>• RealScout buyer matchmaking with instant follow-up campaigns</li>
@@ -386,7 +386,7 @@ function MarketingEngineSection() {
             </ul>
           </article>
           <article className="space-y-3 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm leading-relaxed text-[#372a20]/85">
-              <CardVisual seed="card-3" />
+              <CardVisual seed="High-touch experiences" />
             <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">High-touch experiences</h3>
             <ul className="space-y-2">
               <li>• Sunset sip-and-see events featuring local culinary partners</li>

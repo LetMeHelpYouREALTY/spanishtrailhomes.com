@@ -23,6 +23,8 @@ Heading images (`h1-*`, `h2-*`, `h3-*`) match on-page H1/H2/H3 topics. Regenerat
 `h2-golf-canyon` / `h2-golf-lakes` / `h2-golf-sunrise` (Canyon, Lakes, Sunrise nines with homes),
 `h2-valley-skyline` and `h3-strip-view-patio` (Las Vegas Strip, not a generic skyline),
 `h3-cart-path`, `h3-gatehouse`, `h3-golf-bunker` (desert community, not fog/Florida/remote mountain).
+Also 2026-09-21: `h3-pickleball` (Mediterranean courts), `h3-motor-court` (desert paver court),
+`h2-events-lawn` (club lawn, not a wedding ceremony), `h3-townhome-villa` (desert golf villas).
 Earlier 2026-09-15: `h2-fitness`, `h2-accessible-entrance`, `h2-reviews-terrace`.
 
 Runtime URLs are resolved in `lib/cloudflare-images.ts`:
