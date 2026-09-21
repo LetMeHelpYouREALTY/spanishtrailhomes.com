@@ -18,10 +18,12 @@ Example after upload:
 
 `https://imagedelivery.net/byE6BTe9lNqo21V57n4aPQ/spanish-trail/h1-guard-gate/public`
 
-Heading images (`h1-*`, `h2-*`, `h3-*`) match on-page H1/H2/H3 topics. Regenerated 2026-09-15:
-`h2-fitness` (desert club gym, not tropical), `h2-accessible-entrance` (ramp + accessible parking),
-`h2-reviews-terrace` (Spanish Trail golf terrace, not a lake valley).
-Earlier: `h2-awards-study`, `h3-listing-home-a`, `h2-clubhouse-arrival`, `h2-office-map`.
+Heading images (`h1-*`, `h2-*`, `h3-*`) match on-page H1/H2/H3 topics. Regenerated 2026-09-21 from headings:
+`h1-golf-fairway` (H1: homes on a private 27-hole course), `h1-clubhouse` (two-story clubhouse, not a palace),
+`h2-golf-canyon` / `h2-golf-lakes` / `h2-golf-sunrise` (Canyon, Lakes, Sunrise nines with homes),
+`h2-valley-skyline` and `h3-strip-view-patio` (Las Vegas Strip, not a generic skyline),
+`h3-cart-path`, `h3-gatehouse`, `h3-golf-bunker` (desert community, not fog/Florida/remote mountain).
+Earlier 2026-09-15: `h2-fitness`, `h2-accessible-entrance`, `h2-reviews-terrace`.
 
 Runtime URLs are resolved in `lib/cloudflare-images.ts`:
 

@@ -199,7 +199,7 @@ function GolfHero() {
     >
       <HeroBackground
         src={getSiteImageUrl('h1-golf-fairway')}
-        alt="Spanish Trail Country Club private golf course fairways and greens, Las Vegas Nevada"
+        alt="Spanish Trail homes lining a private 27-hole golf fairway, bunkers, and lake in Las Vegas 89113"
         overlayClassName="bg-gradient-to-b from-[#0f2b1e]/60 via-[#0f2b1e]/65 to-[#0f2b1e]/80"
         sizes="(max-width: 1024px) 100vw, 1280px"
       />

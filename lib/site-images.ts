@@ -36,11 +36,11 @@ const ALTS: Record<string, string> = {
   'h1-guard-gate':
     'Spanish Trail Las Vegas guard-gated entrance and gatehouse in southwest 89113',
   'h1-golf-fairway':
-    'Spanish Trail Country Club private golf fairway, bunkers, and lake in Las Vegas',
+    'Spanish Trail homes lining a private 27-hole golf fairway, bunkers, and lake in Las Vegas 89113',
   'h1-luxury-estate':
     'Mediterranean custom estate home in Spanish Trail, Las Vegas guard-gated golf community',
   'h1-clubhouse':
-    'Spanish Trail Country Club clubhouse exterior with golf greens in Las Vegas 89113',
+    'Two-story Mediterranean Spanish Trail Country Club clubhouse, porte-cochere, and putting green in Las Vegas 89113',
   'h1-waterfront':
     'Waterfront golf-course home patio and lake at Spanish Trail Las Vegas',
   'h1-villa-courtyard':
@@ -66,7 +66,7 @@ const ALTS: Record<string, string> = {
   'h2-neighborhood-street':
     'Desert-landscaped street of clay-tile Mediterranean homes inside Spanish Trail, Las Vegas 89113',
   'h2-valley-skyline':
-    'Southwest Las Vegas valley and Strip skyline from Spanish Trail golf fairways',
+    'Las Vegas Strip skyline from Spanish Trail golf fairways and clay-tile homes in southwest 89113',
   'h2-events-lawn':
     'Spanish Trail Country Club desert event lawn, date palms, and Mediterranean clubhouse at twilight in Las Vegas 89113',
   'h2-awards-study':
@@ -92,11 +92,11 @@ const ALTS: Record<string, string> = {
   'h2-club-history':
     'Mediterranean Spanish Trail Country Club clubhouse colonnade and golf green at golden hour in Las Vegas 89113',
   'h2-golf-sunrise':
-    'Sunrise nine golf holes at Spanish Trail Country Club, Las Vegas',
+    'Sunrise nine at Spanish Trail Country Club with fairway homes at first light, Las Vegas 89113',
   'h2-golf-lakes':
-    'Lakes nine water hazards at Spanish Trail Country Club, Las Vegas',
+    'Lakes nine water hazard, fountain, and golf-front homes at Spanish Trail Country Club, Las Vegas',
   'h2-golf-canyon':
-    'Canyon nine desert elevation golf at Spanish Trail Country Club, Las Vegas',
+    'Canyon nine desert-elevation green with ridge homes at Spanish Trail Country Club, Las Vegas 89113',
   'h2-clubhouse-arrival':
     'Spanish Trail Country Club clubhouse arrival court and valet drive in Las Vegas 89113',
   'h2-office-map':
@@ -108,17 +108,17 @@ const ALTS: Record<string, string> = {
   'h3-spa-pool':
     'Resort spa pool at a Spanish Trail Las Vegas golf estate',
   'h3-golf-bunker':
-    'Sand bunker and green on the Spanish Trail Las Vegas private golf course',
+    'Raked sand bunker and green in front of Spanish Trail Las Vegas golf-course homes',
   'h3-pickleball':
     'Pickleball courts at Spanish Trail Country Club in Las Vegas',
   'h3-strip-view-patio':
-    'Twilight patio with Strip-horizon views from a Spanish Trail Las Vegas home',
+    'Twilight Mediterranean patio with Las Vegas Strip horizon from a Spanish Trail golf home',
   'h3-gatehouse':
-    'Secondary gatehouse inside Spanish Trail, Las Vegas guard-gated community',
+    'Desert-landscaped secondary gatehouse inside Spanish Trail, Las Vegas guard-gated community',
   'h3-spa-bath':
     'Spa bath with a desert golf-course view in a Spanish Trail Las Vegas luxury home',
   'h3-cart-path':
-    'Golf cart path through Spanish Trail Country Club in Las Vegas',
+    'Desert golf cart path past fairway homes at Spanish Trail Country Club in Las Vegas 89113',
   'h3-townhome-villa':
     'Spanish Trail Las Vegas townhome and villa exteriors with clay tile roofs',
   'h3-hoa-landscaping':
