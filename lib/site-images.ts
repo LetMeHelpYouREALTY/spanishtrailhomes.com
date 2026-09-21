@@ -102,15 +102,15 @@ const ALTS: Record<string, string> = {
   'h2-office-map':
     'Aerial view of Spanish Trail guard-gated golf community streets and fairways in Las Vegas 89113',
   'h3-motor-court':
-    'Double motor court of a custom Spanish Trail Las Vegas estate',
+    'Paver motor court of a custom Mediterranean estate inside Spanish Trail, Las Vegas 89113',
   'h3-putting-green':
     'Private putting green behind a Spanish Trail Las Vegas golf home',
   'h3-spa-pool':
     'Resort spa pool at a Spanish Trail Las Vegas golf estate',
   'h3-golf-bunker':
-    'Sand bunker and green on the Spanish Trail Las Vegas private golf course',
+    'Sand bunker and putting green on the Spanish Trail private golf course with desert mountains in Las Vegas 89113',
   'h3-pickleball':
-    'Pickleball courts at Spanish Trail Country Club in Las Vegas',
+    'Pickleball courts beside the Mediterranean clubhouse at Spanish Trail Country Club in Las Vegas 89113',
   'h3-strip-view-patio':
     'Twilight patio with Strip-horizon views from a Spanish Trail Las Vegas home',
   'h3-gatehouse':
@@ -120,7 +120,7 @@ const ALTS: Record<string, string> = {
   'h3-cart-path':
     'Palm-lined golf cart path beside a fairway lake at Spanish Trail Country Club, Las Vegas 89113',
   'h3-townhome-villa':
-    'Spanish Trail Las Vegas townhome and villa exteriors with clay tile roofs',
+    'Spanish Trail Las Vegas townhome villas with clay-tile roofs, desert courtyards, and golf-course backdrop',
   'h3-hoa-landscaping':
     'HOA-maintained fountain and landscaping in Spanish Trail Las Vegas',
   'h3-listing-home-a':
@@ -246,6 +246,30 @@ function mapH1ToH2(id: string): string {
   }
 }
 
+/** Prefer a card-scale photo when an H1/H2 heading rule matches an H3 title. */
+function cardImageFor(id: string): string {
+  switch (id) {
+    case 'h1-guard-gate':
+      return 'h3-gatehouse'
+    case 'h1-golf-fairway':
+      return 'h3-golf-bunker'
+    case 'h1-luxury-estate':
+      return 'h3-motor-court'
+    case 'h1-clubhouse':
+      return 'h2-clubhouse-arrival'
+    case 'h1-waterfront':
+      return 'h3-listing-home-e'
+    case 'h1-villa-courtyard':
+      return 'h3-townhome-villa'
+    case 'h1-pool':
+      return 'h3-spa-pool'
+    case 'h2-tennis':
+      return 'h3-pickleball'
+    default:
+      return id
+  }
+}
+
 export function getAssetAlt(assetId: string): string {
   return ALTS[assetId] ?? 'Spanish Trail Las Vegas guard-gated golf community real estate'
 }
@@ -281,6 +305,19 @@ export function resolveCardMedia(seed: string): SiteImageAsset {
   const neighborhoodId = NEIGHBORHOOD_CARD_IMAGES[normalized]
   if (neighborhoodId) {
     return { id: neighborhoodId, alt: getAssetAlt(neighborhoodId), level: 'h3' }
+  }
+
+  const course = Object.entries(GOLF_COURSE_IMAGES).find(
+    ([name]) => name.toLowerCase() === normalized,
+  )
+  if (course) {
+    return { id: course[1].id, alt: course[1].alt, level: 'h3' }
+  }
+
+  const match = RULES.find((rule) => rule.test.test(normalized))
+  if (match && match.id !== 'skip') {
+    const id = cardImageFor(match.id)
+    return { id, alt: getAssetAlt(id), level: 'h3' }
   }
 
   const index = hashSeed(seed) % H3_CYCLE.length
