@@ -267,7 +267,7 @@ function EstateEnclavesSection() {
               Estate homeowners enjoy the same community amenities—golf, tennis, fitness, dining—while benefiting from enhanced seclusion. The secondary gates limit traffic and create intimate neighborhoods within the larger community.
             </p>
             <Button asChild variant="outline" className="rounded-full px-6 py-2 text-xs uppercase tracking-[0.3em]">
-              <Link href="/spanish-trail-country-club-estate-listings">View estate listings</Link>
+              <Link href="/neighborhoods/estates">View estate listings</Link>
             </Button>
           </div>
 
