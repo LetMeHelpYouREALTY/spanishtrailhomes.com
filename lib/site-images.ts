@@ -40,7 +40,7 @@ const ALTS: Record<string, string> = {
   'h1-luxury-estate':
     'Mediterranean custom estate home in Spanish Trail, Las Vegas guard-gated golf community',
   'h1-clubhouse':
-    'Two-story Mediterranean Spanish Trail Country Club clubhouse, porte-cochere, and putting green in Las Vegas 89113',
+    'Two-story Spanish Trail Country Club clubhouse, porte-cochere, putting green, and desert golf in Las Vegas 89113',
   'h1-waterfront':
     'Waterfront golf-course home patio on a Spanish Trail lake at sunset, Las Vegas 89113',
   'h1-villa-courtyard':
@@ -104,7 +104,7 @@ const ALTS: Record<string, string> = {
   'h3-motor-court':
     'Paver motor court of a custom Mediterranean estate inside Spanish Trail, Las Vegas 89113',
   'h3-putting-green':
-    'Private putting green behind a Spanish Trail Las Vegas golf home',
+    'Private desert putting green with agave and palms behind a Spanish Trail Las Vegas golf home',
   'h3-spa-pool':
     'Resort spa pool at a Spanish Trail Las Vegas golf estate',
   'h3-golf-bunker':
@@ -135,6 +135,8 @@ const ALTS: Record<string, string> = {
     'Lakeside Mediterranean golf home terrace at sunset in Spanish Trail Las Vegas',
   'h3-listing-home-f':
     'Single-story desert golf-neighborhood home on a Spanish Trail Las Vegas street',
+  'h3-listing-marketing':
+    'Digital listing photos of Spanish Trail Las Vegas golf homes on a twilight patio overlooking the fairway and Strip',
 }
 
 type MediaRule = {
@@ -146,6 +148,14 @@ type MediaRule = {
 const RULES: MediaRule[] = [
   { test: /aeo-answer/, id: 'skip' },
   { test: /faq/, id: 'skip' },
+  { test: /tennis-facilit|tennis-program/, id: 'h2-tennis' },
+  { test: /fitness-facilit|fitness-program/, id: 'h2-fitness' },
+  { test: /pools-feature|pools-program/, id: 'h1-pool', level: 'h1' },
+  { test: /gbp-feature/, id: 'h1-office-exterior', level: 'h1' },
+  { test: /realtor-services/, id: 'h1-contact-office' },
+  { test: /intro-heading/, id: 'h2-neighborhood-street' },
+  { test: /explore-further/, id: 'h2-community-map' },
+  { test: /advanced-search/, id: 'h2-office-map' },
   { test: /waterfront|lakes-course|lake/, id: 'h1-waterfront', level: 'h1' },
   { test: /pool|aquatic|spa/, id: 'h1-pool', level: 'h1' },
   { test: /tennis|pickleball|racquet/, id: 'h2-tennis' },
@@ -266,12 +276,44 @@ function cardImageFor(id: string): string {
       return 'h3-townhome-villa'
     case 'h1-pool':
       return 'h3-spa-pool'
-    case 'h2-tennis':
-      return 'h3-pickleball'
+    case 'h1-contact-office':
+      return 'h1-contact-office'
+    case 'h1-office-exterior':
+      return 'h1-office-exterior'
     default:
       return id
   }
 }
+
+const CARD_EXACT_IMAGES: Record<string, string> = {
+  'digital reach highlights': 'h3-listing-marketing',
+  'high-touch experiences': 'h2-events-lawn',
+  'buy in spanish trail': 'h3-listing-home-a',
+  'sell your spanish trail home': 'h2-kitchen-fairway',
+  'private tours': 'h3-gatehouse',
+  'community counsel': 'h2-neighborhood-street',
+  'consult': 'h1-contact-office',
+  'tour': 'h3-gatehouse',
+  'negotiate': 'h2-kitchen-fairway',
+  'close': 'h3-listing-home-c',
+  'meet dr. jan duffy': 'h1-contact-office',
+  'spanish trail listings': 'h3-listing-home-a',
+  '11 neighborhoods': 'h2-neighborhood-street',
+  'the estates & estates west': 'h1-luxury-estate',
+  'the courtyards & gardens': 'h1-villa-courtyard',
+  'the links & carmels': 'h3-cart-path',
+  'springs & plum creek': 'h2-neighborhood-street',
+}
+
+const CARD_KEYWORD_RULES: MediaRule[] = [
+  { test: /\bpickleball\b/, id: 'h3-pickleball' },
+  { test: /\b(tennis|lesson|lessons|clinic|clinics|league|leagues|tournament|tournaments|racquet)\b/, id: 'h2-tennis' },
+  { test: /\b(aqua|poolside|cabana|towel|lifeguard)\b/, id: 'h3-spa-pool' },
+  { test: /\b(yoga|pilates|spin|cardio|personal training|strength training|free weights|functional training)\b/, id: 'h2-fitness' },
+  { test: /\b(digital|syndication|listing photo|photography|marketing)\b/, id: 'h3-listing-marketing' },
+  { test: /\b(sip-and-see|broker preview|high-touch|open house)\b/, id: 'h2-events-lawn' },
+  { test: /\b(comparable|scenario|net sheet)\b/, id: 'h2-kitchen-fairway' },
+]
 
 export function getAssetAlt(assetId: string): string {
   return ALTS[assetId] ?? 'Spanish Trail Las Vegas guard-gated golf community real estate'
@@ -305,6 +347,11 @@ export function resolveHeadingMedia(headingId: string): SiteImageAsset | null {
 
 export function resolveCardMedia(seed: string): SiteImageAsset {
   const normalized = seed.trim().toLowerCase()
+  const exactId = CARD_EXACT_IMAGES[normalized]
+  if (exactId) {
+    return { id: exactId, alt: getAssetAlt(exactId), level: 'h3' }
+  }
+
   const neighborhoodId = NEIGHBORHOOD_CARD_IMAGES[normalized]
   if (neighborhoodId) {
     return { id: neighborhoodId, alt: getAssetAlt(neighborhoodId), level: 'h3' }
@@ -315,6 +362,11 @@ export function resolveCardMedia(seed: string): SiteImageAsset {
   )
   if (course) {
     return { id: course[1].id, alt: course[1].alt, level: 'h3' }
+  }
+
+  const keyword = CARD_KEYWORD_RULES.find((rule) => rule.test.test(normalized))
+  if (keyword) {
+    return { id: keyword.id, alt: getAssetAlt(keyword.id), level: 'h3' }
   }
 
   const match = RULES.find((rule) => rule.test.test(normalized))

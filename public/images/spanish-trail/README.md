@@ -18,7 +18,10 @@ Example after upload:
 
 `https://imagedelivery.net/byE6BTe9lNqo21V57n4aPQ/spanish-trail/h1-guard-gate/public`
 
-Heading images (`h1-*`, `h2-*`, `h3-*`) match on-page H1/H2/H3 topics. Regenerated 2026-09-21 from headings:
+Heading images (`h1-*`, `h2-*`, `h3-*`) match on-page H1/H2/H3 topics. Regenerated 2026-09-25:
+`h1-clubhouse` (two-story country club and putting green, not a palace), `h3-putting-green` (desert putting green, no Italian cypress),
+`h3-listing-marketing` (digital listing photos on a twilight golf patio for marketing H3s).
+Regenerated 2026-09-21 from headings:
 `h1-golf-fairway` (H1: homes on a private 27-hole course), `h1-clubhouse` (two-story clubhouse, not a palace),
 `h1-waterfront` (H1: waterfront golf homes), `h2-golf-canyon` / `h2-golf-lakes` / `h2-golf-sunrise` (Canyon, Lakes, Sunrise nines with homes),
 `h2-valley-skyline` and `h3-strip-view-patio` (Las Vegas Strip, not a generic skyline),
