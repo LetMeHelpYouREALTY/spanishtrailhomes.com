@@ -316,12 +316,12 @@ function ProfileFeaturesSection({ features }: { features: ProfileFeature[] }) {
   return (
     <section
       className="bg-[#f8f2e7] py-20 sm:py-24"
-      aria-labelledby="features-heading"
+      aria-labelledby="gbp-features-heading"
     >
-      <SectionBanner headingId="features-heading" />
+      <SectionBanner headingId="gbp-features-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2
-          id="features-heading"
+          id="gbp-features-heading"
           className="font-[var(--font-playfair)] text-2xl text-[#1f2a24] sm:text-3xl"
         >
           Why view our Google Business Profile?

@@ -8,7 +8,7 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { sitePhotoOg } from '@/lib/site-images'
-import { SectionBanner } from '@/components/heading-media'
+import { CardVisual, SectionBanner } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-tennis'
@@ -161,13 +161,13 @@ function HeroSection() {
 
 function FacilitiesSection() {
   return (
-    <section className="bg-white py-16 sm:py-20" aria-labelledby="facilities-heading">
-      <SectionBanner headingId="facilities-heading" />
+    <section className="bg-white py-16 sm:py-20" aria-labelledby="tennis-facilities-heading">
+      <SectionBanner headingId="tennis-facilities-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.1fr_1fr]">
           <div className="space-y-6">
             <p className="text-xs uppercase tracking-[0.5em] text-secondary">World-Class Facilities</p>
-            <h2 id="facilities-heading" className="font-[var(--font-playfair)] text-3xl text-foreground sm:text-4xl">
+            <h2 id="tennis-facilities-heading" className="font-[var(--font-playfair)] text-3xl text-foreground sm:text-4xl">
               12 Lighted Tennis Courts
             </h2>
             <p className="text-base leading-relaxed text-muted-foreground">
@@ -203,12 +203,12 @@ function FacilitiesSection() {
 
 function ProgramsSection() {
   return (
-    <section className="border-y border-border/60 bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="programs-heading">
-      <SectionBanner headingId="programs-heading" />
+    <section className="border-y border-border/60 bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="tennis-programs-heading">
+      <SectionBanner headingId="tennis-programs-heading" />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-[#6f5237]">Tennis Programs</p>
-          <h2 id="programs-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
+          <h2 id="tennis-programs-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
             Instruction & Leagues for All Levels
           </h2>
           <p className="text-base leading-relaxed text-[#372a20]/85">
@@ -244,6 +244,7 @@ function ProgramsSection() {
             },
           ].map((item) => (
             <div key={item.title} className="rounded-3xl border border-[#d8cdbf] bg-white p-6 shadow-lg shadow-primary/10">
+              <CardVisual seed={`tennis ${item.title}`} />
               <p className="text-xs uppercase tracking-[0.4em] text-[#6f5237]">{item.title}</p>
               <p className="mt-3 text-sm leading-relaxed text-[#372a20]/85">{item.description}</p>
             </div>
