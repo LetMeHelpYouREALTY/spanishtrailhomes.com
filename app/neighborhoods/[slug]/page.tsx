@@ -164,7 +164,7 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
         </div>
 
         <section className="prose prose-[#372a20] max-w-none" aria-labelledby="about-neighborhood">
-          <SectionBanner headingId="about-neighborhood" />
+          <SectionBanner headingId={`${slug}-about-heading`} />
           <h2 id="about-neighborhood" className="font-playfair text-2xl font-semibold text-[#2d2318]">
             About {neighborhood.name}
           </h2>
@@ -176,7 +176,7 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
         </section>
 
         <section className="mt-10" aria-labelledby="features">
-          <SectionBanner headingId="features" />
+          <SectionBanner headingId={`${slug}-features-heading`} />
           <h2 id="features" className="font-playfair text-xl font-semibold text-[#2d2318]">
             What {neighborhood.name} offers
           </h2>
@@ -217,7 +217,7 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
           className="relative isolate mt-12 overflow-hidden rounded-2xl border border-[#e8ddd0] bg-[#faf8f5] p-6 sm:p-8"
           aria-labelledby="cta"
         >
-          <SectionBanner headingId="cta" />
+          <SectionBanner headingId={`${slug}-cta-heading`} />
           <h2 id="cta" className="font-playfair text-xl font-semibold text-[#2d2318]">
             Tour {neighborhood.name} or price a home here
           </h2>

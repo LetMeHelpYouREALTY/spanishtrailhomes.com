@@ -18,15 +18,13 @@ Example after upload:
 
 `https://imagedelivery.net/byE6BTe9lNqo21V57n4aPQ/spanish-trail/h1-guard-gate/public`
 
-Heading images (`h1-*`, `h2-*`, `h3-*`) match on-page H1/H2/H3 topics. Regenerated 2026-09-21 from headings:
-`h1-golf-fairway` (H1: homes on a private 27-hole course), `h1-clubhouse` (two-story clubhouse, not a palace),
-`h1-waterfront` (H1: waterfront golf homes), `h2-golf-canyon` / `h2-golf-lakes` / `h2-golf-sunrise` (Canyon, Lakes, Sunrise nines with homes),
-`h2-valley-skyline` and `h3-strip-view-patio` (Las Vegas Strip, not a generic skyline),
-`h2-community-map` (flat 89113 gated golf aerial), `h3-cart-path`, `h3-gatehouse`, `h3-golf-bunker`.
-Also 2026-09-21: `h3-pickleball` (Mediterranean courts), `h3-motor-court` (desert paver court),
-`h2-events-lawn` (club lawn, not a wedding ceremony), `h3-townhome-villa` (desert golf villas).
-Replaced leftover `public/og-image.png` (was a v0 demo screenshot) from the homepage H1.
+Heading images (`h1-*`, `h2-*`, `h3-*`) match on-page H1/H2/H3 topics. Regenerated 2026-09-25 from neighborhood H1s
+(`Homes for sale in The Estates / Estates West / Courtyards / Gardens / Links / Carmels / Springs / Plum Creek / Villas / Islands / Innisbrook Estates`)
+plus remaining off-topic assets: `h2-tennis` (club courts, not a public tennis stadium), `h1-pool` (rectangular club pool and two-story clubhouse),
+`h3-putting-green` (date palms and agave, not Italian cypress), `h1-office-exterior` (two-story 5050 Spanish Trail Ln clubhouse).
+Also 2026-09-21: `h1-golf-fairway`, `h1-clubhouse`, `h1-waterfront`, Canyon/Lakes/Sunrise nines, Strip skyline, community map, cart path, gatehouse, bunker.
 Earlier 2026-09-15: `h2-fitness`, `h2-accessible-entrance`, `h2-reviews-terrace`.
+Replaced leftover `public/og-image.png` (was a v0 demo screenshot) from the homepage H1.
 
 Runtime URLs are resolved in `lib/cloudflare-images.ts`:
 

@@ -46,17 +46,39 @@ const ALTS: Record<string, string> = {
   'h1-villa-courtyard':
     'Lock-and-leave Spanish Trail villa courtyard with fountain, bougainvillea, and desert sky in Las Vegas 89113',
   'h1-pool':
-    'Spanish Trail Country Club resort pool and spa deck in Las Vegas',
+    'Rectangular Spanish Trail Country Club resort pool, spa, and two-story clubhouse in Las Vegas 89113',
   'h1-contact-office':
     'Professional Spanish Trail real estate office at 5050 Spanish Trail Ln with a community map and golf-course view in Las Vegas 89113',
   'h1-office-exterior':
-    'Spanish Trail clubhouse office exterior at 5050 Spanish Trail Ln, Las Vegas NV 89113, matching the Google Business Profile pin',
+    'Two-story Spanish Trail Country Club office at 5050 Spanish Trail Ln, Las Vegas NV 89113, matching the Google Business Profile pin',
+  'h1-estates':
+    'Custom golf-course estate with a paver motor court in The Estates at Spanish Trail, Las Vegas 89113',
+  'h1-estates-west':
+    'West-side cul-de-sac of two-story golf estates in Estates West at Spanish Trail, Las Vegas 89113',
+  'h1-courtyards':
+    'Lock-and-leave courtyard home with fountain and bougainvillea in The Courtyards at Spanish Trail, Las Vegas 89113',
+  'h1-gardens':
+    'Garden greenbelt, fountain, and patio homes in The Gardens at Spanish Trail, Las Vegas 89113',
+  'h1-links':
+    'Fairway villa with wraparound patio and cart path in The Links at Spanish Trail, Las Vegas 89113',
+  'h1-carmels':
+    'Golf-ridge great room opening to Carmel fairway homes in The Carmels at Spanish Trail, Las Vegas 89113',
+  'h1-springs':
+    'Tree-lined street of three-to-five-bedroom homes in Springs at Spanish Trail, Las Vegas 89113',
+  'h1-plum-creek':
+    'Quiet street of single-family and villa homes in Plum Creek at Spanish Trail, Las Vegas 89113',
+  'h1-villas':
+    'Mediterranean townhome villas with desert courtyards in The Villas at Spanish Trail, Las Vegas 89113',
+  'h1-islands':
+    'Water-oriented golf-home patio on a Spanish Trail lake in The Islands, Las Vegas 89113',
+  'h1-innisbrook':
+    'Twilight custom estate and circular motor court in Innisbrook Estates at Spanish Trail, Las Vegas 89113',
   'h2-kitchen-fairway':
     'Luxury kitchen overlooking a Spanish Trail golf fairway in Las Vegas',
   'h2-club-dining':
     'Spanish Trail Country Club dining terrace overlooking a desert golf lake in Las Vegas 89113',
   'h2-tennis':
-    'Lighted tennis courts at Spanish Trail Country Club in Las Vegas 89113',
+    'Lighted tennis courts beside the Mediterranean clubhouse at Spanish Trail Country Club in Las Vegas 89113',
   'h2-fitness':
     'Spanish Trail Country Club desert fitness studio with golf-fairway and Spring Mountains views in Las Vegas 89113',
   'h2-membership-lounge':
@@ -104,7 +126,7 @@ const ALTS: Record<string, string> = {
   'h3-motor-court':
     'Paver motor court of a custom Mediterranean estate inside Spanish Trail, Las Vegas 89113',
   'h3-putting-green':
-    'Private putting green behind a Spanish Trail Las Vegas golf home',
+    'Private putting green with date palms and agave behind a Spanish Trail Las Vegas golf home',
   'h3-spa-pool':
     'Resort spa pool at a Spanish Trail Las Vegas golf estate',
   'h3-golf-bunker':
@@ -146,6 +168,17 @@ type MediaRule = {
 const RULES: MediaRule[] = [
   { test: /aeo-answer/, id: 'skip' },
   { test: /faq/, id: 'skip' },
+  { test: /estates-west/, id: 'h1-estates-west', level: 'h1' },
+  { test: /innisbrook/, id: 'h1-innisbrook', level: 'h1' },
+  { test: /plum-creek/, id: 'h1-plum-creek', level: 'h1' },
+  { test: /courtyards/, id: 'h1-courtyards', level: 'h1' },
+  { test: /gardens/, id: 'h1-gardens', level: 'h1' },
+  { test: /carmels/, id: 'h1-carmels', level: 'h1' },
+  { test: /springs/, id: 'h1-springs', level: 'h1' },
+  { test: /islands/, id: 'h1-islands', level: 'h1' },
+  { test: /(?:^|-)villas(?:-|$)/, id: 'h1-villas', level: 'h1' },
+  { test: /(?:^|-)links(?:-|$)/, id: 'h1-links', level: 'h1' },
+  { test: /(?:^|-)estates(?:-|$)/, id: 'h1-estates', level: 'h1' },
   { test: /waterfront|lakes-course|lake/, id: 'h1-waterfront', level: 'h1' },
   { test: /pool|aquatic|spa/, id: 'h1-pool', level: 'h1' },
   { test: /tennis|pickleball|racquet/, id: 'h2-tennis' },
@@ -244,6 +277,28 @@ function mapH1ToH2(id: string): string {
       return 'h1-office-exterior'
     case 'h1-guard-gate':
       return 'h2-neighborhood-street'
+    case 'h1-estates':
+      return 'h1-estates'
+    case 'h1-estates-west':
+      return 'h1-estates-west'
+    case 'h1-courtyards':
+      return 'h1-courtyards'
+    case 'h1-gardens':
+      return 'h1-gardens'
+    case 'h1-links':
+      return 'h1-links'
+    case 'h1-carmels':
+      return 'h1-carmels'
+    case 'h1-springs':
+      return 'h1-springs'
+    case 'h1-plum-creek':
+      return 'h1-plum-creek'
+    case 'h1-villas':
+      return 'h1-villas'
+    case 'h1-islands':
+      return 'h1-islands'
+    case 'h1-innisbrook':
+      return 'h1-innisbrook'
     default:
       return DEFAULT_H2_IMAGE
   }
@@ -359,17 +414,17 @@ export const GOLF_COURSE_IMAGES = {
 } as const
 
 export const NEIGHBORHOOD_CARD_IMAGES: Record<string, string> = {
-  estates: 'h1-luxury-estate',
-  'estates-west': 'h3-motor-court',
-  courtyards: 'h1-villa-courtyard',
-  gardens: 'h3-hoa-landscaping',
-  links: 'h3-cart-path',
-  carmels: 'h3-listing-home-d',
-  springs: 'h3-listing-home-f',
-  'plum-creek': 'h2-neighborhood-street',
-  villas: 'h3-townhome-villa',
-  islands: 'h1-waterfront',
-  'innisbrook-estates': 'h3-listing-home-c',
+  estates: 'h1-estates',
+  'estates-west': 'h1-estates-west',
+  courtyards: 'h1-courtyards',
+  gardens: 'h1-gardens',
+  links: 'h1-links',
+  carmels: 'h1-carmels',
+  springs: 'h1-springs',
+  'plum-creek': 'h1-plum-creek',
+  villas: 'h1-villas',
+  islands: 'h1-islands',
+  'innisbrook-estates': 'h1-innisbrook',
 }
 
 /** Real community photos for Open Graph, Twitter, and sitemap image entries. */
