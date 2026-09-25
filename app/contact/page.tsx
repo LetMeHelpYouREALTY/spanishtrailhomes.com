@@ -455,7 +455,7 @@ function GBPIntegrationSection() {
               <dl className="space-y-1">
                 <div className="flex flex-wrap justify-between gap-2">
                   <dt>Sunday – Saturday</dt>
-                  <dd>9:00 AM – 6:00 PM</dd>
+                  <dd>8:00 AM – 8:00 PM</dd>
                 </div>
                 {shouldShowPromotedSpecialHoursNotice() ? (
                   <div className="mt-2 border-t border-[#d8cdbf] pt-2">

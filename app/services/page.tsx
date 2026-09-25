@@ -260,7 +260,7 @@ function CommunityFocusSection() {
             <br />
             DrDuffySells@SpanishTrailHomes.com
           </p>
-          <p className="mt-3 text-sm text-[#372a20]/85">Sunday–Saturday 9:00 AM–6:00 PM</p>
+          <p className="mt-3 text-sm text-[#372a20]/85">Sunday–Saturday 8:00 AM–8:00 PM</p>
           <p className="mt-3 text-xs uppercase tracking-[0.25em] text-[#6f5237]">Berkshire Hathaway HomeServices Nevada Properties</p>
         </div>
       </div>

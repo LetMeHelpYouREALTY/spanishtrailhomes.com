@@ -88,7 +88,7 @@ const neighborhoodsFaq = [
   {
     question: 'How do I tour a Spanish Trail neighborhood?',
     answer:
-      'Call (702) 766-3299 for guard-gate clearance. The office is 5050 Spanish Trail Ln, Las Vegas, NV 89113, Sunday–Saturday 9:00 AM–6:00 PM. Open an enclave page for live listings, then book a private showing.',
+      'Call (702) 766-3299 for guard-gate clearance. The office is 5050 Spanish Trail Ln, Las Vegas, NV 89113, Sunday–Saturday 8:00 AM–8:00 PM. Open an enclave page for live listings, then book a private showing.',
   },
   {
     question: 'Which enclaves are lock-and-leave versus larger lots?',

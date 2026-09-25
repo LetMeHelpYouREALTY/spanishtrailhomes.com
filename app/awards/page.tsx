@@ -194,7 +194,7 @@ const awardsFaq = [
   {
     question: 'Where is Dr. Jan Duffy’s Spanish Trail office?',
     answer:
-      'Spanish Trail | Homes By Dr. Jan Duffy is at 5050 Spanish Trail Ln, Las Vegas, NV 89113. Hours are Sunday–Saturday 9:00 AM–6:00 PM. Call (702) 766-3299 for a strategy call or gate-access showing.',
+      'Spanish Trail | Homes By Dr. Jan Duffy is at 5050 Spanish Trail Ln, Las Vegas, NV 89113. Hours are Sunday–Saturday 8:00 AM–8:00 PM. Call (702) 766-3299 for a strategy call or gate-access showing.',
   },
   {
     question: 'Which awards apply to Spanish Trail listings?',

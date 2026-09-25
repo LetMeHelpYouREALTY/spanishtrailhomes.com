@@ -89,7 +89,7 @@ const accessibilityFaq = [
   {
     question: 'How do I request an accessible showing or document format?',
     answer:
-      'Email DrDuffySells@SpanishTrailHomes.com or call (702) 766-3299. Large-print or plain-text property briefs are available. Hours are Sunday–Saturday 9:00 AM–6:00 PM.',
+      'Email DrDuffySells@SpanishTrailHomes.com or call (702) 766-3299. Large-print or plain-text property briefs are available. Hours are Sunday–Saturday 8:00 AM–8:00 PM.',
   },
   {
     question: 'What accessibility standard does this site follow?',
@@ -394,7 +394,7 @@ function ContactSection() {
           </Link>
         </div>
         <p className="mt-6 text-sm text-[#f8f5ef]/80">
-          Spanish Trail | Homes By Dr. Jan Duffy · 5050 Spanish Trail Ln, Las Vegas, NV 89113 · Sunday–Saturday 9:00 AM–6:00
+          Spanish Trail | Homes By Dr. Jan Duffy · 5050 Spanish Trail Ln, Las Vegas, NV 89113 · Sunday–Saturday 8:00 AM–8:00
           PM
         </p>
         <p className="mt-6 text-xs text-[#f8f5ef]/70">

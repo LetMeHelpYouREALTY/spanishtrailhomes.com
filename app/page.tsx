@@ -145,7 +145,7 @@ const homeFaq = [
   {
     question: 'Where is the Spanish Trail office on Google Maps?',
     answer:
-      'Spanish Trail | Homes By Dr. Jan Duffy is at 5050 Spanish Trail Ln, Las Vegas, NV 89113. Hours are Sunday–Saturday 9:00 AM–6:00 PM. Use Call, Get Directions, or View Google Reviews on this page, or open the Google Business Profile. Phone (702) 766-3299.',
+      'Spanish Trail | Homes By Dr. Jan Duffy is at 5050 Spanish Trail Ln, Las Vegas, NV 89113. Hours are Sunday–Saturday 8:00 AM–8:00 PM. Use Call, Get Directions, or View Google Reviews on this page, or open the Google Business Profile. Phone (702) 766-3299.',
   },
 ]
 

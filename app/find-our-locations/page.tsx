@@ -27,7 +27,7 @@ import {
 
 const pageUrl = 'https://www.spanishtrailhomes.com/find-our-locations'
 const pageDescription =
-  'Visit Spanish Trail | Homes By Dr. Jan Duffy at 5050 Spanish Trail Ln, Las Vegas, NV 89113. Hours Sunday–Saturday 9:00 AM–6:00 PM. Call (702) 766-3299 for directions, gate access, and private tours.'
+  'Visit Spanish Trail | Homes By Dr. Jan Duffy at 5050 Spanish Trail Ln, Las Vegas, NV 89113. Hours Sunday–Saturday 8:00 AM–8:00 PM. Call (702) 766-3299 for directions, gate access, and private tours.'
 
 const faqContent = [
   {

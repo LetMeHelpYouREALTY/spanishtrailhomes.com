@@ -114,7 +114,7 @@ const gbpFaqs = [
   {
     question: 'What information is on the Google Business Profile?',
     answer:
-      'Hours Sunday–Saturday 9:00 AM–6:00 PM, map pin, phone, website, photos, accessibility attributes, and client reviews for Spanish Trail real estate in Las Vegas 89113.',
+      'Hours Sunday–Saturday 8:00 AM–8:00 PM, map pin, phone, website, photos, accessibility attributes, and client reviews for Spanish Trail real estate in Las Vegas 89113.',
   },
 ]
 
@@ -268,7 +268,7 @@ function BusinessInfoSection() {
                 <dl className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <dt className="text-[#372a20]/85">Sunday – Saturday</dt>
-                    <dd className="font-medium text-[#0f2b1e]">9:00 AM – 6:00 PM</dd>
+                    <dd className="font-medium text-[#0f2b1e]">8:00 AM – 8:00 PM</dd>
                   </div>
 
                 </dl>

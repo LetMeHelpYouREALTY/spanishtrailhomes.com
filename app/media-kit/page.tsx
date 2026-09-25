@@ -107,7 +107,7 @@ const mediaKitFaq = [
   {
     question: 'What is the official name and NAP for press?',
     answer:
-      'Business name: Spanish Trail | Homes By Dr. Jan Duffy. Address: 5050 Spanish Trail Ln, Las Vegas, NV 89113. Phone: (702) 766-3299. Email: DrDuffySells@SpanishTrailHomes.com. Hours: Sunday–Saturday 9:00 AM–6:00 PM.',
+      'Business name: Spanish Trail | Homes By Dr. Jan Duffy. Address: 5050 Spanish Trail Ln, Las Vegas, NV 89113. Phone: (702) 766-3299. Email: DrDuffySells@SpanishTrailHomes.com. Hours: Sunday–Saturday 8:00 AM–8:00 PM.',
   },
   {
     question: 'What is Dr. Jan Duffy’s license number?',
@@ -284,7 +284,7 @@ export default function MediaKitPage() {
             </Link>
           </p>
           <p className="mt-2 text-sm text-[#0f2b1e]/80">
-            5050 Spanish Trail Ln, Las Vegas, NV 89113 · Sunday–Saturday 9:00 AM–6:00 PM
+            5050 Spanish Trail Ln, Las Vegas, NV 89113 · Sunday–Saturday 8:00 AM–8:00 PM
           </p>
           <div className="mt-6">
             <CalendlyLink
