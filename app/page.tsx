@@ -28,7 +28,7 @@ import { GbpLocalActions } from '@/components/gbp-local-actions'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/'
 const homePageDescription =
-  'Buy and sell Spanish Trail homes in Las Vegas 89113. Dr. Jan Duffy’s realtor services cover this community only—buyer representation, seller representation, and private tours. Also searched as Spanish Trails.'
+  'Buy and sell Spanish Trail homes in Las Vegas 89113. Dr. Jan Duffy offers buyer and seller representation and private tours in Spanish Trail.'
 
 const homeWebPageSchema = createWebPageSchema({
   name: 'Buy and Sell Spanish Trail Homes | Realtor Services | Dr. Jan Duffy',
