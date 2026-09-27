@@ -52,7 +52,7 @@ const localBusinessId = `${siteUrl}#localBusiness`
 
 /** Default SERP/social summary for routes without page-level metadata (keep in sync across description + OG + Twitter). */
 const rootDefaultDescription =
-  'Buy and sell Spanish Trail homes in Las Vegas 89113. Dr. Jan Duffy’s realtor services cover this community only—Berkshire Hathaway HomeServices Nevada Properties.'
+  'Buy and sell Spanish Trail homes in Las Vegas 89113. Dr. Jan Duffy’s realtor services for this community—Berkshire Hathaway HomeServices Nevada Properties.'
 
 const structuredData = [
   {
