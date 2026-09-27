@@ -12,6 +12,7 @@ import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
+import { NearbyAmenitiesSection } from '@/components/nearby-amenities-section'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 
 
@@ -213,6 +214,12 @@ export default function SpanishTrailCommunityPage() {
       <RealEstateTypesSection />
       <SchoolsSection />
       <ParksAndRecreationSection />
+      <NearbyAmenitiesSection
+        headingId="community-nearby-map-heading"
+        title="What's near Spanish Trail on the map"
+        compact
+        showStaticList={false}
+      />
       <ThingsToDoSection />
       <DiningAndShoppingSection />
       <HOASection />

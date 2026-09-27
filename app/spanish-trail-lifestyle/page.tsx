@@ -10,6 +10,7 @@ import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
+import { NearbyAmenitiesSection } from '@/components/nearby-amenities-section'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-lifestyle'
 const pageDescription =
@@ -127,6 +128,7 @@ export default function SpanishTrailLifestylePage() {
       <OnSiteAmenitiesSection />
       <DiningSection />
       <ShoppingSection />
+      <NearbyAmenitiesSection headingId="lifestyle-nearby-map-heading" compact showStaticList={false} />
       <FAQSection />
       <CTASection />
       <Script id="lifestyle-faq-schema" type="application/ld+json" strategy="afterInteractive">

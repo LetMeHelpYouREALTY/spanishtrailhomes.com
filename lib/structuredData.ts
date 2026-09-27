@@ -297,6 +297,96 @@ type FaqItem = {
 }
 
 /** FAQPage JSON-LD. Visible Q&A on the same page must match these strings. */
+type ItemListPlaceInput = {
+  name: string
+  address: string
+  schemaType: string
+}
+
+/** ItemList of verified nearby places for amenities / hyperlocal pages. */
+export const createAmenitiesItemListSchema = ({
+  name,
+  path,
+  items,
+}: {
+  name: string
+  path: string
+  items: ItemListPlaceInput[]
+}) => {
+  const url = buildAbsoluteUrl(path)
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    '@id': `${url}#amenities-list`,
+    name,
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': item.schemaType,
+        name: item.name,
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: item.address,
+          addressLocality: 'Las Vegas',
+          addressRegion: 'NV',
+          addressCountry: 'US',
+        },
+      },
+    })),
+  }
+}
+
+type CommunityGeoPlaceInput = {
+  name: string
+  description: string
+  address: string
+  latitude: number
+  longitude: number
+}
+
+export const createCommunityGeoPlaceSchema = ({
+  name,
+  description,
+  address,
+  latitude,
+  longitude,
+  path,
+}: CommunityGeoPlaceInput & { path: string }) => {
+  const url = buildAbsoluteUrl(path)
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Place',
+    '@id': `${url}#community-place`,
+    name,
+    description,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: address,
+      addressLocality: 'Las Vegas',
+      addressRegion: 'NV',
+      addressCountry: 'US',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude,
+      longitude,
+    },
+  }
+}
+
+export const createRealEstateAgentAreaServedSchema = (communityName: string) => ({
+  '@context': 'https://schema.org',
+  '@type': 'RealEstateAgent',
+  '@id': `${siteUrl}#localBusiness`,
+  name: 'Dr. Jan Duffy',
+  url: siteUrl,
+  areaServed: {
+    '@type': 'Place',
+    name: communityName,
+  },
+})
+
 export const createFaqPageSchema = (items: FaqItem[]) => ({
   '@context': 'https://schema.org',
   '@type': 'FAQPage',

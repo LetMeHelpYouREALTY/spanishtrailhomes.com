@@ -24,6 +24,7 @@ import { AgentPortrait } from '@/components/agent-portrait'
 import { FaqSection } from '@/components/faq-section'
 import { MlsDisclaimer } from '@/components/mls-disclaimer'
 import { GbpLocalActions } from '@/components/gbp-local-actions'
+import { NearbyAmenitiesSection } from '@/components/nearby-amenities-section'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/'
@@ -210,6 +211,7 @@ export default function HomePage() {
         <TourCTAStrip />
       <AdvancedSearchSection />
       <IntroSection />
+      <NearbyAmenitiesSection headingId="home-nearby-amenities-heading" compact showStaticList={false} />
       <StatsSection />
       <JourneySection />
       <NeighborhoodSpotlightsSection />
@@ -691,6 +693,11 @@ const exploreCards = [
     title: 'Schools near Spanish Trail',
     description: 'Named campuses and distances: Bishop Gorman, Faith Lutheran, Durango, and CCSD schools.',
     href: '/spanish-trail-schools',
+  },
+  {
+    title: 'Nearby amenities map',
+    description: 'Interactive map of golf, grocery, healthcare, schools, and commute anchors around 89113.',
+    href: '/amenity-map',
   },
   {
     title: 'Meet Dr. Jan Duffy',

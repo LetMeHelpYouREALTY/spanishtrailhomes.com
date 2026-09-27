@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       { source: '/market-data', destination: '/spanish-trail-market-report', permanent: true },
+      { source: '/amenities', destination: '/amenity-map', permanent: true },
+      { source: '/nearby-amenities', destination: '/amenity-map', permanent: true },
       { source: '/homes', destination: '/spanish-trail-homes-for-sale-las-vegas', permanent: true },
       { source: '/images/janet-duffy.jpg', destination: '/images/spanish-trail/duffy-circle-canonical.png', permanent: true },
       {

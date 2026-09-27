@@ -56,6 +56,7 @@ export function SiteFooter() {
         { label: 'HOA guide', href: '/spanish-trail-hoa-guide' },
         { label: 'Golf course', href: '/golf' },
         { label: 'Club & amenities', href: '/club' },
+        { label: 'Nearby amenities map', href: '/amenity-map' },
       ],
     },
     {
