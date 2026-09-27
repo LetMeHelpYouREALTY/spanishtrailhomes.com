@@ -2,7 +2,9 @@
 
 import { useCallback, useEffect, useId, useRef, useState } from 'react'
 
-import { cn } from '@/lib/utils'
+import { searchCategoryPlaces } from '@/lib/amenity-places-search'
+import { loadGoogleMaps, mapsAuthFailed } from '@/lib/google-maps-loader'
+import { GBP_LEGAL_NAME } from '@/lib/gbp-business'
 import {
   AMENITY_CATEGORIES,
   SPANISH_TRAIL_COMMUNITY,
@@ -11,7 +13,7 @@ import {
   getKeylessMapEmbedUrl,
   type AmenityCategoryId,
 } from '@/lib/hyperlocal-amenities'
-import { GBP_LEGAL_NAME } from '@/lib/gbp-business'
+import { cn } from '@/lib/utils'
 
 type HyperlocalAmenityMapProps = {
   className?: string
@@ -29,7 +31,6 @@ type PlacePin = {
   address: string
   lat: number
   lng: number
-  rating?: number
   directionsUrl: string
   isCommunity?: boolean
 }
@@ -45,68 +46,32 @@ type StaticListItem = {
 const MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
 const MAP_ID = process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID
 
-function escapeHtml(value: string): string {
-  return value
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-}
+function buildInfoWindowElement(pin: PlacePin): HTMLElement {
+  const root = document.createElement('div')
+  root.style.maxWidth = '240px'
+  root.style.fontFamily = 'system-ui, sans-serif'
 
-function placeDisplayName(displayName: unknown): string {
-  if (typeof displayName === 'string') {
-    return displayName
-  }
-  if (displayName && typeof displayName === 'object' && 'text' in displayName) {
-    return String((displayName as { text: string }).text)
-  }
-  return 'Nearby place'
-}
+  const title = document.createElement('strong')
+  title.textContent = pin.name
+  root.appendChild(title)
 
-function buildInfoWindowContent(pin: PlacePin): string {
-  const ratingLine =
-    pin.rating != null && !Number.isNaN(pin.rating)
-      ? `<p style="margin:4px 0 0;font-size:13px;">Google rating: ${pin.rating.toFixed(1)}</p>`
-      : ''
-  return `<div style="max-width:240px;font-family:system-ui,sans-serif;">
-    <strong>${escapeHtml(pin.name)}</strong>
-    ${ratingLine}
-    <p style="margin:6px 0 0;font-size:13px;line-height:1.4;">${escapeHtml(pin.address)}</p>
-    <p style="margin:8px 0 0;"><a href="${pin.directionsUrl}" target="_blank" rel="noopener noreferrer">Directions</a></p>
-  </div>`
-}
+  const address = document.createElement('p')
+  address.style.margin = '6px 0 0'
+  address.style.fontSize = '13px'
+  address.style.lineHeight = '1.4'
+  address.textContent = pin.address
+  root.appendChild(address)
 
-let mapsScriptPromise: Promise<void> | null = null
+  const link = document.createElement('a')
+  link.href = pin.directionsUrl
+  link.target = '_blank'
+  link.rel = 'noopener noreferrer'
+  link.textContent = 'Directions'
+  link.style.marginTop = '8px'
+  link.style.display = 'inline-block'
+  root.appendChild(link)
 
-function loadMapsScript(): Promise<void> {
-  if (typeof window === 'undefined') {
-    return Promise.reject(new Error('SSR'))
-  }
-  if (window.google?.maps) {
-    return Promise.resolve()
-  }
-  if (!MAPS_API_KEY) {
-    return Promise.reject(new Error('Missing API key'))
-  }
-  if (mapsScriptPromise) {
-    return mapsScriptPromise
-  }
-  mapsScriptPromise = new Promise((resolve, reject) => {
-    const existing = document.querySelector<HTMLScriptElement>('script[data-spanish-trail-maps]')
-    if (existing) {
-      existing.addEventListener('load', () => resolve())
-      existing.addEventListener('error', () => reject(new Error('Script failed')))
-      return
-    }
-    const script = document.createElement('script')
-    script.dataset.spanishTrailMaps = 'true'
-    script.async = true
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(MAPS_API_KEY)}&libraries=places&v=weekly&loading=async`
-    script.onload = () => resolve()
-    script.onerror = () => reject(new Error('Script failed'))
-    document.head.appendChild(script)
-  })
-  return mapsScriptPromise
+  return root
 }
 
 function curatedPinsForCategory(category: AmenityCategoryId): PlacePin[] {
@@ -152,9 +117,33 @@ export function HyperlocalAmenityMap({
 
   const [activeCategory, setActiveCategory] = useState<AmenityCategoryId>(defaultCategory)
   const [shouldLoadMap, setShouldLoadMap] = useState(false)
-  const [useInteractiveMap, setUseInteractiveMap] = useState(Boolean(MAPS_API_KEY))
+  const [useInteractiveMap, setUseInteractiveMap] = useState(
+    Boolean(MAPS_API_KEY) && !mapsAuthFailed,
+  )
   const [loadError, setLoadError] = useState<string | null>(null)
   const [isSearching, setIsSearching] = useState(false)
+
+  const clearMarkers = useCallback(() => {
+    markersRef.current.forEach((marker) => marker.setMap(null))
+    markersRef.current = []
+    infoWindowRef.current?.close()
+  }, [])
+
+  const switchToFallback = useCallback(() => {
+    clearMarkers()
+    mapInstanceRef.current = null
+    mapInitializedRef.current = false
+    infoWindowRef.current = null
+    setUseInteractiveMap(false)
+  }, [clearMarkers])
+
+  useEffect(() => {
+    const onAuthFailure = () => {
+      switchToFallback()
+    }
+    window.addEventListener('gmaps:auth-failure', onAuthFailure)
+    return () => window.removeEventListener('gmaps:auth-failure', onAuthFailure)
+  }, [switchToFallback])
 
   useEffect(() => {
     const node = containerRef.current
@@ -173,12 +162,6 @@ export function HyperlocalAmenityMap({
     observerRef.current.observe(node)
     return () => observerRef.current?.disconnect()
   }, [shouldLoadMap])
-
-  const clearMarkers = useCallback(() => {
-    markersRef.current.forEach((marker) => marker.setMap(null))
-    markersRef.current = []
-    infoWindowRef.current?.close()
-  }, [])
 
   const renderPins = useCallback(
     (pins: PlacePin[]) => {
@@ -206,7 +189,7 @@ export function HyperlocalAmenityMap({
             : undefined,
         })
         marker.addListener('click', () => {
-          infoWindowRef.current?.setContent(buildInfoWindowContent(pin))
+          infoWindowRef.current?.setContent(buildInfoWindowElement(pin))
           infoWindowRef.current?.open(map, marker)
         })
         markersRef.current.push(marker)
@@ -239,37 +222,21 @@ export function HyperlocalAmenityMap({
       const fallbackPins = [...curatedPinsForCategory(category), communityCenterPin()]
 
       try {
-        const placesLib = await window.google.maps.importLibrary('places')
-        const { places } = await placesLib.Place.searchNearby({
-          fields: ['displayName', 'location', 'formattedAddress', 'rating', 'googleMapsURI'],
-          locationRestriction: {
-            circle: {
-              center: SPANISH_TRAIL_COMMUNITY.center,
-              radius: SPANISH_TRAIL_COMMUNITY.searchRadiusMeters,
-            },
-          },
-          includedPrimaryTypes: categoryDef.placeTypes,
-          maxResultCount: 15,
-        })
+        const apiResults = await searchCategoryPlaces(
+          SPANISH_TRAIL_COMMUNITY.center,
+          category,
+          categoryDef.placeTypes,
+        )
 
-        const apiPins: PlacePin[] = []
-        places.forEach((place, index) => {
-          const location = place.location
-          if (!location) {
-            return
-          }
-          const name = placeDisplayName(place.displayName)
-          const address = place.formattedAddress ?? SPANISH_TRAIL_COMMUNITY.centerAddress
-          apiPins.push({
-            id: `place-${category}-${index}`,
-            name,
-            address,
-            lat: location.lat,
-            lng: location.lng,
-            rating: place.rating,
-            directionsUrl: place.googleMapsURI ?? getDirectionsUrl(name, address),
-          })
-        })
+        const apiPins: PlacePin[] = apiResults.map((place) => ({
+          id: place.id,
+          name: place.name,
+          address: place.address,
+          lat: place.lat,
+          lng: place.lng,
+          directionsUrl:
+            place.directionsUrl || getDirectionsUrl(place.name, place.address),
+        }))
 
         const pins = apiPins.length > 0 ? [communityCenterPin(), ...apiPins] : fallbackPins
         renderPins(pins)
@@ -287,9 +254,13 @@ export function HyperlocalAmenityMap({
     if (!shouldLoadMap || !useInteractiveMap || mapInitializedRef.current) {
       return
     }
+    if (mapsAuthFailed || !MAPS_API_KEY) {
+      setUseInteractiveMap(false)
+      return
+    }
     let cancelled = false
 
-    loadMapsScript()
+    loadGoogleMaps(MAPS_API_KEY)
       .then(() => {
         if (cancelled || !mapRef.current || mapInstanceRef.current) {
           return
@@ -307,7 +278,7 @@ export function HyperlocalAmenityMap({
       })
       .catch(() => {
         if (!cancelled) {
-          setUseInteractiveMap(false)
+          switchToFallback()
         }
       })
 
@@ -429,13 +400,6 @@ export function HyperlocalAmenityMap({
             </li>
           ))}
         </ul>
-      ) : null}
-
-      {!useInteractiveMap && !MAPS_API_KEY ? (
-        <p className="text-xs text-[#6f5237]">
-          Set <code className="rounded bg-[#f8f2e7] px-1">NEXT_PUBLIC_GOOGLE_MAPS_API_KEY</code> in Vercel to
-          enable live Places search; this page still works with the embed and verified list above.
-        </p>
       ) : null}
     </div>
   )

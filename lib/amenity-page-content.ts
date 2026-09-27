@@ -4,7 +4,7 @@ import { SPANISH_TRAIL_COMMUNITY } from '@/lib/hyperlocal-amenities'
 export const amenityPageFaqs = [
   {
     question: `What grocery stores are near ${SPANISH_TRAIL_COMMUNITY.name}?`,
-    answer: `Whole Foods Market at 9420 W Sahara Ave and Trader Joe's at 8937 W Charleston Blvd are common runs from Spanish Trail—often about 10–15 minutes in typical traffic via Rainbow Blvd or the 215 beltway.`,
+    answer: `Whole Foods Market at 2475 S Town Center Dr (Downtown Summerlin), Smith's at 9851 W Charleston Blvd, and Trader Joe's at 8937 W Charleston Blvd are common runs from Spanish Trail—often about 10–15 minutes in typical traffic via Rainbow Blvd or the 215 beltway.`,
   },
   {
     question: `How far is ${SPANISH_TRAIL_COMMUNITY.name} from the Las Vegas Strip?`,
@@ -12,7 +12,7 @@ export const amenityPageFaqs = [
   },
   {
     question: `Are there hospitals near ${SPANISH_TRAIL_COMMUNITY.name}?`,
-    answer: `Spring Valley Hospital Medical Center on S. Rainbow Blvd and Summerlin Hospital Medical Center in Town Center Drive are the full-service options buyers ask about most; exact drive time depends on gate exit and traffic.`,
+    answer: `Spring Valley Hospital Medical Center on S. Rainbow Blvd and Summerlin Hospital Medical Center on Town Center Drive are the full-service options buyers ask about most; exact drive time depends on gate exit and traffic.`,
   },
   {
     question: 'What golf is available inside Spanish Trail?',
@@ -22,7 +22,7 @@ export const amenityPageFaqs = [
   {
     question: 'Which schools are closest to Spanish Trail?',
     answer:
-      'Bishop Gorman High School is about 2.2 miles northeast via S. Rainbow Blvd. Faith Lutheran Middle & High School and Durango High School are also a short drive from the 89113 gates.',
+      'Bishop Gorman High School is northeast via S. Rainbow Blvd. Faith Lutheran Middle & High School and Durango High School are also a short drive from the 89113 gates.',
   },
   {
     question: 'How long does it take to reach Harry Reid International Airport?',
@@ -53,7 +53,7 @@ export const amenityGuideSections: AmenityGuideSection[] = [
     id: 'parks-recreation',
     title: 'Parks & recreation',
     paragraphs: [
-      'Inside the gates, Spanish Trail Country Club delivers golf, tennis, pickleball, fitness, and resort pools. Outside the gates, Desert Breeze Park on Spring Mountain Road offers fields, paths, and community sports facilities a short drive south.',
+      'Inside the gates, Spanish Trail Country Club delivers golf, tennis, pickleball, fitness, and resort pools. Outside the gates, Desert Breeze Park on Spring Mountain Road offers fields, paths, and a community center a short drive south.',
       'Red Rock Canyon National Conservation Area is a longer but popular weekend drive west for hiking and scenic loops. Drive times vary with gate exit and weekend traffic.',
     ],
   },
@@ -61,8 +61,8 @@ export const amenityGuideSections: AmenityGuideSection[] = [
     id: 'golf',
     title: 'Golf at Spanish Trail Country Club',
     paragraphs: [
-      'The Robert Trent Jones Jr. layout spans Sunrise, Lakes, and Canyon nines across the 640-acre master plan. Cart-path access and fairway exposure differ by enclave—Dr. Duffy matches golfers to streets that fit how often they play.',
-      'Membership is optional for homeowners but unlocks clubhouse dining, tournaments, and wellness programming. The interactive map Golf filter highlights public and private courses near the community center pin at 5050 Spanish Trail Ln.',
+      'The Robert Trent Jones Jr. layout spans Sunrise, Lakes, and Canyon nines across the master plan. Cart-path access and fairway exposure differ by enclave—Dr. Duffy matches golfers to streets that fit how often they play.',
+      'Membership is optional for homeowners but unlocks clubhouse dining, tournaments, and wellness programming. The interactive map Golf filter highlights public and private courses near the community center pin at 5050 Spanish Trail Ln, including TPC Las Vegas, Angel Park, and Bear\'s Best.',
     ],
   },
   {
@@ -77,7 +77,7 @@ export const amenityGuideSections: AmenityGuideSection[] = [
     id: 'shopping-grocery',
     title: 'Grocery & shopping runs',
     paragraphs: [
-      'Whole Foods Market at 9420 W Sahara Ave and Trader Joe\'s at 8937 W Charleston Blvd handle weekly grocery runs for many 89113 owners. Downtown Summerlin adds apparel, services, and specialty retail in an open-air center.',
+      'Whole Foods Market at 2475 S Town Center Dr, Smith\'s at 9851 W Charleston Blvd, and Trader Joe\'s at 8937 W Charleston Blvd handle weekly grocery runs for many 89113 owners. Downtown Summerlin adds apparel, services, and specialty retail in an open-air center.',
       'Expect roughly 10–15 minutes to those anchors in light traffic; allow extra time during evening rush on Rainbow or Charleston.',
     ],
   },
@@ -85,7 +85,7 @@ export const amenityGuideSections: AmenityGuideSection[] = [
     id: 'schools',
     title: 'Schools serving Spanish Trail buyers',
     paragraphs: [
-      'Private-school buyers track Bishop Gorman High School (5959 S Hualapai Way) about 2.2 miles northeast via S. Rainbow Blvd. Faith Lutheran Middle & High School sits on S. Hualapai Way, and Durango High School serves many CCSD families near Dewey Drive.',
+      'Private-school buyers track Bishop Gorman High School (5959 S Hualapai Way) northeast via S. Rainbow Blvd. Faith Lutheran Middle & High School sits on S. Hualapai Way, and Durango High School is the CCSD high school near Dewey Drive.',
       'School assignments and commute patterns change—verify boundaries with the district and tour campuses during your buying timeline.',
     ],
   },

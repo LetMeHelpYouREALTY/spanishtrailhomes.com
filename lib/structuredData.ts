@@ -299,7 +299,7 @@ type FaqItem = {
 /** FAQPage JSON-LD. Visible Q&A on the same page must match these strings. */
 type ItemListPlaceInput = {
   name: string
-  address: string
+  address?: string
   schemaType: string
 }
 
@@ -325,13 +325,17 @@ export const createAmenitiesItemListSchema = ({
       item: {
         '@type': item.schemaType,
         name: item.name,
-        address: {
-          '@type': 'PostalAddress',
-          streetAddress: item.address,
-          addressLocality: 'Las Vegas',
-          addressRegion: 'NV',
-          addressCountry: 'US',
-        },
+        ...(item.address
+          ? {
+              address: {
+                '@type': 'PostalAddress',
+                streetAddress: item.address,
+                addressLocality: 'Las Vegas',
+                addressRegion: 'NV',
+                addressCountry: 'US',
+              },
+            }
+          : {}),
       },
     })),
   }

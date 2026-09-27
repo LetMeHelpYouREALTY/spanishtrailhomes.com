@@ -1,7 +1,5 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Script from 'next/script'
-
 import { AgentPortrait } from '@/components/agent-portrait'
 import { SiteShell } from '@/components/site-shell'
 import { Breadcrumbs } from '@/components/breadcrumbs'
@@ -58,7 +56,7 @@ const itemListSchema = createAmenitiesItemListSchema({
   path: pagePath,
   items: CURATED_AMENITIES.map((item) => ({
     name: item.name,
-    address: item.address,
+    address: item.schemaAddress,
     schemaType: item.schemaType,
   })),
 })
@@ -76,6 +74,15 @@ const communityPlaceSchema = createCommunityGeoPlaceSchema({
 const agentAreaSchema = createRealEstateAgentAreaServedSchema(
   'Spanish Trail, Las Vegas, NV 89113',
 )
+
+const amenityPageJsonLd = [
+  webPageSchema,
+  breadcrumbSchema,
+  createFaqPageSchema(amenityPageFaqs),
+  itemListSchema,
+  communityPlaceSchema,
+  agentAreaSchema,
+]
 
 export const metadata: Metadata = {
   title: 'Nearby Amenities in Spanish Trail, Las Vegas | Map & Buyer Guide',
@@ -97,16 +104,12 @@ export const metadata: Metadata = {
 export default function AmenityMapPage() {
   return (
     <SiteShell showVisitOffice={false}>
-      <Script id="amenity-map-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify([
-          webPageSchema,
-          breadcrumbSchema,
-          createFaqPageSchema(amenityPageFaqs),
-          itemListSchema,
-          communityPlaceSchema,
-          agentAreaSchema,
-        ])}
-      </Script>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(amenityPageJsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
 
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
@@ -152,8 +155,8 @@ export default function AmenityMapPage() {
           </h2>
           <p className="mt-3 max-w-3xl text-base text-[#372a20]/85">
             Filter golf, parks, healthcare, grocery, dining, shopping, pharmacies, schools, fitness, and parking within
-            about five miles of Spanish Trail. Markers include names, ratings when Google provides them, and directions
-            links. The green pin marks {SPANISH_TRAIL_COMMUNITY.name}.
+            about five miles of Spanish Trail. Markers include names, addresses, and directions links. The green pin
+            marks {SPANISH_TRAIL_COMMUNITY.name}.
           </p>
           <div className="mt-10">
             <HyperlocalAmenityMap defaultCategory="golf" showStaticList />

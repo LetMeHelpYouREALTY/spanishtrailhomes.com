@@ -14,7 +14,7 @@ export const SPANISH_TRAIL_COMMUNITY = {
   centerAddress: GBP_FULL_ADDRESS,
   centerLabel: 'Spanish Trail Country Club',
   mapZoom: 14,
-  searchRadiusMeters: 8000,
+  searchRadiusMeters: 5000,
 } as const
 
 export type AmenityCategoryId =
@@ -110,7 +110,12 @@ export const AMENITY_CATEGORIES: AmenityCategory[] = [
 
 export type CuratedAmenity = {
   name: string
+  /** Display address on the page and in directions links */
   address: string
+  /** Official source used to verify name and street address */
+  sourceUrl: string
+  /** When set, street line published in ItemList JSON-LD; omit when not verified */
+  schemaAddress?: string
   category: AmenityCategoryId | 'community' | 'commute'
   schemaType:
     | 'GolfCourse'
@@ -127,37 +132,81 @@ export type CuratedAmenity = {
   note?: string
 }
 
-/** Verified public addresses only — used for SSR copy, fallback lists, and ItemList JSON-LD. */
+/** Verified public addresses — SSR copy, fallback lists, and ItemList JSON-LD (schemaAddress only when verified). */
 export const CURATED_AMENITIES: CuratedAmenity[] = [
   {
     name: 'Spanish Trail Country Club',
     address: `${GBP_STREET}, Las Vegas, NV 89113`,
+    schemaAddress: `${GBP_STREET}, Las Vegas, NV 89113`,
+    sourceUrl: 'https://www.spanishtrailcc.com/',
     category: 'community',
     schemaType: 'GolfCourse',
     note: 'Private 27-hole club inside the Spanish Trail gates; membership is separate from HOA dues.',
   },
   {
-    name: 'Whole Foods Market',
-    address: '9420 W Sahara Ave, Las Vegas, NV 89117',
+    name: 'TPC Las Vegas',
+    address: '9851 Canyon Run Dr, Las Vegas, NV 89144',
+    schemaAddress: '9851 Canyon Run Dr, Las Vegas, NV 89144',
+    sourceUrl: 'https://tpc.com/lasvegas/',
+    category: 'golf',
+    schemaType: 'GolfCourse',
+    note: 'Public resort course on the west side of the valley, a short drive from Spanish Trail.',
+  },
+  {
+    name: 'Angel Park Golf Club',
+    address: '100 S Rampart Blvd, Las Vegas, NV 89145',
+    schemaAddress: '100 S Rampart Blvd, Las Vegas, NV 89145',
+    sourceUrl: 'https://www.angelpark.com/',
+    category: 'golf',
+    schemaType: 'GolfCourse',
+  },
+  {
+    name: "Bear's Best Las Vegas",
+    address: '11111 W Flamingo Rd, Las Vegas, NV 89135',
+    schemaAddress: '11111 W Flamingo Rd, Las Vegas, NV 89135',
+    sourceUrl: 'https://www.bearsbestlv.com/',
+    category: 'golf',
+    schemaType: 'GolfCourse',
+  },
+  {
+    name: 'Whole Foods Market (Summerlin)',
+    address: '2475 S Town Center Dr, Las Vegas, NV 89135',
+    schemaAddress: '2475 S Town Center Dr, Las Vegas, NV 89135',
+    sourceUrl: 'https://www.wholefoodsmarket.com/stores/summerlin',
     category: 'grocery',
     schemaType: 'GroceryStore',
-    note: 'About a 10–15 minute drive north via Rainbow Blvd or the 215 beltway in typical traffic.',
+    note: 'Downtown Summerlin store; about a 10–15 minute drive from Spanish Trail in typical traffic.',
+  },
+  {
+    name: "Smith's Food and Drug",
+    address: '9851 W Charleston Blvd, Las Vegas, NV 89117',
+    schemaAddress: '9851 W Charleston Blvd, Las Vegas, NV 89117',
+    sourceUrl: 'https://www.smithsfoodanddrug.com/',
+    category: 'grocery',
+    schemaType: 'GroceryStore',
   },
   {
     name: "Trader Joe's",
     address: '8937 W Charleston Blvd, Las Vegas, NV 89117',
+    schemaAddress: '8937 W Charleston Blvd, Las Vegas, NV 89117',
+    sourceUrl: 'https://www.traderjoes.com/home/stores/098',
     category: 'grocery',
     schemaType: 'GroceryStore',
   },
   {
     name: 'Desert Breeze Park',
     address: '8275 Spring Mountain Rd, Las Vegas, NV 89147',
+    schemaAddress: '8275 Spring Mountain Rd, Las Vegas, NV 89147',
+    sourceUrl: 'https://www.clarkcountynv.gov/government/departments/parks___recreation/special-use-facility/desert_breeze_community_center.php',
     category: 'parks',
     schemaType: 'Park',
+    note: 'Clark County park with fields, paths, and a community center south of Spanish Trail.',
   },
   {
     name: 'Spring Valley Hospital Medical Center',
     address: '5400 S Rainbow Blvd, Las Vegas, NV 89118',
+    schemaAddress: '5400 S Rainbow Blvd, Las Vegas, NV 89118',
+    sourceUrl: 'https://www.springvalleyhospital.com/',
     category: 'healthcare',
     schemaType: 'Hospital',
     note: 'Full-service hospital south of Spanish Trail along S. Rainbow Blvd.',
@@ -165,31 +214,41 @@ export const CURATED_AMENITIES: CuratedAmenity[] = [
   {
     name: 'Summerlin Hospital Medical Center',
     address: '657 Town Center Dr, Las Vegas, NV 89144',
+    schemaAddress: '657 Town Center Dr, Las Vegas, NV 89144',
+    sourceUrl: 'https://www.summerlinhospital.com/',
     category: 'healthcare',
     schemaType: 'Hospital',
   },
   {
     name: 'Bishop Gorman High School',
     address: '5959 S Hualapai Way, Las Vegas, NV 89148',
+    schemaAddress: '5959 S Hualapai Way, Las Vegas, NV 89148',
+    sourceUrl: 'https://www.bghs.org/',
     category: 'schools',
     schemaType: 'School',
-    note: 'About 2.2 miles northeast of Spanish Trail via S. Rainbow Blvd per community marketing materials.',
+    note: 'Private high school northeast of Spanish Trail via S. Rainbow Blvd.',
   },
   {
     name: 'Faith Lutheran Middle & High School',
     address: '2015 S Hualapai Way, Las Vegas, NV 89117',
+    schemaAddress: '2015 S Hualapai Way, Las Vegas, NV 89117',
+    sourceUrl: 'https://www.faithlutheranlv.org/',
     category: 'schools',
     schemaType: 'School',
   },
   {
     name: 'Durango High School',
     address: '7100 W Dewey Dr, Las Vegas, NV 89113',
+    schemaAddress: '7100 W Dewey Dr, Las Vegas, NV 89113',
+    sourceUrl: 'https://durango.durangohs.org/',
     category: 'schools',
     schemaType: 'School',
   },
   {
     name: 'Downtown Summerlin',
     address: '1980 Festival Plaza Dr, Las Vegas, NV 89135',
+    schemaAddress: '1980 Festival Plaza Dr, Las Vegas, NV 89135',
+    sourceUrl: 'https://summerlin.com/experience/downtown-summerlin/',
     category: 'shopping',
     schemaType: 'ShoppingCenter',
     note: 'Open-air dining and retail in Summerlin—roughly 10–15 minutes from Spanish Trail.',
@@ -197,13 +256,16 @@ export const CURATED_AMENITIES: CuratedAmenity[] = [
   {
     name: 'Harry Reid International Airport',
     address: '5757 Wayne Newton Blvd, Las Vegas, NV 89119',
+    schemaAddress: '5757 Wayne Newton Blvd, Las Vegas, NV 89119',
+    sourceUrl: 'https://www.harryreidairport.com/',
     category: 'commute',
     schemaType: 'Place',
     note: 'Approximate drive often 18–25 minutes depending on Tropicana and I-215 traffic.',
   },
   {
-    name: 'Las Vegas Strip (Las Vegas Blvd)',
-    address: 'Las Vegas Blvd S, Las Vegas, NV',
+    name: 'Las Vegas Strip resort corridor',
+    address: 'Las Vegas Blvd S (resort corridor), Las Vegas, NV',
+    sourceUrl: 'https://www.lvcva.com/',
     category: 'commute',
     schemaType: 'Place',
     note: 'Approximate drive to major Strip resorts is often 15–20 minutes via Tropicana Ave eastbound.',
