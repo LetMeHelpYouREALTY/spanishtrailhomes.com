@@ -54,6 +54,7 @@ export const NAV_ITEMS: NavItem[] = [
       { label: 'Get in touch', href: '/contact', group: 'Connect' },
       { label: 'Office & map', href: '/find-our-locations', group: 'Connect' },
       { label: 'Directions to 89113', href: '/directions', group: 'Connect' },
+      { label: 'Nearby amenities map', href: '/amenity-map', group: 'Connect' },
       { label: 'Google Business Profile', href: '/google-business-profile', group: 'Connect' },
       { label: 'Dr. Jan Duffy', href: '/about', group: 'Your Agent' },
       { label: 'Reviews', href: '/reviews', group: 'Your Agent' },

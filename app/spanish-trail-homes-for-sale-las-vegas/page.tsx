@@ -13,6 +13,7 @@ import { sitePhotoOg } from '@/lib/site-images'
 import { marketStats, formatMedianPrice } from '@/lib/marketStats'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
+import { NearbyAmenitiesSection } from '@/components/nearby-amenities-section'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-homes-for-sale-las-vegas'
@@ -121,6 +122,13 @@ export default function SpanishTrailHomesForSalePage() {
       <HomeDesignSection />
       <FinancingSection />
       <TourProcessSection />
+      <NearbyAmenitiesSection
+        headingId="listings-nearby-map-heading"
+        title="What's near the homes you're touring"
+        description="Before you write an offer, map grocery, healthcare, schools, and commute times from Spanish Trail's center pin."
+        compact
+        showStaticList={false}
+      />
       <FAQSection />
       <ContactCTASection />
       <Script id="homes-for-sale-faq-schema" type="application/ld+json" strategy="afterInteractive">
