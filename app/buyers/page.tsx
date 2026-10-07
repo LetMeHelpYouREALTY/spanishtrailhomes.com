@@ -8,7 +8,7 @@ import { RealScoutSection } from '@/components/realscout-section'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
-import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl, localBusinessReference } from '@/lib/structuredData'
 import { sitePhotoOg } from '@/lib/site-images'
 import { marketStats, formatMedianPrice } from '@/lib/marketStats'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
@@ -29,11 +29,7 @@ const buyersWebPageSchema = createWebPageSchema({
     about: {
       '@type': 'Service',
       serviceType: 'Spanish Trail Buyer Representation',
-      provider: {
-        '@type': 'RealEstateAgent',
-        name: 'Dr. Jan Duffy',
-        areaServed: 'Spanish Trail, Las Vegas, Nevada',
-      },
+      provider: localBusinessReference,
       areaServed: 'Spanish Trail, Las Vegas, Nevada',
     },
   },

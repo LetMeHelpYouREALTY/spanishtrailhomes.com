@@ -12,6 +12,7 @@ import {
   GBP_EMAIL,
   GBP_FULL_ADDRESS,
   GBP_GOOGLE_REVIEW_URL,
+  GBP_HOURS_DISPLAY,
   GBP_HOURS_SHORT,
   GBP_LEGAL_NAME,
   GBP_LICENSE,
@@ -96,6 +97,7 @@ export function SiteFooter() {
                 Berkshire Hathaway HomeServices Nevada Properties
               </p>
               <p>{GBP_FULL_ADDRESS}</p>
+              <p>Hours: {GBP_HOURS_DISPLAY}</p>
               <p>
                 Direct:{' '}
                 <Link

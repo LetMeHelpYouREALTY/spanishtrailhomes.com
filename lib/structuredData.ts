@@ -92,6 +92,12 @@ export const createWebPageSchema = ({ name, description, path, type = 'WebPage',
 
 export const structuredDataSiteUrl = siteUrl
 
+/** Root-layout RealEstateAgent / LocalBusiness. Reference this instead of repeating the agent. */
+export const localBusinessReference = { '@id': `${siteUrl}#localBusiness` } as const
+
+/** Root-layout Person for Dr. Jan Duffy. */
+export const personReference = { '@id': `${siteUrl}#person` } as const
+
 export type VideoObjectSchemaInput = {
   name: string
   description: string

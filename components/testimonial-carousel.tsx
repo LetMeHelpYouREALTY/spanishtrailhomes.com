@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Star } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { structuredDataSiteUrl } from '@/lib/structuredData'
+import { localBusinessReference } from '@/lib/structuredData'
 import { GBP_GOOGLE_REVIEW_URL } from '@/lib/gbp-business'
 import {
   trackTestimonialView,
@@ -68,11 +68,7 @@ const TESTIMONIALS = [
 
 const SWIPE_THRESHOLD = 50
 
-const realEstateAgentReviewed = {
-  '@type': 'RealEstateAgent' as const,
-  name: 'Spanish Trail | Homes By Dr. Jan Duffy',
-  url: structuredDataSiteUrl,
-}
+const realEstateAgentReviewed = localBusinessReference
 
 export function TestimonialCarousel() {
   const [activeIndex, setActiveIndex] = useState(0)

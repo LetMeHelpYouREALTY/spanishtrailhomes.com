@@ -6,7 +6,7 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
-import { createWebPageSchema, createFaqSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, createFaqSchema, getCanonicalUrl, localBusinessReference } from '@/lib/structuredData'
 import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner } from '@/components/heading-media'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
@@ -58,15 +58,7 @@ const privacySchema = {
   '@type': 'PrivacyPolicy',
   name: 'SpanishTrailHomes.com Privacy Policy',
   url: pageUrl,
-  publisher: {
-    '@type': 'RealEstateAgent',
-    name: 'Dr. Jan Duffy',
-    parentOrganization: {
-      '@type': 'Organization',
-      name: 'Berkshire Hathaway HomeServices Nevada Properties',
-    },
-    areaServed: 'Spanish Trail, Las Vegas, Nevada',
-  },
+  publisher: localBusinessReference,
   datePublished: '2025-11-10',
   dateModified: new Date().toISOString().split('T')[0],
   description:

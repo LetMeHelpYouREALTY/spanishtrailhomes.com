@@ -10,7 +10,7 @@ import { HeroBackground } from '@/components/hero-background'
 import { CalendlyLink } from '@/components/calendly-link'
 import { SectionBanner } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
-import { createWebPageSchema, createBreadcrumbSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, createBreadcrumbSchema, getCanonicalUrl, localBusinessReference } from '@/lib/structuredData'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 import { getAssetAlt, sitePhotoOg } from '@/lib/site-images'
 
@@ -28,11 +28,7 @@ const relocationWebPageSchema = createWebPageSchema({
     about: {
       '@type': 'Service',
       name: 'Relocation and Out-of-State Buyer Support',
-      provider: {
-        '@type': 'RealEstateAgent',
-        name: 'Dr. Jan Duffy',
-        areaServed: 'Spanish Trail, Las Vegas, Nevada',
-      },
+      provider: localBusinessReference,
     },
   },
 })

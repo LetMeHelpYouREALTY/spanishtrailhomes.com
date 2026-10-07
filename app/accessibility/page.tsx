@@ -7,7 +7,7 @@ import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
 import { GbpFaqList } from '@/components/gbp-faq-list'
-import { createWebPageSchema, getCanonicalUrl, createFaqPageSchema } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl, createFaqPageSchema, localBusinessReference } from '@/lib/structuredData'
 import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
@@ -22,15 +22,7 @@ const accessibilitySchema = {
   '@type': 'AccessibilitySupport',
   name: 'SpanishTrailHomes.com Accessibility Statement',
   url: pageUrl,
-  provider: {
-    '@type': 'RealEstateAgent',
-    name: 'Dr. Jan Duffy',
-    areaServed: 'Spanish Trail, Las Vegas, Nevada',
-    parentOrganization: {
-      '@type': 'Organization',
-      name: 'Berkshire Hathaway HomeServices Nevada Properties',
-    },
-  },
+  provider: localBusinessReference,
   accessibilityControl: ['keyboard', 'voiceControl', 'textToSpeech', 'highContrast', 'captions'],
   accessibilityFeature: ['altText', 'structuralNavigation', 'responsiveUI', 'aria'],
   accessibilityHazard: 'noFlashingHazard',
