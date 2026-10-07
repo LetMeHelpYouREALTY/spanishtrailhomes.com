@@ -19,6 +19,7 @@
  * 3) Monthly Search Central changelog: https://support.google.com/webmasters/answer/6211428
  */
 import { getAbsoluteSiteImageUrl } from '@/lib/cloudflare-images'
+import { GBP_KNOWS_ABOUT } from '@/lib/gbp-business'
 
 const siteUrl = 'https://www.spanishtrailhomes.com'
 
@@ -192,14 +193,7 @@ export const createPersonSchema = () => ({
     name: 'Berkshire Hathaway HomeServices Nevada Properties',
     url: 'https://www.bhhsnv.com',
   },
-  knowsAbout: [
-    'Spanish Trail Real Estate',
-    'Luxury Homes Las Vegas',
-    'Guard-Gated Communities',
-    'Golf Course Properties',
-    'Las Vegas Real Estate Market',
-    'Spanish Trail Country Club',
-  ],
+  knowsAbout: [...GBP_KNOWS_ABOUT],
   areaServed: {
     '@type': 'Place',
     name: 'Spanish Trail, Las Vegas, NV 89113',

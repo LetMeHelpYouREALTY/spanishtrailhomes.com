@@ -11,19 +11,22 @@ import { structuredDataSiteUrl, getCanonicalUrl, createPersonSchema, createOrgan
 import { getAbsoluteSiteImageUrl } from '@/lib/cloudflare-images'
 import { getAssetAlt, sitePhotoOg } from '@/lib/site-images'
 import {
+  GBP_AREA_SERVED,
   GBP_DESCRIPTION,
   GBP_EMAIL,
   GBP_GEO,
+  GBP_KNOWS_ABOUT,
   GBP_LEGAL_NAME,
   GBP_MAIN_HOURS_CLOSES,
   GBP_MAIN_HOURS_OPENS,
   GBP_PHONE_E164,
   GBP_POSTAL,
+  GBP_PRICE_RANGE,
   GBP_LOCALITY,
   GBP_REGION,
   GBP_SAME_AS,
   GBP_MAPS_URL,
-  GBP_SERVICE_AREAS,
+  GBP_SPECIALIST_NAME,
   GBP_STREET,
   GBP_COUNTRY,
 } from '@/lib/gbp-business'
@@ -60,6 +63,7 @@ const structuredData = [
     '@type': ['RealEstateAgent', 'LocalBusiness'],
     '@id': localBusinessId,
     name: GBP_LEGAL_NAME,
+    alternateName: ['Spanish Trail Homes', GBP_SPECIALIST_NAME],
     description: GBP_DESCRIPTION,
     image: [
       getAbsoluteSiteImageUrl('duffy-circle-canonical'),
@@ -92,11 +96,9 @@ const structuredData = [
     url: siteUrl,
     telephone: GBP_PHONE_E164,
     email: GBP_EMAIL,
-    priceRange: '$$$',
-    areaServed: GBP_SERVICE_AREAS.map((area) => ({
-      '@type': 'Place',
-      name: area.name,
-    })),
+    priceRange: GBP_PRICE_RANGE,
+    knowsAbout: [...GBP_KNOWS_ABOUT],
+    areaServed: GBP_AREA_SERVED,
     address: {
       '@type': 'PostalAddress',
       streetAddress: GBP_STREET,
@@ -132,10 +134,8 @@ const structuredData = [
       name: 'Nevada real estate license',
       value: 'S.0197614.LLC',
     },
-    memberOf: {
-      '@type': 'Organization',
-      name: 'Berkshire Hathaway HomeServices Nevada Properties',
-    },
+    parentOrganization: { '@id': `${siteUrl}#organization` },
+    memberOf: { '@id': `${siteUrl}#organization` },
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Real Estate Services',

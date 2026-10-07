@@ -36,12 +36,7 @@ const homeWebPageSchema = createWebPageSchema({
   path: '/',
   type: 'CollectionPage',
   extra: {
-    about: {
-      '@type': 'RealEstateAgent',
-      name: 'Dr. Jan Duffy',
-      url: pageUrl,
-      areaServed: 'Spanish Trail, Las Vegas, Nevada',
-    },
+    about: { '@id': 'https://www.spanishtrailhomes.com#localBusiness' },
   },
 })
 

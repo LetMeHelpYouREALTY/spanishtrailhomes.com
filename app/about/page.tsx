@@ -6,6 +6,7 @@ import { SiteShell } from '@/components/site-shell'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
+import { GBP_KNOWS_ABOUT } from '@/lib/gbp-business'
 import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { sitePhotoOg } from '@/lib/site-images'
 import { getAgentPortraitAbsoluteUrl } from '@/lib/agent-portraits'
@@ -121,12 +122,7 @@ const aboutPersonSchema = {
     },
   ],
   knowsAbout: [
-    'Spanish Trail Real Estate',
-    'Luxury Homes Las Vegas',
-    'Guard-Gated Communities',
-    'Golf Course Properties',
-    'Las Vegas Real Estate Market',
-    'Spanish Trail Country Club',
+    ...GBP_KNOWS_ABOUT,
     'Buyer Psychology',
     'Luxury Real Estate Marketing',
     'Real Estate Negotiation',

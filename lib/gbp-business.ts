@@ -28,6 +28,66 @@ export const GBP_DESCRIPTION =
 /** Primary service-area string shown in visible NAP (community ZIP). */
 export const GBP_SERVICE_AREA_LABEL = 'Las Vegas, NV 89113, USA' as const
 
+/** Specialist phrase. Legal `name` in JSON-LD stays `GBP_LEGAL_NAME` so it matches GBP. */
+export const GBP_SPECIALIST_NAME = 'Dr. Jan Duffy - Spanish Trail Real Estate Specialist' as const
+
+/**
+ * Relative price band for LocalBusiness `priceRange`.
+ * Spanish Trail inventory runs from the mid $400s into multi-million estates.
+ */
+export const GBP_PRICE_RANGE = '$$$$' as const
+
+/**
+ * Topics marked up on the RealEstateAgent and Person entities.
+ * `knowsAbout` is valid on Organization and Person (schema.org/knowsAbout).
+ */
+export const GBP_KNOWS_ABOUT = [
+  'Spanish Trail Custom Estates',
+  'Spanish Trail Golf Course Homes',
+  'Spanish Trail Townhomes',
+  '89113 Luxury Real Estate',
+  'Spanish Trail Real Estate',
+  'Luxury Homes Las Vegas',
+  'Guard-Gated Communities',
+  'Golf Course Properties',
+  'Las Vegas Real Estate Market',
+  'Spanish Trail Country Club',
+] as const
+
+/**
+ * Service areas for JSON-LD `areaServed`.
+ * Postal coverage uses DefinedRegion (schema.org has no PostalCode type).
+ * Keeps Spanish Trail, 89113, 89117, Summerlin, and Spring Valley.
+ */
+export const GBP_AREA_SERVED = [
+  {
+    '@type': 'AdministrativeArea',
+    name: 'Spanish Trail Country Club Community',
+  },
+  {
+    '@type': 'DefinedRegion',
+    name: 'Las Vegas, NV 89113',
+    addressCountry: 'US',
+    addressRegion: 'NV',
+    postalCode: '89113',
+  },
+  {
+    '@type': 'DefinedRegion',
+    name: 'Las Vegas, NV 89117',
+    addressCountry: 'US',
+    addressRegion: 'NV',
+    postalCode: '89117',
+  },
+  {
+    '@type': 'Place',
+    name: 'Summerlin, Las Vegas, NV',
+  },
+  {
+    '@type': 'Place',
+    name: 'Spring Valley, Las Vegas, NV',
+  },
+] as const
+
 /** Additional GBP service areas (Summerlin / Spring Valley / 89117). */
 export const GBP_SERVICE_AREAS = [
   { name: 'Spanish Trail, Las Vegas, NV 89113' },
