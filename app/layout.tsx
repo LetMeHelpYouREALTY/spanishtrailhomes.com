@@ -100,6 +100,12 @@ const structuredData = [
     url: siteUrl,
     telephone: GBP_PHONE_E164,
     email: GBP_EMAIL,
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'Customer service',
+      telephone: GBP_PHONE_E164,
+      email: GBP_EMAIL,
+    },
     priceRange: GBP_PRICE_RANGE,
     knowsAbout: [...GBP_KNOWS_ABOUT],
     areaServed: GBP_AREA_SERVED,
