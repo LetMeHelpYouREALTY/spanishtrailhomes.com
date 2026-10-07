@@ -7,7 +7,17 @@ import { CalendlyWidgetScript } from '@/components/calendly-widget-script'
 import { CalendlyEventListener } from '@/components/calendly-event-listener'
 import { FloatingCalendlyButton } from '@/components/floating-calendly-button'
 import './globals.css'
-import { structuredDataSiteUrl, getCanonicalUrl, createPersonSchema, createOrganizationSchema } from '@/lib/structuredData'
+import {
+  structuredDataSiteUrl,
+  getCanonicalUrl,
+  createPersonSchema,
+  createOrganizationSchema,
+  createCountryClubSchema,
+  localBusinessId,
+  personId,
+  organizationId,
+  websiteId,
+} from '@/lib/structuredData'
 import { getAbsoluteSiteImageUrl } from '@/lib/cloudflare-images'
 import { getAssetAlt, sitePhotoOg } from '@/lib/site-images'
 import {
@@ -55,8 +65,6 @@ const lato = Lato({
   preload: true,
   fallback: ['system-ui', 'sans-serif'],
 })
-
-const localBusinessId = `${siteUrl}#localBusiness`
 
 /** Default SERP/social summary for routes without page-level metadata (keep in sync across description + OG + Twitter). */
 const rootDefaultDescription = SITE_PRIMARY_DESCRIPTION
@@ -144,8 +152,8 @@ const structuredData = [
       name: 'Nevada real estate license',
       value: 'S.0197614.LLC',
     },
-    parentOrganization: { '@id': `${siteUrl}#organization` },
-    memberOf: { '@id': `${siteUrl}#organization` },
+    parentOrganization: { '@id': organizationId },
+    memberOf: { '@id': organizationId },
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Real Estate Services',
@@ -188,12 +196,12 @@ const structuredData = [
         },
       ],
     },
-    employee: { '@id': `${siteUrl}#person` },
+    employee: { '@id': personId },
   },
   {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    '@id': `${siteUrl}#website`,
+    '@id': websiteId,
     // Align primary WebSite name with GBP / LocalBusiness for one clear entity; short brand as alternateName.
     name: GBP_LEGAL_NAME,
     alternateName: 'Spanish Trail Homes',
@@ -204,6 +212,7 @@ const structuredData = [
   },
   createPersonSchema(),
   createOrganizationSchema(),
+  createCountryClubSchema(),
 ]
 
 export const metadata: Metadata = {

@@ -9,7 +9,7 @@ import { CalendlyInline } from '@/components/calendly-inline'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { HeroBackground } from '@/components/hero-background'
-import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { countryClubReference, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
@@ -98,18 +98,7 @@ const eventsWebPageSchema = createWebPageSchema({
   path: '/events',
   type: 'CollectionPage',
   extra: {
-    about: {
-      '@type': 'Place',
-      name: 'Spanish Trail Country Club',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: '5050 Spanish Trail Ln',
-        addressLocality: 'Las Vegas',
-        addressRegion: 'NV',
-        postalCode: '89113',
-        addressCountry: 'US',
-      },
-    },
+    about: countryClubReference,
   },
 })
 

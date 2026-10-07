@@ -6,7 +6,7 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
-import { createWebPageSchema, createFaqSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, createFaqSchema, getCanonicalUrl, organizationReference } from '@/lib/structuredData'
 import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner } from '@/components/heading-media'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
@@ -22,14 +22,7 @@ const termsSchema = {
   '@type': 'TermsOfService',
   name: 'SpanishTrailHomes.com Terms of Use',
   url: pageUrl,
-  publisher: {
-    '@type': 'Organization',
-    name: 'Berkshire Hathaway HomeServices Nevada Properties',
-    brand: {
-      '@type': 'Brand',
-      name: 'SpanishTrailHomes.com',
-    },
-  },
+  publisher: organizationReference,
   datePublished: '2025-11-10',
   dateModified: new Date().toISOString().split('T')[0],
   description:

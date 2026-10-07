@@ -10,7 +10,7 @@ import { Button } from '@/components/ui/button'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { HeroBackground } from '@/components/hero-background'
-import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { countryClubReference, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
@@ -121,6 +121,7 @@ const golfWebPageSchema = createWebPageSchema({
     about: {
       '@type': 'SportsActivityLocation',
       name: 'Spanish Trail Country Club Golf',
+      containedInPlace: countryClubReference,
     },
   },
 })

@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { lifestyleHighlights } from '@/lib/spanishTrailContent'
-import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { countryClubReference, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
@@ -92,9 +92,9 @@ const clubPageDescription =
 
 /** Reviews on this page describe the country club; required for valid Review rich results. */
 const clubItemReviewed = {
+  ...countryClubReference,
   '@type': 'Organization' as const,
   name: 'Spanish Trail Country Club',
-  url: pageUrl,
 }
 
 const clubReviewsSchema = {
@@ -127,10 +127,7 @@ const clubWebPageSchema = createWebPageSchema({
   description: clubPageDescription,
   path: '/club',
   extra: {
-    about: {
-      '@type': 'Organization',
-      name: 'Spanish Trail Country Club',
-    },
+    about: countryClubReference,
   },
 })
 

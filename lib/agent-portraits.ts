@@ -248,7 +248,7 @@ export function createAgentImageObjectSchema(placement: string, pagePath = '/') 
     encodingFormat: 'image/png',
     creator: {
       '@type': 'Person',
-      '@id': 'https://www.spanishtrailhomes.com/#person',
+      '@id': 'https://www.spanishtrailhomes.com#person',
       name: 'Dr. Jan Duffy',
     },
     creditText: 'Dr. Jan Duffy · Spanish Trail | Homes By Dr. Jan Duffy',

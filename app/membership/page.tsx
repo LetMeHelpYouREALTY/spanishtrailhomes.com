@@ -6,7 +6,7 @@ import { CalendlyInline } from '@/components/calendly-inline'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { HeroBackground } from '@/components/hero-background'
-import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { countryClubReference, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
 import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
@@ -100,10 +100,7 @@ const membershipWebPageSchema = createWebPageSchema({
   path: '/membership',
   type: 'CollectionPage',
   extra: {
-    about: {
-      '@type': 'Organization',
-      name: 'Spanish Trail Country Club',
-    },
+    about: countryClubReference,
   },
 })
 

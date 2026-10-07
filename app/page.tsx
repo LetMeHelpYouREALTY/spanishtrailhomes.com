@@ -11,7 +11,7 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { marketHighlights, neighborhoodSpotlights } from '@/lib/spanishTrailContent'
 import { marketStats } from '@/lib/marketStats'
-import { createBreadcrumbSchema, createFaqSchema, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createBreadcrumbSchema, createFaqSchema, createWebPageSchema, getCanonicalUrl, localBusinessReference } from '@/lib/structuredData'
 import { sitePhotoOg } from '@/lib/site-images'
 import { HeroBackground } from '@/components/hero-background'
 import { FeaturedListings } from '@/components/featured-listings'
@@ -36,7 +36,7 @@ const homeWebPageSchema = createWebPageSchema({
   path: '/',
   type: 'CollectionPage',
   extra: {
-    about: { '@id': 'https://www.spanishtrailhomes.com#localBusiness' },
+    about: localBusinessReference,
   },
 })
 
