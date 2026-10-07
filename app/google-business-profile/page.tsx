@@ -11,7 +11,7 @@ import {
   createFaqPageSchema,
   createWebPageSchema,
   getCanonicalUrl,
-  structuredDataSiteUrl,
+  localBusinessReference,
 } from '@/lib/structuredData'
 import { sitePhotoOg } from '@/lib/site-images'
 import { GBP_DIRECTIONS_URL, GBP_EMAIL, GBP_GOOGLE_REVIEW_URL, GBP_PHONE_DISPLAY, GBP_PHONE_E164, GBP_PROFILE_SHARE_URL } from '@/lib/gbp-business'
@@ -36,7 +36,7 @@ const webPageSchema = createWebPageSchema({
   path: '/google-business-profile',
   type: 'WebPage',
   extra: {
-    about: { '@id': `${structuredDataSiteUrl}#localBusiness` },
+    about: localBusinessReference,
   },
 })
 

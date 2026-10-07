@@ -6,7 +6,8 @@ import { SiteShell } from '@/components/site-shell'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
-import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { GBP_EMAIL, GBP_KNOWS_ABOUT, GBP_PHONE_E164 } from '@/lib/gbp-business'
+import { createWebPageSchema, getCanonicalUrl, organizationReference, personReference } from '@/lib/structuredData'
 import { sitePhotoOg } from '@/lib/site-images'
 import { getAgentPortraitAbsoluteUrl } from '@/lib/agent-portraits'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
@@ -64,21 +65,23 @@ const aboutWebPageSchema = createWebPageSchema({
     'Meet Dr. Jan Duffy, luxury real estate advisor serving Spanish Trail. Research-backed expertise in buyer/seller psychology combined with deep local knowledge and concierge service—helping you make confident decisions.',
   path: '/about',
   type: 'AboutPage',
+  extra: {
+    about: personReference,
+  },
 })
 
 const aboutPersonSchema = {
   '@context': 'https://schema.org',
-  '@type': ['Person', 'RealEstateAgent'],
-  '@id': 'https://www.spanishtrailhomes.com#person',
+  '@type': 'Person',
+  ...personReference,
   name: 'Dr. Jan Duffy',
   honorificPrefix: 'Dr.',
   givenName: 'Jan',
   familyName: 'Duffy',
-  url: pageUrl,
   image: getAgentPortraitAbsoluteUrl('duffy-circle-about'),
   jobTitle: 'REALTOR® | Berkshire Hathaway HomeServices Nevada Properties',
-  email: 'DrDuffySells@SpanishTrailHomes.com',
-  telephone: '+1-702-766-3299',
+  email: GBP_EMAIL,
+  telephone: GBP_PHONE_E164,
   areaServed: [
     {
       '@type': 'Place',
@@ -91,7 +94,7 @@ const aboutPersonSchema = {
   ],
   worksFor: {
     '@type': 'Organization',
-    '@id': 'https://www.spanishtrailhomes.com#organization',
+    ...organizationReference,
     name: 'Berkshire Hathaway HomeServices Nevada Properties',
   },
   memberOf: [
@@ -121,12 +124,7 @@ const aboutPersonSchema = {
     },
   ],
   knowsAbout: [
-    'Spanish Trail Real Estate',
-    'Luxury Homes Las Vegas',
-    'Guard-Gated Communities',
-    'Golf Course Properties',
-    'Las Vegas Real Estate Market',
-    'Spanish Trail Country Club',
+    ...GBP_KNOWS_ABOUT,
     'Buyer Psychology',
     'Luxury Real Estate Marketing',
     'Real Estate Negotiation',

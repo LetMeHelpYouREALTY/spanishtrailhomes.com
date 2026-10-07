@@ -6,7 +6,7 @@ import Script from 'next/script'
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { Breadcrumbs } from '@/components/breadcrumbs'
-import { createWebPageSchema, getCanonicalUrl, createFaqPageSchema } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl, createFaqPageSchema, localBusinessReference } from '@/lib/structuredData'
 import { sitePhotoOg } from '@/lib/site-images'
 import { GBP_GOOGLE_REVIEW_URL, GBP_MAPS_URL } from '@/lib/gbp-business'
 import { SectionBanner } from '@/components/heading-media'
@@ -27,20 +27,7 @@ const webPageSchema = createWebPageSchema({
   path: '/reviews',
   type: 'WebPage',
   extra: {
-    about: {
-      '@type': 'LocalBusiness',
-      name: 'Spanish Trail | Homes By Dr. Jan Duffy',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: '5050 Spanish Trail Ln',
-        addressLocality: 'Las Vegas',
-        addressRegion: 'NV',
-        postalCode: '89113',
-        addressCountry: 'US',
-      },
-      telephone: '+1-702-766-3299',
-      url: pageUrl,
-    },
+    about: localBusinessReference,
     potentialAction: {
       '@type': 'ReviewAction',
       target: reviewLink,

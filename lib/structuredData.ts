@@ -19,8 +19,44 @@
  * 3) Monthly Search Central changelog: https://support.google.com/webmasters/answer/6211428
  */
 import { getAbsoluteSiteImageUrl } from '@/lib/cloudflare-images'
+import {
+  GBP_COUNTRY,
+  GBP_EMAIL,
+  GBP_GEO,
+  GBP_KNOWS_ABOUT,
+  GBP_LOCALITY,
+  GBP_PHONE_E164,
+  GBP_POSTAL,
+  GBP_REGION,
+  GBP_STREET,
+} from '@/lib/gbp-business'
 
 const siteUrl = 'https://www.spanishtrailhomes.com'
+
+/** Canonical entity IDs. No slash before the hash — `…com/#id` is a different node. */
+export const localBusinessId = `${siteUrl}#localBusiness`
+export const personId = `${siteUrl}#person`
+export const organizationId = `${siteUrl}#organization`
+export const websiteId = `${siteUrl}#website`
+export const countryClubId = `${siteUrl}#spanish-trail-country-club`
+
+/** Root-layout RealEstateAgent / LocalBusiness. Reference this instead of repeating the agent. */
+export const localBusinessReference = { '@id': localBusinessId } as const
+
+/** Root-layout Person for Dr. Jan Duffy. */
+export const personReference = { '@id': personId } as const
+
+/** Root-layout Berkshire Hathaway HomeServices Nevada Properties organization. */
+export const organizationReference = { '@id': organizationId } as const
+
+/** Root-layout WebSite. */
+export const websiteReference = { '@id': websiteId } as const
+
+/**
+ * Spanish Trail Country Club. Separate from the brokerage even though they share the street address.
+ * Do not copy the agent phone, email, or a guessed club website onto this node.
+ */
+export const countryClubReference = { '@id': countryClubId } as const
 
 type BreadcrumbItem = {
   name: string
@@ -84,7 +120,7 @@ export const createWebPageSchema = ({ name, description, path, type = 'WebPage',
     description,
     inLanguage: 'en-US',
     // Reference root layout WebSite (#website); avoid duplicating WebSite properties per page.
-    isPartOf: { '@id': `${siteUrl}#website` },
+    isPartOf: websiteReference,
     ...extra,
   }
 }
@@ -127,7 +163,7 @@ export const createVideoObjectSchema = ({
     uploadDate,
     ...(contentUrl ? { contentUrl } : {}),
     ...(embedUrl ? { embedUrl } : {}),
-    publisher: { '@id': `${siteUrl}#localBusiness` },
+    publisher: localBusinessReference,
   }
 }
 
@@ -172,13 +208,13 @@ export const createOgImageUrl = ({ title, subtitle, eyebrow }: OgImageOptions) =
 export const createPersonSchema = () => ({
   '@context': 'https://schema.org',
   '@type': 'Person',
-  '@id': `${siteUrl}#person`,
+  '@id': personId,
   name: 'Dr. Jan Duffy',
   honorificPrefix: 'Dr.',
   givenName: 'Jan',
   familyName: 'Duffy',
-  email: 'DrDuffySells@SpanishTrailHomes.com',
-  telephone: '+17027663299',
+  email: GBP_EMAIL,
+  telephone: GBP_PHONE_E164,
   url: siteUrl,
   image: [
     getAbsoluteSiteImageUrl('duffy-circle-canonical'),
@@ -188,18 +224,11 @@ export const createPersonSchema = () => ({
   jobTitle: 'Real Estate Agent',
   worksFor: {
     '@type': 'Organization',
-    '@id': `${siteUrl}#organization`,
+    '@id': organizationId,
     name: 'Berkshire Hathaway HomeServices Nevada Properties',
     url: 'https://www.bhhsnv.com',
   },
-  knowsAbout: [
-    'Spanish Trail Real Estate',
-    'Luxury Homes Las Vegas',
-    'Guard-Gated Communities',
-    'Golf Course Properties',
-    'Las Vegas Real Estate Market',
-    'Spanish Trail Country Club',
-  ],
+  knowsAbout: [...GBP_KNOWS_ABOUT],
   areaServed: {
     '@type': 'Place',
     name: 'Spanish Trail, Las Vegas, NV 89113',
@@ -217,12 +246,36 @@ export const createPersonSchema = () => ({
 export const createOrganizationSchema = () => ({
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  '@id': `${siteUrl}#organization`,
+  '@id': organizationId,
   name: 'Berkshire Hathaway HomeServices Nevada Properties',
   url: 'https://www.bhhsnv.com',
   parentOrganization: {
     '@type': 'Organization',
     name: 'Berkshire Hathaway HomeServices',
+  },
+})
+
+/**
+ * Country club node shared by golf, membership, club, guest, events, and neighborhood pages.
+ * Same street and map pin as the office. No telephone, email, or official website — those are unknown here.
+ */
+export const createCountryClubSchema = () => ({
+  '@context': 'https://schema.org',
+  '@type': ['SportsActivityLocation', 'Organization'],
+  '@id': countryClubId,
+  name: 'Spanish Trail Country Club',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: GBP_STREET,
+    addressLocality: GBP_LOCALITY,
+    addressRegion: GBP_REGION,
+    postalCode: GBP_POSTAL,
+    addressCountry: GBP_COUNTRY,
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: GBP_GEO.latitude,
+    longitude: GBP_GEO.longitude,
   },
 })
 
@@ -257,11 +310,11 @@ export const createArticleSchema = ({
     url,
     datePublished,
     dateModified: dateModified || datePublished,
-    author: { '@id': `${siteUrl}#person` },
-    publisher: { '@id': `${siteUrl}#localBusiness` },
+    author: personReference,
+    publisher: localBusinessReference,
     inLanguage: 'en-US',
     articleSection,
-    isPartOf: { '@id': `${siteUrl}#website` },
+    isPartOf: websiteReference,
   }
 }
 
@@ -288,7 +341,7 @@ export const createAggregateRatingSchema = ({
   reviewCount,
   bestRating,
   worstRating,
-  itemReviewed: { '@id': `${siteUrl}#localBusiness` },
+  itemReviewed: localBusinessReference,
 })
 
 type FaqItem = {

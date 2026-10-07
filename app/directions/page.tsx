@@ -13,6 +13,7 @@ import {
   createFaqPageSchema,
   createWebPageSchema,
   getCanonicalUrl,
+  localBusinessReference,
 } from '@/lib/structuredData'
 import { sitePhotoOg } from '@/lib/site-images'
 import { getAbsoluteSiteImageUrl } from '@/lib/cloudflare-images'
@@ -58,7 +59,7 @@ const webPageSchema = createWebPageSchema({
   description: pageDescription,
   path: '/directions',
   extra: {
-    about: { '@id': 'https://www.spanishtrailhomes.com/#localBusiness' },
+    about: localBusinessReference,
     primaryImageOfPage: {
       '@type': 'ImageObject',
       url: getAbsoluteSiteImageUrl('h2-office-map'),

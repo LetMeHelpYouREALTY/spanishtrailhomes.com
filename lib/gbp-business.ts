@@ -4,9 +4,19 @@
  */
 export const GBP_LEGAL_NAME = 'Spanish Trail | Homes By Dr. Jan Duffy' as const
 
+/** Document `<title>` for the homepage. Legal name in schema and visible NAP stays `GBP_LEGAL_NAME`. */
+export const SITE_PRIMARY_TITLE = 'Dr. Jan Duffy | Spanish Trail Las Vegas Real Estate Specialist' as const
+
+/** Open Graph and Twitter title for the homepage. */
+export const SITE_SOCIAL_TITLE = 'Dr. Jan Duffy | Spanish Trail Real Estate' as const
+
+export const SITE_PRIMARY_DESCRIPTION =
+  'Specialized real estate services inside the guard-gated Spanish Trail community in Las Vegas, NV 89113. Buy or sell luxury golf course estates, townhomes, and villas with Dr. Jan Duffy.' as const
+
 export const GBP_PHONE_E164 = '+17027663299' as const
 export const GBP_PHONE_DISPLAY = '(702) 766-3299' as const
 export const GBP_EMAIL = 'DrDuffySells@SpanishTrailHomes.com' as const
+export const GBP_LICENSE = 'S.0197614.LLC' as const
 
 export const GBP_STREET = '5050 Spanish Trail Ln' as const
 export const GBP_LOCALITY = 'Las Vegas' as const
@@ -27,6 +37,66 @@ export const GBP_DESCRIPTION =
 
 /** Primary service-area string shown in visible NAP (community ZIP). */
 export const GBP_SERVICE_AREA_LABEL = 'Las Vegas, NV 89113, USA' as const
+
+/** Specialist phrase. Legal `name` in JSON-LD stays `GBP_LEGAL_NAME` so it matches GBP. */
+export const GBP_SPECIALIST_NAME = 'Dr. Jan Duffy - Spanish Trail Real Estate Specialist' as const
+
+/**
+ * Relative price band for LocalBusiness `priceRange`.
+ * Spanish Trail inventory runs from the mid $400s into multi-million estates.
+ */
+export const GBP_PRICE_RANGE = '$$$$' as const
+
+/**
+ * Topics marked up on the RealEstateAgent and Person entities.
+ * `knowsAbout` is valid on Organization and Person (schema.org/knowsAbout).
+ */
+export const GBP_KNOWS_ABOUT = [
+  'Spanish Trail Custom Estates',
+  'Spanish Trail Golf Course Homes',
+  'Spanish Trail Townhomes',
+  '89113 Luxury Real Estate',
+  'Spanish Trail Real Estate',
+  'Luxury Homes Las Vegas',
+  'Guard-Gated Communities',
+  'Golf Course Properties',
+  'Las Vegas Real Estate Market',
+  'Spanish Trail Country Club',
+] as const
+
+/**
+ * Service areas for JSON-LD `areaServed`.
+ * Postal coverage uses DefinedRegion (schema.org has no PostalCode type).
+ * Keeps Spanish Trail, 89113, 89117, Summerlin, and Spring Valley.
+ */
+export const GBP_AREA_SERVED = [
+  {
+    '@type': 'AdministrativeArea',
+    name: 'Spanish Trail Country Club Community',
+  },
+  {
+    '@type': 'DefinedRegion',
+    name: 'Las Vegas, NV 89113',
+    addressCountry: 'US',
+    addressRegion: 'NV',
+    postalCode: '89113',
+  },
+  {
+    '@type': 'DefinedRegion',
+    name: 'Las Vegas, NV 89117',
+    addressCountry: 'US',
+    addressRegion: 'NV',
+    postalCode: '89117',
+  },
+  {
+    '@type': 'Place',
+    name: 'Summerlin, Las Vegas, NV',
+  },
+  {
+    '@type': 'Place',
+    name: 'Spring Valley, Las Vegas, NV',
+  },
+] as const
 
 /** Additional GBP service areas (Summerlin / Spring Valley / 89117). */
 export const GBP_SERVICE_AREAS = [
@@ -67,6 +137,12 @@ export const GBP_GEO = {
   latitude: 36.109145,
   longitude: -115.282642,
 } as const
+
+/** geo.position uses a semicolon. Same pin as JSON-LD geo, not an approximate ZIP centroid. */
+export const GBP_GEO_POSITION = `${GBP_GEO.latitude};${GBP_GEO.longitude}` as const
+
+/** ICBM uses a comma. Same coordinates as `GBP_GEO_POSITION`. */
+export const GBP_ICBM = `${GBP_GEO.latitude}, ${GBP_GEO.longitude}` as const
 
 /**
  * After this instant (UTC), hide time-bound special-hours UI (e.g. Easter 2026) to avoid stale copy.

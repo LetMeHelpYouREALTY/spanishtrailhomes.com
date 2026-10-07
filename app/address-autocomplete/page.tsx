@@ -14,6 +14,7 @@ import {
   createFaqPageSchema,
   createWebPageSchema,
   getCanonicalUrl,
+  localBusinessReference,
 } from '@/lib/structuredData'
 import { sitePhotoOg } from '@/lib/site-images'
 import { GBP_FULL_ADDRESS, GBP_LEGAL_NAME, GBP_PHONE_DISPLAY, GBP_PHONE_E164 } from '@/lib/gbp-business'
@@ -65,7 +66,7 @@ const webPageSchema = createWebPageSchema({
   description: pageDescription,
   path: '/address-autocomplete',
   extra: {
-    about: { '@id': 'https://www.spanishtrailhomes.com/#localBusiness' },
+    about: localBusinessReference,
   },
 })
 

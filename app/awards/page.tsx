@@ -6,7 +6,7 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
 import { GbpFaqList } from '@/components/gbp-faq-list'
-import { createWebPageSchema, getCanonicalUrl, createFaqPageSchema } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl, createFaqPageSchema, personReference } from '@/lib/structuredData'
 import { sitePhotoOg } from '@/lib/site-images'
 import { getAgentPortraitAbsoluteUrl } from '@/lib/agent-portraits'
 import { HeroBackground } from '@/components/hero-background'
@@ -123,26 +123,9 @@ const awardsSchema = {
 
 const professionalProfileSchema = {
   '@context': 'https://schema.org',
-  '@type': 'RealEstateAgent',
-  name: 'Dr. Jan Duffy',
-  url: pageUrl,
-  areaServed: 'Spanish Trail, Las Vegas, Nevada',
-  brand: {
-    '@type': 'Brand',
-    name: 'Berkshire Hathaway HomeServices Nevada Properties',
-  },
+  '@type': 'Person',
+  ...personReference,
   award: recognitionTimeline.map((item) => `${item.year} ${item.title}`),
-  memberOf: memberships.map((item) => item.label),
-  makesOffer: 'Residential real estate brokerage services, listing representation, and buyer advisory in Spanish Trail.',
-  telephone: '+1-702-766-3299',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: '5050 Spanish Trail Ln',
-    addressLocality: 'Las Vegas',
-    addressRegion: 'NV',
-    postalCode: '89113',
-    addressCountry: 'US',
-  },
   image: getAgentPortraitAbsoluteUrl('duffy-circle-awards'),
 }
 
@@ -152,15 +135,7 @@ const awardsWebPageSchema = createWebPageSchema({
   path: '/awards',
   type: 'AboutPage',
   extra: {
-    about: {
-      '@type': 'Person',
-      name: 'Dr. Jan Duffy',
-      jobTitle: 'REALTOR®',
-      worksFor: {
-        '@type': 'Organization',
-        name: 'Berkshire Hathaway HomeServices Nevada Properties',
-      },
-    },
+    about: personReference,
   },
 })
 

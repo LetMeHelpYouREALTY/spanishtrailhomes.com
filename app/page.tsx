@@ -11,7 +11,7 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { marketHighlights, neighborhoodSpotlights } from '@/lib/spanishTrailContent'
 import { marketStats } from '@/lib/marketStats'
-import { createBreadcrumbSchema, createFaqSchema, createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createBreadcrumbSchema, createFaqSchema, createWebPageSchema, getCanonicalUrl, localBusinessReference } from '@/lib/structuredData'
 import { sitePhotoOg } from '@/lib/site-images'
 import { HeroBackground } from '@/components/hero-background'
 import { FeaturedListings } from '@/components/featured-listings'
@@ -24,24 +24,19 @@ import { AgentPortrait } from '@/components/agent-portrait'
 import { FaqSection } from '@/components/faq-section'
 import { MlsDisclaimer } from '@/components/mls-disclaimer'
 import { GbpLocalActions } from '@/components/gbp-local-actions'
+import { SITE_PRIMARY_DESCRIPTION, SITE_PRIMARY_TITLE, SITE_SOCIAL_TITLE } from '@/lib/gbp-business'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/'
-const homePageDescription =
-  'Buy and sell Spanish Trail homes in Las Vegas 89113. Dr. Jan Duffy offers buyer and seller representation and private tours in Spanish Trail.'
+const homePageDescription = SITE_PRIMARY_DESCRIPTION
 
 const homeWebPageSchema = createWebPageSchema({
-  name: 'Buy and Sell Spanish Trail Homes | Realtor Services | Dr. Jan Duffy',
+  name: SITE_PRIMARY_TITLE,
   description: homePageDescription,
   path: '/',
   type: 'CollectionPage',
   extra: {
-    about: {
-      '@type': 'RealEstateAgent',
-      name: 'Dr. Jan Duffy',
-      url: pageUrl,
-      areaServed: 'Spanish Trail, Las Vegas, Nevada',
-    },
+    about: localBusinessReference,
   },
 })
 
@@ -50,14 +45,16 @@ const homeBreadcrumbSchema = createBreadcrumbSchema([
 ])
 
 export const metadata: Metadata = {
-  title: 'Buy and Sell Spanish Trail Homes | Realtor Services | Dr. Jan Duffy',
+  title: {
+    absolute: SITE_PRIMARY_TITLE,
+  },
   description: homePageDescription,
   alternates: {
     canonical: getCanonicalUrl('/'),
   },
   openGraph: {
-    url: pageUrl,
-    title: 'Buy and Sell Spanish Trail Homes | Dr. Jan Duffy',
+    url: getCanonicalUrl('/'),
+    title: SITE_SOCIAL_TITLE,
     description: homePageDescription,
     images: [
       sitePhotoOg('h1-guard-gate'),
@@ -65,7 +62,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Buy and Sell Spanish Trail Homes | Dr. Jan Duffy',
+    title: SITE_SOCIAL_TITLE,
     description: homePageDescription,
     images: [
       sitePhotoOg('h1-guard-gate'),

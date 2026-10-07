@@ -10,6 +10,7 @@ import { Button, buttonVariants } from '@/components/ui/button'
 import { CalendlyLink } from '@/components/calendly-link'
 import { HeroBackground } from '@/components/hero-background'
 import {
+  countryClubReference,
   createWebPageSchema,
   createBreadcrumbSchema,
   getCanonicalUrl,
@@ -77,11 +78,7 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
         '@type': 'Place',
         name: neighborhood.name,
         description: neighborhood.shortDescription,
-        containedInPlace: {
-          '@type': 'Place',
-          name: 'Spanish Trail',
-          address: { '@type': 'PostalAddress', addressLocality: 'Las Vegas', addressRegion: 'NV', postalCode: '89113' },
-        },
+        containedInPlace: countryClubReference,
       },
     },
   })

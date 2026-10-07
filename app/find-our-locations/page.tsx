@@ -13,6 +13,7 @@ import {
   createFaqPageSchema,
   createWebPageSchema,
   getCanonicalUrl,
+  localBusinessReference,
 } from '@/lib/structuredData'
 import { sitePhotoOg } from '@/lib/site-images'
 import {
@@ -57,7 +58,7 @@ const webPageSchema = createWebPageSchema({
   description: pageDescription,
   path: '/find-our-locations',
   extra: {
-    about: { '@id': 'https://www.spanishtrailhomes.com/#localBusiness' },
+    about: localBusinessReference,
   },
 })
 

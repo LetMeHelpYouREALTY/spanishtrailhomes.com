@@ -15,16 +15,12 @@ import {
   createBreadcrumbSchema,
   createFaqPageSchema,
   getCanonicalUrl,
+  personReference,
 } from '@/lib/structuredData'
 import { getAgentPortraitAbsoluteUrl } from '@/lib/agent-portraits'
 import { getSiteImageUrl } from '@/lib/cloudflare-images'
 import { getAssetAlt, sitePhotoOg } from '@/lib/site-images'
-import {
-  GBP_EMAIL,
-  GBP_FULL_ADDRESS,
-  GBP_PHONE_DISPLAY,
-  GBP_PHONE_E164,
-} from '@/lib/gbp-business'
+import { GBP_PHONE_E164 } from '@/lib/gbp-business'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/media-kit'
 const pageTitle = 'Spanish Trail Homes Media Kit - Dr. Jan Duffy'
@@ -46,24 +42,9 @@ const mediaKitBreadcrumbSchema = createBreadcrumbSchema([
 
 const agentSchema = {
   '@context': 'https://schema.org',
-  '@type': 'RealEstateAgent',
-  name: 'Dr. Jan Duffy',
-  url: pageUrl,
+  '@type': 'Person',
+  ...personReference,
   image: getAgentPortraitAbsoluteUrl('duffy-circle-media'),
-  jobTitle: 'REALTOR® | Berkshire Hathaway HomeServices Nevada Properties',
-  email: 'DrDuffySells@SpanishTrailHomes.com',
-  telephone: '+1-702-766-3299',
-  description: pageDescription,
-  areaServed: ['Spanish Trail, Las Vegas, Nevada', 'Southwest Las Vegas, Nevada'],
-  worksFor: {
-    '@type': 'Organization',
-    name: 'Berkshire Hathaway HomeServices Nevada Properties',
-  },
-  sameAs: [
-    'https://www.facebook.com/spanishtrailhomes',
-    'https://www.instagram.com/spanishtrailhomes',
-    'https://www.linkedin.com/company/spanishtrailhomes',
-  ],
 }
 
 export const metadata: Metadata = {

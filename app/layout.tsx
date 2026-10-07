@@ -7,25 +7,43 @@ import { CalendlyWidgetScript } from '@/components/calendly-widget-script'
 import { CalendlyEventListener } from '@/components/calendly-event-listener'
 import { FloatingCalendlyButton } from '@/components/floating-calendly-button'
 import './globals.css'
-import { structuredDataSiteUrl, getCanonicalUrl, createPersonSchema, createOrganizationSchema } from '@/lib/structuredData'
+import {
+  structuredDataSiteUrl,
+  getCanonicalUrl,
+  createPersonSchema,
+  createOrganizationSchema,
+  createCountryClubSchema,
+  localBusinessId,
+  personId,
+  organizationId,
+  websiteId,
+} from '@/lib/structuredData'
 import { getAbsoluteSiteImageUrl } from '@/lib/cloudflare-images'
 import { getAssetAlt, sitePhotoOg } from '@/lib/site-images'
 import {
+  GBP_AREA_SERVED,
   GBP_DESCRIPTION,
   GBP_EMAIL,
   GBP_GEO,
+  GBP_GEO_POSITION,
+  GBP_ICBM,
+  GBP_KNOWS_ABOUT,
   GBP_LEGAL_NAME,
   GBP_MAIN_HOURS_CLOSES,
   GBP_MAIN_HOURS_OPENS,
   GBP_PHONE_E164,
   GBP_POSTAL,
+  GBP_PRICE_RANGE,
   GBP_LOCALITY,
   GBP_REGION,
   GBP_SAME_AS,
   GBP_MAPS_URL,
-  GBP_SERVICE_AREAS,
+  GBP_SPECIALIST_NAME,
   GBP_STREET,
   GBP_COUNTRY,
+  SITE_PRIMARY_DESCRIPTION,
+  SITE_PRIMARY_TITLE,
+  SITE_SOCIAL_TITLE,
 } from '@/lib/gbp-business'
 
 const siteUrl = structuredDataSiteUrl
@@ -48,11 +66,8 @@ const lato = Lato({
   fallback: ['system-ui', 'sans-serif'],
 })
 
-const localBusinessId = `${siteUrl}#localBusiness`
-
 /** Default SERP/social summary for routes without page-level metadata (keep in sync across description + OG + Twitter). */
-const rootDefaultDescription =
-  'Buy and sell Spanish Trail homes in Las Vegas 89113. Dr. Jan Duffy’s realtor services for this community—Berkshire Hathaway HomeServices Nevada Properties.'
+const rootDefaultDescription = SITE_PRIMARY_DESCRIPTION
 
 const structuredData = [
   {
@@ -60,6 +75,7 @@ const structuredData = [
     '@type': ['RealEstateAgent', 'LocalBusiness'],
     '@id': localBusinessId,
     name: GBP_LEGAL_NAME,
+    alternateName: ['Spanish Trail Homes', GBP_SPECIALIST_NAME],
     description: GBP_DESCRIPTION,
     image: [
       getAbsoluteSiteImageUrl('duffy-circle-canonical'),
@@ -92,11 +108,15 @@ const structuredData = [
     url: siteUrl,
     telephone: GBP_PHONE_E164,
     email: GBP_EMAIL,
-    priceRange: '$$$',
-    areaServed: GBP_SERVICE_AREAS.map((area) => ({
-      '@type': 'Place',
-      name: area.name,
-    })),
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'Customer service',
+      telephone: GBP_PHONE_E164,
+      email: GBP_EMAIL,
+    },
+    priceRange: GBP_PRICE_RANGE,
+    knowsAbout: [...GBP_KNOWS_ABOUT],
+    areaServed: GBP_AREA_SERVED,
     address: {
       '@type': 'PostalAddress',
       streetAddress: GBP_STREET,
@@ -132,10 +152,8 @@ const structuredData = [
       name: 'Nevada real estate license',
       value: 'S.0197614.LLC',
     },
-    memberOf: {
-      '@type': 'Organization',
-      name: 'Berkshire Hathaway HomeServices Nevada Properties',
-    },
+    parentOrganization: { '@id': organizationId },
+    memberOf: { '@id': organizationId },
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Real Estate Services',
@@ -178,12 +196,12 @@ const structuredData = [
         },
       ],
     },
-    employee: { '@id': `${siteUrl}#person` },
+    employee: { '@id': personId },
   },
   {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    '@id': `${siteUrl}#website`,
+    '@id': websiteId,
     // Align primary WebSite name with GBP / LocalBusiness for one clear entity; short brand as alternateName.
     name: GBP_LEGAL_NAME,
     alternateName: 'Spanish Trail Homes',
@@ -194,15 +212,22 @@ const structuredData = [
   },
   createPersonSchema(),
   createOrganizationSchema(),
+  createCountryClubSchema(),
 ]
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: GBP_LEGAL_NAME,
+    default: SITE_PRIMARY_TITLE,
     template: '%s | Spanish Trail Homes',
   },
   description: rootDefaultDescription,
+  other: {
+    'geo.region': 'US-NV',
+    'geo.placename': GBP_LOCALITY,
+    'geo.position': GBP_GEO_POSITION,
+    ICBM: GBP_ICBM,
+  },
   category: 'Real Estate',
   applicationName: GBP_LEGAL_NAME,
   authors: [{ name: 'Dr. Jan Duffy' }],
@@ -210,9 +235,9 @@ export const metadata: Metadata = {
     canonical: getCanonicalUrl('/'),
   },
   openGraph: {
-    type: 'website',
+    // og:type is business.business in <head>. Next.js only emits its built-in types, and a second og:type would duplicate this one.
     url: siteUrl,
-    title: GBP_LEGAL_NAME,
+    title: SITE_SOCIAL_TITLE,
     description: rootDefaultDescription,
     siteName: GBP_LEGAL_NAME,
     images: [sitePhotoOg('h1-guard-gate')],
@@ -220,7 +245,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: GBP_LEGAL_NAME,
+    title: SITE_SOCIAL_TITLE,
     description: rootDefaultDescription,
     images: [sitePhotoOg('h1-guard-gate')],
   },
@@ -268,6 +293,13 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://d1buiexcd5gara.cloudfront.net" />
         <link rel="dns-prefetch" href="https://assets.calendly.com" />
         <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+        {/* Open Graph contact fields require property=, which metadata.other does not emit. */}
+        <meta property="og:type" content="business.business" />
+        <meta property="og:business:contact_data:street_address" content={GBP_STREET} />
+        <meta property="og:business:contact_data:locality" content={GBP_LOCALITY} />
+        <meta property="og:business:contact_data:region" content={GBP_REGION} />
+        <meta property="og:business:contact_data:postal_code" content={GBP_POSTAL} />
+        <meta property="og:business:contact_data:country_name" content="USA" />
         
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-X68WWN997N"

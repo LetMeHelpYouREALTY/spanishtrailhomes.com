@@ -7,7 +7,7 @@ import { CalendlyLink } from '@/components/calendly-link'
 import { SiteShell } from '@/components/site-shell'
 import { RealScoutSection } from '@/components/realscout-section'
 import { Button } from '@/components/ui/button'
-import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
+import { createWebPageSchema, getCanonicalUrl, localBusinessReference } from '@/lib/structuredData'
 import { sitePhotoOg } from '@/lib/site-images'
 import { SectionBanner, CardVisual } from '@/components/heading-media'
 import { FaqList } from '@/components/faq-section'
@@ -25,11 +25,7 @@ const servicesWebPageSchema = createWebPageSchema({
     about: {
       '@type': 'Service',
       serviceType: 'Spanish Trail Luxury Real Estate Representation',
-      provider: {
-        '@type': 'RealEstateAgent',
-        name: 'Dr. Jan Duffy',
-        areaServed: 'Spanish Trail, Las Vegas, Nevada',
-      },
+      provider: localBusinessReference,
       areaServed: 'Spanish Trail, Las Vegas, Nevada',
     },
   },
