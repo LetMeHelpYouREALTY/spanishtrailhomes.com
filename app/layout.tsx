@@ -15,6 +15,8 @@ import {
   GBP_DESCRIPTION,
   GBP_EMAIL,
   GBP_GEO,
+  GBP_GEO_POSITION,
+  GBP_ICBM,
   GBP_KNOWS_ABOUT,
   GBP_LEGAL_NAME,
   GBP_MAIN_HOURS_CLOSES,
@@ -29,6 +31,9 @@ import {
   GBP_SPECIALIST_NAME,
   GBP_STREET,
   GBP_COUNTRY,
+  SITE_PRIMARY_DESCRIPTION,
+  SITE_PRIMARY_TITLE,
+  SITE_SOCIAL_TITLE,
 } from '@/lib/gbp-business'
 
 const siteUrl = structuredDataSiteUrl
@@ -54,8 +59,7 @@ const lato = Lato({
 const localBusinessId = `${siteUrl}#localBusiness`
 
 /** Default SERP/social summary for routes without page-level metadata (keep in sync across description + OG + Twitter). */
-const rootDefaultDescription =
-  'Buy and sell Spanish Trail homes in Las Vegas 89113. Dr. Jan Duffy’s realtor services for this community—Berkshire Hathaway HomeServices Nevada Properties.'
+const rootDefaultDescription = SITE_PRIMARY_DESCRIPTION
 
 const structuredData = [
   {
@@ -199,10 +203,16 @@ const structuredData = [
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: GBP_LEGAL_NAME,
+    default: SITE_PRIMARY_TITLE,
     template: '%s | Spanish Trail Homes',
   },
   description: rootDefaultDescription,
+  other: {
+    'geo.region': 'US-NV',
+    'geo.placename': GBP_LOCALITY,
+    'geo.position': GBP_GEO_POSITION,
+    ICBM: GBP_ICBM,
+  },
   category: 'Real Estate',
   applicationName: GBP_LEGAL_NAME,
   authors: [{ name: 'Dr. Jan Duffy' }],
@@ -210,9 +220,9 @@ export const metadata: Metadata = {
     canonical: getCanonicalUrl('/'),
   },
   openGraph: {
-    type: 'website',
+    // og:type is business.business in <head>. Next.js only emits its built-in types, and a second og:type would duplicate this one.
     url: siteUrl,
-    title: GBP_LEGAL_NAME,
+    title: SITE_SOCIAL_TITLE,
     description: rootDefaultDescription,
     siteName: GBP_LEGAL_NAME,
     images: [sitePhotoOg('h1-guard-gate')],
@@ -220,7 +230,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: GBP_LEGAL_NAME,
+    title: SITE_SOCIAL_TITLE,
     description: rootDefaultDescription,
     images: [sitePhotoOg('h1-guard-gate')],
   },
@@ -268,6 +278,13 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://d1buiexcd5gara.cloudfront.net" />
         <link rel="dns-prefetch" href="https://assets.calendly.com" />
         <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+        {/* Open Graph contact fields require property=, which metadata.other does not emit. */}
+        <meta property="og:type" content="business.business" />
+        <meta property="og:business:contact_data:street_address" content={GBP_STREET} />
+        <meta property="og:business:contact_data:locality" content={GBP_LOCALITY} />
+        <meta property="og:business:contact_data:region" content={GBP_REGION} />
+        <meta property="og:business:contact_data:postal_code" content={GBP_POSTAL} />
+        <meta property="og:business:contact_data:country_name" content="USA" />
         
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-X68WWN997N"

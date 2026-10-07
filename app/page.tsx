@@ -24,14 +24,14 @@ import { AgentPortrait } from '@/components/agent-portrait'
 import { FaqSection } from '@/components/faq-section'
 import { MlsDisclaimer } from '@/components/mls-disclaimer'
 import { GbpLocalActions } from '@/components/gbp-local-actions'
+import { SITE_PRIMARY_DESCRIPTION, SITE_PRIMARY_TITLE, SITE_SOCIAL_TITLE } from '@/lib/gbp-business'
 
 
 const pageUrl = 'https://www.spanishtrailhomes.com/'
-const homePageDescription =
-  'Buy and sell Spanish Trail homes in Las Vegas 89113. Dr. Jan Duffy offers buyer and seller representation and private tours in Spanish Trail.'
+const homePageDescription = SITE_PRIMARY_DESCRIPTION
 
 const homeWebPageSchema = createWebPageSchema({
-  name: 'Buy and Sell Spanish Trail Homes | Realtor Services | Dr. Jan Duffy',
+  name: SITE_PRIMARY_TITLE,
   description: homePageDescription,
   path: '/',
   type: 'CollectionPage',
@@ -45,14 +45,16 @@ const homeBreadcrumbSchema = createBreadcrumbSchema([
 ])
 
 export const metadata: Metadata = {
-  title: 'Buy and Sell Spanish Trail Homes | Realtor Services | Dr. Jan Duffy',
+  title: {
+    absolute: SITE_PRIMARY_TITLE,
+  },
   description: homePageDescription,
   alternates: {
     canonical: getCanonicalUrl('/'),
   },
   openGraph: {
-    url: pageUrl,
-    title: 'Buy and Sell Spanish Trail Homes | Dr. Jan Duffy',
+    url: getCanonicalUrl('/'),
+    title: SITE_SOCIAL_TITLE,
     description: homePageDescription,
     images: [
       sitePhotoOg('h1-guard-gate'),
@@ -60,7 +62,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Buy and Sell Spanish Trail Homes | Dr. Jan Duffy',
+    title: SITE_SOCIAL_TITLE,
     description: homePageDescription,
     images: [
       sitePhotoOg('h1-guard-gate'),

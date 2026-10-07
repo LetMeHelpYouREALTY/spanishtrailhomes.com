@@ -4,6 +4,15 @@
  */
 export const GBP_LEGAL_NAME = 'Spanish Trail | Homes By Dr. Jan Duffy' as const
 
+/** Document `<title>` for the homepage. Legal name in schema and visible NAP stays `GBP_LEGAL_NAME`. */
+export const SITE_PRIMARY_TITLE = 'Dr. Jan Duffy | Spanish Trail Las Vegas Real Estate Specialist' as const
+
+/** Open Graph and Twitter title for the homepage. */
+export const SITE_SOCIAL_TITLE = 'Dr. Jan Duffy | Spanish Trail Real Estate' as const
+
+export const SITE_PRIMARY_DESCRIPTION =
+  'Specialized real estate services inside the guard-gated Spanish Trail community in Las Vegas, NV 89113. Buy or sell luxury golf course estates, townhomes, and villas with Dr. Jan Duffy.' as const
+
 export const GBP_PHONE_E164 = '+17027663299' as const
 export const GBP_PHONE_DISPLAY = '(702) 766-3299' as const
 export const GBP_EMAIL = 'DrDuffySells@SpanishTrailHomes.com' as const
@@ -127,6 +136,12 @@ export const GBP_GEO = {
   latitude: 36.109145,
   longitude: -115.282642,
 } as const
+
+/** geo.position uses a semicolon. Same pin as JSON-LD geo, not an approximate ZIP centroid. */
+export const GBP_GEO_POSITION = `${GBP_GEO.latitude};${GBP_GEO.longitude}` as const
+
+/** ICBM uses a comma. Same coordinates as `GBP_GEO_POSITION`. */
+export const GBP_ICBM = `${GBP_GEO.latitude}, ${GBP_GEO.longitude}` as const
 
 /**
  * After this instant (UTC), hide time-bound special-hours UI (e.g. Easter 2026) to avoid stale copy.
