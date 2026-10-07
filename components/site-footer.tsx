@@ -14,6 +14,7 @@ import {
   GBP_GOOGLE_REVIEW_URL,
   GBP_HOURS_SHORT,
   GBP_LEGAL_NAME,
+  GBP_LICENSE,
   GBP_MAPS_URL,
   GBP_PHONE_DISPLAY,
   GBP_PHONE_E164,
@@ -87,13 +88,35 @@ export function SiteFooter() {
         <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-6 sm:px-6 md:flex-row md:items-center md:justify-between safe-area-padding">
           <div className="flex items-start gap-4">
             <AgentPortrait placement="footer" size="sm" className="mt-1" />
-            <div className="space-y-2 text-xs uppercase tracking-[0.25em] sm:tracking-[0.35em]">
-            <p className="font-semibold text-[#f8f5ef]">{GBP_LEGAL_NAME}</p>
-            <p className="text-[#cbb8a6]">Berkshire Hathaway HomeServices Nevada Properties</p>
-            <p>Dr. Jan Duffy · Luxury Real Estate Advisor</p>
-            <Link href={`tel:${GBP_PHONE_E164}`} className="touch-target inline-flex min-h-[44px] items-center hover:text-[#be9956] hover:underline" onClick={() => trackPhoneClick('footer')}>
-              {GBP_PHONE_DISPLAY} · {GBP_EMAIL}
-            </Link>
+            <div className="space-y-1 text-sm font-normal normal-case leading-relaxed tracking-normal text-[#f8f5ef]">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#f8f5ef]">{GBP_LEGAL_NAME}</p>
+              <p>
+                <strong>Dr. Jan Duffy, REALTOR®</strong>
+                <span aria-hidden> | </span>
+                Berkshire Hathaway HomeServices Nevada Properties
+              </p>
+              <p>{GBP_FULL_ADDRESS}</p>
+              <p>
+                Direct:{' '}
+                <Link
+                  href={`tel:${GBP_PHONE_E164}`}
+                  className="inline-flex min-h-11 items-center underline-offset-4 hover:text-[#be9956] hover:underline"
+                  onClick={() => trackPhoneClick('footer')}
+                >
+                  {GBP_PHONE_DISPLAY}
+                </Link>
+                <span aria-hidden> | </span>
+                Email:{' '}
+                <Link
+                  href={`mailto:${GBP_EMAIL}`}
+                  className="inline-flex min-h-11 items-center underline-offset-4 hover:text-[#be9956] hover:underline"
+                >
+                  {GBP_EMAIL}
+                </Link>
+              </p>
+              <p className="text-xs text-[#cbb8a6]">
+                Specializing in Spanish Trail Homes & Estates | License #{GBP_LICENSE}
+              </p>
             </div>
           </div>
           <div className="flex items-center gap-3">

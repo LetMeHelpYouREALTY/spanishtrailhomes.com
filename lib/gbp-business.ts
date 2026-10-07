@@ -16,6 +16,7 @@ export const SITE_PRIMARY_DESCRIPTION =
 export const GBP_PHONE_E164 = '+17027663299' as const
 export const GBP_PHONE_DISPLAY = '(702) 766-3299' as const
 export const GBP_EMAIL = 'DrDuffySells@SpanishTrailHomes.com' as const
+export const GBP_LICENSE = 'S.0197614.LLC' as const
 
 export const GBP_STREET = '5050 Spanish Trail Ln' as const
 export const GBP_LOCALITY = 'Las Vegas' as const
