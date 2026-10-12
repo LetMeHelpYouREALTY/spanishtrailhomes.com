@@ -11,7 +11,7 @@ export const SITE_PRIMARY_TITLE = 'Dr. Jan Duffy | Spanish Trail Las Vegas Real 
 export const SITE_SOCIAL_TITLE = 'Dr. Jan Duffy | Spanish Trail Real Estate' as const
 
 export const SITE_PRIMARY_DESCRIPTION =
-  'Specialized real estate services inside the guard-gated Spanish Trail community in Las Vegas, NV 89113. Buy or sell luxury golf course estates, townhomes, and villas with Dr. Jan Duffy.' as const
+  'Selling a Spanish Trail home in 89113? Dr. Jan Duffy offers home valuations, sub-community comps, and listing strategy inside the guard gates.' as const
 
 export const GBP_PHONE_E164 = '+17027663299' as const
 export const GBP_PHONE_DISPLAY = '(702) 766-3299' as const

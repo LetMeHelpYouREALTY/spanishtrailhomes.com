@@ -7,7 +7,8 @@ import { Dialog, DialogContent } from '@/components/ui/dialog'
 import { cn } from '@/lib/utils'
 import { trackCalendlyFabView, trackCalendlyFabClick } from '@/lib/analytics'
 
-const CALENDLY_URL = 'https://calendly.com/drduffy/spanish-trail-showing'
+const CALENDLY_URL =
+  'https://calendly.com/drjanduffy/listing-consultation?utm_source=spanishtrailhomes.com&utm_medium=website&utm_content=floating-button'
 const SCROLL_SHOW_PX = 300
 const BOTTOM_HIDE_PX = 200
 /** Set to 'true' via Calendly success redirect or postMessage to hide FAB after booking */

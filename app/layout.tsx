@@ -19,7 +19,7 @@ import {
   websiteId,
 } from '@/lib/structuredData'
 import { getAbsoluteSiteImageUrl } from '@/lib/cloudflare-images'
-import { getAssetAlt, sitePhotoOg } from '@/lib/site-images'
+import { sitePhotoOg } from '@/lib/site-images'
 import {
   GBP_AREA_SERVED,
   GBP_DESCRIPTION,
@@ -40,7 +40,6 @@ import {
   GBP_MAPS_URL,
   GBP_SPECIALIST_NAME,
   GBP_STREET,
-  GBP_COUNTRY,
   SITE_PRIMARY_DESCRIPTION,
   SITE_PRIMARY_TITLE,
   SITE_SOCIAL_TITLE,
@@ -79,30 +78,8 @@ const structuredData = [
     description: GBP_DESCRIPTION,
     image: [
       getAbsoluteSiteImageUrl('duffy-circle-canonical'),
-      getAbsoluteSiteImageUrl('h1-office-exterior'),
-      getAbsoluteSiteImageUrl('h1-guard-gate'),
       getAbsoluteSiteImageUrl('h1-golf-fairway'),
       getAbsoluteSiteImageUrl('h1-luxury-estate'),
-      getAbsoluteSiteImageUrl('h2-accessible-entrance'),
-      getAbsoluteSiteImageUrl('h1-contact-office'),
-      getAbsoluteSiteImageUrl('h2-directions-approach'),
-    ],
-    photo: [
-      {
-        '@type': 'ImageObject',
-        contentUrl: getAbsoluteSiteImageUrl('h1-office-exterior'),
-        name: getAssetAlt('h1-office-exterior'),
-      },
-      {
-        '@type': 'ImageObject',
-        contentUrl: getAbsoluteSiteImageUrl('h1-guard-gate'),
-        name: getAssetAlt('h1-guard-gate'),
-      },
-      {
-        '@type': 'ImageObject',
-        contentUrl: getAbsoluteSiteImageUrl('h2-accessible-entrance'),
-        name: getAssetAlt('h2-accessible-entrance'),
-      },
     ],
     hasMap: GBP_MAPS_URL,
     url: siteUrl,
@@ -117,14 +94,6 @@ const structuredData = [
     priceRange: GBP_PRICE_RANGE,
     knowsAbout: [...GBP_KNOWS_ABOUT],
     areaServed: GBP_AREA_SERVED,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: GBP_STREET,
-      addressLocality: GBP_LOCALITY,
-      addressRegion: GBP_REGION,
-      postalCode: GBP_POSTAL,
-      addressCountry: GBP_COUNTRY,
-    },
     geo: {
       '@type': 'GeoCoordinates',
       latitude: GBP_GEO.latitude,
@@ -196,7 +165,11 @@ const structuredData = [
         },
       ],
     },
-    employee: { '@id': personId },
+    employee: {
+      '@type': 'Person',
+      '@id': personId,
+      name: 'Dr. Jan Duffy',
+    },
   },
   {
     '@context': 'https://schema.org',
@@ -321,9 +294,13 @@ gtag('config', 'G-X68WWN997N', {
           strategy="afterInteractive"
         />
         {/* LocalBusiness + WebSite JSON-LD — validate in Rich Results Test when editing structuredData above */}
-        <Script id="schema-structured-data" type="application/ld+json" strategy="afterInteractive">
-          {JSON.stringify(structuredData)}
-        </Script>
+        <script
+          id="schema-structured-data"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData).replace(/</g, '\\u003c'),
+          }}
+        />
         <CalendlyWidgetScript />
       </head>
       <body

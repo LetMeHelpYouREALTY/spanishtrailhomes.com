@@ -12,7 +12,8 @@ import {
   trackPropertyLightboxTextAlert,
 } from '@/lib/analytics'
 
-const CALENDLY_TOUR_URL = 'https://calendly.com/drduffy/spanish-trail-showing'
+const CALENDLY_TOUR_URL =
+  'https://calendly.com/drjanduffy/showing?utm_source=spanishtrailhomes.com&utm_medium=website&utm_content=property-lightbox'
 const SMS_LISTINGS = 'sms:+17027663299?body=Alert%20me%20about%20new%20Spanish%20Trail%20listings'
 const SMS_SCHEDULE_TOUR = 'sms:+17027663299?body=I%27d%20like%20to%20schedule%20a%20Spanish%20Trail%20home%20tour'
 

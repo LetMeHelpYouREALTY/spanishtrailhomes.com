@@ -49,7 +49,9 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(url, 301)
   }
 
-  return NextResponse.next()
+  const response = NextResponse.next()
+  response.headers.set('x-pathname', pathname)
+  return response
 }
 
 export const config = {

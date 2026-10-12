@@ -1,8 +1,5 @@
-'use client'
-
 import Link from 'next/link'
-import Script from 'next/script'
-import { usePathname } from 'next/navigation'
+import { headers } from 'next/headers'
 
 import { createBreadcrumbSchema } from '@/lib/structuredData'
 
@@ -16,8 +13,13 @@ type BreadcrumbsProps = {
   className?: string
 }
 
-export function Breadcrumbs({ items, className }: BreadcrumbsProps) {
-  const pathname = usePathname() || '/'
+function safeJsonLdStringify(value: unknown): string {
+  return JSON.stringify(value).replace(/</g, '\\u003c')
+}
+
+export async function Breadcrumbs({ items, className }: BreadcrumbsProps) {
+  const headersList = await headers()
+  const pathname = headersList.get('x-pathname') || '/'
 
   if (!items.length) return null
 
@@ -33,6 +35,7 @@ export function Breadcrumbs({ items, className }: BreadcrumbsProps) {
   }))
 
   const jsonLd = createBreadcrumbSchema(schemaItems)
+  const schemaId = `breadcrumb-schema-${items.map((i) => i.label).join('-').toLowerCase()}`
 
   return (
     <nav aria-label="Breadcrumb" className={className}>
@@ -40,7 +43,10 @@ export function Breadcrumbs({ items, className }: BreadcrumbsProps) {
         {items.map((item, index) => (
           <li key={`${item.label}-${index}`} className="flex items-center gap-2">
             {item.href && index !== lastIndex ? (
-              <Link href={item.href} className="inline-flex min-h-[44px] items-center py-2 text-[#0f2b1e] transition-colors hover:text-secondary sm:min-h-0 sm:py-0">
+              <Link
+                href={item.href}
+                className="inline-flex min-h-[44px] items-center py-2 text-[#0f2b1e] transition-colors hover:text-secondary sm:min-h-0 sm:py-0"
+              >
                 {item.label}
               </Link>
             ) : (
@@ -50,9 +56,11 @@ export function Breadcrumbs({ items, className }: BreadcrumbsProps) {
           </li>
         ))}
       </ol>
-      <Script id={`breadcrumb-schema-${items.map((i) => i.label).join('-').toLowerCase()}`} type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(jsonLd)}
-      </Script>
+      <script
+        id={schemaId}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLdStringify(jsonLd) }}
+      />
     </nav>
   )
 }
