@@ -5,7 +5,7 @@
 export const GBP_LEGAL_NAME = 'Spanish Trail | Homes By Dr. Jan Duffy' as const
 
 /** Document `<title>` for the homepage. Legal name in schema and visible NAP stays `GBP_LEGAL_NAME`. */
-export const SITE_PRIMARY_TITLE = 'Dr. Jan Duffy | Spanish Trail Las Vegas Real Estate Specialist' as const
+export const SITE_PRIMARY_TITLE = 'Dr. Jan Duffy | Spanish Trail Las Vegas Realtor' as const
 
 /** Open Graph and Twitter title for the homepage. */
 export const SITE_SOCIAL_TITLE = 'Dr. Jan Duffy | Spanish Trail Real Estate' as const
