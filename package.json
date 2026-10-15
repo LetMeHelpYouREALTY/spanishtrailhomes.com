@@ -4,7 +4,7 @@
   "private": true,
   "pnpm": {
     "overrides": {
-      "next": "^15.5.9"
+      "next": "^15.5.28"
     }
   },
   "scripts": {
@@ -31,7 +31,7 @@
     "clsx": "^1.1.1",
     "cmdk": "^1.1.1",
     "lucide-react": "^0.525.0",
-    "next": "^15.5.9",
+    "next": "^15.5.28",
     "next-themes": "^0.4.6",
     "react": "19.1.0",
     "react-dom": "19.1.0",
