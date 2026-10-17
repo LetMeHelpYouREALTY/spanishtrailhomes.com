@@ -111,7 +111,7 @@ const golfFaqSchema = {
 
 const pageUrl = 'https://www.spanishtrailhomes.com/golf'
 const golfPageDescription =
-  'Spanish Trail Country Club private golf in Las Vegas: three 9-hole combinations (Sunrise, Lakes, Canyon) by Robert Trent Jones Jr., 120+ bunkers, and lakes and streams on all-grass terrain. Compare to public Las Vegas golf—then explore golf course homes for sale behind the guard gates with Dr. Jan Duffy.'
+  'Spanish Trail Country Club private golf in Las Vegas: three 9-hole combinations (Sunrise, Lakes, Canyon) by Robert Trent Jones Jr., 120+ bunkers, and lakes…'
 
 const golfWebPageSchema = createWebPageSchema({
   name: 'Spanish Trail Country Club Golf | Private Las Vegas 27-Hole Course',
@@ -127,7 +127,7 @@ const golfWebPageSchema = createWebPageSchema({
 })
 
 export const metadata: Metadata = {
-  title: 'Spanish Trail Golf | Private Las Vegas Country Club | 27 Holes | Dr. Jan Duffy',
+  title: 'Spanish Trail Golf | 27-Hole Vegas Club',
   description: golfPageDescription,
   alternates: { canonical: getCanonicalUrl('/golf') },
   robots: {

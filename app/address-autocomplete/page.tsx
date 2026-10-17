@@ -21,7 +21,7 @@ import { GBP_FULL_ADDRESS, GBP_LEGAL_NAME, GBP_PHONE_DISPLAY, GBP_PHONE_E164 } f
 
 const pageUrl = 'https://www.spanishtrailhomes.com/address-autocomplete'
 const pageDescription =
-  'Look up a Spanish Trail Las Vegas 89113 address with Dr. Jan Duffy. Confirm whether a street sits inside the guard gates, which of the 11 neighborhoods it belongs to, and how to tour. Call (702) 766-3299.'
+  'Look up a Spanish Trail Las Vegas 89113 address with Dr. Jan Duffy. Confirm whether a street sits inside the guard gates, which of the 11 neighborhoods it…'
 
 const faqContent = [
   {
@@ -76,7 +76,7 @@ const breadcrumbSchema = createBreadcrumbSchema([
 ])
 
 export const metadata: Metadata = {
-  title: 'Find a Spanish Trail Address | Las Vegas 89113 | Dr. Jan Duffy',
+  title: 'Spanish Trail Address Lookup | 89113',
   description: pageDescription,
   alternates: { canonical: getCanonicalUrl('/address-autocomplete') },
   openGraph: {

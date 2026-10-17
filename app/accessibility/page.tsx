@@ -15,7 +15,7 @@ import { getSiteImageUrl } from '@/lib/cloudflare-images'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/accessibility'
 const accessibilityPageDescription =
-  'Learn how SpanishTrailHomes.com supports visitors of all abilities, follows WCAG recommendations, and provides channels to request assistance or report barriers.'
+  'Learn how SpanishTrailHomes.com supports visitors of all abilities, follows WCAG recommendations, and provides channels to request assistance or report…'
 
 const accessibilitySchema = {
   '@context': 'https://schema.org',

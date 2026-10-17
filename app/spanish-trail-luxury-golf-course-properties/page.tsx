@@ -17,9 +17,9 @@ import { FaqList } from '@/components/faq-section'
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-luxury-golf-course-properties'
 
 export const metadata: Metadata = {
-  title: 'Las Vegas Golf Course Homes for Sale | Spanish Trail Luxury Fairway Estates | Dr. Jan Duffy',
+  title: 'Spanish Trail Golf Course Homes for Sale',
   description:
-    'Las Vegas golf course homes for sale at Spanish Trail Country Club: luxury fairway estates, view premiums, renovations, and market context with Dr. Jan Duffy in guard-gated 89113.',
+    'Las Vegas golf course homes for sale at Spanish Trail Country Club: luxury fairway estates, view premiums, renovations, and market context with Dr.',
   alternates: {
     canonical: getCanonicalUrl('/spanish-trail-luxury-golf-course-properties'),
   },

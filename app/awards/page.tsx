@@ -35,9 +35,9 @@ const recognitionTimeline = [
   },
   {
     year: '2023',
-    title: 'Spanish Trail Market Expert · Berkshire Hathaway HomeServices Top Agent in Las Vegas',
+    title: 'Spanish Trail Market Expert | Dr. Jan Duffy',
     description:
-      'Recognized by RealScout as the Spanish Trail Market Expert and honored by Berkshire Hathaway HomeServices as a Top Agent in Las Vegas for luxury volume and client satisfaction.',
+      'Recognized by RealScout as the Spanish Trail Market Expert and honored by Berkshire Hathaway HomeServices as a Top Agent in Las Vegas for luxury volume.',
   },
   {
     year: '2022',

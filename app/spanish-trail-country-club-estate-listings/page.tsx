@@ -17,7 +17,7 @@ import { FaqList } from '@/components/faq-section'
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-country-club-estate-listings'
 
 export const metadata: Metadata = {
-  title: 'Spanish Trail Country Club Estate Listings in Las Vegas | Dr. Jan Duffy',
+  title: 'Spanish Trail Estate Listings | Dr. Jan Duffy',
   description:
     'Browse Spanish Trail Country Club estate listings in Las Vegas with Dr. Jan Duffy. Double-gated privacy, golf frontage, and concierge buying guidance.',
   alternates: {

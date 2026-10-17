@@ -19,9 +19,9 @@ import { getSiteImageUrl } from '@/lib/cloudflare-images'
 const pageUrl = 'https://www.spanishtrailhomes.com/homes-for-sale-in-spanish-trail-las-vegas'
 
 export const metadata: Metadata = {
-  title: 'Spanish Trail Las Vegas Homes for Sale | Country Club Property Types & 89113 Guide | Dr. Jan Duffy',
+  title: 'Spanish Trail Homes for Sale | 89113 Guide',
   description:
-    'Spanish Trail Country Club Las Vegas: property types, neighborhoods, pools, and amenities for homes for sale in 89113. Compare villas, estates, and golf homes—then use the live MLS hub for tours.',
+    'Spanish Trail Country Club Las Vegas: property types, neighborhoods, pools, and amenities for homes for sale in 89113.',
   alternates: {
     canonical: getCanonicalUrl('/homes-for-sale-in-spanish-trail-las-vegas'),
   },
@@ -38,9 +38,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     url: pageUrl,
-    title: 'Spanish Trail Homes for Sale — Property Types & 89113 Guide | Dr. Jan Duffy',
+    title: 'Spanish Trail Homes for Sale | 89113 Guide',
     description:
-      'Discover elegant single-family homes, grand estates, and luxury villas for sale in Spanish Trail, Las Vegas. Guard-gated golf community with 27-hole championship course.',
+    'Discover elegant single-family homes, grand estates, and luxury villas for sale in Spanish Trail, Las Vegas.',
     images: [
       sitePhotoOg('h3-listing-home-b'),
     ],
@@ -115,7 +115,7 @@ const homesForSaleFaqSchema = {
 const webPageSchema = createWebPageSchema({
   name: 'Homes for Sale in Spanish Trail — Property Types, Neighborhoods & Las Vegas 89113 Guide',
   description:
-    'Property types, square footage, neighborhoods, and amenities for homes for sale in Spanish Trail, Las Vegas—guard-gated golf community in zip 89113. Pair with the live listings hub for MLS snapshots and tours.',
+    'Property types, square footage, neighborhoods, and amenities for homes for sale in Spanish Trail, Las Vegas—guard-gated golf community in zip 89113.',
   path: '/homes-for-sale-in-spanish-trail-las-vegas',
 })
 
@@ -228,12 +228,12 @@ function PropertyTypesSection() {
       range: '2,024 - 19,149 sq. ft.',
       lots: '0.14 - 1.64 acres',
       description:
-        'Elegant single-family homes ranging from sophisticated residences to grand estates, built on lots ranging from 0.14 to 1.64 acres. These homes for sale in Spanish Trail offer diverse floor plans and architectural styles.',
+        'Elegant single-family homes ranging from sophisticated residences to grand estates, built on lots ranging from 0.14 to 1.64 acres.',
     },
     {
       title: 'Luxury Estates',
       description:
-        'Grand estates with custom designs, golf course frontage, and resort-scale amenities. Many feature private pools, casitas, and double-gated privacy within exclusive enclaves.',
+        'Grand estates with custom designs, golf course frontage, and resort-scale amenities.',
     },
     {
       title: 'Villas & Townhomes',
@@ -393,7 +393,7 @@ function NeighborhoodsSection() {
     {
       name: 'Estates & Estates West',
       description:
-        'Exclusive enclaves featuring grand estates on larger lots, many with secondary gates for added privacy. These homes often feature golf course views and custom architecture.',
+        'Exclusive enclaves featuring grand estates on larger lots, many with secondary gates for added privacy.',
     },
     {
       name: 'Villas at Spanish Trail',

@@ -92,7 +92,7 @@ const membershipFaqSchema = {
 
 const pageUrl = 'https://www.spanishtrailhomes.com/membership'
 const membershipPageDescription =
-  'Las Vegas golf membership at Spanish Trail Country Club: categories, how membership relates to buying a home, and introductions to the club—Dr. Jan Duffy for real estate; the club for official dues and initiation.'
+  'Las Vegas golf membership at Spanish Trail Country Club: categories, how membership relates to buying a home, and introductions to the club—Dr.'
 
 const membershipWebPageSchema = createWebPageSchema({
   name: 'Las Vegas Golf Membership & Spanish Trail Country Club | Home Buyer Guide',
@@ -105,7 +105,7 @@ const membershipWebPageSchema = createWebPageSchema({
 })
 
 export const metadata: Metadata = {
-  title: 'Las Vegas Golf Membership | Spanish Trail Country Club | Home Buyers | Dr. Jan Duffy',
+  title: 'Spanish Trail Golf Membership | Dr. Jan Duffy',
   description: membershipPageDescription,
   alternates: { canonical: getCanonicalUrl('/membership') },
   robots: {

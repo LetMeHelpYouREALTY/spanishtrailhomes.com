@@ -25,10 +25,10 @@ import { FaqList } from '@/components/faq-section'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/contact'
 const contactPageDescription =
-  'Contact Dr. Jan Duffy for Spanish Trail listings in Las Vegas 89113. Call or text (702) 766-3299, email DrDuffySells@SpanishTrailHomes.com, or book a consultation online. Hours: Sun–Sat 8 AM–8 PM.'
+  'Contact Dr. Jan Duffy for Spanish Trail listings in Las Vegas 89113. Call or text (702) 766-3299, email DrDuffySells@SpanishTrailHomes.com, or book a…'
 
 const contactWebPageSchema = createWebPageSchema({
-  name: 'Contact Dr. Jan Duffy | Spanish Trail Homes Realtor',
+  name: 'Contact Dr. Jan Duffy | Spanish Trail',
   description: contactPageDescription,
   path: '/contact',
   type: 'ContactPage',
@@ -49,14 +49,14 @@ const contactWebPageSchema = createWebPageSchema({
 })
 
 export const metadata: Metadata = {
-  title: 'Contact Dr. Jan Duffy | Spanish Trail Homes Realtor',
+  title: 'Contact Dr. Jan Duffy | Spanish Trail',
   description: contactPageDescription,
   alternates: {
     canonical: getCanonicalUrl('/contact'),
   },
   openGraph: {
     url: pageUrl,
-    title: 'Contact Dr. Jan Duffy | Spanish Trail Homes Realtor',
+    title: 'Contact Dr. Jan Duffy | Spanish Trail',
     description:
       'Connect with Dr. Jan Duffy for Spanish Trail luxury homes, current market data, and private club lifestyle guidance.',
     images: [
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Contact Dr. Jan Duffy | Spanish Trail Homes Realtor',
+    title: 'Contact Dr. Jan Duffy | Spanish Trail',
     description:
       'Schedule a Spanish Trail strategy session with Dr. Jan Duffy—luxury guard-gated golf community specialist.',
     images: [

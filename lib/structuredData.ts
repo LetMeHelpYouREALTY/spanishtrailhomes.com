@@ -26,6 +26,7 @@ import {
   GBP_KNOWS_ABOUT,
   GBP_LOCALITY,
   GBP_LICENSE,
+  GBP_PERSON_SAME_AS,
   GBP_PHONE_E164,
   GBP_POSTAL,
   GBP_REGION,
@@ -269,12 +270,7 @@ export const createPersonSchema = () => ({
     { '@type': 'Place', name: 'Spanish Trail, Las Vegas, NV 89113' },
     { '@type': 'Place', name: 'Southwest Las Vegas, Nevada' },
   ],
-  sameAs: [
-    'https://www.linkedin.com/company/spanishtrailhomes',
-    'https://www.facebook.com/spanishtrailhomes',
-    'https://www.instagram.com/spanishtrailhomes',
-    'https://www.youtube.com/@spanishtrailhomes',
-  ],
+  sameAs: [...GBP_PERSON_SAME_AS],
 })
 
 /**

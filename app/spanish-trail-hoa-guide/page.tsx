@@ -13,7 +13,7 @@ import { FaqList } from '@/components/faq-section'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-hoa-guide'
 const pageDescription =
-  'Spanish Trail HOA Las Vegas: new-owner orientation, gate access, fees, architectural review, and how HOA differs from country club dues in guard-gated 89113—Dr. Jan Duffy for real estate questions.'
+  'Spanish Trail HOA Las Vegas: new-owner orientation, gate access, fees, architectural review, and how HOA differs from country club dues in guard-gated…'
 
 const webPageSchema = createWebPageSchema({
   name: 'Spanish Trail HOA Las Vegas | Fees, Gates & New Owner Information',
@@ -22,7 +22,7 @@ const webPageSchema = createWebPageSchema({
 })
 
 export const metadata: Metadata = {
-  title: 'Spanish Trail HOA Las Vegas | Fees, Gates & Rules | New Owner Guide',
+  title: 'Spanish Trail HOA Guide | Las Vegas 89113',
   description: pageDescription,
   alternates: {
     canonical: getCanonicalUrl('/spanish-trail-hoa-guide'),

@@ -13,7 +13,7 @@ import { FaqList } from '@/components/faq-section'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-tennis'
 const pageDescription =
-  'Las Vegas tennis lessons and league play at Spanish Trail Tennis Center—12 lighted courts, USPTA pros, and a pro shop inside Spanish Trail Country Club (membership applies for most programming).'
+  'Las Vegas tennis lessons and league play at Spanish Trail Tennis Center—12 lighted courts, USPTA pros, and a pro shop inside Spanish Trail Country Club…'
 
 const webPageSchema = createWebPageSchema({
   name: 'Las Vegas Tennis Lessons & Spanish Trail Tennis Center | 12 Courts',
@@ -22,7 +22,7 @@ const webPageSchema = createWebPageSchema({
 })
 
 export const metadata: Metadata = {
-  title: 'Las Vegas Tennis Lessons | Spanish Trail Tennis Center | 12 Courts',
+  title: 'Spanish Trail Tennis | Las Vegas 12 Courts',
   description: pageDescription,
   alternates: {
     canonical: getCanonicalUrl('/spanish-trail-tennis'),

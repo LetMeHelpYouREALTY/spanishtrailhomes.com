@@ -112,9 +112,9 @@ const luxuryNeighborhoodsFaqSchema = {
 }
 
 export const metadata: Metadata = {
-  title: 'Las Vegas Luxury Neighborhoods | Spanish Trail vs Summerlin Golf & Spanish Hills | Dr. Jan Duffy',
+  title: 'Spanish Trail vs Summerlin Luxury | Dr. Jan Duffy',
   description:
-    'Compare Spanish Trail with Summerlin golf communities, Spanish Hills, The Ridges, Red Rock Country Club, and The Summit Club—accurate geography and club context with Dr. Jan Duffy.',
+    'Compare Spanish Trail with Summerlin golf communities, Spanish Hills, The Ridges, Red Rock Country Club, and The Summit Club—accurate geography and club…',
   alternates: {
     canonical: getCanonicalUrl('/las-vegas-luxury-neighborhoods'),
   },

@@ -13,7 +13,7 @@ import { FaqList } from '@/components/faq-section'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-architecture'
 const pageDescription =
-  'Explore Spanish Trail home architecture styles—Mediterranean influences, desert-inspired designs, and custom estate features. From pink and cream stucco villas to gated luxury estates in Las Vegas.'
+  'Explore Spanish Trail home architecture styles—Mediterranean influences, desert-inspired designs, and custom estate features.'
 
 const webPageSchema = createWebPageSchema({
   name: 'Spanish Trail Architecture & Home Styles | Las Vegas Luxury',
@@ -22,7 +22,7 @@ const webPageSchema = createWebPageSchema({
 })
 
 export const metadata: Metadata = {
-  title: 'Spanish Trail Architecture & Home Styles | Mediterranean Luxury',
+  title: 'Spanish Trail Architecture & Home Styles',
   description: pageDescription,
   alternates: {
     canonical: getCanonicalUrl('/spanish-trail-architecture'),
@@ -211,15 +211,15 @@ function HomeTypesSection() {
           {[
             {
               title: 'Custom Estate Homes',
-              description: 'Luxury custom estates in a variety of styles, most showing Mediterranean influence. Located behind secondary mechanical gates for maximum privacy. Priced at $2M and above, with select properties in the high $900s.',
+              description: 'Luxury custom estates in a variety of styles, most showing Mediterranean influence. Located behind secondary mechanical gates for maximum privacy.',
             },
             {
               title: 'Semi-Custom Homes',
-              description: 'Elegant single-family homes in pale pink and cream stucco finishes. Built with quality craftsmanship during the mid-1980s and 1990s. These homes offer timeless desert aesthetics with room for personalization.',
+              description: 'Elegant single-family homes in pale pink and cream stucco finishes. Built with quality craftsmanship during the mid-1980s and 1990s.',
             },
             {
               title: 'Townhomes & Condos',
-              description: 'Lock-and-leave townhomes clustered around lakes on the golf course, creating peaceful, parklike settings. Mediterranean styling with shared exterior maintenance for carefree ownership.',
+              description: 'Lock-and-leave townhomes clustered around lakes on the golf course, creating peaceful, parklike settings.',
             },
             {
               title: 'Golf Villas',

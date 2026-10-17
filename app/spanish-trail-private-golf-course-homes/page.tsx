@@ -16,9 +16,9 @@ import { FaqList } from '@/components/faq-section'
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-private-golf-course-homes'
 
 export const metadata: Metadata = {
-  title: 'Las Vegas Private Golf Course Homes | Spanish Trail Country Club | Dr. Jan Duffy',
+  title: 'Spanish Trail Private Golf Homes | Dr. Jan Duffy',
   description:
-    'Las Vegas private golf at Spanish Trail Country Club: course-front estates, memberships via the club, and guard-gated showings with Dr. Jan Duffy—not public tee-time golf.',
+    'Las Vegas private golf at Spanish Trail Country Club: course-front estates, memberships via the club, and guard-gated showings with Dr.',
   alternates: {
     canonical: getCanonicalUrl('/spanish-trail-private-golf-course-homes'),
   },

@@ -13,7 +13,7 @@ import { FaqList } from '@/components/faq-section'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-pools'
 const pageDescription =
-  'Spanish Trail has two aquatic centers with resort-style pools, spas, and lap swim. Review hours and guest policies with Dr. Jan Duffy when you tour 89113 listings.'
+  'Spanish Trail has two aquatic centers with resort-style pools, spas, and lap swim. Review hours and guest policies with Dr.'
 
 const webPageSchema = createWebPageSchema({
   name: 'Spanish Trail Pools & Aquatic Centers | Resort-Style Swimming',
@@ -22,7 +22,7 @@ const webPageSchema = createWebPageSchema({
 })
 
 export const metadata: Metadata = {
-  title: 'Spanish Trail Pools & Aquatic Centers | Resort Swimming in Las Vegas',
+  title: 'Spanish Trail Pools | Las Vegas Aquatic Centers',
   description: pageDescription,
   alternates: {
     canonical: getCanonicalUrl('/spanish-trail-pools'),

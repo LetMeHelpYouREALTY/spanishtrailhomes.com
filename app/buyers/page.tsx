@@ -18,7 +18,7 @@ import { AgentPortrait } from '@/components/agent-portrait'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/buyers'
 const buyersPageDescription =
-  'Buyer representation for Spanish Trail homes in Las Vegas 89113. Dr. Jan Duffy coordinates gate access, private tours, neighborhood matching, and offer strategy—Berkshire Hathaway HomeServices Nevada Properties.'
+  'Buyer representation for Spanish Trail homes in Las Vegas 89113. Dr. Jan Duffy coordinates gate access, private tours, neighborhood matching, and offer…'
 
 const buyersWebPageSchema = createWebPageSchema({
   name: 'Spanish Trail Home Buyer Guide | Dr. Jan Duffy',
@@ -72,7 +72,7 @@ const faqSchema = {
 }
 
 export const metadata: Metadata = {
-  title: 'Buy Spanish Trail Homes | Buyer Representation | Dr. Jan Duffy',
+  title: 'Buy Spanish Trail Homes | Dr. Jan Duffy',
   description: buyersPageDescription,
   alternates: {
     canonical: getCanonicalUrl('/buyers'),
@@ -92,7 +92,7 @@ export const metadata: Metadata = {
     url: pageUrl,
     title: 'Spanish Trail Buyer Services | Dr. Jan Duffy',
       description:
-        'Explore Las Vegas golf course homes for sale in Spanish Trail with personalized search, gated access coordination, and negotiation strategy from Dr. Jan Duffy, Berkshire Hathaway HomeServices.',
+    'Explore Las Vegas golf course homes for sale in Spanish Trail with personalized search, gated access coordination, and negotiation strategy from Dr.',
     images: [
       sitePhotoOg('h1-luxury-estate'),
     ],

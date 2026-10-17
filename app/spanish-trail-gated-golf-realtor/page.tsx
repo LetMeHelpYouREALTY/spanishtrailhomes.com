@@ -16,9 +16,9 @@ import { FaqList } from '@/components/faq-section'
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-gated-golf-realtor'
 
 export const metadata: Metadata = {
-  title: 'Gated Golf Community Spanish Trail Las Vegas Realtor | Dr. Jan Duffy',
+  title: 'Spanish Trail Gated Golf Realtor',
   description:
-    'Partner with Dr. Jan Duffy, Berkshire Hathaway luxury advisor and Spanish Trail gated golf community expert. Concierge buying, market intel, and club integration.',
+    'Partner with Dr. Jan Duffy, Berkshire Hathaway luxury advisor and Spanish Trail gated golf community expert.',
   alternates: {
     canonical: getCanonicalUrl('/spanish-trail-gated-golf-realtor'),
   },

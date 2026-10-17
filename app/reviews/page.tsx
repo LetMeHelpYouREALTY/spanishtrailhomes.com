@@ -16,7 +16,7 @@ import { GbpLocalActions } from '@/components/gbp-local-actions'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/reviews'
 const pageDescription =
-  'Leave a review for Dr. Jan Duffy on Google. Reviews build trust and help our Business Profile stand out to customers on Search and Maps. Business Profiles with 5+ reviews get up to twice as many customers.'
+  'Leave a review for Dr. Jan Duffy on Google. Reviews build trust and help our Business Profile stand out to customers on Search and Maps.'
 
 const reviewLink = GBP_GOOGLE_REVIEW_URL
 const gbpUrl = GBP_MAPS_URL

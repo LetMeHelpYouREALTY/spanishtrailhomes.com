@@ -31,7 +31,7 @@ const mapsDirectionsUrl = GBP_DIRECTIONS_URL
 
 /** WebPage + BreadcrumbList only: LocalBusiness/RealEstateAgent lives in root layout (#localBusiness). */
 const webPageSchema = createWebPageSchema({
-  name: 'Google Business Profile | Dr. Jan Duffy | Spanish Trail Homes',
+  name: 'Google Business Profile | Dr. Jan Duffy',
   description: pageDescription,
   path: '/google-business-profile',
   type: 'WebPage',
@@ -46,14 +46,14 @@ const gbpBreadcrumbSchema = createBreadcrumbSchema([
 ])
 
 export const metadata: Metadata = {
-  title: 'Google Business Profile | Dr. Jan Duffy | Spanish Trail Homes',
+  title: 'Google Business Profile | Dr. Jan Duffy',
   description: pageDescription,
   alternates: {
     canonical: getCanonicalUrl('/google-business-profile'),
   },
   openGraph: {
     url: pageUrl,
-    title: 'Google Business Profile | Dr. Jan Duffy | Spanish Trail Homes',
+    title: 'Google Business Profile | Dr. Jan Duffy',
     description:
       'View Dr. Jan Duffy\'s verified Google Business Profile. See reviews, hours, location, and connect via Google.',
     images: [sitePhotoOg('h1-office-exterior')],

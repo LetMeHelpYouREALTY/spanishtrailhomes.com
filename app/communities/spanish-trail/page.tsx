@@ -27,7 +27,7 @@ const communityWebPageSchema = createWebPageSchema({
 })
 
 export const metadata: Metadata = {
-  title: 'Spanish Trail Country Club Las Vegas | Homes for Sale & Community Guide',
+  title: 'Spanish Trail Country Club | Homes Guide',
   description: communityPageDescription,
   alternates: { canonical: getCanonicalUrl('/communities/spanish-trail') },
   robots: {
@@ -526,15 +526,15 @@ function RealEstateTypesSection() {
           {[
             {
               title: 'Custom Estate Homes',
-              description: 'Luxury custom estates in a variety of styles, most showing Mediterranean influence. Located behind secondary mechanical gates in exclusive enclaves. Premium homes priced at $2M and above, with some available in the high $900s.',
+              description: 'Luxury custom estates in a variety of styles, most showing Mediterranean influence. Located behind secondary mechanical gates in exclusive enclaves.',
             },
             {
               title: 'Semi-Custom Homes',
-              description: 'Elegant single-family homes in pale pink and cream stucco finishes. Built during the mid-1980s and 1990s with quality craftsmanship and timeless desert aesthetics.',
+              description: 'Elegant single-family homes in pale pink and cream stucco finishes. Built during the mid-1980s and 1990s with quality craftsmanship and timeless desert…',
             },
             {
               title: 'Townhomes & Condos',
-              description: 'Lock-and-leave townhomes clustered around lakes on the golf course, creating peaceful, parklike settings. Perfect for those seeking low-maintenance luxury living.',
+              description: 'Lock-and-leave townhomes clustered around lakes on the golf course, creating peaceful, parklike settings.',
             },
             {
               title: 'Golf Villas',

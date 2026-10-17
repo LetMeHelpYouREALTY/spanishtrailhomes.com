@@ -28,7 +28,7 @@ import {
 
 const pageUrl = 'https://www.spanishtrailhomes.com/find-our-locations'
 const pageDescription =
-  'Visit Spanish Trail | Homes By Dr. Jan Duffy at 5050 Spanish Trail Ln, Las Vegas, NV 89113. Hours Sunday–Saturday 8:00 AM–8:00 PM. Call (702) 766-3299 for directions, gate access, and private tours.'
+  'Visit Spanish Trail | Homes By Dr. Jan Duffy at 5050 Spanish Trail Ln, Las Vegas, NV 89113. Hours Sunday–Saturday 8:00 AM–8:00 PM.'
 
 const faqContent = [
   {
@@ -68,7 +68,7 @@ const breadcrumbSchema = createBreadcrumbSchema([
 ])
 
 export const metadata: Metadata = {
-  title: 'Office Location | 5050 Spanish Trail Ln, Las Vegas 89113 | Dr. Jan Duffy',
+  title: 'Spanish Trail Office | Las Vegas 89113',
   description: pageDescription,
   alternates: { canonical: getCanonicalUrl('/find-our-locations') },
   openGraph: {

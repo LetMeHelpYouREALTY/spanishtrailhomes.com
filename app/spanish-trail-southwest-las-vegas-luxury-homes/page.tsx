@@ -16,7 +16,7 @@ import { FaqList } from '@/components/faq-section'
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-southwest-las-vegas-luxury-homes'
 
 export const metadata: Metadata = {
-  title: 'Spanish Trail Southwest Las Vegas Luxury Homes | Dr. Jan Duffy',
+  title: 'Spanish Trail Southwest Luxury Homes',
   description:
     'Explore Southwest Las Vegas luxury living within Spanish Trail. Guard-gated estates, villas, and curated neighborhood comparisons with Dr. Jan Duffy.',
   alternates: {

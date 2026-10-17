@@ -20,7 +20,7 @@ import { GBP_FULL_ADDRESS, GBP_LEGAL_NAME, GBP_PHONE_DISPLAY, GBP_PHONE_E164 } f
 
 const pageUrl = 'https://www.spanishtrailhomes.com/amenity-map'
 const pageDescription =
-  'Map of what sits around Spanish Trail in Las Vegas 89113: Tropicana and Rainbow access, I-215, Bishop Gorman High School (2.2 miles), Durango High School, and the private 27-hole club inside the gates. Call Dr. Jan Duffy at (702) 766-3299.'
+  'Map of what sits around Spanish Trail in Las Vegas 89113: Tropicana and Rainbow access, I-215, Bishop Gorman High School (2.2 miles), Durango High School, and…'
 
 const faqContent = [
   {
@@ -87,7 +87,7 @@ const breadcrumbSchema = createBreadcrumbSchema([
 ])
 
 export const metadata: Metadata = {
-  title: 'Spanish Trail Amenity Map | Las Vegas 89113 Golf, Courts, Commute',
+  title: 'Spanish Trail Amenity Map | Las Vegas 89113',
   description: pageDescription,
   alternates: { canonical: getCanonicalUrl('/amenity-map') },
   openGraph: {

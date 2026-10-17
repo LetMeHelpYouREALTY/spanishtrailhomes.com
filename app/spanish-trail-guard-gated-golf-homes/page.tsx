@@ -16,9 +16,9 @@ import { FaqList } from '@/components/faq-section'
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-guard-gated-golf-homes'
 
 export const metadata: Metadata = {
-  title: 'Guard-Gated Golf Community Homes in Spanish Trail | Dr. Jan Duffy',
+  title: 'Guard-Gated Golf Homes | Spanish Trail',
   description:
-    'Tour guard-gated Spanish Trail golf homes with Dr. Jan Duffy. Explore 24/7 security, golf membership tiers, villa vs. estate enclaves, and curated buyer strategies.',
+    'Tour guard-gated Spanish Trail golf homes with Dr. Jan Duffy. Explore 24/7 security, golf membership tiers, villa vs.',
   alternates: {
     canonical: getCanonicalUrl('/spanish-trail-guard-gated-golf-homes'),
   },

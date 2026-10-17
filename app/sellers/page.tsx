@@ -24,7 +24,7 @@ type RealScoutHomeValueProps = HTMLAttributes<HTMLElement> & {
 
 const pageUrl = 'https://www.spanishtrailhomes.com/sellers'
 const sellersPageDescription =
-  'Seller representation for Spanish Trail homes in Las Vegas 89113. Dr. Jan Duffy prices, prepares, and markets listings inside this guard-gated community—Berkshire Hathaway HomeServices Nevada Properties.'
+  'Seller representation for Spanish Trail homes in Las Vegas 89113. Dr. Jan Duffy prices, prepares, and markets listings inside this guard-gated…'
 
 const sellersWebPageSchema = createWebPageSchema({
   name: 'Spanish Trail Home Seller Guide | Dr. Jan Duffy',
@@ -91,7 +91,7 @@ const faqSchema = {
 }
 
 export const metadata: Metadata = {
-  title: 'Sell Your Spanish Trail Home | Seller Representation | Dr. Jan Duffy',
+  title: 'Sell Spanish Trail Home | Dr. Jan Duffy',
   description: sellersPageDescription,
   alternates: {
     canonical: getCanonicalUrl('/sellers'),
@@ -111,7 +111,7 @@ export const metadata: Metadata = {
     url: pageUrl,
     title: 'Spanish Trail Home Seller Guide',
     description:
-      'Maximize your equity with Dr. Jan Duffy’s Spanish Trail seller strategy—precision pricing, concierge prep, luxury marketing, and RealScout-powered valuation tools.',
+    'Maximize your equity with Dr. Jan Duffy’s Spanish Trail seller strategy—precision pricing, concierge prep, luxury marketing, and RealScout-powered valuation…',
     images: [
       sitePhotoOg('h2-kitchen-fairway'),
     ],

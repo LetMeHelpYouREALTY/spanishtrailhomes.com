@@ -18,9 +18,9 @@ import { FaqList } from '@/components/faq-section'
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-homes-for-sale-las-vegas'
 
 export const metadata: Metadata = {
-  title: 'Spanish Trail Homes for Sale Las Vegas | Exclusive Realtor | Dr. Jan Duffy',
+  title: 'Spanish Trail Homes for Sale | Dr. Jan Duffy',
   description:
-    'Spanish Trail homes for sale in Las Vegas 89113 with Dr. Jan Duffy—the exclusive luxury realtor for this community. Live MLS, private tours, and 11-neighborhood matching. Also searched as Spanish Trails.',
+    'Spanish Trail homes for sale in Las Vegas 89113 with Dr. Jan Duffy—the exclusive luxury realtor for this community.',
   alternates: {
     canonical: getCanonicalUrl('/spanish-trail-homes-for-sale-las-vegas'),
   },

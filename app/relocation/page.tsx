@@ -15,9 +15,9 @@ import { getSiteImageUrl } from '@/lib/cloudflare-images'
 import { getAssetAlt, sitePhotoOg } from '@/lib/site-images'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/relocation'
-const pageTitle = 'Relocation & Out-of-State Buyer Support | Spanish Trail Homes'
+const pageTitle = 'Spanish Trail Relocation | Dr. Jan Duffy'
 const pageDescription =
-  'Moving to Las Vegas from out of state and considering Spanish Trail? Dr. Jan Duffy specializes in helping relocation buyers navigate this guard-gated golf community from a distance. Virtual tours, neighborhood comparisons, and full remote transaction coordination.'
+  'Moving to Las Vegas from out of state and considering Spanish Trail? Dr. Jan Duffy specializes in helping relocation buyers navigate this guard-gated golf…'
 
 const relocationWebPageSchema = createWebPageSchema({
   name: pageTitle,
@@ -84,7 +84,7 @@ export const metadata: Metadata = {
     url: pageUrl,
     title: pageTitle,
     description:
-      'Relocating to Las Vegas? Dr. Jan Duffy helps out-of-state buyers navigate Spanish Trail with virtual tours, neighborhood comparisons, and remote transaction coordination.',
+    'Relocating to Las Vegas? Dr. Jan Duffy helps out-of-state buyers navigate Spanish Trail with virtual tours, neighborhood comparisons, and remote transaction…',
     images: [
       sitePhotoOg('h2-valley-skyline'),
     ],

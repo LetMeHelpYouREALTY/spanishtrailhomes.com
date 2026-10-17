@@ -13,7 +13,7 @@ import { FaqList } from '@/components/faq-section'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-fitness'
 const pageDescription =
-  'Spanish Trail fitness facility features state-of-the-art equipment, personal training, group classes, and wellness programming within the 50,000 sq ft clubhouse in Las Vegas.'
+  'Spanish Trail fitness facility features state-of-the-art equipment, personal training, group classes, and wellness programming within the 50,000 sq ft…'
 
 const webPageSchema = createWebPageSchema({
   name: 'Spanish Trail Fitness Center | Gym & Wellness Programs',

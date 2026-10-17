@@ -1,6 +1,12 @@
 import { NextResponse } from 'next/server'
 
-import { GBP_EMAIL, GBP_LEGAL_NAME, GBP_PHONE_DISPLAY, SITE_PRIMARY_DESCRIPTION } from '@/lib/gbp-business'
+import {
+  GBP_EMAIL,
+  GBP_FULL_ADDRESS,
+  GBP_LEGAL_NAME,
+  GBP_PHONE_DISPLAY,
+  SITE_PRIMARY_DESCRIPTION,
+} from '@/lib/gbp-business'
 
 const siteUrl = 'https://www.spanishtrailhomes.com'
 

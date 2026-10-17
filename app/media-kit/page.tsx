@@ -25,7 +25,7 @@ import { GBP_PHONE_E164 } from '@/lib/gbp-business'
 const pageUrl = 'https://www.spanishtrailhomes.com/media-kit'
 const pageTitle = 'Spanish Trail Homes Media Kit - Dr. Jan Duffy'
 const pageDescription =
-  'Official media kit for Dr. Jan Duffy, luxury real estate specialist for Spanish Trail, Las Vegas. Bio, credentials, headshot, and contact for press and partnership inquiries. Schedule a consultation.'
+  'Official media kit for Dr. Jan Duffy, luxury real estate specialist for Spanish Trail, Las Vegas.'
 
 const mediaKitWebPageSchema = createWebPageSchema({
   name: pageTitle,
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     url: pageUrl,
     title: pageTitle,
     description:
-      'Media kit for Dr. Jan Duffy—Spanish Trail luxury real estate expert. Bio, credentials, and contact. Book a consultation for buying or selling in Las Vegas guard-gated golf community.',
+    'Media kit for Dr. Jan Duffy—Spanish Trail luxury real estate expert. Bio, credentials, and contact.',
     images: [
       sitePhotoOg('h2-awards-study'),
     ],

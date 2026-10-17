@@ -60,9 +60,9 @@ const aboutFaqSchema = {
 const pageUrl = 'https://www.spanishtrailhomes.com/about'
 
 const aboutWebPageSchema = createWebPageSchema({
-  name: 'About Dr. Jan Duffy | Spanish Trail Homes',
+  name: 'About Dr. Jan Duffy | Spanish Trail',
   description:
-    'Meet Dr. Jan Duffy, luxury real estate advisor serving Spanish Trail. Research-backed expertise in buyer/seller psychology combined with deep local knowledge and concierge service—helping you make confident decisions.',
+    'Meet Dr. Jan Duffy, luxury real estate advisor serving Spanish Trail. Research-backed expertise in buyer/seller psychology combined with deep local knowledge…',
   path: '/about',
   type: 'AboutPage',
   extra: {
@@ -74,17 +74,17 @@ const approachPillars = [
   {
     title: 'Data-led preparation',
     description:
-      'Weekly absorption dashboards, pricing models, and RealScout demand reports frame every client conversation so decisions reflect today’s Spanish Trail market—never stale comps.',
+      'Weekly absorption dashboards, pricing models, and RealScout demand reports frame every client conversation so decisions reflect today’s Spanish Trail…',
   },
   {
     title: 'Concierge project management',
     description:
-      'From pre-listing renovations to relocation logistics, Dr. Duffy coordinates vetted designers, stagers, lenders, and membership teams to protect timelines and privacy.',
+      'From pre-listing renovations to relocation logistics, Dr. Duffy coordinates vetted designers, stagers, lenders, and membership teams to protect timelines and…',
   },
   {
     title: 'Club and community fluency',
     description:
-      'Access to membership directors, HOA boards, and private broker circles keeps clients informed about waitlists, architectural guidelines, and off-market opportunities.',
+      'Access to membership directors, HOA boards, and private broker circles keeps clients informed about waitlists, architectural guidelines, and off-market…',
   },
 ]
 
@@ -97,24 +97,24 @@ const credentials = [
 ]
 
 export const metadata: Metadata = {
-  title: 'About Dr. Jan Duffy | Spanish Trail Homes',
+  title: 'About Dr. Jan Duffy | Spanish Trail',
   description:
-    'Meet Dr. Jan Duffy, luxury real estate advisor serving Spanish Trail. Research-backed expertise in buyer/seller psychology combined with deep local knowledge and concierge service—helping you make confident decisions.',
+    'Meet Dr. Jan Duffy, luxury real estate advisor serving Spanish Trail. Research-backed expertise in buyer/seller psychology combined with deep local knowledge…',
   alternates: {
     canonical: getCanonicalUrl('/about'),
   },
   openGraph: {
     url: pageUrl,
-    title: 'About Dr. Jan Duffy | Spanish Trail Homes',
+    title: 'About Dr. Jan Duffy | Spanish Trail',
       description:
-        'Meet Dr. Jan Duffy, luxury real estate advisor serving Spanish Trail. Research-backed expertise that understands how homebuyers and sellers make decisions, combined with deep local knowledge and concierge service.',
+    'Meet Dr. Jan Duffy, luxury real estate advisor serving Spanish Trail. Research-backed expertise that understands how homebuyers and sellers make decisions…',
     images: [
       sitePhotoOg('h1-contact-office'),
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About Dr. Jan Duffy | Spanish Trail Homes',
+    title: 'About Dr. Jan Duffy | Spanish Trail',
     description:
       'Learn how Dr. Jan Duffy combines data, club insights, and concierge service for Spanish Trail clients.',
     images: [

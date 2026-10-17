@@ -14,7 +14,7 @@ import { FaqList } from '@/components/faq-section'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-schools'
 const pageDescription =
-  'Schools serving Spanish Trail homes in Las Vegas 89113: Frank Kim Elementary, Grant Sawyer Middle, Spring Valley High School, plus Bishop Gorman High School 2.2 miles via S. Rainbow Blvd.'
+  'Schools serving Spanish Trail homes in Las Vegas 89113: Frank Kim Elementary, Grant Sawyer Middle, Spring Valley High School, plus Bishop Gorman High School…'
 
 const webPageSchema = createWebPageSchema({
   name: 'Spanish Trail Schools | Las Vegas School Guide',
@@ -23,7 +23,7 @@ const webPageSchema = createWebPageSchema({
 })
 
 export const metadata: Metadata = {
-  title: 'Spanish Trail Schools | Las Vegas School Distances | Dr. Jan Duffy',
+  title: 'Spanish Trail Schools | Las Vegas Distances',
   description: pageDescription,
   alternates: {
     canonical: getCanonicalUrl('/spanish-trail-schools'),
@@ -65,7 +65,7 @@ const schools = [
     name: 'Frank Kim Elementary School',
     grades: 'K-5',
     description:
-      'Frank Kim Elementary serves the youngest students in the Spanish Trail area, providing a strong foundation in core academics along with enrichment programs in arts, music, and physical education. The school emphasizes character development and community involvement.',
+    'Frank Kim Elementary serves the youngest students in the Spanish Trail area, providing a strong foundation in core academics along with enrichment programs in…',
     highlights: [
       'Strong reading and math programs',
       'After-school enrichment activities',
@@ -77,8 +77,7 @@ const schools = [
     level: 'Middle School',
     name: 'Grant Sawyer Middle School',
     grades: '6-8',
-    description:
-      'Grant Sawyer Middle School bridges the gap between elementary and high school, offering rigorous academics alongside electives in technology, performing arts, and athletics. Students develop critical thinking skills and prepare for high school success.',
+    description: 'Grant Sawyer Middle School bridges the gap between elementary and high school, offering rigorous academics alongside electives in technology, performing arts…',
     highlights: [
       'Advanced academic tracks available',
       'Competitive sports programs',
@@ -90,8 +89,7 @@ const schools = [
     level: 'High School',
     name: 'Spring Valley High School',
     grades: '9-12',
-    description:
-      'Spring Valley High School offers comprehensive college preparatory curriculum, Advanced Placement courses, and career technical education pathways. The school has strong athletics and extracurricular programs that prepare students for higher education and career success.',
+    description: 'Spring Valley High School offers comprehensive college preparatory curriculum, Advanced Placement courses, and career technical education pathways.',
     highlights: [
       'AP and honors course offerings',
       'Career and technical education',

@@ -15,7 +15,7 @@ import { FaqSection } from '@/components/faq-section'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/privacy'
 const privacyPageDescription =
-  'Review how Dr. Jan Duffy and Berkshire Hathaway HomeServices Nevada Properties collect, use, and safeguard your information when you visit SpanishTrailHomes.com.'
+  'Review how Dr. Jan Duffy and Berkshire Hathaway HomeServices Nevada Properties collect, use, and safeguard your information when you visit…'
 
 const dataCategories = [
   {
@@ -31,7 +31,7 @@ const dataCategories = [
   {
     label: 'Technical usage data',
     description:
-      'Device identifiers, browser type, referring URLs, and on-site interactions collected via analytics tools to improve performance and measure marketing effectiveness.',
+      'Device identifiers, browser type, referring URLs, and on-site interactions collected via analytics tools to improve performance and measure marketing…',
   },
 ]
 
@@ -44,7 +44,7 @@ const dataUses = [
   {
     label: 'Coordinate client services and referrals',
     description:
-      'Information shared with Berkshire Hathaway HomeServices Nevada Properties staff, vetted escrow officers, or service partners only when required to advance your transaction.',
+      'Information shared with Berkshire Hathaway HomeServices Nevada Properties staff, vetted escrow officers, or service partners only when required to advance…',
   },
   {
     label: 'Maintain regulatory compliance',

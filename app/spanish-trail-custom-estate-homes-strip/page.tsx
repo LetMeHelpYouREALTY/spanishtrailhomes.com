@@ -16,7 +16,7 @@ import { FaqList } from '@/components/faq-section'
 const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-custom-estate-homes-strip'
 
 export const metadata: Metadata = {
-  title: 'Spanish Trail Custom Estate Homes Near the Strip | Dr. Jan Duffy',
+  title: 'Spanish Trail Custom Estates | Dr. Jan Duffy',
   description:
     'Discover custom estate homes near the Las Vegas Strip in Spanish Trail. Gated privacy, expansive lots, and personalized concierge buying with Dr. Jan Duffy.',
   alternates: {

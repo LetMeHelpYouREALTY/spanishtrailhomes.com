@@ -272,7 +272,7 @@ function OnSiteAmenitiesSection() {
           {[
             {
               title: '27-Hole Golf Course',
-              description: 'The Robert Trent Jones Jr. course consists of three nine-hole courses, each offering distinct play for all skill levels. Lakes, waterfalls, streams, and 120 bunkers create a championship experience.',
+              description: 'The Robert Trent Jones Jr. course consists of three nine-hole courses, each offering distinct play for all skill levels.',
             },
             {
               title: 'Tennis Center',

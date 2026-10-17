@@ -23,7 +23,7 @@ import { getAssetAlt, sitePhotoOg } from '@/lib/site-images'
 const pageUrl = 'https://www.spanishtrailhomes.com/neighborhoods'
 const pageTitle = 'Spanish Trail Homes | All 11 Neighborhoods | Dr. Jan Duffy'
 const pageDescription =
-  'Explore all 11 Spanish Trail neighborhoods—Estates, Estates West, Courtyards, Gardens, Links, Carmels, Springs, Plum Creek, Villas, Islands, and Innisbrook Estates. Deep expertise across every enclave with Dr. Jan Duffy.'
+  'Explore all 11 Spanish Trail neighborhoods—Estates, Estates West, Courtyards, Gardens, Links, Carmels, Springs, Plum Creek, Villas, Islands, and Innisbrook…'
 
 const neighborhoodsWebPageSchema = createWebPageSchema({
   name: pageTitle,

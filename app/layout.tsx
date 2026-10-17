@@ -40,6 +40,7 @@ import {
   GBP_MAPS_URL,
   GBP_SPECIALIST_NAME,
   GBP_STREET,
+  GBP_COUNTRY,
   SITE_PRIMARY_DESCRIPTION,
   SITE_PRIMARY_TITLE,
   SITE_SOCIAL_TITLE,
@@ -94,6 +95,14 @@ const structuredData = [
     priceRange: GBP_PRICE_RANGE,
     knowsAbout: [...GBP_KNOWS_ABOUT],
     areaServed: GBP_AREA_SERVED,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: GBP_STREET,
+      addressLocality: GBP_LOCALITY,
+      addressRegion: GBP_REGION,
+      postalCode: GBP_POSTAL,
+      addressCountry: GBP_COUNTRY,
+    },
     geo: {
       '@type': 'GeoCoordinates',
       latitude: GBP_GEO.latitude,

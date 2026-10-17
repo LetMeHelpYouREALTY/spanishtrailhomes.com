@@ -132,6 +132,17 @@ export const GBP_SAME_AS = [
   GBP_PROFILE_SHARE_URL,
 ] as const
 
+/** Person entity sameAs — brokerage profiles plus brand social (verified public URLs). */
+export const GBP_PERSON_SAME_AS = [
+  'https://www.bhhsnv.com/real-estate-agent/4986/dr-jan-duffy',
+  'https://www.bhhs.com/arizona-properties-california-properties-and-nevada-properties-nv301/las-vegas/dr-jan-duffy/cid-3042332',
+  'https://www.spanishtrailhomes.com/',
+  'https://www.facebook.com/spanishtrailhomes',
+  'https://www.instagram.com/spanishtrailhomes',
+  'https://www.youtube.com/@spanishtrailhomes',
+  GBP_MAPS_URL,
+] as const
+
 /** Geo for PostalAddress / LocalBusiness (Spanish Trail Country Club area). */
 export const GBP_GEO = {
   latitude: 36.109145,

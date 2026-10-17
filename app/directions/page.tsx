@@ -29,7 +29,7 @@ import {
 
 const pageUrl = 'https://www.spanishtrailhomes.com/directions'
 const pageDescription =
-  'Directions to Spanish Trail | Homes By Dr. Jan Duffy at 5050 Spanish Trail Ln, Las Vegas, NV 89113. Call (702) 766-3299 for guard-gate showing access from Tropicana, Rainbow, Harry Reid Airport, or the Strip.'
+  'Directions to Spanish Trail | Homes By Dr. Jan Duffy at 5050 Spanish Trail Ln, Las Vegas, NV 89113.'
 
 const faqContent = [
   {
@@ -73,7 +73,7 @@ const breadcrumbSchema = createBreadcrumbSchema([
 ])
 
 export const metadata: Metadata = {
-  title: 'Directions to Spanish Trail Homes | Las Vegas 89113 | Dr. Jan Duffy',
+  title: 'Directions to Spanish Trail | Las Vegas 89113',
   description: pageDescription,
   alternates: { canonical: getCanonicalUrl('/directions') },
   openGraph: {

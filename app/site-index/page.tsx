@@ -11,7 +11,7 @@ import { NEIGHBORHOODS } from '@/lib/neighborhoods'
 import { SectionBanner } from '@/components/heading-media'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/site-index'
-const pageTitle = 'Site Index | Spanish Trail Homes | Dr. Jan Duffy'
+const pageTitle = 'Site Index | Spanish Trail Homes'
 const pageDescription = `A–Z index of Spanish Trail realtor pages: buy, sell, listings, 11 neighborhoods, club, and contact. ${GBP_FULL_ADDRESS}. ${GBP_PHONE_DISPLAY}.`
 
 const groups: Array<{ heading: string; links: Array<{ href: string; label: string }> }> = [
