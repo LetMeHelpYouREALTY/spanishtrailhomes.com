@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Script from 'next/script'
+import { JsonLd } from '@/components/json-ld'
 
 import { SiteShell } from '@/components/site-shell'
 import { RealScoutSection } from '@/components/realscout-section'
@@ -99,14 +99,7 @@ export const metadata: Metadata = {
 export default function RelocationPage() {
   return (
     <SiteShell>
-      <Script
-        id="relocation-schema"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify([relocationWebPageSchema, relocationBreadcrumbSchema, relocationFaqSchema]),
-        }}
-      />
+      <JsonLd id="relocation-schema" data={[relocationWebPageSchema, relocationFaqSchema]} />
 
       <HeroBackground
         src={getSiteImageUrl('h2-valley-skyline')}

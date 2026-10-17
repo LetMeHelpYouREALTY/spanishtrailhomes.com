@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Script from 'next/script'
+import { JsonLd } from '@/components/json-ld'
 
 import { Button } from '@/components/ui/button'
 import { CalendlyLink } from '@/components/calendly-link'
@@ -11,7 +11,7 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { marketHighlights, neighborhoodSpotlights } from '@/lib/spanishTrailContent'
 import { marketStats } from '@/lib/marketStats'
-import { createBreadcrumbSchema, createFaqSchema, createWebPageSchema, getCanonicalUrl, localBusinessReference } from '@/lib/structuredData'
+import { createFaqSchema, createWebPageSchema, getCanonicalUrl, localBusinessReference } from '@/lib/structuredData'
 import { sitePhotoOg } from '@/lib/site-images'
 import { HeroBackground } from '@/components/hero-background'
 import { FeaturedListings } from '@/components/featured-listings'
@@ -39,10 +39,6 @@ const homeWebPageSchema = createWebPageSchema({
     about: localBusinessReference,
   },
 })
-
-const homeBreadcrumbSchema = createBreadcrumbSchema([
-  { name: 'Home', url: '/' },
-])
 
 export const metadata: Metadata = {
   title: {
@@ -224,18 +220,9 @@ export default function HomePage() {
       />
       <CTASection />
       </PropertyLightboxProvider>
-      <Script id="home-breadcrumb-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(homeBreadcrumbSchema)}
-      </Script>
-      <Script id="home-webpage-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(homeWebPageSchema)}
-      </Script>
-      <Script id="home-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(homeFaqSchema)}
-      </Script>
-      <Script id="home-resource-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(homeResourceSchema)}
-      </Script>
+      <JsonLd id="home-webpage-schema" data={homeWebPageSchema} />
+      <JsonLd id="home-faq-schema" data={homeFaqSchema} />
+      <JsonLd id="home-resource-schema" data={homeResourceSchema} />
     </SiteShell>
   )
 }

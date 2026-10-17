@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Script from 'next/script'
+import { JsonLd } from '@/components/json-ld'
 
 import { SiteShell } from '@/components/site-shell'
 import { Breadcrumbs } from '@/components/breadcrumbs'
@@ -69,80 +69,6 @@ const aboutWebPageSchema = createWebPageSchema({
     about: personReference,
   },
 })
-
-const aboutPersonSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  ...personReference,
-  name: 'Dr. Jan Duffy',
-  honorificPrefix: 'Dr.',
-  givenName: 'Jan',
-  familyName: 'Duffy',
-  image: getAgentPortraitAbsoluteUrl('duffy-circle-about'),
-  jobTitle: 'REALTOR® | Berkshire Hathaway HomeServices Nevada Properties',
-  email: GBP_EMAIL,
-  telephone: GBP_PHONE_E164,
-  areaServed: [
-    {
-      '@type': 'Place',
-      name: 'Spanish Trail, Las Vegas, NV 89113',
-    },
-    {
-      '@type': 'Place',
-      name: 'Southwest Las Vegas, Nevada',
-    },
-  ],
-  worksFor: {
-    '@type': 'Organization',
-    ...organizationReference,
-    name: 'Berkshire Hathaway HomeServices Nevada Properties',
-  },
-  memberOf: [
-    {
-      '@type': 'Organization',
-      name: 'Las Vegas REALTORS®',
-    },
-    {
-      '@type': 'Organization',
-      name: 'Institute for Luxury Home Marketing',
-    },
-    {
-      '@type': 'Organization',
-      name: 'National Association of REALTORS®',
-    },
-  ],
-  hasCredential: [
-    {
-      '@type': 'EducationalOccupationalCredential',
-      credentialCategory: 'degree',
-      name: 'Ph.D. in Market Research & Consumer Behavior',
-    },
-    {
-      '@type': 'EducationalOccupationalCredential',
-      credentialCategory: 'certification',
-      name: 'Certified Luxury Home Marketing Specialist (CLHMS)',
-    },
-  ],
-  knowsAbout: [
-    ...GBP_KNOWS_ABOUT,
-    'Buyer Psychology',
-    'Luxury Real Estate Marketing',
-    'Real Estate Negotiation',
-    'Market Research',
-  ],
-  award: [
-    '2025 Berkshire Hathaway HomeServices Luxury Golf Homes',
-    '2024 Las Vegas REALTORS® Top 25 Luxury Producer',
-    '2023 RealScout Spanish Trail Market Expert',
-  ],
-  sameAs: [
-    'https://www.facebook.com/spanishtrailhomes',
-    'https://www.instagram.com/spanishtrailhomes',
-    'https://www.linkedin.com/company/spanishtrailhomes',
-    'https://www.youtube.com/@spanishtrailhomes',
-  ],
-  description: 'Dr. Jan Duffy specializes exclusively in Spanish Trail, a guard-gated golf community in Las Vegas, Nevada. With deep expertise across all 11 neighborhoods and over 1,200 homes, Dr. Duffy provides precise market data, neighborhood-level pricing insights, and personalized guidance for buyers and sellers.',
-}
 
 const approachPillars = [
   {
@@ -218,15 +144,8 @@ export default function AboutPage() {
       <CommunitySection />
       <AboutFAQSection />
       <CTASection />
-      <Script id="about-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(aboutFaqSchema)}
-      </Script>
-      <Script id="about-webpage-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(aboutWebPageSchema)}
-      </Script>
-      <Script id="about-agent-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(aboutPersonSchema)}
-      </Script>
+      <JsonLd id="about-faq-schema" data={aboutFaqSchema} />
+      <JsonLd id="about-webpage-schema" data={aboutWebPageSchema} />
     </SiteShell>
   )
 }

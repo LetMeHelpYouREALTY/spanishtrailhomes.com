@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Script from 'next/script'
+import { JsonLd } from '@/components/json-ld'
 
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { SiteShell } from '@/components/site-shell'
@@ -200,9 +200,7 @@ export default function LuxuryNeighborhoodComparisonsPage() {
       <SpanishTrailPositioningSection />
       <LuxuryNeighborhoodsFAQSection />
       <LuxuryCTASection />
-      <Script id="luxury-neighborhoods-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(luxuryNeighborhoodsFaqSchema)}
-      </Script>
+      <JsonLd id="luxury-neighborhoods-faq-schema" data={luxuryNeighborhoodsFaqSchema} />
     </SiteShell>
   )
 }

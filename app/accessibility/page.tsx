@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Script from 'next/script'
+import { JsonLd } from '@/components/json-ld'
 
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { SiteShell } from '@/components/site-shell'
@@ -117,15 +117,9 @@ export default function AccessibilityPage() {
       <OngoingImprovementsSection />
       <GbpFaqList headingId="accessibility-faq-heading" title="Accessibility FAQ" items={accessibilityFaq} />
       <ContactSection />
-      <Script id="accessibility-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(accessibilitySchema)}
-      </Script>
-      <Script id="accessibility-webpage-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(accessibilityWebPageSchema)}
-      </Script>
-      <Script id="accessibility-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(createFaqPageSchema(accessibilityFaq))}
-      </Script>
+      <JsonLd id="accessibility-schema" data={accessibilitySchema} />
+      <JsonLd id="accessibility-webpage-schema" data={accessibilityWebPageSchema} />
+      <JsonLd id="accessibility-faq-schema" data={createFaqPageSchema(accessibilityFaq)} />
     </SiteShell>
   )
 }

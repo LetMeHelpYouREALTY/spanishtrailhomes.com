@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Script from 'next/script'
+import { JsonLd } from '@/components/json-ld'
 
 import React, { createElement } from 'react'
 import type { HTMLAttributes } from 'react'
@@ -153,12 +153,8 @@ export default function SellersPage() {
         <ClubAndLifestylePositioningSection />
         <FAQSection />
         <CallToActionSection />
-        <Script id="sellers-webpage-schema" type="application/ld+json" strategy="afterInteractive">
-          {JSON.stringify(sellersWebPageSchema)}
-        </Script>
-        <Script id="sellers-faq-schema" type="application/ld+json" strategy="afterInteractive">
-          {JSON.stringify(faqSchema)}
-        </Script>
+        <JsonLd id="sellers-webpage-schema" data={sellersWebPageSchema} />
+        <JsonLd id="sellers-faq-schema" data={faqSchema} />
       </main>
     </SiteShell>
   )

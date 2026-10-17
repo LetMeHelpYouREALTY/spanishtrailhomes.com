@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Script from 'next/script'
+import { JsonLd } from '@/components/json-ld'
 
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { CalendlyLink } from '@/components/calendly-link'
@@ -139,12 +139,8 @@ export default function BuyersPage() {
       <OfferAndClosingSection />
       <FAQSection />
       <BuyerCTASection />
-      <Script id="buyers-webpage-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(buyersWebPageSchema)}
-      </Script>
-      <Script id="buyers-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(faqSchema)}
-      </Script>
+      <JsonLd id="buyers-webpage-schema" data={buyersWebPageSchema} />
+      <JsonLd id="buyers-faq-schema" data={faqSchema} />
     </SiteShell>
   )
 }

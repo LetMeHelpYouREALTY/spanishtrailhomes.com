@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Script from 'next/script'
+import { JsonLd } from '@/components/json-ld'
 
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { RealScoutSection } from '@/components/realscout-section'
@@ -172,15 +172,8 @@ export default function SpanishTrailInsightsPage() {
       <AdvisoryServicesSection />
       <InsightsFAQSection />
       <InsightsCTASection />
-      <Script id="insights-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(insightsFaqSchema)}
-      </Script>
-      <Script id="insights-article-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(insightsArticleSchema)}
-      </Script>
-      <Script id="insights-breadcrumb-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(insightsBreadcrumbSchema)}
-      </Script>
+      <JsonLd id="insights-faq-schema" data={insightsFaqSchema} />
+      <JsonLd id="insights-article-schema" data={insightsArticleSchema} />
     </SiteShell>
   )
 }

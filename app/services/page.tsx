@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Script from 'next/script'
+import { JsonLd } from '@/components/json-ld'
 
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { CalendlyLink } from '@/components/calendly-link'
@@ -144,12 +144,8 @@ export default function ServicesPage() {
       <CommunityFocusSection />
       <FAQSection />
       <CTASection />
-      <Script id="services-webpage-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(servicesWebPageSchema)}
-      </Script>
-      <Script id="services-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(faqSchema)}
-      </Script>
+      <JsonLd id="services-webpage-schema" data={servicesWebPageSchema} />
+      <JsonLd id="services-faq-schema" data={faqSchema} />
     </SiteShell>
   )
 }

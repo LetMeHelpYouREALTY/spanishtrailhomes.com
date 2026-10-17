@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Script from 'next/script'
+import { JsonLd } from '@/components/json-ld'
 
 import { SiteShell } from '@/components/site-shell'
 import { CalendlyInline } from '@/components/calendly-inline'
@@ -173,12 +173,8 @@ export default function MembershipPage() {
       <YoungExecutiveSection />
       <InquirySection />
       <MembershipFAQSection />
-      <Script id="membership-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(membershipFaqSchema)}
-      </Script>
-      <Script id="membership-webpage-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(membershipWebPageSchema)}
-      </Script>
+      <JsonLd id="membership-faq-schema" data={membershipFaqSchema} />
+      <JsonLd id="membership-webpage-schema" data={membershipWebPageSchema} />
     </SiteShell>
   )
 }

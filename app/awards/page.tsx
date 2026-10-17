@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Script from 'next/script'
+import { JsonLd } from '@/components/json-ld'
 
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { SiteShell } from '@/components/site-shell'
@@ -207,18 +207,10 @@ export default function AwardsPage() {
       <ClientImpactSection />
       <GbpFaqList headingId="awards-faq-heading" title="Awards FAQ for Spanish Trail buyers and sellers" items={awardsFaq} />
       <AdvisoryCTASection />
-      <Script id="awards-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(createFaqPageSchema(awardsFaq))}
-      </Script>
-      <Script id="awards-recognition-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(awardsSchema)}
-      </Script>
-      <Script id="jan-duffy-profile-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(professionalProfileSchema)}
-      </Script>
-      <Script id="awards-webpage-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(awardsWebPageSchema)}
-      </Script>
+      <JsonLd id="awards-faq-schema" data={createFaqPageSchema(awardsFaq)} />
+      <JsonLd id="awards-recognition-schema" data={awardsSchema} />
+      <JsonLd id="jan-duffy-profile-schema" data={professionalProfileSchema} />
+      <JsonLd id="awards-webpage-schema" data={awardsWebPageSchema} />
     </SiteShell>
   )
 }

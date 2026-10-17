@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Script from 'next/script'
+import { JsonLd } from '@/components/json-ld'
 
 import { SiteShell } from '@/components/site-shell'
 import { RealScoutSection } from '@/components/realscout-section'
@@ -100,17 +100,9 @@ const neighborhoodsFaq = [
 export default function NeighborhoodsHubPage() {
   return (
     <SiteShell>
-      <Script
+      <JsonLd
         id="neighborhoods-schema"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify([
-            neighborhoodsWebPageSchema,
-            neighborhoodsBreadcrumbSchema,
-            createFaqPageSchema(neighborhoodsFaq),
-          ]),
-        }}
+        data={[neighborhoodsWebPageSchema, createFaqPageSchema(neighborhoodsFaq)]}
       />
 
       <HeroBackground

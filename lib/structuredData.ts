@@ -25,6 +25,7 @@ import {
   GBP_GEO,
   GBP_KNOWS_ABOUT,
   GBP_LOCALITY,
+  GBP_LICENSE,
   GBP_PHONE_E164,
   GBP_POSTAL,
   GBP_REGION,
@@ -221,22 +222,58 @@ export const createPersonSchema = () => ({
     getAbsoluteSiteImageUrl('duffy-circle-about'),
     getAbsoluteSiteImageUrl('duffy-circle-contact-call'),
   ],
-  jobTitle: 'Real Estate Agent',
+  jobTitle: 'REALTOR® | Berkshire Hathaway HomeServices Nevada Properties',
+  description:
+    'Dr. Jan Duffy specializes exclusively in Spanish Trail, a guard-gated golf community in Las Vegas, Nevada, with neighborhood-level pricing and buyer/seller guidance.',
+  identifier: {
+    '@type': 'PropertyValue',
+    name: 'Nevada real estate license',
+    value: GBP_LICENSE,
+  },
   worksFor: {
     '@type': 'Organization',
     '@id': organizationId,
     name: 'Berkshire Hathaway HomeServices Nevada Properties',
     url: 'https://www.bhhsnv.com',
   },
-  knowsAbout: [...GBP_KNOWS_ABOUT],
-  areaServed: {
-    '@type': 'Place',
-    name: 'Spanish Trail, Las Vegas, NV 89113',
-  },
+  memberOf: [
+    { '@type': 'Organization', name: 'Las Vegas REALTORS®' },
+    { '@type': 'Organization', name: 'Institute for Luxury Home Marketing' },
+    { '@type': 'Organization', name: 'National Association of REALTORS®' },
+  ],
+  hasCredential: [
+    {
+      '@type': 'EducationalOccupationalCredential',
+      credentialCategory: 'degree',
+      name: 'Ph.D. in Market Research & Consumer Behavior',
+    },
+    {
+      '@type': 'EducationalOccupationalCredential',
+      credentialCategory: 'certification',
+      name: 'Certified Luxury Home Marketing Specialist (CLHMS)',
+    },
+  ],
+  award: [
+    '2025 Berkshire Hathaway HomeServices Luxury Golf Homes',
+    '2024 Las Vegas REALTORS® Top 25 Luxury Producer',
+    '2023 RealScout Spanish Trail Market Expert',
+  ],
+  knowsAbout: [
+    ...GBP_KNOWS_ABOUT,
+    'Buyer Psychology',
+    'Luxury Real Estate Marketing',
+    'Real Estate Negotiation',
+    'Market Research',
+  ],
+  areaServed: [
+    { '@type': 'Place', name: 'Spanish Trail, Las Vegas, NV 89113' },
+    { '@type': 'Place', name: 'Southwest Las Vegas, Nevada' },
+  ],
   sameAs: [
     'https://www.linkedin.com/company/spanishtrailhomes',
     'https://www.facebook.com/spanishtrailhomes',
     'https://www.instagram.com/spanishtrailhomes',
+    'https://www.youtube.com/@spanishtrailhomes',
   ],
 })
 

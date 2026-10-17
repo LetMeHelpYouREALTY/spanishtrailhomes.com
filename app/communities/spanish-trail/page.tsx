@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Script from 'next/script'
+import { JsonLd } from '@/components/json-ld'
 
 import { Button } from '@/components/ui/button'
 import { SiteShell } from '@/components/site-shell'
@@ -217,13 +217,9 @@ export default function SpanishTrailCommunityPage() {
       <DiningAndShoppingSection />
       <HOASection />
       <CommunityFAQSection />
-      <Script id="community-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(communityFaqSchema)}
-      </Script>
+      <JsonLd id="community-faq-schema" data={communityFaqSchema} />
       <ContactSection />
-      <Script id="community-webpage-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(communityWebPageSchema)}
-      </Script>
+      <JsonLd id="community-webpage-schema" data={communityWebPageSchema} />
     </SiteShell>
   )
 }

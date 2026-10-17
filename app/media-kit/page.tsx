@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Script from 'next/script'
+import { JsonLd } from '@/components/json-ld'
 
 import { SiteShell } from '@/components/site-shell'
 import { Breadcrumbs } from '@/components/breadcrumbs'
@@ -110,17 +110,9 @@ const mediaKitFaq = [
 export default function MediaKitPage() {
   return (
     <SiteShell>
-      <Script
+      <JsonLd
         id="media-kit-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify([
-            mediaKitWebPageSchema,
-            mediaKitBreadcrumbSchema,
-            agentSchema,
-            createFaqPageSchema(mediaKitFaq),
-          ]),
-        }}
+        data={[mediaKitWebPageSchema, agentSchema, createFaqPageSchema(mediaKitFaq)]}
       />
 
       <HeroBackground

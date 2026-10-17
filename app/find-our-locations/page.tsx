@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Script from 'next/script'
+import { JsonLd } from '@/components/json-ld'
 
 import { SiteShell } from '@/components/site-shell'
 import { RealScoutSection } from '@/components/realscout-section'
@@ -87,9 +87,7 @@ export const metadata: Metadata = {
 export default function FindOurLocationsPage() {
   return (
     <SiteShell showVisitOffice={false}>
-      <Script id="find-our-locations-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify([webPageSchema, breadcrumbSchema, createFaqPageSchema(faqContent)])}
-      </Script>
+      <JsonLd id="find-our-locations-schema" data={[webPageSchema, createFaqPageSchema(faqContent)]} />
 
       <Breadcrumbs
         items={[

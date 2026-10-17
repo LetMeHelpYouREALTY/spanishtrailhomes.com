@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Script from 'next/script'
+import { JsonLd } from '@/components/json-ld'
 
 import { SiteShell } from '@/components/site-shell'
 import { amenities, testimonials } from '@/lib/content'
@@ -169,16 +169,10 @@ export default function ClubPage() {
       <AmenitiesHighlights />
       <LifestyleSection />
       <ClubFAQSection />
-      <Script id="club-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(clubFaqSchema)}
-      </Script>
+      <JsonLd id="club-faq-schema" data={clubFaqSchema} />
       <TestimonialsHighlight />
-      <Script id="club-testimonials-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(clubReviewsSchema)}
-      </Script>
-      <Script id="club-webpage-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(clubWebPageSchema)}
-      </Script>
+      <JsonLd id="club-testimonials-schema" data={clubReviewsSchema} />
+      <JsonLd id="club-webpage-schema" data={clubWebPageSchema} />
     </SiteShell>
   )
 }

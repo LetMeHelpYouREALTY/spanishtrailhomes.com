@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Script from 'next/script'
+import { JsonLd } from '@/components/json-ld'
 
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
@@ -151,12 +151,8 @@ export default function GuestInfoPage() {
       <LocalEssentialsSection />
       <ContactSection />
       <GuestFAQSection />
-      <Script id="guest-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(guestFaqSchema)}
-      </Script>
-      <Script id="guest-info-webpage-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(guestInfoWebPageSchema)}
-      </Script>
+      <JsonLd id="guest-faq-schema" data={guestFaqSchema} />
+      <JsonLd id="guest-info-webpage-schema" data={guestInfoWebPageSchema} />
     </SiteShell>
   )
 }

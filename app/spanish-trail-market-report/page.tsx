@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Script from 'next/script'
+import { JsonLd } from '@/components/json-ld'
 
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { RealScoutSection } from '@/components/realscout-section'
@@ -169,12 +169,8 @@ export default function SpanishTrailMarketReportPage() {
       <FeaturedListingsSection />
       <MarketReportFAQSection />
       <ReportingCTASection />
-      <Script id="market-report-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(marketReportFaqSchema)}
-      </Script>
-      <Script id="featured-listings-structured-data" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(featuredListingsSchema)}
-      </Script>
+      <JsonLd id="market-report-faq-schema" data={marketReportFaqSchema} />
+      <JsonLd id="featured-listings-structured-data" data={featuredListingsSchema} />
     </SiteShell>
   )
 }

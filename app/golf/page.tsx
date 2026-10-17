@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import Script from 'next/script'
+import { JsonLd } from '@/components/json-ld'
 
 import { SiteShell } from '@/components/site-shell'
 import { golfCourses } from '@/lib/content'
@@ -182,12 +182,8 @@ export default function GolfPage() {
       <ScorecardSection />
       <GuestInformation />
       <GolfFAQSection />
-      <Script id="golf-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(golfFaqSchema)}
-      </Script>
-      <Script id="golf-webpage-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(golfWebPageSchema)}
-      </Script>
+      <JsonLd id="golf-faq-schema" data={golfFaqSchema} />
+      <JsonLd id="golf-webpage-schema" data={golfWebPageSchema} />
     </SiteShell>
   )
 }

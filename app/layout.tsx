@@ -192,7 +192,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: SITE_PRIMARY_TITLE,
-    template: '%s | Spanish Trail Homes',
+    template: '%s',
   },
   description: rootDefaultDescription,
   other: {

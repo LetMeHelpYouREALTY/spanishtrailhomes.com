@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Script from 'next/script'
+import { JsonLd } from '@/components/json-ld'
 
 import { SiteShell } from '@/components/site-shell'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
@@ -114,12 +114,8 @@ export default function SpanishTrailFitnessPage() {
       <WellnessSection />
       <FAQSection />
       <CTASection />
-      <Script id="fitness-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(faqSchema)}
-      </Script>
-      <Script id="fitness-webpage-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(webPageSchema)}
-      </Script>
+      <JsonLd id="fitness-faq-schema" data={faqSchema} />
+      <JsonLd id="fitness-webpage-schema" data={webPageSchema} />
     </SiteShell>
   )
 }

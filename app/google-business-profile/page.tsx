@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Script from 'next/script'
+import { JsonLd } from '@/components/json-ld'
 
 import { SiteShell } from '@/components/site-shell'
 import { RealScoutSection } from '@/components/realscout-section'
@@ -121,9 +121,7 @@ const gbpFaqs = [
 export default function GoogleBusinessProfilePage() {
   return (
     <SiteShell showVisitOffice={false}>
-      <Script id="gbp-page-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify([webPageSchema, gbpBreadcrumbSchema, createFaqPageSchema(gbpFaqs)])}
-      </Script>
+      <JsonLd id="gbp-page-schema" data={[webPageSchema, createFaqPageSchema(gbpFaqs)]} />
 
       <Breadcrumbs
         items={[

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Script from 'next/script'
+import { JsonLd } from '@/components/json-ld'
 
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { SiteShell } from '@/components/site-shell'
@@ -154,15 +154,9 @@ export default function PrivacyPage() {
         tone="white"
       />
       <ContactSection />
-      <Script id="privacy-policy-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(privacySchema)}
-      </Script>
-      <Script id="privacy-webpage-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(privacyWebPageSchema)}
-      </Script>
-      <Script id="privacy-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(privacyFaqSchema)}
-      </Script>
+      <JsonLd id="privacy-policy-schema" data={privacySchema} />
+      <JsonLd id="privacy-webpage-schema" data={privacyWebPageSchema} />
+      <JsonLd id="privacy-faq-schema" data={privacyFaqSchema} />
     </SiteShell>
   )
 }

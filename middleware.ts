@@ -15,19 +15,7 @@ export function middleware(request: NextRequest) {
 
   // Remove query parameters that create duplicate content
   // Common culprits: date, timestamp, utm_*, ref, source, etc.
-  const paramsToRemove = [
-    'date',
-    'timestamp',
-    'ref',
-    'source',
-    'utm_source',
-    'utm_medium',
-    'utm_campaign',
-    'utm_term',
-    'utm_content',
-    'fbclid',
-    'gclid',
-  ]
+  const paramsToRemove = ['date', 'timestamp', 'ref', 'source']
 
   let hasRemovedParams = false
   paramsToRemove.forEach((param) => {

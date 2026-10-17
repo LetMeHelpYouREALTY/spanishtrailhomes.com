@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { headers } from 'next/headers'
 
+import { safeJsonLdStringify } from '@/components/json-ld'
 import { createBreadcrumbSchema } from '@/lib/structuredData'
 
 type BreadcrumbItem = {
@@ -11,10 +12,6 @@ type BreadcrumbItem = {
 type BreadcrumbsProps = {
   items: BreadcrumbItem[]
   className?: string
-}
-
-function safeJsonLdStringify(value: unknown): string {
-  return JSON.stringify(value).replace(/</g, '\\u003c')
 }
 
 export async function Breadcrumbs({ items, className }: BreadcrumbsProps) {

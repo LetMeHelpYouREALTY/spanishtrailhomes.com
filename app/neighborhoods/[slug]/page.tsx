@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Script from 'next/script'
+import { JsonLd } from '@/components/json-ld'
 import { notFound } from 'next/navigation'
 
 import { SiteShell } from '@/components/site-shell'
@@ -104,14 +104,7 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
 
   return (
     <SiteShell>
-      <Script
-        id={`neighborhood-${slug}-schema`}
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify([neighborhoodWebPageSchema, neighborhoodBreadcrumbSchema, faqSchema]),
-        }}
-      />
+      <JsonLd id={`neighborhood-${slug}-schema`} data={[neighborhoodWebPageSchema, faqSchema]} />
 
       <HeroBackground
         src={getSiteImageUrl(NEIGHBORHOOD_CARD_IMAGES[slug] ?? DEFAULT_H1_IMAGE)}

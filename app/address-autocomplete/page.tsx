@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Script from 'next/script'
+import { JsonLd } from '@/components/json-ld'
 
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
@@ -95,9 +95,7 @@ export const metadata: Metadata = {
 export default function AddressAutocompletePage() {
   return (
     <SiteShell showVisitOffice={false}>
-      <Script id="address-autocomplete-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify([webPageSchema, breadcrumbSchema, createFaqPageSchema(faqContent)])}
-      </Script>
+      <JsonLd id="address-autocomplete-schema" data={[webPageSchema, createFaqPageSchema(faqContent)]} />
 
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6">

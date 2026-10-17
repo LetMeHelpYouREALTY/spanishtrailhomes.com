@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Script from 'next/script'
+import { JsonLd } from '@/components/json-ld'
 
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { SiteShell } from '@/components/site-shell'
@@ -114,15 +114,9 @@ export default function TermsPage() {
         tone="white"
       />
       <ContactSection />
-      <Script id="terms-of-use-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(termsSchema)}
-      </Script>
-      <Script id="terms-webpage-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(termsWebPageSchema)}
-      </Script>
-      <Script id="terms-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(termsFaqSchema)}
-      </Script>
+      <JsonLd id="terms-of-use-schema" data={termsSchema} />
+      <JsonLd id="terms-webpage-schema" data={termsWebPageSchema} />
+      <JsonLd id="terms-faq-schema" data={termsFaqSchema} />
     </SiteShell>
   )
 }

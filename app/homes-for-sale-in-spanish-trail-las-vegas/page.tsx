@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Script from 'next/script'
+import { JsonLd } from '@/components/json-ld'
 
 import { SiteShell } from '@/components/site-shell'
 import { RealScoutSection } from '@/components/realscout-section'
@@ -147,12 +147,8 @@ export default function HomesForSaleInSpanishTrailLasVegasPage() {
       <BuyingProcessSection />
       <HomesForSaleFAQSection />
       <CTASection />
-      <Script id="homes-for-sale-webpage-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(webPageSchema)}
-      </Script>
-      <Script id="homes-for-sale-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(homesForSaleFaqSchema)}
-      </Script>
+      <JsonLd id="homes-for-sale-webpage-schema" data={webPageSchema} />
+      <JsonLd id="homes-for-sale-faq-schema" data={homesForSaleFaqSchema} />
     </SiteShell>
   )
 }

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import Script from 'next/script'
+import { JsonLd } from '@/components/json-ld'
 
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
@@ -152,12 +152,8 @@ export default function EventsPage() {
       <GolfOutingsSection />
       <ContactSection />
       <EventsFAQSection />
-      <Script id="events-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(eventsFaqSchema)}
-      </Script>
-      <Script id="events-webpage-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(eventsWebPageSchema)}
-      </Script>
+      <JsonLd id="events-faq-schema" data={eventsFaqSchema} />
+      <JsonLd id="events-webpage-schema" data={eventsWebPageSchema} />
     </SiteShell>
   )
 }

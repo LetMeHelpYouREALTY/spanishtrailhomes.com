@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Script from 'next/script'
+import { JsonLd } from '@/components/json-ld'
 
 import { cn } from '@/lib/utils'
 import {
@@ -83,13 +83,10 @@ export function AgentPortrait({
         </figcaption>
       ) : null}
       {schema ? (
-        <Script
+        <JsonLd
           id={`agent-portrait-schema-${portrait.id}-${placement}`}
-          type="application/ld+json"
-          strategy="afterInteractive"
-        >
-          {JSON.stringify(createAgentImageObjectSchema(id ?? placement, pagePath))}
-        </Script>
+          data={createAgentImageObjectSchema(id ?? placement, pagePath)}
+        />
       ) : null}
     </figure>
   )

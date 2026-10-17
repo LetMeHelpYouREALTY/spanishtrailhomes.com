@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import Script from 'next/script'
+import { JsonLd } from '@/components/json-ld'
 
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
@@ -136,13 +136,7 @@ const reviewFaq = [
 export default function ReviewsPage() {
   return (
     <SiteShell>
-      <Script
-        id="reviews-schema"
-        type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {JSON.stringify([webPageSchema, createFaqPageSchema(reviewFaq)])}
-      </Script>
+      <JsonLd id="reviews-schema" data={[webPageSchema, createFaqPageSchema(reviewFaq)]} />
 
       <Breadcrumbs
         items={[

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Script from 'next/script'
+import { JsonLd } from '@/components/json-ld'
 
 import { SiteShell } from '@/components/site-shell'
 import { Button } from '@/components/ui/button'
@@ -25,7 +25,7 @@ import { FaqList } from '@/components/faq-section'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/contact'
 const contactPageDescription =
-  `Spanish Trail luxury homes in Las Vegas. Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties—Spanish Trail specialist. Guard-gated golf community, custom estates & villas. Median ${formatMedianPrice(marketStats.median_price)} (${marketStats.date_label}). Call/text (702) 766-3299.`
+  'Contact Dr. Jan Duffy for Spanish Trail listings in Las Vegas 89113. Call or text (702) 766-3299, email DrDuffySells@SpanishTrailHomes.com, or book a consultation online. Hours: Sun–Sat 8 AM–8 PM.'
 
 const contactWebPageSchema = createWebPageSchema({
   name: 'Contact Dr. Jan Duffy | Spanish Trail Homes Realtor',
@@ -149,12 +149,8 @@ export default function ContactPage() {
       <ContactCTASection />
       <GBPIntegrationSection />
       <FAQSection />
-      <Script id="contact-webpage-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(contactWebPageSchema)}
-      </Script>
-      <Script id="contact-faq-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify(contactFaqSchema)}
-      </Script>
+      <JsonLd id="contact-webpage-schema" data={contactWebPageSchema} />
+      <JsonLd id="contact-faq-schema" data={contactFaqSchema} />
     </SiteShell>
   )
 }
