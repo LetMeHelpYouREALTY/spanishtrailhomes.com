@@ -365,6 +365,7 @@ gtag('config', 'G-X68WWN997N', {
             </Script>
           )}
         </ThemeProvider>
+        <Script src="/ads-conversions.js" strategy="afterInteractive" />
       </body>
     </html>
   )
