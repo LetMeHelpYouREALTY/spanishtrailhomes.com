@@ -3,15 +3,14 @@ import type { NextRequest } from 'next/server'
 
 export function middleware(request: NextRequest) {
   const url = request.nextUrl.clone()
-  const hostname = request.headers.get('host') || ''
   const pathname = url.pathname
   const searchParams = url.searchParams
 
-  // Redirect non-www to www (canonical domain)
-  if (hostname === 'spanishtrailhomes.com') {
-    const wwwUrl = new URL(`https://www.spanishtrailhomes.com${pathname}${url.search}`)
-    return NextResponse.redirect(wwwUrl, 301)
-  }
+  // Do not redirect apex → www here. Vercel’s production-domain redirect and/or
+  // Cloudflare forwarding already canonicalize the host; an extra apex→www 301 in
+  // middleware causes ERR_TOO_MANY_REDIRECTS when the edge and app disagree (e.g.
+  // www→apex at Vercel plus apex→www here). Keep www as canonical in DNS/Page Rules
+  // and set www.spanishtrailhomes.com as the Vercel production primary domain.
 
   // Remove query parameters that create duplicate content
   // Common culprits: date, timestamp, utm_*, ref, source, etc.
