@@ -6,9 +6,8 @@ import { Calendar } from 'lucide-react'
 import { Dialog, DialogContent } from '@/components/ui/dialog'
 import { cn } from '@/lib/utils'
 import { trackCalendlyFabView, trackCalendlyFabClick } from '@/lib/analytics'
+import { calendlyUrlFor } from '@/lib/calendly'
 
-const CALENDLY_URL =
-  'https://calendly.com/drjanduffy/listing-consultation?utm_source=spanishtrailhomes.com&utm_medium=website&utm_content=floating-button'
 const SCROLL_SHOW_PX = 300
 const BOTTOM_HIDE_PX = 200
 /** Set to 'true' via Calendly success redirect or postMessage to hide FAB after booking */
@@ -24,6 +23,7 @@ function getScrollPercentage(): number {
 
 export function FloatingCalendlyButton() {
   const pathname = usePathname()
+  const calendlyUrl = calendlyUrlFor(pathname || '/', 'floating-button')
   const [visible, setVisible] = useState(false)
   const [modalOpen, setModalOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
@@ -130,7 +130,7 @@ export function FloatingCalendlyButton() {
           <div className="flex h-full w-full overflow-hidden rounded-lg">
             <iframe
               title="Schedule a Spanish Trail showing with Dr. Jan Duffy"
-              src={`${CALENDLY_URL}?embed_domain=${typeof window !== 'undefined' ? window.location.hostname : 'spanishtrailhomes.com'}`}
+              src={`${calendlyUrl}&embed_domain=${typeof window !== 'undefined' ? window.location.hostname : 'spanishtrailhomes.com'}`}
               className="h-full w-full min-h-[500px] border-0"
             />
           </div>

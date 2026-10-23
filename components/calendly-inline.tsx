@@ -1,8 +1,8 @@
 'use client'
 
+import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
-
-const CALENDLY_URL = 'https://calendly.com/drjanduffy/showing'
+import { calendlyUrlFor } from '@/lib/calendly'
 
 type CalendlyInlineProps = {
   /** Minimum width in pixels (default 320) */
@@ -18,6 +18,7 @@ export function CalendlyInline({
   className = '',
 }: CalendlyInlineProps) {
   const containerRef = useRef<HTMLDivElement>(null)
+  const CALENDLY_URL = calendlyUrlFor(usePathname() || '/', 'inline')
   const [showPlaceholder, setShowPlaceholder] = useState(true)
 
   useEffect(() => {

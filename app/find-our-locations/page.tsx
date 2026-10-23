@@ -4,6 +4,7 @@ import { JsonLd } from '@/components/json-ld'
 
 import { SiteShell } from '@/components/site-shell'
 import { RealScoutSection } from '@/components/realscout-section'
+import { CalendlyAfterListings } from '@/components/calendly-after-listings'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { SectionBanner } from '@/components/heading-media'
 import { GbpLocalActions } from '@/components/gbp-local-actions'
@@ -121,6 +122,7 @@ export default function FindOurLocationsPage() {
       </section>
 
       <RealScoutSection id="bhhs-listings" />
+      <CalendlyAfterListings />
 
       <section className="bg-white py-16 sm:py-20" aria-labelledby="choose-locations-heading">
         <SectionBanner headingId="choose-locations-heading" />

@@ -9,6 +9,7 @@ import { CardVisual, SectionBanner } from '@/components/heading-media'
 import { GbpLocalActions } from '@/components/gbp-local-actions'
 import { GoogleMapEmbed } from '@/components/google-map-embed'
 import { RealScoutSection } from '@/components/realscout-section'
+import { CalendlyAfterListings } from '@/components/calendly-after-listings'
 import {
   createBreadcrumbSchema,
   createFaqPageSchema,
@@ -136,6 +137,7 @@ export default function AddressAutocompletePage() {
         title="Filter Spanish Trail listings by street and price"
         description="Start from inventory, then text Dr. Duffy the address you want opened at the gate."
       />
+      <CalendlyAfterListings />
 
       <section className="bg-white py-16 sm:py-20" aria-labelledby="how-it-works-heading">
         <SectionBanner headingId="how-it-works-heading" />

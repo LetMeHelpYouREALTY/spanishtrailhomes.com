@@ -8,6 +8,7 @@ import { AgentPortrait } from '@/components/agent-portrait'
 import { CalendlyInline } from '@/components/calendly-inline'
 import { CalendlyLink } from '@/components/calendly-link'
 import { RealScoutSection } from '@/components/realscout-section'
+import { CalendlyAfterListings } from '@/components/calendly-after-listings'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { createWebPageSchema, getCanonicalUrl } from '@/lib/structuredData'
@@ -131,6 +132,7 @@ export default function ContactPage() {
         title="See Live Spanish Trail Inventory"
         description="Advanced filters help you pinpoint Spanish Trail homes by fairway views, secondary gates, and villa layouts."
       />
+      <CalendlyAfterListings />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
           <Breadcrumbs

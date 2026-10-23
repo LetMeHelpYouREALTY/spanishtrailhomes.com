@@ -4,6 +4,7 @@ import { JsonLd } from '@/components/json-ld'
 
 import { SiteShell } from '@/components/site-shell'
 import { RealScoutSection } from '@/components/realscout-section'
+import { CalendlyAfterListings } from '@/components/calendly-after-listings'
 import { Button } from '@/components/ui/button'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import {
@@ -132,6 +133,7 @@ export default function GoogleBusinessProfilePage() {
 
       <HeroSection />
       <RealScoutSection id="bhhs-listings" />
+      <CalendlyAfterListings />
       <BusinessInfoSection />
       <ProfileFeaturesSection features={profileFeatures} />
       <ReviewsHighlightSection />

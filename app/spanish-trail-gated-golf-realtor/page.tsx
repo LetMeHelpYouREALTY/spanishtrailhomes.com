@@ -4,6 +4,7 @@ import { JsonLd } from '@/components/json-ld'
 
 import { SiteShell } from '@/components/site-shell'
 import { RealScoutSection } from '@/components/realscout-section'
+import { CalendlyAfterListings } from '@/components/calendly-after-listings'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
@@ -96,6 +97,7 @@ export default function SpanishTrailGatedGolfRealtorPage() {
         priceMin="700000"
         propertyTypes=",SFR,CONDO"
       />
+      <CalendlyAfterListings />
       <div className="bg-[#f8f2e7]">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs

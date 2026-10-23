@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation'
 
 import { SiteShell } from '@/components/site-shell'
 import { RealScoutSection } from '@/components/realscout-section'
+import { CalendlyAfterListings } from '@/components/calendly-after-listings'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button, buttonVariants } from '@/components/ui/button'
 import { CalendlyLink } from '@/components/calendly-link'
@@ -132,6 +133,7 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
         priceMax={listing.priceMax}
         propertyTypes={listing.propertyTypes}
       />
+      <CalendlyAfterListings />
 
       <Breadcrumbs
         items={[

@@ -6,6 +6,7 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { CalendlyLink } from '@/components/calendly-link'
 import { SiteShell } from '@/components/site-shell'
 import { RealScoutSection } from '@/components/realscout-section'
+import { CalendlyAfterListings } from '@/components/calendly-after-listings'
 import { Button } from '@/components/ui/button'
 import { createWebPageSchema, getCanonicalUrl, localBusinessReference } from '@/lib/structuredData'
 import { sitePhotoOg } from '@/lib/site-images'
@@ -135,6 +136,7 @@ export default function ServicesPage() {
     <SiteShell>
       <HeroSection />
       <RealScoutSection id="bhhs-listings" />
+      <CalendlyAfterListings />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Realtor services' }]} />
