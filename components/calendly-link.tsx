@@ -1,8 +1,8 @@
 'use client'
 
+import { usePathname } from 'next/navigation'
 import { trackCtaClick } from '@/lib/analytics'
-
-const CALENDLY_URL = 'https://calendly.com/drjanduffy/showing'
+import { calendlyUrlFor } from '@/lib/calendly'
 
 type CalendlyLinkProps = {
   children?: React.ReactNode
@@ -19,6 +19,7 @@ export function CalendlyLink({
   ctaText,
   ctaLocation,
 }: CalendlyLinkProps) {
+  const CALENDLY_URL = calendlyUrlFor(usePathname() || '/', ctaLocation ? `link-${ctaLocation.split(':')[0]}` : 'link')
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
     const text = ctaText ?? (typeof children === 'string' ? children : 'Book a Tour')

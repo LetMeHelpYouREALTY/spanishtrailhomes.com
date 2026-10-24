@@ -5,6 +5,7 @@ import { JsonLd } from '@/components/json-ld'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { SiteShell } from '@/components/site-shell'
 import { RealScoutSection } from '@/components/realscout-section'
+import { CalendlyAfterListings } from '@/components/calendly-after-listings'
 import { Button } from '@/components/ui/button'
 import { nearbyCommunities } from '@/lib/spanishTrailContent'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
@@ -184,6 +185,7 @@ export default function LuxuryNeighborhoodComparisonsPage() {
         <HeroSearchWidget theme="dark" />
       </header>
       <RealScoutSection id="bhhs-listings" />
+      <CalendlyAfterListings />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs

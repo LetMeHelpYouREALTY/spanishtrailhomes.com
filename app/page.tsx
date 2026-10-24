@@ -7,6 +7,7 @@ import { CalendlyLink } from '@/components/calendly-link'
 import { TrackedSmsLink } from '@/components/tracked-sms-link'
 import { SiteShell } from '@/components/site-shell'
 import { RealScoutSection } from '@/components/realscout-section'
+import { CalendlyAfterListings } from '@/components/calendly-after-listings'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
 import { marketHighlights, neighborhoodSpotlights } from '@/lib/spanishTrailContent'
@@ -767,6 +768,7 @@ function AdvancedSearchSection() {
         description="Live inventory inside the 89113 gates. Estate homes, villas, and off-market tours—schedule a showing with the community’s exclusive realtor."
         priceMin="500000"
       />
+      <CalendlyAfterListings />
       <section className="bg-[#f8f2e7] py-16 sm:py-20" aria-labelledby="advanced-search-heading">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="max-w-3xl space-y-4 text-center sm:mx-auto">

@@ -5,6 +5,7 @@ import { JsonLd } from '@/components/json-ld'
 
 import { SiteShell } from '@/components/site-shell'
 import { RealScoutSection } from '@/components/realscout-section'
+import { CalendlyAfterListings } from '@/components/calendly-after-listings'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { HeroSearchWidget } from '@/components/hero-search-widget'
@@ -104,6 +105,7 @@ export default function SpanishTrailHomesForSalePage() {
         priceMin="500000"
         propertyTypes=",SFR,CONDO"
       />
+      <CalendlyAfterListings />
       <div className="bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
           <Breadcrumbs

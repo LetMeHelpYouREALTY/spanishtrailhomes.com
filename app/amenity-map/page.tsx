@@ -8,6 +8,7 @@ import { CardVisual, SectionBanner } from '@/components/heading-media'
 import { GbpLocalActions } from '@/components/gbp-local-actions'
 import { GoogleMapEmbed } from '@/components/google-map-embed'
 import { RealScoutSection } from '@/components/realscout-section'
+import { CalendlyAfterListings } from '@/components/calendly-after-listings'
 import {
   createBreadcrumbSchema,
   createFaqPageSchema,
@@ -146,6 +147,7 @@ export default function AmenityMapPage() {
         title="Homes beside these amenities"
         description="Filter Spanish Trail listings by golf exposure, villa vs estate, and gate."
       />
+      <CalendlyAfterListings />
 
       <section className="bg-white py-16 sm:py-20" aria-labelledby="place-types-heading">
         <SectionBanner headingId="place-types-heading" />

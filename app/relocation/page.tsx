@@ -4,6 +4,7 @@ import { JsonLd } from '@/components/json-ld'
 
 import { SiteShell } from '@/components/site-shell'
 import { RealScoutSection } from '@/components/realscout-section'
+import { CalendlyAfterListings } from '@/components/calendly-after-listings'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
@@ -109,6 +110,7 @@ export default function RelocationPage() {
         description="Dr. Jan Duffy buys Spanish Trail homes for out-of-state clients: virtual tours, 11-neighborhood matching, and remote closing."
       />
       <RealScoutSection id="bhhs-listings" />
+      <CalendlyAfterListings />
 
       <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12">
         <Breadcrumbs

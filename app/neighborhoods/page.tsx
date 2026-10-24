@@ -4,6 +4,7 @@ import { JsonLd } from '@/components/json-ld'
 
 import { SiteShell } from '@/components/site-shell'
 import { RealScoutSection } from '@/components/realscout-section'
+import { CalendlyAfterListings } from '@/components/calendly-after-listings'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { HeroBackground } from '@/components/hero-background'
@@ -112,6 +113,7 @@ export default function NeighborhoodsHubPage() {
         subtitle="Match the enclave, then buy or sell with Dr. Jan Duffy"
       />
       <RealScoutSection id="bhhs-listings" />
+      <CalendlyAfterListings />
 
       <Breadcrumbs
         items={[
