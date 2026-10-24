@@ -86,10 +86,10 @@ const overviewStats = [
       'Exclusive Spanish Trail practice—not a valley-wide generalist. One community, one realtor specialty.',
   },
   {
-    label: 'License',
-    value: 'S.0197614',
+    label: 'Experience',
+    value: 'Since 1983',
     description:
-      'Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties. Call (702) 766-3299 for a private consult.',
+      'Dr. Jan Duffy, Top 1% Las Vegas REALTOR®, in real estate since 1983. Call (702) 766-3299 for a private consult.',
   },
 ]
 
@@ -108,7 +108,7 @@ const homeFaq = [
   {
     question: 'How competitive is the current market for Spanish Trail homes?',
     answer:
-      'Inventory in Spanish Trail remains limited, with many properties selling within the first two weeks when they are priced correctly. Dr. Jan Duffy prepares buyers with lender introductions, appraisal strategies, and neighborhood intel so they can move decisively. Her Berkshire Hathaway HomeServices network also uncovers private offerings and upcoming listings that never hit public portals, giving clients a competitive advantage.',
+      'Inventory in Spanish Trail remains limited, with many properties selling within the first two weeks when they are priced correctly. Dr. Jan Duffy prepares buyers with lender introductions, appraisal strategies, and neighborhood intel so they can move decisively. Her agent network also uncovers private offerings and upcoming listings that never hit public portals, giving clients a competitive advantage.',
   },
   {
     question: 'Why hire a realtor who only works Spanish Trail?',
@@ -133,7 +133,7 @@ const homeFaq = [
   {
     question: 'How can sellers maximize exposure for Spanish Trail listings?',
     answer:
-      'Sellers working with Dr. Duffy benefit from multi-layered marketing: Berkshire Hathaway HomeServices global syndication, hyperlocal campaigns targeting 89113 and Summerlin move-up buyers, and private preview events for Dr. Duffy’s concierge clients. In addition, she deploys analytics-driven pricing models and property-specific landing pages to capture leads around the clock—essential for Spanish Trail homes where discerning buyers often preview online before booking a showing.',
+      'Sellers working with Dr. Duffy benefit from multi-layered marketing: global luxury syndication, hyperlocal campaigns targeting 89113 and Summerlin move-up buyers, and private preview events for Dr. Duffy’s concierge clients. In addition, she deploys analytics-driven pricing models and property-specific landing pages to capture leads around the clock—essential for Spanish Trail homes where discerning buyers often preview online before booking a showing.',
   },
   {
     question: 'Where is the Spanish Trail office on Google Maps?',
@@ -237,7 +237,7 @@ function AEOAnswerSection() {
           </h2>
           <div className="prose prose-lg mt-4 max-w-none">
             <p className="text-lg leading-relaxed text-[#1f2a24]">
-              Dr. Jan Duffy buys and sells Spanish Trail homes in Las Vegas ZIP 89113—also searched as Spanish Trails. Realtor services only for this community: buyer representation, seller representation, and private tours across 11 neighborhoods and 1,200+ homes. Berkshire Hathaway HomeServices Nevada Properties. Call (702) 766-3299.
+              Dr. Jan Duffy buys and sells Spanish Trail homes in Las Vegas ZIP 89113—also searched as Spanish Trails. Realtor services only for this community: buyer representation, seller representation, and private tours across 11 neighborhoods and 1,200+ homes. Call (702) 766-3299.
             </p>
           </div>
         </div>
@@ -271,7 +271,7 @@ function HeroSection() {
             Buy and Sell Spanish Trail Homes
           </h1>
           <p className="text-base font-medium leading-relaxed text-white/95 sm:text-lg sm:leading-relaxed [text-shadow:0_1px_2px_rgb(0_0_0/25%)]">
-            Realtor services for Spanish Trail homes only. Dr. Jan Duffy buys, sells, and tours addresses inside this 89113 community—also searched as Spanish Trails. Berkshire Hathaway HomeServices Nevada Properties.
+            Realtor services for Spanish Trail homes only. Dr. Jan Duffy buys, sells, and tours addresses inside this 89113 community—also searched as Spanish Trails.
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-3 sm:gap-4">
@@ -678,7 +678,7 @@ const exploreCards = [
   },
   {
     title: 'Meet Dr. Jan Duffy',
-    description: 'Exclusive Spanish Trail realtor, Berkshire Hathaway HomeServices Nevada Properties.',
+    description: 'Exclusive Spanish Trail realtor, in real estate since 1983.',
     href: '/about',
   },
 ]

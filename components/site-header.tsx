@@ -31,7 +31,7 @@ export function SiteHeader() {
           <AgentPortrait placement="header" size="xs" priority className="hidden sm:block" />
           <div className="text-left">
             <p className="text-[0.6rem] uppercase tracking-[0.35em] text-muted-foreground group-hover:text-secondary sm:text-[0.65rem] sm:tracking-[0.45em]">
-              Berkshire Hathaway HomeServices
+              Las Vegas REALTOR®
             </p>
             <p className="font-[var(--font-playfair)] text-base font-semibold leading-snug tracking-[0.04em] text-[#0f2b1e] sm:text-xl sm:tracking-[0.06em] lg:text-[1.35rem]">
               <span className="block whitespace-nowrap">Spanish Trail</span>

@@ -31,7 +31,7 @@ export type AgentPortraitAsset = {
 export const AGENT_PORTRAITS: Record<AgentPortraitId, AgentPortraitAsset> = {
   'duffy-circle-canonical': {
     id: 'duffy-circle-canonical',
-    alt: 'Dr. Jan Duffy, Spanish Trail homes realtor in Las Vegas NV 89113, Berkshire Hathaway HomeServices',
+    alt: 'Dr. Jan Duffy, Spanish Trail homes realtor in Las Vegas NV 89113',
     caption: 'Dr. Jan Duffy · Spanish Trail Homes realtor · Las Vegas 89113',
     width: 900,
     height: 900,
@@ -46,13 +46,13 @@ export const AGENT_PORTRAITS: Record<AgentPortraitId, AgentPortraitAsset> = {
   'duffy-circle-footer': {
     id: 'duffy-circle-footer',
     alt: 'Dr. Jan Duffy at Spanish Trail Homes, 5050 Spanish Trail Ln Las Vegas NV 89113',
-    caption: 'Dr. Jan Duffy · BHHS Nevada · 5050 Spanish Trail Ln',
+    caption: 'Dr. Jan Duffy · 5050 Spanish Trail Ln',
     width: 900,
     height: 900,
   },
   'duffy-circle-about': {
     id: 'duffy-circle-about',
-    alt: 'Meet Dr. Jan Duffy, exclusive luxury realtor for Spanish Trail homes in Las Vegas 89113, license S.0197614.LLC',
+    alt: 'Meet Dr. Jan Duffy, exclusive luxury realtor for Spanish Trail homes in Las Vegas 89113',
     caption: 'Meet Dr. Jan Duffy · Spanish Trail luxury realtor',
     width: 900,
     height: 900,
@@ -122,7 +122,7 @@ export const AGENT_PORTRAITS: Record<AgentPortraitId, AgentPortraitAsset> = {
   },
   'duffy-circle-awards': {
     id: 'duffy-circle-awards',
-    alt: 'Award-winning Spanish Trail realtor Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties',
+    alt: 'Award-winning Spanish Trail realtor Dr. Jan Duffy',
     caption: 'Award-winning Spanish Trail realtor',
     width: 900,
     height: 900,
@@ -201,6 +201,7 @@ function hashSeed(value: string): number {
 function humanizePlacement(placement: string): string {
   return placement
     .replace(/[-_]+/g, ' ')
+    .replace(/\bbhhs\b/gi, '')
     .replace(/heading$/i, '')
     .replace(/\s+/g, ' ')
     .trim()

@@ -101,7 +101,7 @@ export const metadata: Metadata = {
     url: pageUrl,
     title: 'Spanish Trail Insights & Advisory',
     description:
-      'Explore data-backed commentary on Spanish Trail real estate, amenities, and strategy from Dr. Jan Duffy of Berkshire Hathaway HomeServices.',
+      'Explore data-backed commentary on Spanish Trail real estate, amenities, and strategy from Dr. Jan Duffy, REALTOR®.',
     images: [
       sitePhotoOg('h2-awards-study'),
     ],
@@ -196,7 +196,7 @@ function InsightBriefingsSection() {
             Guides for buyers, sellers, and investors
           </h2>
           <p className="text-base leading-relaxed text-[#372a20]/85">
-            Each article below distills on-the-ground research, Berkshire Hathaway HomeServices analytics, and concierge
+            Each article below distills on-the-ground research, brokerage analytics, and concierge
             observations from inside the gates.
           </p>
         </div>

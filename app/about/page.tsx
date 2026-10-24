@@ -20,7 +20,7 @@ const aboutFaq = [
   {
     question: 'What makes Dr. Jan Duffy different from other Spanish Trail real estate agents?',
     answer:
-      'Dr. Duffy brings a unique combination of deep Spanish Trail knowledge, Berkshire Hathaway HomeServices resources, and research-backed expertise in buyer/seller psychology. She understands the emotional and practical challenges of buying and selling, applying data-led preparation, concierge project management, and deep club/community fluency to every transaction. Her approach translates complex market data into actionable strategy while coordinating multi-disciplinary teams with discretion.',
+      'Dr. Duffy brings a unique combination of deep Spanish Trail knowledge, a career in real estate since 1983, and research-backed expertise in buyer/seller psychology. She understands the emotional and practical challenges of buying and selling, applying data-led preparation, concierge project management, and deep club/community fluency to every transaction. Her approach translates complex market data into actionable strategy while coordinating multi-disciplinary teams with discretion.',
   },
   {
     question: 'How many Spanish Trail buyers and sellers has Dr. Duffy worked with?',
@@ -30,7 +30,7 @@ const aboutFaq = [
   {
     question: 'What credentials and awards has Dr. Jan Duffy received?',
     answer:
-      'Dr. Duffy holds a Ph.D. in Market Research & Consumer Behavior, which informs her understanding of buyer/seller psychology and decision-making. She is a Certified Luxury Marketing Specialist (CLHMS) and has been recognized as Berkshire Hathaway HomeServices Luxury Golf Homes (top 2% network-wide), Las Vegas REALTORS® Top 25 Luxury Producer, and RealScout Spanish Trail Market Expert. These credentials and awards reflect consistent client outcomes and a commitment to Spanish Trail\'s reputation as Las Vegas\'s premier guard-gated enclave.',
+      'Dr. Duffy holds a Ph.D. in Research, which informs her understanding of buyer/seller psychology and decision-making. She is a Certified Luxury Marketing Specialist (CLHMS) and has been recognized as a Top 1% Las Vegas REALTOR®, Las Vegas REALTORS® Top 25 Luxury Producer, and RealScout Spanish Trail Market Expert. These credentials and awards reflect consistent client outcomes and a commitment to Spanish Trail\'s reputation as Las Vegas\'s premier guard-gated enclave.',
   },
   {
     question: 'How does Dr. Duffy\'s research background benefit clients?',
@@ -89,8 +89,8 @@ const approachPillars = [
 ]
 
 const credentials = [
-  'Ph.D. in Market Research & Consumer Behavior – research focused on trust-based decision-making during high-stakes transactions, buyer/seller psychology, and information asymmetry in real estate',
-  'Berkshire Hathaway HomeServices Luxury Golf Homes (top 2% network-wide)',
+  'Ph.D. in Research – research focused on trust-based decision-making during high-stakes transactions, buyer/seller psychology, and information asymmetry in real estate',
+  'Top 1% Las Vegas REALTOR®',
   'Institute for Luxury Home Marketing member & Certified Luxury Marketing Specialist (CLHMS)',
   'RealScout Spanish Trail Market Expert (2023–present)',
   'Frequent panelist for Las Vegas luxury market outlooks and guard-gated community briefings',
@@ -167,7 +167,7 @@ function HeroSection() {
           Dr. Jan Duffy, exclusive Spanish Trail realtor
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85 sm:text-lg">
-          Dr. Jan Duffy represents buyers and sellers inside Spanish Trail—Las Vegas ZIP 89113—exclusively. Berkshire Hathaway HomeServices Nevada Properties. License S.0197614.LLC. Neighborhood-level comps, gate-access tours, and listing strategy for this community only.
+          Dr. Jan Duffy represents buyers and sellers inside Spanish Trail—Las Vegas ZIP 89113—exclusively. In real estate since 1983. Neighborhood-level comps, gate-access tours, and listing strategy for this community only.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Button
@@ -317,7 +317,7 @@ function CredentialsSection() {
         <div className="space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">Credentials & Recognition</p>
           <h2 id="credentials-heading" className="font-heading text-3xl text-[#1f2a24] sm:text-4xl">
-            Recognized leadership inside Berkshire Hathaway HomeServices and beyond
+            Recognized leadership in Las Vegas real estate
           </h2>
           <p className="text-base leading-relaxed text-[#372a20]/85">
             Awards and designations reflect consistent client outcomes—and a commitment to Spanish Trail’s long-term

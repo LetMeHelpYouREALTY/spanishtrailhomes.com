@@ -174,7 +174,7 @@ function HeroSection() {
           <Link href="/spanish-trail-market-report" className="font-medium text-[#f8f5ef] underline-offset-4 hover:underline">
             Spanish Trail market report
           </Link>{' '}
-          for absorption and pricing context. As your Berkshire Hathaway HomeServices colleague and long-time Spanish Trail specialist, I translate demand into proven strategy—balancing transparency, Fair Housing compliance, and concierge-level presentation so you can exit with confidence.
+          for absorption and pricing context. As a REALTOR® in real estate since 1983 and long-time Spanish Trail specialist, I translate demand into proven strategy—balancing transparency, Fair Housing compliance, and concierge-level presentation so you can exit with confidence.
         </p>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           Whether you are relocating, rightsizing, or unlocking equity to diversify your portfolio, we start with a data-backed value range, align your desired timeline, and craft a plan that honors the distinct story of your home. My team handles the details—from HOA coordination to twilight photography—so you stay focused on your next chapter while I deliver the market response your investment deserves.
@@ -361,7 +361,7 @@ function MarketingEngineSection() {
           A marketing engine built for qualified Spanish Trail buyers
         </h2>
         <p className="text-base leading-relaxed text-[#372a20]/85">
-          We combine high-touch storytelling with targeted digital reach. Your listing launches across Berkshire Hathaway HomeServices&apos; global network, RealScout demand engines, luxury syndication channels, and curated social media campaigns focused on affluent Las Vegas, Orange County, and Bay Area spheres. Drone footage, dusk photography, and editorial-style video tours communicate emotion, while interactive floor plans keep remote buyers engaged long enough to request a tour.
+          We combine high-touch storytelling with targeted digital reach. Your listing launches across a global luxury network, RealScout demand engines, luxury syndication channels, and curated social media campaigns focused on affluent Las Vegas, Orange County, and Bay Area spheres. Drone footage, dusk photography, and editorial-style video tours communicate emotion, while interactive floor plans keep remote buyers engaged long enough to request a tour.
         </p>
         <p className="text-base leading-relaxed text-[#372a20]/85">
           Offline tactics matter too. I host invitation-only broker previews, coordinate with relocation directors, and deliver printed lookbooks to high-net-worth prospects staying at nearby resorts. Each touchpoint carries consistent branding that spotlights Spanish Trail lifestyle—golf mornings, wellness afternoons, and Strip skyline evenings—while respecting equal housing opportunity guidelines.
@@ -372,7 +372,7 @@ function MarketingEngineSection() {
             <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">Digital reach highlights</h3>
             <ul className="space-y-2">
               <li>• RealScout buyer matchmaking with instant follow-up campaigns</li>
-              <li>• Featured placement on spanishtrailhomes.com and BHHS global portals</li>
+              <li>• Featured placement on spanishtrailhomes.com and global luxury portals</li>
               <li>• Paid social retargeting focused on luxury relocation keywords</li>
               <li>• Email spotlights to vetted investor and second-home databases</li>
             </ul>

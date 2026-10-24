@@ -180,7 +180,7 @@ function MarketSection() {
           ))}
         </div>
         <p className="mt-8 text-sm leading-relaxed text-[#372a20]/80">
-          Data source: Greater Las Vegas MLS + Berkshire Hathaway HomeServices proprietary analytics. Request my weekly luxury digest for absorption rates, price adjustments, and architecturally significant homes before they hit public feeds.
+          Data source: Greater Las Vegas MLS + brokerage analytics. Request my weekly luxury digest for absorption rates, price adjustments, and architecturally significant homes before they hit public feeds.
         </p>
       </div>
     </section>

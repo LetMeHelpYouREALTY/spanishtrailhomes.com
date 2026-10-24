@@ -18,7 +18,7 @@ const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-gated-golf-real
 export const metadata: Metadata = {
   title: 'Spanish Trail Gated Golf Realtor',
   description:
-    'Partner with Dr. Jan Duffy, Berkshire Hathaway luxury advisor and Spanish Trail gated golf community expert.',
+    'Partner with Dr. Jan Duffy, luxury advisor in real estate since 1983 and Spanish Trail gated golf community expert.',
   alternates: {
     canonical: getCanonicalUrl('/spanish-trail-gated-golf-realtor'),
   },
@@ -129,7 +129,7 @@ function HeroSection() {
           Spanish Trail Homes Realtor | Guard-Gated 89113
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
-          As a Berkshire Hathaway luxury advisor and longtime Las Vegas resident, I guide clients through every nuance of Spanish Trail’s guard-gated lifestyle—from daily market movements to membership planning. My approach blends data, discretion, and concierge service so your transition into the community feels effortless and strategic.
+          As a luxury advisor in real estate since 1983 and longtime Las Vegas resident, I guide clients through every nuance of Spanish Trail’s guard-gated lifestyle—from daily market movements to membership planning. My approach blends data, discretion, and concierge service so your transition into the community feels effortless and strategic.
         </p>
         <p className="text-base leading-relaxed text-[#f8f5ef]/80">
           This page is for buyers and sellers who want a{' '}
@@ -165,7 +165,7 @@ function ValueSection() {
           What sets my Spanish Trail representation apart
         </h2>
         <p className="mt-4 text-base leading-relaxed text-[#372a20]/85">
-          Guard-gated golf communities require a different rhythm. I merge hyperlocal familiarity with Berkshire Hathaway resources to deliver clarity on pricing, security, lifestyle, and investment value in a single experience.
+          Guard-gated golf communities require a different rhythm. I merge hyperlocal familiarity with brokerage resources to deliver clarity on pricing, security, lifestyle, and investment value in a single experience.
         </p>
         <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
           {[
@@ -262,7 +262,7 @@ function DataSection() {
           ))}
         </div>
         <p className="mt-8 text-sm leading-relaxed text-[#372a20]/80">
-          Data Source: Greater Las Vegas MLS, Berkshire Hathaway analytics, and my contract log. Request my weekly gated golf market brief for deeper absorption rates and negotiation trends.
+          Data Source: Greater Las Vegas MLS, brokerage analytics, and my contract log. Request my weekly gated golf market brief for deeper absorption rates and negotiation trends.
         </p>
       </div>
     </section>
@@ -330,7 +330,7 @@ function SellerSection() {
             {
               title: 'Network amplification',
               detail:
-                'Exclusive Berkshire Hathaway distribution, targeted digital campaigns, and direct outreach to my vetted buyer database and relocation partners.',
+                'Exclusive luxury network distribution, targeted digital campaigns, and direct outreach to my vetted buyer database and relocation partners.',
             },
             {
               title: 'Negotiation strategy',

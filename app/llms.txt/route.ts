@@ -16,7 +16,7 @@ export function GET() {
 
 > ${SITE_PRIMARY_DESCRIPTION}
 
-Spanish Trail is a guard-gated, 27-hole golf community in Las Vegas, NV 89113. Dr. Jan Duffy (Nevada license S.0197614.LLC) is the dedicated Spanish Trail specialist for Berkshire Hathaway HomeServices Nevada Properties.
+Spanish Trail is a guard-gated, 27-hole golf community in Las Vegas, NV 89113. Dr. Jan Duffy (Nevada license S.0197614.LLC) is the dedicated Spanish Trail specialist for Berkshire Hathaway HomeServices Nevada Properties, in real estate since 1983.
 
 ## Contact
 - Phone: ${GBP_PHONE_DISPLAY}

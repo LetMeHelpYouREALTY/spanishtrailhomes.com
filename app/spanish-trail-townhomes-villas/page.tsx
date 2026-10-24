@@ -321,7 +321,7 @@ function DesignSection() {
           ))}
         </div>
         <p className="mt-8 text-sm leading-relaxed text-[#372a20]/80">
-          I introduce you to vetted contractors and designers who routinely work in the Villas and Links enclaves, ensuring HOA approvals move quickly and craftsmanship meets Berkshire Hathaway standards.
+          I introduce you to vetted contractors and designers who routinely work in the Villas and Links enclaves, ensuring HOA approvals move quickly and craftsmanship meets luxury standards.
         </p>
       </div>
     </section>

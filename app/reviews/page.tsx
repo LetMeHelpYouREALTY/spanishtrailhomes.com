@@ -603,8 +603,8 @@ function CTASection() {
         </div>
         <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3 text-left">
           <div className="rounded-2xl bg-white/10 p-6 text-center">
-            <p className="font-[var(--font-playfair)] text-3xl">Decades</p>
-            <p className="mt-1 text-sm text-white/70">Las Vegas real estate experience</p>
+            <p className="font-[var(--font-playfair)] text-3xl">Since 1983</p>
+            <p className="mt-1 text-sm text-white/70">In real estate</p>
           </div>
           <div className="rounded-2xl bg-white/10 p-6 text-center">
             <p className="font-[var(--font-playfair)] text-3xl">500+</p>

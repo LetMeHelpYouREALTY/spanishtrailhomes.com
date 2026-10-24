@@ -65,7 +65,7 @@ const communityNarratives = [
   {
     title: 'Spanish Trail Homes Market Intelligence',
     paragraphs: [
-      'Spanish Trail homes sit within one of Las Vegas’s most carefully curated guard-gated enclaves, and their value trajectory reflects both scarcity and desirability. Listing activity typically peaks in late spring before tapering off during the hottest summer weeks, yet serious buyers continue to circulate year-round thanks to the proximity to Allegiant Stadium, Harry Reid International Airport, and the Strip. Dr. Jan Duffy leverages Berkshire Hathaway HomeServices analytics to identify micro trends: which enclaves are receiving multiple offers, where price adjustments signal negotiation room, and which homes are being marketed privately through network introductions.',
+      'Spanish Trail homes sit within one of Las Vegas’s most carefully curated guard-gated enclaves, and their value trajectory reflects both scarcity and desirability. Listing activity typically peaks in late spring before tapering off during the hottest summer weeks, yet serious buyers continue to circulate year-round thanks to the proximity to Allegiant Stadium, Harry Reid International Airport, and the Strip. Dr. Jan Duffy leverages brokerage analytics to identify micro trends: which enclaves are receiving multiple offers, where price adjustments signal negotiation room, and which homes are being marketed privately through network introductions.',
       'Because the community’s 11 neighborhoods were developed across several decades, pricing varies significantly depending on architectural style, lot size, and renovation level. Dr. Duffy prepares comprehensive market briefings that include sold comparables, golf frontage premiums, and upcoming infrastructure improvements. Her clients approach every Spanish Trail real estate opportunity armed with data-driven confidence, which often results in winning offers that still protect long-term equity.'
     ],
   },
@@ -116,7 +116,7 @@ const communityFaq = [
   {
     question: 'What should sellers expect when preparing to list a Spanish Trail home?',
     answer:
-      'Sellers benefit from strategic pre-market preparation: professional staging, landscaping touch-ups, and drone photography that captures golf course vistas. Dr. Duffy orchestrates private previews for Berkshire Hathaway HomeServices agents and coordinates marketing across luxury portals to reach affluent buyers nationwide. Her pricing advice considers time-on-market trends and buyer feedback to position each home for multiple offers.',
+      'Sellers benefit from strategic pre-market preparation: professional staging, landscaping touch-ups, and drone photography that captures golf course vistas. Dr. Duffy orchestrates private previews for network agents and coordinates marketing across luxury portals to reach affluent buyers nationwide. Her pricing advice considers time-on-market trends and buyer feedback to position each home for multiple offers.',
   },
   {
     question: 'Are investors active in Spanish Trail?',

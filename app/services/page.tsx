@@ -15,7 +15,7 @@ import { AgentPortrait } from '@/components/agent-portrait'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/services'
 const servicesPageDescription =
-  'Luxury realtor services for Spanish Trail homes in Las Vegas, NV 89113. Dr. Jan Duffy buys, sells, and tours this guard-gated community exclusively—Berkshire…'
+  'Luxury realtor services for Spanish Trail homes in Las Vegas, NV 89113. Dr. Jan Duffy buys, sells, and tours this guard-gated community exclusively—in real estate since 1983.'
 
 const servicesWebPageSchema = createWebPageSchema({
   name: 'Spanish Trail Realtor Services | Dr. Jan Duffy',
@@ -84,7 +84,7 @@ const faqContent = [
   {
     question: 'What realtor services are included when I sell?',
     answer:
-      'A written pricing opinion, prep and staging counsel, photography, MLS and Berkshire Hathaway syndication, private previews for her buyer list, offer negotiation, and closing concierge. Marketing describes square footage, amenities, and named schools with distances—not lifestyle stereotypes.',
+      'A written pricing opinion, prep and staging counsel, photography, MLS and luxury network syndication, private previews for her buyer list, offer negotiation, and closing concierge. Marketing describes square footage, amenities, and named schools with distances—not lifestyle stereotypes.',
   },
   {
     question: 'How do I start a tour inside the gates?',
@@ -161,7 +161,7 @@ function HeroSection() {
           Realtor services for Spanish Trail homes
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
-          Dr. Jan Duffy is the exclusive luxury realtor for Spanish Trail—the guard-gated Las Vegas community also searched as Spanish Trails. Buy, sell, and tour with Berkshire Hathaway HomeServices Nevada Properties. License S.0197614.LLC. Call (702) 766-3299.
+          Dr. Jan Duffy is the exclusive luxury realtor for Spanish Trail—the guard-gated Las Vegas community also searched as Spanish Trails. Buy, sell, and tour with a REALTOR® in real estate since 1983. Call (702) 766-3299.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Button asChild className="rounded-full bg-white px-8 py-3 text-xs uppercase tracking-[0.3em] text-[#0f2b1e] hover:bg-[#efe5d8]">
@@ -253,7 +253,6 @@ function CommunityFocusSection() {
             DrDuffySells@SpanishTrailHomes.com
           </p>
           <p className="mt-3 text-sm text-[#372a20]/85">Sunday–Saturday 8:00 AM–8:00 PM</p>
-          <p className="mt-3 text-xs uppercase tracking-[0.25em] text-[#6f5237]">Berkshire Hathaway HomeServices Nevada Properties</p>
         </div>
       </div>
     </section>

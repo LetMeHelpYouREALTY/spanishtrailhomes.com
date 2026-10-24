@@ -70,16 +70,15 @@ export const metadata: Metadata = {
 }
 
 const quickFacts = [
-  { label: 'License', value: 'S.0197614.LLC' },
-  { label: 'Brokerage', value: 'Berkshire Hathaway HomeServices Nevada Properties' },
+  { label: 'Experience', value: 'In real estate since 1983' },
   { label: 'Focus', value: 'Spanish Trail & guard-gated Las Vegas luxury' },
   { label: 'Expertise', value: 'Buyer & seller representation, golf community homes' },
 ]
 
 const credentials = [
-  'Ph.D. in Market Research & Consumer Behavior',
+  'Ph.D. in Research',
   'Certified Luxury Marketing Specialist (CLHMS)',
-  'Berkshire Hathaway HomeServices Luxury Golf Homes (top 2% network-wide)',
+  'Top 1% Las Vegas REALTOR®',
   'Las Vegas REALTORS® Top 25 Luxury Producer',
   'RealScout Spanish Trail Market Expert',
 ]
@@ -91,9 +90,9 @@ const mediaKitFaq = [
       'Business name: Spanish Trail | Homes By Dr. Jan Duffy. Address: 5050 Spanish Trail Ln, Las Vegas, NV 89113. Phone: (702) 766-3299. Email: DrDuffySells@SpanishTrailHomes.com. Hours: Sunday–Saturday 8:00 AM–8:00 PM.',
   },
   {
-    question: 'What is Dr. Jan Duffy’s license number?',
+    question: 'How should press refer to Dr. Jan Duffy?',
     answer:
-      'Nevada real estate license S.0197614.LLC with Berkshire Hathaway HomeServices Nevada Properties. Never use “Janet” in copy.',
+      'Dr. Jan Duffy, REALTOR®, in real estate since 1983. License and brokerage details appear in the site footer. Never use “Janet” in copy.',
   },
   {
     question: 'How do I request a headshot or logo?',
@@ -168,11 +167,11 @@ export default function MediaKitPage() {
           </h2>
           <p className="mt-3 text-[#0f2b1e]/90 leading-relaxed">
             Dr. Jan Duffy is a luxury real estate specialist representing buyers and sellers in Spanish Trail and
-            guard-gated golf communities across Las Vegas. With a Ph.D. in Market Research & Consumer Behavior and
+            guard-gated golf communities across Las Vegas. With a Ph.D. in Research and
             deep roots in the 89113 corridor, she combines data-led preparation, concierge-level service, and
             community fluency to guide clients through high-stakes transactions. She has advised hundreds of
-            Spanish Trail buyers and sellers and is recognized by Berkshire Hathaway HomeServices Luxury Golf Homes (top 2%
-            network-wide), Las Vegas REALTORS® Top 25 Luxury Producer, and RealScout as Spanish Trail Market Expert.
+            Spanish Trail buyers and sellers and is recognized as a Top 1% Las Vegas REALTOR®,
+            Las Vegas REALTORS® Top 25 Luxury Producer, and RealScout as Spanish Trail Market Expert.
           </p>
         </section>
 
@@ -237,9 +236,7 @@ export default function MediaKitPage() {
           <p className="mt-2 text-[#0f2b1e]/90">
             <strong>Dr. Jan Duffy</strong>
             <br />
-            REALTOR® · Berkshire Hathaway HomeServices Nevada Properties
-            <br />
-            License S.0197614.LLC
+            REALTOR® · In real estate since 1983
           </p>
           <p className="mt-3">
             <Link

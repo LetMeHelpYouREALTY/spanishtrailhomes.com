@@ -34,7 +34,7 @@ const faqContent = [
   {
     question: 'Is this a store or a real estate office?',
     answer:
-      'Spanish Trail | Homes By Dr. Jan Duffy is a real estate practice, not a retail store. Consultations and tours start at 5050 Spanish Trail Ln, Las Vegas, NV 89113, by appointment. Call (702) 766-3299.',
+      'Spanish Trail | Homes By Dr. Jan Duffy is a real estate practice, not a retail store. Consultations and tours start at 5050 Spanish Trail Ln, Las Vegas, NV 89113, Sunday–Saturday 8:00 AM–8:00 PM. Call (702) 766-3299.',
   },
   {
     question: 'Is parking accessible?',

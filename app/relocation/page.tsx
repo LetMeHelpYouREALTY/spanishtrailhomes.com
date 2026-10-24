@@ -153,7 +153,7 @@ export default function RelocationPage() {
             <strong>The Ridges</strong>, <strong>Red Rock Country Club</strong>, and active-adult communities like{' '}
             <strong>Sun City Summerlin</strong>, <strong>Del Webb</strong>, and <strong>Heritage at Stonebridge</strong>.
             This site does <strong>not</strong> list separate offices in those areas; instead, you get honest comparison
-            education, coordination through the Berkshire Hathaway HomeServices Nevada Properties network, and referrals
+            education, coordination through her brokerage network, and referrals
             when another specialist is the better fit.{' '}
             <Link href="/contact" className="text-[#0f2b1e] underline underline-offset-4 hover:no-underline">
               Contact the office

@@ -155,7 +155,7 @@ function HeroSection() {
           Buy Spanish Trail Homes | Buyer Representation
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
-          Spanish Trail homes only. Dr. Jan Duffy represents buyers inside this 89113 community—11 neighborhoods, 1,200+ homes, gate-access tours, and offer strategy. Also searched as Spanish Trails. Berkshire Hathaway HomeServices Nevada Properties.
+          Spanish Trail homes only. Dr. Jan Duffy represents buyers inside this 89113 community—11 neighborhoods, 1,200+ homes, gate-access tours, and offer strategy. Also searched as Spanish Trails.
         </p>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           Whether you are relocating, upgrading, or adding to a portfolio, our collaboration starts with clarity. We define must-haves, map budget to financing, and design a tour strategy that respects your calendar and privacy. My concierge team coordinates the details: guard gate access, club introductions, and vetted vendor support before and after closing.

@@ -32,8 +32,7 @@ export function VisitOfficeStrip({ headingId = 'visit-office-heading' }: VisitOf
             Visit the Spanish Trail office
           </h2>
           <p className="text-base leading-relaxed text-[#372a20]/85">
-            {GBP_LEGAL_NAME}. Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties. License
-            S.0197614.LLC.
+            {GBP_LEGAL_NAME}. Dr. Jan Duffy, REALTOR®, in real estate since 1983.
           </p>
           <p className="text-sm leading-relaxed text-[#372a20]">
             {GBP_FULL_ADDRESS}

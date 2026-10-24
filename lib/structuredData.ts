@@ -246,7 +246,7 @@ export const createPersonSchema = () => ({
     {
       '@type': 'EducationalOccupationalCredential',
       credentialCategory: 'degree',
-      name: 'Ph.D. in Market Research & Consumer Behavior',
+      name: 'Ph.D. in Research',
     },
     {
       '@type': 'EducationalOccupationalCredential',

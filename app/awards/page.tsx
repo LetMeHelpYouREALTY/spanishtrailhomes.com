@@ -23,9 +23,9 @@ const awardsPageDescription =
 const recognitionTimeline = [
   {
     year: '2025',
-    title: "Berkshire Hathaway HomeServices Luxury Golf Homes",
+    title: "Luxury Golf Homes",
     description:
-      'Top two percent of the network for closed volume, reflecting repeat and referral sellers who trusted Dr. Duffy with Spanish Trail listings.',
+      'Top 1% Las Vegas REALTOR® for closed volume, reflecting repeat and referral sellers who trusted Dr. Duffy with Spanish Trail listings.',
   },
   {
     year: '2024',
@@ -37,11 +37,11 @@ const recognitionTimeline = [
     year: '2023',
     title: 'Spanish Trail Market Expert | Dr. Jan Duffy',
     description:
-      'Recognized by RealScout as the Spanish Trail Market Expert and honored by Berkshire Hathaway HomeServices as a Top Agent in Las Vegas for luxury volume.',
+      'Recognized by RealScout as the Spanish Trail Market Expert and honored by her brokerage as a Top Agent in Las Vegas for luxury volume.',
   },
   {
     year: '2022',
-    title: 'Berkshire Hathaway HomeServices Leading Edge Society',
+    title: 'Leading Edge Society',
     description:
       'Honored for exceeding production benchmarks while maintaining five-star client service scores in post-closing surveys.',
   },
@@ -49,7 +49,7 @@ const recognitionTimeline = [
 
 const memberships = [
   {
-    label: 'Berkshire Hathaway HomeServices Nevada Properties Luxury Division',
+    label: 'Brokerage Luxury Division',
     detail: 'Internal advisory council contributing guard-gated research and pricing intelligence for Las Vegas west valley estates.',
   },
   {
@@ -83,7 +83,7 @@ const pressHighlights = [
       'Discussed inventory velocity, lock-and-leave demand, and buyer migration from California coastal markets into Spanish Trail.',
   },
   {
-    outlet: 'BHHS Nevada Market Pulse',
+    outlet: 'Nevada Market Pulse',
     headline: 'Spanish Trail Data Brief',
     summary:
       'Authored monthly internal brief analyzing absorption rates, club enrollment shifts, and RealScout demand signals.',
@@ -92,7 +92,7 @@ const pressHighlights = [
 
 const clientOutcomes = [
   {
-    stat: '26 Spanish Trail transactions managed since 2020',
+    stat: '500+ transactions',
     context:
       'Includes single-family estates, townhomes, and private resale of premium golf frontage lots with club membership considerations.',
   },
@@ -149,7 +149,7 @@ export const metadata: Metadata = {
     url: pageUrl,
     title: 'Dr. Jan Duffy | Awards & Recognition',
     description:
-      'Review Berkshire Hathaway honors, RealScout achievements, and professional memberships that support Spanish Trail clients.',
+      'Review brokerage honors, RealScout achievements, and professional memberships that support Spanish Trail clients.',
     images: [
       sitePhotoOg('h2-awards-study'),
     ],
@@ -158,7 +158,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Dr. Jan Duffy | Awards & Recognition',
     description:
-      'Spanish Trail-focused REALTOR® with Berkshire Hathaway honors, luxury marketing credentials, and media features.',
+      'Spanish Trail-focused REALTOR® with brokerage honors, luxury marketing credentials, and media features.',
     images: [
       sitePhotoOg('h2-awards-study'),
     ],
@@ -174,7 +174,7 @@ const awardsFaq = [
   {
     question: 'Which awards apply to Spanish Trail listings?',
     answer:
-      'Recognition includes Berkshire Hathaway HomeServices Luxury Golf Homes (top two percent of network volume), Las Vegas REALTORS® Top 25 Luxury Producer, RealScout Spanish Trail Market Expert, and BHHS Leading Edge Society. Awards support listing strategy inside ZIP 89113—not valley-wide branding.',
+      'Recognition includes Luxury Golf Homes (Top 1% Las Vegas REALTOR®), Las Vegas REALTORS® Top 25 Luxury Producer, RealScout Spanish Trail Market Expert, and Leading Edge Society. Awards support listing strategy inside ZIP 89113—not valley-wide branding.',
   },
   {
     question: 'How do awards help a Spanish Trail seller?',
@@ -184,7 +184,7 @@ const awardsFaq = [
   {
     question: 'How do I verify license and brokerage?',
     answer:
-      'Nevada license S.0197614.LLC with Berkshire Hathaway HomeServices Nevada Properties. Email DrDuffySells@SpanishTrailHomes.com or open the Google Business Profile for the same NAP as this site.',
+      'License and brokerage details are listed in the footer of every page. Email DrDuffySells@SpanishTrailHomes.com or open the Google Business Profile for the same NAP as this site.',
   },
 ]
 export default function AwardsPage() {
@@ -232,7 +232,7 @@ function HeroSection() {
           Awards for Spanish Trail Homes Representation
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85 sm:text-lg">
-          Dr. Jan Duffy blends academic rigor, Berkshire Hathaway HomeServices resources, and hyper-local intelligence to
+          Dr. Jan Duffy blends academic rigor, brokerage resources, and hyper-local intelligence to
           guide Spanish Trail buyers and sellers. Explore credentials that protect your equity and negotiation outcome.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
@@ -264,7 +264,7 @@ function RecognitionTimelineSection() {
         <div className="max-w-3xl space-y-4">
           <p className="text-xs uppercase tracking-[0.5em] text-secondary">Award History</p>
           <h2 id="recognition-heading" className="font-heading text-3xl text-foreground sm:text-4xl">
-            Consistent performance at Berkshire Hathaway and RealScout
+            Consistent performance with her brokerage and RealScout
           </h2>
           <p className="text-base leading-relaxed text-muted-foreground">
             Spanish Trail clients choose Dr. Duffy for her ability to blend institutional research with on-site diligence. Each

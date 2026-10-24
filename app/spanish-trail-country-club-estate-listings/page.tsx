@@ -320,7 +320,7 @@ function SellerSection() {
         <h2 id="estate-seller-heading" className="font-[var(--font-playfair)] text-3xl text-[#1f2a24] sm:text-4xl">
           Selling an estate? Here’s how I position it for success.</h2>
         <p className="mt-4 text-base leading-relaxed text-[#372a20]/85">
-          Spanish Trail estates deserve a strategic marketing plan that respects privacy while reaching qualified buyers. My Berkshire Hathaway platform and local network make that possible.</p>
+          Spanish Trail estates deserve a strategic marketing plan that respects privacy while reaching qualified buyers. My marketing platform and local network make that possible.</p>
         <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
           {[
             {

@@ -133,7 +133,7 @@ export const metadata: Metadata = {
     url: pageUrl,
     title: 'Compare Las Vegas Luxury Neighborhoods',
     description:
-      'Evaluate Spanish Trail alongside The Ridges, Red Rock Country Club, and more. Guidance by Dr. Jan Duffy, Berkshire Hathaway HomeServices.',
+      'Evaluate Spanish Trail alongside The Ridges, Red Rock Country Club, and more. Guidance by Dr. Jan Duffy, REALTOR®.',
     images: [
       sitePhotoOg('h2-neighborhood-street'),
     ],

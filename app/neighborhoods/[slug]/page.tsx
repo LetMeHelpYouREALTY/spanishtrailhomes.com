@@ -213,7 +213,7 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
           </h2>
           <p className="mt-2 text-[#5c4a3a]">
             Dr. Jan Duffy buys and sells {neighborhood.name} addresses inside Spanish Trail, Las Vegas NV 89113.
-            Berkshire Hathaway HomeServices Nevada Properties. 5050 Spanish Trail Ln. Call (702) 766-3299.
+            5050 Spanish Trail Ln. Call (702) 766-3299.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
             <CalendlyLink

@@ -39,7 +39,7 @@ const marketReportFaq = [
   {
     question: 'How often is the Spanish Trail Market Report updated?',
     answer:
-      'The market report is refreshed every Friday with the latest pricing trends, absorption rates, and inventory data from Berkshire Hathaway HomeServices, RealScout buyer activity, and private broker feedback. Dr. Jan Duffy personally compiles this data to ensure accuracy and relevance for buyers and sellers making timely decisions.',
+      'The market report is refreshed every Friday with the latest pricing trends, absorption rates, and inventory data from the MLS, RealScout buyer activity, and private broker feedback. Dr. Jan Duffy personally compiles this data to ensure accuracy and relevance for buyers and sellers making timely decisions.',
   },
   {
     question: 'What key metrics should I focus on when reviewing the market report?',
@@ -98,7 +98,7 @@ export const metadata: Metadata = {
     url: pageUrl,
     title: 'Spanish Trail Real Estate Market Report',
     description:
-      'Track pricing trends, absorption rates, and featured Spanish Trail listings updated by Dr. Jan Duffy of Berkshire Hathaway HomeServices.',
+      'Track pricing trends, absorption rates, and featured Spanish Trail listings updated by Dr. Jan Duffy, REALTOR®.',
     images: [
       sitePhotoOg('h2-kitchen-fairway'),
     ],
@@ -191,7 +191,7 @@ function MarketHighlightsSection() {
               Key metrics driving Spanish Trail decisions
             </h2>
             <p className="text-base leading-relaxed text-muted-foreground">
-              Updated every Friday from Berkshire Hathaway HomeServices data, RealScout buyer activity, and private broker
+              Updated every Friday from MLS data, RealScout buyer activity, and private broker
               feedback gathered by Dr. Jan Duffy.
             </p>
           </div>
@@ -241,8 +241,8 @@ function FeaturedListingsSection() {
               Spotlight Spanish Trail listings
             </h2>
             <p className="text-base leading-relaxed text-[#372a20]/85">
-              Preview hand-selected properties currently available through Berkshire Hathaway HomeServices Nevada
-              Properties. Reach out for private tours or off-market briefings.
+              Preview hand-selected properties currently available in Spanish Trail.
+              Reach out for private tours or off-market briefings.
             </p>
           </div>
           <Button

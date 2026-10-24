@@ -54,7 +54,7 @@ export async function GET(request: NextRequest) {
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 26, opacity: 0.8 }}>
           <div>Dr. Jan Duffy</div>
-          <div>Berkshire Hathaway HomeServices</div>
+          <div>Spanish Trail | Homes By Dr. Jan Duffy</div>
         </div>
       </div>
     ),

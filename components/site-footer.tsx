@@ -93,8 +93,6 @@ export function SiteFooter() {
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#f8f5ef]">{GBP_LEGAL_NAME}</p>
               <p>
                 <strong>Dr. Jan Duffy, REALTOR®</strong>
-                <span aria-hidden> | </span>
-                Berkshire Hathaway HomeServices Nevada Properties
               </p>
               <p>{GBP_FULL_ADDRESS}</p>
               <p>Hours: {GBP_HOURS_DISPLAY}</p>
@@ -117,7 +115,7 @@ export function SiteFooter() {
                 </Link>
               </p>
               <p className="text-xs text-[#cbb8a6]">
-                Specializing in Spanish Trail Homes & Estates | License #{GBP_LICENSE}
+                Specializing in Spanish Trail Homes & Estates
               </p>
             </div>
           </div>
@@ -213,9 +211,9 @@ export function SiteFooter() {
         <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-6 text-sm leading-relaxed text-[#e5d7c8] sm:px-6 md:flex-row md:items-center md:justify-between md:py-8 safe-area-padding">
           <div className="space-y-3">
             <p>
-              Equal Housing Opportunity · Dr. Jan Duffy · Spanish Trail | Homes By Dr. Jan Duffy · REALTOR® S.0197614.LLC ·
-              Berkshire Hathaway HomeServices Nevada Properties
+              Equal Housing Opportunity · Dr. Jan Duffy · Spanish Trail | Homes By Dr. Jan Duffy · REALTOR®
             </p>
+            <p>Berkshire Hathaway HomeServices Nevada Properties since September 2008 · License {GBP_LICENSE}</p>
             <p>
               © {new Date().getFullYear()} Spanish Trail | Homes By Dr. Jan Duffy. This site is operated by Dr. Jan Duffy
               and Berkshire Hathaway HomeServices Nevada Properties; it is not the official website of Spanish Trail Country

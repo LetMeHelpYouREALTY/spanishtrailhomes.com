@@ -373,7 +373,7 @@ function ReviewsHighlightSection() {
               See what clients say on Google
             </h2>
             <p className="mt-4 text-base leading-relaxed text-[#372a20]/85">
-              Real reviews from real clients who have worked with Dr. Jan Duffy. Our Google reviews reflect decades of dedicated service to the Spanish Trail community.
+              Real reviews from real clients who have worked with Dr. Jan Duffy. Our Google reviews reflect dedicated service to the Spanish Trail community.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Button

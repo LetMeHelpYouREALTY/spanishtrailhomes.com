@@ -48,7 +48,7 @@ const neighborhoodsData: Omit<Neighborhood, 'slug'>[] = [
     ],
     bodyParagraphs: [
       'The Estates at Spanish Trail represent the community’s most expansive custom homes, built for buyers who want maximum square footage, privacy, and direct access to the Robert Trent Jones Jr. golf courses. Many properties feature double-gated motor courts, guest casitas, and resort-style pools with Baja shelves. Lots are among the largest within the guard gates, with wide setbacks that frame fairway and mountain views.',
-      'Dr. Jan Duffy works with both luxury buyers and sellers in the Estates, providing Berkshire Hathaway HomeServices market data, absorption rates, and off-market introductions. Whether you are downsizing from an even larger estate or stepping up from a villa, she can outline which streets hold value best and which homes are likely to come to market in the coming months.',
+      'Dr. Jan Duffy works with both luxury buyers and sellers in the Estates, providing MLS market data, absorption rates, and off-market introductions. Whether you are downsizing from an even larger estate or stepping up from a villa, she can outline which streets hold value best and which homes are likely to come to market in the coming months.',
       'Living in the Estates means instant access to the 50,000-square-foot clubhouse, fitness and aquatics, tennis, and member dining—all within a short cart or drive. The neighborhood’s mature trees and winding streets create a secluded feel while keeping Summerlin, the Strip, and Harry Reid International Airport within easy reach.',
     ],
   },
