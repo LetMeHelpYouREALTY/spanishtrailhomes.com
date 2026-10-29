@@ -90,9 +90,9 @@ const overviewStats = [
   },
   {
     label: 'Experience',
-    value: 'Since 1983',
+    value: 'Since 2008',
     description:
-      'Dr. Jan Duffy, Top 1% Las Vegas REALTOR®, in real estate since 1983. Call (702) 766-3299 for a private consult.',
+      'Dr. Jan Duffy, Las Vegas REALTOR®, licensed since 2008 · 35 years in Las Vegas. Call (702) 766-3299 for a private consult.',
   },
 ]
 
@@ -687,7 +687,7 @@ const exploreCards = [
   },
   {
     title: 'Meet Dr. Jan Duffy',
-    description: 'Exclusive Spanish Trail realtor, in real estate since 1983.',
+    description: 'Exclusive Spanish Trail realtor, licensed since 2008 · 35 years in Las Vegas.',
     href: '/about',
   },
 ]

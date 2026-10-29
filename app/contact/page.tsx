@@ -167,7 +167,7 @@ function HeroSection() {
           Spanish Trail Homes Realtor | Dr. Jan Duffy
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
-          Call (702) 766-3299 to buy or sell a Spanish Trail home. Dr. Jan Duffy, in real estate since 1983. Median {formatMedianPrice(marketStats.median_price)} as of {marketStats.date_label}.
+          Call (702) 766-3299 to buy or sell a Spanish Trail home. Dr. Jan Duffy, licensed since 2008 · 35 years in Las Vegas. Median {formatMedianPrice(marketStats.median_price)} as of {marketStats.date_label}.
           <span className="block text-xs uppercase tracking-[0.3em] text-[#f8f5ef]/70">
             <Link href="/spanish-trail-market-report" className="underline-offset-4 hover:underline">
               Source: Spanish Trail weekly market report
@@ -216,13 +216,13 @@ function ExpertiseSection() {
               for this week&apos;s stats.
             </p>
             <p>
-              That real-time insight guides both sellers wanting a premium and buyers aiming to secure value without overextending. In real estate since 1983 and focused on Spanish Trail—advising 500+ buyers and sellers across purchases, sales, and long-range planning—I have walked every cul-de-sac inside the 640-acre guard gates and understand how HOA nuances, sightlines, and secondary gates impact pricing.
+              That real-time insight guides both sellers wanting a premium and buyers aiming to secure value without overextending. Licensed since 2008 · 35 years in Las Vegas and focused on Spanish Trail—advising 500+ buyers and sellers across purchases, sales, and long-range planning—I have walked every cul-de-sac inside the 640-acre guard gates and understand how HOA nuances, sightlines, and secondary gates impact pricing.
             </p>
           </div>
           <div className="space-y-4 rounded-3xl border border-[#d8cdbf] bg-[#fdf9f3] p-6 shadow-lg shadow-primary/10 text-sm text-[#372a20]/80">
             <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#0f2b1e]">Trust Signals</h3>
             <ul className="space-y-3">
-              <li>In real estate since 1983 · Weekly market tracking inside the gates</li>
+              <li>Licensed since 2008 · Weekly market tracking inside the gates</li>
               <li>Weekly Spanish Trail market tracking & private-network listing alerts</li>
               <li>
                 Google Business Profile reviews: <Link href="https://www.google.com/maps/search/?api=1&query=Spanish+Trail+%7C+Homes+By+Dr.+Jan+Duffy&query_place_id=ChIJ143Say_HyIARj53SVQNehP8" className="underline-offset-4 hover:underline">See verified client feedback</Link>

@@ -16,7 +16,7 @@ import { AgentPortrait } from '@/components/agent-portrait'
 
 const pageUrl = 'https://www.spanishtrailhomes.com/services'
 const servicesPageDescription =
-  'Luxury realtor services for Spanish Trail homes in Las Vegas, NV 89113. Dr. Jan Duffy buys, sells, and tours this guard-gated community exclusively—in real estate since 1983.'
+  'Luxury realtor services for Spanish Trail homes in Las Vegas, NV 89113. Dr. Jan Duffy buys, sells, and tours this guard-gated community exclusively—licensed since 2008 · 35 years in Las Vegas.'
 
 const servicesWebPageSchema = createWebPageSchema({
   name: 'Spanish Trail Realtor Services | Dr. Jan Duffy',
@@ -163,7 +163,7 @@ function HeroSection() {
           Realtor services for Spanish Trail homes
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
-          Dr. Jan Duffy is the exclusive luxury realtor for Spanish Trail—the guard-gated Las Vegas community also searched as Spanish Trails. Buy, sell, and tour with a REALTOR® in real estate since 1983. Call (702) 766-3299.
+          Dr. Jan Duffy is the exclusive luxury realtor for Spanish Trail—the guard-gated Las Vegas community also searched as Spanish Trails. Buy, sell, and tour with a REALTOR® licensed since 2008 · 35 years in Las Vegas. Call (702) 766-3299.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Button asChild className="rounded-full bg-white px-8 py-3 text-xs uppercase tracking-[0.3em] text-[#0f2b1e] hover:bg-[#efe5d8]">

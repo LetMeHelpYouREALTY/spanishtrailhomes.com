@@ -19,7 +19,7 @@ const pageUrl = 'https://www.spanishtrailhomes.com/spanish-trail-gated-golf-real
 export const metadata: Metadata = {
   title: 'Spanish Trail Gated Golf Realtor',
   description:
-    'Partner with Dr. Jan Duffy, luxury advisor in real estate since 1983 and Spanish Trail gated golf community expert.',
+    'Partner with Dr. Jan Duffy, luxury advisor licensed since 2008 · 35 years in Las Vegas and Spanish Trail gated golf community expert.',
   alternates: {
     canonical: getCanonicalUrl('/spanish-trail-gated-golf-realtor'),
   },
@@ -131,7 +131,7 @@ function HeroSection() {
           Spanish Trail Homes Realtor | Guard-Gated 89113
         </h1>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
-          As a luxury advisor in real estate since 1983 and longtime Las Vegas resident, I guide clients through every nuance of Spanish Trail’s guard-gated lifestyle—from daily market movements to membership planning. My approach blends data, discretion, and concierge service so your transition into the community feels effortless and strategic.
+          As a luxury advisor licensed since 2008 · 35 years in Las Vegas and longtime Las Vegas resident, I guide clients through every nuance of Spanish Trail’s guard-gated lifestyle—from daily market movements to membership planning. My approach blends data, discretion, and concierge service so your transition into the community feels effortless and strategic.
         </p>
         <p className="text-base leading-relaxed text-[#f8f5ef]/80">
           This page is for buyers and sellers who want a{' '}
