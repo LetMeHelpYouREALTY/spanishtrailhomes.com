@@ -115,13 +115,18 @@ export const GBP_MAIN_HOURS_OPENS = '08:00' as const
 export const GBP_MAIN_HOURS_CLOSES = '20:00' as const
 
 /** Google Maps short link to the business (stable; JSON-LD sameAs). */
-export const GBP_MAPS_URL = 'https://maps.app.goo.gl/9QG1zTx5B7jG1wfP9' as const
+export const GBP_MAPS_URL =
+  'https://www.google.com/maps/search/?api=1&query=Spanish+Trail+%7C+Homes+By+Dr.+Jan+Duffy&query_place_id=ChIJ143Say_HyIARj53SVQNehP8' as const
 
-/** Google Business Profile share link (Search / Maps profile). */
-export const GBP_PROFILE_SHARE_URL = 'https://share.google/7im0WpfO517sKomcQ' as const
+/** Google Place ID for Spanish Trail | Homes By Dr. Jan Duffy. */
+export const GBP_PLACE_ID = 'ChIJ143Say_HyIARj53SVQNehP8' as const
 
-/** Official Google review URL (g.page) — prompts signed-in users to leave a review. */
-export const GBP_GOOGLE_REVIEW_URL = 'https://g.page/r/Ca9gwAWH5oLcEBM/review' as const
+/** Google Business Profile link (Search / Maps profile). */
+export const GBP_PROFILE_SHARE_URL = GBP_MAPS_URL
+
+/** Google "write a review" link for this listing. */
+export const GBP_GOOGLE_REVIEW_URL =
+  'https://search.google.com/local/writereview?placeid=ChIJ143Say_HyIARj53SVQNehP8' as const
 
 export const GBP_SAME_AS = [
   'https://www.facebook.com/spanishtrailhomes',
@@ -129,7 +134,6 @@ export const GBP_SAME_AS = [
   'https://www.linkedin.com/company/spanishtrailhomes',
   'https://www.youtube.com/@spanishtrailhomes',
   GBP_MAPS_URL,
-  GBP_PROFILE_SHARE_URL,
 ] as const
 
 /** Person entity sameAs — brokerage profiles plus brand social (verified public URLs). */

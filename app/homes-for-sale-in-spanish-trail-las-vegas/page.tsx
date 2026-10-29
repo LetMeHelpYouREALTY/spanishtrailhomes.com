@@ -395,7 +395,7 @@ function NeighborhoodsSection() {
     {
       name: 'Estates & Estates West',
       description:
-        'Exclusive enclaves featuring grand estates on larger lots, many with secondary gates for added privacy.',
+        'Luxury enclaves featuring grand estates on larger lots, many with secondary gates for added privacy.',
     },
     {
       name: 'Villas at Spanish Trail',

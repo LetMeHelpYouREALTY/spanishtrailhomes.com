@@ -6,6 +6,8 @@ import { Button } from '@/components/ui/button'
 import { CalendlyLink } from '@/components/calendly-link'
 import { TrackedSmsLink } from '@/components/tracked-sms-link'
 import { SiteShell } from '@/components/site-shell'
+import FeaturedListing from '@/components/sections/FeaturedListing'
+import { GBP_PHONE_DISPLAY, GBP_PHONE_E164 } from '@/lib/gbp-business'
 import { RealScoutSection } from '@/components/realscout-section'
 import { CalendlyAfterListings } from '@/components/calendly-after-listings'
 import { Breadcrumbs } from '@/components/breadcrumbs'
@@ -194,6 +196,12 @@ export default function HomePage() {
     <SiteShell>
       <PropertyLightboxProvider>
         <HeroSection />
+        <FeaturedListing
+          phone={GBP_PHONE_DISPLAY}
+          phoneHref={`tel:${GBP_PHONE_E164}`}
+          siteHost="spanishtrailhomes.com"
+        />
+
         <AEOAnswerSection />
         <div className="bg-white">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4">
