@@ -212,7 +212,7 @@ function ComparisonSection() {
               • <strong>Spanish Trail vs. Southern Highlands:</strong> Southern Highlands features newer builds and custom lots further south; Spanish Trail provides immediate access to Spring Valley hospitals and world-class dining along the Flamingo and Durango corridors.
             </p>
             <p>
-              • <strong>Spanish Trail vs. Rhodes Ranch:</strong> Rhodes Ranch is more family-focused with public golf access; Spanish Trail remains private, more exclusive, and commands higher resale due to limited inventory and club prestige.
+              • <strong>Spanish Trail vs. Rhodes Ranch:</strong> Rhodes Ranch is more with public golf access; Spanish Trail remains private, more exclusive, and commands higher resale due to limited inventory and club prestige.
             </p>
           </div>
         </div>

@@ -528,7 +528,7 @@ function RealEstateTypesSection() {
           {[
             {
               title: 'Custom Estate Homes',
-              description: 'Luxury custom estates in a variety of styles, most showing Mediterranean influence. Located behind secondary mechanical gates in exclusive enclaves.',
+              description: 'Luxury custom estates in a variety of styles, most showing Mediterranean influence. Located behind secondary mechanical gates in luxury enclaves.',
             },
             {
               title: 'Semi-Custom Homes',
