@@ -107,9 +107,14 @@ export const GBP_SERVICE_AREAS = [
   { name: 'Spring Valley, Las Vegas, NV' },
 ] as const
 
-/** Standard Google Maps embed (no API key) pinned at Spanish Trail Country Club / GBP address. */
-export const GBP_MAP_EMBED_URL =
-  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3234.1155408815076!2d-115.28609452341818!3d36.10914500736459!2m3!1f0!2f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c8bf27532cd0f3%3A0xba327d02c4e3709e!2sSpanish%20Trail%20Country%20Club!5e0!3m2!1sen!2sus!4v1731191452004!5m2!1sen!2sus' as const
+/** Google Business Profile CID for Spanish Trail | Homes By Dr. Jan Duffy (from the GBP's own Maps permalink). */
+export const GBP_CID = '18411944545015209359' as const
+
+/** Canonical Maps listing URL for the GBP (CID form). Used for JSON-LD hasMap/sameAs. */
+export const GBP_CID_URL = `https://maps.google.com/?cid=${GBP_CID}` as const
+
+/** Google Maps embed (no API key) pinned at the GBP listing itself, not the country club. */
+export const GBP_MAP_EMBED_URL = `https://maps.google.com/maps?cid=${GBP_CID}&output=embed` as const
 
 export const GBP_MAIN_HOURS_OPENS = '08:00' as const
 export const GBP_MAIN_HOURS_CLOSES = '20:00' as const
@@ -120,14 +125,19 @@ export const GBP_MAPS_URL = 'https://maps.app.goo.gl/9QG1zTx5B7jG1wfP9' as const
 /** Google Business Profile share link (Search / Maps profile). */
 export const GBP_PROFILE_SHARE_URL = 'https://share.google/7im0WpfO517sKomcQ' as const
 
-/** Official Google review URL (g.page) — prompts signed-in users to leave a review. */
-export const GBP_GOOGLE_REVIEW_URL = 'https://g.page/r/Ca9gwAWH5oLcEBM/review' as const
+/**
+ * Google review entry point for this GBP. The previous g.page link belonged to the Providence
+ * GBP (CID 15889515902907998383). Swap in the official "Ask for reviews" link from the
+ * Spanish Trail GBP dashboard when available; until then, open the correct listing.
+ */
+export const GBP_GOOGLE_REVIEW_URL = GBP_CID_URL
 
 export const GBP_SAME_AS = [
   'https://www.facebook.com/spanishtrailhomes',
   'https://www.instagram.com/spanishtrailhomes',
   'https://www.linkedin.com/company/spanishtrailhomes',
   'https://www.youtube.com/@spanishtrailhomes',
+  GBP_CID_URL,
   GBP_MAPS_URL,
   GBP_PROFILE_SHARE_URL,
 ] as const
