@@ -225,7 +225,7 @@ function ExpertiseSection() {
               <li>In real estate since 1983 · Weekly market tracking inside the gates</li>
               <li>Weekly Spanish Trail market tracking & private-network listing alerts</li>
               <li>
-                Google Business Profile reviews: <Link href="https://maps.app.goo.gl/9QG1zTx5B7jG1wfP9" className="underline-offset-4 hover:underline">See verified client feedback</Link>
+                Google Business Profile reviews: <Link href="https://www.google.com/maps/search/?api=1&query=Spanish+Trail+%7C+Homes+By+Dr.+Jan+Duffy&query_place_id=ChIJ143Say_HyIARj53SVQNehP8" className="underline-offset-4 hover:underline">See verified client feedback</Link>
               </li>
             </ul>
           </div>
