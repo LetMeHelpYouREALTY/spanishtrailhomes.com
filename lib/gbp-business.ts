@@ -117,11 +117,17 @@ export const GBP_MAIN_HOURS_CLOSES = '20:00' as const
 /** Google Maps short link to the business (stable; JSON-LD sameAs). */
 export const GBP_MAPS_URL = 'https://maps.app.goo.gl/9QG1zTx5B7jG1wfP9' as const
 
-/** Google Business Profile share link (Search / Maps profile). */
-export const GBP_PROFILE_SHARE_URL = 'https://share.google/7im0WpfO517sKomcQ' as const
+/**
+ * Google Business Profile link (Search / Maps profile).
+ * Interim Maps search for this listing: the previous share.google and g.page links
+ * belonged to the Providence Real Estate profile. Swap in Spanish Trail's own
+ * share and g.page/r/.../review links once copied from its GBP dashboard.
+ */
+export const GBP_PROFILE_SHARE_URL =
+  'https://www.google.com/maps/search/?api=1&query=Spanish+Trail+%7C+Homes+By+Dr.+Jan+Duffy%2C+5050+Spanish+Trail+Ln%2C+Las+Vegas%2C+NV+89113' as const
 
-/** Official Google review URL (g.page) — prompts signed-in users to leave a review. */
-export const GBP_GOOGLE_REVIEW_URL = 'https://g.page/r/Ca9gwAWH5oLcEBM/review' as const
+/** Google review URL — points at the profile until Spanish Trail's g.page review link is added. */
+export const GBP_GOOGLE_REVIEW_URL = GBP_PROFILE_SHARE_URL
 
 export const GBP_SAME_AS = [
   'https://www.facebook.com/spanishtrailhomes',
