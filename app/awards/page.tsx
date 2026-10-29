@@ -25,7 +25,7 @@ const recognitionTimeline = [
     year: '2025',
     title: "Luxury Golf Homes",
     description:
-      'Top 1% Las Vegas REALTOR® for closed volume, reflecting repeat and referral sellers who trusted Dr. Duffy with Spanish Trail listings.',
+      'Las Vegas REALTOR® for closed volume, reflecting repeat and referral sellers who trusted Dr. Duffy with Spanish Trail listings.',
   },
   {
     year: '2024',
@@ -174,7 +174,7 @@ const awardsFaq = [
   {
     question: 'Which awards apply to Spanish Trail listings?',
     answer:
-      'Recognition includes Luxury Golf Homes (Top 1% Las Vegas REALTOR®), Las Vegas REALTORS® Top 25 Luxury Producer, RealScout Spanish Trail Market Expert, and Leading Edge Society. Awards support listing strategy inside ZIP 89113—not valley-wide branding.',
+      'Recognition includes Las Vegas REALTORS® Top 25 Luxury Producer, RealScout Spanish Trail Market Expert, and Leading Edge Society. Awards support listing strategy inside ZIP 89113—not valley-wide branding.',
   },
   {
     question: 'How do awards help a Spanish Trail seller?',

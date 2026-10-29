@@ -32,7 +32,7 @@ export function VisitOfficeStrip({ headingId = 'visit-office-heading' }: VisitOf
             Visit the Spanish Trail office
           </h2>
           <p className="text-base leading-relaxed text-[#372a20]/85">
-            {GBP_LEGAL_NAME}. Dr. Jan Duffy, REALTOR®, in real estate since 1983.
+            {GBP_LEGAL_NAME}. Dr. Jan Duffy, REALTOR®, licensed since 2008 · 35 years in Las Vegas.
           </p>
           <p className="text-sm leading-relaxed text-[#372a20]">
             {GBP_FULL_ADDRESS}

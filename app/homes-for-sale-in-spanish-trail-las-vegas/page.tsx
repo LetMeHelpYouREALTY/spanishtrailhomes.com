@@ -448,7 +448,7 @@ function BuyingProcessSection() {
           <div className="space-y-6">
             <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#6f5237]">Working with Dr. Jan Duffy</h3>
             <p className="text-base leading-relaxed text-[#372a20]/85">
-              When searching for homes for sale in Spanish Trail, Dr. Jan Duffy provides expert guidance throughout the entire buying process. In real estate since 1983, with a focus on Spanish Trail and 500+ buyers and sellers advised in the community, she offers insider knowledge about each neighborhood, pricing trends, and off-market opportunities.
+              When searching for homes for sale in Spanish Trail, Dr. Jan Duffy provides expert guidance throughout the entire buying process. Licensed since 2008 · 35 years in Las Vegas, with a focus on Spanish Trail and 500+ buyers and sellers advised in the community, she offers insider knowledge about each neighborhood, pricing trends, and off-market opportunities.
             </p>
             <p className="text-base leading-relaxed text-[#372a20]/85">
               Dr. Duffy coordinates private tours, guard gate access, <Link href="/membership" className="text-[#0f2b1e] underline-offset-4 hover:underline">club membership introductions</Link>, and provides comprehensive market analysis to ensure you make informed decisions when purchasing homes for sale in Spanish Trail.

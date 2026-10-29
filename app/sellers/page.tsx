@@ -176,7 +176,7 @@ function HeroSection() {
           <Link href="/spanish-trail-market-report" className="font-medium text-[#f8f5ef] underline-offset-4 hover:underline">
             Spanish Trail market report
           </Link>{' '}
-          for absorption and pricing context. As a REALTOR® in real estate since 1983 and long-time Spanish Trail specialist, I translate demand into proven strategy—balancing transparency, Fair Housing compliance, and concierge-level presentation so you can exit with confidence.
+          for absorption and pricing context. As a REALTOR® licensed since 2008 · 35 years in Las Vegas and long-time Spanish Trail specialist, I translate demand into proven strategy—balancing transparency, Fair Housing compliance, and concierge-level presentation so you can exit with confidence.
         </p>
         <p className="text-base leading-relaxed text-[#f8f5ef]/85">
           Whether you are relocating, rightsizing, or unlocking equity to diversify your portfolio, we start with a data-backed value range, align your desired timeline, and craft a plan that honors the distinct story of your home. My team handles the details—from HOA coordination to twilight photography—so you stay focused on your next chapter while I deliver the market response your investment deserves.
