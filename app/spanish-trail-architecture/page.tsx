@@ -252,7 +252,7 @@ function EstateEnclavesSection() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           <div className="space-y-6">
-            <p className="text-xs uppercase tracking-[0.5em] text-secondary">Exclusive Enclaves</p>
+            <p className="text-xs uppercase tracking-[0.5em] text-secondary">Luxury Enclaves</p>
             <h2 id="enclaves-heading" className="font-[var(--font-playfair)] text-3xl text-foreground sm:text-4xl">
               Estate Homes Behind Secondary Gates
             </h2>
