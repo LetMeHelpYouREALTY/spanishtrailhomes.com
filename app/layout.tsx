@@ -45,6 +45,8 @@ import {
   SITE_PRIMARY_TITLE,
   SITE_SOCIAL_TITLE,
 } from '@/lib/gbp-business'
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
+import { SpeedInsights as VercelSpeedInsights } from "@vercel/speed-insights/next";
 
 const siteUrl = structuredDataSiteUrl
 
@@ -366,6 +368,8 @@ gtag('config', 'G-X68WWN997N', {
           )}
         </ThemeProvider>
         <Script src="/ads-conversions.js" strategy="afterInteractive" />
+        <VercelAnalytics />
+        <VercelSpeedInsights />
       </body>
     </html>
   )
