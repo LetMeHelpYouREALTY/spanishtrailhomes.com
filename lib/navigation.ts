@@ -33,8 +33,8 @@ export const NAV_ITEMS: NavItem[] = [
     children: [
       { label: 'All Spanish Trail homes for sale', href: LISTINGS_HREF, group: 'Listings' },
       { label: '11 neighborhoods', href: '/neighborhoods', group: 'Listings' },
-      { label: 'Estates', href: '/spanish-trail-country-club-estate-listings', group: 'Listings' },
-      { label: 'Townhomes & villas', href: '/spanish-trail-townhomes-villas', group: 'Listings' },
+      { label: 'Estates', href: '/neighborhoods/estates', group: 'Listings' },
+      { label: 'Townhomes & villas', href: '/neighborhoods/villas', group: 'Listings' },
     ],
   },
   {
